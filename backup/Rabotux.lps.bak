@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="Rabotux.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="Rabotux"/>
+        <UsageCount Value="27"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="units\main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="main"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="31" Y="13"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="units\workdays.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="workdays"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="70"/>
+        <CursorPos X="55" Y="75"/>
+        <UsageCount Value="27"/>
+        <Loaded Value="True"/>
+      </Unit2>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="12" HistoryIndex="11">
+      <Position1>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="44" Column="24" TopLine="1"/>
+      </Position1>
+      <Position2>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="5" Column="29" TopLine="1"/>
+      </Position2>
+      <Position3>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="52" Column="13" TopLine="17"/>
+      </Position3>
+      <Position4>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="53" Column="60" TopLine="31"/>
+      </Position4>
+      <Position5>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="92" Column="33" TopLine="43"/>
+      </Position5>
+      <Position6>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="53" Column="27" TopLine="18"/>
+      </Position6>
+      <Position7>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="99" Column="54" TopLine="65"/>
+      </Position7>
+      <Position8>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="8" Column="10" TopLine="1"/>
+      </Position8>
+      <Position9>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="9" Column="14" TopLine="1"/>
+      </Position9>
+      <Position10>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="46" Column="9" TopLine="16"/>
+      </Position10>
+      <Position11>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="135" Column="7" TopLine="85"/>
+      </Position11>
+      <Position12>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="118" Column="33" TopLine="71"/>
+      </Position12>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>

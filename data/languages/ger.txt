@@ -1,0 +1,19 @@
+Nr
+Woche
+Mo
+Di
+Mi
+Do
+Fr
+Sa
+So
+Summe
+Von
+Bis
+Werktage
+Stunden am Tag
+Übernehmen
+Abbrechen
+Hinzufügen
+Löschen
+Alle Löschen

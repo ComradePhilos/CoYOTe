@@ -1,0 +1,19 @@
+Nr
+Week
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Sun
+Sum
+From
+To
+Working Days
+Hours per Day
+Apply
+Undo
+Add
+Remove
+Remove all
