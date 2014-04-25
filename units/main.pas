@@ -63,8 +63,8 @@ type
     procedure AddWeek(Sender: TObject);
     procedure ApplyValuesFromGrid(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
-    procedure MenuItem12Click(Sender: TObject);
-    procedure MenuItem8Click(Sender: TObject);
+    procedure MenuSelectEnglish(Sender: TObject);
+    procedure MenuAbout(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
     procedure DateEdit1Change(Sender: TObject);
@@ -137,7 +137,7 @@ begin
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
 
-  if (FOSName = 'Linux') then
+  if (FLanguage = 'German') then
      TranslateUnitResourceStrings('LCLStrConsts', '/usr/share/lazarus/'+FLazarusVersion+'/lcl/languages/lclstrconsts.de.po'); // UNIX
 end;
 
@@ -153,8 +153,8 @@ procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: Integer;
 begin
   try
     FSelectionIndex := aRow-1;
-    DateEdit1.Text := FormatDateTime('dd.mm.yyyy', FWeekList.Items[aRow-1].FromDate);
-    DateEdit2.Text := FormatDateTime('dd.mm.yyyy', FWeekList.Items[aRow-1].ToDate);
+    DateEdit1.Text := DateToStr(FWeekList.Items[aRow-1].FromDate);
+    DateEdit2.Text := DateToStr(FWeekList.Items[aRow-1].ToDate);
     EnableAllFields;
 
     WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow-1]);
@@ -168,8 +168,8 @@ var Date1, Date2: TDate;
 begin
   try
     //if (FLanguage = 'English') then
-    Date1 := StrToDate(DateEdit1.Text, 'dd.mm.yyyy', '.');
-    Date2 := StrToDate(DateEdit2.Text, 'dd.mm.yyyy', '.');
+    Date1 := StrToDate(DateEdit1.Text);
+    Date2 := StrToDate(DateEdit2.Text);
     LabeledEdit1.Text := IntToStr(DaysBetween( Date1, Date2 )+1);
     DateEdit2EditingDone(nil);
   except
@@ -179,13 +179,11 @@ end;
 procedure TForm1.DateEdit2Change(Sender: TObject);
 begin
   DateEdit2EditingDone(nil);
-  DateEdit2.Text := FormatDateTime('dd.mm.yyyy', StrToDate(DateEdit2.Text));
 end;
 
 procedure TForm1.DateEdit1Change(Sender: TObject);
 begin
   DateEdit1EditingDone(nil);
-  DateEdit1.Text := FormatDateTime('dd.mm.yyyy', StrToDate(DateEdit1.Text));
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -199,6 +197,7 @@ var
   I: Integer;
 begin
 
+  // The ClockTimes entered in the edit-grid now will be stored in the week
   for I := 0 to FWeeklist.Items[FSelectionIndex].Days.Count - 1 do
   begin
    // FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := StringGrid2.Cells[2,I+1];
@@ -208,8 +207,7 @@ end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-   if (MessageDlg('Programm beenden', 'Wollen Sie ' + FProgrammeName +
-    ' wirklich beenden?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
     CanClose := True;
   end
@@ -219,12 +217,12 @@ begin
   end;
 end;
 
-procedure TForm1.MenuItem12Click(Sender: TObject);
+procedure TForm1.MenuSelectEnglish(Sender: TObject);
 begin
   FTranslations := changeLanguage('eng');
 end;
 
-procedure TForm1.MenuItem8Click(Sender: TObject);
+procedure TForm1.MenuAbout(Sender: TObject);
 begin
   AboutForm.Visible := True;
 end;
@@ -245,24 +243,25 @@ var
   date1, date2: TDate;
   days: Integer;
 begin
-    date1 := StrToDate(DateEdit1.Text, 'dd.mm.yyyy','.');
-    date2 := StrToDate(DateEdit2.Text, 'dd.mm.yyyy','.');
+    date1 := StrToDate(DateEdit1.Text);
+    date2 := StrToDate(DateEdit2.Text);
 
     days := DaysBetween( date1, date2 );
+    labeledEdit1.Text := IntToStr(days+1);
     FWeekList.Items[FSelectionIndex].IntendedWorkDayCount := days;
 
   if (days > 6) or (date1 > date2) then
   begin
     days := 6;
     date2 := date1 + defDaysPerWeek-1;
-    dateedit2.Text := FormatDateTime('dd.mm.yyyy', date2);
+    dateedit2.Text := DateToStr(date2);
     application.MessageBox('A week can not exceed 7 days! Please select a valid value for a week!','Warning',0);
   end;
   if (FSelectionIndex >= 0) then
   begin
     try
-      FWeekList.Items[FSelectionIndex].FromDate := StrToDate(DateEdit1.Text, 'dd.mm.yyyy', '.');
-      FWeekList.Items[FSelectionIndex].ToDate := StrToDate(DateEdit2.Text, 'dd.mm.yyyy', '.');
+      FWeekList.Items[FSelectionIndex].FromDate := StrToDate(DateEdit1.Text);
+      FWeekList.Items[FSelectionIndex].ToDate := StrToDate(DateEdit2.Text);
       WeeksToStringGrid(StringGrid1, FWeekList);
     except
     end;
@@ -272,9 +271,12 @@ end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
 begin
-  FWeekList.Clear;
-  WeeksToStringGrid(StringGrid1, FWeekList);
-  DisableAllFields;
+  if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
+    FWeekList.Clear;
+    WeeksToStringGrid(StringGrid1, FWeekList);
+    DisableAllFields;
+  end;
 end;
 
 
@@ -285,8 +287,6 @@ begin
   except
   end;
 end;
-
-
 
 procedure TForm1.EnableAllFields;
 begin
@@ -318,8 +318,7 @@ end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
-  if (MessageDlg('Programm beenden', 'Wollen Sie ' + FProgrammeName +
-   ' wirklich beenden?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
     Application.Terminate;
   end;

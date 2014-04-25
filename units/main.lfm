@@ -169,9 +169,9 @@ object Form1: TForm1
   end
   object BitBtn3: TBitBtn
     Left = 0
-    Height = 30
+    Height = 46
     Top = 445
-    Width = 70
+    Width = 105
     Caption = 'Add'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -249,16 +249,18 @@ object Form1: TForm1
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    Layout = blGlyphTop
     Margin = 0
     ModalResult = 4
     OnClick = AddWeek
+    Spacing = 1
     TabOrder = 3
   end
   object BitBtn4: TBitBtn
-    Left = 69
-    Height = 30
+    Left = 104
+    Height = 46
     Top = 445
-    Width = 89
+    Width = 105
     Caption = 'Remove'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -336,13 +338,14 @@ object Form1: TForm1
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    Layout = blGlyphTop
     Margin = 0
     OnClick = RemoveSelected
     TabOrder = 4
   end
   object BitBtn5: TBitBtn
-    Left = 157
-    Height = 30
+    Left = 208
+    Height = 46
     Top = 445
     Width = 105
     Caption = 'Remove all'
@@ -422,14 +425,15 @@ object Form1: TForm1
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    Layout = blGlyphTop
     OnClick = RemoveAll
     TabOrder = 5
   end
   object DateEdit1: TDateEdit
     Left = 16
     Height = 26
-    Top = 528
-    Width = 80
+    Top = 573
+    Width = 112
     DialogTitle = 'Select Beginning of the week'
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
     OKCaption = 'OK'
@@ -444,18 +448,18 @@ object Form1: TForm1
     TabOrder = 6
   end
   object Label1: TLabel
-    Left = 16
+    Left = 56
     Height = 16
-    Top = 504
+    Top = 557
     Width = 31
     Caption = 'From'
     ParentColor = False
   end
   object DateEdit2: TDateEdit
-    Left = 144
+    Left = 159
     Height = 26
-    Top = 528
-    Width = 80
+    Top = 573
+    Width = 120
     DialogTitle = 'Select Date'
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames, dsShowWeekNumbers]
     OKCaption = 'OK'
@@ -470,9 +474,9 @@ object Form1: TForm1
     TabOrder = 7
   end
   object Label2: TLabel
-    Left = 144
+    Left = 215
     Height = 16
-    Top = 504
+    Top = 557
     Width = 14
     Caption = 'To'
     ParentColor = False
@@ -480,7 +484,7 @@ object Form1: TForm1
   object LabeledEdit1: TLabeledEdit
     Left = 16
     Height = 26
-    Top = 592
+    Top = 637
     Width = 80
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = LabeledEdit1
@@ -489,7 +493,7 @@ object Form1: TForm1
     EditLabel.AnchorSideBottom.Control = LabeledEdit1
     EditLabel.Left = 16
     EditLabel.Height = 16
-    EditLabel.Top = 573
+    EditLabel.Top = 618
     EditLabel.Width = 80
     EditLabel.Caption = 'Working Days'
     EditLabel.ParentColor = False
@@ -500,7 +504,7 @@ object Form1: TForm1
   object LabeledEdit2: TLabeledEdit
     Left = 144
     Height = 26
-    Top = 592
+    Top = 637
     Width = 88
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = LabeledEdit2
@@ -509,7 +513,7 @@ object Form1: TForm1
     EditLabel.AnchorSideBottom.Control = LabeledEdit2
     EditLabel.Left = 144
     EditLabel.Height = 16
-    EditLabel.Top = 573
+    EditLabel.Top = 618
     EditLabel.Width = 88
     EditLabel.Caption = 'Hours  per Day'
     EditLabel.ParentColor = False
@@ -690,7 +694,7 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 16
     Height = 16
-    Top = 483
+    Top = 528
     Width = 45
     Caption = 'Week #'
     ParentColor = False
@@ -911,7 +915,7 @@ object Form1: TForm1
             D1FFC6BBE4FD85310FE97D2400E87D2400E8822C0AE9B998A1F66F5FDEFFA69C
             EBFF
           }
-          OnClick = MenuItem12Click
+          OnClick = MenuSelectEnglish
         end
         object MenuItem13: TMenuItem
           Caption = 'German'
@@ -992,7 +996,7 @@ object Form1: TForm1
           0000000000003C53A8006289E0000501390A4855962D7078A9489088965A9F94
           95628777772A4B0000031A44B400000000000000000000000000
         }
-        OnClick = MenuItem8Click
+        OnClick = MenuAbout
       end
     end
   end
