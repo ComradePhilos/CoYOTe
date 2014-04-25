@@ -223,9 +223,9 @@ begin
 
   for I := 0 to AWeek.IntendedWorkDayCount + 1 do
   begin
-    AGrid.cells[0,0+I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' - ' + DateToStr(AWeek.FromDate+(I-1));
+    AGrid.cells[0,0+I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
   end;
 
 end;
 
-end.
+end.

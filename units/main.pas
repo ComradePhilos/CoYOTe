@@ -18,7 +18,7 @@ uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Graphics,
   Dialogs, ComCtrls, ButtonPanel, DbCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
   BarChart, Grids, Menus, PopupNotifier, StdCtrls, ExtCtrls, ExtDlgs, Buttons,
-  MaskEdit, DateUtils,
+  MaskEdit, DateUtils, Translations,
   { eigene Units }
   workdays, funcs, about;
 
@@ -62,6 +62,7 @@ type
     procedure ApplyChanges(Sender: TObject);
     procedure AddWeek(Sender: TObject);
     procedure ApplyValuesFromGrid(Sender: TObject);
+    procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure MenuItem12Click(Sender: TObject);
     procedure MenuItem8Click(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
@@ -72,7 +73,7 @@ type
     procedure DateEdit2EditingDone(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LabeledEdit1EditingDone(Sender: TObject);
-    procedure MenuItem5Click(Sender: TObject);
+    procedure MenuQuit(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: Integer;
       var CanSelect: Boolean);
 
@@ -86,14 +87,16 @@ type
     FSelectionIndex: Integer;     // Index of the Week that was selected in the grid
     FTranslations: TStringList;
 
+    FProgrammeName: String;       // Official Name shown to the user
     FVersionNr: String;           // Internal Programme-Version
     FVersionDate: String;         // Build-Date
+    FLazarusVersion: String;      // Version of the Lazarus IDE the programme was built with
     FOSName: String;              // The Internal Name for the used Operating System
     Flanguage: String;            // Language chosen by User - default is English
 
     FSeparator: String;           // The Separator for Dates e.g. "01.02.2014" has "."
 
-    AboutForm: TForm2;
+    AboutForm: TForm2;            // The Window showing information about CoYOT(e)
   public
     { public declarations }
   end;
@@ -109,19 +112,18 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  FOSName := 'unknown';
+  FOSName := 'unknown';             // Other OS
   {$IFDEF mswindows}
     FOSName := 'Windows';
-    //FVersionDate := FormatDateTime('dd.mm.yyyy', now);         // wird leider nicht nur zur Kompilierzeit ausgeführt
   {$ENDIF}
   {$IFDEF linux}
-    {$IFDEF x32}
     FOSName := 'Linux';
-    // := FormatDateTime('dd.mm.yyyy', now);
   {$ENDIF}
-  FVersionNr := '0.0.0.7';
-  FVersionDate := '22.04.2014';
-  self.Caption := 'CoYOT(e) vers. ' + FVersionNr;
+  FProgrammeName := 'CoYOT(e)';
+  FVersionNr := '0.0.0.8';
+  FVersionDate := '25.04.2014';
+  FLazarusVersion := '1.2.0';
+  self.Caption := FProgrammeName + '  ' +  FVersionNr;
   FLanguage := 'English';
   FSeparator := '.';
 
@@ -134,7 +136,9 @@ begin
   AboutForm := TForm2.Create(nil);
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
-  //DateEdit2.
+
+  if (FOSName = 'Linux') then
+     TranslateUnitResourceStrings('LCLStrConsts', '/usr/share/lazarus/'+FLazarusVersion+'/lcl/languages/lclstrconsts.de.po'); // UNIX
 end;
 
 
@@ -143,10 +147,6 @@ begin
   DateEdit1EditingDone(nil);
 end;
 
-procedure TForm1.MenuItem5Click(Sender: TObject);
-begin
-  Application.Terminate;
-end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: Integer;
   var CanSelect: Boolean);
@@ -206,6 +206,19 @@ begin
 
 end;
 
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+   if (MessageDlg('Programm beenden', 'Wollen Sie ' + FProgrammeName +
+    ' wirklich beenden?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
+    CanClose := True;
+  end
+  else
+  begin
+    CanClose := False;
+  end;
+end;
+
 procedure TForm1.MenuItem12Click(Sender: TObject);
 begin
   FTranslations := changeLanguage('eng');
@@ -218,7 +231,7 @@ end;
 
 procedure TForm1.RemoveSelected(Sender: TObject);
 begin
-  if (FSelectionIndex >= 0) then                                       // <<<<<<<<<<<<< -----------------------------
+  if (FSelectionIndex >= 0) then
   begin
     FWeekList.Delete(FSelectionIndex);
     WeeksToStringGrid(StringGrid1, FWeekList);
@@ -243,7 +256,7 @@ begin
     days := 6;
     date2 := date1 + defDaysPerWeek-1;
     dateedit2.Text := FormatDateTime('dd.mm.yyyy', date2);
-    application.MessageBox('A week can not extend 7 days! Please select a valid value for a week!','Warning',0);
+    application.MessageBox('A week can not exceed 7 days! Please select a valid value for a week!','Warning',0);
   end;
   if (FSelectionIndex >= 0) then
   begin
@@ -303,5 +316,15 @@ begin
   label3.Caption := '';
 end;
 
-end.
+procedure TForm1.MenuQuit(Sender: TObject);
+begin
+  if (MessageDlg('Programm beenden', 'Wollen Sie ' + FProgrammeName +
+   ' wirklich beenden?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
+    Application.Terminate;
+  end;
+end;
 
+
+end.
+

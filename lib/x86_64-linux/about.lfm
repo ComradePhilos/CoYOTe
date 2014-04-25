@@ -1,13 +1,13 @@
 object Form2: TForm2
   Left = 427
   Height = 186
-  Top = 217
+  Top = 57
   Width = 503
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'About'
-  ClientHeight = 186
-  ClientWidth = 503
+  ClientHeight = 0
+  ClientWidth = 0
   Position = poMainFormCenter
   LCLVersion = '1.0.14.0'
   object Image1: TImage
@@ -531,7 +531,7 @@ object Form2: TForm2
     Left = 167
     Height = 21
     Top = 9
-    Width = 317
+    Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -557,18 +557,18 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 18
+    Height = 16
     Top = 161
-    Width = 60
+    Width = 46
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 327
-    Height = 18
+    Height = 16
     Top = 161
-    Width = 75
+    Width = 60
     Caption = 'Build-Date:'
     ParentColor = False
   end
-end
+end

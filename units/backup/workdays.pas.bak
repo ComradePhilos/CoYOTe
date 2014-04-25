@@ -217,7 +217,7 @@ var
 begin
   clearStringGrid(AGrid);
 
-  AGrid.RowCount := 1 + AWeek.IntendedWorkDayCount;
+  AGrid.RowCount := 2 + AWeek.IntendedWorkDayCount;
 
   day1 := RealDayOfWeek(AWeek.FromDate);
 
