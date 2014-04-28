@@ -2,12 +2,15 @@ program CoYOTe;
 
 {$mode objfpc}{$H+}
 
-uses
-  {$IFDEF UNIX}{$IFDEF UseCThreads}
-  cthreads,
-  {$ENDIF}{$ENDIF}
+uses {$IFDEF UNIX} {$IFDEF UseCThreads}
+  cthreads, {$ENDIF} {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms, runtimetypeinfocontrols, main, workdays, funcs, about;
+  Forms,
+  runtimetypeinfocontrols,
+  main,
+  workdays,
+  funcs,
+  about;
 
 {$R *.res}
 
@@ -18,4 +21,3 @@ begin
   Application.CreateForm(TForm2, Form2);
   Application.Run;
 end.
-

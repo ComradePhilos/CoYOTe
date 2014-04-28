@@ -172,11 +172,11 @@ begin
     begin
       LabeledEdit1.Text := IntToStr(DaysBetween( Date1, Date2 )+1);
       DateEdit2EditingDone(nil);
-		end
+    end
     else
     begin
      // Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
-		end;
+    end;
 end;
 
 procedure TForm1.DateEdit2Change(Sender: TObject);

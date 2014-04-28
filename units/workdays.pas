@@ -8,20 +8,20 @@ uses Classes, SysUtils, DateUtils, fgl, Grids,
 
 type
 
-//############################################ TAG ###########################################################
+//############################################ DAY ###########################################################
   TWorkDay = class
 
   private
-    FStartHour: integer;      // Arbeitsbeginn Uhrzeit - Stundenteil
-    FStartMinute: integer;    // Arbeitsbeginn Uhrzeit - Minutenteil
-    FEndHour: integer;        // Arbeitsende Uhrzeit - Stundenteil
-    FEndMinute: integer;      // Arbeitsende Uhrzeit - Minutenteil
+    FStartHour: integer;      // The hour work starts that day
+    FStartMinute: integer;    // The minute work starts that day
+    FEndHour: integer;        // The hour work ends that day
+    FEndMinute: integer;      // The minute work ends that day
 
-    FWeekDay: integer;         // Wochentag : 1 - 7
-    FDate: TDate;              // Datum des Tages
-    FAdditionalTime: double;   // Zeit, die individuell rauf- oder runtergerechnet werden muss. (Extra Pausen etc.)
+    FWeekDay: integer;         // Weekday 1 - 7
+    FDate: TDate;              // Date of the specific Day
+    FAdditionalTime: double;   // Time to add or substract additionally e.g. if you took 1 hour off
 
-    function calcDifference: double;
+    function calcDifference: double;    // The function that will actually calculate work time of one day
 
   public
     procedure Clear;
@@ -41,14 +41,14 @@ type
 
   TWorkDays = specialize TFPGObjectList<TWorkDay>;
 
-//############################################ WOCHE ###########################################################
+//############################################ Week ###########################################################
   TWorkWeek = class
   private
     FDays: TWorkDays;
     FFromDate: TDate;
     FToDate: TDate;
-    FIntendedWorkDayCount: integer;     // Arbeitstage der Woche
-    FIntendedTimePerDay: double;        // Soll-Arbeitszeit pro Tag
+    FIntendedWorkDayCount: integer;     // Workdays in that particular week
+    FIntendedTimePerDay: double;        // The time you intend to work per day
     //FAverageTime: Double;             // Durchschnittsarbeitszeit pro Tag (Zur Kontrolle)
 
     function calcAverageTime: double;
@@ -68,7 +68,7 @@ type
 
 TWeekList = specialize TFPGObjectList<TWorkWeek>;
 
-// ############################################### andere Funktionen #################################################
+// ############################################### additional Functions ################################################
 
 procedure ClearStringGrid(AGrid: TStringGrid);
 procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList);
@@ -82,7 +82,7 @@ const
 implementation
 
 
-//############################################ TAG ###########################################################
+//############################################ DAY ###########################################################
 
 procedure TWorkDay.Clear;
 begin
@@ -132,7 +132,7 @@ begin
 end;
 
 
-//############################################ WOCHE ###########################################################
+//############################################ Week ###########################################################
 
 constructor TWorkWeek.Create;
 var
@@ -175,7 +175,7 @@ end;
 
 
 
-// ############################################### andere Funktionen #################################################
+// ############################################### additional Functions ################################################
 function TimeToText(hour,min: Integer):String;
 var
   txtHour, txtMin: String;
@@ -211,7 +211,7 @@ end;
 
 procedure ClearStringGrid(AGrid: TStringGrid);
 begin
-   // Alte Tabelle leeren
+  // Clear Grid
   while (AGrid.RowCount > 1) do
   begin
     AGrid.DeleteRow(AGrid.RowCount-1);
@@ -229,11 +229,14 @@ begin
 
   day1 := RealDayOfWeek(AWeek.FromDate);
 
+  // write contents to right grid
   for I := 0 to AWeek.IntendedWorkDayCount + 1 do
   begin
     AGrid.cells[0,0+I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
+    AGrid.cells[1,0+I] := IntToStr(AWeek.Days[I].StartHour) + ':' + IntToStr(AWeek.Days[I].StartMinute);
+    AGrid.cells[2,0+I] := IntToStr(AWeek.Days[I].EndHour) + ':' + IntToStr(AWeek.Days[I].EndMinute);
   end;
 
 end;
 
-end.
+end.
