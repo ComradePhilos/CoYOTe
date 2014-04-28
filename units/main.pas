@@ -18,7 +18,7 @@ uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Graphics,
   Dialogs, ComCtrls, ButtonPanel, DbCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
   BarChart, Grids, Menus, PopupNotifier, StdCtrls, ExtCtrls, ExtDlgs, Buttons,
-  MaskEdit, DateUtils, Translations,
+  MaskEdit, DateUtils,
   { eigene Units }
   workdays, funcs, about;
 
@@ -121,7 +121,7 @@ begin
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
   FVersionNr := '0.0.0.8';
-  FVersionDate := '25.04.2014';
+  FVersionDate := '28.04.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' +  FVersionNr;
   FLanguage := 'English';
@@ -137,8 +137,6 @@ begin
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
 
-  if (FLanguage = 'German') then
-     TranslateUnitResourceStrings('LCLStrConsts', '/usr/share/lazarus/'+FLazarusVersion+'/lcl/languages/lclstrconsts.de.po'); // UNIX
 end;
 
 
@@ -164,16 +162,18 @@ end;
 
 
 procedure TForm1.DateEdit1EditingDone(Sender: TObject);
-var Date1, Date2: TDate;
+var
+  Date1, Date2: TDate;
 begin
-  try
-    //if (FLanguage = 'English') then
-    Date1 := StrToDate(DateEdit1.Text);
-    Date2 := StrToDate(DateEdit2.Text);
-    LabeledEdit1.Text := IntToStr(DaysBetween( Date1, Date2 )+1);
-    DateEdit2EditingDone(nil);
-  except
-  end;
+    if TryStrToDate(DateEdit1.Text, Date1) and TryStrToDate(DateEdit2.Text, Date2) then
+    begin
+      LabeledEdit1.Text := IntToStr(DaysBetween( Date1, Date2 )+1);
+      DateEdit2EditingDone(nil);
+		end
+    else
+    begin
+      Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
+		end;
 end;
 
 procedure TForm1.DateEdit2Change(Sender: TObject);
@@ -219,7 +219,7 @@ end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);
 begin
-  FTranslations := changeLanguage('eng');
+  FTranslations := changeLanguage('English', FLazarusVersion, FOSName);
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);
@@ -326,4 +326,4 @@ end;
 
 
 end.
-
+
