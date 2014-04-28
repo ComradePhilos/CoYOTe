@@ -18,7 +18,7 @@ uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Graphics,
   Dialogs, ComCtrls, ButtonPanel, DbCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
   BarChart, Grids, Menus, PopupNotifier, StdCtrls, ExtCtrls, ExtDlgs, Buttons,
-  MaskEdit, DateUtils,
+  MaskEdit, DateUtils, Translations, LResources,
   { eigene Units }
   workdays, funcs, about;
 
@@ -114,7 +114,14 @@ implementation
 procedure TForm1.FormCreate(Sender: TObject);
 var
   results : text;
+  PODirectory, Lang, FallbackLang: String;
 begin
+  fallbacklang := 'en';
+  lang := 'de';
+  PODirectory := '/languages/';
+  //GetLanguageIDs(Lang, FallbackLang);
+  Translations.TranslateUnitResourceStrings('LCLStrConsts', PODirectory + 'lclstrconsts.%s.po', Lang, FallbackLang);
+
   FOSName := 'unknown';             // Other OS
   {$IFDEF mswindows}
     FOSName := 'Windows';
@@ -332,6 +339,13 @@ begin
     Application.Terminate;
   end;
 end;
+
+
+
+
+
+initialization
+  LRSTranslator := TPoTranslator.Create('languages');
 
 
 end.

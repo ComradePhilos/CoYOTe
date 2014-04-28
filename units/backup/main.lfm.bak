@@ -713,14 +713,6 @@ object Form1: TForm1
       end>
     SimplePanel = False
   end
-  object Edit1: TEdit
-    Left = 477
-    Height = 25
-    Top = 553
-    Width = 99
-    TabOrder = 13
-    Text = '-0000000120'
-  end
   object MainMenu1: TMainMenu
     left = 1120
     object MenuItem1: TMenuItem
