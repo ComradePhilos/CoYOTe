@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: CoYOte\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
-"Language-Team: \n"
+"Language-Team: Lukas Franke <kontakt@lukas-franke.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -88,7 +88,7 @@ msgstr "Arbeitstage"
 
 #: tform1.labelededit1.text
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: tform1.labelededit2.editlabel.caption
 msgid "Hours  per Day"
@@ -96,7 +96,7 @@ msgstr "Stunden pro Tag"
 
 #: tform1.labelededit2.text
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: tform1.menuitem1.caption
 msgid "File"
@@ -132,7 +132,7 @@ msgstr "Bearbeiten"
 
 #: tform1.menuitem3.caption
 msgid "View"
-msgstr "Angucken"
+msgstr "Ansicht"
 
 #: tform1.menuitem4.caption
 msgid "Help"
@@ -161,59 +161,59 @@ msgstr "Optionen"
 
 #: tform1.stringgrid1.columns[0].title.caption
 msgid "Nr"
-msgstr ""
+msgstr "Nr"
 
 #: tform1.stringgrid1.columns[1].title.caption
 msgid "Week"
-msgstr ""
+msgstr "Woche"
 
 #: tform1.stringgrid1.columns[2].title.caption
 msgid "Mon"
-msgstr ""
+msgstr "Mon"
 
 #: tform1.stringgrid1.columns[3].title.caption
 msgid "Tue"
-msgstr ""
+msgstr "Die"
 
 #: tform1.stringgrid1.columns[4].title.caption
 msgid "Wed"
-msgstr ""
+msgstr "Mi"
 
 #: tform1.stringgrid1.columns[5].title.caption
 msgid "Thu"
-msgstr ""
+msgstr "Do"
 
 #: tform1.stringgrid1.columns[6].title.caption
 msgid "Fri"
-msgstr ""
+msgstr "Fr"
 
 #: tform1.stringgrid1.columns[7].title.caption
 msgid "Sat"
-msgstr ""
+msgstr "Sa"
 
 #: tform1.stringgrid1.columns[8].title.caption
 msgid "Sun"
-msgstr ""
+msgstr "So"
 
 #: tform1.stringgrid1.columns[9].title.caption
 msgid "Total"
-msgstr ""
+msgstr "Gesamt"
 
 #: tform1.stringgrid2.columns[0].title.caption
 msgid "Weekdays"
-msgstr ""
+msgstr "Wochentage"
 
 #: tform1.stringgrid2.columns[1].title.caption
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 #: tform1.stringgrid2.columns[2].title.caption
 msgid "End"
-msgstr ""
+msgstr "Ende"
 
 #: tform1.stringgrid2.columns[3].title.caption
 msgid "addit."
-msgstr ""
+msgstr "Hinzufügen"
 
 #: tform2.caption
 msgctxt "tform2.caption"
