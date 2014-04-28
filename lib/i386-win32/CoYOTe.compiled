@@ -2,5 +2,4 @@
 <CONFIG>
   <Compiler Value="C:\lazarus\fpc\2.6.2\bin\i386-win32\fpc.exe" Date="1146920661"/>
   <Params Value=" -MObjFPC -Scghi -O3 -WG -vewnhi -FiC:\Users\Maerksch\Documents\Berufsschule\Coyote\lib\i386-win32 -FuC:\Users\Maerksch\Documents\Berufsschule\Coyote\units -FuC:\Users\Maerksch\Documents\Berufsschule\Coyote\forms -FuC:\lazarus\components\rtticontrols\lib\i386-win32\win32 -FuC:\lazarus\components\ideintf\units\i386-win32\win32 -FuC:\lazarus\components\lazcontrols\lib\i386-win32\win32 -FuC:\lazarus\lcl\units\i386-win32\win32 -FuC:\lazarus\lcl\units\i386-win32 -FuC:\lazarus\components\lazutils\lib\i386-win32 -FuC:\lazarus\packager\units\i386-win32 -FuC:\Users\Maerksch\Documents\Berufsschule\Coyote\ -FUC:\Users\Maerksch\Documents\Berufsschule\Coyote\lib\i386-win32\ -l -FEC:\Users\Maerksch\Documents\Berufsschule\Coyote\bin\ -oCoYOTe-win32(i386).exe -dLCL -dLCLwin32 CoYOTe.lpr"/>
-  <Complete Value="False"/>
 </CONFIG>

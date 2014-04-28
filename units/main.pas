@@ -18,7 +18,7 @@ uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Graphics,
   Dialogs, ComCtrls, ButtonPanel, DbCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
   BarChart, Grids, Menus, PopupNotifier, StdCtrls, ExtCtrls, ExtDlgs, Buttons,
-  MaskEdit, DateUtils, Translations, LResources,
+  MaskEdit, DateUtils, LResources, Translations,
   { eigene Units }
   workdays, funcs, about;
 
@@ -112,15 +112,7 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
-var
-  results : text;
-  PODirectory, Lang, FallbackLang: String;
 begin
-  fallbacklang := 'en';
-  lang := 'de';
-  PODirectory := '/languages/';
-  //GetLanguageIDs(Lang, FallbackLang);
-  Translations.TranslateUnitResourceStrings('LCLStrConsts', PODirectory + 'lclstrconsts.%s.po', Lang, FallbackLang);
 
   FOSName := 'unknown';             // Other OS
   {$IFDEF mswindows}
@@ -144,7 +136,6 @@ begin
   FTranslations := TStringList.Create;
   clearStringGrid(StringGrid1);
   AboutForm := TForm2.Create(nil);
-
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
@@ -212,11 +203,16 @@ begin
   // The ClockTimes entered in the edit-grid now will be stored in the week
   for I := 0 to FWeeklist.Items[FSelectionIndex].IntendedWorkDayCount do
   begin
+    // Begin of Work
     FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := getHour(StringGrid2.Cells[1,I+1]);
     FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute := getMinute(StringGrid2.Cells[1,I+1]);
 
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[1,I+1]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[1,I+1]);
+    // End of Work
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[2,I+1]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[2,I+1]);
+
+    // Additional hours
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].AdditionalTime := StrToCurr(StringGrid2.Cells[3,I+1]);
   end;
 
 end;
@@ -339,13 +335,6 @@ begin
     Application.Terminate;
   end;
 end;
-
-
-
-
-
-initialization
-  LRSTranslator := TPoTranslator.Create('languages');
 
 
 end.
