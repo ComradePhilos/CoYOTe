@@ -1,0 +1,239 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"X-Generator: Poedit 1.6.4\n"
+
+msgid "(philip.maerksch@gmx.de)"
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tform1.bitbtn1.caption
+msgid "Apply"
+msgstr "Anwenden"
+
+#: tform1.bitbtn2.caption
+msgid "Undo"
+msgstr "Rückgängig"
+
+#: tform1.bitbtn3.caption
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: tform1.bitbtn4.caption
+msgid "Remove"
+msgstr "Entfernen"
+
+#: tform1.bitbtn5.caption
+msgid "Remove all"
+msgstr "Alle Entfernen"
+
+#: tform1.caption
+msgid "CoYOT(e) - Overtime Calculator"
+msgstr "CoYOT(e) - Überstunden Rechner"
+
+#: tform1.dateedit1.cancelcaption
+msgctxt "tform1.dateedit1.cancelcaption"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: tform1.dateedit1.dialogtitle
+msgid "Select Beginning of the week"
+msgstr "Wochenanfang auswählen"
+
+#: tform1.dateedit1.okcaption
+msgctxt "tform1.dateedit1.okcaption"
+msgid "OK"
+msgstr "OK"
+
+#: tform1.dateedit2.cancelcaption
+msgctxt "TFORM1.DATEEDIT2.CANCELCAPTION"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: tform1.dateedit2.dialogtitle
+msgid "Select Date"
+msgstr "Datum auswählen"
+
+#: tform1.dateedit2.okcaption
+msgctxt "TFORM1.DATEEDIT2.OKCAPTION"
+msgid "OK"
+msgstr "OK"
+
+#: tform1.groupbox1.caption
+msgid "Information and Statistics"
+msgstr "Informationen und Statistiken"
+
+#: tform1.label1.caption
+msgid "From"
+msgstr "Von"
+
+#: tform1.label2.caption
+msgid "To"
+msgstr "Bis"
+
+#: tform1.label3.caption
+msgid "Week #"
+msgstr "Woche #"
+
+#: tform1.labelededit1.editlabel.caption
+msgid "Working Days"
+msgstr "Arbeitstage"
+
+#: tform1.labelededit1.text
+msgid "0"
+msgstr ""
+
+#: tform1.labelededit2.editlabel.caption
+msgid "Hours  per Day"
+msgstr "Stunden pro Tag"
+
+#: tform1.labelededit2.text
+msgid "8"
+msgstr ""
+
+#: tform1.menuitem1.caption
+msgid "File"
+msgstr "Datei"
+
+#: tform1.menuitem10.caption
+msgid "Programme Settings"
+msgstr "Programm EInstellungen"
+
+#: tform1.menuitem11.caption
+msgid "Language"
+msgstr "Sprache"
+
+#: tform1.menuitem12.caption
+msgid "English"
+msgstr "Englisch"
+
+#: tform1.menuitem13.caption
+msgid "German"
+msgstr "Deutsch"
+
+#: tform1.menuitem14.caption
+msgid "Open"
+msgstr "Öffnen"
+
+#: tform1.menuitem15.caption
+msgid "Save"
+msgstr "Speichern"
+
+#: tform1.menuitem2.caption
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: tform1.menuitem3.caption
+msgid "View"
+msgstr "Angucken"
+
+#: tform1.menuitem4.caption
+msgid "Help"
+msgstr "Hilfe"
+
+#: tform1.menuitem5.caption
+msgid "Quit"
+msgstr "Verlassen"
+
+#: tform1.menuitem6.caption
+msgid "show Overtimes"
+msgstr "Überstunden anzeigen"
+
+#: tform1.menuitem7.caption
+msgid "show Clock Times"
+msgstr "Uhrzeiten anzeigen"
+
+#: tform1.menuitem8.caption
+msgctxt "TFORM1.MENUITEM8.CAPTION"
+msgid "About"
+msgstr "Über"
+
+#: tform1.menuitem9.caption
+msgid "Options"
+msgstr "Optionen"
+
+#: tform1.stringgrid1.columns[0].title.caption
+msgid "Nr"
+msgstr ""
+
+#: tform1.stringgrid1.columns[1].title.caption
+msgid "Week"
+msgstr ""
+
+#: tform1.stringgrid1.columns[2].title.caption
+msgid "Mon"
+msgstr ""
+
+#: tform1.stringgrid1.columns[3].title.caption
+msgid "Tue"
+msgstr ""
+
+#: tform1.stringgrid1.columns[4].title.caption
+msgid "Wed"
+msgstr ""
+
+#: tform1.stringgrid1.columns[5].title.caption
+msgid "Thu"
+msgstr ""
+
+#: tform1.stringgrid1.columns[6].title.caption
+msgid "Fri"
+msgstr ""
+
+#: tform1.stringgrid1.columns[7].title.caption
+msgid "Sat"
+msgstr ""
+
+#: tform1.stringgrid1.columns[8].title.caption
+msgid "Sun"
+msgstr ""
+
+#: tform1.stringgrid1.columns[9].title.caption
+msgid "Total"
+msgstr ""
+
+#: tform1.stringgrid2.columns[0].title.caption
+msgid "Weekdays"
+msgstr ""
+
+#: tform1.stringgrid2.columns[1].title.caption
+msgid "Start"
+msgstr ""
+
+#: tform1.stringgrid2.columns[2].title.caption
+msgid "End"
+msgstr ""
+
+#: tform1.stringgrid2.columns[3].title.caption
+msgid "addit."
+msgstr ""
+
+#: tform2.caption
+msgctxt "tform2.caption"
+msgid "About"
+msgstr "Über"
+
+#: tform2.label1.caption
+msgid "Version :"
+msgstr "Version :"
+
+#: tform2.label2.caption
+msgid "Build-Date:"
+msgstr "Build-Date:"
+
+#: tform2.statictext1.caption
+msgid "CoYOt(e) - Control Your OverTimes (easily)  "
+msgstr "CoYOt(e) - Control Your OverTimes (easily)  "
+
+#: tform2.statictext2.caption
+msgid ""
+"A lightweight tool to keep an eye on your Working and Overtimes - easily."
+msgstr ""
+"A lightweight tool to keep an eye on your Working and Overtimes - easily."
