@@ -203,11 +203,16 @@ begin
   // The ClockTimes entered in the edit-grid now will be stored in the week
   for I := 0 to FWeeklist.Items[FSelectionIndex].IntendedWorkDayCount do
   begin
+    // Begin of Work
     FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := getHour(StringGrid2.Cells[1,I+1]);
     FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute := getMinute(StringGrid2.Cells[1,I+1]);
 
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[1,I+1]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[1,I+1]);
+    // End of Work
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[2,I+1]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[2,I+1]);
+
+    // Additional hours
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].AdditionalTime := StrToCurr(StringGrid2.Cells[3,I+1]);
   end;
 
 end;

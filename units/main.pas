@@ -212,7 +212,7 @@ begin
     FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[2,I+1]);
 
     // Additional hours
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].AdditionalTime := StrToCurr(StringGrid2.Cells[3,I+1]);
+    // FWeeklist.Items[FSelectionIndex].Days.Items[I].AdditionalTime := StrToCurr(StringGrid2.Cells[3,I+1]);
   end;
 
 end;
@@ -338,4 +338,4 @@ end;
 
 
 end.
-
+

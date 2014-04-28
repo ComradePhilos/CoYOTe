@@ -1,8 +1,5 @@
-msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8"
-
 msgid "(philip.maerksch@gmx.de)"
-msgstr ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: tform1.bitbtn1.caption
 msgid "Apply"
@@ -220,9 +217,5 @@ msgstr ""
 
 #: tform2.statictext1.caption
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
-msgstr ""
-
-#: tform2.statictext2.caption
-msgid "A lightweight tool to keep an eye on your Working and Overtimes - easily."
 msgstr ""
 
