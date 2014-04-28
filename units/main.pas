@@ -137,6 +137,8 @@ begin
   FTranslations := TStringList.Create;
   clearStringGrid(StringGrid1);
   AboutForm := TForm2.Create(nil);
+
+
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
 

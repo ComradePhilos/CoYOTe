@@ -34,6 +34,7 @@ type
     BitBtn5: TBitBtn;
     DateEdit1: TDateEdit;
     DateEdit2: TDateEdit;
+		Edit1: TEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
@@ -123,7 +124,7 @@ begin
     FOSName := 'Linux';
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.8';
+  FVersionNr := '0.0.0.9';
   FVersionDate := '28.04.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' +  FVersionNr;
@@ -137,6 +138,8 @@ begin
   FTranslations := TStringList.Create;
   clearStringGrid(StringGrid1);
   AboutForm := TForm2.Create(nil);
+
+
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
 

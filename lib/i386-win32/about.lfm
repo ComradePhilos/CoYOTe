@@ -1,15 +1,15 @@
 object Form2: TForm2
-  Left = 427
+  Left = 714
   Height = 186
-  Top = 57
+  Top = 347
   Width = 503
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'About'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 186
+  ClientWidth = 503
   Position = poMainFormCenter
-  LCLVersion = '1.0.14.0'
+  LCLVersion = '1.2.0.3'
   object Image1: TImage
     Left = 5
     Height = 152
@@ -543,32 +543,33 @@ object Form2: TForm2
     ParentFont = False
     TabOrder = 0
   end
-  object StaticText2: TStaticText
-    Left = 176
-    Height = 104
-    Top = 40
-    Width = 298
-    BorderStyle = sbsSunken
-    Caption = 'A lightweight tool to keep an eye on your Working and Overtimes - easily.'#10#10'Project initiated by Philip Märksch.'#10'(philip.maerksch@gmx.de)'
-    Constraints.MaxWidth = 500
-    Font.Height = -13
-    ParentFont = False
-    TabOrder = 1
-  end
   object Label1: TLabel
     Left = 8
-    Height = 16
+    Height = 15
     Top = 161
-    Width = 46
+    Width = 45
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 327
-    Height = 16
+    Height = 15
     Top = 161
-    Width = 60
+    Width = 59
     Caption = 'Build-Date:'
     ParentColor = False
+  end
+  object Memo1: TMemo
+    Left = 167
+    Height = 117
+    Top = 40
+    Width = 314
+    Color = clWhite
+    Lines.Strings = (
+      'A lightweight tool to keep an eye on your working times'
+      ''
+      'Initiated by Philip Märksch'
+    )
+    TabOrder = 1
   end
 end

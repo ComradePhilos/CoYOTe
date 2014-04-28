@@ -197,7 +197,14 @@ begin
   for I := 0 to AWeekList.Count - 1 do
   begin
     AGrid.Cells[0,1+I] := IntToStr(I+1);
-    AGrid.Cells[1,1+I] := FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate) + ' - ' + FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate);
+    if (AWeekList.Items[I].FromDate <> AWeekList.Items[I].ToDate) then
+    begin
+         AGrid.Cells[1,1+I] := FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate) + ' - ' + FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate);
+    end
+    else
+    begin
+       AGrid.Cells[1,1+I] := FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate);
+    end;
   end;
 end;
 

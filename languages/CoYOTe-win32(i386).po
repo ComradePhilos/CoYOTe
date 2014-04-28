@@ -219,7 +219,3 @@ msgstr ""
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
 msgstr ""
 
-#: tform2.statictext2.caption
-msgid "A lightweight tool to keep an eye on your Working and Overtimes - easily."
-msgstr ""
-

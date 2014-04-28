@@ -8,7 +8,7 @@ uses Classes, SysUtils, DateUtils, fgl, Grids,
 
 type
 
-  // ###################### Tag ################################
+//############################################ TAG ###########################################################
   TWorkDay = class
 
   private
@@ -41,7 +41,7 @@ type
 
   TWorkDays = specialize TFPGObjectList<TWorkDay>;
 
-  // ###################### Woche ################################
+//############################################ WOCHE ###########################################################
   TWorkWeek = class
   private
     FDays: TWorkDays;
@@ -68,6 +68,7 @@ type
 
 TWeekList = specialize TFPGObjectList<TWorkWeek>;
 
+// ############################################### andere Funktionen #################################################
 
 procedure ClearStringGrid(AGrid: TStringGrid);
 procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList);
@@ -235,4 +236,4 @@ begin
 
 end;
 
-end.
+end.
