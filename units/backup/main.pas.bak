@@ -56,6 +56,7 @@ type
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
+		StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
 
@@ -111,6 +112,8 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  results : text;
 begin
   FOSName := 'unknown';             // Other OS
   {$IFDEF mswindows}
@@ -172,7 +175,7 @@ begin
 		end
     else
     begin
-      Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
+     // Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
 		end;
 end;
 
@@ -198,9 +201,13 @@ var
 begin
 
   // The ClockTimes entered in the edit-grid now will be stored in the week
-  for I := 0 to FWeeklist.Items[FSelectionIndex].Days.Count - 1 do
+  for I := 0 to FWeeklist.Items[FSelectionIndex].IntendedWorkDayCount do
   begin
-   // FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := StringGrid2.Cells[2,I+1];
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := getHour(StringGrid2.Cells[1,I+1]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute := getMinute(StringGrid2.Cells[1,I+1]);
+
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[1,I+1]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[1,I+1]);
   end;
 
 end;
@@ -219,7 +226,7 @@ end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);
 begin
-  FTranslations := changeLanguage('eng');
+  FTranslations := changeLanguage('English', FLazarusVersion, FOSName);
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);
