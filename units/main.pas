@@ -122,7 +122,7 @@ begin
     FOSName := 'Linux';
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.9';
+  FVersionNr := '0.0.0.10';
   FVersionDate := '29.04.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' +  FVersionNr;
@@ -204,12 +204,12 @@ begin
   for I := 0 to FWeeklist.Items[FSelectionIndex].IntendedWorkDayCount do
   begin
     // Begin of Work
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := getHour(StringGrid2.Cells[1,I+1]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute := getMinute(StringGrid2.Cells[1,I+1]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := getHour(StringGrid2.Cells[1,I]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute := getMinute(StringGrid2.Cells[1,I]);
 
     // End of Work
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[2,I+1]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[2,I+1]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[2,I]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[2,I]);
 
     // Additional hours
     // FWeeklist.Items[FSelectionIndex].Days.Items[I].AdditionalTime := StrToCurr(StringGrid2.Cells[3,I+1]);
@@ -338,4 +338,4 @@ end;
 
 
 end.
-
+
