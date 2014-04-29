@@ -11,24 +11,29 @@ uses
   This will Replace all Texts of one language with Text of the choosen Language
   -> Needs more work on that!!!
 }
-function changeLanguage(ALanguage: String; ALazarusVersion: String; AOSName: String): TStringList;
+function changeLanguage(ALanguage: string; ALazarusVersion: string;
+  AOSName: string): TStringList;
 
 {
   The Real Day of the Week. Starting with 1 for Monday instead of Sunday
   I had to do this, because the original "DayOfWeek" returns a "1" for "Sunday"
   and "2" for Monday etc....
 }
-function RealDayOfWeek(ADate: TDate): Integer;
+function RealDayOfWeek(ADate: TDate): integer;
 
-{
-  Gets You the Hour of a time like 19:00 as an Integer -> 19
-}
-function getHour(time: String): Integer;
+// Gets You the hour part of a clock time like 19:00 as an Integer -> 19
+function getHour(time: string): integer;
+// Gets You the minute part of a clock time like 19:15 as an Integer -> 15
+function getMinute(time: string): integer;
+
+// Searches in a language-file for the translation by looking for the name in the file
+function searchForTranslation(VariableName: String; ALanguage: String): String;
 
 
 implementation
 
-function changeLanguage(ALanguage: String; ALazarusVersion: String; AOSName: String): TStringList;
+function changeLanguage(ALanguage: string; ALazarusVersion: string;
+  AOSName: string): TStringList;
 var
   words: TStringList;
 begin
@@ -43,16 +48,18 @@ begin
   if (ALanguage = 'German') then
   begin
     if (AOSName = 'Linux') then
-      TranslateUnitResourceStrings('LCLStrConsts', '/usr/share/lazarus/'+ALazarusVersion+'/lcl/languages/lclstrconsts.de.po');
+      TranslateUnitResourceStrings('LCLStrConsts',
+        '/usr/share/lazarus/' + ALazarusVersion + '/lcl/languages/lclstrconsts.de.po');
     if (AOSName = 'Windows') then
-      TranslateUnitResourceStrings('LCLStrConsts', 'C:\lazarus\lcl\languages\lclstrconsts.de.po');
-	end;
+      TranslateUnitResourceStrings('LCLStrConsts',
+        'C:\lazarus\lcl\languages\lclstrconsts.de.po');
+  end;
 
 end;
 
-function RealDayOfWeek(ADate: TDate): Integer;
+function RealDayOfWeek(ADate: TDate): integer;
 var
-  day: Integer;
+  day: integer;
 begin
   day := DayOfWeek(ADate);
 
@@ -68,63 +75,61 @@ begin
   Result := day;
 end;
 
-function getHour(time: String): Integer;
+function getHour(time: string): integer;
 var
-  I: Integer;
-  pos: Integer;
-  res: Integer;
+  I: integer;
+  pos: integer;
+  res: integer;
 begin
-   time := trim(time);
+  time := trim(time);
 
-   for I := 1 to length(time) do
-   begin
-     if (time[I] = ':') then
-     begin
-       pos := I;
-		 end;
-	 end;
+  for I := 1 to length(time) do
+  begin
+    if (time[I] = ':') then
+    begin
+      pos := I;
+    end;
+  end;
 
-   time := trim(LeftStr(time,pos-1));
+  time := trim(LeftStr(time, pos - 1));
 
-   if TryStrToInt(time, res) then
-   begin
-     Result := res;
-	 end
-   else
-   begin
-     Result := 0;
-	 end;
+  if TryStrToInt(time, res) then
+  begin
+    Result := res;
+  end
+  else
+  begin
+    Result := 0;
+  end;
 
 end;
 
-function getMinute(time: String): Integer;
+function getMinute(time: string): integer;
 var
-  I: Integer;
-  pos: Integer;
-  res: Integer;
+  I: integer;
+  pos: integer;
+  res: integer;
 begin
-   time := trim(time);
+  time := trim(time);
 
-   for I := 1 to length(time) do
-   begin
-     if (time[I] = ':') then
-     begin
-       pos := I;
-		 end;
-	 end;
+  for I := 1 to length(time) do
+  begin
+    if (time[I] = ':') then
+    begin
+      pos := I;
+    end;
+  end;
 
-   time := trim(RightStr(time,length(time)-pos));
+  time := trim(RightStr(time, length(time) - pos));
 
-   if TryStrToInt(time, res) then
-   begin
-     Result := res;
-	 end
-   else
-   begin
-     Result := 0;
-	 end;
-
+  if TryStrToInt(time, res) then
+  begin
+    Result := res;
+  end
+  else
+  begin
+    Result := 0;
+  end;
 end;
 
 end.
-

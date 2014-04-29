@@ -167,7 +167,7 @@ object Form1: TForm1
       65
     )
   end
-  object BitBtn3: TBitBtn
+  object AddButton: TBitBtn
     Left = 0
     Height = 46
     Top = 442
@@ -256,7 +256,7 @@ object Form1: TForm1
     Spacing = 1
     TabOrder = 3
   end
-  object BitBtn4: TBitBtn
+  object RemoveButton: TBitBtn
     Left = 104
     Height = 46
     Top = 442
@@ -343,7 +343,7 @@ object Form1: TForm1
     OnClick = RemoveSelected
     TabOrder = 4
   end
-  object BitBtn5: TBitBtn
+  object RemoveAllButton: TBitBtn
     Left = 208
     Height = 46
     Top = 442
@@ -429,7 +429,7 @@ object Form1: TForm1
     OnClick = RemoveAll
     TabOrder = 5
   end
-  object DateEdit1: TDateEdit
+  object FromDateEdit: TDateEdit
     Left = 16
     Height = 25
     Top = 541
@@ -443,8 +443,8 @@ object Form1: TForm1
     CharCase = ecNormal
     NumGlyphs = 1
     MaxLength = 0
-    OnChange = DateEdit1Change
-    OnEditingDone = DateEdit1EditingDone
+    OnChange = FromDateEditChange
+    OnEditingDone = FromDateEditEditingDone
     TabOrder = 6
   end
   object Label1: TLabel
@@ -455,7 +455,7 @@ object Form1: TForm1
     Caption = 'From'
     ParentColor = False
   end
-  object DateEdit2: TDateEdit
+  object ToDateEdit: TDateEdit
     Left = 159
     Height = 25
     Top = 541
@@ -469,8 +469,8 @@ object Form1: TForm1
     CharCase = ecNormal
     NumGlyphs = 1
     MaxLength = 0
-    OnChange = DateEdit2Change
-    OnEditingDone = DateEdit2EditingDone
+    OnChange = ToDateEditChange
+    OnEditingDone = ToDateEditEditingDone
     TabOrder = 7
   end
   object Label2: TLabel
@@ -481,16 +481,16 @@ object Form1: TForm1
     Caption = 'To'
     ParentColor = False
   end
-  object LabeledEdit1: TLabeledEdit
+  object WorkdaysEdit: TLabeledEdit
     Left = 16
     Height = 25
     Top = 605
     Width = 80
     Alignment = taRightJustify
-    EditLabel.AnchorSideLeft.Control = LabeledEdit1
-    EditLabel.AnchorSideRight.Control = LabeledEdit1
+    EditLabel.AnchorSideLeft.Control = WorkdaysEdit
+    EditLabel.AnchorSideRight.Control = WorkdaysEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit1
+    EditLabel.AnchorSideBottom.Control = WorkdaysEdit
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 585
@@ -499,18 +499,18 @@ object Form1: TForm1
     EditLabel.ParentColor = False
     TabOrder = 8
     Text = '0'
-    OnEditingDone = LabeledEdit1EditingDone
+    OnEditingDone = WorkdaysEditEditingDone
   end
-  object LabeledEdit2: TLabeledEdit
+  object HoursPerDayEdit: TLabeledEdit
     Left = 144
     Height = 25
     Top = 605
     Width = 88
     Alignment = taRightJustify
-    EditLabel.AnchorSideLeft.Control = LabeledEdit2
-    EditLabel.AnchorSideRight.Control = LabeledEdit2
+    EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
+    EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit2
+    EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 144
     EditLabel.Height = 17
     EditLabel.Top = 585
@@ -520,7 +520,7 @@ object Form1: TForm1
     TabOrder = 9
     Text = '8'
   end
-  object BitBtn1: TBitBtn
+  object ApplyButton: TBitBtn
     Left = 8
     Height = 30
     Top = 656
@@ -606,7 +606,7 @@ object Form1: TForm1
     Spacing = 15
     TabOrder = 10
   end
-  object BitBtn2: TBitBtn
+  object UndoButton: TBitBtn
     Left = 114
     Height = 30
     Top = 656

@@ -27,19 +27,19 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
-    BitBtn4: TBitBtn;
-    BitBtn5: TBitBtn;
-    DateEdit1: TDateEdit;
-    DateEdit2: TDateEdit;
+    ApplyButton: TBitBtn;
+    UndoButton: TBitBtn;
+    AddButton: TBitBtn;
+    RemoveButton: TBitBtn;
+    RemoveAllButton: TBitBtn;
+    FromDateEdit: TDateEdit;
+    ToDateEdit: TDateEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
+    WorkdaysEdit: TLabeledEdit;
+    HoursPerDayEdit: TLabeledEdit;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -68,12 +68,12 @@ type
     procedure MenuAbout(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
-    procedure DateEdit1Change(Sender: TObject);
-    procedure DateEdit1EditingDone(Sender: TObject);
-    procedure DateEdit2Change(Sender: TObject);
-    procedure DateEdit2EditingDone(Sender: TObject);
+    procedure FromDateEditChange(Sender: TObject);
+    procedure FromDateEditEditingDone(Sender: TObject);
+    procedure ToDateEditChange(Sender: TObject);
+    procedure ToDateEditEditingDone(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1EditingDone(Sender: TObject);
+    procedure WorkdaysEditEditingDone(Sender: TObject);
     procedure MenuQuit(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: Integer;
       var CanSelect: Boolean);
@@ -82,7 +82,7 @@ type
     procedure EnableAllFields;
   private
     { private declarations }
-    defHoursPerDay: Double;
+    defHoursPerDay: Double;       // Standard Value for
     defDaysPerWeek: Integer;
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: Integer;     // Index of the Week that was selected in the grid
@@ -123,7 +123,7 @@ begin
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
   FVersionNr := '0.0.0.9';
-  FVersionDate := '28.04.2014';
+  FVersionDate := '29.04.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' +  FVersionNr;
   FLanguage := 'English';
@@ -143,9 +143,9 @@ begin
 end;
 
 
-procedure TForm1.LabeledEdit1EditingDone(Sender: TObject);
+procedure TForm1.WorkdaysEditEditingDone(Sender: TObject);
 begin
-  DateEdit1EditingDone(nil);
+  FromDateEditEditingDone(nil);
 end;
 
 
@@ -154,8 +154,8 @@ procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: Integer;
 begin
   try
     FSelectionIndex := aRow-1;
-    DateEdit1.Text := DateToStr(FWeekList.Items[aRow-1].FromDate);
-    DateEdit2.Text := DateToStr(FWeekList.Items[aRow-1].ToDate);
+    FromDateEdit.Text := DateToStr(FWeekList.Items[aRow-1].FromDate);
+    ToDateEdit.Text := DateToStr(FWeekList.Items[aRow-1].ToDate);
     EnableAllFields;
 
     WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow-1]);
@@ -164,14 +164,14 @@ begin
 end;
 
 
-procedure TForm1.DateEdit1EditingDone(Sender: TObject);
+procedure TForm1.FromDateEditEditingDone(Sender: TObject);
 var
   Date1, Date2: TDate;
 begin
-    if TryStrToDate(DateEdit1.Text, Date1) and TryStrToDate(DateEdit2.Text, Date2) then
+    if TryStrToDate(FromDateEdit.Text, Date1) and TryStrToDate(ToDateEdit.Text, Date2) then
     begin
-      LabeledEdit1.Text := IntToStr(DaysBetween( Date1, Date2 )+1);
-      DateEdit2EditingDone(nil);
+      WorkdaysEdit.Text := IntToStr(DaysBetween( Date1, Date2 )+1);
+      ToDateEditEditingDone(nil);
     end
     else
     begin
@@ -179,14 +179,14 @@ begin
     end;
 end;
 
-procedure TForm1.DateEdit2Change(Sender: TObject);
+procedure TForm1.ToDateEditChange(Sender: TObject);
 begin
-  DateEdit2EditingDone(nil);
+  ToDateEditEditingDone(nil);
 end;
 
-procedure TForm1.DateEdit1Change(Sender: TObject);
+procedure TForm1.FromDateEditChange(Sender: TObject);
 begin
-  DateEdit1EditingDone(nil);
+  FromDateEditEditingDone(nil);
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -255,25 +255,25 @@ var
   date1, date2: TDate;
   days: Integer;
 begin
-    date1 := StrToDate(DateEdit1.Text);
-    date2 := StrToDate(DateEdit2.Text);
+    date1 := StrToDate(FromDateEdit.Text);
+    date2 := StrToDate(ToDateEdit.Text);
 
     days := DaysBetween( date1, date2 );
-    labeledEdit1.Text := IntToStr(days+1);
+    WorkdaysEdit.Text := IntToStr(days+1);
     FWeekList.Items[FSelectionIndex].IntendedWorkDayCount := days;
 
   if (days > 6) or (date1 > date2) then
   begin
     days := 6;
     date2 := date1 + defDaysPerWeek-1;
-    dateedit2.Text := DateToStr(date2);
-    application.MessageBox('A week can not exceed 7 days! Please select a valid value for a week!','Warning',0);
+    ToDateEdit.Text := DateToStr(date2);
+    application.MessageBox('A week cannot exceed 7 days! Please select a valid value for a week!','Warning',0);
   end;
   if (FSelectionIndex >= 0) then
   begin
     try
-      FWeekList.Items[FSelectionIndex].FromDate := StrToDate(DateEdit1.Text);
-      FWeekList.Items[FSelectionIndex].ToDate := StrToDate(DateEdit2.Text);
+      FWeekList.Items[FSelectionIndex].FromDate := StrToDate(FromDateEdit.Text);
+      FWeekList.Items[FSelectionIndex].ToDate := StrToDate(ToDateEdit.Text);
       WeeksToStringGrid(StringGrid1, FWeekList);
     except
     end;
@@ -292,23 +292,23 @@ begin
 end;
 
 
-procedure TForm1.DateEdit2EditingDone(Sender: TObject);
+procedure TForm1.ToDateEditEditingDone(Sender: TObject);
 begin
   try
-    LabeledEdit1.Text := IntToStr(DaysBetween( StrToDate(DateEdit1.Text), StrToDate(DateEdit2.Text))+1);
+    WorkdaysEdit.Text := IntToStr(DaysBetween( StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text))+1);
   except
   end;
 end;
 
 procedure TForm1.EnableAllFields;
 begin
-  DateEdit1.Enabled := True;
-  DateEdit2.Enabled := True;
-  labeledEdit1.Enabled := True;
-  labeledEdit2.Enabled := True;
+  FromDateEdit.Enabled := True;
+  ToDateEdit.Enabled := True;
+  WorkdaysEdit.Enabled := True;
+  HoursPerDayEdit.Enabled := True;
 
-  bitBtn1.Enabled := True;
-  bitBtn2.Enabled := True;
+  ApplyButton.Enabled := True;
+  UndoButton.Enabled := True;
   label1.Enabled := True;
   label2.Enabled := True;
   label3.Caption := 'Week #' + IntToStr(FSelectionIndex+1);
@@ -316,13 +316,13 @@ end;
 
 procedure TForm1.DisableAllFields;
 begin
-  DateEdit1.Enabled := False;
-  DateEdit2.Enabled := False;
-  labeledEdit1.Enabled := False;
-  labeledEdit2.Enabled := False;
+  FromDateEdit.Enabled := False;
+  ToDateEdit.Enabled := False;
+  WorkdaysEdit.Enabled := False;
+  HoursPerDayEdit.Enabled := False;
 
-  bitBtn1.Enabled := False;
-  bitBtn2.Enabled := False;
+  ApplyButton.Enabled := False;
+  UndoButton.Enabled := False;
   label1.Enabled := False;
   label2.Enabled := False;
   label3.Caption := '';
@@ -338,4 +338,4 @@ end;
 
 
 end.
-
+

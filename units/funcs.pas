@@ -21,12 +21,13 @@ function changeLanguage(ALanguage: string; ALazarusVersion: string;
 }
 function RealDayOfWeek(ADate: TDate): integer;
 
-{
-  Gets You the Hour of a time like 19:00 as an Integer -> 19
-}
+// Gets You the hour part of a clock time like 19:00 as an Integer -> 19
 function getHour(time: string): integer;
-
+// Gets You the minute part of a clock time like 19:15 as an Integer -> 15
 function getMinute(time: string): integer;
+
+// Searches in a language-file for the translation by looking for the name in the file
+function searchForTranslation(VariableName: String; ALanguage: String): String;
 
 
 implementation
@@ -129,7 +130,12 @@ begin
   begin
     Result := 0;
   end;
+end;
 
+function searchForTranslation(VariableName: String; ALanguage: String): String;
+begin
+
+  Result := '';
 end;
 
 end.

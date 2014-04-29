@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 170
   Width = 1157
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 757
+  ClientHeight = 737
   ClientWidth = 1157
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -160,7 +160,6 @@ object Form1: TForm1
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
     OnEditingDone = ApplyValuesFromGrid
-    OnEnter = StringGrid2Enter
     ColWidths = (
       122
       73
@@ -168,7 +167,7 @@ object Form1: TForm1
       65
     )
   end
-  object BitBtn3: TBitBtn
+  object AddButton: TBitBtn
     Left = 0
     Height = 46
     Top = 442
@@ -257,7 +256,7 @@ object Form1: TForm1
     Spacing = 1
     TabOrder = 3
   end
-  object BitBtn4: TBitBtn
+  object RemoveButton: TBitBtn
     Left = 104
     Height = 46
     Top = 442
@@ -344,7 +343,7 @@ object Form1: TForm1
     OnClick = RemoveSelected
     TabOrder = 4
   end
-  object BitBtn5: TBitBtn
+  object RemoveAllButton: TBitBtn
     Left = 208
     Height = 46
     Top = 442
@@ -430,9 +429,9 @@ object Form1: TForm1
     OnClick = RemoveAll
     TabOrder = 5
   end
-  object DateEdit1: TDateEdit
+  object FromDateEdit: TDateEdit
     Left = 16
-    Height = 26
+    Height = 25
     Top = 541
     Width = 112
     DialogTitle = 'Select Beginning of the week'
@@ -444,21 +443,21 @@ object Form1: TForm1
     CharCase = ecNormal
     NumGlyphs = 1
     MaxLength = 0
-    OnChange = DateEdit1Change
-    OnEditingDone = DateEdit1EditingDone
+    OnChange = FromDateEditChange
+    OnEditingDone = FromDateEditEditingDone
     TabOrder = 6
   end
   object Label1: TLabel
     Left = 56
-    Height = 16
+    Height = 17
     Top = 525
     Width = 31
     Caption = 'From'
     ParentColor = False
   end
-  object DateEdit2: TDateEdit
+  object ToDateEdit: TDateEdit
     Left = 159
-    Height = 26
+    Height = 25
     Top = 541
     Width = 120
     DialogTitle = 'Select Date'
@@ -470,58 +469,58 @@ object Form1: TForm1
     CharCase = ecNormal
     NumGlyphs = 1
     MaxLength = 0
-    OnChange = DateEdit2Change
-    OnEditingDone = DateEdit2EditingDone
+    OnChange = ToDateEditChange
+    OnEditingDone = ToDateEditEditingDone
     TabOrder = 7
   end
   object Label2: TLabel
     Left = 215
-    Height = 16
+    Height = 17
     Top = 525
     Width = 14
     Caption = 'To'
     ParentColor = False
   end
-  object LabeledEdit1: TLabeledEdit
+  object WorkdaysEdit: TLabeledEdit
     Left = 16
-    Height = 26
+    Height = 25
     Top = 605
     Width = 80
     Alignment = taRightJustify
-    EditLabel.AnchorSideLeft.Control = LabeledEdit1
-    EditLabel.AnchorSideRight.Control = LabeledEdit1
+    EditLabel.AnchorSideLeft.Control = WorkdaysEdit
+    EditLabel.AnchorSideRight.Control = WorkdaysEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit1
+    EditLabel.AnchorSideBottom.Control = WorkdaysEdit
     EditLabel.Left = 16
-    EditLabel.Height = 16
-    EditLabel.Top = 586
+    EditLabel.Height = 17
+    EditLabel.Top = 585
     EditLabel.Width = 80
     EditLabel.Caption = 'Working Days'
     EditLabel.ParentColor = False
     TabOrder = 8
     Text = '0'
-    OnEditingDone = LabeledEdit1EditingDone
+    OnEditingDone = WorkdaysEditEditingDone
   end
-  object LabeledEdit2: TLabeledEdit
+  object HoursPerDayEdit: TLabeledEdit
     Left = 144
-    Height = 26
+    Height = 25
     Top = 605
     Width = 88
     Alignment = taRightJustify
-    EditLabel.AnchorSideLeft.Control = LabeledEdit2
-    EditLabel.AnchorSideRight.Control = LabeledEdit2
+    EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
+    EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit2
+    EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 144
-    EditLabel.Height = 16
-    EditLabel.Top = 586
+    EditLabel.Height = 17
+    EditLabel.Top = 585
     EditLabel.Width = 88
     EditLabel.Caption = 'Hours  per Day'
     EditLabel.ParentColor = False
     TabOrder = 9
     Text = '8'
   end
-  object BitBtn1: TBitBtn
+  object ApplyButton: TBitBtn
     Left = 8
     Height = 30
     Top = 656
@@ -607,7 +606,7 @@ object Form1: TForm1
     Spacing = 15
     TabOrder = 10
   end
-  object BitBtn2: TBitBtn
+  object UndoButton: TBitBtn
     Left = 114
     Height = 30
     Top = 656
@@ -694,16 +693,16 @@ object Form1: TForm1
   end
   object Label3: TLabel
     Left = 16
-    Height = 16
+    Height = 17
     Top = 496
-    Width = 45
+    Width = 46
     Caption = 'Week #'
     ParentColor = False
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 736
+    Height = 23
+    Top = 714
     Width = 1157
     Panels = <    
       item
@@ -1015,4 +1014,4 @@ object Form1: TForm1
       end
     end
   end
-end
+end

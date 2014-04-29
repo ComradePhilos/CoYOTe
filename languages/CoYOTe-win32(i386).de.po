@@ -1,4 +1,4 @@
-msgid ""
+msgid "(philip.maerksch@gmx.de)"
 msgstr ""
 "Project-Id-Version: CoYOte\n"
 "POT-Creation-Date: \n"
@@ -10,65 +10,50 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "X-Generator: Poedit 1.6.4\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 
-msgid "(philip.maerksch@gmx.de)"
-msgstr "Content-Type: text/plain; charset=UTF-8"
-
-#: tform1.bitbtn1.caption
-msgid "Apply"
-msgstr "Anwenden"
-
-#: tform1.bitbtn2.caption
-msgid "Undo"
-msgstr "Rückgängig"
-
-#: tform1.bitbtn3.caption
+#: tform1.addbutton.caption
+msgctxt "tform1.addbutton.caption"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: tform1.bitbtn4.caption
-msgid "Remove"
-msgstr "Entfernen"
-
-#: tform1.bitbtn5.caption
-msgid "Remove all"
-msgstr "Alle Entfernen"
+#: tform1.applybutton.caption
+msgctxt "tform1.applybutton.caption"
+msgid "Apply"
+msgstr "Anwenden"
 
 #: tform1.caption
 msgid "CoYOT(e) - Overtime Calculator"
 msgstr "CoYOT(e) - Überstunden Rechner"
 
-#: tform1.dateedit1.cancelcaption
-msgctxt "tform1.dateedit1.cancelcaption"
+#: tform1.fromdateedit.cancelcaption
+msgctxt "tform1.fromdateedit.cancelcaption"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: tform1.dateedit1.dialogtitle
+#: tform1.fromdateedit.dialogtitle
+msgctxt "tform1.fromdateedit.dialogtitle"
 msgid "Select Beginning of the week"
 msgstr "Wochenanfang auswählen"
 
-#: tform1.dateedit1.okcaption
-msgctxt "tform1.dateedit1.okcaption"
-msgid "OK"
-msgstr "OK"
-
-#: tform1.dateedit2.cancelcaption
-msgctxt "TFORM1.DATEEDIT2.CANCELCAPTION"
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: tform1.dateedit2.dialogtitle
-msgid "Select Date"
-msgstr "Datum auswählen"
-
-#: tform1.dateedit2.okcaption
-msgctxt "TFORM1.DATEEDIT2.OKCAPTION"
+#: tform1.fromdateedit.okcaption
+msgctxt "tform1.fromdateedit.okcaption"
 msgid "OK"
 msgstr "OK"
 
 #: tform1.groupbox1.caption
 msgid "Information and Statistics"
 msgstr "Informationen und Statistiken"
+
+#: tform1.hoursperdayedit.editlabel.caption
+msgctxt "tform1.hoursperdayedit.editlabel.caption"
+msgid "Hours  per Day"
+msgstr "Stunden pro Tag"
+
+#: tform1.hoursperdayedit.text
+msgctxt "tform1.hoursperdayedit.text"
+msgid "8"
+msgstr "8"
 
 #: tform1.label1.caption
 msgid "From"
@@ -81,22 +66,6 @@ msgstr "Bis"
 #: tform1.label3.caption
 msgid "Week #"
 msgstr "Woche #"
-
-#: tform1.labelededit1.editlabel.caption
-msgid "Working Days"
-msgstr "Arbeitstage"
-
-#: tform1.labelededit1.text
-msgid "0"
-msgstr "0"
-
-#: tform1.labelededit2.editlabel.caption
-msgid "Hours  per Day"
-msgstr "Stunden pro Tag"
-
-#: tform1.labelededit2.text
-msgid "8"
-msgstr "8"
 
 #: tform1.menuitem1.caption
 msgid "File"
@@ -159,6 +128,16 @@ msgstr "Über"
 msgid "Options"
 msgstr "Optionen"
 
+#: tform1.removeallbutton.caption
+msgctxt "tform1.removeallbutton.caption"
+msgid "Remove all"
+msgstr "Alle Entfernen"
+
+#: tform1.removebutton.caption
+msgctxt "tform1.removebutton.caption"
+msgid "Remove"
+msgstr "Entfernen"
+
 #: tform1.stringgrid1.columns[0].title.caption
 msgid "Nr"
 msgstr "Nr"
@@ -215,6 +194,36 @@ msgstr "Ende"
 msgid "addit."
 msgstr "Hinzufügen"
 
+#: tform1.todateedit.cancelcaption
+msgctxt "tform1.todateedit.cancelcaption"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: tform1.todateedit.dialogtitle
+msgctxt "tform1.todateedit.dialogtitle"
+msgid "Select Date"
+msgstr "Datum auswählen"
+
+#: tform1.todateedit.okcaption
+msgctxt "tform1.todateedit.okcaption"
+msgid "OK"
+msgstr "OK"
+
+#: tform1.undobutton.caption
+msgctxt "tform1.undobutton.caption"
+msgid "Undo"
+msgstr "Rückgängig"
+
+#: tform1.workdaysedit.editlabel.caption
+msgctxt "tform1.workdaysedit.editlabel.caption"
+msgid "Working Days"
+msgstr "Arbeitstage"
+
+#: tform1.workdaysedit.text
+msgctxt "tform1.workdaysedit.text"
+msgid "0"
+msgstr "0"
+
 #: tform2.caption
 msgctxt "tform2.caption"
 msgid "About"
@@ -232,8 +241,3 @@ msgstr "Build-Date:"
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
 msgstr "CoYOt(e) - Control Your OverTimes (easily)  "
 
-#: tform2.statictext2.caption
-msgid ""
-"A lightweight tool to keep an eye on your Working and Overtimes - easily."
-msgstr ""
-"A lightweight tool to keep an eye on your Working and Overtimes - easily."
