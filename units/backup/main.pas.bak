@@ -81,6 +81,7 @@ type
 
     procedure DisableAllFields;
     procedure EnableAllFields;
+
   private
     { private declarations }
     defHoursPerDay: double;       // Standard Value for
