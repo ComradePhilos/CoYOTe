@@ -56,6 +56,7 @@ type
   public
     constructor Create;
     destructor Destroy;
+    procedure Clear;
 
     property IntendedWorkDayCount: Integer read FIntendedWorkDayCount write FIntendedWorkDayCount;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -172,6 +173,15 @@ begin
   end;
 end;
 
+
+procedure TWorkWeek.Clear;
+begin
+  FDays.Clear;
+  FFromDate := 0;
+  FToDate := 0;
+  FIntendedWorkDayCount := 5;
+  FIntendedTimePerDay := 8;
+end;
 
 
 

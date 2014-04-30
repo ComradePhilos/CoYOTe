@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 246
   Width = 1157
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 615
+  ClientHeight = 635
   ClientWidth = 1157
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -170,8 +170,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 592
+    Height = 21
+    Top = 614
     Width = 1157
     Panels = <    
       item
@@ -839,4 +839,4 @@ object Form1: TForm1
       end
     end
   end
-end
+end

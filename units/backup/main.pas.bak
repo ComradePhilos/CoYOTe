@@ -242,6 +242,7 @@ procedure TForm1.FormDestroy(Sender: TObject);
 begin
   AboutForm.Free;
   EditWeekForm.Free;
+  AddWeekForm.Free;
 end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);

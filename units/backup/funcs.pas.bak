@@ -132,4 +132,10 @@ begin
   end;
 end;
 
+function searchForTranslation(VariableName: String; ALanguage: String): String;
+begin
+
+  Result := '';
+end;
+
 end.

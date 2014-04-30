@@ -244,9 +244,9 @@ object Form3: TForm3
   end
   object Label1: TLabel
     Left = 184
-    Height = 15
+    Height = 17
     Top = 8
-    Width = 38
+    Width = 49
     Caption = 'Week 1'
     ParentColor = False
   end

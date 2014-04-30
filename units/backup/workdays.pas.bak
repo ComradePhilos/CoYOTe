@@ -56,6 +56,7 @@ type
   public
     constructor Create;
     destructor Destroy;
+    procedure Clear;
 
     property IntendedWorkDayCount: Integer read FIntendedWorkDayCount write FIntendedWorkDayCount;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -173,6 +174,15 @@ begin
 end;
 
 
+procedure TWorkWeek.Clear;
+begin
+  FDays.Clear;
+  FFromDate := 0;
+  FToDate := 0;
+  FIntendedWorkDayCount := 5;
+  FIntendedTimePerDay: := 8;
+end;
+
 
 
 // ############################################### additional Functions ################################################
@@ -222,7 +232,7 @@ procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 var
   I: Integer;
   day1, day2: Integer;
-  min: Integer;
+
 begin
   clearStringGrid(AGrid);
 
@@ -235,8 +245,7 @@ begin
   begin
     AGrid.cells[0,0+I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
 
-    min := IntToStr(AWeek.Days[I].StartMinute);
-    if (min < 10) then
+    if (AWeek.Days[I].StartMinute < 10) then
     begin
       AGrid.cells[1,0+I] := IntToStr(AWeek.Days[I].StartHour) + ':0' + IntToStr(AWeek.Days[I].StartMinute);
     end
@@ -245,8 +254,7 @@ begin
       AGrid.cells[1,0+I] := IntToStr(AWeek.Days[I].StartHour) + ':' + IntToStr(AWeek.Days[I].StartMinute);
     end;
 
-    min := IntToStr(AWeek.Days[I].EndMinute);
-    if (min < 10) then
+    if (AWeek.Days[I].EndMinute < 10) then
     begin
       AGrid.cells[2,0+I] := IntToStr(AWeek.Days[I].EndHour) + ':0' + IntToStr(AWeek.Days[I].EndMinute);
     end

@@ -14,15 +14,15 @@ type
 
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
-		Arrow1: TArrow;
-		Arrow2: TArrow;
+    Arrow1: TArrow;
+    Arrow2: TArrow;
     BackButton: TBitBtn;
     Label1: TLabel;
     UndoButton: TBitBtn;
     StringGrid2: TStringGrid;
 
-		procedure BackButtonClick(Sender: TObject);
-  procedure FormCreate(Sender: TObject);
+    procedure BackButtonClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -37,8 +37,6 @@ implementation
 {$R *.lfm}
 
 { TForm3 }
-
-
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
