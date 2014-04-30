@@ -88,8 +88,7 @@ type
     FProgrammeName: string;       // Official Name shown to the user
     FVersionNr: string;           // Internal Programme-Version
     FVersionDate: string;         // Build-Date
-    FLazarusVersion: string;
-    // Version of the Lazarus IDE the programme was built with
+    FLazarusVersion: string;      // Version of the Lazarus IDE the programme was built with
     FOSName: string;              // The Internal Name for the used Operating System
     Flanguage: string;            // Language chosen by User - default is English
 
@@ -98,6 +97,9 @@ type
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
+
+
+    procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
   public
     { public declarations }
   end;
@@ -122,7 +124,7 @@ begin
   FOSName := 'Linux';
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.12';
+  FVersionNr := '0.0.0.13';
   FVersionDate := '30.04.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -192,8 +194,6 @@ end;
 
 procedure TForm1.AddWeek(Sender: TObject);
 begin
-  //FWeekList.Add(TWorkWeek.Create);
-  //WeeksToStringGrid(StringGrid1, FWeekList);
   AddWeekForm.Visible := True;
 end;
 
@@ -341,5 +341,10 @@ begin
   end;
 end;
 
+procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
+begin
+  FWeekList.Add(AWeek);
+  WeeksToStringGrid(StringGrid1, FWeekList);
+end;
 
 end.

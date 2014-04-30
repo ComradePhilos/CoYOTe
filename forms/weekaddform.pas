@@ -33,6 +33,8 @@ type
     procedure Clear;
   public
     { public declarations }
+
+    property Week: TWorkWeek read FWeek write FWeek;
   end;
 
 var
@@ -64,6 +66,7 @@ begin
     FWeek.FromDate := FDate;
   end;
 
+  self.Visible := False;
 
 end;
 
