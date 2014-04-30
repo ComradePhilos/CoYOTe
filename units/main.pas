@@ -16,11 +16,11 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Graphics,
-  Dialogs, ComCtrls, ButtonPanel, DbCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
+  Dialogs, ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
   BarChart, Grids, Menus, PopupNotifier, StdCtrls, ExtCtrls, ExtDlgs, Buttons,
   MaskEdit, DateUtils, LResources, Translations,
   { eigene Units }
-  workdays, funcs, about;
+  workdays, funcs, about, WeekEditForm;
 
 type
 
@@ -28,6 +28,7 @@ type
 
   TForm1 = class(TForm)
     ApplyButton: TBitBtn;
+    BitBtn1: TBitBtn;
     UndoButton: TBitBtn;
     AddButton: TBitBtn;
     RemoveButton: TBitBtn;
@@ -56,13 +57,14 @@ type
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
-		StatusBar1: TStatusBar;
+    StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
 
     procedure ApplyChanges(Sender: TObject);
     procedure AddWeek(Sender: TObject);
     procedure ApplyValuesFromGrid(Sender: TObject);
+    procedure BitBtn1Click(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure MenuSelectEnglish(Sender: TObject);
     procedure MenuAbout(Sender: TObject);
@@ -75,29 +77,30 @@ type
     procedure FormCreate(Sender: TObject);
     procedure WorkdaysEditEditingDone(Sender: TObject);
     procedure MenuQuit(Sender: TObject);
-    procedure SelectWeek(Sender: TObject; aCol, aRow: Integer;
-      var CanSelect: Boolean);
+    procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 
     procedure DisableAllFields;
     procedure EnableAllFields;
+
   private
     { private declarations }
-    defHoursPerDay: Double;       // Standard Value for
-    defDaysPerWeek: Integer;
+    defHoursPerDay: double;       // Standard Value for
+    defDaysPerWeek: integer;
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
-    FSelectionIndex: Integer;     // Index of the Week that was selected in the grid
+    FSelectionIndex: integer;     // Index of the Week that was selected in the grid
     FTranslations: TStringList;
 
-    FProgrammeName: String;       // Official Name shown to the user
-    FVersionNr: String;           // Internal Programme-Version
-    FVersionDate: String;         // Build-Date
-    FLazarusVersion: String;      // Version of the Lazarus IDE the programme was built with
-    FOSName: String;              // The Internal Name for the used Operating System
-    Flanguage: String;            // Language chosen by User - default is English
+    FProgrammeName: string;       // Official Name shown to the user
+    FVersionNr: string;           // Internal Programme-Version
+    FVersionDate: string;         // Build-Date
+    FLazarusVersion: string;      // Version of the Lazarus IDE the programme was built with
+    FOSName: string;              // The Internal Name for the used Operating System
+    Flanguage: string;            // Language chosen by User - default is English
 
-    FSeparator: String;           // The Separator for Dates e.g. "01.02.2014" has "."
+    FSeparator: string;           // The Separator for Dates e.g. "01.02.2014" has "."
 
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
+    EditWeekForm: TForm3;         // The window that you can edit a week with
   public
     { public declarations }
   end;
@@ -116,16 +119,16 @@ begin
 
   FOSName := 'unknown';             // Other OS
   {$IFDEF mswindows}
-    FOSName := 'Windows';
+  FOSName := 'Windows';
   {$ENDIF}
   {$IFDEF linux}
-    FOSName := 'Linux';
+  FOSName := 'Linux';
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.10';
-  FVersionDate := '29.04.2014';
+  FVersionNr := '0.0.0.11';
+  FVersionDate := '30.04.2014';
   FLazarusVersion := '1.2.0';
-  self.Caption := FProgrammeName + '  ' +  FVersionNr;
+  self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';
   FSeparator := '.';
 
@@ -136,6 +139,7 @@ begin
   FTranslations := TStringList.Create;
   clearStringGrid(StringGrid1);
   AboutForm := TForm2.Create(nil);
+  EditWeekForm := TForm3.Create(nil);
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
@@ -149,16 +153,15 @@ begin
 end;
 
 
-procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: Integer;
-  var CanSelect: Boolean);
+procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
   try
-    FSelectionIndex := aRow-1;
-    FromDateEdit.Text := DateToStr(FWeekList.Items[aRow-1].FromDate);
-    ToDateEdit.Text := DateToStr(FWeekList.Items[aRow-1].ToDate);
+    FSelectionIndex := aRow - 1;
+    FromDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].FromDate);
+    ToDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].ToDate);
     EnableAllFields;
 
-    WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow-1]);
+    WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
   except
   end;
 end;
@@ -168,15 +171,15 @@ procedure TForm1.FromDateEditEditingDone(Sender: TObject);
 var
   Date1, Date2: TDate;
 begin
-    if TryStrToDate(FromDateEdit.Text, Date1) and TryStrToDate(ToDateEdit.Text, Date2) then
-    begin
-      WorkdaysEdit.Text := IntToStr(DaysBetween( Date1, Date2 )+1);
-      ToDateEditEditingDone(nil);
-    end
-    else
-    begin
-     // Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
-    end;
+  if TryStrToDate(FromDateEdit.Text, Date1) and TryStrToDate(ToDateEdit.Text, Date2) then
+  begin
+    WorkdaysEdit.Text := IntToStr(DaysBetween(Date1, Date2) + 1);
+    ToDateEditEditingDone(nil);
+  end
+  else
+  begin
+    // Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
+  end;
 end;
 
 procedure TForm1.ToDateEditChange(Sender: TObject);
@@ -197,19 +200,19 @@ end;
 
 procedure TForm1.ApplyValuesFromGrid(Sender: TObject);
 var
-  I: Integer;
+  I: integer;
 begin
 
   // The ClockTimes entered in the edit-grid now will be stored in the week
   for I := 0 to FWeeklist.Items[FSelectionIndex].IntendedWorkDayCount do
   begin
     // Begin of Work
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := getHour(StringGrid2.Cells[1,I]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute := getMinute(StringGrid2.Cells[1,I]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour := getHour(StringGrid2.Cells[1, I]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute := getMinute(StringGrid2.Cells[1, I]);
 
     // End of Work
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[2,I]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[2,I]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour := getHour(StringGrid2.Cells[2, I]);
+    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute := getMinute(StringGrid2.Cells[2, I]);
 
     // Additional hours
     // FWeeklist.Items[FSelectionIndex].Days.Items[I].AdditionalTime := StrToCurr(StringGrid2.Cells[3,I+1]);
@@ -217,9 +220,15 @@ begin
 
 end;
 
+procedure TForm1.BitBtn1Click(Sender: TObject);
+begin
+  EditWeekForm.Visible := True;
+end;
+
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
   begin
     CanClose := True;
   end
@@ -245,7 +254,7 @@ begin
   begin
     FWeekList.Delete(FSelectionIndex);
     WeeksToStringGrid(StringGrid1, FWeekList);
-    FSelectionIndex := - 1;
+    FSelectionIndex := -1;
   end;
   DisableAllFields;
 end;
@@ -253,21 +262,21 @@ end;
 procedure TForm1.ApplyChanges(Sender: TObject);
 var
   date1, date2: TDate;
-  days: Integer;
+  days: integer;
 begin
-    date1 := StrToDate(FromDateEdit.Text);
-    date2 := StrToDate(ToDateEdit.Text);
+  date1 := StrToDate(FromDateEdit.Text);
+  date2 := StrToDate(ToDateEdit.Text);
 
-    days := DaysBetween( date1, date2 );
-    WorkdaysEdit.Text := IntToStr(days+1);
-    FWeekList.Items[FSelectionIndex].IntendedWorkDayCount := days;
+  days := DaysBetween(date1, date2);
+  WorkdaysEdit.Text := IntToStr(days + 1);
+  FWeekList.Items[FSelectionIndex].IntendedWorkDayCount := days;
 
   if (days > 6) or (date1 > date2) then
   begin
     days := 6;
-    date2 := date1 + defDaysPerWeek-1;
+    date2 := date1 + defDaysPerWeek - 1;
     ToDateEdit.Text := DateToStr(date2);
-    application.MessageBox('A week cannot exceed 7 days! Please select a valid value for a week!','Warning',0);
+    application.MessageBox('A week cannot exceed 7 days! Please select a valid value for a week!', 'Warning', 0);
   end;
   if (FSelectionIndex >= 0) then
   begin
@@ -283,7 +292,8 @@ end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
 begin
-  if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
   begin
     FWeekList.Clear;
     WeeksToStringGrid(StringGrid1, FWeekList);
@@ -294,10 +304,10 @@ end;
 
 procedure TForm1.ToDateEditEditingDone(Sender: TObject);
 begin
-  try
-    WorkdaysEdit.Text := IntToStr(DaysBetween( StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text))+1);
-  except
-  end;
+  //try
+    WorkdaysEdit.Text := IntToStr(DaysBetween(StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text)) + 1);
+  //except
+  //end;
 end;
 
 procedure TForm1.EnableAllFields;
@@ -311,7 +321,7 @@ begin
   UndoButton.Enabled := True;
   label1.Enabled := True;
   label2.Enabled := True;
-  label3.Caption := 'Week #' + IntToStr(FSelectionIndex+1);
+  label3.Caption := 'Week #' + IntToStr(FSelectionIndex + 1);
 end;
 
 procedure TForm1.DisableAllFields;
@@ -330,7 +340,8 @@ end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
   begin
     Application.Terminate;
   end;
@@ -338,4 +349,3 @@ end;
 
 
 end.
-

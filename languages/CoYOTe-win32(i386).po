@@ -11,6 +11,11 @@ msgctxt "TFORM1.APPLYBUTTON.CAPTION"
 msgid "Apply"
 msgstr ""
 
+#: tform1.bitbtn1.caption
+msgctxt "TFORM1.BITBTN1.CAPTION"
+msgid "Edit"
+msgstr ""
+
 #: tform1.caption
 msgid "CoYOT(e) - Overtime Calculator"
 msgstr ""
@@ -85,6 +90,7 @@ msgid "Save"
 msgstr ""
 
 #: tform1.menuitem2.caption
+msgctxt "tform1.menuitem2.caption"
 msgid "Edit"
 msgstr ""
 
@@ -168,18 +174,22 @@ msgid "Total"
 msgstr ""
 
 #: tform1.stringgrid2.columns[0].title.caption
+msgctxt "tform1.stringgrid2.columns[0].title.caption"
 msgid "Weekdays"
 msgstr ""
 
 #: tform1.stringgrid2.columns[1].title.caption
+msgctxt "tform1.stringgrid2.columns[1].title.caption"
 msgid "Start"
 msgstr ""
 
 #: tform1.stringgrid2.columns[2].title.caption
+msgctxt "tform1.stringgrid2.columns[2].title.caption"
 msgid "End"
 msgstr ""
 
 #: tform1.stringgrid2.columns[3].title.caption
+msgctxt "tform1.stringgrid2.columns[3].title.caption"
 msgid "addit."
 msgstr ""
 
@@ -228,5 +238,51 @@ msgstr ""
 
 #: tform2.statictext1.caption
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
+msgstr ""
+
+#: tform3.applybutton.caption
+msgctxt "TFORM3.APPLYBUTTON.CAPTION"
+msgid "Apply"
+msgstr ""
+
+#: tform3.backbutton.caption
+msgid "Back"
+msgstr ""
+
+#: tform3.caption
+msgid "Edit Week"
+msgstr ""
+
+#: tform3.label1.caption
+msgid "Week 1"
+msgstr ""
+
+#: tform3.stringgrid2.columns[0].title.caption
+msgctxt "TFORM3.STRINGGRID2.COLUMNS[0].TITLE.CAPTION"
+msgid "Weekdays"
+msgstr ""
+
+#: tform3.stringgrid2.columns[1].title.caption
+msgctxt "TFORM3.STRINGGRID2.COLUMNS[1].TITLE.CAPTION"
+msgid "Start"
+msgstr ""
+
+#: tform3.stringgrid2.columns[2].title.caption
+msgctxt "TFORM3.STRINGGRID2.COLUMNS[2].TITLE.CAPTION"
+msgid "End"
+msgstr ""
+
+#: tform3.stringgrid2.columns[3].title.caption
+msgid "Time off"
+msgstr ""
+
+#: tform3.stringgrid2.columns[4].title.caption
+msgctxt "TFORM3.STRINGGRID2.COLUMNS[4].TITLE.CAPTION"
+msgid "addit."
+msgstr ""
+
+#: tform3.undobutton.caption
+msgctxt "TFORM3.UNDOBUTTON.CAPTION"
+msgid "Undo"
 msgstr ""
 
