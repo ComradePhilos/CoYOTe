@@ -14,9 +14,9 @@ type
 
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
+		Arrow1: TArrow;
+		Arrow2: TArrow;
     BackButton: TBitBtn;
-		BitBtn1: TBitBtn;
-		BitBtn2: TBitBtn;
     Label1: TLabel;
     UndoButton: TBitBtn;
     StringGrid2: TStringGrid;

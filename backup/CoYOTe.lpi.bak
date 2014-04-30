@@ -80,12 +80,10 @@
         <UnitName Value="WeekEditForm"/>
       </Unit5>
       <Unit6>
-        <Filename Value="forms\addweekform.pas"/>
+        <Filename Value="forms\weekaddform.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form4"/>
         <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="AddWeekForm"/>
+        <UnitName Value="weekaddform"/>
       </Unit6>
     </Units>
   </ProjectOptions>

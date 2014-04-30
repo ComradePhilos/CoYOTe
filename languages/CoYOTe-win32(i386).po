@@ -1,66 +1,12 @@
 msgid "(philip.maerksch@gmx.de)"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-#: tform1.addbutton.caption
-msgctxt "TFORM1.ADDBUTTON.CAPTION"
-msgid "Add"
-msgstr ""
-
-#: tform1.applybutton.caption
-msgctxt "TFORM1.APPLYBUTTON.CAPTION"
-msgid "Apply"
-msgstr ""
-
-#: tform1.bitbtn1.caption
-msgctxt "TFORM1.BITBTN1.CAPTION"
-msgid "Edit"
-msgstr ""
-
 #: tform1.caption
 msgid "CoYOT(e) - Overtime Calculator"
 msgstr ""
 
-#: tform1.fromdateedit.cancelcaption
-msgctxt "TFORM1.FROMDATEEDIT.CANCELCAPTION"
-msgid "Cancel"
-msgstr ""
-
-#: tform1.fromdateedit.dialogtitle
-msgctxt "TFORM1.FROMDATEEDIT.DIALOGTITLE"
-msgid "Select Beginning of the week"
-msgstr ""
-
-#: tform1.fromdateedit.okcaption
-msgctxt "TFORM1.FROMDATEEDIT.OKCAPTION"
-msgid "OK"
-msgstr ""
-
 #: tform1.groupbox1.caption
 msgid "Information and Statistics"
-msgstr ""
-
-#: tform1.hoursperdayedit.editlabel.caption
-msgctxt "TFORM1.HOURSPERDAYEDIT.EDITLABEL.CAPTION"
-msgid "Hours  per Day"
-msgstr ""
-
-#: tform1.hoursperdayedit.text
-msgctxt "TFORM1.HOURSPERDAYEDIT.TEXT"
-msgid "8"
-msgstr ""
-
-#: tform1.label1.caption
-msgctxt "tform1.label1.caption"
-msgid "From"
-msgstr ""
-
-#: tform1.label2.caption
-msgctxt "tform1.label2.caption"
-msgid "To"
-msgstr ""
-
-#: tform1.label3.caption
-msgid "Week #"
 msgstr ""
 
 #: tform1.menuitem1.caption
@@ -125,16 +71,6 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: tform1.removeallbutton.caption
-msgctxt "TFORM1.REMOVEALLBUTTON.CAPTION"
-msgid "Remove all"
-msgstr ""
-
-#: tform1.removebutton.caption
-msgctxt "TFORM1.REMOVEBUTTON.CAPTION"
-msgid "Remove"
-msgstr ""
-
 #: tform1.stringgrid1.columns[0].title.caption
 msgid "Nr"
 msgstr ""
@@ -193,36 +129,6 @@ msgstr ""
 #: tform1.stringgrid2.columns[3].title.caption
 msgctxt "tform1.stringgrid2.columns[3].title.caption"
 msgid "addit."
-msgstr ""
-
-#: tform1.todateedit.cancelcaption
-msgctxt "TFORM1.TODATEEDIT.CANCELCAPTION"
-msgid "Cancel"
-msgstr ""
-
-#: tform1.todateedit.dialogtitle
-msgctxt "TFORM1.TODATEEDIT.DIALOGTITLE"
-msgid "Select Date"
-msgstr ""
-
-#: tform1.todateedit.okcaption
-msgctxt "TFORM1.TODATEEDIT.OKCAPTION"
-msgid "OK"
-msgstr ""
-
-#: tform1.undobutton.caption
-msgctxt "TFORM1.UNDOBUTTON.CAPTION"
-msgid "Undo"
-msgstr ""
-
-#: tform1.workdaysedit.editlabel.caption
-msgctxt "TFORM1.WORKDAYSEDIT.EDITLABEL.CAPTION"
-msgid "Working Days"
-msgstr ""
-
-#: tform1.workdaysedit.text
-msgctxt "TFORM1.WORKDAYSEDIT.TEXT"
-msgid "0"
 msgstr ""
 
 #: tform2.caption

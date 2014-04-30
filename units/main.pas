@@ -19,28 +19,22 @@ uses
   Dialogs, ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
   BarChart, Grids, Menus, PopupNotifier, StdCtrls, ExtCtrls, ExtDlgs, Buttons,
   MaskEdit, DateUtils, LResources, Translations,
+  { Forms }
+   WeekEditForm, WeekAddForm,
   { eigene Units }
-  workdays, funcs, about, WeekEditForm;
+  workdays, funcs, about;
 
 type
 
   { TForm1 }
 
   TForm1 = class(TForm)
-    ApplyButton: TBitBtn;
     BitBtn1: TBitBtn;
-    UndoButton: TBitBtn;
+		QuickMenu: TPanel;
     AddButton: TBitBtn;
     RemoveButton: TBitBtn;
     RemoveAllButton: TBitBtn;
-    FromDateEdit: TDateEdit;
-    ToDateEdit: TDateEdit;
     GroupBox1: TGroupBox;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    WorkdaysEdit: TLabeledEdit;
-    HoursPerDayEdit: TLabeledEdit;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -102,6 +96,7 @@ type
 
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
     EditWeekForm: TForm3;         // The window that you can edit a week with
+    AddWeekForm: TForm4;          // A window to add a new week to the "data base"
   public
     { public declarations }
   end;
@@ -120,13 +115,13 @@ begin
 
   FOSName := 'unknown';             // Other OS
   {$IFDEF mswindows}
-  FOSName := 'Windows';
+    FOSName := 'Windows';
   {$ENDIF}
   {$IFDEF linux}
-  FOSName := 'Linux';
+    FOSName := 'Linux';
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.11';
+  FVersionNr := '0.0.0.12';
   FVersionDate := '30.04.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -141,6 +136,7 @@ begin
   clearStringGrid(StringGrid1);
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
+  AddWeekForm := TForm4.Create(nil);
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
@@ -158,8 +154,8 @@ procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect:
 begin
   try
     FSelectionIndex := aRow - 1;
-    FromDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].FromDate);
-    ToDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].ToDate);
+    //FromDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].FromDate);
+    //ToDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].ToDate);
     EnableAllFields;
 
     WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
@@ -172,15 +168,14 @@ procedure TForm1.FromDateEditEditingDone(Sender: TObject);
 var
   Date1, Date2: TDate;
 begin
-  if TryStrToDate(FromDateEdit.Text, Date1) and TryStrToDate(ToDateEdit.Text, Date2) then
-  begin
-    WorkdaysEdit.Text := IntToStr(DaysBetween(Date1, Date2) + 1);
-    ToDateEditEditingDone(nil);
-  end
-  else
-  begin
+  //if TryStrToDate(FromDateEdit.Text, Date1) and TryStrToDate(ToDateEdit.Text, Date2) then
+  //begin
+   // WorkdaysEdit.Text := IntToStr(DaysBetween(Date1, Date2) + 1);
+    //ToDateEditEditingDone(nil);
+  ////else
+  //begin
     // Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
-  end;
+  //end;
 end;
 
 procedure TForm1.ToDateEditChange(Sender: TObject);
@@ -195,8 +190,9 @@ end;
 
 procedure TForm1.AddWeek(Sender: TObject);
 begin
-  FWeekList.Add(TWorkWeek.Create);
-  WeeksToStringGrid(StringGrid1, FWeekList);
+  //FWeekList.Add(TWorkWeek.Create);
+  //WeeksToStringGrid(StringGrid1, FWeekList);
+  AddWeekForm.Visible := True;
 end;
 
 procedure TForm1.ApplyValuesFromGrid(Sender: TObject);
@@ -246,6 +242,7 @@ procedure TForm1.FormDestroy(Sender: TObject);
 begin
   AboutForm.Free;
   EditWeekForm.Free;
+  AddWeekForm.Free;
 end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);
@@ -274,25 +271,25 @@ var
   date1, date2: TDate;
   days: integer;
 begin
-  date1 := StrToDate(FromDateEdit.Text);
-  date2 := StrToDate(ToDateEdit.Text);
+  //date1 := StrToDate(FromDateEdit.Text);
+  //date2 := StrToDate(ToDateEdit.Text);
 
-  days := DaysBetween(date1, date2);
-  WorkdaysEdit.Text := IntToStr(days + 1);
+  //days := DaysBetween(date1, date2);
+  //WorkdaysEdit.Text := IntToStr(days + 1);
   FWeekList.Items[FSelectionIndex].IntendedWorkDayCount := days;
 
   if (days > 6) or (date1 > date2) then
   begin
     days := 6;
     date2 := date1 + defDaysPerWeek - 1;
-    ToDateEdit.Text := DateToStr(date2);
+    //ToDateEdit.Text := DateToStr(date2);
     application.MessageBox('A week cannot exceed 7 days! Please select a valid value for a week!', 'Warning', 0);
   end;
   if (FSelectionIndex >= 0) then
   begin
     try
-      FWeekList.Items[FSelectionIndex].FromDate := StrToDate(FromDateEdit.Text);
-      FWeekList.Items[FSelectionIndex].ToDate := StrToDate(ToDateEdit.Text);
+      //FWeekList.Items[FSelectionIndex].FromDate := StrToDate(FromDateEdit.Text);
+      //FWeekList.Items[FSelectionIndex].ToDate := StrToDate(ToDateEdit.Text);
       WeeksToStringGrid(StringGrid1, FWeekList);
     except
     end;
@@ -314,35 +311,17 @@ end;
 
 procedure TForm1.ToDateEditEditingDone(Sender: TObject);
 begin
-  WorkdaysEdit.Text := IntToStr(DaysBetween(StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text)) + 1);
+  //WorkdaysEdit.Text := IntToStr(DaysBetween(StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text)) + 1);
 end;
 
 procedure TForm1.EnableAllFields;
 begin
-  FromDateEdit.Enabled := True;
-  ToDateEdit.Enabled := True;
-  WorkdaysEdit.Enabled := True;
-  HoursPerDayEdit.Enabled := True;
 
-  ApplyButton.Enabled := True;
-  UndoButton.Enabled := True;
-  label1.Enabled := True;
-  label2.Enabled := True;
-  label3.Caption := 'Week #' + IntToStr(FSelectionIndex + 1);
 end;
 
 procedure TForm1.DisableAllFields;
 begin
-  FromDateEdit.Enabled := False;
-  ToDateEdit.Enabled := False;
-  WorkdaysEdit.Enabled := False;
-  HoursPerDayEdit.Enabled := False;
 
-  ApplyButton.Enabled := False;
-  UndoButton.Enabled := False;
-  label1.Enabled := False;
-  label2.Enabled := False;
-  label3.Caption := '';
 end;
 
 procedure TForm1.MenuQuit(Sender: TObject);

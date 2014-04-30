@@ -155,6 +155,7 @@ object Form3: TForm3
     Top = 273
     Width = 75
     Caption = 'Back'
+    OnClick = BackButtonClick
     TabOrder = 2
   end
   object UndoButton: TBitBtn

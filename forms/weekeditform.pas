@@ -21,7 +21,8 @@ type
     UndoButton: TBitBtn;
     StringGrid2: TStringGrid;
 
-		procedure FormCreate(Sender: TObject);
+		procedure BackButtonClick(Sender: TObject);
+  procedure FormCreate(Sender: TObject);
   private
     { private declarations }
   public
@@ -42,6 +43,11 @@ implementation
 procedure TForm3.FormCreate(Sender: TObject);
 begin
 
+end;
+
+procedure TForm3.BackButtonClick(Sender: TObject);
+begin
+  self.Visible := False;
 end;
 
 end.
