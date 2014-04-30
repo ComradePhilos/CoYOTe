@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 170
   Width = 1157
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 757
+  ClientHeight = 737
   ClientWidth = 1157
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -116,9 +116,9 @@ object Form1: TForm1
     )
   end
   object StringGrid2: TStringGrid
-    Left = 320
+    Left = 313
     Height = 234
-    Top = 496
+    Top = 442
     Width = 465
     ColCount = 4
     Columns = <    
@@ -431,7 +431,7 @@ object Form1: TForm1
   end
   object FromDateEdit: TDateEdit
     Left = 16
-    Height = 26
+    Height = 25
     Top = 541
     Width = 112
     DialogTitle = 'Select Beginning of the week'
@@ -449,7 +449,7 @@ object Form1: TForm1
   end
   object Label1: TLabel
     Left = 56
-    Height = 16
+    Height = 17
     Top = 525
     Width = 31
     Caption = 'From'
@@ -457,7 +457,7 @@ object Form1: TForm1
   end
   object ToDateEdit: TDateEdit
     Left = 159
-    Height = 26
+    Height = 25
     Top = 541
     Width = 120
     DialogTitle = 'Select Date'
@@ -475,7 +475,7 @@ object Form1: TForm1
   end
   object Label2: TLabel
     Left = 215
-    Height = 16
+    Height = 17
     Top = 525
     Width = 14
     Caption = 'To'
@@ -483,7 +483,7 @@ object Form1: TForm1
   end
   object WorkdaysEdit: TLabeledEdit
     Left = 16
-    Height = 26
+    Height = 25
     Top = 605
     Width = 80
     Alignment = taRightJustify
@@ -492,8 +492,8 @@ object Form1: TForm1
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = WorkdaysEdit
     EditLabel.Left = 16
-    EditLabel.Height = 16
-    EditLabel.Top = 586
+    EditLabel.Height = 17
+    EditLabel.Top = 585
     EditLabel.Width = 80
     EditLabel.Caption = 'Working Days'
     EditLabel.ParentColor = False
@@ -503,7 +503,7 @@ object Form1: TForm1
   end
   object HoursPerDayEdit: TLabeledEdit
     Left = 144
-    Height = 26
+    Height = 25
     Top = 605
     Width = 88
     Alignment = taRightJustify
@@ -512,8 +512,8 @@ object Form1: TForm1
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 144
-    EditLabel.Height = 16
-    EditLabel.Top = 586
+    EditLabel.Height = 17
+    EditLabel.Top = 585
     EditLabel.Width = 88
     EditLabel.Caption = 'Hours  per Day'
     EditLabel.ParentColor = False
@@ -693,16 +693,16 @@ object Form1: TForm1
   end
   object Label3: TLabel
     Left = 16
-    Height = 16
+    Height = 17
     Top = 496
-    Width = 45
+    Width = 46
     Caption = 'Week #'
     ParentColor = False
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 736
+    Height = 23
+    Top = 714
     Width = 1157
     Panels = <    
       item
@@ -1014,4 +1014,4 @@ object Form1: TForm1
       end
     end
   end
-end
+end

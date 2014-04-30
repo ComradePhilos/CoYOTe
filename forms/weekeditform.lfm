@@ -1,0 +1,91 @@
+object Form3: TForm3
+  Left = 558
+  Height = 278
+  Top = 230
+  Width = 416
+  Caption = 'Edit Week'
+  ClientHeight = 278
+  ClientWidth = 416
+  LCLVersion = '1.2.0.3'
+  object StringGrid2: TStringGrid
+    Left = 0
+    Height = 234
+    Top = 0
+    Width = 417
+    Columns = <    
+      item
+        Alignment = taCenter
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'Weekdays'
+        Width = 122
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'Start'
+        Width = 73
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'End'
+        Width = 71
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'Time off'
+        Width = 75
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'addit.'
+        Width = 73
+      end>
+    DefaultRowHeight = 29
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
+    RowCount = 8
+    ScrollBars = ssNone
+    TabOrder = 0
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -13
+    TitleFont.Name = 'Ubuntu'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+    TitleStyle = tsNative
+    ColWidths = (
+      122
+      73
+      71
+      75
+      73
+    )
+  end
+  object BitBtn1: TBitBtn
+    Left = 328
+    Height = 30
+    Top = 240
+    Width = 75
+    Caption = 'Apply'
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    Left = 8
+    Height = 30
+    Top = 240
+    Width = 75
+    Caption = 'Cancel'
+    TabOrder = 2
+  end
+  object BitBtn3: TBitBtn
+    Left = 248
+    Height = 30
+    Top = 240
+    Width = 75
+    Caption = 'Undo'
+    TabOrder = 3
+  end
+end
