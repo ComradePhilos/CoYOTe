@@ -66,6 +66,7 @@ type
     procedure ApplyValuesFromGrid(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
+		procedure FormDestroy(Sender: TObject);
     procedure MenuSelectEnglish(Sender: TObject);
     procedure MenuAbout(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
@@ -236,6 +237,12 @@ begin
   begin
     CanClose := False;
   end;
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  AboutForm.Free;
+  EditWeekForm.Free;
 end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);

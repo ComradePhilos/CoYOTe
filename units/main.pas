@@ -311,10 +311,7 @@ end;
 
 procedure TForm1.ToDateEditEditingDone(Sender: TObject);
 begin
-  //try
-    WorkdaysEdit.Text := IntToStr(DaysBetween(StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text)) + 1);
-  //except
-  //end;
+  WorkdaysEdit.Text := IntToStr(DaysBetween(StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text)) + 1);
 end;
 
 procedure TForm1.EnableAllFields;

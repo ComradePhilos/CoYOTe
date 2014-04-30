@@ -14,6 +14,7 @@ object Form1: TForm1
   Menu = MainMenu1
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   Position = poScreenCenter
   LCLVersion = '1.2.0.3'
   object GroupBox1: TGroupBox
@@ -931,15 +932,18 @@ object Form1: TForm1
       Caption = 'View'
       object MenuItem6: TMenuItem
         Caption = 'show Overtimes'
+        Enabled = False
       end
       object MenuItem7: TMenuItem
         Caption = 'show Clock Times'
+        Enabled = False
       end
     end
     object MenuItem9: TMenuItem
       Caption = 'Options'
       object MenuItem10: TMenuItem
         Caption = 'Programme Settings'
+        Enabled = False
       end
       object MenuItem11: TMenuItem
         Caption = 'Language'
@@ -1019,6 +1023,7 @@ object Form1: TForm1
         end
         object MenuItem13: TMenuItem
           Caption = 'German'
+          Enabled = False
           Bitmap.Data = {
             DE030000424DDE030000000000003600000028000000120000000D0000000100
             200000000000A80300006400000064000000000000000000000000CEFFFF00CE
