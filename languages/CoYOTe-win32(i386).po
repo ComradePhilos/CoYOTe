@@ -50,10 +50,12 @@ msgid "8"
 msgstr ""
 
 #: tform1.label1.caption
+msgctxt "tform1.label1.caption"
 msgid "From"
 msgstr ""
 
 #: tform1.label2.caption
+msgctxt "tform1.label2.caption"
 msgid "To"
 msgstr ""
 
@@ -284,5 +286,69 @@ msgstr ""
 #: tform3.undobutton.caption
 msgctxt "TFORM3.UNDOBUTTON.CAPTION"
 msgid "Undo"
+msgstr ""
+
+#: tform4.applybutton.caption
+msgctxt "TFORM4.APPLYBUTTON.CAPTION"
+msgid "Apply"
+msgstr ""
+
+#: tform4.caption
+msgid "Add new Week"
+msgstr ""
+
+#: tform4.fromdateedit.cancelcaption
+msgctxt "TFORM4.FROMDATEEDIT.CANCELCAPTION"
+msgid "Cancel"
+msgstr ""
+
+#: tform4.fromdateedit.dialogtitle
+msgctxt "TFORM4.FROMDATEEDIT.DIALOGTITLE"
+msgid "Select Beginning of the week"
+msgstr ""
+
+#: tform4.fromdateedit.okcaption
+msgctxt "TFORM4.FROMDATEEDIT.OKCAPTION"
+msgid "OK"
+msgstr ""
+
+#: tform4.hoursperdayedit.editlabel.caption
+msgctxt "TFORM4.HOURSPERDAYEDIT.EDITLABEL.CAPTION"
+msgid "Hours  per Day"
+msgstr ""
+
+#: tform4.hoursperdayedit.text
+msgctxt "TFORM4.HOURSPERDAYEDIT.TEXT"
+msgid "8"
+msgstr ""
+
+#: tform4.label1.caption
+msgctxt "TFORM4.LABEL1.CAPTION"
+msgid "From"
+msgstr ""
+
+#: tform4.label2.caption
+msgctxt "TFORM4.LABEL2.CAPTION"
+msgid "To"
+msgstr ""
+
+#: tform4.todateedit.cancelcaption
+msgctxt "TFORM4.TODATEEDIT.CANCELCAPTION"
+msgid "Cancel"
+msgstr ""
+
+#: tform4.todateedit.dialogtitle
+msgctxt "TFORM4.TODATEEDIT.DIALOGTITLE"
+msgid "Select Date"
+msgstr ""
+
+#: tform4.todateedit.okcaption
+msgctxt "TFORM4.TODATEEDIT.OKCAPTION"
+msgid "OK"
+msgstr ""
+
+#: tform4.undobutton.caption
+msgctxt "TFORM4.UNDOBUTTON.CAPTION"
+msgid "Cancel"
 msgstr ""
 

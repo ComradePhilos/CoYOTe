@@ -1,74 +1,84 @@
-object Form3: TForm3
-  Left = 558
-  Height = 313
-  Top = 190
-  Width = 414
-  Caption = 'Edit Week'
-  ClientHeight = 313
-  ClientWidth = 414
+object Form4: TForm4
+  Left = 820
+  Height = 165
+  Top = 282
+  Width = 304
+  Caption = 'Add new Week'
+  ClientHeight = 165
+  ClientWidth = 304
   LCLVersion = '1.2.0.3'
-  object StringGrid2: TStringGrid
-    Left = 0
-    Height = 234
-    Top = 33
-    Width = 412
-    Columns = <    
-      item
-        Alignment = taCenter
-        ReadOnly = True
-        Title.Alignment = taCenter
-        Title.Caption = 'Weekdays'
-        Width = 122
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'Start'
-        Width = 73
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'End'
-        Width = 71
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'Time off'
-        Width = 75
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'addit.'
-        Width = 73
-      end>
-    DefaultRowHeight = 29
-    FixedCols = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
-    RowCount = 8
-    ScrollBars = ssNone
+  object FromDateEdit: TDateEdit
+    Left = 8
+    Height = 23
+    Top = 32
+    Width = 120
+    DialogTitle = 'Select Beginning of the week'
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+    OKCaption = 'OK'
+    CancelCaption = 'Cancel'
+    DateOrder = doNone
+    ButtonWidth = 23
+    CharCase = ecNormal
+    NumGlyphs = 1
+    MaxLength = 0
     TabOrder = 0
-    TitleFont.CharSet = ANSI_CHARSET
-    TitleFont.Height = -13
-    TitleFont.Name = 'Ubuntu'
-    TitleFont.Pitch = fpVariable
-    TitleFont.Quality = fqDraft
-    TitleStyle = tsNative
-    ColWidths = (
-      122
-      73
-      71
-      75
-      73
-    )
+  end
+  object Label1: TLabel
+    Left = 40
+    Height = 15
+    Top = 8
+    Width = 28
+    Caption = 'From'
+    ParentColor = False
+  end
+  object ToDateEdit: TDateEdit
+    Left = 155
+    Height = 23
+    Top = 32
+    Width = 120
+    DialogTitle = 'Select Date'
+    CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames, dsShowWeekNumbers]
+    OKCaption = 'OK'
+    CancelCaption = 'Cancel'
+    DateOrder = doNone
+    ButtonWidth = 23
+    CharCase = ecNormal
+    NumGlyphs = 1
+    MaxLength = 0
+    TabOrder = 1
+  end
+  object Label2: TLabel
+    Left = 203
+    Height = 15
+    Top = 8
+    Width = 14
+    Caption = 'To'
+    ParentColor = False
+  end
+  object HoursPerDayEdit: TLabeledEdit
+    Left = 8
+    Height = 23
+    Top = 80
+    Width = 120
+    Alignment = taRightJustify
+    EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
+    EditLabel.AnchorSideRight.Control = HoursPerDayEdit
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
+    EditLabel.Left = 8
+    EditLabel.Height = 15
+    EditLabel.Top = 62
+    EditLabel.Width = 120
+    EditLabel.Caption = 'Hours  per Day'
+    EditLabel.ParentColor = False
+    TabOrder = 2
+    Text = '8'
   end
   object ApplyButton: TBitBtn
-    Left = 336
+    Left = 216
     Height = 30
-    Top = 273
-    Width = 75
+    Top = 128
+    Width = 83
     Caption = 'Apply'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -146,23 +156,15 @@ object Form3: TForm3
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    TabOrder = 1
-  end
-  object BackButton: TBitBtn
-    Left = 8
-    Height = 30
-    Top = 273
-    Width = 75
-    Caption = 'Back'
-    OnClick = BackButtonClick
-    TabOrder = 2
+    Spacing = 0
+    TabOrder = 3
   end
   object UndoButton: TBitBtn
-    Left = 256
+    Left = 8
     Height = 30
-    Top = 273
-    Width = 75
-    Caption = 'Undo'
+    Top = 128
+    Width = 83
+    Caption = 'Cancel'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -239,14 +241,7 @@ object Form3: TForm3
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    TabOrder = 3
-  end
-  object Label1: TLabel
-    Left = 184
-    Height = 15
-    Top = 8
-    Width = 38
-    Caption = 'Week 1'
-    ParentColor = False
+    Spacing = 0
+    TabOrder = 4
   end
 end

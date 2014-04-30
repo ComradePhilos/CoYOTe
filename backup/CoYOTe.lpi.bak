@@ -39,7 +39,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="6">
+    <Units Count="7">
       <Unit0>
         <Filename Value="CoYOTe.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -79,6 +79,14 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="WeekEditForm"/>
       </Unit5>
+      <Unit6>
+        <Filename Value="forms\addweekform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form4"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="addweekform"/>
+      </Unit6>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

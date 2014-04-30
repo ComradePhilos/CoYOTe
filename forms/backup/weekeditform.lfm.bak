@@ -154,6 +154,7 @@ object Form3: TForm3
     Top = 273
     Width = 75
     Caption = 'Back'
+    OnClick = BackButtonClick
     TabOrder = 2
   end
   object UndoButton: TBitBtn
@@ -247,14 +248,5 @@ object Form3: TForm3
     Width = 38
     Caption = 'Week 1'
     ParentColor = False
-  end
-  object Arrow1: TArrow
-    Left = 8
-    Height = 20
-    Top = 8
-    Width = 20
-    Constraints.MinHeight = 8
-    Constraints.MinWidth = 8
-    ShadowType = stNone
   end
 end

@@ -14,11 +14,11 @@ type
 
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
-    Arrow1: TArrow;
     BackButton: TBitBtn;
     Label1: TLabel;
     UndoButton: TBitBtn;
     StringGrid2: TStringGrid;
+		procedure BackButtonClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -34,6 +34,11 @@ implementation
 
 { TForm3 }
 
+
+procedure TForm3.BackButtonClick(Sender: TObject);
+begin
+  self.Visible := False;
+end;
 
 end.
 

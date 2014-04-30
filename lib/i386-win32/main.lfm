@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 371
+  Left = 459
   Height = 757
-  Top = 170
+  Top = 166
   Width = 1157
   Caption = 'CoYOT(e) - Overtime Calculator'
   ClientHeight = 737
