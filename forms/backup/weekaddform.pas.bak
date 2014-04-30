@@ -48,7 +48,7 @@ var
 begin
   FWeek := TWorkWeek.Create;
   FWeek.FromDate := StrToDate(FromDateEdit.Text);
-  AWeekList.Add(FWeek);
+  AWeekList.Add();
 end;
 
 end.

@@ -82,8 +82,10 @@
       <Unit6>
         <Filename Value="forms\weekaddform.pas"/>
         <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form4"/>
         <HasResources Value="True"/>
-        <UnitName Value="weekaddform"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="WeekAddForm"/>
       </Unit6>
     </Units>
   </ProjectOptions>

@@ -16,8 +16,8 @@ type
     Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    Memo1: TMemo;
     StaticText1: TStaticText;
-    StaticText2: TStaticText;
 
   private
     { private declarations }
@@ -37,4 +37,3 @@ implementation
 
 
 end.
-

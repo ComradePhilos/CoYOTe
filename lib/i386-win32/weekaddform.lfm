@@ -1,11 +1,12 @@
 object Form4: TForm4
-  Left = 820
+  Left = 204
   Height = 183
-  Top = 282
+  Top = 283
   Width = 320
   Caption = 'Add new Week'
   ClientHeight = 183
   ClientWidth = 320
+  Position = poMainFormCenter
   LCLVersion = '1.2.0.3'
   object FromDateEdit: TDateEdit
     Left = 8
@@ -156,6 +157,7 @@ object Form4: TForm4
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    OnClick = ApplyButtonClick
     Spacing = 0
     TabOrder = 3
   end
@@ -241,6 +243,7 @@ object Form4: TForm4
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    OnClick = UndoButtonClick
     Spacing = 0
     TabOrder = 4
   end

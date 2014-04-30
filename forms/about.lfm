@@ -552,7 +552,7 @@ object Form2: TForm2
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 327
+    Left = 360
     Height = 15
     Top = 161
     Width = 59
