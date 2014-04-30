@@ -1,4 +1,4 @@
-unit addweekform;
+unit AddWeekForm;
 
 {$mode objfpc}{$H+}
 

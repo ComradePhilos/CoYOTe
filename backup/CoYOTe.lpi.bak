@@ -85,7 +85,7 @@
         <ComponentName Value="Form4"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="addweekform"/>
+        <UnitName Value="AddWeekForm"/>
       </Unit6>
     </Units>
   </ProjectOptions>

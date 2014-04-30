@@ -223,7 +223,10 @@ end;
 
 procedure TForm1.BitBtn1Click(Sender: TObject);
 begin
-  EditWeekForm.Visible := True;
+  if (FweekList.Count > 0) and (FSelectionIndex >= 0) then
+  begin
+    EditWeekForm.Visible := True;
+	end;
 end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);

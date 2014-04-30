@@ -1,10 +1,10 @@
 object Form4: TForm4
   Left = 820
-  Height = 165
+  Height = 247
   Top = 282
   Width = 304
   Caption = 'Add new Week'
-  ClientHeight = 165
+  ClientHeight = 247
   ClientWidth = 304
   LCLVersion = '1.2.0.3'
   object FromDateEdit: TDateEdit
@@ -32,9 +32,9 @@ object Form4: TForm4
     ParentColor = False
   end
   object ToDateEdit: TDateEdit
-    Left = 155
+    Left = 8
     Height = 23
-    Top = 32
+    Top = 80
     Width = 120
     DialogTitle = 'Select Date'
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames, dsShowWeekNumbers]
@@ -58,7 +58,7 @@ object Form4: TForm4
   object HoursPerDayEdit: TLabeledEdit
     Left = 8
     Height = 23
-    Top = 80
+    Top = 128
     Width = 120
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
@@ -67,7 +67,7 @@ object Form4: TForm4
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 8
     EditLabel.Height = 15
-    EditLabel.Top = 62
+    EditLabel.Top = 110
     EditLabel.Width = 120
     EditLabel.Caption = 'Hours  per Day'
     EditLabel.ParentColor = False
@@ -75,9 +75,9 @@ object Form4: TForm4
     Text = '8'
   end
   object ApplyButton: TBitBtn
-    Left = 216
+    Left = 8
     Height = 30
-    Top = 128
+    Top = 200
     Width = 83
     Caption = 'Apply'
     Glyph.Data = {
@@ -162,7 +162,7 @@ object Form4: TForm4
   object UndoButton: TBitBtn
     Left = 8
     Height = 30
-    Top = 128
+    Top = 168
     Width = 83
     Caption = 'Cancel'
     Glyph.Data = {
