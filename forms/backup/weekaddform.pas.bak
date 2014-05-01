@@ -61,10 +61,10 @@ var
 begin
 
   locWeek := TWorkWeek.Create;
-  if (TryStrToDate(FromDateEdit.Text, locFDate)) then
+  if (TryStrToDate(FromDateEdit.Text, locDate)) then
   begin
     locWeek.FromDate := locDate;
-    if (TryStrToDate(ToDateEdit.Text, locFDate)) then
+    if (TryStrToDate(ToDateEdit.Text, locDate)) then
     begin
       locWeek.ToDate := locDate;
       if assigned(FOnApplyClick) then

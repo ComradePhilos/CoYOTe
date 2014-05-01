@@ -1,15 +1,15 @@
 object Form3: TForm3
   Left = 558
-  Height = 313
+  Height = 317
   Top = 190
-  Width = 414
+  Width = 428
   Caption = 'Edit Week'
-  ClientHeight = 313
-  ClientWidth = 414
+  ClientHeight = 317
+  ClientWidth = 428
   OnCreate = FormCreate
   LCLVersion = '1.2.0.3'
   object StringGrid2: TStringGrid
-    Left = 0
+    Left = 7
     Height = 234
     Top = 33
     Width = 412
@@ -66,10 +66,10 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 329
+    Left = 337
     Height = 30
     Top = 273
-    Width = 75
+    Width = 82
     Caption = 'Apply'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -159,7 +159,7 @@ object Form3: TForm3
     TabOrder = 2
   end
   object UndoButton: TBitBtn
-    Left = 248
+    Left = 258
     Height = 30
     Top = 273
     Width = 75
@@ -259,7 +259,7 @@ object Form3: TForm3
     Constraints.MinWidth = 8
   end
   object Arrow2: TArrow
-    Left = 384
+    Left = 399
     Height = 20
     Top = 8
     Width = 20

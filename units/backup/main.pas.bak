@@ -29,6 +29,7 @@ type
 
   TForm1 = class(TForm)
     BitBtn1: TBitBtn;
+    BitBtn2: TBitBtn;
     QuickMenu: TPanel;
     AddButton: TBitBtn;
     RemoveButton: TBitBtn;
@@ -58,6 +59,7 @@ type
     procedure AddWeek(Sender: TObject);
     procedure ApplyValuesFromGrid(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure BitBtn2Click(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
     procedure MenuSelectEnglish(Sender: TObject);
@@ -192,10 +194,15 @@ begin
   end;
 end;
 
+procedure TForm1.BitBtn2Click(Sender: TObject);
+begin
+  WeeksToStringGrid(StringGrid1, FWeekList);
+end;
+
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?',
-    mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
   begin
     CanClose := True;
   end
@@ -236,8 +243,8 @@ end;
 
 procedure TForm1.ApplyChanges(Sender: TObject);
 //var
-  //date1, date2: TDate;
-  //days: integer;
+//date1, date2: TDate;
+//days: integer;
 begin
   {
   //date1 := StrToDate(FromDateEdit.Text);
@@ -270,12 +277,15 @@ end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
 begin
-  if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation,
-    [mbYes, mbNo], 0) = mrYes) then
+  if FWeekList.Count > 0 then
   begin
-    FWeekList.Clear;
-    WeeksToStringGrid(StringGrid1, FWeekList);
-    DisableAllFields;
+    if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation,
+      [mbYes, mbNo], 0) = mrYes) then
+    begin
+      FWeekList.Clear;
+      WeeksToStringGrid(StringGrid1, FWeekList);
+      //DisableAllFields;
+    end;
   end;
 end;
 
@@ -291,9 +301,8 @@ end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?',
-    mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
-
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
   begin
     Application.Terminate;
   end;

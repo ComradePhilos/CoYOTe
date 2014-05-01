@@ -210,18 +210,17 @@ begin
     AGrid.Cells[0,1+I] := IntToStr(I+1);
     if (AWeekList.Items[I].FromDate <> AWeekList.Items[I].ToDate) then
     begin
-         AGrid.Cells[1,1+I] := FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate) + ' - ' + FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate);
+         AGrid.Cells[1,1+I] := DateToStr(AWeekList.Items[I].FromDate) + ' - ' + DateToStr(AWeekList.Items[I].ToDate);
     end
     else
     begin
-       AGrid.Cells[1,1+I] := FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate);
+       AGrid.Cells[1,1+I] := DateToStr(AWeekList.Items[I].FromDate);
     end;
   end;
 end;
 
 procedure ClearStringGrid(AGrid: TStringGrid);
 begin
-  // Clear Grid
   while (AGrid.RowCount > 1) do
   begin
     AGrid.DeleteRow(AGrid.RowCount-1);
