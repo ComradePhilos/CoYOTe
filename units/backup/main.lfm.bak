@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 432
-  Height = 587
+  Height = 576
   Top = 246
-  Width = 1157
+  Width = 1123
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 587
-  ClientWidth = 1157
+  ClientHeight = 576
+  ClientWidth = 1123
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -16,12 +16,12 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object GroupBox1: TGroupBox
     Left = 788
-    Height = 227
+    Height = 243
     Top = 5
-    Width = 361
+    Width = 332
     Caption = 'Information and Statistics'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
@@ -117,10 +117,10 @@ object Form1: TForm1
     )
   end
   object StringGrid2: TStringGrid
-    Left = 792
+    Left = 788
     Height = 234
-    Top = 254
-    Width = 465
+    Top = 256
+    Width = 332
     ColCount = 4
     Columns = <    
       item
@@ -171,8 +171,8 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Height = 21
-    Top = 566
-    Width = 1157
+    Top = 555
+    Width = 1123
     Panels = <    
       item
         Width = 100
@@ -196,7 +196,7 @@ object Form1: TForm1
     object AddButton: TBitBtn
       Left = 0
       Height = 32
-      Top = -1
+      Top = 0
       Width = 32
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100
@@ -283,7 +283,7 @@ object Form1: TForm1
     object RemoveButton: TBitBtn
       Left = 31
       Height = 32
-      Top = -1
+      Top = 0
       Width = 32
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100
@@ -369,7 +369,7 @@ object Form1: TForm1
     object RemoveAllButton: TBitBtn
       Left = 736
       Height = 32
-      Top = 0
+      Top = -1
       Width = 40
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100
@@ -454,8 +454,8 @@ object Form1: TForm1
     object BitBtn1: TBitBtn
       Left = 62
       Height = 32
-      Top = -1
-      Width = 40
+      Top = 0
+      Width = 32
       Glyph.Data = {
         36090000424D3609000000000000360000002800000018000000180000000100
         2000000000000009000064000000640000000000000000000000000000000000
@@ -532,24 +532,25 @@ object Form1: TForm1
         0000000000000000000000000000000000000000000000000000000000000000
         0000000000000000000000000000000000000000000000000000
       }
-      OnClick = BitBtn1Click
+      OnClick = EditButtonClick
       Spacing = 0
       TabOrder = 3
     end
     object BitBtn2: TBitBtn
-      Left = 99
+      Left = 93
       Height = 32
       Top = 0
-      Width = 40
+      Width = 32
       Kind = bkRetry
       ModalResult = 4
-      OnClick = BitBtn2Click
+      OnClick = RefreshListClick
       Spacing = 0
       TabOrder = 4
     end
   end
   object MainMenu1: TMainMenu
-    left = 1120
+    left = 1016
+    top = 8
     object MenuItem1: TMenuItem
       Caption = 'File'
       object MenuItem15: TMenuItem

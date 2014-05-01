@@ -13,10 +13,9 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Graphics,
+  Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls,
   Dialogs, ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
-  BarChart, Grids, Menus, PopupNotifier, StdCtrls, ExtCtrls, ExtDlgs, Buttons,
-  MaskEdit, DateUtils, LResources, Translations,
+  BarChart, Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, DateUtils,
   { Forms }
   WeekEditForm, WeekAddForm,
   { eigene Units }
@@ -54,11 +53,10 @@ type
     StringGrid1: TStringGrid;
     StringGrid2: TStringGrid;
 
-    procedure ApplyChanges(Sender: TObject);
     procedure AddWeek(Sender: TObject);
     procedure ApplyValuesFromGrid(Sender: TObject);
-    procedure BitBtn1Click(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
+    procedure EditButtonClick(Sender: TObject);
+    procedure RefreshListClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
     procedure MenuSelectEnglish(Sender: TObject);
@@ -69,13 +67,10 @@ type
     procedure MenuQuit(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 
-    procedure DisableAllFields;
-    procedure EnableAllFields;
-
   private
     { private declarations }
-    defHoursPerDay: double;       // Standard Value for
-    defDaysPerWeek: integer;
+    defHoursPerDay: double;       // Standard Value
+    defDaysPerWeek: integer;      // Standard Value
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
 
@@ -84,7 +79,7 @@ type
     FVersionDate: string;         // Build-Date
     FLazarusVersion: string;      // Version of the Lazarus IDE the programme was built with
     FOSName: string;              // The Internal Name for the used Operating System
-    Flanguage: string;            // Language chosen by User - default is English
+    FLanguage: string;            // Language chosen by User - default is English
 
     FSeparator: string;           // The Separator for Dates e.g. "01.02.2014" has "."
 
@@ -111,10 +106,10 @@ begin
 
   FOSName := 'unknown';             // Other OS
   {$IFDEF mswindows}
-  FOSName := 'Windows';
+    FOSName := 'Windows';
   {$ENDIF}
   {$IFDEF linux}
-  FOSName := 'Linux';
+    FOSName := 'Linux';
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
   FVersionNr := '0.0.0.14';
@@ -128,6 +123,9 @@ begin
   defDaysPerWeek := 5;
 
   FWeekList := TWeekList.Create;
+  FWeekList.Add(TWorkWeek.Create);
+  FWeekList.Items[0].FromDate := now;
+  FWeekList.Items[0].ToDate := now+4;
   WeeksToStringGrid(StringGrid1, FWeekList);
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
@@ -142,14 +140,9 @@ end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
-  try
-    FSelectionIndex := aRow;
-    //FromDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].FromDate);
-    //ToDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].ToDate);
-    //EnableAllFields;
-    WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
-  except
-  end;
+    FSelectionIndex := aRow-1;
+    StatusBar1.Panels[0].Text := IntToStr(FWeekList.Count);
+    //WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -157,33 +150,7 @@ begin
   AddWeekForm.Visible := True;
 end;
 
-procedure TForm1.ApplyValuesFromGrid(Sender: TObject);
-var
-  I: integer;
-begin
-
-  // The ClockTimes entered in the edit-grid now will be stored in the week
-  for I := 0 to FWeeklist.Items[FSelectionIndex].IntendedWorkDayCount do
-  begin
-    // Begin of Work
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartHour :=
-      getHour(StringGrid2.Cells[1, I]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].StartMinute :=
-      getMinute(StringGrid2.Cells[1, I]);
-
-    // End of Work
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndHour :=
-      getHour(StringGrid2.Cells[2, I]);
-    FWeeklist.Items[FSelectionIndex].Days.Items[I].EndMinute :=
-      getMinute(StringGrid2.Cells[2, I]);
-
-    // Additional hours
-    // FWeeklist.Items[FSelectionIndex].Days.Items[I].AdditionalTime := StrToCurr(StringGrid2.Cells[3,I+1]);
-  end;
-
-end;
-
-procedure TForm1.BitBtn1Click(Sender: TObject);
+procedure TForm1.EditButtonClick(Sender: TObject);
 begin
   if (FweekList.Count > 0) and (FSelectionIndex >= 0) then
   begin
@@ -191,7 +158,7 @@ begin
   end;
 end;
 
-procedure TForm1.BitBtn2Click(Sender: TObject);
+procedure TForm1.RefreshListClick(Sender: TObject);
 begin
   WeeksToStringGrid(StringGrid1, FWeekList);
 end;
@@ -214,7 +181,7 @@ begin
   AboutForm.Free;
   EditWeekForm.Free;
   AddWeekForm.Free;
-  FWeekList.Free;
+  //FWeekList.Free;
 end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);
@@ -235,65 +202,19 @@ begin
     WeeksToStringGrid(StringGrid1, FWeekList);
     FSelectionIndex := -1;
   end;
-  DisableAllFields;
-end;
-
-procedure TForm1.ApplyChanges(Sender: TObject);
-//var
-//date1, date2: TDate;
-//days: integer;
-begin
-  {
-  //date1 := StrToDate(FromDateEdit.Text);
-  //date2 := StrToDate(ToDateEdit.Text);
-
-  //days := DaysBetween(date1, date2);
-  //WorkdaysEdit.Text := IntToStr(days + 1);
-  FWeekList.Items[FSelectionIndex].IntendedWorkDayCount := days;
-
-  if (days > 6) or (date1 > date2) then
-  begin
-    days := 6;
-    date2 := date1 + defDaysPerWeek - 1;
-    //ToDateEdit.Text := DateToStr(date2);
-    application.MessageBox(
-      'A week cannot exceed 7 days! Please select a valid value for a week!',
-      'Warning', 0);
-  end;
-  if (FSelectionIndex >= 0) then
-  begin
-    try
-      //FWeekList.Items[FSelectionIndex].FromDate := StrToDate(FromDateEdit.Text);
-      //FWeekList.Items[FSelectionIndex].ToDate := StrToDate(ToDateEdit.Text);
-      WeeksToStringGrid(StringGrid1, FWeekList);
-    except
-    end;
-  end;
-  DisableAllFields;   }
 end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
 begin
-  if FWeekList.Count > 0 then
+  if (FWeekList.Count > 0) then
   begin
     if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation,
       [mbYes, mbNo], 0) = mrYes) then
     begin
       FWeekList.Clear;
       WeeksToStringGrid(StringGrid1, FWeekList);
-      //DisableAllFields;
     end;
   end;
-end;
-
-procedure TForm1.EnableAllFields;
-begin
-
-end;
-
-procedure TForm1.DisableAllFields;
-begin
-
 end;
 
 procedure TForm1.MenuQuit(Sender: TObject);

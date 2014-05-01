@@ -71,8 +71,8 @@ begin
       begin
         FOnApplyClick(self, locWeek);
       end;
-      locWeek.Free;
       self.Visible := False;
+      locWeek.Free;
     end;
   end;
 

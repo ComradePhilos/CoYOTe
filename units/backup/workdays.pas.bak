@@ -177,8 +177,8 @@ end;
 procedure TWorkWeek.Clear;
 begin
   FDays.Clear;
-  FFromDate := 0;
-  FToDate := 0;
+  //FFromDate := 0;
+  //FToDate := 0;
   FIntendedWorkDayCount := 5;
   FIntendedTimePerDay := 8;
 end;
@@ -221,7 +221,6 @@ end;
 
 procedure ClearStringGrid(AGrid: TStringGrid);
 begin
-  // Clear Grid
   while (AGrid.RowCount > 1) do
   begin
     AGrid.DeleteRow(AGrid.RowCount-1);

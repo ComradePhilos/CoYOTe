@@ -1,5 +1,5 @@
 object Form4: TForm4
-  Left = 204
+  Left = 2124
   Height = 183
   Top = 283
   Width = 320
