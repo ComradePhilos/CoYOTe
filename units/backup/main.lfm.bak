@@ -160,7 +160,6 @@ object Form1: TForm1
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
-    OnEditingDone = ApplyValuesFromGrid
     ColWidths = (
       122
       73

@@ -1,7 +1,7 @@
 object Form4: TForm4
-  Left = 204
+  Left = 1499
   Height = 183
-  Top = 283
+  Top = 498
   Width = 320
   Caption = 'Add new Week'
   ClientHeight = 183
@@ -10,7 +10,7 @@ object Form4: TForm4
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object FromDateEdit: TDateEdit
     Left = 8
     Height = 27

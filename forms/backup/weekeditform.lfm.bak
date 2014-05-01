@@ -1,13 +1,13 @@
 object Form3: TForm3
-  Left = 2478
-  Height = 317
-  Top = 190
+  Left = 1447
+  Height = 310
+  Top = 139
   Width = 428
   Caption = 'Edit Week'
-  ClientHeight = 317
+  ClientHeight = 310
   ClientWidth = 428
   OnCreate = FormCreate
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object StringGrid2: TStringGrid
     Left = 7
     Height = 234

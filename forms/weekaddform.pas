@@ -61,6 +61,7 @@ var
 begin
 
   locWeek := TWorkWeek.Create;
+  try
   if (TryStrToDate(FromDateEdit.Text, locDate)) then
   begin
     locWeek.FromDate := locDate;
@@ -71,11 +72,13 @@ begin
       begin
         FOnApplyClick(self, locWeek);
       end;
-      self.Visible := False;
-      locWeek.Free;
     end;
   end;
 
+  finally
+    locWeek.Free;
+    self.Visible := False;
+  end;
 end;
 
 procedure TForm4.FormCreate(Sender: TObject);

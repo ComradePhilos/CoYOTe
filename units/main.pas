@@ -101,6 +101,8 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  I: Integer;
 begin
 
   FOSName := 'unknown';             // Other OS
@@ -112,7 +114,7 @@ begin
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
   FVersionNr := '0.0.0.14';
-  FVersionDate := '01.05.2014';
+  FVersionDate := '02.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';
@@ -122,9 +124,12 @@ begin
   defDaysPerWeek := 5;
 
   FWeekList := TWeekList.Create;
-  FWeekList.Add(TWorkWeek.Create);
-  FWeekList.Items[0].FromDate := now;
-  FWeekList.Items[0].ToDate := now+4;
+  for I := 0 to 10 do
+  begin
+    FWeekList.Add(TWorkWeek.Create);
+    FWeekList.Items[I].FromDate := (I*5)+now;
+    FWeekList.Items[I].ToDate := (I*5)+now+4;
+  end;
   WeeksToStringGrid(StringGrid1, FWeekList);
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);

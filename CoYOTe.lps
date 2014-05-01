@@ -12,7 +12,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="67" Y="19"/>
-        <UsageCount Value="149"/>
+        <UsageCount Value="150"/>
       </Unit0>
       <Unit1>
         <Filename Value="units\main.pas"/>
@@ -21,12 +21,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="main"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="26"/>
-        <CursorPos X="40" Y="56"/>
-        <UsageCount Value="149"/>
+        <TopLine Value="96"/>
+        <CursorPos X="43" Y="129"/>
+        <UsageCount Value="150"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -38,7 +37,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="24"/>
         <CursorPos X="39" Y="209"/>
-        <UsageCount Value="149"/>
+        <UsageCount Value="150"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -49,7 +48,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="80" Y="135"/>
-        <UsageCount Value="101"/>
+        <UsageCount Value="102"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -63,7 +62,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="22" Y="8"/>
-        <UsageCount Value="99"/>
+        <UsageCount Value="100"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -78,7 +77,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="41" Y="19"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="42"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -89,11 +88,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="WeekAddForm"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="23" Y="38"/>
-        <UsageCount Value="39"/>
+        <CursorPos X="27" Y="21"/>
+        <UsageCount Value="40"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>

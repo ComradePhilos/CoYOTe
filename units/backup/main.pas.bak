@@ -54,7 +54,6 @@ type
     StringGrid2: TStringGrid;
 
     procedure AddWeek(Sender: TObject);
-    procedure ApplyValuesFromGrid(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
     procedure RefreshListClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -102,6 +101,8 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
+var
+  I: Integer;
 begin
 
   FOSName := 'unknown';             // Other OS
@@ -123,9 +124,12 @@ begin
   defDaysPerWeek := 5;
 
   FWeekList := TWeekList.Create;
-  FWeekList.Add(TWorkWeek.Create);
-  FWeekList.Items[0].FromDate := now;
-  FWeekList.Items[0].ToDate := now+4;
+  for I := 0 to 10 do
+  begin
+    FWeekList.Add(TWorkWeek.Create);
+    FWeekList.Items[I].FromDate := (I*5)+now;
+    FWeekList.Items[I].ToDate := (I*5)+now+4;
+  end;
   WeeksToStringGrid(StringGrid1, FWeekList);
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
