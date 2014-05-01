@@ -10,6 +10,8 @@ uses
 
 type
 
+  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek) of object;
+
   { TForm4 }
 
   TForm4 = class(TForm)
@@ -29,12 +31,13 @@ type
   private
     { private declarations }
     FWeek: TWorkWeek;
-
+    FOnApplyClick: TApplyEvent;
     procedure Clear;
   public
     { public declarations }
 
-    property Week: TWorkWeek read FWeek write FWeek;
+    //property Week: TWorkWeek read FWeek write FWeek;
+    property OnApplyClick: TApplyEvent read FOnApplyClick write FOnApplyClick;
   end;
 
 var
@@ -60,13 +63,17 @@ begin
   if (TryStrToDate(FromDateEdit.Text, FDate)) then
   begin
     FWeek.FromDate := FDate;
+    if (TryStrToDate(ToDateEdit.Text, FDate)) then
+    begin
+      FWeek.ToDate := FDate;
+      if assigned(FOnApplyClick) then
+      begin
+        FOnApplyClick(self, FWeek);
+      end;
+      self.Visible := False;
+      Fweek.Clear;
+    end;
   end;
-  if (TryStrToDate(FromDateEdit.Text, FDate)) then
-  begin
-    FWeek.FromDate := FDate;
-  end;
-
-  self.Visible := False;
 
 end;
 
@@ -96,4 +103,8 @@ begin
 end;
 
 end.
+
+
+
+
 

@@ -11,7 +11,6 @@
 unit main;
 
 {$mode objfpc}{$H+}
-
 interface
 
 uses
@@ -23,6 +22,8 @@ uses
   WeekEditForm, WeekAddForm,
   { eigene Units }
   workdays, funcs, about;
+
+
 
 type
 
@@ -98,7 +99,6 @@ type
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
-
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
   public
     { public declarations }
@@ -125,7 +125,7 @@ begin
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
   FVersionNr := '0.0.0.13';
-  FVersionDate := '30.04.2014';
+  FVersionDate := '01.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';
@@ -141,6 +141,9 @@ begin
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
 
+  //AddWeekForm.OnApplyClick := assign(AddWeekToList);
+  AddWeekForm.OnApplyClick := @AddWeekToList;
+
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
 
@@ -153,8 +156,7 @@ begin
 end;
 
 
-procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer;
-  var CanSelect: boolean);
+procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
   try
     FSelectionIndex := aRow - 1;
@@ -233,8 +235,8 @@ end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName +
-    '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
     CanClose := True;
   end
@@ -307,8 +309,8 @@ end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
 begin
-  if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?',
-    mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
   begin
     FWeekList.Clear;
     WeeksToStringGrid(StringGrid1, FWeekList);
@@ -334,16 +336,20 @@ end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName +
-    '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+
   begin
     Application.Terminate;
   end;
 end;
 
 procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
+var
+  FWeek: TWorkWeek;
 begin
-  FWeekList.Add(AWeek);
+  FWeek := AWeek;
+  FWeekList.Add(FWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
 end;
 

@@ -38,8 +38,6 @@ implementation
 
 { TForm3 }
 
-
-
 procedure TForm3.FormCreate(Sender: TObject);
 begin
 
