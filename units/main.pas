@@ -23,8 +23,6 @@ uses
   { eigene Units }
   workdays, funcs, about;
 
-
-
 type
 
   { TForm1 }
@@ -66,12 +64,7 @@ type
     procedure MenuAbout(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
-    procedure FromDateEditChange(Sender: TObject);
-    procedure FromDateEditEditingDone(Sender: TObject);
-    procedure ToDateEditChange(Sender: TObject);
-    procedure ToDateEditEditingDone(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure WorkdaysEditEditingDone(Sender: TObject);
     procedure MenuQuit(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 
@@ -124,7 +117,7 @@ begin
   FOSName := 'Linux';
   {$ENDIF}
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.13';
+  FVersionNr := '0.0.0.14';
   FVersionDate := '01.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -141,7 +134,6 @@ begin
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
 
-  //AddWeekForm.OnApplyClick := assign(AddWeekToList);
   AddWeekForm.OnApplyClick := @AddWeekToList;
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
@@ -149,49 +141,16 @@ begin
 
 end;
 
-
-procedure TForm1.WorkdaysEditEditingDone(Sender: TObject);
-begin
-  FromDateEditEditingDone(nil);
-end;
-
-
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
   try
     FSelectionIndex := aRow - 1;
     //FromDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].FromDate);
     //ToDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].ToDate);
-    EnableAllFields;
-
-    WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
+    //EnableAllFields;
+    //WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
   except
   end;
-end;
-
-
-procedure TForm1.FromDateEditEditingDone(Sender: TObject);
-var
-  Date1, Date2: TDate;
-begin
-  //if TryStrToDate(FromDateEdit.Text, Date1) and TryStrToDate(ToDateEdit.Text, Date2) then
-  //begin
-  // WorkdaysEdit.Text := IntToStr(DaysBetween(Date1, Date2) + 1);
-  //ToDateEditEditingDone(nil);
-  ////else
-  //begin
-  // Application.MessageBox('You entered an unvalid Date!', 'Error appeared!',0);
-  //end;
-end;
-
-procedure TForm1.ToDateEditChange(Sender: TObject);
-begin
-  ToDateEditEditingDone(nil);
-end;
-
-procedure TForm1.FromDateEditChange(Sender: TObject);
-begin
-  FromDateEditEditingDone(nil);
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -251,6 +210,7 @@ begin
   AboutForm.Free;
   EditWeekForm.Free;
   AddWeekForm.Free;
+  FWeekList.Free;
 end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);
@@ -275,10 +235,11 @@ begin
 end;
 
 procedure TForm1.ApplyChanges(Sender: TObject);
-var
-  date1, date2: TDate;
-  days: integer;
+//var
+  //date1, date2: TDate;
+  //days: integer;
 begin
+  {
   //date1 := StrToDate(FromDateEdit.Text);
   //date2 := StrToDate(ToDateEdit.Text);
 
@@ -304,7 +265,7 @@ begin
     except
     end;
   end;
-  DisableAllFields;
+  DisableAllFields;   }
 end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
@@ -314,14 +275,8 @@ begin
   begin
     FWeekList.Clear;
     WeeksToStringGrid(StringGrid1, FWeekList);
-    DisableAllFields;
+    //DisableAllFields;
   end;
-end;
-
-
-procedure TForm1.ToDateEditEditingDone(Sender: TObject);
-begin
-  //WorkdaysEdit.Text := IntToStr(DaysBetween(StrToDate(FromDateEdit.Text), StrToDate(ToDateEdit.Text)) + 1);
 end;
 
 procedure TForm1.EnableAllFields;
@@ -338,7 +293,6 @@ procedure TForm1.MenuQuit(Sender: TObject);
 begin
   if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?',
     mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
-
   begin
     Application.Terminate;
   end;
@@ -348,9 +302,11 @@ procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
 var
   FWeek: TWorkWeek;
 begin
+  FWeek := TWorkWeek.Create;
   FWeek := AWeek;
   FWeekList.Add(FWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
+  //FWeek.Free;
 end;
 
 end.
