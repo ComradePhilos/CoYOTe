@@ -4,7 +4,6 @@
   how many overtime hours you need to catch up with the week goal.
 }
 
-
 // in future:
 // possibility to add Users and Persons to make it possible for Bosses/Teamleaders to control attendance times of employees
 // MAYBE: possibility to add more than one work period to a day e.g. for several jobs or alternative pause systems
@@ -79,7 +78,6 @@ type
     defDaysPerWeek: integer;
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
-    FTranslations: TStringList;
 
     FProgrammeName: string;       // Official Name shown to the user
     FVersionNr: string;           // Internal Programme-Version
@@ -130,8 +128,7 @@ begin
   defDaysPerWeek := 5;
 
   FWeekList := TWeekList.Create;
-  FTranslations := TStringList.Create;
-  clearStringGrid(StringGrid1);
+  WeeksToStringGrid(StringGrid1, FWeekList);
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
@@ -146,11 +143,11 @@ end;
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
   try
-    FSelectionIndex := aRow - 1;
+    FSelectionIndex := aRow-1;
     //FromDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].FromDate);
     //ToDateEdit.Text := DateToStr(FWeekList.Items[aRow - 1].ToDate);
     //EnableAllFields;
-    //WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
+    WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
   except
   end;
 end;
@@ -222,7 +219,7 @@ end;
 
 procedure TForm1.MenuSelectEnglish(Sender: TObject);
 begin
-  FTranslations := changeLanguage('English', FLazarusVersion, FOSName);
+  //FTranslations := changeLanguage('English', FLazarusVersion, FOSName);
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);
@@ -232,7 +229,7 @@ end;
 
 procedure TForm1.RemoveSelected(Sender: TObject);
 begin
-  if (FSelectionIndex >= 0) then
+  if (FSelectionIndex >= 0) and (FWeekList.Count > 0) then
   begin
     FWeekList.Delete(FSelectionIndex);
     WeeksToStringGrid(StringGrid1, FWeekList);
@@ -309,14 +306,9 @@ begin
 end;
 
 procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
-var
-  FWeek: TWorkWeek;
 begin
-  FWeek := TWorkWeek.Create;
-  FWeek := AWeek;
-  FWeekList.Add(FWeek);
+  FWeekList.Add(AWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
-  //FWeek.Free;
 end;
 
 end.
