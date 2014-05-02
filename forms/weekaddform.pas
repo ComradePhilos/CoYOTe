@@ -56,29 +56,22 @@ end;
 
 procedure TForm4.ApplyButtonClick(Sender: TObject);
 var
-  locDate: TDate;
-  locWeek: TWorkWeek;
+  locDate1: TDate;
+  locDate2: TDate;
 begin
 
-  locWeek := TWorkWeek.Create;
-  try
-  if (TryStrToDate(FromDateEdit.Text, locDate)) then
+  if (TryStrToDate(FromDateEdit.Text, locDate1)) then
   begin
-    locWeek.FromDate := locDate;
-    if (TryStrToDate(ToDateEdit.Text, locDate)) then
+    if (TryStrToDate(ToDateEdit.Text, locDate2)) then
     begin
-      locWeek.ToDate := locDate;
       if assigned(FOnApplyClick) then
       begin
-        FOnApplyClick(self, locWeek);
+        FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2));
+        self.Visible := False;
       end;
     end;
   end;
 
-  finally
-    locWeek.Free;
-    self.Visible := False;
-  end;
 end;
 
 procedure TForm4.FormCreate(Sender: TObject);
@@ -107,6 +100,7 @@ begin
 end;
 
 end.
+
 
 
 

@@ -55,6 +55,7 @@ type
 
   public
     constructor Create;
+    constructor Create(AFromDate, AToDate: TDate); overload;
     destructor Destroy;
     procedure Clear;
 
@@ -147,6 +148,12 @@ begin
   end;
   FFromDate := now();
   FToDate := now();
+end;
+
+constructor TWorkWeek.Create(AFromDate, AToDate: TDate);
+begin
+  self.FromDate := AFromDate;
+  self.ToDate := AToDate;
 end;
 
 destructor TWorkWeek.Destroy;
@@ -266,4 +273,4 @@ begin
 
 end;
 
-end.
+end.

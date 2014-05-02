@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 246
   Width = 1123
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 576
+  ClientHeight = 556
   ClientWidth = 1123
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -16,7 +16,7 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '1.2.2.0'
+  LCLVersion = '1.2.0.3'
   object GroupBox1: TGroupBox
     Left = 788
     Height = 243
@@ -169,8 +169,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 555
+    Height = 23
+    Top = 533
     Width = 1123
     Panels = <    
       item
@@ -853,4 +853,4 @@ object Form1: TForm1
       end
     end
   end
-end
+end

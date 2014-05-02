@@ -9,7 +9,7 @@ object Form2: TForm2
   ClientHeight = 186
   ClientWidth = 503
   Position = poMainFormCenter
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object Image1: TImage
     Left = 5
     Height = 152
@@ -531,7 +531,7 @@ object Form2: TForm2
     Left = 167
     Height = 21
     Top = 9
-    Width = 314
+    Width = 311
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -545,17 +545,17 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 15
+    Height = 17
     Top = 161
-    Width = 45
+    Width = 58
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 360
-    Height = 15
+    Left = 347
+    Height = 17
     Top = 161
-    Width = 59
+    Width = 74
     Caption = 'Build-Date:'
     ParentColor = False
   end
@@ -572,4 +572,4 @@ object Form2: TForm2
     )
     TabOrder = 1
   end
-end
+end

@@ -177,8 +177,8 @@ end;
 procedure TWorkWeek.Clear;
 begin
   FDays.Clear;
-  //FFromDate := 0;
-  //FToDate := 0;
+  FFromDate := 0;
+  FToDate := 0;
   FIntendedWorkDayCount := 5;
   FIntendedTimePerDay := 8;
 end;
