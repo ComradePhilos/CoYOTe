@@ -55,7 +55,7 @@ type
 
   public
     constructor Create;
-    constructor Create(AFromDate, AToDate: TDate); overload;
+    constructor Create(AFromDate, AToDate: TDate; HoursPerDay: Integer); overload;
     destructor Destroy;
     procedure Clear;
 
@@ -150,7 +150,7 @@ begin
   FToDate := now();
 end;
 
-constructor TWorkWeek.Create(AFromDate, AToDate: TDate);
+constructor TWorkWeek.Create(AFromDate, AToDate: TDate; HoursPerDay: Integer);
 begin
   self.FromDate := AFromDate;
   self.ToDate := AToDate;

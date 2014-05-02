@@ -64,7 +64,7 @@ object Form4: TForm4
   object HoursPerDayEdit: TLabeledEdit
     Left = 8
     Height = 23
-    Top = 96
+    Top = 88
     Width = 120
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
@@ -73,13 +73,13 @@ object Form4: TForm4
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 8
     EditLabel.Height = 15
-    EditLabel.Top = 78
+    EditLabel.Top = 70
     EditLabel.Width = 120
     EditLabel.Caption = 'Hours  per Day'
     EditLabel.ParentColor = False
-    ReadOnly = True
     TabOrder = 2
     Text = '8'
+    OnChange = CheckInputs
   end
   object ApplyButton: TBitBtn
     Left = 232
