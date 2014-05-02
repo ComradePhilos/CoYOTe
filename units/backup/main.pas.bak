@@ -100,16 +100,16 @@ implementation
 
 procedure TForm1.FormCreate(Sender: TObject);
 var
-  I: Integer;
+  I: integer;
 begin
 
   // detect OS
   FOSName := 'unknown';
   {$IFDEF mswindows}
-    FOSName := 'Windows';
+  FOSName := 'Windows';
   {$ENDIF}
   {$IFDEF linux}
-    FOSName := 'Linux';
+  FOSName := 'Linux';
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
@@ -148,9 +148,9 @@ end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
-    FSelectionIndex := aRow-1;
-    StatusBar1.Panels[0].Text := IntToStr(FWeekList.Count);
-    //WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
+  FSelectionIndex := aRow - 1;
+  StatusBar1.Panels[0].Text := IntToStr(FWeekList.Count);
+  //WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -206,13 +206,13 @@ begin
     RemoveButton.Enabled := True;
     EditButton.Enabled := True;
     RemoveAllButton.Enabled := True;
-	end
+  end
   else
   begin
     RemoveButton.Enabled := False;
     EditButton.Enabled := False;
     RemoveAllButton.Enabled := False;
-	end;
+  end;
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);

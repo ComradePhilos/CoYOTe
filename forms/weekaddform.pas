@@ -113,27 +113,24 @@ begin
   begin
     if TryStrToInt(HoursPerDayEdit.Text, locHours) and (locHours > 0) and (locHours <= 24) then
     begin
-      //if (locHours > 0) and length(then
-      //begin
-        if (locDate2 >= locDate1) then
-        begin
-          ApplyButton.Enabled := True;
-          StatusBar1.Panels[0].Text := '';
-        end
-        else
-        begin
-          // Wrond Date order
-          ApplyButton.Enabled := False;
-          StatusBar1.Panels[0].Text := emDateOrder;
-        end;
+      if (locDate2 >= locDate1) then
+      begin
+        ApplyButton.Enabled := True;
+        StatusBar1.Panels[0].Text := '';
       end
       else
       begin
-        // Invalid amount of work time per day
+        // Wrond Date order
         ApplyButton.Enabled := False;
-        StatusBar1.Panels[0].Text := emHoursPerDay;
-			end;
-		//end;
+        StatusBar1.Panels[0].Text := emDateOrder;
+      end;
+    end
+    else
+    begin
+      // Invalid amount of work time per day
+      ApplyButton.Enabled := False;
+      StatusBar1.Panels[0].Text := emHoursPerDay;
+    end;
   end;
 end;
 
@@ -143,7 +140,7 @@ begin
   FWeek.Clear;
   FromDateEdit.Text := '';
   ToDateEdit.Text := '';
-  HoursPerDayEdit.Text := '';
+  HoursPerDayEdit.Text := '8';
   ApplyButton.Enabled := False;
 end;
 

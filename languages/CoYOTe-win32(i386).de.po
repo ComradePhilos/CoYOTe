@@ -176,34 +176,35 @@ msgstr ""
 msgid "Week 1"
 msgstr ""
 
-#: tform3.stringgrid2.columns[0].title.caption
-msgctxt "tform3.stringgrid2.columns[0].title.caption"
-msgid "Weekdays"
-msgstr "Wochentage"
-
-#: tform3.stringgrid2.columns[1].title.caption
-msgctxt "tform3.stringgrid2.columns[1].title.caption"
-msgid "Start"
-msgstr "Start"
-
-#: tform3.stringgrid2.columns[2].title.caption
-msgctxt "tform3.stringgrid2.columns[2].title.caption"
-msgid "End"
-msgstr "Ende"
-
-#: tform3.stringgrid2.columns[3].title.caption
-msgid "Time off"
-msgstr ""
-
-#: tform3.stringgrid2.columns[4].title.caption
-msgctxt "tform3.stringgrid2.columns[4].title.caption"
-msgid "addit."
-msgstr "Hinzufügen"
-
 #: tform3.undobutton.caption
 msgctxt "tform3.undobutton.caption"
 msgid "Undo"
 msgstr "Rückgängig"
+
+#: tform3.weekgrid.columns[0].title.caption
+msgctxt "tform3.weekgrid.columns[0].title.caption"
+msgid "Weekdays"
+msgstr "Wochentage"
+
+#: tform3.weekgrid.columns[1].title.caption
+msgctxt "tform3.weekgrid.columns[1].title.caption"
+msgid "Start"
+msgstr "Start"
+
+#: tform3.weekgrid.columns[2].title.caption
+msgctxt "tform3.weekgrid.columns[2].title.caption"
+msgid "End"
+msgstr "Ende"
+
+#: tform3.weekgrid.columns[3].title.caption
+msgctxt "tform3.weekgrid.columns[3].title.caption"
+msgid "Time off"
+msgstr ""
+
+#: tform3.weekgrid.columns[4].title.caption
+msgctxt "tform3.weekgrid.columns[4].title.caption"
+msgid "addit."
+msgstr "Hinzufügen"
 
 #: tform4.applybutton.caption
 msgctxt "tform4.applybutton.caption"

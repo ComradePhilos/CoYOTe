@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, Arrow;
+  Buttons, StdCtrls, Arrow,
+  workdays;
 
 type
 
@@ -27,6 +28,7 @@ type
     { private declarations }
   public
     { public declarations }
+    procedure showWeek(AWeek: TWorkWeek; ANumber: Integer);
   end;
 
 var
@@ -46,6 +48,14 @@ end;
 procedure TForm3.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
+end;
+
+procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
+var
+  I: Integer;
+begin
+  Label1.Caption := 'Week ' + IntToStr(ANumber+1);
+  WeekDaysToStringGrid(StringGrid2, AWeek);
 end;
 
 end.
