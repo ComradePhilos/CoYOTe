@@ -12,7 +12,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="67" Y="19"/>
-        <UsageCount Value="151"/>
+        <UsageCount Value="156"/>
       </Unit0>
       <Unit1>
         <Filename Value="units\main.pas"/>
@@ -24,9 +24,9 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="82"/>
-        <CursorPos X="32" Y="119"/>
-        <UsageCount Value="151"/>
+        <TopLine Value="73"/>
+        <CursorPos X="25" Y="84"/>
+        <UsageCount Value="156"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -38,7 +38,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="123"/>
         <CursorPos X="29" Y="155"/>
-        <UsageCount Value="151"/>
+        <UsageCount Value="156"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -49,7 +49,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="80" Y="135"/>
-        <UsageCount Value="103"/>
+        <UsageCount Value="108"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -63,7 +63,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="22" Y="8"/>
-        <UsageCount Value="101"/>
+        <UsageCount Value="106"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -78,7 +78,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="41" Y="19"/>
-        <UsageCount Value="43"/>
+        <UsageCount Value="48"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -93,7 +93,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="72" Y="55"/>
-        <UsageCount Value="41"/>
+        <UsageCount Value="46"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>

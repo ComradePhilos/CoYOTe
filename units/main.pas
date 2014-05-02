@@ -26,7 +26,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    BitBtn1: TBitBtn;
+    EditButton: TBitBtn;
     BitBtn2: TBitBtn;
     QuickMenu: TPanel;
     AddButton: TBitBtn;
@@ -87,6 +87,7 @@ type
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
+    procedure EnableButtons;      // Checks for each button, wether it is enabled or nit
   public
     { public declarations }
   end;
@@ -105,13 +106,15 @@ var
   I: Integer;
 begin
 
-  FOSName := 'unknown';             // Other OS
+  // detect OS
+  FOSName := 'unknown';
   {$IFDEF mswindows}
     FOSName := 'Windows';
   {$ENDIF}
   {$IFDEF linux}
     FOSName := 'Linux';
   {$ENDIF}
+
   FProgrammeName := 'CoYOT(e)';
   FVersionNr := '0.0.0.15';
   FVersionDate := '02.05.2014';
@@ -120,6 +123,7 @@ begin
   FLanguage := 'English';
   FSeparator := '.';
 
+  // default values
   defHoursPerDay := 8;
   defDaysPerWeek := 5;
 
@@ -129,10 +133,11 @@ begin
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
 
-  AddWeekForm.OnApplyClick := @AddWeekToList;
+  AddWeekForm.OnApplyClick := @AddWeekToList;    // assign event of the add-form
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
+  EnableButtons;
 
 end;
 
@@ -199,6 +204,7 @@ begin
     WeeksToStringGrid(StringGrid1, FWeekList);
     FSelectionIndex := -1;
   end;
+  EnableButtons;
 end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
@@ -212,6 +218,7 @@ begin
       WeeksToStringGrid(StringGrid1, FWeekList);
     end;
   end;
+  EnableButtons;
 end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
@@ -227,6 +234,23 @@ procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
 begin
   FWeekList.Add(AWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
+  EnableButtons;
+end;
+
+procedure TForm1.EnableButtons;
+begin
+  if (FWeekList.Count > 0) then
+  begin
+    RemoveButton.Enabled := True;
+    EditButton.Enabled := True;
+    RemoveAllButton.Enabled := True;
+	end
+  else
+  begin
+    RemoveButton.Enabled := False;
+    EditButton.Enabled := False;
+    RemoveAllButton.Enabled := False;
+	end;
 end;
 
 end.
