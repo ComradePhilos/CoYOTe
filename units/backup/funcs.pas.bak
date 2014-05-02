@@ -27,7 +27,7 @@ function getHour(time: string): integer;
 function getMinute(time: string): integer;
 
 // Searches in a language-file for the translation by looking for the name in the file
-function searchForTranslation(VariableName: String; ALanguage: String): String;
+function searchForTranslation(VariableName: string; ALanguage: string): string;
 
 
 implementation
@@ -132,10 +132,10 @@ begin
   end;
 end;
 
-function searchForTranslation(VariableName: String; ALanguage: String): String;
+function searchForTranslation(VariableName: string; ALanguage: string): string;
 begin
 
   Result := '';
 end;
 
-end.
+end.

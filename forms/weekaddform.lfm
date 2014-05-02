@@ -1,10 +1,10 @@
 object Form4: TForm4
-  Left = 1499
-  Height = 183
-  Top = 498
+  Left = 1561
+  Height = 188
+  Top = 275
   Width = 320
   Caption = 'Add new Week'
-  ClientHeight = 183
+  ClientHeight = 188
   ClientWidth = 320
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -25,6 +25,7 @@ object Form4: TForm4
     CharCase = ecNormal
     NumGlyphs = 1
     MaxLength = 0
+    OnChange = CheckInputs
     TabOrder = 0
   end
   object Label1: TLabel
@@ -49,6 +50,7 @@ object Form4: TForm4
     CharCase = ecNormal
     NumGlyphs = 1
     MaxLength = 0
+    OnChange = CheckInputs
     TabOrder = 1
   end
   object Label2: TLabel
@@ -75,13 +77,14 @@ object Form4: TForm4
     EditLabel.Width = 120
     EditLabel.Caption = 'Hours  per Day'
     EditLabel.ParentColor = False
+    ReadOnly = True
     TabOrder = 2
     Text = '8'
   end
   object ApplyButton: TBitBtn
     Left = 232
     Height = 30
-    Top = 147
+    Top = 128
     Width = 83
     Caption = 'Apply'
     Glyph.Data = {
@@ -167,7 +170,7 @@ object Form4: TForm4
   object UndoButton: TBitBtn
     Left = 8
     Height = 30
-    Top = 147
+    Top = 128
     Width = 83
     Caption = 'Cancel'
     Glyph.Data = {
@@ -249,5 +252,16 @@ object Form4: TForm4
     OnClick = UndoButtonClick
     Spacing = 0
     TabOrder = 4
+  end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 165
+    Width = 320
+    Panels = <    
+      item
+        Width = 50
+      end>
+    SimplePanel = False
   end
 end

@@ -535,17 +535,6 @@ object Form1: TForm1
       Spacing = 0
       TabOrder = 3
     end
-    object BitBtn2: TBitBtn
-      Left = 93
-      Height = 32
-      Top = 0
-      Width = 32
-      Kind = bkRetry
-      ModalResult = 4
-      OnClick = RefreshListClick
-      Spacing = 0
-      TabOrder = 4
-    end
   end
   object MainMenu1: TMainMenu
     left = 1016
@@ -767,7 +756,6 @@ object Form1: TForm1
             D1FFC6BBE4FD85310FE97D2400E87D2400E8822C0AE9B998A1F66F5FDEFFA69C
             EBFF
           }
-          OnClick = MenuSelectEnglish
         end
         object MenuItem13: TMenuItem
           Caption = 'German'

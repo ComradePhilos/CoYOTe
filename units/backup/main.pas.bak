@@ -27,7 +27,6 @@ type
 
   TForm1 = class(TForm)
     EditButton: TBitBtn;
-    BitBtn2: TBitBtn;
     QuickMenu: TPanel;
     AddButton: TBitBtn;
     RemoveButton: TBitBtn;
@@ -55,10 +54,8 @@ type
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
-    procedure RefreshListClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
-    procedure MenuSelectEnglish(Sender: TObject);
     procedure MenuAbout(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
@@ -87,7 +84,7 @@ type
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
-    procedure EnableButtons;
+    procedure EnableButtons;      // Checks for each button, wether it has to get
   public
     { public declarations }
   end;
@@ -106,13 +103,15 @@ var
   I: Integer;
 begin
 
-  FOSName := 'unknown';             // Other OS
+  // detect OS
+  FOSName := 'unknown';
   {$IFDEF mswindows}
     FOSName := 'Windows';
   {$ENDIF}
   {$IFDEF linux}
     FOSName := 'Linux';
   {$ENDIF}
+
   FProgrammeName := 'CoYOT(e)';
   FVersionNr := '0.0.0.15';
   FVersionDate := '02.05.2014';
@@ -121,6 +120,7 @@ begin
   FLanguage := 'English';
   FSeparator := '.';
 
+  // default values
   defHoursPerDay := 8;
   defDaysPerWeek := 5;
 
@@ -130,12 +130,20 @@ begin
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
 
-  AddWeekForm.OnApplyClick := @AddWeekToList;
+  AddWeekForm.OnApplyClick := @AddWeekToList;    // assign event of the add-form
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
   EnableButtons;
 
+end;
+
+procedure TForm1.FormDestroy(Sender: TObject);
+begin
+  AboutForm.Free;
+  EditWeekForm.Free;
+  AddWeekForm.Free;
+  FWeekList.Free;
 end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
@@ -148,6 +156,7 @@ end;
 procedure TForm1.AddWeek(Sender: TObject);
 begin
   AddWeekForm.Visible := True;
+  AddWeekForm.Show;
 end;
 
 procedure TForm1.EditButtonClick(Sender: TObject);
@@ -156,41 +165,6 @@ begin
   begin
     EditWeekForm.Visible := True;
   end;
-end;
-
-procedure TForm1.RefreshListClick(Sender: TObject);
-begin
-  WeeksToStringGrid(StringGrid1, FWeekList);
-end;
-
-procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
-begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
-    [mbYes, mbNo], 0) = mrYes) then
-  begin
-    CanClose := True;
-  end
-  else
-  begin
-    CanClose := False;
-  end;
-end;
-
-procedure TForm1.FormDestroy(Sender: TObject);
-begin
-  AboutForm.Free;
-  EditWeekForm.Free;
-  AddWeekForm.Free;
-end;
-
-procedure TForm1.MenuSelectEnglish(Sender: TObject);
-begin
-  //FTranslations := changeLanguage('English', FLazarusVersion, FOSName);
-end;
-
-procedure TForm1.MenuAbout(Sender: TObject);
-begin
-  AboutForm.Visible := True;
 end;
 
 procedure TForm1.RemoveSelected(Sender: TObject);
@@ -218,15 +192,6 @@ begin
   EnableButtons;
 end;
 
-procedure TForm1.MenuQuit(Sender: TObject);
-begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
-    [mbYes, mbNo], 0) = mrYes) then
-  begin
-    Application.Terminate;
-  end;
-end;
-
 procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
 begin
   FWeekList.Add(AWeek);
@@ -249,5 +214,33 @@ begin
     RemoveAllButton.Enabled := False;
 	end;
 end;
+
+procedure TForm1.MenuAbout(Sender: TObject);
+begin
+  AboutForm.Visible := True;
+end;
+
+procedure TForm1.MenuQuit(Sender: TObject);
+begin
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
+  begin
+    Application.Terminate;
+  end;
+end;
+
+procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
+begin
+  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+    [mbYes, mbNo], 0) = mrYes) then
+  begin
+    CanClose := True;
+  end
+  else
+  begin
+    CanClose := False;
+  end;
+end;
+
 
 end.

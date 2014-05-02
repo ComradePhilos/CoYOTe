@@ -11,8 +11,7 @@ uses
   This will Replace all Texts of one language with Text of the choosen Language
   -> Needs more work on that!!!
 }
-function changeLanguage(ALanguage: string; ALazarusVersion: string;
-  AOSName: string): TStringList;
+function changeLanguage(ALanguage: string; ALazarusVersion: string; AOSName: string): TStringList;
 
 {
   The Real Day of the Week. Starting with 1 for Monday instead of Sunday
@@ -32,8 +31,9 @@ function searchForTranslation(VariableName: string; ALanguage: string): string;
 
 implementation
 
-function changeLanguage(ALanguage: string; ALazarusVersion: string;
-  AOSName: string): TStringList;
+function changeLanguage(ALanguage: string; ALazarusVersion: string; AOSName: string): TStringList;
+
+
 var
   words: TStringList;
 begin
@@ -138,4 +138,4 @@ begin
   Result := '';
 end;
 
-end.
+end.

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, EditBtn,
-  StdCtrls, ExtCtrls, Buttons, workdays;
+  StdCtrls, ExtCtrls, Buttons, ComCtrls, workdays;
 
 type
 
@@ -20,12 +20,14 @@ type
     HoursPerDayEdit: TLabeledEdit;
     Label1: TLabel;
     Label2: TLabel;
+		StatusBar1: TStatusBar;
     ToDateEdit: TDateEdit;
     UndoButton: TBitBtn;
     procedure ApplyButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure CheckInputs(Sender: TObject);
     procedure UndoButtonClick(Sender: TObject);
 
   private
@@ -44,6 +46,9 @@ var
   Form4: TForm4;
 
 implementation
+
+const
+  emDateOrder = 'Error: The dates are in the wrong order!';
 
 {$R *.lfm}
 
@@ -90,6 +95,24 @@ begin
   Clear;
 end;
 
+procedure TForm4.CheckInputs(Sender: TObject);
+begin
+  // Check if the Input is valid
+  if (length(FromDateEdit.Text) > 0) and (length(ToDateEdit.Text) > 0) then
+  begin
+    if (StrToDate(ToDateEdit.Text) >= StrToDate(FromDateEdit.Text)) then
+    begin
+      ApplyButton.Enabled := True;
+      StatusBar1.Panels[0].Text := '';
+    end
+    else
+    begin
+      ApplyButton.Enabled := False;
+      StatusBar1.Panels[0].Text := emDateOrder;
+    end;
+  end;
+end;
+
 
 procedure TForm4.Clear;
 begin
@@ -97,6 +120,7 @@ begin
   FromDateEdit.Text := '';
   ToDateEdit.Text := '';
   HoursPerDayEdit.Text := '';
+  ApplyButton.Enabled := False;
 end;
 
 end.
