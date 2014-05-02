@@ -20,7 +20,7 @@ type
     BackButton: TBitBtn;
     Label1: TLabel;
     UndoButton: TBitBtn;
-    StringGrid2: TStringGrid;
+    WeekGrid: TStringGrid;
 
     procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -54,8 +54,8 @@ procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
 var
   I: Integer;
 begin
-  Label1.Caption := 'Week ' + IntToStr(ANumber+1);
-  WeekDaysToStringGrid(StringGrid2, AWeek);
+  Label1.Caption := 'Week ' + IntToStr(ANumber+1) + '(Length: ' + IntToStr(AWeek.WeekLength) +')' ;
+  //WeekDaysToStringGrid(WeekGrid, AWeek);
 end;
 
 end.

@@ -47,7 +47,7 @@ type
     FDays: TWorkDays;
     FFromDate: TDate;
     FToDate: TDate;
-    FIntendedWorkDayCount: integer;     // Workdays in that particular week
+    FWeekLength: integer;     // Workdays in that particular week
     FIntendedTimePerDay: double;        // The time you intend to work per day
     //FAverageTime: Double;             // Durchschnittsarbeitszeit pro Tag (Zur Kontrolle)
 
@@ -59,7 +59,7 @@ type
     destructor Destroy;
     procedure Clear;
 
-    property IntendedWorkDayCount: Integer read FIntendedWorkDayCount write FIntendedWorkDayCount;
+    property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
     property AverageTimePerDay: Double read calcAverageTime;
     property FromDate: TDate read FFromDate write FFromDate;
@@ -154,6 +154,7 @@ constructor TWorkWeek.Create(AFromDate, AToDate: TDate; HoursPerDay: Integer);
 begin
   self.FromDate := AFromDate;
   self.ToDate := AToDate;
+  self.WeekLength := DaysBetween(FToDate,FFromDate)+ 1;
 end;
 
 destructor TWorkWeek.Destroy;
@@ -186,7 +187,7 @@ begin
   FDays.Clear;
   FFromDate := 0;
   FToDate := 0;
-  FIntendedWorkDayCount := 5;
+  FWeekLength := 5;
   FIntendedTimePerDay := 8;
 end;
 
@@ -242,12 +243,12 @@ var
 begin
   clearStringGrid(AGrid);
 
-  AGrid.RowCount := 2 + AWeek.IntendedWorkDayCount;
+  AGrid.RowCount := 2 + AWeek.WeekLength;
 
   day1 := RealDayOfWeek(AWeek.FromDate);
 
   // write contents to right grid
-  for I := 0 to AWeek.IntendedWorkDayCount + 1 do
+  for I := 0 to AWeek.WeekLength + 1 do
   begin
     AGrid.cells[0,0+I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
 

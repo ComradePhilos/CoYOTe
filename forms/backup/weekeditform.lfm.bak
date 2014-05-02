@@ -8,7 +8,7 @@ object Form3: TForm3
   ClientWidth = 428
   OnCreate = FormCreate
   LCLVersion = '1.2.0.3'
-  object StringGrid2: TStringGrid
+  object WeekGrid: TStringGrid
     Left = 7
     Height = 234
     Top = 33

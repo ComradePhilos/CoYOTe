@@ -54,7 +54,7 @@ procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
 var
   I: Integer;
 begin
-  Label1.Caption := 'Week ' + IntToStr(ANumber+1);
+  Label1.Caption := 'Week ' + IntToStr(ANumber+1) + '(Length: ' + IntToStr(AWeek.WeekLength) +')' ;
   WeekDaysToStringGrid(WeekGrid, AWeek);
 end;
 

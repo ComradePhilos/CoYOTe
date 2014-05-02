@@ -122,26 +122,6 @@ msgstr "So"
 msgid "Total"
 msgstr "Gesamt"
 
-#: tform1.stringgrid2.columns[0].title.caption
-msgctxt "tform1.stringgrid2.columns[0].title.caption"
-msgid "Weekdays"
-msgstr "Wochentage"
-
-#: tform1.stringgrid2.columns[1].title.caption
-msgctxt "tform1.stringgrid2.columns[1].title.caption"
-msgid "Start"
-msgstr "Start"
-
-#: tform1.stringgrid2.columns[2].title.caption
-msgctxt "tform1.stringgrid2.columns[2].title.caption"
-msgid "End"
-msgstr "Ende"
-
-#: tform1.stringgrid2.columns[3].title.caption
-msgctxt "tform1.stringgrid2.columns[3].title.caption"
-msgid "addit."
-msgstr "Hinzufügen"
-
 #: tform2.caption
 msgctxt "tform2.caption"
 msgid "About"

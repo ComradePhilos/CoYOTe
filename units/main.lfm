@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 467
-  Height = 576
+  Height = 619
   Top = 251
-  Width = 1123
+  Width = 1044
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 556
-  ClientWidth = 1123
+  ClientHeight = 599
+  ClientWidth = 1044
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -19,9 +19,9 @@ object Form1: TForm1
   LCLVersion = '1.2.0.3'
   object GroupBox1: TGroupBox
     Left = 788
-    Height = 243
+    Height = 363
     Top = 5
-    Width = 332
+    Width = 244
     Caption = 'Information and Statistics'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
@@ -34,7 +34,7 @@ object Form1: TForm1
   end
   object StringGrid1: TStringGrid
     Left = 0
-    Height = 457
+    Height = 542
     Top = 31
     Width = 779
     ColCount = 10
@@ -116,62 +116,11 @@ object Form1: TForm1
       64
     )
   end
-  object StringGrid2: TStringGrid
-    Left = 788
-    Height = 234
-    Top = 256
-    Width = 332
-    ColCount = 4
-    Columns = <    
-      item
-        Alignment = taCenter
-        ReadOnly = True
-        Title.Alignment = taCenter
-        Title.Caption = 'Weekdays'
-        Width = 122
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'Start'
-        Width = 73
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'End'
-        Width = 74
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'addit.'
-        Width = 65
-      end>
-    DefaultRowHeight = 29
-    FixedCols = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
-    RowCount = 8
-    ScrollBars = ssNone
-    TabOrder = 2
-    TitleFont.CharSet = ANSI_CHARSET
-    TitleFont.Height = -13
-    TitleFont.Name = 'Ubuntu'
-    TitleFont.Pitch = fpVariable
-    TitleFont.Quality = fqDraft
-    TitleStyle = tsNative
-    ColWidths = (
-      122
-      73
-      74
-      65
-    )
-  end
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 533
-    Width = 1123
+    Top = 576
+    Width = 1044
     Panels = <    
       item
         Width = 100
@@ -191,7 +140,7 @@ object Form1: TForm1
     ClientHeight = 31
     ClientWidth = 776
     ParentColor = False
-    TabOrder = 4
+    TabOrder = 3
     object AddButton: TBitBtn
       Left = 0
       Height = 32

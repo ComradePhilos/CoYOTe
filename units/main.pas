@@ -50,7 +50,6 @@ type
     MenuItem9: TMenuItem;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
-    StringGrid2: TStringGrid;
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
@@ -113,7 +112,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.15';
+  FVersionNr := '0.0.0.16';
   FVersionDate := '02.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -149,8 +148,6 @@ end;
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
   FSelectionIndex := aRow - 1;
-  StatusBar1.Panels[0].Text := IntToStr(FWeekList.Count);
-  //WeekDaysToStringGrid(StringGrid2, FWeekList.Items[aRow - 1]);
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
