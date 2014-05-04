@@ -112,7 +112,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.17';
+  FVersionNr := '0.0.1.0';
   FVersionDate := '04.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -160,6 +160,16 @@ procedure TForm1.EditButtonClick(Sender: TObject);
 begin
   if (FweekList.Count > 0) and (FSelectionIndex >= 0) then
   begin
+    if (FWeekList.Count > 1) then
+    begin
+      EditWeekForm.Arrow1.Enabled := True;
+      EditWeekForm.Arrow2.Enabled := True;
+    end
+    else
+    begin
+      EditWeekForm.Arrow1.Enabled := False;
+      EditWeekForm.Arrow2.Enabled := False;
+    end;
     EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex],FSelectionIndex);
     EditWeekForm.Visible := True;
   end;

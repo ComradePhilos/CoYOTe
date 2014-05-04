@@ -28,7 +28,6 @@ type
   private
     { private declarations }
     FWeek: TWorkWeek;
-    procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
   public
     { public declarations }
     procedure showWeek(AWeek: TWorkWeek; ANumber: Integer);
@@ -55,46 +54,10 @@ end;
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
 begin
-  self.FWeek := AWeek;
-  Label1.Caption := 'Week ' + IntToStr(ANumber+1) + '(Length: ' + IntToStr(FWeek.WeekLength) +')' ;
-  self.WeekDaysToStringGrid(WeekGrid, FWeek);
+  Label1.Caption := 'Period ' + IntToStr(ANumber+1) + ' (Length: ' + IntToStr(AWeek.WeekLength) +')' ;
+  WeekDaysToStringGrid(WeekGrid, AWeek);
 end;
 
-
-procedure TForm3.WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
-var
-  I: Integer;
-  day1: Integer;
-begin
-  clearStringGrid(AGrid);
-  AGrid.RowCount := AWeek.WeekLength + 1;
-  day1 := RealDayOfWeek(AWeek.FromDate);
-
-  // write contents to right grid
-  for I := 0 to (AWeek.WeekLength - 1) do
-  begin
-    AGrid.cells[0,0+I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
-
-    if (AWeek.Days[I].StartMinute < 10) then
-    begin
-      AGrid.cells[1,0+I] := IntToStr(AWeek.Days[I].StartHour) + ':0' + IntToStr(AWeek.Days[I].StartMinute);
-    end
-    else
-    begin
-      AGrid.cells[1,0+I] := IntToStr(AWeek.Days[I].StartHour) + ':' + IntToStr(AWeek.Days[I].StartMinute);
-    end;
-
-    if (AWeek.Days[I].EndMinute < 10) then
-    begin
-      AGrid.cells[2,0+I] := IntToStr(AWeek.Days[I].EndHour) + ':0' + IntToStr(AWeek.Days[I].EndMinute);
-    end
-    else
-    begin
-      AGrid.cells[2,0+I] := IntToStr(AWeek.Days[I].EndHour) + ':' + IntToStr(AWeek.Days[I].EndMinute);
-    end;
-  end;
-
-end;
 
 end.
 

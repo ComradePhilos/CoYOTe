@@ -160,6 +160,16 @@ procedure TForm1.EditButtonClick(Sender: TObject);
 begin
   if (FweekList.Count > 0) and (FSelectionIndex >= 0) then
   begin
+    if (FWeekList.Count > 1) then
+    begin
+      EditWeekForm.Arrow1.Visible := True;
+      EditWeekForm.Arrow2.Visible := True;
+    end
+    else
+    begin
+      EditWeekForm.Arrow1.Visible := False;
+      EditWeekForm.Arrow2.Visible := False;
+    end;
     EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex],FSelectionIndex);
     EditWeekForm.Visible := True;
   end;

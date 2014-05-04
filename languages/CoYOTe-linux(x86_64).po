@@ -167,26 +167,31 @@ msgstr ""
 
 #: tform3.weekgrid.columns[0].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[0].TITLE.CAPTION"
-msgid "Days"
+msgid "Nr."
 msgstr ""
 
 #: tform3.weekgrid.columns[1].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[1].TITLE.CAPTION"
-msgid "Start"
+msgid "Days"
 msgstr ""
 
 #: tform3.weekgrid.columns[2].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[2].TITLE.CAPTION"
-msgid "End"
+msgid "Start"
 msgstr ""
 
 #: tform3.weekgrid.columns[3].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[3].TITLE.CAPTION"
-msgid "Time off"
+msgid "End"
 msgstr ""
 
 #: tform3.weekgrid.columns[4].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[4].TITLE.CAPTION"
+msgid "Time off"
+msgstr ""
+
+#: tform3.weekgrid.columns[5].title.caption
+msgctxt "TFORM3.WEEKGRID.COLUMNS[5].TITLE.CAPTION"
 msgid "addit."
 msgstr ""
 

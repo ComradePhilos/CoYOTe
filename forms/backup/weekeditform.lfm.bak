@@ -1,11 +1,11 @@
 object Form3: TForm3
-  Left = 257
-  Height = 310
-  Top = 159
-  Width = 428
+  Left = 326
+  Height = 318
+  Top = 157
+  Width = 476
   Caption = 'Edit period'
-  ClientHeight = 310
-  ClientWidth = 428
+  ClientHeight = 318
+  ClientWidth = 476
   OnCreate = FormCreate
   LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
@@ -13,7 +13,12 @@ object Form3: TForm3
     Height = 234
     Top = 32
     Width = 412
+    ColCount = 6
     Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Nr.'
+      end    
       item
         Alignment = taCenter
         ReadOnly = True
@@ -58,6 +63,7 @@ object Form3: TForm3
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
     ColWidths = (
+      64
       122
       73
       71
@@ -243,7 +249,7 @@ object Form3: TForm3
     TabOrder = 3
   end
   object Label1: TLabel
-    Left = 185
+    Left = 159
     Height = 17
     Top = 8
     Width = 66
@@ -253,18 +259,20 @@ object Form3: TForm3
   object Arrow1: TArrow
     Left = 8
     Height = 20
-    Top = 8
+    Top = 5
     Width = 20
     Constraints.MinHeight = 8
     Constraints.MinWidth = 8
+    ShadowType = stNone
   end
   object Arrow2: TArrow
     Left = 399
     Height = 20
-    Top = 8
+    Top = 5
     Width = 20
     ArrowType = atRight
     Constraints.MinHeight = 8
     Constraints.MinWidth = 8
+    ShadowType = stNone
   end
 end
