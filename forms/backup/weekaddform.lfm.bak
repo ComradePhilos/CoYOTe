@@ -3,17 +3,17 @@ object Form4: TForm4
   Height = 188
   Top = 275
   Width = 320
-  Caption = 'Add new Week'
+  Caption = 'Add a new period of time'
   ClientHeight = 188
   ClientWidth = 320
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object FromDateEdit: TDateEdit
     Left = 8
-    Height = 23
+    Height = 27
     Top = 32
     Width = 120
     DialogTitle = 'Select Beginning of the week'
@@ -30,15 +30,15 @@ object Form4: TForm4
   end
   object Label1: TLabel
     Left = 48
-    Height = 15
+    Height = 17
     Top = 8
-    Width = 28
+    Width = 36
     Caption = 'From'
     ParentColor = False
   end
   object ToDateEdit: TDateEdit
     Left = 168
-    Height = 23
+    Height = 27
     Top = 32
     Width = 120
     DialogTitle = 'Select Date'
@@ -55,15 +55,15 @@ object Form4: TForm4
   end
   object Label2: TLabel
     Left = 226
-    Height = 15
+    Height = 17
     Top = 8
-    Width = 14
+    Width = 16
     Caption = 'To'
     ParentColor = False
   end
   object HoursPerDayEdit: TLabeledEdit
     Left = 8
-    Height = 23
+    Height = 27
     Top = 88
     Width = 120
     Alignment = taRightJustify
@@ -72,10 +72,10 @@ object Form4: TForm4
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 8
-    EditLabel.Height = 15
-    EditLabel.Top = 70
+    EditLabel.Height = 17
+    EditLabel.Top = 68
     EditLabel.Width = 120
-    EditLabel.Caption = 'Hours  per Day'
+    EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
     TabOrder = 2
     Text = '8'
@@ -255,8 +255,8 @@ object Form4: TForm4
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 165
+    Height = 21
+    Top = 167
     Width = 320
     Panels = <    
       item

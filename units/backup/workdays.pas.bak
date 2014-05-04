@@ -243,12 +243,12 @@ var
 begin
   clearStringGrid(AGrid);
 
-  AGrid.RowCount := 1 + AWeek.WeekLength;
+  AGrid.RowCount := 2 + AWeek.WeekLength;
 
   day1 := RealDayOfWeek(AWeek.FromDate);
 
   // write contents to right grid
-  for I := 0 to AWeek.WeekLength-1 do
+  for I := 0 to AWeek.WeekLength + 1 do
   begin
     AGrid.cells[0,0+I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
 

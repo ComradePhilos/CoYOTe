@@ -49,7 +49,7 @@ object Form1: TForm1
       item
         Alignment = taCenter
         Title.Alignment = taCenter
-        Title.Caption = 'Week'
+        Title.Caption = 'Period'
         Width = 200
       end    
       item

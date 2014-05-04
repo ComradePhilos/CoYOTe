@@ -3,11 +3,11 @@ object Form3: TForm3
   Height = 310
   Top = 139
   Width = 428
-  Caption = 'Edit Week'
+  Caption = 'Edit period'
   ClientHeight = 310
   ClientWidth = 428
   OnCreate = FormCreate
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
     Left = 7
     Height = 234
@@ -18,7 +18,7 @@ object Form3: TForm3
         Alignment = taCenter
         ReadOnly = True
         Title.Alignment = taCenter
-        Title.Caption = 'Weekdays'
+        Title.Caption = 'Days'
         Width = 122
       end    
       item
@@ -244,10 +244,10 @@ object Form3: TForm3
   end
   object Label1: TLabel
     Left = 185
-    Height = 15
+    Height = 17
     Top = 8
-    Width = 38
-    Caption = 'Week 1'
+    Width = 66
+    Caption = 'Period #1'
     ParentColor = False
   end
   object Arrow1: TArrow
