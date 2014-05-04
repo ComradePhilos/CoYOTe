@@ -7,7 +7,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
   Buttons, StdCtrls, Arrow,
-  workdays;
+  { eigene Units }
+  workdays, funcs;
 
 type
 
@@ -26,6 +27,7 @@ type
     procedure FormCreate(Sender: TObject);
   private
     { private declarations }
+    FWeek: TWorkWeek;
   public
     { public declarations }
     procedure showWeek(AWeek: TWorkWeek; ANumber: Integer);
@@ -51,12 +53,11 @@ begin
 end;
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
-var
-  I: Integer;
 begin
-  Label1.Caption := 'Week ' + IntToStr(ANumber+1) + '(Length: ' + IntToStr(AWeek.WeekLength) +')' ;
+  Label1.Caption := 'Period ' + IntToStr(ANumber+1) + '(Length: ' + IntToStr(AWeek.WeekLength) +')' ;
   WeekDaysToStringGrid(WeekGrid, AWeek);
 end;
+
 
 end.
 

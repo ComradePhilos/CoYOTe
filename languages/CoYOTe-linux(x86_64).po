@@ -75,7 +75,7 @@ msgid "Nr"
 msgstr ""
 
 #: tform1.stringgrid1.columns[1].title.caption
-msgid "Week"
+msgid "Period"
 msgstr ""
 
 #: tform1.stringgrid1.columns[2].title.caption
@@ -153,11 +153,11 @@ msgid "Back"
 msgstr ""
 
 #: tform3.caption
-msgid "Edit Week"
+msgid "Edit period"
 msgstr ""
 
 #: tform3.label1.caption
-msgid "Week 1"
+msgid "Period #1"
 msgstr ""
 
 #: tform3.undobutton.caption
@@ -167,7 +167,7 @@ msgstr ""
 
 #: tform3.weekgrid.columns[0].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[0].TITLE.CAPTION"
-msgid "Weekdays"
+msgid "Days"
 msgstr ""
 
 #: tform3.weekgrid.columns[1].title.caption
@@ -196,7 +196,7 @@ msgid "Apply"
 msgstr ""
 
 #: tform4.caption
-msgid "Add new Week"
+msgid "Add a new period of time"
 msgstr ""
 
 #: tform4.fromdateedit.cancelcaption
@@ -216,7 +216,7 @@ msgstr ""
 
 #: tform4.hoursperdayedit.editlabel.caption
 msgctxt "TFORM4.HOURSPERDAYEDIT.EDITLABEL.CAPTION"
-msgid "Hours  per Day"
+msgid "Hours  per day"
 msgstr ""
 
 #: tform4.hoursperdayedit.text

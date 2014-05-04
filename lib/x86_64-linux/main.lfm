@@ -49,7 +49,7 @@ object Form1: TForm1
       item
         Alignment = taCenter
         Title.Alignment = taCenter
-        Title.Caption = 'Week'
+        Title.Caption = 'Period'
         Width = 200
       end    
       item
@@ -136,10 +136,14 @@ object Form1: TForm1
     Top = 0
     Width = 1044
     Caption = 'ToolBar1'
+    Color = clActiveBorder
+    EdgeBorders = [ebLeft, ebTop, ebRight]
     EdgeOuter = esRaised
     Images = ImageList1
     Indent = 2
+    ParentColor = False
     TabOrder = 3
+    Transparent = True
     object ToolButton1: TToolButton
       Left = 2
       Top = 2
