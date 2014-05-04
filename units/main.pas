@@ -26,11 +26,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    EditButton: TBitBtn;
-    QuickMenu: TPanel;
-    AddButton: TBitBtn;
-    RemoveButton: TBitBtn;
-    RemoveAllButton: TBitBtn;
+    ImageList1: TImageList;
     GroupBox1: TGroupBox;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
@@ -50,6 +46,10 @@ type
     MenuItem9: TMenuItem;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
+    ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
@@ -112,8 +112,8 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.0.16';
-  FVersionDate := '02.05.2014';
+  FVersionNr := '0.0.0.17';
+  FVersionDate := '04.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';
@@ -201,15 +201,13 @@ procedure TForm1.EnableButtons;
 begin
   if (FWeekList.Count > 0) then
   begin
-    RemoveButton.Enabled := True;
-    EditButton.Enabled := True;
-    RemoveAllButton.Enabled := True;
+    Toolbar1.Buttons[1].Enabled := True;
+    Toolbar1.Buttons[2].Enabled := True;
   end
   else
   begin
-    RemoveButton.Enabled := False;
-    EditButton.Enabled := False;
-    RemoveAllButton.Enabled := False;
+    Toolbar1.Buttons[1].Enabled := False;
+    Toolbar1.Buttons[2].Enabled := False;
   end;
 end;
 
@@ -241,4 +239,4 @@ begin
 end;
 
 
-end.
+end.
