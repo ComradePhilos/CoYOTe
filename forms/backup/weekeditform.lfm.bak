@@ -504,7 +504,7 @@ object Form3: TForm3
     TabOrder = 5
   end
   object arrow1: TBitBtn
-    Left = 0
+    Left = 416
     Height = 30
     Top = 0
     Width = 32

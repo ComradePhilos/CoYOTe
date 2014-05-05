@@ -31,7 +31,6 @@ type
     procedure FormCreate(Sender: TObject);
   private
     { private declarations }
-    FWeek: TWorkWeek;
     FIndex: integer;
 
     FOnRemoveClick: TRemoveEvent;
