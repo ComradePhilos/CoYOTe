@@ -99,7 +99,7 @@ implementation
 
 const
   txtDeleteMsg = 'Are you sure you want to delete the period with all data? This cannot be made undone afterwards!';
-
+  txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
 {$R *.lfm}
 
 { TForm1 }
@@ -201,8 +201,7 @@ procedure TForm1.RemoveAll(Sender: TObject);
 begin
   if (FWeekList.Count > 0) then
   begin
-    if (MessageDlg('Delete all entries', 'Do you really wish to delete all data?', mtConfirmation,
-      [mbYes, mbNo], 0) = mrYes) then
+    if (MessageDlg('Delete all entries', txtDeleteAllMsg , mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       FWeekList.Clear;
       WeeksToStringGrid(StringGrid1, FWeekList);
