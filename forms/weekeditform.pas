@@ -18,12 +18,12 @@ type
 
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
-    Arrow1: TArrow;
-    Arrow2: TArrow;
     BackButton: TBitBtn;
     Label1: TLabel;
     UndoButton: TBitBtn;
 		UndoButton1: TBitBtn;
+		arrow2: TBitBtn;
+		arrow1: TBitBtn;
     WeekGrid: TStringGrid;
 
     procedure BackButtonClick(Sender: TObject);
@@ -73,7 +73,7 @@ end;
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
 begin
-  Label1.Caption := 'Period ' + IntToStr(ANumber+1) + ' (Length: ' + IntToStr(AWeek.WeekLength) +')' ;
+  Label1.Caption := 'Period #' + IntToStr(ANumber+1) + ' (Length: ' + IntToStr(AWeek.WeekLength) +')' ;
   FIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, AWeek);
 end;

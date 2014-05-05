@@ -130,9 +130,8 @@ begin
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
 
-  AddWeekForm.OnApplyClick := @AddWeekToList;    // assign event of the add-form
-  EditWeekForm.OnRemoveClick := @RemoveWeekFromList;
-
+  AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
+  EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
@@ -165,13 +164,13 @@ begin
   begin
     if (FWeekList.Count > 1) then
     begin
-      EditWeekForm.Arrow1.Visible := True;
-      EditWeekForm.Arrow2.Visible := True;
+      EditWeekForm.Arrow1.Enabled := True;
+      EditWeekForm.Arrow2.Enabled := True;
     end
     else
     begin
-      EditWeekForm.Arrow1.Visible := False;
-      EditWeekForm.Arrow2.Visible := False;
+      EditWeekForm.Arrow1.Enabled := False;
+      EditWeekForm.Arrow2.Enabled := False;
     end;
     EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex], FSelectionIndex);
     EditWeekForm.Visible := True;
