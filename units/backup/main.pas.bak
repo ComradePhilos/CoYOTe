@@ -162,13 +162,13 @@ begin
   begin
     if (FWeekList.Count > 1) then
     begin
-      EditWeekForm.Arrow1.Enabled := True;
-      EditWeekForm.Arrow2.Enabled := True;
+      EditWeekForm.Arrow1.Visible := True;
+      EditWeekForm.Arrow2.Visible := True;
     end
     else
     begin
-      EditWeekForm.Arrow1.Enabled := False;
-      EditWeekForm.Arrow2.Enabled := False;
+      EditWeekForm.Arrow1.Visible := False;
+      EditWeekForm.Arrow2.Visible := False;
     end;
     EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex],FSelectionIndex);
     EditWeekForm.Visible := True;

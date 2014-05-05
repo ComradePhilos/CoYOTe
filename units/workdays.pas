@@ -19,7 +19,7 @@ type
 
     FWeekDay: integer;         // Weekday 1 - 7
     FDate: TDate;              // Date of the specific Day
-    FAdditionalTime: double;   // Time to add or substract additionally e.g. if you took 1 hour off
+    FAdditionalTime: double;   // Time to add or substract additional time e.g. if you took 1 hour off
 
     function calcDifference: double;    // The function that will actually calculate work time of one day
 
@@ -208,7 +208,9 @@ begin
   if (hour < 10) then
     txtHour := '0' + IntToStr(hour);
   if (min < 10) then
-    txtMin := '0' + IntToStr(min);
+    txtMin := '0' + IntToStr(min)
+  else
+    txtMin := IntToStr(min);
 
   Result := txtHour + ':' + txtMin;
 end;
@@ -279,4 +281,4 @@ begin
 
 end;
 
-end.
+end.

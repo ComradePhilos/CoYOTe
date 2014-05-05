@@ -1,24 +1,30 @@
 object Form3: TForm3
-  Left = 1447
-  Height = 310
-  Top = 139
-  Width = 428
-  Caption = 'Edit Week'
-  ClientHeight = 310
-  ClientWidth = 428
+  Left = 326
+  Height = 318
+  Top = 157
+  Width = 486
+  Caption = 'Edit period'
+  ClientHeight = 318
+  ClientWidth = 486
   OnCreate = FormCreate
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
     Left = 7
     Height = 234
-    Top = 33
-    Width = 412
+    Top = 32
+    Width = 465
+    ColCount = 6
     Columns = <    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'Nr.'
+        Width = 57
+      end    
       item
         Alignment = taCenter
         ReadOnly = True
         Title.Alignment = taCenter
-        Title.Caption = 'Weekdays'
+        Title.Caption = 'Days'
         Width = 122
       end    
       item
@@ -49,7 +55,7 @@ object Form3: TForm3
     FixedCols = 0
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
     RowCount = 8
-    ScrollBars = ssNone
+    ScrollBars = ssAutoVertical
     TabOrder = 0
     TitleFont.CharSet = ANSI_CHARSET
     TitleFont.Height = -13
@@ -58,6 +64,7 @@ object Form3: TForm3
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
     ColWidths = (
+      57
       122
       73
       71
@@ -66,7 +73,7 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 337
+    Left = 390
     Height = 30
     Top = 273
     Width = 82
@@ -159,7 +166,7 @@ object Form3: TForm3
     TabOrder = 2
   end
   object UndoButton: TBitBtn
-    Left = 258
+    Left = 311
     Height = 30
     Top = 273
     Width = 75
@@ -243,28 +250,30 @@ object Form3: TForm3
     TabOrder = 3
   end
   object Label1: TLabel
-    Left = 185
-    Height = 15
+    Left = 166
+    Height = 17
     Top = 8
-    Width = 38
-    Caption = 'Week 1'
+    Width = 66
+    Caption = 'Period #1'
     ParentColor = False
   end
   object Arrow1: TArrow
     Left = 8
     Height = 20
-    Top = 8
+    Top = 5
     Width = 20
     Constraints.MinHeight = 8
     Constraints.MinWidth = 8
+    ShadowType = stNone
   end
   object Arrow2: TArrow
-    Left = 399
+    Left = 451
     Height = 20
-    Top = 8
+    Top = 5
     Width = 20
     ArrowType = atRight
     Constraints.MinHeight = 8
     Constraints.MinWidth = 8
+    ShadowType = stNone
   end
 end

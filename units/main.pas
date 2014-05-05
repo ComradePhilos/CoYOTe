@@ -170,7 +170,7 @@ begin
       EditWeekForm.Arrow1.Visible := False;
       EditWeekForm.Arrow2.Visible := False;
     end;
-    EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex],FSelectionIndex);
+    EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex], FSelectionIndex);
     EditWeekForm.Visible := True;
   end;
 end;
@@ -249,4 +249,4 @@ begin
 end;
 
 
-end.
+end.

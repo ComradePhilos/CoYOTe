@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 251
   Width = 1044
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 595
+  ClientHeight = 575
   ClientWidth = 1044
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -118,8 +118,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 574
+    Height = 23
+    Top = 552
     Width = 1044
     Panels = <    
       item
@@ -145,21 +145,21 @@ object Form1: TForm1
     TabOrder = 3
     Transparent = True
     object ToolButton1: TToolButton
-      Left = 2
+      Left = 4
       Top = 2
       Caption = 'ToolButton1'
       ImageIndex = 0
       OnClick = AddWeek
     end
     object ToolButton2: TToolButton
-      Left = 30
+      Left = 32
       Top = 2
       Caption = 'ToolButton2'
       ImageIndex = 1
       OnClick = RemoveSelected
     end
     object ToolButton3: TToolButton
-      Left = 58
+      Left = 60
       Top = 2
       Caption = 'ToolButton3'
       ImageIndex = 2
@@ -696,4 +696,4 @@ object Form1: TForm1
       0000000000000000000000000000
     }
   end
-end
+end

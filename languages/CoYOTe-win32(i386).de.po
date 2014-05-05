@@ -87,7 +87,9 @@ msgid "Nr"
 msgstr "Nr"
 
 #: tform1.stringgrid1.columns[1].title.caption
-msgid "Week"
+#, fuzzy
+#| msgid "Week"
+msgid "Period"
 msgstr "Woche"
 
 #: tform1.stringgrid1.columns[2].title.caption
@@ -122,6 +124,22 @@ msgstr "So"
 msgid "Total"
 msgstr "Gesamt"
 
+#: tform1.toolbar1.caption
+msgid "ToolBar1"
+msgstr ""
+
+#: tform1.toolbutton1.caption
+msgid "ToolButton1"
+msgstr ""
+
+#: tform1.toolbutton2.caption
+msgid "ToolButton2"
+msgstr ""
+
+#: tform1.toolbutton3.caption
+msgid "ToolButton3"
+msgstr ""
+
 #: tform2.caption
 msgctxt "tform2.caption"
 msgid "About"
@@ -149,11 +167,11 @@ msgid "Back"
 msgstr ""
 
 #: tform3.caption
-msgid "Edit Week"
+msgid "Edit period"
 msgstr ""
 
 #: tform3.label1.caption
-msgid "Week 1"
+msgid "Period #1"
 msgstr ""
 
 #: tform3.undobutton.caption
@@ -162,27 +180,42 @@ msgid "Undo"
 msgstr "Rückgängig"
 
 #: tform3.weekgrid.columns[0].title.caption
+#, fuzzy
+#| msgid "Weekdays"
 msgctxt "tform3.weekgrid.columns[0].title.caption"
-msgid "Weekdays"
+msgid "Nr."
 msgstr "Wochentage"
 
 #: tform3.weekgrid.columns[1].title.caption
+#, fuzzy
+#| msgid "Start"
 msgctxt "tform3.weekgrid.columns[1].title.caption"
-msgid "Start"
+msgid "Days"
 msgstr "Start"
 
 #: tform3.weekgrid.columns[2].title.caption
+#, fuzzy
+#| msgid "End"
 msgctxt "tform3.weekgrid.columns[2].title.caption"
-msgid "End"
+msgid "Start"
 msgstr "Ende"
 
 #: tform3.weekgrid.columns[3].title.caption
 msgctxt "tform3.weekgrid.columns[3].title.caption"
-msgid "Time off"
+msgid "End"
 msgstr ""
 
 #: tform3.weekgrid.columns[4].title.caption
+#, fuzzy
+#| msgid "addit."
 msgctxt "tform3.weekgrid.columns[4].title.caption"
+msgid "Time off"
+msgstr "Hinzufügen"
+
+#: tform3.weekgrid.columns[5].title.caption
+#, fuzzy
+#| msgid "addit."
+msgctxt "tform3.weekgrid.columns[5].title.caption"
 msgid "addit."
 msgstr "Hinzufügen"
 
@@ -192,7 +225,7 @@ msgid "Apply"
 msgstr "Anwenden"
 
 #: tform4.caption
-msgid "Add new Week"
+msgid "Add a new period of time"
 msgstr ""
 
 #: tform4.fromdateedit.cancelcaption
@@ -211,8 +244,10 @@ msgid "OK"
 msgstr "OK"
 
 #: tform4.hoursperdayedit.editlabel.caption
+#, fuzzy
+#| msgid "Hours  per Day"
 msgctxt "tform4.hoursperdayedit.editlabel.caption"
-msgid "Hours  per Day"
+msgid "Hours  per day"
 msgstr "Stunden pro Tag"
 
 #: tform4.hoursperdayedit.text

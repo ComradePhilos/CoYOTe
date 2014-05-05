@@ -1,19 +1,21 @@
 object Form4: TForm4
-  Left = 1561
-  Height = 188
-  Top = 275
-  Width = 320
+  Left = 1062
+  Height = 193
+  Top = 296
+  Width = 317
   Caption = 'Add a new period of time'
-  ClientHeight = 188
-  ClientWidth = 320
+  ClientHeight = 193
+  ClientWidth = 317
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object FromDateEdit: TDateEdit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideRight.Control = ToDateEdit
     Left = 8
-    Height = 27
+    Height = 23
     Top = 32
     Width = 120
     DialogTitle = 'Select Beginning of the week'
@@ -30,23 +32,26 @@ object Form4: TForm4
   end
   object Label1: TLabel
     Left = 48
-    Height = 17
+    Height = 15
     Top = 8
-    Width = 36
+    Width = 28
     Caption = 'From'
     ParentColor = False
   end
   object ToDateEdit: TDateEdit
-    Left = 168
-    Height = 27
+    AnchorSideLeft.Control = Owner
+    Left = 179
+    Height = 23
     Top = 32
-    Width = 120
+    Width = 106
     DialogTitle = 'Select Date'
     CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames, dsShowWeekNumbers]
     OKCaption = 'OK'
     CancelCaption = 'Cancel'
     DateOrder = doNone
     ButtonWidth = 23
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 179
     CharCase = ecNormal
     NumGlyphs = 1
     MaxLength = 0
@@ -55,15 +60,15 @@ object Form4: TForm4
   end
   object Label2: TLabel
     Left = 226
-    Height = 17
+    Height = 15
     Top = 8
-    Width = 16
+    Width = 14
     Caption = 'To'
     ParentColor = False
   end
   object HoursPerDayEdit: TLabeledEdit
     Left = 8
-    Height = 27
+    Height = 23
     Top = 88
     Width = 120
     Alignment = taRightJustify
@@ -72,8 +77,8 @@ object Form4: TForm4
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 8
-    EditLabel.Height = 17
-    EditLabel.Top = 68
+    EditLabel.Height = 15
+    EditLabel.Top = 70
     EditLabel.Width = 120
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
@@ -82,10 +87,17 @@ object Form4: TForm4
     OnChange = CheckInputs
   end
   object ApplyButton: TBitBtn
-    Left = 232
+    AnchorSideLeft.Side = asrCenter
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 209
     Height = 30
     Top = 128
-    Width = 83
+    Width = 92
+    Anchors = [akTop, akRight]
+    BorderSpacing.Left = 60
+    BorderSpacing.Right = 13
+    BorderSpacing.Around = 3
     Caption = 'Apply'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -168,10 +180,12 @@ object Form4: TForm4
     TabOrder = 3
   end
   object UndoButton: TBitBtn
-    Left = 8
+    AnchorSideLeft.Control = Owner
+    Left = 10
     Height = 30
     Top = 128
     Width = 83
+    BorderSpacing.Left = 10
     Caption = 'Cancel'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -255,9 +269,9 @@ object Form4: TForm4
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 167
-    Width = 320
+    Height = 23
+    Top = 170
+    Width = 317
     Panels = <    
       item
         Width = 50

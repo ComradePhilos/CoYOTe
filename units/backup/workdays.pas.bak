@@ -208,7 +208,9 @@ begin
   if (hour < 10) then
     txtHour := '0' + IntToStr(hour);
   if (min < 10) then
-    txtMin := '0' + IntToStr(min);
+    txtMin := '0' + IntToStr(min)
+  else
+    txtMin := IntToStr(min);
 
   Result := txtHour + ':' + txtMin;
 end;
@@ -255,7 +257,7 @@ begin
   for I := 0 to AWeek.WeekLength do
   begin
 
-    AGrid.Cells[0,I] := IntToStr(I+1);
+    AGrid.Cells[0,I] := IntToStr(I);
     AGrid.cells[1,I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
 
     if (AWeek.Days[I].StartMinute < 10) then
@@ -279,4 +281,4 @@ begin
 
 end;
 
-end.
+end.
