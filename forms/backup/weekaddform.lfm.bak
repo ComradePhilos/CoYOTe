@@ -284,6 +284,8 @@ object Form4: TForm4
     Top = 88
     Width = 98
     Caption = 'edit afterwards'
+    Checked = True
+    State = cbChecked
     TabOrder = 6
   end
 end

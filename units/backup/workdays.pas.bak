@@ -19,7 +19,7 @@ type
 
     FWeekDay: integer;         // Weekday 1 - 7
     FDate: TDate;              // Date of the specific Day
-    FAdditionalTime: double;   // Time to add or substract additionally e.g. if you took 1 hour off
+    FAdditionalTime: double;   // Time to add or substract additional time e.g. if you took 1 hour off
 
     function calcDifference: double;    // The function that will actually calculate work time of one day
 
@@ -262,23 +262,23 @@ begin
 
     if (AWeek.Days[I].StartMinute < 10) then
     begin
-      AGrid.cells[2,I] := IntToStr(AWeek.Days[I].StartHour) + ':0' + IntToStr(AWeek.Days[I].StartMinute);
+      AGrid.cells[3,I] := IntToStr(AWeek.Days[I].StartHour) + ':0' + IntToStr(AWeek.Days[I].StartMinute);
     end
     else
     begin
-      AGrid.cells[2,I] := IntToStr(AWeek.Days[I].StartHour) + ':' + IntToStr(AWeek.Days[I].StartMinute);
+      AGrid.cells[3,I] := IntToStr(AWeek.Days[I].StartHour) + ':' + IntToStr(AWeek.Days[I].StartMinute);
     end;
 
     if (AWeek.Days[I].EndMinute < 10) then
     begin
-      AGrid.cells[3,I] := IntToStr(AWeek.Days[I].EndHour) + ':0' + IntToStr(AWeek.Days[I].EndMinute);
+      AGrid.cells[4,I] := IntToStr(AWeek.Days[I].EndHour) + ':0' + IntToStr(AWeek.Days[I].EndMinute);
     end
     else
     begin
-      AGrid.cells[3,I] := IntToStr(AWeek.Days[I].EndHour) + ':' + IntToStr(AWeek.Days[I].EndMinute);
+      AGrid.cells[4,I] := IntToStr(AWeek.Days[I].EndHour) + ':' + IntToStr(AWeek.Days[I].EndMinute);
     end;
   end;
 
 end;
 
-end.
+end.

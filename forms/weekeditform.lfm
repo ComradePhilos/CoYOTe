@@ -14,18 +14,23 @@ object Form3: TForm3
     Height = 234
     Top = 32
     Width = 482
-    ColCount = 6
+    ColCount = 7
     Columns = <    
       item
         Title.Alignment = taCenter
         Title.Caption = 'Nr.'
-        Width = 57
+        Width = 47
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'day'
+        Width = 50
       end    
       item
         Alignment = taCenter
         ReadOnly = True
         Title.Alignment = taCenter
-        Title.Caption = 'Days'
+        Title.Caption = 'date'
         Width = 122
       end    
       item
@@ -65,7 +70,8 @@ object Form3: TForm3
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
     ColWidths = (
-      57
+      47
+      50
       122
       73
       71
@@ -243,10 +249,10 @@ object Form3: TForm3
     TabOrder = 2
   end
   object UndoButton: TBitBtn
-    Left = 325
+    Left = 317
     Height = 30
     Top = 273
-    Width = 75
+    Width = 80
     Caption = 'Undo'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -328,17 +334,17 @@ object Form3: TForm3
   end
   object Label1: TLabel
     Left = 96
-    Height = 15
+    Height = 17
     Top = 8
-    Width = 50
+    Width = 66
     Caption = 'Period #1'
     ParentColor = False
   end
   object UndoButton1: TBitBtn
-    Left = 248
+    Left = 227
     Height = 30
     Top = 273
-    Width = 75
+    Width = 83
     Caption = 'Delete'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100

@@ -32,7 +32,6 @@ type
   private
     { private declarations }
     FIndex: integer;
-
     FOnRemoveClick: TRemoveEvent;
   public
     { public declarations }
