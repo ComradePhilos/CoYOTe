@@ -36,6 +36,9 @@ type
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
     MenuItem15: TMenuItem;
+		MenuItem16: TMenuItem;
+		MenuItem17: TMenuItem;
+		MenuItem18: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -82,7 +85,7 @@ type
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
-    procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; GoOnEditing: Boolean);
+    procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: Boolean);
     procedure RemoveWeekFromList(Sender: TObject; Index: Integer);
     procedure EnableButtons;      // Checks for each button, wether it has to get
   public
@@ -116,7 +119,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.2';
+  FVersionNr := '0.0.1.3';
   FVersionDate := '05.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -208,12 +211,12 @@ begin
   EnableButtons;
 end;
 
-procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek; GoOnEditing: Boolean);
+procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: Boolean);
 begin
   FWeekList.Add(AWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
   EnableButtons;
-  if GoOnEditing then
+  if EditAfterwards then
   begin
     FSelectionIndex := FWeekList.Count-1;
     EditButtonClick(self);

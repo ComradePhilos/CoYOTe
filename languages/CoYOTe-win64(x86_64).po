@@ -37,6 +37,18 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+#: tform1.menuitem16.caption
+msgid "periods"
+msgstr ""
+
+#: tform1.menuitem17.caption
+msgid "add a period"
+msgstr ""
+
+#: tform1.menuitem18.caption
+msgid "remove all periods"
+msgstr ""
+
 #: tform1.menuitem2.caption
 msgid "Edit"
 msgstr ""

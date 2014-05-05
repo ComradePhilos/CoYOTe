@@ -11,7 +11,7 @@ uses
 
 type
 
-  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; GoOnEditing: Boolean) of object;
+  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: Boolean) of object;
 
   { TForm4 }
 
@@ -143,7 +143,6 @@ begin
   FromDateEdit.Text := '';
   ToDateEdit.Text := '';
   HoursPerDayEdit.Text := '8';
-  CheckBox1.Checked := False;
   ApplyButton.Enabled := False;
 end;
 
