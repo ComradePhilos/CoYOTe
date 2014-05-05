@@ -83,6 +83,7 @@ type
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
+    procedure RemoveWeekFromList(Sender: TObject; Index: Integer);
     procedure EnableButtons;      // Checks for each button, wether it has to get
   public
     { public declarations }
@@ -130,6 +131,8 @@ begin
   AddWeekForm := TForm4.Create(nil);
 
   AddWeekForm.OnApplyClick := @AddWeekToList;    // assign event of the add-form
+  EditWeekForm.OnRemoveClick := @RemoveWeekFromList;
+
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
@@ -204,6 +207,16 @@ procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
 begin
   FWeekList.Add(AWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
+  EnableButtons;
+end;
+
+procedure TForm1.RemoveWeekFromList(Sender: TObject; Index: Integer);
+begin
+  if (Index >= 0) and (Index < FWeekList.Count) then
+  begin
+    FWeekList.Delete(Index);
+	end;
+	WeeksToStringGrid(StringGrid1, FWeekList);
   EnableButtons;
 end;
 

@@ -21,9 +21,11 @@ type
     BackButton: TBitBtn;
     Label1: TLabel;
     UndoButton: TBitBtn;
+		UndoButton1: TBitBtn;
     WeekGrid: TStringGrid;
 
     procedure BackButtonClick(Sender: TObject);
+		procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { private declarations }
@@ -50,6 +52,11 @@ end;
 procedure TForm3.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
+end;
+
+procedure TForm3.DeleteWeek(Sender: TObject);
+begin
+
 end;
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
