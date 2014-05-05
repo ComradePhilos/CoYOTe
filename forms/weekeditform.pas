@@ -12,7 +12,7 @@ uses
 
 type
 
-    TRemoveEvent = procedure(Sender: TObject; Index: Integer) of object;
+  TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
 
   { TForm3 }
 
@@ -21,23 +21,23 @@ type
     BackButton: TBitBtn;
     Label1: TLabel;
     UndoButton: TBitBtn;
-		UndoButton1: TBitBtn;
-		arrow2: TBitBtn;
-		arrow1: TBitBtn;
+    UndoButton1: TBitBtn;
+    arrow2: TBitBtn;
+    arrow1: TBitBtn;
     WeekGrid: TStringGrid;
 
     procedure BackButtonClick(Sender: TObject);
-		procedure DeleteWeek(Sender: TObject);
+    procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { private declarations }
     FWeek: TWorkWeek;
-    FIndex: Integer;
+    FIndex: integer;
 
     FOnRemoveClick: TRemoveEvent;
   public
     { public declarations }
-    procedure showWeek(AWeek: TWorkWeek; ANumber: Integer);
+    procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
 
     property OnRemoveClick: TRemoveEvent read FOnRemoveClick write FOnRemoveClick;
   end;
@@ -46,6 +46,9 @@ var
   Form3: TForm3;
 
 implementation
+
+const
+  txtDeleteMsg = 'Are you sure you want to delete the period with all data? This cannot be made undone afterwards!';
 
 {$R *.lfm}
 
@@ -63,17 +66,20 @@ end;
 
 procedure TForm3.DeleteWeek(Sender: TObject);
 begin
-   if assigned(FOnRemoveClick) then
-   begin
-     FOnRemoveClick(self, FIndex);
-     self.Visible := False;
-   end;
+  if (MessageDlg('Delete Data?', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
+    if assigned(FOnRemoveClick) then
+    begin
+      FOnRemoveClick(self, FIndex);
+      self.Visible := False;
+    end;
+  end;
 end;
 
 
-procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
+procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 begin
-  Label1.Caption := 'Period #' + IntToStr(ANumber+1) + ' (Length: ' + IntToStr(AWeek.WeekLength) +')' ;
+  Label1.Caption := 'Period #' + IntToStr(ANumber + 1) + ' (Length: ' + IntToStr(AWeek.WeekLength) + ' days)';
   FIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, AWeek);
 end;

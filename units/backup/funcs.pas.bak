@@ -11,8 +11,7 @@ uses
   This will Replace all Texts of one language with Text of the choosen Language
   -> Needs more work on that!!!
 }
-function changeLanguage(ALanguage: string; ALazarusVersion: string;
-  AOSName: string): TStringList;
+function changeLanguage(ALanguage: string; ALazarusVersion: string; AOSName: string): TStringList;
 
 {
   The Real Day of the Week. Starting with 1 for Monday instead of Sunday
@@ -26,36 +25,8 @@ function getHour(time: string): integer;
 // Gets You the minute part of a clock time like 19:15 as an Integer -> 15
 function getMinute(time: string): integer;
 
-// Searches in a language-file for the translation by looking for the name in the file
-function searchForTranslation(VariableName: string; ALanguage: string): string;
-
-
 implementation
 
-function changeLanguage(ALanguage: string; ALazarusVersion: string;
-  AOSName: string): TStringList;
-var
-  words: TStringList;
-begin
-
-  // There is a better way - look at the file in folder "language"
-  words := TStringList.Create;
-  //words.loadFromFile('data\languages\'+ ALanguage +'.txt');
-  Result := words;
-  words.Free;
-
-  // translate also Buttons on Dialog-Forms
-  if (ALanguage = 'German') then
-  begin
-    if (AOSName = 'Linux') then
-      TranslateUnitResourceStrings('LCLStrConsts',
-        '/usr/share/lazarus/' + ALazarusVersion + '/lcl/languages/lclstrconsts.de.po');
-    if (AOSName = 'Windows') then
-      TranslateUnitResourceStrings('LCLStrConsts',
-        'C:\lazarus\lcl\languages\lclstrconsts.de.po');
-  end;
-
-end;
 
 function RealDayOfWeek(ADate: TDate): integer;
 var
@@ -138,4 +109,4 @@ begin
   Result := '';
 end;
 
-end.
+end.

@@ -153,7 +153,7 @@ msgid "Back"
 msgstr ""
 
 #: tform3.caption
-msgid "Edit period"
+msgid "Edit selected period"
 msgstr ""
 
 #: tform3.label1.caption

@@ -1,15 +1,16 @@
 object Form3: TForm3
   Left = 390
-  Height = 318
+  Height = 313
   Top = 139
-  Width = 491
-  Caption = 'Edit period'
-  ClientHeight = 318
-  ClientWidth = 491
+  Width = 487
+  Caption = 'Edit selected period'
+  ClientHeight = 313
+  ClientWidth = 487
   OnCreate = FormCreate
+  Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
-    Left = 7
+    Left = 2
     Height = 234
     Top = 32
     Width = 482
@@ -73,7 +74,7 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 408
+    Left = 402
     Height = 30
     Top = 273
     Width = 82
@@ -166,7 +167,7 @@ object Form3: TForm3
     TabOrder = 2
   end
   object UndoButton: TBitBtn
-    Left = 328
+    Left = 325
     Height = 30
     Top = 273
     Width = 75
@@ -342,8 +343,8 @@ object Form3: TForm3
     OnClick = DeleteWeek
     TabOrder = 4
   end
-  object UndoButton2: TBitBtn
-    Left = 456
+  object arrow2: TBitBtn
+    Left = 453
     Height = 30
     Top = 0
     Width = 32
@@ -423,10 +424,11 @@ object Form3: TForm3
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    Spacing = 0
     TabOrder = 5
   end
-  object UndoButton3: TBitBtn
-    Left = 7
+  object arrow1: TBitBtn
+    Left = 0
     Height = 30
     Top = 0
     Width = 32

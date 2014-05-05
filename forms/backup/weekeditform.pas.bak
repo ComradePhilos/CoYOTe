@@ -22,8 +22,8 @@ type
     Label1: TLabel;
     UndoButton: TBitBtn;
 		UndoButton1: TBitBtn;
-		UndoButton2: TBitBtn;
-		UndoButton3: TBitBtn;
+		arrow2: TBitBtn;
+		arrow1: TBitBtn;
     WeekGrid: TStringGrid;
 
     procedure BackButtonClick(Sender: TObject);
@@ -47,6 +47,9 @@ var
 
 implementation
 
+const
+  txtDeleteMsg = 'Are you sure you want to delete the period with all data? This cannot be made undone afterwards!';
+
 {$R *.lfm}
 
 { TForm3 }
@@ -63,17 +66,20 @@ end;
 
 procedure TForm3.DeleteWeek(Sender: TObject);
 begin
+  if (MessageDlg('Quit Programme', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
    if assigned(FOnRemoveClick) then
    begin
      FOnRemoveClick(self, FIndex);
      self.Visible := False;
    end;
+	end;
 end;
 
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: Integer);
 begin
-  Label1.Caption := 'Period #' + IntToStr(ANumber+1) + ' (Length: ' + IntToStr(AWeek.WeekLength) +')' ;
+  Label1.Caption := 'Period #' + IntToStr(ANumber+1) + ' (Length: ' + IntToStr(AWeek.WeekLength) +' days)' ;
   FIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, AWeek);
 end;

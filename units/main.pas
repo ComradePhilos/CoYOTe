@@ -94,6 +94,9 @@ var
 
 implementation
 
+const
+  txtDeleteMsg = 'Are you sure you want to delete the period with all data? This cannot be made undone afterwards!';
+
 {$R *.lfm}
 
 { TForm1 }
@@ -113,7 +116,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.1';
+  FVersionNr := '0.0.1.2';
   FVersionDate := '05.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -179,13 +182,16 @@ end;
 
 procedure TForm1.RemoveSelected(Sender: TObject);
 begin
-  if (FSelectionIndex >= 0) and (FWeekList.Count > 0) then
+  if (FSelectionIndex >= 0) then
+  begin
+  if (MessageDlg('Delete Data?', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
     FWeekList.Delete(FSelectionIndex);
     WeeksToStringGrid(StringGrid1, FWeekList);
     FSelectionIndex := -1;
   end;
   EnableButtons;
+	end;
 end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
