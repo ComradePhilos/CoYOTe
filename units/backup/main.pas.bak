@@ -82,7 +82,7 @@ type
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
-    procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
+    procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; GoOnEditing: Boolean);
     procedure RemoveWeekFromList(Sender: TObject; Index: Integer);
     procedure EnableButtons;      // Checks for each button, wether it has to get
   public
@@ -116,7 +116,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.1';
+  FVersionNr := '0.0.1.2';
   FVersionDate := '05.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -208,11 +208,15 @@ begin
   EnableButtons;
 end;
 
-procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek);
+procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek; GoOnEditing: Boolean);
 begin
   FWeekList.Add(AWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
   EnableButtons;
+  if GoOnEditing then
+  begin
+    EditButtonClick(self);
+	end;
 end;
 
 procedure TForm1.RemoveWeekFromList(Sender: TObject; Index: Integer);

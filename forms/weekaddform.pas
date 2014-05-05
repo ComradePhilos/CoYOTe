@@ -6,16 +6,18 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, EditBtn,
-  StdCtrls, ExtCtrls, Buttons, ComCtrls, workdays;
+  StdCtrls, ExtCtrls, Buttons, ComCtrls,
+  workdays, WeekEditForm;
 
 type
 
-  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek) of object;
+  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; GoOnEditing: Boolean) of object;
 
   { TForm4 }
 
   TForm4 = class(TForm)
     ApplyButton: TBitBtn;
+		CheckBox1: TCheckBox;
     FromDateEdit: TDateEdit;
     HoursPerDayEdit: TLabeledEdit;
     Label1: TLabel;
@@ -77,9 +79,9 @@ begin
       begin
         if assigned(FOnApplyClick) then
         begin
-          FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2, locHours));
+          FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2, locHours), CheckBox1.Checked);
           self.Visible := False;
-        end;
+				end;
       end;
     end;
   end;
@@ -141,6 +143,7 @@ begin
   FromDateEdit.Text := '';
   ToDateEdit.Text := '';
   HoursPerDayEdit.Text := '8';
+  CheckBox1.Checked := False;
   ApplyButton.Enabled := False;
 end;
 

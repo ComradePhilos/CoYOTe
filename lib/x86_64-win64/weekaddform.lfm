@@ -278,4 +278,12 @@ object Form4: TForm4
       end>
     SimplePanel = False
   end
+  object CheckBox1: TCheckBox
+    Left = 179
+    Height = 19
+    Top = 88
+    Width = 98
+    Caption = 'edit afterwards'
+    TabOrder = 6
+  end
 end

@@ -201,6 +201,10 @@ msgstr ""
 msgid "Add a new period of time"
 msgstr ""
 
+#: tform4.checkbox1.caption
+msgid "edit afterwards"
+msgstr ""
+
 #: tform4.fromdateedit.cancelcaption
 msgctxt "tform4.fromdateedit.cancelcaption"
 msgid "Cancel"
