@@ -37,6 +37,18 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+#: tform1.menuitem16.caption
+msgid "periods"
+msgstr ""
+
+#: tform1.menuitem17.caption
+msgid "add a period"
+msgstr ""
+
+#: tform1.menuitem18.caption
+msgid "remove all periods"
+msgstr ""
+
 #: tform1.menuitem2.caption
 msgid "Edit"
 msgstr ""
@@ -153,7 +165,7 @@ msgid "Back"
 msgstr ""
 
 #: tform3.caption
-msgid "Edit period"
+msgid "Edit selected period"
 msgstr ""
 
 #: tform3.label1.caption
@@ -163,6 +175,10 @@ msgstr ""
 #: tform3.undobutton.caption
 msgctxt "TFORM3.UNDOBUTTON.CAPTION"
 msgid "Undo"
+msgstr ""
+
+#: tform3.undobutton1.caption
+msgid "Delete"
 msgstr ""
 
 #: tform3.weekgrid.columns[0].title.caption
@@ -202,6 +218,10 @@ msgstr ""
 
 #: tform4.caption
 msgid "Add a new period of time"
+msgstr ""
+
+#: tform4.checkbox1.caption
+msgid "edit afterwards"
 msgstr ""
 
 #: tform4.fromdateedit.cancelcaption
