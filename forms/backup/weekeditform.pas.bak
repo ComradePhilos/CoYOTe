@@ -24,6 +24,7 @@ type
 		MenuItem1: TMenuItem;
 		MenuItem2: TMenuItem;
 		MenuItem3: TMenuItem;
+		MenuItem4: TMenuItem;
 		PopupMenu1: TPopupMenu;
     UndoButton: TBitBtn;
     UndoButton1: TBitBtn;
@@ -67,7 +68,7 @@ procedure TForm3.MenuItem2Click(Sender: TObject);
 begin
   if (MessageDlg('Delete Data?', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
-    WeekGrid.SelectedColumn.Index;
+   // WeekGrid.SelectedColumn.Index;
 	end;
 end;
 

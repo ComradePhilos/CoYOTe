@@ -63,7 +63,7 @@ msgid "Help"
 msgstr ""
 
 #: tform1.menuitem5.caption
-msgid "Quit"
+msgid "Exit"
 msgstr ""
 
 #: tform1.menuitem6.caption
@@ -162,7 +162,7 @@ msgid "Period #1"
 msgstr ""
 
 #: tform3.menuitem1.caption
-msgid "Ignore in Calculation"
+msgid "Ignore"
 msgstr ""
 
 #: tform3.menuitem2.caption
@@ -175,13 +175,21 @@ msgctxt "TFORM3.MENUITEM3.CAPTION"
 msgid "Edit"
 msgstr ""
 
+#: tform3.menuitem4.caption
+msgid "Insert"
+msgstr ""
+
+#: tform3.menuitem5.caption
+msgid "New Item5"
+msgstr ""
+
 #: tform3.undobutton.caption
 msgid "Undo"
 msgstr ""
 
 #: tform3.undobutton1.caption
 msgctxt "tform3.undobutton1.caption"
-msgid "Delete"
+msgid "Delete period"
 msgstr ""
 
 #: tform3.weekgrid.columns[0].title.caption

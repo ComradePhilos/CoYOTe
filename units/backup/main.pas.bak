@@ -36,9 +36,9 @@ type
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
     MenuItem15: TMenuItem;
-		MenuItem16: TMenuItem;
-		MenuItem17: TMenuItem;
-		MenuItem18: TMenuItem;
+    MenuItem16: TMenuItem;
+    MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -85,8 +85,8 @@ type
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
-    procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: Boolean);
-    procedure RemoveWeekFromList(Sender: TObject; Index: Integer);
+    procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
+    procedure RemoveWeekFromList(Sender: TObject; Index: integer);
     procedure EnableButtons;      // Checks for each button, wether it has to get
   public
     { public declarations }
@@ -100,6 +100,7 @@ implementation
 const
   txtDeleteMsg = 'Are you sure you want to delete the period with all data? This cannot be made undone afterwards!';
   txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
+
 {$R *.lfm}
 
 { TForm1 }
@@ -187,21 +188,21 @@ procedure TForm1.RemoveSelected(Sender: TObject);
 begin
   if (FSelectionIndex >= 0) then
   begin
-  if (MessageDlg('Delete Data?', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
-  begin
-    FWeekList.Delete(FSelectionIndex);
-    WeeksToStringGrid(StringGrid1, FWeekList);
-    FSelectionIndex := -1;
+    if (MessageDlg('Delete Data?', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+    begin
+      FWeekList.Delete(FSelectionIndex);
+      WeeksToStringGrid(StringGrid1, FWeekList);
+      FSelectionIndex := -1;
+    end;
+    EnableButtons;
   end;
-  EnableButtons;
-	end;
 end;
 
 procedure TForm1.RemoveAll(Sender: TObject);
 begin
   if (FWeekList.Count > 0) then
   begin
-    if (MessageDlg('Delete all entries', txtDeleteAllMsg , mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+    if (MessageDlg('Delete all entries', txtDeleteAllMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       FWeekList.Clear;
       WeeksToStringGrid(StringGrid1, FWeekList);
@@ -210,25 +211,25 @@ begin
   EnableButtons;
 end;
 
-procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: Boolean);
+procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
 begin
   FWeekList.Add(AWeek);
   WeeksToStringGrid(StringGrid1, FWeekList);
   EnableButtons;
   if EditAfterwards then
   begin
-    FSelectionIndex := FWeekList.Count-1;
+    FSelectionIndex := FWeekList.Count - 1;
     EditButtonClick(self);
-	end;
+  end;
 end;
 
-procedure TForm1.RemoveWeekFromList(Sender: TObject; Index: Integer);
+procedure TForm1.RemoveWeekFromList(Sender: TObject; Index: integer);
 begin
   if (Index >= 0) and (Index < FWeekList.Count) then
   begin
     FWeekList.Delete(Index);
-	end;
-	WeeksToStringGrid(StringGrid1, FWeekList);
+  end;
+  WeeksToStringGrid(StringGrid1, FWeekList);
   EnableButtons;
 end;
 
