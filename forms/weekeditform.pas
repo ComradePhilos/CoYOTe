@@ -40,6 +40,7 @@ type
     ButtonDelete: TToolButton;
     WeekGrid: TStringGrid;
 
+    procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure ButtonEmptyClick(Sender: TObject);
     procedure ButtonUndoClick(Sender: TObject);
@@ -72,6 +73,7 @@ implementation
 const
   txtDeleteMsg = 'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
   txtRemoveMsg = 'Do you really want to delete the selected day? This will delete all data related to it!';
+  txtClearMsg = 'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
 
 {$R *.lfm}
 
@@ -158,11 +160,19 @@ begin
   self.Visible := False;
 end;
 
+procedure TForm3.ApplyButtonClick(Sender: TObject);
+begin
+
+end;
+
 procedure TForm3.ButtonEmptyClick(Sender: TObject);
 begin
-  FWeek.Clear;
-  ClearStringGrid(WeekGrid);
-  Label1.Caption := 'Period #' + IntToStr(FSelectionIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+  if (MessageDlg('Delete selected day?', txtRemoveMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
+    FWeek.Clear;
+    ClearStringGrid(WeekGrid);
+    Label1.Caption := 'Period #' + IntToStr(FSelectionIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+  end;
 end;
 
 procedure TForm3.ButtonUndoClick(Sender: TObject);

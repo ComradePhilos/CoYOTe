@@ -12,7 +12,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="67" Y="19"/>
-        <UsageCount Value="192"/>
+        <UsageCount Value="193"/>
       </Unit0>
       <Unit1>
         <Filename Value="units\main.pas"/>
@@ -23,9 +23,9 @@
         <UnitName Value="main"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="190"/>
-        <CursorPos X="26" Y="154"/>
-        <UsageCount Value="192"/>
+        <TopLine Value="1"/>
+        <CursorPos X="53" Y="137"/>
+        <UsageCount Value="193"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -33,12 +33,11 @@
         <Filename Value="units\workdays.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="workdays"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="181"/>
-        <CursorPos X="19" Y="216"/>
-        <UsageCount Value="192"/>
+        <TopLine Value="166"/>
+        <CursorPos X="36" Y="203"/>
+        <UsageCount Value="193"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -49,7 +48,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="41"/>
         <CursorPos X="56" Y="71"/>
-        <UsageCount Value="144"/>
+        <UsageCount Value="145"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -63,7 +62,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="50" Y="11"/>
-        <UsageCount Value="142"/>
+        <UsageCount Value="143"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -74,11 +73,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="WeekEditForm"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="137"/>
-        <CursorPos X="60" Y="170"/>
-        <UsageCount Value="84"/>
+        <TopLine Value="43"/>
+        <CursorPos X="98" Y="75"/>
+        <UsageCount Value="85"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -93,7 +93,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="23" Y="82"/>
-        <UsageCount Value="82"/>
+        <UsageCount Value="83"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
