@@ -229,7 +229,7 @@ begin
     AGrid.Cells[0,1+I] := IntToStr(I+1);
     if (AWeekList.Items[I].FromDate <> AWeekList.Items[I].ToDate) then
     begin
-         AGrid.Cells[1,1+I] := DateToStr(AWeekList.Items[I].FromDate) + ' - ' + DateToStr(AWeekList.Items[I].ToDate);
+         AGrid.Cells[1,1+I] := DateToStr(AWeekList.Items[I].Days[0].Date) + ' - ' + DateToStr(AWeekList.Items[I].Days[AWeekList.Items[I].WeekLength-1].Date);
     end
     else
     begin
@@ -256,11 +256,11 @@ begin
   day1 := RealDayOfWeek(AWeek.FromDate);
 
   // write contents to right grid
-  for I := 0 to AWeek.WeekLength do
+  for I := 1 to AWeek.WeekLength do
   begin
 
     AGrid.Cells[0,I] := IntToStr(I);
-    AGrid.Cells[2,I] := DateToStr(AWeek.FromDate+(I-1));
+    AGrid.Cells[2,I] := DateToStr(AWeek.Days[I-1].Date);
 
     if (AWeek.Days[I].Weekday > 0) and (AWeek.Days[I].Weekday < 8) then
     begin

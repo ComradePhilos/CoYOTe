@@ -11,13 +11,13 @@ uses
 
 type
 
-  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: Boolean) of object;
+  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean) of object;
 
   { TForm4 }
 
   TForm4 = class(TForm)
     ApplyButton: TBitBtn;
-		CheckBox1: TCheckBox;
+    CheckBox1: TCheckBox;
     FromDateEdit: TDateEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -73,11 +73,11 @@ begin
   begin
     if (TryStrToDate(ToDateEdit.Text, locDate2)) then
     begin
-        if assigned(FOnApplyClick) then
-        begin
-          FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2), CheckBox1.Checked);
-          self.Visible := False;
-				end;
+      if assigned(FOnApplyClick) then
+      begin
+        FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2), CheckBox1.Checked);
+        self.Visible := False;
+      end;
     end;
   end;
 
@@ -108,17 +108,17 @@ begin
   // Check if the Input is valid
   if TryStrToDate(FromDateEdit.Text, locDate1) and TryStrToDate(ToDateEdit.Text, locDate2) then
   begin
-      if (locDate2 >= locDate1) then
-      begin
-        ApplyButton.Enabled := True;
-        StatusBar1.Panels[0].Text := '';
-      end
-      else
-      begin
-        // Wrond Date order
-        ApplyButton.Enabled := False;
-        StatusBar1.Panels[0].Text := emDateOrder;
-      end;
+    if (locDate2 >= locDate1) then
+    begin
+      ApplyButton.Enabled := True;
+      StatusBar1.Panels[0].Text := '';
+    end
+    else
+    begin
+      // Wrond Date order
+      ApplyButton.Enabled := False;
+      StatusBar1.Panels[0].Text := emDateOrder;
+    end;
   end;
 end;
 

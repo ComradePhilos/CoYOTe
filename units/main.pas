@@ -100,6 +100,7 @@ implementation
 const
   txtDeleteMsg = 'Are you sure you want to delete the period with all data? This cannot be made undone afterwards!';
   txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
+  txtQuitMsg = 'Do you really want to quit? (Be sure you saved your changes!)';
 
 {$R *.lfm}
 
@@ -254,7 +255,7 @@ end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+  if (MessageDlg('Quit Programme', txtQuitMsg, mtConfirmation,
     [mbYes, mbNo], 0) = mrYes) then
   begin
     Application.Terminate;
@@ -263,7 +264,7 @@ end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-  if (MessageDlg('Quit Programme', 'Do you want to quit ' + FProgrammeName + '?', mtConfirmation,
+  if (MessageDlg('Quit Programme', txtQuitMsg, mtConfirmation,
     [mbYes, mbNo], 0) = mrYes) then
   begin
     CanClose := True;

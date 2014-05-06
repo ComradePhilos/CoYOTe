@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, Arrow, ExtCtrls, Menus,
+  Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs,
   { eigene Units }
   workdays, funcs;
 
@@ -38,6 +38,7 @@ type
 		procedure FormDestroy(Sender: TObject);
 		procedure MenuAddClick(Sender: TObject);
 		procedure MenuDeleteClick(Sender: TObject);
+		procedure MenuEditClick(Sender: TObject);
 		procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton;
 					Shift: TShiftState; X, Y: Integer);
   private
@@ -99,12 +100,29 @@ begin
 	end;
 end;
 
+procedure TForm3.MenuEditClick(Sender: TObject);
+var
+  calDialog: TCalendarDialog;
+begin
+  calDialog := TCalendarDialog.Create(nil);
+  try
+    if calDialog.Execute then
+    begin
+     FWeek.Days[FSelectionIndex].Date := calDialog.Date;
+     WeekDaysToStringGrid(WeekGrid,FWeek);
+		end;
+	finally
+    calDialog.Free;
+	end;
+
+end;
+
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton;
 			Shift: TShiftState; X, Y: Integer);
 begin
   if (Button = mbRight) then
   begin
-    FSelectionIndex := Weekgrid.Row;
+    FSelectionIndex := Weekgrid.Row-1;
     PopUpMenu1.PopUp;
 	end
   else

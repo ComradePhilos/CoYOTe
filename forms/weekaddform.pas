@@ -115,7 +115,7 @@ begin
     end
     else
     begin
-      // Wrond Date order
+      // Wrong Date order
       ApplyButton.Enabled := False;
       StatusBar1.Panels[0].Text := emDateOrder;
     end;
