@@ -11,15 +11,14 @@ uses
 
 type
 
-  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: Boolean) of object;
+  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean) of object;
 
   { TForm4 }
 
   TForm4 = class(TForm)
     ApplyButton: TBitBtn;
-		CheckBox1: TCheckBox;
+    CheckBox1: TCheckBox;
     FromDateEdit: TDateEdit;
-    HoursPerDayEdit: TLabeledEdit;
     Label1: TLabel;
     Label2: TLabel;
     StatusBar1: TStatusBar;
@@ -66,7 +65,6 @@ procedure TForm4.ApplyButtonClick(Sender: TObject);
 var
   locDate1: TDate;
   locDate2: TDate;
-  locHours: integer;
 begin
 
   // Check if the values are convertable and only execute, if the
@@ -75,13 +73,10 @@ begin
   begin
     if (TryStrToDate(ToDateEdit.Text, locDate2)) then
     begin
-      if TryStrToInt(HoursPerDayEdit.Text, locHours) then
+      if assigned(FOnApplyClick) then
       begin
-        if assigned(FOnApplyClick) then
-        begin
-          FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2, locHours), CheckBox1.Checked);
-          self.Visible := False;
-				end;
+        FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2), CheckBox1.Checked);
+        self.Visible := False;
       end;
     end;
   end;
@@ -113,25 +108,16 @@ begin
   // Check if the Input is valid
   if TryStrToDate(FromDateEdit.Text, locDate1) and TryStrToDate(ToDateEdit.Text, locDate2) then
   begin
-    if TryStrToInt(HoursPerDayEdit.Text, locHours) and (locHours > 0) and (locHours <= 24) then
+    if (locDate2 >= locDate1) then
     begin
-      if (locDate2 >= locDate1) then
-      begin
-        ApplyButton.Enabled := True;
-        StatusBar1.Panels[0].Text := '';
-      end
-      else
-      begin
-        // Wrond Date order
-        ApplyButton.Enabled := False;
-        StatusBar1.Panels[0].Text := emDateOrder;
-      end;
+      ApplyButton.Enabled := True;
+      StatusBar1.Panels[0].Text := '';
     end
     else
     begin
-      // Invalid amount of work time per day
+      // Wrond Date order
       ApplyButton.Enabled := False;
-      StatusBar1.Panels[0].Text := emHoursPerDay;
+      StatusBar1.Panels[0].Text := emDateOrder;
     end;
   end;
 end;
@@ -142,7 +128,6 @@ begin
   FWeek.Clear;
   FromDateEdit.Text := '';
   ToDateEdit.Text := '';
-  HoursPerDayEdit.Text := '8';
   ApplyButton.Enabled := False;
 end;
 

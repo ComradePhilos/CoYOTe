@@ -258,7 +258,8 @@ begin
   begin
 
     AGrid.Cells[0,I] := IntToStr(I);
-    AGrid.cells[1,I] := txtWeekdays[RealDayOfWeek(day1+I)] + ' ' + DateToStr(AWeek.FromDate+(I-1));
+    AGrid.cells[1,I] := txtWeekdays[RealDayOfWeek(day1+I)];
+    AGrid.Cells[2,I] := DateToStr(AWeek.FromDate+(I-1));
 
     if (AWeek.Days[I].StartMinute < 10) then
     begin

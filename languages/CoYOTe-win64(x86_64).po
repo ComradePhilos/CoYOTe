@@ -50,6 +50,7 @@ msgid "remove all periods"
 msgstr ""
 
 #: tform1.menuitem2.caption
+msgctxt "tform1.menuitem2.caption"
 msgid "Edit"
 msgstr ""
 
@@ -87,39 +88,19 @@ msgid "Nr"
 msgstr ""
 
 #: tform1.stringgrid1.columns[1].title.caption
-msgid "Period"
+msgid "period"
 msgstr ""
 
 #: tform1.stringgrid1.columns[2].title.caption
-msgid "Mon"
+msgid "sum"
 msgstr ""
 
 #: tform1.stringgrid1.columns[3].title.caption
-msgid "Tue"
+msgid "target"
 msgstr ""
 
 #: tform1.stringgrid1.columns[4].title.caption
-msgid "Wed"
-msgstr ""
-
-#: tform1.stringgrid1.columns[5].title.caption
-msgid "Thu"
-msgstr ""
-
-#: tform1.stringgrid1.columns[6].title.caption
-msgid "Fri"
-msgstr ""
-
-#: tform1.stringgrid1.columns[7].title.caption
-msgid "Sat"
-msgstr ""
-
-#: tform1.stringgrid1.columns[8].title.caption
-msgid "Sun"
-msgstr ""
-
-#: tform1.stringgrid1.columns[9].title.caption
-msgid "Total"
+msgid "diff."
 msgstr ""
 
 #: tform1.toolbar1.caption
@@ -168,8 +149,30 @@ msgstr ""
 msgid "Edit selected period"
 msgstr ""
 
+#: tform3.hoursperdayedit.editlabel.caption
+msgid "Hours  per day"
+msgstr ""
+
+#: tform3.hoursperdayedit.text
+msgid "8"
+msgstr ""
+
 #: tform3.label1.caption
 msgid "Period #1"
+msgstr ""
+
+#: tform3.menuitem1.caption
+msgid "Ignore in Calculation"
+msgstr ""
+
+#: tform3.menuitem2.caption
+msgctxt "TFORM3.MENUITEM2.CAPTION"
+msgid "Delete"
+msgstr ""
+
+#: tform3.menuitem3.caption
+msgctxt "TFORM3.MENUITEM3.CAPTION"
+msgid "Edit"
 msgstr ""
 
 #: tform3.undobutton.caption
@@ -177,6 +180,7 @@ msgid "Undo"
 msgstr ""
 
 #: tform3.undobutton1.caption
+msgctxt "tform3.undobutton1.caption"
 msgid "Delete"
 msgstr ""
 
@@ -185,22 +189,28 @@ msgid "Nr."
 msgstr ""
 
 #: tform3.weekgrid.columns[1].title.caption
-msgid "Days"
+msgid "day"
 msgstr ""
 
 #: tform3.weekgrid.columns[2].title.caption
-msgid "Start"
+msgid "date"
 msgstr ""
 
 #: tform3.weekgrid.columns[3].title.caption
-msgid "End"
+msgid "Start"
 msgstr ""
 
 #: tform3.weekgrid.columns[4].title.caption
-msgid "Time off"
+msgid "End"
 msgstr ""
 
 #: tform3.weekgrid.columns[5].title.caption
+msgctxt "tform3.weekgrid.columns[5].title.caption"
+msgid "Time off"
+msgstr ""
+
+#: tform3.weekgrid.columns[6].title.caption
+msgctxt "TFORM3.WEEKGRID.COLUMNS[6].TITLE.CAPTION"
 msgid "addit."
 msgstr ""
 
@@ -214,7 +224,7 @@ msgid "Add a new period of time"
 msgstr ""
 
 #: tform4.checkbox1.caption
-msgid "edit afterwards"
+msgid "open edit window afterwards"
 msgstr ""
 
 #: tform4.fromdateedit.cancelcaption
@@ -229,14 +239,6 @@ msgstr ""
 #: tform4.fromdateedit.okcaption
 msgctxt "tform4.fromdateedit.okcaption"
 msgid "OK"
-msgstr ""
-
-#: tform4.hoursperdayedit.editlabel.caption
-msgid "Hours  per day"
-msgstr ""
-
-#: tform4.hoursperdayedit.text
-msgid "8"
 msgstr ""
 
 #: tform4.label1.caption

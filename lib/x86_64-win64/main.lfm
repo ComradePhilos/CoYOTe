@@ -2,10 +2,10 @@ object Form1: TForm1
   Left = 467
   Height = 595
   Top = 251
-  Width = 1044
+  Width = 916
   Caption = 'CoYOT(e) - Overtime Calculator'
   ClientHeight = 575
-  ClientWidth = 1044
+  ClientWidth = 916
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -18,10 +18,10 @@ object Form1: TForm1
   Position = poScreenCenter
   LCLVersion = '1.2.2.0'
   object GroupBox1: TGroupBox
-    Left = 788
+    Left = 639
     Height = 363
-    Top = 32
-    Width = 244
+    Top = 31
+    Width = 272
     Caption = 'Information and Statistics'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
@@ -36,8 +36,7 @@ object Form1: TForm1
     Left = 0
     Height = 542
     Top = 31
-    Width = 779
-    ColCount = 10
+    Width = 635
     ColumnClickSorts = True
     Columns = <    
       item
@@ -49,40 +48,23 @@ object Form1: TForm1
       item
         Alignment = taCenter
         Title.Alignment = taCenter
-        Title.Caption = 'Period'
-        Width = 200
+        Title.Caption = 'period'
+        Width = 208
       end    
       item
         Title.Alignment = taCenter
-        Title.Caption = 'Mon'
+        Title.Caption = 'sum'
+        Width = 70
       end    
       item
         Title.Alignment = taCenter
-        Title.Caption = 'Tue'
+        Title.Caption = 'target'
+        Width = 70
       end    
       item
         Title.Alignment = taCenter
-        Title.Caption = 'Wed'
-      end    
-      item
-        Title.Alignment = taCenter
-        Title.Caption = 'Thu'
-      end    
-      item
-        Title.Alignment = taCenter
-        Title.Caption = 'Fri'
-      end    
-      item
-        Title.Alignment = taCenter
-        Title.Caption = 'Sat'
-      end    
-      item
-        Title.Alignment = taCenter
-        Title.Caption = 'Sun'
-      end    
-      item
-        Title.Alignment = taCenter
-        Title.Caption = 'Total'
+        Title.Caption = 'diff.'
+        Width = 70
       end>
     FixedColor = clWhite
     FixedCols = 0
@@ -105,22 +87,17 @@ object Form1: TForm1
     OnSelectCell = SelectWeek
     ColWidths = (
       54
-      200
-      64
-      64
-      64
-      64
-      64
-      64
-      64
-      64
+      208
+      70
+      70
+      70
     )
   end
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
     Top = 552
-    Width = 1044
+    Width = 916
     Panels = <    
       item
         Width = 100
@@ -134,7 +111,7 @@ object Form1: TForm1
     Left = 0
     Height = 26
     Top = 0
-    Width = 1044
+    Width = 916
     Caption = 'ToolBar1'
     Color = clActiveBorder
     EdgeBorders = [ebLeft, ebTop, ebRight]
@@ -167,8 +144,7 @@ object Form1: TForm1
     end
   end
   object MainMenu1: TMainMenu
-    left = 1016
-    top = 8
+    left = 864
     object MenuItem1: TMenuItem
       Caption = 'File'
       object MenuItem15: TMenuItem
@@ -687,8 +663,7 @@ object Form1: TForm1
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    left = 968
-    top = 8
+    left = 832
     Bitmap = {
       4C69030000001800000018000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -119,8 +119,8 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.3';
-  FVersionDate := '05.05.2014';
+  FVersionNr := '0.0.1.4';
+  FVersionDate := '06.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';

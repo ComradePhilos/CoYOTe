@@ -1,31 +1,39 @@
 object Form3: TForm3
   Left = 390
-  Height = 313
+  Height = 411
   Top = 139
-  Width = 487
+  Width = 538
   Caption = 'Edit selected period'
-  ClientHeight = 313
-  ClientWidth = 487
+  ClientHeight = 411
+  ClientWidth = 538
   OnCreate = FormCreate
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
     Left = 2
     Height = 234
-    Top = 32
-    Width = 482
-    ColCount = 6
+    Top = 30
+    Width = 534
+    ColCount = 7
+    ColumnClickSorts = True
     Columns = <    
       item
+        ReadOnly = True
         Title.Alignment = taCenter
         Title.Caption = 'Nr.'
-        Width = 57
+        Width = 47
+      end    
+      item
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'day'
+        Width = 50
       end    
       item
         Alignment = taCenter
         ReadOnly = True
         Title.Alignment = taCenter
-        Title.Caption = 'Days'
+        Title.Caption = 'date'
         Width = 122
       end    
       item
@@ -55,7 +63,8 @@ object Form3: TForm3
     DefaultRowHeight = 29
     FixedCols = 0
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
-    RowCount = 8
+    PopupMenu = PopupMenu1
+    RowCount = 7
     ScrollBars = ssAutoVertical
     TabOrder = 0
     TitleFont.CharSet = ANSI_CHARSET
@@ -65,7 +74,8 @@ object Form3: TForm3
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
     ColWidths = (
-      57
+      47
+      50
       122
       73
       71
@@ -74,9 +84,9 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 402
+    Left = 447
     Height = 30
-    Top = 273
+    Top = 376
     Width = 82
     Caption = 'Apply'
     Glyph.Data = {
@@ -160,7 +170,7 @@ object Form3: TForm3
   object BackButton: TBitBtn
     Left = 8
     Height = 30
-    Top = 273
+    Top = 376
     Width = 75
     Caption = 'Back'
     Glyph.Data = {
@@ -243,10 +253,10 @@ object Form3: TForm3
     TabOrder = 2
   end
   object UndoButton: TBitBtn
-    Left = 325
+    Left = 362
     Height = 30
-    Top = 273
-    Width = 75
+    Top = 376
+    Width = 80
     Caption = 'Undo'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -335,10 +345,10 @@ object Form3: TForm3
     ParentColor = False
   end
   object UndoButton1: TBitBtn
-    Left = 248
+    Left = 272
     Height = 30
-    Top = 273
-    Width = 75
+    Top = 376
+    Width = 83
     Caption = 'Delete'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -420,7 +430,7 @@ object Form3: TForm3
     TabOrder = 4
   end
   object arrow2: TBitBtn
-    Left = 453
+    Left = 39
     Height = 30
     Top = 0
     Width = 32
@@ -504,7 +514,7 @@ object Form3: TForm3
     TabOrder = 5
   end
   object arrow1: TBitBtn
-    Left = 416
+    Left = 2
     Height = 30
     Top = 0
     Width = 32
@@ -585,5 +595,37 @@ object Form3: TForm3
       0000000000000000000000000000000000000000000000000000
     }
     TabOrder = 6
+  end
+  object HoursPerDayEdit: TLabeledEdit
+    Left = 24
+    Height = 23
+    Top = 296
+    Width = 120
+    Alignment = taRightJustify
+    EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
+    EditLabel.AnchorSideRight.Control = HoursPerDayEdit
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
+    EditLabel.Left = 24
+    EditLabel.Height = 15
+    EditLabel.Top = 278
+    EditLabel.Width = 120
+    EditLabel.Caption = 'Hours  per day'
+    EditLabel.ParentColor = False
+    TabOrder = 7
+    Text = '8'
+  end
+  object PopupMenu1: TPopupMenu
+    left = 496
+    top = 280
+    object MenuItem3: TMenuItem
+      Caption = 'Edit'
+    end
+    object MenuItem1: TMenuItem
+      Caption = 'Ignore in Calculation'
+    end
+    object MenuItem2: TMenuItem
+      Caption = 'Delete'
+    end
   end
 end

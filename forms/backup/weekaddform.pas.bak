@@ -19,7 +19,6 @@ type
     ApplyButton: TBitBtn;
 		CheckBox1: TCheckBox;
     FromDateEdit: TDateEdit;
-    HoursPerDayEdit: TLabeledEdit;
     Label1: TLabel;
     Label2: TLabel;
     StatusBar1: TStatusBar;
@@ -66,7 +65,6 @@ procedure TForm4.ApplyButtonClick(Sender: TObject);
 var
   locDate1: TDate;
   locDate2: TDate;
-  locHours: integer;
 begin
 
   // Check if the values are convertable and only execute, if the
@@ -75,14 +73,11 @@ begin
   begin
     if (TryStrToDate(ToDateEdit.Text, locDate2)) then
     begin
-      if TryStrToInt(HoursPerDayEdit.Text, locHours) then
-      begin
         if assigned(FOnApplyClick) then
         begin
-          FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2, locHours), CheckBox1.Checked);
+          FOnApplyClick(self, TWorkWeek.Create(locDate1, locDate2), CheckBox1.Checked);
           self.Visible := False;
 				end;
-      end;
     end;
   end;
 
@@ -113,8 +108,6 @@ begin
   // Check if the Input is valid
   if TryStrToDate(FromDateEdit.Text, locDate1) and TryStrToDate(ToDateEdit.Text, locDate2) then
   begin
-    if TryStrToInt(HoursPerDayEdit.Text, locHours) and (locHours > 0) and (locHours <= 24) then
-    begin
       if (locDate2 >= locDate1) then
       begin
         ApplyButton.Enabled := True;
@@ -126,13 +119,6 @@ begin
         ApplyButton.Enabled := False;
         StatusBar1.Panels[0].Text := emDateOrder;
       end;
-    end
-    else
-    begin
-      // Invalid amount of work time per day
-      ApplyButton.Enabled := False;
-      StatusBar1.Panels[0].Text := emHoursPerDay;
-    end;
   end;
 end;
 
@@ -142,7 +128,6 @@ begin
   FWeek.Clear;
   FromDateEdit.Text := '';
   ToDateEdit.Text := '';
-  HoursPerDayEdit.Text := '8';
   ApplyButton.Enabled := False;
 end;
 

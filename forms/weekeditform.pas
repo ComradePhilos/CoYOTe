@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, Arrow,
+  Buttons, StdCtrls, Arrow, ExtCtrls, Menus,
   { eigene Units }
   workdays, funcs;
 
@@ -19,7 +19,12 @@ type
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
+		HoursPerDayEdit: TLabeledEdit;
     Label1: TLabel;
+		MenuItem1: TMenuItem;
+		MenuItem2: TMenuItem;
+		MenuItem3: TMenuItem;
+		PopupMenu1: TPopupMenu;
     UndoButton: TBitBtn;
     UndoButton1: TBitBtn;
     arrow2: TBitBtn;
@@ -29,6 +34,7 @@ type
     procedure BackButtonClick(Sender: TObject);
     procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+		procedure MenuItem2Click(Sender: TObject);
   private
     { private declarations }
     FIndex: integer;
@@ -55,6 +61,14 @@ const
 procedure TForm3.FormCreate(Sender: TObject);
 begin
 
+end;
+
+procedure TForm3.MenuItem2Click(Sender: TObject);
+begin
+  if (MessageDlg('Delete Data?', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  begin
+   // WeekGrid.SelectedColumn.Index;
+	end;
 end;
 
 procedure TForm3.BackButtonClick(Sender: TObject);
