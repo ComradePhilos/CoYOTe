@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs,
+  Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs, ComCtrls,
   { eigene Units }
   workdays, funcs;
 
@@ -20,18 +20,27 @@ type
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
 		HoursPerDayEdit: TLabeledEdit;
+    ImageList1: TImageList;
     Label1: TLabel;
 		MenuIgnore: TMenuItem;
 		MenuDelete: TMenuItem;
 		MenuEdit: TMenuItem;
 		MenuAdd: TMenuItem;
 		PopupMenu1: TPopupMenu;
-    UndoButton: TBitBtn;
-    UndoButton1: TBitBtn;
-    arrow2: TBitBtn;
-    arrow1: TBitBtn;
+    ToolBar1: TToolBar;
+    ButtonLeft: TToolButton;
+    ButtonRight: TToolButton;
+    ToolButton1: TToolButton;
+    ButtonAdd: TToolButton;
+    ButtonRemove: TToolButton;
+    ButtonEmpty: TToolButton;
+    ButtonApply: TToolButton;
+    ToolButton5: TToolButton;
+    ButtonUndo: TToolButton;
+    ButtonDelete: TToolButton;
     WeekGrid: TStringGrid;
 
+    procedure arrow1Click(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -39,6 +48,7 @@ type
 		procedure MenuAddClick(Sender: TObject);
 		procedure MenuDeleteClick(Sender: TObject);
 		procedure MenuEditClick(Sender: TObject);
+    procedure UndoButtonClick(Sender: TObject);
 		procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton;
 					Shift: TShiftState; X, Y: Integer);
   private
@@ -118,6 +128,11 @@ begin
 
 end;
 
+procedure TForm3.UndoButtonClick(Sender: TObject);
+begin
+
+end;
+
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton;
 			Shift: TShiftState; X, Y: Integer);
 begin
@@ -135,6 +150,11 @@ end;
 procedure TForm3.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
+end;
+
+procedure TForm3.arrow1Click(Sender: TObject);
+begin
+
 end;
 
 procedure TForm3.DeleteWeek(Sender: TObject);

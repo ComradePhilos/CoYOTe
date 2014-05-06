@@ -172,13 +172,13 @@ begin
   begin
     if (FWeekList.Count > 1) then
     begin
-      EditWeekForm.Arrow1.Enabled := True;
-      EditWeekForm.Arrow2.Enabled := True;
+      EditWeekForm.ButtonLeft.Enabled := True;
+      EditWeekForm.ButtonRight.Enabled := True;
     end
     else
     begin
-      EditWeekForm.Arrow1.Enabled := False;
-      EditWeekForm.Arrow2.Enabled := False;
+      EditWeekForm.ButtonLeft.Enabled := False;
+      EditWeekForm.ButtonRight.Enabled := False;
     end;
     EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex], FSelectionIndex);
     EditWeekForm.Visible := True;
@@ -276,4 +276,4 @@ begin
 end;
 
 
-end.
+end.
