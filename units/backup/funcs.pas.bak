@@ -6,13 +6,6 @@ interface
 
 uses
   Classes, SysUtils, Translations;
-
-{
-  This will Replace all Texts of one language with Text of the choosen Language
-  -> Needs more work on that!!!
-}
-function changeLanguage(ALanguage: string; ALazarusVersion: string; AOSName: string): TStringList;
-
 {
   The Real Day of the Week. Starting with 1 for Monday instead of Sunday
   I had to do this, because the original "DayOfWeek" returns a "1" for "Sunday"
@@ -24,6 +17,10 @@ function RealDayOfWeek(ADate: TDate): integer;
 function getHour(time: string): integer;
 // Gets You the minute part of a clock time like 19:15 as an Integer -> 15
 function getMinute(time: string): integer;
+
+// Searches in a language-file for the translation by looking for the name in the file
+function searchForTranslation(VariableName: string; ALanguage: string): string;
+
 
 implementation
 

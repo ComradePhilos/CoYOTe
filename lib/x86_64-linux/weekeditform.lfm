@@ -13,7 +13,7 @@ object Form3: TForm3
   object WeekGrid: TStringGrid
     Left = 0
     Height = 234
-    Top = 25
+    Top = 27
     Width = 519
     ColCount = 7
     ColumnClickSorts = True
@@ -282,7 +282,7 @@ object Form3: TForm3
   end
   object ToolBar1: TToolBar
     Left = 0
-    Height = 26
+    Height = 28
     Top = 0
     Width = 527
     Caption = 'ToolBar1'
@@ -291,70 +291,74 @@ object Form3: TForm3
     TabOrder = 4
     object ButtonLeft: TToolButton
       Left = 1
-      Top = 1
+      Top = 2
       Caption = 'Go left'
       ImageIndex = 3
     end
     object ButtonRight: TToolButton
       Left = 29
-      Top = 1
+      Top = 2
       Caption = 'ButtonRight'
       ImageIndex = 4
     end
     object ToolButton1: TToolButton
       Left = 57
-      Top = 1
+      Top = 2
       Width = 10
       Caption = 'ToolButton1'
       Style = tbsSeparator
     end
     object ButtonAdd: TToolButton
       Left = 67
-      Top = 1
+      Top = 2
       Caption = 'ButtonAdd'
       ImageIndex = 5
+      OnClick = MenuAddClick
     end
     object ButtonRemove: TToolButton
       Left = 95
-      Top = 1
+      Top = 2
       Caption = 'ButtonRemove'
       ImageIndex = 7
     end
     object ButtonEmpty: TToolButton
       Left = 123
-      Top = 1
+      Top = 2
       Caption = 'ButtonEmpty'
       ImageIndex = 8
+      OnClick = ButtonEmptyClick
     end
     object ToolButton5: TToolButton
       Left = 151
-      Top = 1
+      Top = 2
       Width = 10
       Caption = 'ToolButton5'
       Style = tbsSeparator
     end
     object ButtonUndo: TToolButton
       Left = 161
-      Top = 1
+      Top = 2
       Caption = 'ButtonUndo'
       ImageIndex = 6
+      OnClick = ButtonUndoClick
     end
     object ButtonDelete: TToolButton
       Left = 189
-      Top = 1
+      Top = 2
       Caption = 'ButtonDelete'
       ImageIndex = 9
+      OnClick = DeleteWeek
     end
     object ButtonApply: TToolButton
       Left = 217
-      Top = 1
+      Top = 2
       Caption = 'ButtonApply'
       ImageIndex = 0
     end
   end
   object PopupMenu1: TPopupMenu
-    left = 376
-    top = 360
+    left = 488
+    top = 272
     object MenuAdd: TMenuItem
       Caption = 'Insert'
       Bitmap.Data = {
@@ -519,8 +523,8 @@ object Form3: TForm3
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    left = 296
-    top = 360
+    left = 488
+    top = 328
     Bitmap = {
       4C690A0000001800000018000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

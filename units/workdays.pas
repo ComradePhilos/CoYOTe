@@ -58,6 +58,7 @@ type
     constructor Create(AFromDate, AToDate: TDate); overload;
     destructor Destroy;
     procedure Clear;
+    procedure assign(AWeek: TWorkWeek);
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -171,6 +172,22 @@ begin
   FDays.Free;
 end;
 
+procedure TWorkWeek.assign(AWeek: TWorkWeek);
+var
+  I: Integer;
+begin
+  self.FromDate := AWeek.FromDate;
+  self.ToDate := AWeek.ToDate;
+  self.WeekLength := AWeek.WeekLength;
+  self.Days.Clear;
+  for I := 0 to self.WeekLength -1 do
+  begin
+    self.Days.Add(TWorkDay.Create);
+    self.Days[I].Date := AWeek.Days[I].Date;
+    self.Days[I].Weekday := AWeek.Days[I].Weekday;
+    //self.Days[I].
+  end;
+end;
 
 function TWorkWeek.calcAverageTime: double;
 var
@@ -196,7 +213,7 @@ begin
   FDays.Clear;
   FFromDate := 0;
   FToDate := 0;
-  FWeekLength := 5;
+  FWeekLength := 0;
   FIntendedTimePerDay := 8;
 end;
 
@@ -260,13 +277,13 @@ begin
     AGrid.Cells[0,I] := IntToStr(I);
     AGrid.Cells[2,I] := DateToStr(AWeek.Days[I-1].Date);
 
-    {
+
     if (AWeek.Days[I-1].Weekday > 0) and (AWeek.Days[I-1].Weekday < 8) then
     begin
-      AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I-1].Weekday-1];
+      AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I-1].Weekday];
 		end;
 
-    if (AWeek.Days[I].StartMinute < 10) then
+    if (AWeek.Days[I-1].StartMinute < 10) then
     begin
       AGrid.cells[3,I] := IntToStr(AWeek.Days[I-1].StartHour) + ':0' + IntToStr(AWeek.Days[I-1].StartMinute);
     end
@@ -275,14 +292,14 @@ begin
       AGrid.cells[3,I] := IntToStr(AWeek.Days[I-1].StartHour) + ':' + IntToStr(AWeek.Days[I-1].StartMinute);
     end;
 
-    if (AWeek.Days[I].EndMinute < 10) then
+    if (AWeek.Days[I-1].EndMinute < 10) then
     begin
       AGrid.cells[4,I] := IntToStr(AWeek.Days[I-1].EndHour) + ':0' + IntToStr(AWeek.Days[I-1].EndMinute);
     end
     else
     begin
       AGrid.cells[4,I] := IntToStr(AWeek.Days[I-1].EndHour) + ':' + IntToStr(AWeek.Days[I-1].EndMinute);
-    end; }
+    end;
   end;
 
 end;
