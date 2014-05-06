@@ -262,27 +262,27 @@ begin
     AGrid.Cells[0,I] := IntToStr(I);
     AGrid.Cells[2,I] := DateToStr(AWeek.Days[I-1].Date);
 
-    if (AWeek.Days[I].Weekday > 0) and (AWeek.Days[I].Weekday < 8) then
+    if (AWeek.Days[I-1].Weekday > 0) and (AWeek.Days[I-1].Weekday < 8) then
     begin
-      AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I].Weekday-1];
+      AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I-1].Weekday-1];
 		end;
 
     if (AWeek.Days[I].StartMinute < 10) then
     begin
-      AGrid.cells[3,I] := IntToStr(AWeek.Days[I].StartHour) + ':0' + IntToStr(AWeek.Days[I].StartMinute);
+      AGrid.cells[3,I] := IntToStr(AWeek.Days[I-1].StartHour) + ':0' + IntToStr(AWeek.Days[I].StartMinute);
     end
     else
     begin
-      AGrid.cells[3,I] := IntToStr(AWeek.Days[I].StartHour) + ':' + IntToStr(AWeek.Days[I].StartMinute);
+      AGrid.cells[3,I] := IntToStr(AWeek.Days[I-1].StartHour) + ':' + IntToStr(AWeek.Days[I].StartMinute);
     end;
 
     if (AWeek.Days[I].EndMinute < 10) then
     begin
-      AGrid.cells[4,I] := IntToStr(AWeek.Days[I].EndHour) + ':0' + IntToStr(AWeek.Days[I].EndMinute);
+      AGrid.cells[4,I] := IntToStr(AWeek.Days[I-1].EndHour) + ':0' + IntToStr(AWeek.Days[I].EndMinute);
     end
     else
     begin
-      AGrid.cells[4,I] := IntToStr(AWeek.Days[I].EndHour) + ':' + IntToStr(AWeek.Days[I].EndMinute);
+      AGrid.cells[4,I] := IntToStr(AWeek.Days[I-1].EndHour) + ':' + IntToStr(AWeek.Days[I].EndMinute);
     end;
   end;
 
