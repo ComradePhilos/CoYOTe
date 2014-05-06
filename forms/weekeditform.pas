@@ -21,11 +21,10 @@ type
     BackButton: TBitBtn;
 		HoursPerDayEdit: TLabeledEdit;
     Label1: TLabel;
-		MenuItem1: TMenuItem;
-		MenuItem2: TMenuItem;
-		MenuItem3: TMenuItem;
-		MenuItem4: TMenuItem;
-		MenuItem5: TMenuItem;
+		MenuIgnore: TMenuItem;
+		MenuDelete: TMenuItem;
+		MenuEdit: TMenuItem;
+		MenuAdd: TMenuItem;
 		PopupMenu1: TPopupMenu;
     UndoButton: TBitBtn;
     UndoButton1: TBitBtn;
@@ -36,10 +35,16 @@ type
     procedure BackButtonClick(Sender: TObject);
     procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-		procedure MenuItem2Click(Sender: TObject);
+		procedure FormDestroy(Sender: TObject);
+		procedure MenuAddClick(Sender: TObject);
+		procedure MenuDeleteClick(Sender: TObject);
+		procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton;
+					Shift: TShiftState; X, Y: Integer);
   private
     { private declarations }
-    FIndex: integer;
+    FWeek: TWorkWeek;
+    FWeekIndex: integer;
+    FSelectionIndex: Integer;
     FOnRemoveClick: TRemoveEvent;
   public
     { public declarations }
@@ -62,14 +67,49 @@ const
 
 procedure TForm3.FormCreate(Sender: TObject);
 begin
-
+  FWeek := TWorkWeek.create;
 end;
 
-procedure TForm3.MenuItem2Click(Sender: TObject);
+procedure TForm3.FormDestroy(Sender: TObject);
+begin
+  FWeek.Free;
+end;
+
+procedure TForm3.MenuAddClick(Sender: TObject);
+begin
+  FWeek.Days.Add(TWorkDay.Create);
+  FWeek.WeekLength := FWeek.WeekLength + 1;
+  //FWeek.Days[FWeek.Days.Count-1].;
+  WeekDaysToStringGrid(WeekGrid, FWeek);
+  Label1.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+  //Application.MessageBox(PChar('Days: ' + IntToStr(FWeek.WeekLength)),'days',0);
+end;
+
+procedure TForm3.MenuDeleteClick(Sender: TObject);
 begin
   if (MessageDlg('Delete Data?', txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
   begin
-   // WeekGrid.SelectedColumn.Index;
+   if (FSelectionIndex >= 0) and (FSelectionIndex < FWeek.Days.Count) then
+   begin
+    FWeek.Days.Delete(FSelectionIndex);
+    FWeek.WeekLength := FWeek.WeekLength-1;
+    WeekDaysToStringGrid(WeekGrid, FWeek);
+    Label1.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+	 end;
+	end;
+end;
+
+procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton;
+			Shift: TShiftState; X, Y: Integer);
+begin
+  if (Button = mbRight) then
+  begin
+    FSelectionIndex := Weekgrid.Row;
+    PopUpMenu1.PopUp;
+	end
+  else
+  begin
+    FSelectionIndex := -1;
 	end;
 end;
 
@@ -84,7 +124,7 @@ begin
   begin
     if assigned(FOnRemoveClick) then
     begin
-      FOnRemoveClick(self, FIndex);
+      FOnRemoveClick(self, FWeekIndex);
       self.Visible := False;
     end;
   end;
@@ -93,9 +133,10 @@ end;
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 begin
-  Label1.Caption := 'Period #' + IntToStr(ANumber + 1) + ' (Length: ' + IntToStr(AWeek.WeekLength) + ' days)';
-  FIndex := ANumber;
-  WeekDaysToStringGrid(WeekGrid, AWeek);
+  FWeek := AWeek;
+  Label1.Caption := 'Period #' + IntToStr(ANumber + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+  FWeekIndex := ANumber;
+  WeekDaysToStringGrid(WeekGrid, FWeek);
 end;
 
 

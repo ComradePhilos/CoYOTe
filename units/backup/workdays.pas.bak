@@ -55,7 +55,7 @@ type
 
   public
     constructor Create;
-    constructor Create(AFromDate, AToDate: TDate; HoursPerDay: Integer); overload;
+    constructor Create(AFromDate, AToDate: TDate); overload;
     destructor Destroy;
     procedure Clear;
 
@@ -150,7 +150,7 @@ begin
   FToDate := now();
 end;
 
-constructor TWorkWeek.Create(AFromDate, AToDate: TDate; HoursPerDay: Integer);
+constructor TWorkWeek.Create(AFromDate, AToDate: TDate);
 var
   I: Integer;
 begin
@@ -161,6 +161,8 @@ begin
   for I := 0 to FWeekLength do
   begin
     FDays.Add(TWorkDay.Create);
+    FDays[I].Weekday := RealDayOfWeek(AFromDate + I);
+    FDays[I].Date := AFromDate + I;
   end;
 end;
 
@@ -258,8 +260,12 @@ begin
   begin
 
     AGrid.Cells[0,I] := IntToStr(I);
-    AGrid.cells[1,I] := txtWeekdays[RealDayOfWeek(day1+I)];
     AGrid.Cells[2,I] := DateToStr(AWeek.FromDate+(I-1));
+
+    if (AWeek.Days[I].Weekday > 0) and (AWeek.Days[I].Weekday < 8) then
+    begin
+      AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I].Weekday-1];
+		end;
 
     if (AWeek.Days[I].StartMinute < 10) then
     begin
@@ -282,4 +288,4 @@ begin
 
 end;
 
-end.
+end.

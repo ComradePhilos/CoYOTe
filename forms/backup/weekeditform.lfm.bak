@@ -7,6 +7,7 @@ object Form3: TForm3
   ClientHeight = 411
   ClientWidth = 538
   OnCreate = FormCreate
+  OnDestroy = FormDestroy
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
@@ -63,7 +64,6 @@ object Form3: TForm3
     DefaultRowHeight = 29
     FixedCols = 0
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing, goSmoothScroll]
-    PopupMenu = PopupMenu1
     RowCount = 7
     ScrollBars = ssAutoVertical
     TabOrder = 0
@@ -73,6 +73,7 @@ object Form3: TForm3
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
+    OnMouseUp = WeekGridMouseUp
     ColWidths = (
       47
       50
@@ -618,8 +619,8 @@ object Form3: TForm3
   object PopupMenu1: TPopupMenu
     left = 496
     top = 280
-    object MenuItem4: TMenuItem
-      Caption = 'Insert day'
+    object MenuAdd: TMenuItem
+      Caption = 'Insert'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -656,9 +657,10 @@ object Form3: TForm3
         FF00FFFFFF00FFFFFF00FFFFFF002E9E78E82C9C76FF2B9C76FF2B9C76FF2B9C
         76FF2D9E78E8FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
+      OnClick = MenuAddClick
     end
-    object MenuItem3: TMenuItem
-      Caption = 'Edit day'
+    object MenuEdit: TMenuItem
+      Caption = 'Edit'
       Bitmap.Data = {
         C6070000424DC607000000000000360000002800000016000000160000000100
         2000000000009007000064000000640000000000000000000000323232013232
@@ -725,8 +727,8 @@ object Form3: TForm3
         FF00FFFFFF00FFFFFF00
       }
     end
-    object MenuItem2: TMenuItem
-      Caption = 'Delete day'
+    object MenuDelete: TMenuItem
+      Caption = 'Delete'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000000000000000
@@ -763,10 +765,10 @@ object Form3: TForm3
         00000000000036342E1136342E4B36342EFF36342EFF36342EFF36342EFF3634
         2EFF36342EFF36342E3E36342E21000000000000000000000000
       }
-      OnClick = MenuItem2Click
+      OnClick = MenuDeleteClick
     end
-    object MenuItem1: TMenuItem
-      Caption = 'Ignore day in Calculation'
+    object MenuIgnore: TMenuItem
+      Caption = 'Ignore'
       RadioItem = True
     end
   end

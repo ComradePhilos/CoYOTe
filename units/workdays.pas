@@ -161,6 +161,8 @@ begin
   for I := 0 to FWeekLength do
   begin
     FDays.Add(TWorkDay.Create);
+    FDays[I].Weekday := RealDayOfWeek(AFromDate + I);
+    FDays[I].Date := AFromDate + I;
   end;
 end;
 
@@ -258,8 +260,12 @@ begin
   begin
 
     AGrid.Cells[0,I] := IntToStr(I);
-    AGrid.cells[1,I] := txtWeekdays[RealDayOfWeek(day1+I)];
-    AGrid.Cells[2,I] := DateToStr(AWeek.FromDate+(I-1));
+    AGrid.Cells[2,I] := DateToStr(AWeek.Days[I].Date);
+
+    if (AWeek.Days[I].Weekday > 0) and (AWeek.Days[I].Weekday < 8) then
+    begin
+      AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I].Weekday-1];
+		end;
 
     if (AWeek.Days[I].StartMinute < 10) then
     begin

@@ -161,26 +161,24 @@ msgstr ""
 msgid "Period #1"
 msgstr ""
 
-#: tform3.menuitem1.caption
-msgid "Ignore"
-msgstr ""
-
-#: tform3.menuitem2.caption
-msgctxt "TFORM3.MENUITEM2.CAPTION"
-msgid "Delete"
-msgstr ""
-
-#: tform3.menuitem3.caption
-msgctxt "TFORM3.MENUITEM3.CAPTION"
-msgid "Edit"
-msgstr ""
-
-#: tform3.menuitem4.caption
+#: tform3.menuadd.caption
+msgctxt "TFORM3.MENUADD.CAPTION"
 msgid "Insert"
 msgstr ""
 
-#: tform3.menuitem5.caption
-msgid "New Item5"
+#: tform3.menudelete.caption
+msgctxt "TFORM3.MENUDELETE.CAPTION"
+msgid "Delete"
+msgstr ""
+
+#: tform3.menuedit.caption
+msgctxt "TFORM3.MENUEDIT.CAPTION"
+msgid "Edit"
+msgstr ""
+
+#: tform3.menuignore.caption
+msgctxt "TFORM3.MENUIGNORE.CAPTION"
+msgid "Ignore"
 msgstr ""
 
 #: tform3.undobutton.caption
