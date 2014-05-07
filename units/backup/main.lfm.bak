@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 467
   Height = 595
-  Top = 251
+  Top = 211
   Width = 916
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 575
-  ClientWidth = 916
+  ClientHeight = 0
+  ClientWidth = 0
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -37,6 +37,7 @@ object Form1: TForm1
     Height = 542
     Top = 30
     Width = 635
+    ColCount = 6
     ColumnClickSorts = True
     Columns = <    
       item
@@ -50,6 +51,10 @@ object Form1: TForm1
         Title.Alignment = taCenter
         Title.Caption = 'period'
         Width = 208
+      end    
+      item
+        Title.Alignment = taCenter
+        Title.Caption = 'days'
       end    
       item
         Title.Alignment = taCenter
@@ -88,6 +93,7 @@ object Form1: TForm1
     ColWidths = (
       54
       208
+      64
       70
       70
       70

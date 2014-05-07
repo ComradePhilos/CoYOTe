@@ -287,7 +287,6 @@ object Form3: TForm3
     Top = 0
     Width = 527
     Caption = 'ToolBar1'
-    Color = 9549311
     EdgeBorders = [ebTop, ebBottom]
     Images = ImageList1
     ParentColor = False

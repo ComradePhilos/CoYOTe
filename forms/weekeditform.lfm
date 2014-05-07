@@ -263,18 +263,18 @@ object Form3: TForm3
     ParentColor = False
   end
   object HoursPerDayEdit: TLabeledEdit
-    Left = 24
+    Left = 16
     Height = 23
-    Top = 296
+    Top = 336
     Width = 120
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
-    EditLabel.Left = 24
+    EditLabel.Left = 16
     EditLabel.Height = 15
-    EditLabel.Top = 278
+    EditLabel.Top = 318
     EditLabel.Width = 120
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
@@ -357,6 +357,25 @@ object Form3: TForm3
       Caption = 'ButtonApply'
       ImageIndex = 0
     end
+  end
+  object HoursPerDayEdit1: TLabeledEdit
+    Left = 16
+    Height = 23
+    Top = 288
+    Width = 120
+    Alignment = taRightJustify
+    EditLabel.AnchorSideLeft.Control = HoursPerDayEdit1
+    EditLabel.AnchorSideRight.Control = HoursPerDayEdit1
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = HoursPerDayEdit1
+    EditLabel.Left = 16
+    EditLabel.Height = 15
+    EditLabel.Top = 270
+    EditLabel.Width = 120
+    EditLabel.Caption = 'Weeklabel'
+    EditLabel.ParentColor = False
+    TabOrder = 5
+    Text = '8'
   end
   object PopupMenu1: TPopupMenu
     left = 488

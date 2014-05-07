@@ -13,6 +13,7 @@ uses
 type
 
   TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
+  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: Integer) of Object;
 
   { TForm3 }
 
@@ -20,6 +21,7 @@ type
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
     HoursPerDayEdit: TLabeledEdit;
+		HoursPerDayEdit1: TLabeledEdit;
     ImageList1: TImageList;
     Label1: TLabel;
     MenuIgnore: TMenuItem;
@@ -58,11 +60,13 @@ type
     FWeekIndex: integer;
     FSelectionIndex: integer;
     FOnRemoveClick: TRemoveEvent;
+    FOnApplyClick: TApplyEvent;
   public
     { public declarations }
     procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
 
     property OnRemoveClick: TRemoveEvent read FOnRemoveClick write FOnRemoveClick;
+    property OnApplyClick: TApplyEvent read FOnApplyClick write FOnApplyClick;
   end;
 
 var
@@ -162,7 +166,11 @@ end;
 
 procedure TForm3.ApplyButtonClick(Sender: TObject);
 begin
-
+  if assigned(FOnApplyClick) then
+  begin
+    FOnApplyClick(self, FWeek, FWeekIndex);
+    self.Visible := False;
+	end;
 end;
 
 procedure TForm3.ButtonEmptyClick(Sender: TObject);

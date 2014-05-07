@@ -96,14 +96,20 @@ msgid "period"
 msgstr ""
 
 #: tform1.stringgrid1.columns[2].title.caption
-msgid "sum"
+msgid "days"
 msgstr ""
 
 #: tform1.stringgrid1.columns[3].title.caption
-msgid "target"
+msgid "sum"
 msgstr ""
 
 #: tform1.stringgrid1.columns[4].title.caption
+msgctxt "tform1.stringgrid1.columns[4].title.caption"
+msgid "target"
+msgstr ""
+
+#: tform1.stringgrid1.columns[5].title.caption
+msgctxt "TFORM1.STRINGGRID1.COLUMNS[5].TITLE.CAPTION"
 msgid "diff."
 msgstr ""
 

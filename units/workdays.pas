@@ -44,6 +44,7 @@ type
 //############################################ Period ###########################################################
   TWorkWeek = class
   private
+    FWeekLabel: String;           // A Description shown in the list
     FDays: TWorkDays;
     FFromDate: TDate;
     FToDate: TDate;
@@ -66,6 +67,7 @@ type
     property FromDate: TDate read FFromDate write FFromDate;
     property ToDate: TDate read FToDate write FToDate;
     property Days: TWorkDays read FDays write FDays;
+    property WeekLabel: String read FWeekLabel write FWeekLabel;
 
   end;
 
@@ -159,6 +161,7 @@ begin
   self.ToDate := AToDate;
   self.WeekLength := DaysBetween(FToDate,FFromDate)+ 1;
   FDays := TWorkDays.Create(true);
+  FWeekLabel := DateToStr(FromDate) + ' - ' + DateToStr(ToDate);
   for I := 0 to FWeekLength-1 do
   begin
     FDays.Add(TWorkDay.Create);
@@ -246,7 +249,7 @@ begin
     AGrid.Cells[0,1+I] := IntToStr(I+1);
     if (AWeekList.Items[I].FromDate <> AWeekList.Items[I].ToDate) then
     begin
-         AGrid.Cells[1,1+I] := DateToStr(AWeekList.Items[I].Days[0].Date) + ' - ' + DateToStr(AWeekList.Items[I].Days[AWeekList.Items[I].WeekLength-1].Date);
+         AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
     end
     else
     begin
@@ -304,4 +307,4 @@ begin
 
 end;
 
-end.
+end.
