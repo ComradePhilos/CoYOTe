@@ -1,13 +1,13 @@
 object Form2: TForm2
   Left = 714
   Height = 186
-  Top = 347
+  Top = 307
   Width = 446
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'About'
-  ClientHeight = 186
-  ClientWidth = 446
+  ClientHeight = 0
+  ClientWidth = 0
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object Image1: TImage

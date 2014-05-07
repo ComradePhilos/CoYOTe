@@ -182,6 +182,7 @@ begin
   self.FromDate := AWeek.FromDate;
   self.ToDate := AWeek.ToDate;
   self.WeekLength := AWeek.WeekLength;
+  self.WeekLabel := AWeek.WeekLabel;
   self.Days.Clear;
   for I := 0 to self.WeekLength -1 do
   begin

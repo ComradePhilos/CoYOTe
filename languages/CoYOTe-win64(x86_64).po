@@ -157,6 +157,10 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
+#: tform3.bitbtn1.hint
+msgid "Create text automatically using the lowest and the highest date"
+msgstr ""
+
 #: tform3.buttonadd.caption
 msgid "ButtonAdd"
 msgstr ""

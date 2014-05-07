@@ -144,13 +144,7 @@ var
   I: Integer;
 begin
   FDays := TWorkDays.Create(true);
-  for I := 1 to 7 do
-  begin
-    FDays.Add(TWorkDay.Create);
-    FDays.Items[I-1].Weekday := I;
-  end;
-  FFromDate := now();
-  FToDate := now();
+  FWeekLabel := 'empty week';
 end;
 
 constructor TWorkWeek.Create(AFromDate, AToDate: TDate);
