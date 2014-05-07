@@ -127,7 +127,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.8';
+  FVersionNr := '0.0.1.9';
   FVersionDate := '07.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -147,7 +147,7 @@ begin
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
-  EditWeekForm.OnNextWeekClick := @GetWeek;            // switch to specified week via Index
+  EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;

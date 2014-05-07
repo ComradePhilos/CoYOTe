@@ -127,7 +127,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.8';
+  FVersionNr := '0.0.1.9';
   FVersionDate := '07.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -147,7 +147,7 @@ begin
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
-  EditWeekForm.OnNextWeekClick := @GetWeek;            // switch to specified week via Index
+  EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
@@ -211,8 +211,6 @@ begin
     begin
       Index := FWeekList.Count - 1;
     end;
-    //EditWeekForm.WeekIndex := Index;
-    //AWeek.Assign(FWeekList.Items[Index]);
     EditWeekForm.showWeek(FWeekList.Items[Index], Index);
   end;
 end;
@@ -290,7 +288,6 @@ var
   colorDlg: TColorDialog;
 begin
   colorDlg := TColorDialog.Create(nil);
-
   try
     colorDlg.Color := Toolbar1.Color;
     if colorDlg.Execute then
@@ -301,7 +298,6 @@ begin
   finally
     colorDlg.Free;
   end;
-
 end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
@@ -315,8 +311,6 @@ end;
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
   if (MessageDlg('Quit Programme', txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
-
-
   begin
     CanClose := True;
   end

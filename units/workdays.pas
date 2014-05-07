@@ -155,7 +155,7 @@ begin
   self.ToDate := AToDate;
   self.WeekLength := DaysBetween(FToDate,FFromDate)+ 1;
   FDays := TWorkDays.Create(true);
-  FWeekLabel := DateToStr(FromDate) + ' - ' + DateToStr(ToDate);
+  FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
   for I := 0 to FWeekLength-1 do
   begin
     FDays.Add(TWorkDay.Create);
@@ -242,14 +242,8 @@ begin
   for I := 0 to AWeekList.Count - 1 do
   begin
     AGrid.Cells[0,1+I] := IntToStr(I+1);
-    if (AWeekList.Items[I].FromDate <> AWeekList.Items[I].ToDate) then
-    begin
-         AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
-    end
-    else
-    begin
-       AGrid.Cells[1,1+I] := DateToStr(AWeekList.Items[I].FromDate);
-    end;
+    AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
+    AGrid.Cells[2,1+I] := IntToStr(AWeekList.Items[I].WeekLength);
   end;
 end;
 
@@ -302,4 +296,4 @@ begin
 
 end;
 
-end.
+end.

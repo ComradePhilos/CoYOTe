@@ -256,7 +256,6 @@ procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 begin
   FWeek.assign(AWeek);
   FWeekCopy.assign(AWeek);
-  //Label1.Caption := 'Period #' + IntToStr(ANumber + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
   DescriptionEdit.Text := AWeek.WeekLabel;
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);

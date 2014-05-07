@@ -190,7 +190,7 @@ begin
       highest := FWeek.Days[I].Date;
 		end;
 	end;
-  DescriptionEdit.Text := DateToStr(lowest) + ' - ' + DateToStr(highest);
+  DescriptionEdit.Text := DateToStr(lowest) + '   to   ' + DateToStr(highest);
   UpdateTitel;
 end;
 
