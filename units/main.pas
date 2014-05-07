@@ -39,6 +39,7 @@ type
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
+		MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -59,6 +60,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
     procedure MenuAbout(Sender: TObject);
+		procedure MenuItem19Click(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -102,6 +104,8 @@ const
   txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
   txtQuitMsg = 'Do you really want to quit? (Be sure you saved your changes!)';
 
+  // $0091B5FF leichtes Orange
+
 {$R *.lfm}
 
 { TForm1 }
@@ -121,8 +125,8 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.7';
-  FVersionDate := '06.05.2014';
+  FVersionNr := '0.0.1.8';
+  FVersionDate := '07.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';
@@ -253,6 +257,24 @@ begin
   AboutForm.Visible := True;
 end;
 
+procedure TForm1.MenuItem19Click(Sender: TObject);
+var
+  colorDlg: TColorDialog;
+begin
+  colorDlg := TColorDialog.Create(nil);
+
+  try
+    if colorDlg.Execute then
+    begin
+      Toolbar1.Color := colorDlg.Color;
+      EditWeekForm.ToolBar1.Color := colorDlg.Color;
+		end;
+	finally
+    colorDlg.Free;
+	end;
+
+end;
+
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
   if (MessageDlg('Quit Programme', txtQuitMsg, mtConfirmation,
@@ -276,4 +298,4 @@ begin
 end;
 
 
-end.
+end.

@@ -256,15 +256,15 @@ object Form3: TForm3
   end
   object Label1: TLabel
     Left = 96
-    Height = 17
+    Height = 15
     Top = 8
-    Width = 66
+    Width = 50
     Caption = 'Period #1'
     ParentColor = False
   end
   object HoursPerDayEdit: TLabeledEdit
     Left = 24
-    Height = 27
+    Height = 23
     Top = 296
     Width = 120
     Alignment = taRightJustify
@@ -273,8 +273,8 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 24
-    EditLabel.Height = 17
-    EditLabel.Top = 276
+    EditLabel.Height = 15
+    EditLabel.Top = 278
     EditLabel.Width = 120
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
@@ -289,6 +289,7 @@ object Form3: TForm3
     Caption = 'ToolBar1'
     EdgeBorders = [ebTop, ebBottom]
     Images = ImageList1
+    ParentColor = False
     TabOrder = 4
     object ButtonLeft: TToolButton
       Left = 1

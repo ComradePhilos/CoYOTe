@@ -40,6 +40,7 @@ type
     ButtonDelete: TToolButton;
     WeekGrid: TStringGrid;
 
+    procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure ButtonEmptyClick(Sender: TObject);
     procedure ButtonUndoClick(Sender: TObject);
@@ -157,6 +158,11 @@ end;
 procedure TForm3.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
+end;
+
+procedure TForm3.ApplyButtonClick(Sender: TObject);
+begin
+
 end;
 
 procedure TForm3.ButtonEmptyClick(Sender: TObject);

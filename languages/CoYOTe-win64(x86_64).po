@@ -14,7 +14,7 @@ msgid "File"
 msgstr ""
 
 #: tform1.menuitem10.caption
-msgid "Programme Settings"
+msgid "Programme Settings..."
 msgstr ""
 
 #: tform1.menuitem11.caption
@@ -47,6 +47,10 @@ msgstr ""
 
 #: tform1.menuitem18.caption
 msgid "remove all periods"
+msgstr ""
+
+#: tform1.menuitem19.caption
+msgid "Color Theme..."
 msgstr ""
 
 #: tform1.menuitem2.caption
@@ -104,10 +108,12 @@ msgid "diff."
 msgstr ""
 
 #: tform1.toolbar1.caption
+msgctxt "tform1.toolbar1.caption"
 msgid "ToolBar1"
 msgstr ""
 
 #: tform1.toolbutton1.caption
+msgctxt "tform1.toolbutton1.caption"
 msgid "ToolButton1"
 msgstr ""
 
@@ -143,6 +149,38 @@ msgstr ""
 
 #: tform3.backbutton.caption
 msgid "Back"
+msgstr ""
+
+#: tform3.buttonadd.caption
+msgid "ButtonAdd"
+msgstr ""
+
+#: tform3.buttonapply.caption
+msgid "ButtonApply"
+msgstr ""
+
+#: tform3.buttondelete.caption
+msgid "ButtonDelete"
+msgstr ""
+
+#: tform3.buttonempty.caption
+msgid "ButtonEmpty"
+msgstr ""
+
+#: tform3.buttonleft.caption
+msgid "Go left"
+msgstr ""
+
+#: tform3.buttonremove.caption
+msgid "ButtonRemove"
+msgstr ""
+
+#: tform3.buttonright.caption
+msgid "ButtonRight"
+msgstr ""
+
+#: tform3.buttonundo.caption
+msgid "ButtonUndo"
 msgstr ""
 
 #: tform3.caption
@@ -181,13 +219,18 @@ msgctxt "TFORM3.MENUIGNORE.CAPTION"
 msgid "Ignore"
 msgstr ""
 
-#: tform3.undobutton.caption
-msgid "Undo"
+#: tform3.toolbar1.caption
+msgctxt "TFORM3.TOOLBAR1.CAPTION"
+msgid "ToolBar1"
 msgstr ""
 
-#: tform3.undobutton1.caption
-msgctxt "tform3.undobutton1.caption"
-msgid "Delete period"
+#: tform3.toolbutton1.caption
+msgctxt "TFORM3.TOOLBUTTON1.CAPTION"
+msgid "ToolButton1"
+msgstr ""
+
+#: tform3.toolbutton5.caption
+msgid "ToolButton5"
 msgstr ""
 
 #: tform3.weekgrid.columns[0].title.caption
