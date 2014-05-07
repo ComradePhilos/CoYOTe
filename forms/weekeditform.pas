@@ -14,6 +14,7 @@ type
 
   TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
   TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: Integer) of Object;
+  TNextWeekEvent = procedure(Sender: TObject; var AWeek: TWorkWeek; Index: Integer) of Object;
 
   { TForm3 }
 
@@ -24,7 +25,6 @@ type
     HoursPerDayEdit: TLabeledEdit;
 		DescriptionEdit: TLabeledEdit;
     ImageList1: TImageList;
-    Label1: TLabel;
     MenuIgnore: TMenuItem;
     MenuDelete: TMenuItem;
     MenuEdit: TMenuItem;
@@ -47,6 +47,8 @@ type
     procedure BackButtonClick(Sender: TObject);
 		procedure BitBtn1Click(Sender: TObject);
     procedure ButtonEmptyClick(Sender: TObject);
+    procedure ButtonLeftClick(Sender: TObject);
+    procedure ButtonRightClick(Sender: TObject);
     procedure ButtonUndoClick(Sender: TObject);
     procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -63,12 +65,17 @@ type
     FSelectionIndex: integer;
     FOnRemoveClick: TRemoveEvent;
     FOnApplyClick: TApplyEvent;
+    FOnNextWeekClick: TNextWeekEvent;
+
+    procedure UpdateTitel;
   public
     { public declarations }
     procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
 
     property OnRemoveClick: TRemoveEvent read FOnRemoveClick write FOnRemoveClick;
     property OnApplyClick: TApplyEvent read FOnApplyClick write FOnApplyClick;
+    property OnNextWeekClick: TNextWeekEvent read FOnNextWeekClick write FOnNextWeekClick;
+    property WeekIndex: Integer read FWeekIndex write FWeekIndex;
   end;
 
 var
@@ -110,7 +117,6 @@ begin
       FWeek.Days[FWeek.WeekLength - 1].Date := calDialog.Date;
       FWeek.Days[FWeek.WeekLength - 1].Weekday := RealDayOfWeek(calDialog.Date);
       WeekDaysToStringGrid(WeekGrid, FWeek);
-      Label1.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
     end;
   finally
     calDialog.Free;
@@ -126,7 +132,6 @@ begin
       FWeek.Days.Delete(FSelectionIndex);
       FWeek.WeekLength := FWeek.WeekLength - 1;
       WeekDaysToStringGrid(WeekGrid, FWeek);
-      Label1.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
     end;
   end;
 end;
@@ -186,7 +191,7 @@ begin
 		end;
 	end;
   DescriptionEdit.Text := DateToStr(lowest) + ' - ' + DateToStr(highest);
-
+  UpdateTitel;
 end;
 
 procedure TForm3.ApplyButtonClick(Sender: TObject);
@@ -205,7 +210,24 @@ begin
   begin
     FWeek.Clear;
     ClearStringGrid(WeekGrid);
-    Label1.Caption := 'Period #' + IntToStr(FSelectionIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+  end;
+end;
+
+procedure TForm3.ButtonLeftClick(Sender: TObject);
+begin
+  if assigned(FOnNextWeekClick) then
+  begin
+    FOnNextWeekClick(self, FWeek, FWeekIndex-1);
+    UpdateTitel;
+  end;
+end;
+
+procedure TForm3.ButtonRightClick(Sender: TObject);
+begin
+  if assigned(FOnNextWeekClick) then
+  begin
+    FOnNextWeekClick(self, FWeek, FWeekIndex+1);
+    UpdateTitel;
   end;
 end;
 
@@ -214,7 +236,7 @@ begin
   FWeek.assign(FWeekCopy);
   WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
-  Label1.Caption := 'Period #' + IntToStr(FSelectionIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+  UpdateTitel;
 end;
 
 procedure TForm3.DeleteWeek(Sender: TObject);
@@ -234,12 +256,16 @@ procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 begin
   FWeek.assign(AWeek);
   FWeekCopy.assign(AWeek);
-  Label1.Caption := 'Period #' + IntToStr(ANumber + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
   DescriptionEdit.Text := AWeek.WeekLabel;
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);
+  UpdateTitel;
 end;
 
+procedure TForm3.UpdateTitel;
+begin
+  self.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (' + FWeek.WeekLabel + ')';
+end;
 
 end.
 

@@ -254,28 +254,20 @@ object Form3: TForm3
     OnClick = BackButtonClick
     TabOrder = 2
   end
-  object Label1: TLabel
-    Left = 96
-    Height = 15
-    Top = 8
-    Width = 50
-    Caption = 'Period #1'
-    ParentColor = False
-  end
   object HoursPerDayEdit: TLabeledEdit
-    Left = 432
-    Height = 23
+    Left = 416
+    Height = 27
     Top = 288
-    Width = 80
+    Width = 98
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
-    EditLabel.Left = 432
-    EditLabel.Height = 15
-    EditLabel.Top = 270
-    EditLabel.Width = 80
+    EditLabel.Left = 416
+    EditLabel.Height = 17
+    EditLabel.Top = 268
+    EditLabel.Width = 98
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
     TabOrder = 3
@@ -297,63 +289,65 @@ object Form3: TForm3
       Top = 2
       Caption = 'Go left'
       ImageIndex = 3
+      OnClick = ButtonLeftClick
     end
     object ButtonRight: TToolButton
       Left = 29
       Top = 2
       Caption = 'ButtonRight'
       ImageIndex = 4
+      OnClick = ButtonRightClick
     end
     object ToolButton1: TToolButton
       Left = 57
       Top = 2
-      Width = 10
+      Width = 5
       Caption = 'ToolButton1'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object ButtonAdd: TToolButton
-      Left = 67
+      Left = 62
       Top = 2
       Caption = 'ButtonAdd'
       ImageIndex = 5
       OnClick = MenuAddClick
     end
     object ButtonRemove: TToolButton
-      Left = 95
+      Left = 90
       Top = 2
       Caption = 'ButtonRemove'
       ImageIndex = 7
     end
     object ButtonEmpty: TToolButton
-      Left = 123
+      Left = 118
       Top = 2
       Caption = 'ButtonEmpty'
       ImageIndex = 8
       OnClick = ButtonEmptyClick
     end
     object ToolButton5: TToolButton
-      Left = 151
+      Left = 146
       Top = 2
-      Width = 10
+      Width = 5
       Caption = 'ToolButton5'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object ButtonUndo: TToolButton
-      Left = 161
+      Left = 151
       Top = 2
       Caption = 'ButtonUndo'
       ImageIndex = 6
       OnClick = ButtonUndoClick
     end
     object ButtonDelete: TToolButton
-      Left = 189
+      Left = 179
       Top = 2
       Caption = 'ButtonDelete'
       ImageIndex = 9
       OnClick = DeleteWeek
     end
     object ButtonApply: TToolButton
-      Left = 217
+      Left = 207
       Top = 2
       Caption = 'ButtonApply'
       ImageIndex = 0
@@ -361,7 +355,7 @@ object Form3: TForm3
   end
   object DescriptionEdit: TLabeledEdit
     Left = 16
-    Height = 23
+    Height = 27
     Top = 288
     Width = 349
     EditLabel.AnchorSideLeft.Control = DescriptionEdit
@@ -369,8 +363,8 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = DescriptionEdit
     EditLabel.Left = 16
-    EditLabel.Height = 15
-    EditLabel.Top = 270
+    EditLabel.Height = 17
+    EditLabel.Top = 268
     EditLabel.Width = 349
     EditLabel.Caption = 'Description Text'
     EditLabel.ParentColor = False
