@@ -1,10 +1,10 @@
 object Form3: TForm3
   Left = 444
-  Height = 411
+  Height = 368
   Top = 136
   Width = 527
   Caption = 'Edit selected period'
-  ClientHeight = 411
+  ClientHeight = 368
   ClientWidth = 527
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -85,9 +85,9 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 438
+    Left = 432
     Height = 30
-    Top = 376
+    Top = 328
     Width = 82
     Caption = 'Apply'
     Glyph.Data = {
@@ -170,9 +170,9 @@ object Form3: TForm3
     TabOrder = 1
   end
   object BackButton: TBitBtn
-    Left = 8
+    Left = 16
     Height = 30
-    Top = 376
+    Top = 328
     Width = 75
     Caption = 'Back'
     Glyph.Data = {
@@ -263,19 +263,19 @@ object Form3: TForm3
     ParentColor = False
   end
   object HoursPerDayEdit: TLabeledEdit
-    Left = 16
+    Left = 432
     Height = 23
-    Top = 336
-    Width = 120
+    Top = 288
+    Width = 80
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
-    EditLabel.Left = 16
+    EditLabel.Left = 432
     EditLabel.Height = 15
-    EditLabel.Top = 318
-    EditLabel.Width = 120
+    EditLabel.Top = 270
+    EditLabel.Width = 80
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
     TabOrder = 3
@@ -287,6 +287,7 @@ object Form3: TForm3
     Top = 0
     Width = 527
     Caption = 'ToolBar1'
+    Color = 16759413
     EdgeBorders = [ebTop, ebBottom]
     Images = ImageList1
     ParentColor = False
@@ -306,80 +307,125 @@ object Form3: TForm3
     object ToolButton1: TToolButton
       Left = 57
       Top = 2
-      Width = 10
+      Width = 5
       Caption = 'ToolButton1'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object ButtonAdd: TToolButton
-      Left = 67
+      Left = 62
       Top = 2
       Caption = 'ButtonAdd'
       ImageIndex = 5
       OnClick = MenuAddClick
     end
     object ButtonRemove: TToolButton
-      Left = 95
+      Left = 90
       Top = 2
       Caption = 'ButtonRemove'
       ImageIndex = 7
     end
     object ButtonEmpty: TToolButton
-      Left = 123
+      Left = 118
       Top = 2
       Caption = 'ButtonEmpty'
       ImageIndex = 8
       OnClick = ButtonEmptyClick
     end
     object ToolButton5: TToolButton
-      Left = 151
+      Left = 146
       Top = 2
-      Width = 10
+      Width = 5
       Caption = 'ToolButton5'
-      Style = tbsSeparator
+      Style = tbsDivider
     end
     object ButtonUndo: TToolButton
-      Left = 161
+      Left = 151
       Top = 2
       Caption = 'ButtonUndo'
       ImageIndex = 6
       OnClick = ButtonUndoClick
     end
     object ButtonDelete: TToolButton
-      Left = 189
+      Left = 179
       Top = 2
       Caption = 'ButtonDelete'
       ImageIndex = 9
       OnClick = DeleteWeek
     end
     object ButtonApply: TToolButton
-      Left = 217
+      Left = 207
       Top = 2
       Caption = 'ButtonApply'
       ImageIndex = 0
     end
   end
-  object HoursPerDayEdit1: TLabeledEdit
+  object DescriptionEdit: TLabeledEdit
     Left = 16
     Height = 23
     Top = 288
-    Width = 120
-    Alignment = taRightJustify
-    EditLabel.AnchorSideLeft.Control = HoursPerDayEdit1
-    EditLabel.AnchorSideRight.Control = HoursPerDayEdit1
+    Width = 349
+    EditLabel.AnchorSideLeft.Control = DescriptionEdit
+    EditLabel.AnchorSideRight.Control = DescriptionEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = HoursPerDayEdit1
+    EditLabel.AnchorSideBottom.Control = DescriptionEdit
     EditLabel.Left = 16
     EditLabel.Height = 15
     EditLabel.Top = 270
-    EditLabel.Width = 120
-    EditLabel.Caption = 'Weeklabel'
+    EditLabel.Width = 349
+    EditLabel.Caption = 'Description Text'
     EditLabel.ParentColor = False
     TabOrder = 5
-    Text = '8'
+  end
+  object BitBtn1: TBitBtn
+    Left = 369
+    Height = 24
+    Hint = 'Create text automatically using the lowest and the highest date'
+    Top = 287
+    Width = 27
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00B0A796ADBEB7
+      AEE0BEB6AEFBBAB3A8FABAB1A6FAB8AFA4FAB8AFA3FAB7AEA2FABAAFA4FABDB1
+      A6FABEB2A9FABEB3A9FABEB5AAF9C1B5AFFABFB5AEF5B3A99AAFC4BAA8FAD7CB
+      BEFFD7CBBEFFD7CBBEFFD7CBBEFFD7CBBEFFD7CBBEFFD7CBBEFFD7CBBEFFD7CB
+      BEFFD7CBBEFFD7CBBEFFD7CBBEFFD7CBBEFFD7CBBEFFCCC1AEFBC5B8A6FEF6F6
+      F6FFF6F6F6FFD7CBBEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFD7CB
+      BEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFCDC2ADFEC4B8A3FDFFFF
+      FFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFD7CB
+      BEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFCEC3ADFEC6BAA5FD5DAF
+      FBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAF
+      FBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFFD0C4AEFEC6B9A4FD00F2
+      FFFF00F2FFFF5DAFFBFF00F2FFFF00F2FFFF5DAFFBFF00F2FFFF00F2FFFF5DAF
+      FBFF00F2FFFF00F2FFFF5DAFFBFF00F2FFFF00F2FFFFCCC0AAFEC3B6A1FD00F2
+      FFFF00F2FFFF5DAFFBFF00F2FFFF00F2FFFF5DAFFBFF00F2FFFF00F2FFFF5DAF
+      FBFF68F4FFFF00F2FFFF5DAFFBFF00F2FFFF00F2FFFFC9BEA9FEC4B6A2FD5DAF
+      FBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAF
+      FBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFF5DAFFBFFC9BDAAFEC6B7A1FDFFFF
+      FFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFD7CB
+      BEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFCABDAAFEC6B8A1FDFFFF
+      FFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFD7CB
+      BEFFFFFFFFFFFFFFFFFFD7CBBEFFFFFFFFFFFFFFFFFFCCBEAAFEBFB19BFDC3B8
+      ADFFC3B8ADFFC2B8ABFFC2B8AAFFC1B8AAFFC1B7AAFFC1B6A9FFC1B6A8FFC1B6
+      A9FFC1B6A9FFC2B8ABFFC3B9ACFFC3B9ADFFC4BAADFFC3B59FFEBEB09CEAE4D8
+      C8FFE4D8C8FFE2D5C5FFE1D4C5FFDCD0C2FFE1D5C5FFE0D3C4FFE2D5C8FFDDD1
+      C4FFE1D4C5FFE3D7C7FFDDD0C1FFE1D4C5FFE1D5C5FFC2B4A0EFBCB09FECF0E6
+      DCFFF0E6DCFFECE2D5FFEBE0D3FFECE1D3FFEBDCCFFFEBDDCEFFEBDDCCFFEBDD
+      CEFFEBDFCFFFEDE0D1FFEDE3D6FFEDE4DBFFEFE7DEFFC1B6A5F1BEB4A6D6C3B8
+      ADFEC3B8ADFFC2B8ABFFC2B8AAFFC1B8AAFFC1B7AAFFC1B6A9FFC1B6A8FFC1B6
+      A9FFC1B6A9FFC2B8ABFFC3B9ACFFC3B9ADFFC4BAADFFC1B9ABD9FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
+    }
+    OnClick = BitBtn1Click
+    ParentShowHint = False
+    ShowHint = True
+    Spacing = 0
+    TabOrder = 6
   end
   object PopupMenu1: TPopupMenu
-    left = 488
-    top = 272
+    left = 464
     object MenuAdd: TMenuItem
       Caption = 'Insert'
       Bitmap.Data = {
@@ -544,8 +590,7 @@ object Form3: TForm3
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    left = 488
-    top = 328
+    left = 496
     Bitmap = {
       4C690A0000001800000018000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

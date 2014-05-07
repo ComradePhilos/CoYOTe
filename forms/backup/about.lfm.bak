@@ -2,19 +2,19 @@ object Form2: TForm2
   Left = 714
   Height = 186
   Top = 347
-  Width = 503
+  Width = 446
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'About'
   ClientHeight = 186
-  ClientWidth = 503
+  ClientWidth = 446
   Position = poMainFormCenter
-  LCLVersion = '1.2.0.3'
+  LCLVersion = '1.2.2.0'
   object Image1: TImage
-    Left = 5
-    Height = 152
-    Top = 3
-    Width = 152
+    Left = 0
+    Height = 136
+    Top = 16
+    Width = 131
     Picture.Data = {
       1754506F727461626C654E6574776F726B47726170686963263F000089504E47
       0D0A1A0A0000000D4948445200000200000002000806000000F478D4FA000000
@@ -528,10 +528,10 @@ object Form2: TForm2
     Stretch = True
   end
   object StaticText1: TStaticText
-    Left = 167
+    Left = 136
     Height = 21
     Top = 9
-    Width = 311
+    Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -545,31 +545,33 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 17
+    Height = 15
     Top = 161
-    Width = 58
+    Width = 45
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 347
-    Height = 17
+    Left = 312
+    Height = 15
     Top = 161
-    Width = 74
+    Width = 59
     Caption = 'Build-Date:'
     ParentColor = False
   end
   object Memo1: TMemo
-    Left = 167
+    Left = 144
     Height = 117
     Top = 40
-    Width = 314
+    Width = 291
     Color = clWhite
     Lines.Strings = (
-      'A lightweight tool to keep an eye on your working times'
+      'A lightweight tool to keep an eye on your working '
+      'times'
       ''
       'Initiated by Philip Märksch'
     )
+    ReadOnly = True
     TabOrder = 1
   end
-end
+end

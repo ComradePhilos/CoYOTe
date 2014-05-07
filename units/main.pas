@@ -175,6 +175,7 @@ end;
 procedure TForm1.AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: Integer);
 begin
   FWeekList.Items[Index].assign(AWeek);
+  WeeksToStringGrid(StringGrid1, FWeekList);
 end;
 
 procedure TForm1.EditButtonClick(Sender: TObject);
@@ -271,6 +272,7 @@ begin
   colorDlg := TColorDialog.Create(nil);
 
   try
+    colorDlg.Color := Toolbar1.Color;
     if colorDlg.Execute then
     begin
       Toolbar1.Color := colorDlg.Color;

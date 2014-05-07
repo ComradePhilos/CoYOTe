@@ -20,8 +20,9 @@ type
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
+		BitBtn1: TBitBtn;
     HoursPerDayEdit: TLabeledEdit;
-		HoursPerDayEdit1: TLabeledEdit;
+		DescriptionEdit: TLabeledEdit;
     ImageList1: TImageList;
     Label1: TLabel;
     MenuIgnore: TMenuItem;
@@ -44,6 +45,7 @@ type
 
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
+		procedure BitBtn1Click(Sender: TObject);
     procedure ButtonEmptyClick(Sender: TObject);
     procedure ButtonUndoClick(Sender: TObject);
     procedure DeleteWeek(Sender: TObject);
@@ -164,10 +166,34 @@ begin
   self.Visible := False;
 end;
 
+procedure TForm3.BitBtn1Click(Sender: TObject);
+var
+  lowest: TDate;
+  highest: TDate;
+  I: Integer;
+begin
+  lowest := FWeek.Days[0].Date;
+  highest := FWeek.Days[0].Date;
+  for I := 1 to FWeek.Days.Count - 1 do
+  begin
+    if (FWeek.Days[I].Date < lowest) then
+    begin
+      lowest := FWeek.Days[I].Date;
+		end;
+    if (FWeek.Days[I].Date > highest) then
+    begin
+      highest := FWeek.Days[I].Date;
+		end;
+	end;
+  DescriptionEdit.Text := DateToStr(lowest) + ' - ' + DateToStr(highest);
+
+end;
+
 procedure TForm3.ApplyButtonClick(Sender: TObject);
 begin
   if assigned(FOnApplyClick) then
   begin
+    FWeek.WeekLabel := DescriptionEdit.Text;
     FOnApplyClick(self, FWeek, FWeekIndex);
     self.Visible := False;
 	end;
@@ -187,6 +213,7 @@ procedure TForm3.ButtonUndoClick(Sender: TObject);
 begin
   FWeek.assign(FWeekCopy);
   WeekDaysToStringGrid(WeekGrid, FWeek);
+  DescriptionEdit.Text := FWeekCopy.WeekLabel;
   Label1.Caption := 'Period #' + IntToStr(FSelectionIndex + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
 end;
 
@@ -208,6 +235,7 @@ begin
   FWeek.assign(AWeek);
   FWeekCopy.assign(AWeek);
   Label1.Caption := 'Period #' + IntToStr(ANumber + 1) + ' (Length: ' + IntToStr(FWeek.WeekLength) + ' days)';
+  DescriptionEdit.Text := AWeek.WeekLabel;
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);
 end;

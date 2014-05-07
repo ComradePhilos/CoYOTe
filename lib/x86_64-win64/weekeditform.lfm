@@ -1,10 +1,10 @@
 object Form3: TForm3
   Left = 444
-  Height = 411
+  Height = 368
   Top = 136
   Width = 527
   Caption = 'Edit selected period'
-  ClientHeight = 411
+  ClientHeight = 368
   ClientWidth = 527
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -85,9 +85,9 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 438
+    Left = 432
     Height = 30
-    Top = 376
+    Top = 328
     Width = 82
     Caption = 'Apply'
     Glyph.Data = {
@@ -170,9 +170,9 @@ object Form3: TForm3
     TabOrder = 1
   end
   object BackButton: TBitBtn
-    Left = 8
+    Left = 16
     Height = 30
-    Top = 376
+    Top = 328
     Width = 75
     Caption = 'Back'
     Glyph.Data = {
@@ -263,19 +263,19 @@ object Form3: TForm3
     ParentColor = False
   end
   object HoursPerDayEdit: TLabeledEdit
-    Left = 24
+    Left = 432
     Height = 23
-    Top = 296
-    Width = 120
+    Top = 288
+    Width = 80
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
-    EditLabel.Left = 24
+    EditLabel.Left = 432
     EditLabel.Height = 15
-    EditLabel.Top = 278
-    EditLabel.Width = 120
+    EditLabel.Top = 270
+    EditLabel.Width = 80
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
     TabOrder = 3
@@ -287,6 +287,7 @@ object Form3: TForm3
     Top = 0
     Width = 527
     Caption = 'ToolBar1'
+    Color = 16759413
     EdgeBorders = [ebTop, ebBottom]
     Images = ImageList1
     ParentColor = False
@@ -358,9 +359,25 @@ object Form3: TForm3
       ImageIndex = 0
     end
   end
+  object DescriptionEdit: TLabeledEdit
+    Left = 16
+    Height = 23
+    Top = 288
+    Width = 360
+    EditLabel.AnchorSideLeft.Control = DescriptionEdit
+    EditLabel.AnchorSideRight.Control = DescriptionEdit
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = DescriptionEdit
+    EditLabel.Left = 16
+    EditLabel.Height = 15
+    EditLabel.Top = 270
+    EditLabel.Width = 360
+    EditLabel.Caption = 'Description Text'
+    EditLabel.ParentColor = False
+    TabOrder = 5
+  end
   object PopupMenu1: TPopupMenu
-    left = 488
-    top = 272
+    left = 464
     object MenuAdd: TMenuItem
       Caption = 'Insert'
       Bitmap.Data = {
@@ -525,8 +542,7 @@ object Form3: TForm3
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    left = 488
-    top = 328
+    left = 496
     Bitmap = {
       4C690A0000001800000018000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

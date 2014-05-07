@@ -88,6 +88,7 @@ type
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
+    procedure AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: Integer);
     procedure RemoveWeekFromList(Sender: TObject; Index: integer);
     procedure EnableButtons;      // Checks for each button, wether it has to get
   public
@@ -144,6 +145,7 @@ begin
 
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
+  EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
@@ -168,6 +170,11 @@ procedure TForm1.AddWeek(Sender: TObject);
 begin
   AddWeekForm.Visible := True;
   AddWeekForm.Show;
+end;
+
+procedure TForm1.AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: Integer);
+begin
+  FWeekList.Items[Index].assign(AWeek);
 end;
 
 procedure TForm1.EditButtonClick(Sender: TObject);
@@ -264,6 +271,7 @@ begin
   colorDlg := TColorDialog.Create(nil);
 
   try
+    colorDlg.Color := Toolbar1.Color;
     if colorDlg.Execute then
     begin
       Toolbar1.Color := colorDlg.Color;

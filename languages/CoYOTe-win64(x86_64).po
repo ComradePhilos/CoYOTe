@@ -193,11 +193,16 @@ msgstr ""
 msgid "Edit selected period"
 msgstr ""
 
+#: tform3.descriptionedit.editlabel.caption
+msgid "Description Text"
+msgstr ""
+
 #: tform3.hoursperdayedit.editlabel.caption
 msgid "Hours  per day"
 msgstr ""
 
 #: tform3.hoursperdayedit.text
+msgctxt "tform3.hoursperdayedit.text"
 msgid "8"
 msgstr ""
 

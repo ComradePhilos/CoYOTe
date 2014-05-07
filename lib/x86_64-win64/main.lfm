@@ -120,6 +120,7 @@ object Form1: TForm1
     Width = 916
     ButtonHeight = 23
     Caption = 'ToolBar1'
+    Color = 16759413
     EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
     EdgeInner = esNone
     Images = ImageList1

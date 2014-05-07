@@ -161,7 +161,7 @@ begin
   self.ToDate := AToDate;
   self.WeekLength := DaysBetween(FToDate,FFromDate)+ 1;
   FDays := TWorkDays.Create(true);
-  FWeekLabel := DateToStr(FromDate) + ' - ' DateToStr(ToDate);
+  FWeekLabel := DateToStr(FromDate) + ' - ' + DateToStr(ToDate);
   for I := 0 to FWeekLength-1 do
   begin
     FDays.Add(TWorkDay.Create);
