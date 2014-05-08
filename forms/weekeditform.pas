@@ -332,7 +332,7 @@ begin
 
   diff := FWeek.getSum - (FWeek.Days.Count*FWeek.IntendedTimePerDay);
 
-  if (diff >= 0) then
+  if (diff > -0.5) then
   begin
     Label3.Font.Color := clGreen;
 	end
@@ -341,9 +341,9 @@ begin
     Label3.Font.Color := clRed;
 	end;
 
-	Label1.Caption := 'Goal:   ' + FloatToStr(FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
-  Label2.Caption := 'Sum:   ' + FloatToStr(FWeek.getSum) + ' h';
-  Label3.Caption := 'Diff.:  ' + FloatToStr(diff) + ' h';
+	Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
+  Label2.Caption := 'Sum:   ' + FormatFloat('0.00', FWeek.getSum) + ' h';
+  Label3.Caption := 'Diff.:  ' + FormatFloat('0.00', diff) + ' h';
 end;
 
 end.
