@@ -1,4 +1,5 @@
 CoYOT(e)
 ======
 
-Control Your OverTimes (easily) - a simple and fast tool for time tracking, which allows you to overiew all your overtimes you achieved at work over a certain period of time. In future there will be support for multiple employees etc..
+Control Your OverTimes (easily). This programme is a lightweight tool for employees who want to have an overview over their working time or people who want to track working times of their employees/colleagues. 
+CoYOT(e) is still work in progress and is not recommended for general use yet!
