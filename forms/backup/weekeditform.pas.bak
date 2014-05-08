@@ -305,6 +305,10 @@ begin
   FWeekCopy.assign(AWeek);
   DescriptionEdit.Text := AWeek.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(AWeek.IntendedTimePerDay);
+
+  WeekGrid.Cells[3,I+1] := FWeek.Days[I].StartHour + ':' FWeek.Days[I].StartMinute ;
+  WeekGrid.Cells[4,I+1] := FWeek.Days[I].EndHour + ':' + FWeek.Days[I].EndMinute;
+
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);
   UpdateTitel;
@@ -317,13 +321,28 @@ begin
 end;
 
 procedure TForm3.UpdateWindow;
+var
+  diff: Double;
 begin
   ButtonRemove.Enabled := (FWeek.Days.Count > 0);
   ButtonEmpty.Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[1].Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[2].Enabled := (FWeek.Days.Count > 0);
 
-  Label1.Caption := 'Goal:   ' + FloatToStr(FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
+  diff := FWeek.getSum - (FWeek.Days.Count*FWeek.IntendedTimePerDay);
+
+  if (diff >= 0) then
+  begin
+    Label3.Font.Color := clGreen;
+	end
+  else
+  begin
+    Label3.Font.Color := clRed;
+	end;
+
+	Label1.Caption := 'Goal:   ' + FloatToStr(FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
+  Label2.Caption := 'Sum:   ' + FloatToStr(FWeek.getSum) + ' h';
+  Label3.Caption := 'Diff.:  ' + FloatToStr(diff) + ' h';
 end;
 
 end.

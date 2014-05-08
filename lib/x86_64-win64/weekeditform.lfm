@@ -519,9 +519,16 @@ object Form3: TForm3
       Left = 8
       Height = 17
       Top = 89
-      Width = 27
+      Width = 32
       Caption = 'Diff.:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -13
+      Font.Name = 'Ubuntu'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
       ParentColor = False
+      ParentFont = False
     end
   end
   object PopupMenu1: TPopupMenu

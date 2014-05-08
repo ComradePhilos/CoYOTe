@@ -140,12 +140,15 @@ end;
 
 function TWorkDay.getAmountOfTime: Double;
 var
-  hours: Integer;
-  min: Integer;
+  StartTime: TDateTime;
+  EndTime: TDateTime;
 begin
-  hours := FEndHour - FStartHour;
-  mins := EndMinute - FStartMinute;
-  Result := hours + (mins/60);
+  StartTime := self.FDate;
+  EndTime := self.FDate;
+
+  StartTime := StartTime + (60*60*FStartHour) + (60*FStartMinute);
+  EndTime := EndTime + (60*60*FEndHour) + (60*FEndMinute);
+  Result := Float((EndTime - StartTime)/3600);
 end;
 
 //############################################ Week ###########################################################
@@ -222,6 +225,7 @@ function TWorkWeek.getSum: Double;
 var
   I: Integer;
 begin
+  Result := 0;
   for I := 0 to self.Days.Count-1 do
   begin
     Result := Result + self.Days[I].getAmountOfTime;

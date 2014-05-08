@@ -22,6 +22,8 @@ function getMinute(time: string): integer;
 // Searches in a language-file for the translation by looking for the name in the file
 function searchForTranslation(VariableName: string; ALanguage: string): string;
 
+function minsBetween( startMins, EndMins: Integer): Integer;
+
 
 implementation
 
@@ -101,10 +103,15 @@ begin
   end;
 end;
 
+function minsBetween( startMins, EndMins: Integer): Integer;
+begin
+
+end;
+
 function searchForTranslation(VariableName: string; ALanguage: string): string;
 begin
 
   Result := '';
 end;
 
-end.
+end.

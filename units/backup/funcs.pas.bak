@@ -15,6 +15,7 @@ function RealDayOfWeek(ADate: TDate): integer;
 
 // Gets You the hour part of a clock time like 19:00 as an Integer -> 19
 function getHour(time: string): integer;
+
 // Gets You the minute part of a clock time like 19:15 as an Integer -> 15
 function getMinute(time: string): integer;
 
@@ -106,4 +107,4 @@ begin
   Result := '';
 end;
 
-end.
+end.
