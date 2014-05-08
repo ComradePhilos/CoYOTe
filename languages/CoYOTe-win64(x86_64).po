@@ -150,7 +150,7 @@ msgstr ""
 
 #: tform3.applybutton.caption
 msgctxt "TFORM3.APPLYBUTTON.CAPTION"
-msgid "Apply"
+msgid "Apply and Back"
 msgstr ""
 
 #: tform3.backbutton.caption
@@ -165,32 +165,64 @@ msgstr ""
 msgid "ButtonAdd"
 msgstr ""
 
+#: tform3.buttonadd.hint
+msgid "add another day to the period"
+msgstr ""
+
 #: tform3.buttonapply.caption
 msgid "ButtonApply"
+msgstr ""
+
+#: tform3.buttonapply.hint
+msgid "apply changes"
 msgstr ""
 
 #: tform3.buttondelete.caption
 msgid "ButtonDelete"
 msgstr ""
 
+#: tform3.buttondelete.hint
+msgid "delete period"
+msgstr ""
+
 #: tform3.buttonempty.caption
 msgid "ButtonEmpty"
+msgstr ""
+
+#: tform3.buttonempty.hint
+msgid "remove all days but keep period"
 msgstr ""
 
 #: tform3.buttonleft.caption
 msgid "Go left"
 msgstr ""
 
+#: tform3.buttonleft.hint
+msgid "Switch to previous period"
+msgstr ""
+
 #: tform3.buttonremove.caption
 msgid "ButtonRemove"
+msgstr ""
+
+#: tform3.buttonremove.hint
+msgid "remove selected day"
 msgstr ""
 
 #: tform3.buttonright.caption
 msgid "ButtonRight"
 msgstr ""
 
+#: tform3.buttonright.hint
+msgid "Switch to next period"
+msgstr ""
+
 #: tform3.buttonundo.caption
 msgid "ButtonUndo"
+msgstr ""
+
+#: tform3.buttonundo.hint
+msgid "undo changes"
 msgstr ""
 
 #: tform3.caption
@@ -208,10 +240,6 @@ msgstr ""
 #: tform3.hoursperdayedit.text
 msgctxt "tform3.hoursperdayedit.text"
 msgid "8"
-msgstr ""
-
-#: tform3.label1.caption
-msgid "Period #1"
 msgstr ""
 
 #: tform3.menuadd.caption

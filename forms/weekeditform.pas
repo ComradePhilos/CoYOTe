@@ -68,6 +68,7 @@ type
     FOnNextWeekClick: TNextWeekEvent;
 
     procedure UpdateTitel;
+    procedure EnableButtons;
   public
     { public declarations }
     procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
@@ -117,6 +118,7 @@ begin
       FWeek.Days[FWeek.WeekLength - 1].Date := calDialog.Date;
       FWeek.Days[FWeek.WeekLength - 1].Weekday := RealDayOfWeek(calDialog.Date);
       WeekDaysToStringGrid(WeekGrid, FWeek);
+      EnableButtons;
     end;
   finally
     calDialog.Free;
@@ -132,6 +134,7 @@ begin
       FWeek.Days.Delete(FSelectionIndex);
       FWeek.WeekLength := FWeek.WeekLength - 1;
       WeekDaysToStringGrid(WeekGrid, FWeek);
+      EnableButtons;
     end;
   end;
 end;
@@ -190,8 +193,15 @@ begin
       highest := FWeek.Days[I].Date;
 		end;
 	end;
-  DescriptionEdit.Text := DateToStr(lowest) + '   to   ' + DateToStr(highest);
-  UpdateTitel;
+  if (lowest <> highest) then
+  begin
+    DescriptionEdit.Text := DateToStr(lowest) + '   to   ' + DateToStr(highest);
+	end
+  else
+  begin
+    DescriptionEdit.Text := DateToStr(lowest);
+	end;
+	UpdateTitel;
 end;
 
 procedure TForm3.ApplyButtonClick(Sender: TObject);
@@ -200,7 +210,10 @@ begin
   begin
     FWeek.WeekLabel := DescriptionEdit.Text;
     FOnApplyClick(self, FWeek, FWeekIndex);
-    self.Visible := False;
+    if (Sender = ApplyButton) then
+    begin
+      self.Visible := False;
+		end;
 	end;
 end;
 
@@ -210,6 +223,7 @@ begin
   begin
     FWeek.Clear;
     ClearStringGrid(WeekGrid);
+    EnableButtons;
   end;
 end;
 
@@ -219,6 +233,7 @@ begin
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex-1);
     UpdateTitel;
+    EnableButtons;
   end;
 end;
 
@@ -228,6 +243,7 @@ begin
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex+1);
     UpdateTitel;
+    EnableButtons;
   end;
 end;
 
@@ -237,6 +253,7 @@ begin
   WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
   UpdateTitel;
+  EnableButtons;
 end;
 
 procedure TForm3.DeleteWeek(Sender: TObject);
@@ -260,11 +277,20 @@ begin
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);
   UpdateTitel;
+  EnableButtons;
 end;
 
 procedure TForm3.UpdateTitel;
 begin
   self.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (' + FWeek.WeekLabel + ')';
+end;
+
+procedure TForm3.EnableButtons;
+begin
+  ButtonRemove.Enabled := (FWeek.Days.Count > 0);
+  ButtonEmpty.Enabled := (FWeek.Days.Count > 0);
+  PopUpMenu1.Items[1].Enabled := (FWeek.Days.Count > 0);
+  PopUpMenu1.Items[2].Enabled := (FWeek.Days.Count > 0);
 end;
 
 end.

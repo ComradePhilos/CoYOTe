@@ -53,6 +53,7 @@ object Form1: TForm1
         Width = 208
       end    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Caption = 'days'
       end    

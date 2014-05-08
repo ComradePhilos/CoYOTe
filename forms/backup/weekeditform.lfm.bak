@@ -85,11 +85,11 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 432
+    Left = 384
     Height = 30
     Top = 328
-    Width = 82
-    Caption = 'Apply'
+    Width = 130
+    Caption = 'Apply and Back'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -256,7 +256,7 @@ object Form3: TForm3
   end
   object HoursPerDayEdit: TLabeledEdit
     Left = 416
-    Height = 27
+    Height = 23
     Top = 288
     Width = 98
     Alignment = taRightJustify
@@ -265,8 +265,8 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 416
-    EditLabel.Height = 17
-    EditLabel.Top = 268
+    EditLabel.Height = 15
+    EditLabel.Top = 270
     EditLabel.Width = 98
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
@@ -380,7 +380,7 @@ object Form3: TForm3
   end
   object DescriptionEdit: TLabeledEdit
     Left = 16
-    Height = 27
+    Height = 23
     Top = 288
     Width = 349
     EditLabel.AnchorSideLeft.Control = DescriptionEdit
@@ -388,8 +388,8 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = DescriptionEdit
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 268
+    EditLabel.Height = 15
+    EditLabel.Top = 270
     EditLabel.Width = 349
     EditLabel.Caption = 'Description Text'
     EditLabel.ParentColor = False

@@ -85,11 +85,11 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 432
+    Left = 384
     Height = 30
     Top = 328
-    Width = 82
-    Caption = 'Apply'
+    Width = 130
+    Caption = 'Apply and Back'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -254,28 +254,20 @@ object Form3: TForm3
     OnClick = BackButtonClick
     TabOrder = 2
   end
-  object Label1: TLabel
-    Left = 96
-    Height = 15
-    Top = 8
-    Width = 50
-    Caption = 'Period #1'
-    ParentColor = False
-  end
   object HoursPerDayEdit: TLabeledEdit
-    Left = 432
+    Left = 416
     Height = 23
     Top = 288
-    Width = 80
+    Width = 98
     Alignment = taRightJustify
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
-    EditLabel.Left = 432
+    EditLabel.Left = 416
     EditLabel.Height = 15
     EditLabel.Top = 270
-    EditLabel.Width = 80
+    EditLabel.Width = 98
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
     TabOrder = 3
@@ -294,15 +286,23 @@ object Form3: TForm3
     TabOrder = 4
     object ButtonLeft: TToolButton
       Left = 1
+      Hint = 'Switch to previous period'
       Top = 2
       Caption = 'Go left'
       ImageIndex = 3
+      OnClick = ButtonLeftClick
+      ParentShowHint = False
+      ShowHint = True
     end
     object ButtonRight: TToolButton
       Left = 29
+      Hint = 'Switch to next period'
       Top = 2
       Caption = 'ButtonRight'
       ImageIndex = 4
+      OnClick = ButtonRightClick
+      ParentShowHint = False
+      ShowHint = True
     end
     object ToolButton1: TToolButton
       Left = 57
@@ -313,23 +313,32 @@ object Form3: TForm3
     end
     object ButtonAdd: TToolButton
       Left = 62
+      Hint = 'add another day to the period'
       Top = 2
       Caption = 'ButtonAdd'
       ImageIndex = 5
       OnClick = MenuAddClick
+      ParentShowHint = False
+      ShowHint = True
     end
     object ButtonRemove: TToolButton
       Left = 90
+      Hint = 'remove selected day'
       Top = 2
       Caption = 'ButtonRemove'
       ImageIndex = 7
+      ParentShowHint = False
+      ShowHint = True
     end
     object ButtonEmpty: TToolButton
       Left = 118
+      Hint = 'remove all days but keep period'
       Top = 2
       Caption = 'ButtonEmpty'
       ImageIndex = 8
       OnClick = ButtonEmptyClick
+      ParentShowHint = False
+      ShowHint = True
     end
     object ToolButton5: TToolButton
       Left = 146
@@ -340,23 +349,33 @@ object Form3: TForm3
     end
     object ButtonUndo: TToolButton
       Left = 151
+      Hint = 'undo changes'
       Top = 2
       Caption = 'ButtonUndo'
       ImageIndex = 6
       OnClick = ButtonUndoClick
+      ParentShowHint = False
+      ShowHint = True
     end
     object ButtonDelete: TToolButton
       Left = 179
+      Hint = 'delete period'
       Top = 2
       Caption = 'ButtonDelete'
       ImageIndex = 9
       OnClick = DeleteWeek
+      ParentShowHint = False
+      ShowHint = True
     end
     object ButtonApply: TToolButton
       Left = 207
+      Hint = 'apply changes'
       Top = 2
       Caption = 'ButtonApply'
       ImageIndex = 0
+      OnClick = ApplyButtonClick
+      ParentShowHint = False
+      ShowHint = True
     end
   end
   object DescriptionEdit: TLabeledEdit
