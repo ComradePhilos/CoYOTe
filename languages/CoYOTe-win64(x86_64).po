@@ -58,6 +58,10 @@ msgctxt "tform1.menuitem2.caption"
 msgid "Edit"
 msgstr ""
 
+#: tform1.menuitem20.caption
+msgid "New Item1"
+msgstr ""
+
 #: tform1.menuitem3.caption
 msgid "View"
 msgstr ""
@@ -85,6 +89,10 @@ msgstr ""
 
 #: tform1.menuitem9.caption
 msgid "Options"
+msgstr ""
+
+#: tform1.statusbar1.panels[0].text
+msgid "Warning! This programme version is still work in progress and not recommended for general use yet!"
 msgstr ""
 
 #: tform1.stringgrid1.columns[0].title.caption
@@ -174,7 +182,7 @@ msgid "ButtonApply"
 msgstr ""
 
 #: tform3.buttonapply.hint
-msgid "apply changes"
+msgid "apply changes, keep the window focused"
 msgstr ""
 
 #: tform3.buttondelete.caption

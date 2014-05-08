@@ -41,6 +41,7 @@ type
     MenuItem18: TMenuItem;
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
+		MenuItem20: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -48,6 +49,7 @@ type
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
+		PopupMenu1: TPopupMenu;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
     ToolBar1: TToolBar;
@@ -127,8 +129,8 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.9';
-  FVersionDate := '07.05.2014';
+  FVersionNr := '0.0.1.10';
+  FVersionDate := '08.05.2014';
   FLazarusVersion := '1.2.0';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';
@@ -321,4 +323,4 @@ begin
 end;
 
 
-end.
+end.

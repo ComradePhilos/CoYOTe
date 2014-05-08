@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 467
-  Height = 595
+  Height = 637
   Top = 211
-  Width = 916
+  Width = 1021
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 575
-  ClientWidth = 916
+  ClientHeight = 617
+  ClientWidth = 1021
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -18,10 +18,12 @@ object Form1: TForm1
   Position = poScreenCenter
   LCLVersion = '1.2.2.0'
   object GroupBox1: TGroupBox
-    Left = 639
+    AnchorSideRight.Side = asrBottom
+    Left = 744
     Height = 363
     Top = 31
     Width = 272
+    Anchors = [akTop, akRight]
     Caption = 'Information and Statistics'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -13
@@ -33,10 +35,13 @@ object Form1: TForm1
     TabOrder = 0
   end
   object StringGrid1: TStringGrid
+    AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 542
+    Height = 584
     Top = 30
-    Width = 635
+    Width = 739
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Right = 5
     ColCount = 6
     ColumnClickSorts = True
     Columns = <    
@@ -103,14 +108,12 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 552
-    Width = 916
+    Top = 594
+    Width = 1021
     Panels = <    
       item
-        Width = 100
-      end    
-      item
-        Width = 100
+        Text = 'Warning! This programme version is still work in progress and not recommended for general use yet!'
+        Width = 500
       end>
     SimplePanel = False
   end
@@ -118,10 +121,10 @@ object Form1: TForm1
     Left = 0
     Height = 30
     Top = 0
-    Width = 916
+    Width = 1021
     ButtonHeight = 23
     Caption = 'ToolBar1'
-    Color = 16759413
+    Color = 16767927
     EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
     EdgeInner = esNone
     Images = ImageList1
@@ -901,5 +904,11 @@ object Form1: TForm1
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000
     }
+  end
+  object PopupMenu1: TPopupMenu
+    left = 800
+    object MenuItem20: TMenuItem
+      Caption = 'New Item1'
+    end
   end
 end

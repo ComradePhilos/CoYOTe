@@ -57,6 +57,7 @@ type
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
+
   private
     { private declarations }
     FWeek: TWorkWeek;
@@ -69,6 +70,7 @@ type
 
     procedure UpdateTitel;
     procedure EnableButtons;
+
   public
     { public declarations }
     procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
@@ -209,7 +211,9 @@ begin
   if assigned(FOnApplyClick) then
   begin
     FWeek.WeekLabel := DescriptionEdit.Text;
+    UpdateTitel;
     FOnApplyClick(self, FWeek, FWeekIndex);
+    FWeekCopy.assign(FWeek);
     if (Sender = ApplyButton) then
     begin
       self.Visible := False;

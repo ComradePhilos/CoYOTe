@@ -1,20 +1,26 @@
 object Form3: TForm3
-  Left = 444
-  Height = 368
-  Top = 136
-  Width = 527
+  Left = 795
+  Height = 361
+  Top = 197
+  Width = 530
   Caption = 'Edit selected period'
-  ClientHeight = 368
-  ClientWidth = 527
+  ClientHeight = 361
+  ClientWidth = 530
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Ubuntu'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
     Left = 0
-    Height = 234
+    Height = 220
     Top = 27
-    Width = 519
+    Width = 522
+    Anchors = [akTop, akLeft, akRight, akBottom]
     ColCount = 7
     ColumnClickSorts = True
     Columns = <    
@@ -85,11 +91,18 @@ object Form3: TForm3
     )
   end
   object ApplyButton: TBitBtn
-    Left = 384
+    AnchorSideRight.Side = asrBottom
+    Left = 396
     Height = 30
-    Top = 328
+    Top = 321
     Width = 130
+    Anchors = [akRight, akBottom]
     Caption = 'Apply and Back'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -12
+    Font.Name = 'Ubuntu'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -167,14 +180,21 @@ object Form3: TForm3
       0000000000000000000000000000000000000000000000000000
     }
     OnClick = ApplyButtonClick
+    ParentFont = False
     TabOrder = 1
   end
   object BackButton: TBitBtn
     Left = 16
     Height = 30
-    Top = 328
+    Top = 321
     Width = 75
+    Anchors = [akLeft, akBottom]
     Caption = 'Back'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -12
+    Font.Name = 'Ubuntu'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -252,21 +272,23 @@ object Form3: TForm3
       0000000000000000000000000000000000000000000000000000
     }
     OnClick = BackButtonClick
+    ParentFont = False
     TabOrder = 2
   end
   object HoursPerDayEdit: TLabeledEdit
-    Left = 416
-    Height = 23
-    Top = 288
+    Left = 420
+    Height = 25
+    Top = 281
     Width = 98
     Alignment = taRightJustify
+    Anchors = [akRight, akBottom]
     EditLabel.AnchorSideLeft.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
-    EditLabel.Left = 416
-    EditLabel.Height = 15
-    EditLabel.Top = 270
+    EditLabel.Left = 420
+    EditLabel.Height = 17
+    EditLabel.Top = 261
     EditLabel.Width = 98
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
@@ -277,9 +299,9 @@ object Form3: TForm3
     Left = 0
     Height = 28
     Top = 0
-    Width = 527
+    Width = 530
     Caption = 'ToolBar1'
-    Color = 16759413
+    Color = 16767927
     EdgeBorders = [ebTop, ebBottom]
     Images = ImageList1
     ParentColor = False
@@ -369,7 +391,7 @@ object Form3: TForm3
     end
     object ButtonApply: TToolButton
       Left = 207
-      Hint = 'apply changes'
+      Hint = 'apply changes, keep the window focused'
       Top = 2
       Caption = 'ButtonApply'
       ImageIndex = 0
@@ -379,28 +401,37 @@ object Form3: TForm3
     end
   end
   object DescriptionEdit: TLabeledEdit
+    AnchorSideRight.Control = HoursPerDayEdit
+    AnchorSideBottom.Side = asrBottom
     Left = 16
-    Height = 23
-    Top = 288
-    Width = 349
+    Height = 25
+    Top = 281
+    Width = 352
+    Anchors = [akLeft, akRight, akBottom]
+    BorderSpacing.Right = 52
     EditLabel.AnchorSideLeft.Control = DescriptionEdit
     EditLabel.AnchorSideRight.Control = DescriptionEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = DescriptionEdit
     EditLabel.Left = 16
-    EditLabel.Height = 15
-    EditLabel.Top = 270
-    EditLabel.Width = 349
+    EditLabel.Height = 17
+    EditLabel.Top = 261
+    EditLabel.Width = 352
     EditLabel.Caption = 'Description Text'
     EditLabel.ParentColor = False
     TabOrder = 5
   end
   object BitBtn1: TBitBtn
-    Left = 369
+    AnchorSideLeft.Control = DescriptionEdit
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideRight.Control = HoursPerDayEdit
+    Left = 373
     Height = 24
     Hint = 'Create text automatically using the lowest and the highest date'
-    Top = 287
-    Width = 27
+    Top = 281
+    Width = 32
+    Anchors = [akRight, akBottom]
+    BorderSpacing.Right = 15
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000FFFFFF00FFFF

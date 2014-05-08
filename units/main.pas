@@ -41,6 +41,7 @@ type
     MenuItem18: TMenuItem;
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
+		MenuItem20: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -48,6 +49,7 @@ type
     MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
+		PopupMenu1: TPopupMenu;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
     ToolBar1: TToolBar;

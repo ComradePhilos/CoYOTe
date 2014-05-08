@@ -57,6 +57,7 @@ type
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
+
   private
     { private declarations }
     FWeek: TWorkWeek;
@@ -69,6 +70,7 @@ type
 
     procedure UpdateTitel;
     procedure EnableButtons;
+
   public
     { public declarations }
     procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
@@ -193,8 +195,15 @@ begin
       highest := FWeek.Days[I].Date;
 		end;
 	end;
-  DescriptionEdit.Text := DateToStr(lowest) + '   to   ' + DateToStr(highest);
-  UpdateTitel;
+  if (lowest <> highest) then
+  begin
+    DescriptionEdit.Text := DateToStr(lowest) + '   to   ' + DateToStr(highest);
+	end
+  else
+  begin
+    DescriptionEdit.Text := DateToStr(lowest);
+	end;
+	UpdateTitel;
 end;
 
 procedure TForm3.ApplyButtonClick(Sender: TObject);
@@ -202,7 +211,9 @@ begin
   if assigned(FOnApplyClick) then
   begin
     FWeek.WeekLabel := DescriptionEdit.Text;
+    UpdateTitel;
     FOnApplyClick(self, FWeek, FWeekIndex);
+    FWeekCopy.assign(FWeek);
     if (Sender = ApplyButton) then
     begin
       self.Visible := False;
