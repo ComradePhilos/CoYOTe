@@ -27,6 +27,7 @@ type
     procedure Clear;
     procedure setTime(hour, min: integer; mode: boolean);
     function WeekDayToText: String;
+    function getAmountOfTime: Double;
 
     property StartHour: Integer read FStartHour write FStartHour;
     property StartMinute: Integer read FStartMinute write FStartMinute;
@@ -60,6 +61,7 @@ type
     destructor Destroy;
     procedure Clear;
     procedure assign(AWeek: TWorkWeek);
+    function getSum: Double;
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -136,6 +138,15 @@ begin
     Result := DateToStr(FDate);
 end;
 
+function TWorkDay.getAmountOfTime: Double;
+var
+  hours: Integer;
+  min: Integer;
+begin
+  hours := FEndHour - FStartHour;
+  mins := EndMinute - FStartMinute;
+  Result := hours + (mins/60);
+end;
 
 //############################################ Week ###########################################################
 
@@ -154,6 +165,7 @@ begin
   self.FromDate := AFromDate;
   self.ToDate := AToDate;
   self.WeekLength := DaysBetween(FToDate,FFromDate)+ 1;
+  self.IntendedTimePerDay := 8;
   FDays := TWorkDays.Create(true);
   FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
   for I := 0 to FWeekLength-1 do
@@ -177,6 +189,7 @@ begin
   self.ToDate := AWeek.ToDate;
   self.WeekLength := AWeek.WeekLength;
   self.WeekLabel := AWeek.WeekLabel;
+  self.IntendedTimePerDay := AWeek.IntendedTimePerDay;
   self.Days.Clear;
   for I := 0 to self.WeekLength -1 do
   begin
@@ -205,6 +218,15 @@ begin
   end;
 end;
 
+function TWorkWeek.getSum: Double;
+var
+  I: Integer;
+begin
+  for I := 0 to self.Days.Count-1 do
+  begin
+    Result := Result + self.Days[I].getAmountOfTime;
+	end;
+end;
 
 procedure TWorkWeek.Clear;
 begin
@@ -242,7 +264,7 @@ begin
   for I := 0 to AWeekList.Count - 1 do
   begin
     AGrid.Cells[0,1+I] := IntToStr(I+1);
-    AGrid.Cells[1,1+I] := DateToStr(AWeekList.Items[I].FromDate);
+    AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
     AGrid.Cells[2,1+I] := IntToStr(AWeekList.Items[I].WeekLength);
   end;
 end;
@@ -296,4 +318,4 @@ begin
 
 end;
 
-end.
+end.

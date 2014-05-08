@@ -22,9 +22,13 @@ type
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
 		BitBtn1: TBitBtn;
+		GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
 		DescriptionEdit: TLabeledEdit;
     ImageList1: TImageList;
+		Label1: TLabel;
+		Label2: TLabel;
+		Label3: TLabel;
     MenuIgnore: TMenuItem;
     MenuDelete: TMenuItem;
     MenuEdit: TMenuItem;
@@ -69,7 +73,7 @@ type
     FOnNextWeekClick: TNextWeekEvent;
 
     procedure UpdateTitel;
-    procedure EnableButtons;
+    procedure UpdateWindow;
 
   public
     { public declarations }
@@ -120,7 +124,7 @@ begin
       FWeek.Days[FWeek.WeekLength - 1].Date := calDialog.Date;
       FWeek.Days[FWeek.WeekLength - 1].Weekday := RealDayOfWeek(calDialog.Date);
       WeekDaysToStringGrid(WeekGrid, FWeek);
-      EnableButtons;
+      UpdateWindow;
     end;
   finally
     calDialog.Free;
@@ -136,7 +140,7 @@ begin
       FWeek.Days.Delete(FSelectionIndex);
       FWeek.WeekLength := FWeek.WeekLength - 1;
       WeekDaysToStringGrid(WeekGrid, FWeek);
-      EnableButtons;
+      UpdateWindow;
     end;
   end;
 end;
@@ -146,6 +150,7 @@ var
   calDialog: TCalendarDialog;
 begin
   calDialog := TCalendarDialog.Create(nil);
+  calDialog.Date := FWeek.Days[FSelectionIndex].Date;
   try
     if calDialog.Execute then
     begin
@@ -207,18 +212,38 @@ begin
 end;
 
 procedure TForm3.ApplyButtonClick(Sender: TObject);
+var
+  locInt: Integer;
+  I: Integer;
 begin
   if assigned(FOnApplyClick) then
   begin
+
     FWeek.WeekLabel := DescriptionEdit.Text;
+    if TryStrToInt( HoursPerDayEdit.Text, locInt ) then
+    begin
+      FWeek.IntendedTimePerDay := locInt;
+		end;
+
+    // apply values from grid
+    for I := 0 to FWeek.Days.Count-1 do
+    begin
+      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3,I+1]);
+      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4,I+1]);
+      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3,I+1]);
+      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4,I+1]);
+		end;
+
     UpdateTitel;
-    FOnApplyClick(self, FWeek, FWeekIndex);
     FWeekCopy.assign(FWeek);
+    FOnApplyClick(self, FWeek, FWeekIndex);
+    // option to close window too
     if (Sender = ApplyButton) then
     begin
       self.Visible := False;
 		end;
 	end;
+  UpdateWindow;
 end;
 
 procedure TForm3.ButtonEmptyClick(Sender: TObject);
@@ -227,7 +252,7 @@ begin
   begin
     FWeek.Clear;
     ClearStringGrid(WeekGrid);
-    EnableButtons;
+    UpdateWindow;
   end;
 end;
 
@@ -237,7 +262,7 @@ begin
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex-1);
     UpdateTitel;
-    EnableButtons;
+    UpdateWindow;
   end;
 end;
 
@@ -247,7 +272,7 @@ begin
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex+1);
     UpdateTitel;
-    EnableButtons;
+    UpdateWindow;
   end;
 end;
 
@@ -256,8 +281,9 @@ begin
   FWeek.assign(FWeekCopy);
   WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
+  HoursPerDayEdit.Text := FloatToStr(FWeekCopy.IntendedTimePerDay);
   UpdateTitel;
-  EnableButtons;
+  UpdateWindow;
 end;
 
 procedure TForm3.DeleteWeek(Sender: TObject);
@@ -278,10 +304,11 @@ begin
   FWeek.assign(AWeek);
   FWeekCopy.assign(AWeek);
   DescriptionEdit.Text := AWeek.WeekLabel;
+  HoursPerDayEdit.Text := FloatToStr(AWeek.IntendedTimePerDay);
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);
   UpdateTitel;
-  EnableButtons;
+  UpdateWindow;
 end;
 
 procedure TForm3.UpdateTitel;
@@ -289,12 +316,15 @@ begin
   self.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (' + FWeek.WeekLabel + ')';
 end;
 
-procedure TForm3.EnableButtons;
+procedure TForm3.UpdateWindow;
 begin
   ButtonRemove.Enabled := (FWeek.Days.Count > 0);
   ButtonEmpty.Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[1].Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[2].Enabled := (FWeek.Days.Count > 0);
+
+  Label1.Caption := 'Goal:   ' + FloatToStr(FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
+  Label2.Caption := 'Sum:   ' + FloatToStr(FWeek.getSum);
 end;
 
 end.

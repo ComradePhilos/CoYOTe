@@ -62,6 +62,18 @@ msgstr ""
 msgid "New Item1"
 msgstr ""
 
+#: tform1.menuitem21.caption
+msgid "Example User 1"
+msgstr ""
+
+#: tform1.menuitem22.caption
+msgid "MaxMustermann"
+msgstr ""
+
+#: tform1.menuitem23.caption
+msgid "people..."
+msgstr ""
+
 #: tform1.menuitem3.caption
 msgid "View"
 msgstr ""
@@ -137,6 +149,10 @@ msgstr ""
 
 #: tform1.toolbutton3.caption
 msgid "ToolButton3"
+msgstr ""
+
+#: tform1.toolbutton4.caption
+msgid "ToolButton4"
 msgstr ""
 
 #: tform2.caption
@@ -241,6 +257,10 @@ msgstr ""
 msgid "Description Text"
 msgstr ""
 
+#: tform3.groupbox1.caption
+msgid "Summary"
+msgstr ""
+
 #: tform3.hoursperdayedit.editlabel.caption
 msgid "Hours  per day"
 msgstr ""
@@ -248,6 +268,18 @@ msgstr ""
 #: tform3.hoursperdayedit.text
 msgctxt "tform3.hoursperdayedit.text"
 msgid "8"
+msgstr ""
+
+#: tform3.label1.caption
+msgid "Goal: "
+msgstr ""
+
+#: tform3.label2.caption
+msgid "Sum:"
+msgstr ""
+
+#: tform3.label3.caption
+msgid "Diff.:"
 msgstr ""
 
 #: tform3.menuadd.caption
@@ -306,12 +338,20 @@ msgstr ""
 
 #: tform3.weekgrid.columns[5].title.caption
 msgctxt "tform3.weekgrid.columns[5].title.caption"
-msgid "Time off"
+msgid "addit."
 msgstr ""
 
 #: tform3.weekgrid.columns[6].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[6].TITLE.CAPTION"
-msgid "addit."
+msgid "Time off"
+msgstr ""
+
+#: tform3.weekgrid.columns[7].title.caption
+msgid "total"
+msgstr ""
+
+#: tform3.weekgrid.columns[8].title.caption
+msgid "diff"
 msgstr ""
 
 #: tform4.applybutton.caption

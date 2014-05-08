@@ -13,9 +13,10 @@ unit main;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls,
-  Dialogs, ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl,
-  BarChart, Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, DateUtils,
+  Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
+	ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl, BarChart,
+	Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox,
+	DateUtils,
   { Forms }
   WeekEditForm, WeekAddForm,
   { eigene Units }
@@ -42,6 +43,9 @@ type
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
 		MenuItem20: TMenuItem;
+		MenuItem21: TMenuItem;
+		MenuItem22: TMenuItem;
+		MenuItem23: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -50,12 +54,14 @@ type
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
 		PopupMenu1: TPopupMenu;
+		UsersList: TPopupMenu;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
+		ToolButton4: TToolButton;
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
@@ -89,11 +95,21 @@ type
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
+    // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
+
+    // triggered when a week got edited
     procedure AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: integer);
-    procedure GetWeek(Sender: TObject; var AWeek: TWorkWeek; Index: integer);  // getting week of certain index
+
+    // triggered when a Form wants a specific week
+    procedure GetWeek(Sender: TObject; var AWeek: TWorkWeek; Index: integer);
+
+    // triggered when a certain week is deleted
     procedure RemoveWeekFromList(Sender: TObject; Index: integer);
-    procedure EnableButtons;      // Checks for each button, wether it has to get
+
+    // Checks for each button, wether it has to get
+    procedure EnableButtons;
+
   public
     { public declarations }
   end;
@@ -126,6 +142,9 @@ begin
   {$ENDIF}
   {$IFDEF linux}
   FOSName := 'Linux';
+  {$ENDIF}
+  {$IFDEF macos}
+  FOSName := 'MacOS';    // for those poor guys, who need to compensate the little penis ;)
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
