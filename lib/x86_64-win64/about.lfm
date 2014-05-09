@@ -6,8 +6,8 @@ object Form2: TForm2
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'About'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 186
+  ClientWidth = 446
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object Image1: TImage

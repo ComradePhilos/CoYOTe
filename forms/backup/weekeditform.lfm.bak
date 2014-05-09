@@ -21,7 +21,7 @@ object Form3: TForm3
     Top = 28
     Width = 661
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ColCount = 9
+    ColCount = 8
     ColumnClickSorts = True
     Columns = <    
       item
@@ -46,35 +46,31 @@ object Form3: TForm3
       item
         Alignment = taCenter
         Title.Alignment = taCenter
-        Title.Caption = 'Start'
-        Width = 73
+        Title.Caption = 'start'
+        Width = 110
       end    
       item
         Alignment = taCenter
         Title.Alignment = taCenter
-        Title.Caption = 'End'
-        Width = 71
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'addit.'
-        Width = 73
+        Title.Caption = 'end'
+        Width = 105
       end    
       item
         Alignment = taCenter
         Color = clDefault
         Title.Alignment = taCenter
-        Title.Caption = 'Time off'
-        Width = 75
+        Title.Caption = 'time off'
+        Width = 69
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'total'
+        Width = 72
       end    
       item
         Title.Alignment = taCenter
         Title.Caption = 'diff'
+        Width = 68
       end>
     DefaultRowHeight = 29
     FixedCols = 0
@@ -92,12 +88,11 @@ object Form3: TForm3
       47
       50
       122
-      73
-      71
-      73
-      75
-      64
-      64
+      110
+      105
+      69
+      72
+      68
     )
   end
   object ApplyButton: TBitBtn
