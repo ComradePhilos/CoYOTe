@@ -25,6 +25,7 @@ type
 		GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
 		DescriptionEdit: TLabeledEdit;
+		HoursPerDayEdit1: TLabeledEdit;
     ImageList1: TImageList;
 		Label1: TLabel;
 		Label2: TLabel;

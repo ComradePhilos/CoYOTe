@@ -45,12 +45,13 @@ type
 //############################################ Period ###########################################################
   TWorkWeek = class
   private
-    FWeekLabel: String;           // A Description shown in the list
-    FDays: TWorkDays;
+    FWeekLabel: String;                 // A Description Text shown in the list
+    FDays: TWorkDays;                   // The Days related to this period
     FFromDate: TDate;
     FToDate: TDate;
-    FWeekLength: integer;     // Workdays in that particular week
+    FWeekLength: integer;               // Workdays in that particular week
     FIntendedTimePerDay: double;        // The time you intend to work per day
+    FPausePerDay: Double;               // Obligatory Pause Time
     //FAverageTime: Double;             // Durchschnittsarbeitszeit pro Tag (Zur Kontrolle)
 
     function calcAverageTime: double;
@@ -148,7 +149,7 @@ begin
 
   StartTime := StartTime + (60*60*FStartHour) + (60*FStartMinute);
   EndTime := EndTime + (60*60*FEndHour) + (60*FEndMinute);
-  Result := Float((EndTime - StartTime)/3600);
+  Result :=(EndTime - StartTime)/3600;
 end;
 
 //############################################ Week ###########################################################
@@ -159,6 +160,9 @@ var
 begin
   FDays := TWorkDays.Create(true);
   FWeekLabel := 'empty week';
+  FWeekLength := 0;
+  FIntendedTimePerDay := 8;
+  FPausePerDay := 0.75;
 end;
 
 constructor TWorkWeek.Create(AFromDate, AToDate: TDate);
@@ -169,8 +173,9 @@ begin
   self.ToDate := AToDate;
   self.WeekLength := DaysBetween(FToDate,FFromDate)+ 1;
   self.IntendedTimePerDay := 8;
-  FDays := TWorkDays.Create(true);
-  FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
+  self.FPausePerDay := 0.75;
+  self.FDays := TWorkDays.Create(true);
+  self.FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
   for I := 0 to FWeekLength-1 do
   begin
     FDays.Add(TWorkDay.Create);

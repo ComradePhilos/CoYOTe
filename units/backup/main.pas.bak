@@ -29,6 +29,7 @@ type
   TForm1 = class(TForm)
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
+		ImageList2: TImageList;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -46,6 +47,8 @@ type
 		MenuItem21: TMenuItem;
 		MenuItem22: TMenuItem;
 		MenuItem23: TMenuItem;
+		MenuItem24: TMenuItem;
+		MenuItem25: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
@@ -83,13 +86,11 @@ type
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
 
     FProgrammeName: string;       // Official Name shown to the user
-    FVersionNr: string;           // Internal Programme-Version
+    FVersionNr: string;           // Programme-Version
     FVersionDate: string;         // Build-Date
     FLazarusVersion: string;      // Version of the Lazarus IDE the programme was built with
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
-
-    FSeparator: string;           // The Separator for Dates e.g. "01.02.2014" has "."
 
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
     EditWeekForm: TForm3;         // The window that you can edit a week with
@@ -148,12 +149,11 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.1.10';
-  FVersionDate := '08.05.2014';
-  FLazarusVersion := '1.2.0';
+  FVersionNr := '0.0.1.11';
+  FVersionDate := '09.05.2014';
+  FLazarusVersion := '1.2.2';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
   FLanguage := 'English';
-  FSeparator := '.';
 
   // default values
   defHoursPerDay := 8;
