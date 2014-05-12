@@ -310,17 +310,12 @@ procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 var
   I: Integer;
 begin
+  FWeek.Clear;
   FWeek.assign(AWeek);
   FWeekCopy.assign(AWeek);
   DescriptionEdit.Text := AWeek.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(AWeek.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
-
-  for I := 0 to FWeek.Days.Count-1 do
-  begin
-    WeekGrid.Cells[3,I+1] := TimeToString(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute) ;
-    WeekGrid.Cells[4,I+1] := TimeToString(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute) ;
- 	end;
 
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);

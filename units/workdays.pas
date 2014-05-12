@@ -194,22 +194,22 @@ procedure TWorkWeek.assign(AWeek: TWorkWeek);
 var
   I: Integer;
 begin
-  self.FromDate := AWeek.FromDate;
-  self.ToDate := AWeek.ToDate;
-  self.WeekLength := AWeek.WeekLength;
-  self.WeekLabel := AWeek.WeekLabel;
-  self.IntendedTimePerDay := AWeek.IntendedTimePerDay;
-  self.FPausePerDay := AWeek.FPausePerDay;
-  self.Days.Clear;
+  FFromDate := AWeek.FromDate;
+  FToDate := AWeek.ToDate;
+  FWeekLength := AWeek.WeekLength;
+  FWeekLabel := AWeek.WeekLabel;
+  FIntendedTimePerDay := AWeek.IntendedTimePerDay;
+  FPausePerDay := AWeek.PausePerDay;
+  FDays.Clear;
   for I := 0 to self.WeekLength -1 do
   begin
-    self.Days.Add(TWorkDay.Create);
-    self.Days[I].Date := AWeek.Days[I].Date;
-    self.Days[I].Weekday := AWeek.Days[I].Weekday;
-    self.Days[I].StartHour := AWeek.Days[I].StartHour;
-    self.Days[I].EndHour := AWeek.Days[I].EndHour;
-    self.Days[I].StartMinute := AWeek.Days[I].StartMinute;
-    self.Days[I].EndMinute := AWeek.Days[I].EndMinute;
+    FDays.Add(TWorkDay.Create);
+    FDays[I].Date := AWeek.Days[I].Date;
+    FDays[I].Weekday := AWeek.Days[I].Weekday;
+    FDays[I].StartHour := AWeek.Days[I].StartHour;
+    FDays[I].EndHour := AWeek.Days[I].EndHour;
+    FDays[I].StartMinute := AWeek.Days[I].StartMinute;
+    FDays[I].EndMinute := AWeek.Days[I].EndMinute;
   end;
 end;
 

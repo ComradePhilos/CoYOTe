@@ -196,11 +196,11 @@ var
 begin
   self.FromDate := AWeek.FromDate;
   self.ToDate := AWeek.ToDate;
-  self.WeekLength := AWeek.WeekLength;
-  self.WeekLabel := AWeek.WeekLabel;
-  self.IntendedTimePerDay := AWeek.IntendedTimePerDay;
+  self.FWeekLength := AWeek.WeekLength;
+  self.FWeekLabel := AWeek.WeekLabel;
+  self.FIntendedTimePerDay := AWeek.IntendedTimePerDay;
   self.FPausePerDay := AWeek.FPausePerDay;
-  self.Days.Clear;
+  self.FDays.Clear;
   for I := 0 to self.WeekLength -1 do
   begin
     self.Days.Add(TWorkDay.Create);
@@ -298,8 +298,10 @@ begin
   clearStringGrid(AGrid);
   AGrid.RowCount := AWeek.WeekLength+1;
 
+  if (AWeek.Days.Count > 0) then
+  begin
   // write contents to right grid
-  for I := 1 to AWeek.Days.Count do
+  for I := 1 to AWeek.Weeklength do
   begin
 
     AGrid.Cells[0,I] := IntToStr(I);
@@ -314,6 +316,7 @@ begin
     AGrid.cells[3,I] := TimeToString(AWeek.Days[I-1].StartHour, AWeek.Days[I-1].StartMinute);
     AGrid.cells[4,I] := TimeToString(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
 
+	end;
 	end;
 
 end;
