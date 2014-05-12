@@ -165,6 +165,7 @@ begin
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
 
+  // Event Handling
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week

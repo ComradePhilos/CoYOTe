@@ -264,6 +264,7 @@ end;
 
 procedure TForm3.ButtonLeftClick(Sender: TObject);
 begin
+  // Get previous week
   if assigned(FOnNextWeekClick) then
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex-1);
@@ -274,6 +275,7 @@ end;
 
 procedure TForm3.ButtonRightClick(Sender: TObject);
 begin
+  // Get Next week
   if assigned(FOnNextWeekClick) then
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex+1);
@@ -284,6 +286,7 @@ end;
 
 procedure TForm3.ButtonUndoClick(Sender: TObject);
 begin
+  // Undo all changes and revert to FWeekCopy
   FWeek.assign(FWeekCopy);
   WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
@@ -355,8 +358,8 @@ begin
 
   for I := 0 to FWeek.Days.Count-1 do
   begin
-    WeekGrid.Cells[3,I+1] := TimeToString(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute) ;
-    WeekGrid.Cells[4,I+1] := TimeToString(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute) ;
+    WeekGrid.Cells[3,I+1] := TimeToText(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute) ;
+    WeekGrid.Cells[4,I+1] := TimeToText(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute) ;
 	end;
 
 	Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';

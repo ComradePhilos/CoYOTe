@@ -23,8 +23,8 @@
         <UnitName Value="main"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="134"/>
-        <CursorPos X="22" Y="150"/>
+        <TopLine Value="315"/>
+        <CursorPos X="20" Y="168"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -35,8 +35,8 @@
         <UnitName Value="workdays"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="167"/>
-        <CursorPos X="6" Y="212"/>
+        <TopLine Value="55"/>
+        <CursorPos X="33" Y="365"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -46,9 +46,9 @@
         <UnitName Value="funcs"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="76"/>
-        <CursorPos X="57" Y="106"/>
-        <UsageCount Value="163"/>
+        <TopLine Value="1"/>
+        <CursorPos X="40" Y="19"/>
+        <UsageCount Value="165"/>
         <Loaded Value="True"/>
       </Unit3>
       <Unit4>
@@ -58,12 +58,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="about"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="20" Y="9"/>
-        <UsageCount Value="161"/>
+        <TopLine Value="46"/>
+        <CursorPos X="69" Y="51"/>
+        <UsageCount Value="163"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -74,11 +73,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="WeekEditForm"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="230"/>
-        <CursorPos X="24" Y="274"/>
-        <UsageCount Value="103"/>
+        <TopLine Value="296"/>
+        <CursorPos X="29" Y="334"/>
+        <UsageCount Value="105"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -91,9 +91,9 @@
         <UnitName Value="WeekAddForm"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="110"/>
+        <TopLine Value="109"/>
         <CursorPos X="40" Y="87"/>
-        <UsageCount Value="101"/>
+        <UsageCount Value="103"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -145,124 +145,124 @@
     </General>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="units\workdays.pas"/>
-        <Caret Line="145" Column="6" TopLine="126"/>
-      </Position1>
-      <Position2>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="312" Column="63" TopLine="292"/>
-      </Position2>
-      <Position3>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="310" Column="82" TopLine="274"/>
-      </Position3>
-      <Position4>
-        <Filename Value="units\workdays.pas"/>
-        <Caret Line="151" Column="45" TopLine="135"/>
-      </Position4>
-      <Position5>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="345" Column="63" TopLine="310"/>
-      </Position5>
-      <Position6>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="337" Column="54" TopLine="298"/>
-      </Position6>
-      <Position7>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="90" Column="82" TopLine="62"/>
-      </Position7>
-      <Position8>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="274" Column="58" TopLine="222"/>
-      </Position8>
-      <Position9>
         <Filename Value="units\main.pas"/>
         <Caret Line="275" Column="58" TopLine="223"/>
-      </Position9>
-      <Position10>
+      </Position1>
+      <Position2>
         <Filename Value="units\main.pas"/>
         <Caret Line="276" Column="58" TopLine="224"/>
-      </Position10>
-      <Position11>
+      </Position2>
+      <Position3>
         <Filename Value="forms\weekaddform.pas"/>
         <Caret Line="53" Column="51" TopLine="53"/>
-      </Position11>
-      <Position12>
+      </Position3>
+      <Position4>
         <Filename Value="forms\weekaddform.pas"/>
         <Caret Line="134" Column="7" TopLine="79"/>
-      </Position12>
-      <Position13>
+      </Position4>
+      <Position5>
         <Filename Value="forms\weekaddform.pas"/>
         <Caret Line="137" Column="32" TopLine="78"/>
-      </Position13>
-      <Position14>
+      </Position5>
+      <Position6>
         <Filename Value="units\workdays.pas"/>
         <Caret Line="170" Column="56" TopLine="121"/>
-      </Position14>
-      <Position15>
+      </Position6>
+      <Position7>
         <Filename Value="units\workdays.pas"/>
         <Caret Line="165" Column="15" TopLine="130"/>
-      </Position15>
-      <Position16>
+      </Position7>
+      <Position8>
         <Filename Value="forms\weekaddform.pas"/>
         <Caret Line="116" Column="15" TopLine="70"/>
-      </Position16>
-      <Position17>
+      </Position8>
+      <Position9>
         <Filename Value="forms\weekeditform.pas"/>
         <Caret Line="308" Column="49" TopLine="293"/>
+      </Position9>
+      <Position10>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="286" Column="43" TopLine="253"/>
+      </Position10>
+      <Position11>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="227" Column="44" TopLine="194"/>
+      </Position11>
+      <Position12>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="218" Column="13" TopLine="190"/>
+      </Position12>
+      <Position13>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="317" Column="35" TopLine="296"/>
+      </Position13>
+      <Position14>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="311" Column="14" TopLine="282"/>
+      </Position14>
+      <Position15>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="321" Column="61" TopLine="286"/>
+      </Position15>
+      <Position16>
+        <Filename Value="units\funcs.pas"/>
+        <Caret Line="63" Column="26" TopLine="56"/>
+      </Position16>
+      <Position17>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="293" Column="20" TopLine="275"/>
       </Position17>
       <Position18>
         <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="286" Column="43" TopLine="253"/>
+        <Caret Line="360" Column="81" TopLine="301"/>
       </Position18>
       <Position19>
         <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="227" Column="44" TopLine="194"/>
+        <Caret Line="349" Column="34" TopLine="309"/>
       </Position19>
       <Position20>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="218" Column="13" TopLine="190"/>
+        <Filename Value="forms\about.pas"/>
+        <Caret Line="28" Column="15" TopLine="1"/>
       </Position20>
       <Position21>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="317" Column="35" TopLine="296"/>
+        <Filename Value="forms\about.pas"/>
+        <Caret Line="41" Column="59" TopLine="39"/>
       </Position21>
       <Position22>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="311" Column="14" TopLine="282"/>
+        <Filename Value="forms\about.pas"/>
+        <Caret Line="9" Column="20" TopLine="1"/>
       </Position22>
       <Position23>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="321" Column="61" TopLine="286"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="52" Column="75" TopLine="22"/>
       </Position23>
       <Position24>
-        <Filename Value="units\funcs.pas"/>
-        <Caret Line="63" Column="26" TopLine="56"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="75" Column="7" TopLine="37"/>
       </Position24>
       <Position25>
         <Filename Value="units\workdays.pas"/>
-        <Caret Line="293" Column="20" TopLine="275"/>
+        <Caret Line="177" Column="5" TopLine="141"/>
       </Position25>
       <Position26>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="360" Column="81" TopLine="301"/>
+        <Filename Value="forms\about.pas"/>
+        <Caret Line="17" Column="5" TopLine="1"/>
       </Position26>
       <Position27>
-        <Filename Value="forms\weekeditform.pas"/>
-        <Caret Line="349" Column="34" TopLine="309"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="258" Column="121" TopLine="242"/>
       </Position27>
       <Position28>
-        <Filename Value="forms\about.pas"/>
-        <Caret Line="28" Column="15" TopLine="1"/>
+        <Filename Value="units\funcs.pas"/>
+        <Caret Line="102" Column="5" TopLine="76"/>
       </Position28>
       <Position29>
-        <Filename Value="forms\about.pas"/>
-        <Caret Line="41" Column="59" TopLine="39"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="87" Column="54" TopLine="31"/>
       </Position29>
       <Position30>
-        <Filename Value="forms\about.pas"/>
-        <Caret Line="9" Column="20" TopLine="1"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="1" Column="1" TopLine="1"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

@@ -264,6 +264,7 @@ end;
 
 procedure TForm3.ButtonLeftClick(Sender: TObject);
 begin
+  // Get previous week
   if assigned(FOnNextWeekClick) then
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex-1);
@@ -274,6 +275,7 @@ end;
 
 procedure TForm3.ButtonRightClick(Sender: TObject);
 begin
+  // Get Next week
   if assigned(FOnNextWeekClick) then
   begin
     FOnNextWeekClick(self, FWeek, FWeekIndex+1);
@@ -284,6 +286,7 @@ end;
 
 procedure TForm3.ButtonUndoClick(Sender: TObject);
 begin
+  // Undo all changes and revert to FWeekCopy
   FWeek.assign(FWeekCopy);
   WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;

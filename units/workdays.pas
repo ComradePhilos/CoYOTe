@@ -1,4 +1,7 @@
-// CoYOT(e) - Control Your Overtimes (easily)
+// A Unit that provides classes and functions for using periods of times
+// inluding workdays etc...
+// NOTE: The periods are sometimes called "weeks" in the code, but dont have
+// to be a real week. They are just a list of (random) days.
 unit workdays;
 
 interface
@@ -51,8 +54,7 @@ type
     FToDate: TDate;
     FWeekLength: integer;               // Workdays in that particular week
     FIntendedTimePerDay: double;        // The time you intend to work per day
-    FPausePerDay: Double;               // Obligatory Pause Time
-    //FAverageTime: Double;             // Durchschnittsarbeitszeit pro Tag (Zur Kontrolle)
+    FPausePerDay: Double;               // Obligatory Pause Time, time you need to stay at work additionally
 
     function calcAverageTime: double;
 
@@ -81,8 +83,11 @@ TWeekList = specialize TFPGObjectList<TWorkWeek>;
 
 procedure ClearStringGrid(AGrid: TStringGrid);
 procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList);
-function TimeToText(hour,min: Integer):String;
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
+function timeToText(AHour, AMinute: integer): string;
+function RealDayOfWeek(ADate: TDate): integer;
+function getHour(time: string): integer;
+function getMinute(time: string): integer;
 
 
 const
@@ -170,13 +175,13 @@ constructor TWorkWeek.Create(AFromDate, AToDate: TDate);
 var
   I: Integer;
 begin
-  self.FromDate := AFromDate;
-  self.ToDate := AToDate;
-  self.WeekLength := DaysBetween(FToDate,FFromDate)+ 1;
-  self.IntendedTimePerDay := 8;
-  self.FPausePerDay := 0.75;
-  self.FDays := TWorkDays.Create(true);
-  self.FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
+  FFromDate := AFromDate;
+  FToDate := AToDate;
+  FWeekLength := DaysBetween(FToDate,FFromDate)+ 1;
+  FIntendedTimePerDay := 8;
+  FPausePerDay := 0.75;
+  FDays := TWorkDays.Create(true);
+  FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
   for I := 0 to FWeekLength-1 do
   begin
     FDays.Add(TWorkDay.Create);
@@ -254,20 +259,25 @@ end;
 
 
 // ############################################### additional Functions ################################################
-function TimeToText(hour,min: Integer):String;
-var
-  txtHour, txtMin: String;
+
+function timeToText(AHour, AMinute: integer): string;
 begin
-  if (hour < 10) then
-    txtHour := '0' + IntToStr(hour);
-  if (min < 10) then
-    txtMin := '0' + IntToStr(min)
+  if (AMinute >= 0) and (AMinute < 60) then
+  begin
+    if (AMinute < 10) then
+    begin
+      Result := IntToStr(AHour) + ':0' + IntToStr(AMinute);
+    end
+    else
+    begin
+      Result := IntToStr(AHour) + ':' + IntToStr(AMinute);
+    end;
+  end
   else
-    txtMin := IntToStr(min);
-
-  Result := txtHour + ':' + txtMin;
+  begin
+    Result := 'invalid time entered!';
+  end;
 end;
-
 
 procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList);
 var
@@ -300,25 +310,94 @@ begin
 
   if (AWeek.Days.Count > 0) then
   begin
-  // write contents to right grid
-  for I := 1 to AWeek.Weeklength do
-  begin
-
-    AGrid.Cells[0,I] := IntToStr(I);
-    AGrid.Cells[2,I] := DateToStr(AWeek.Days[I-1].Date);
-
-
-    if (AWeek.Days[I-1].Weekday > 0) and (AWeek.Days[I-1].Weekday < 8) then
+    for I := 1 to AWeek.Weeklength do
     begin
-      AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I-1].Weekday];
-		end;
+      AGrid.Cells[0,I] := IntToStr(I);
+      AGrid.Cells[2,I] := DateToStr(AWeek.Days[I-1].Date);
 
-    AGrid.cells[3,I] := TimeToString(AWeek.Days[I-1].StartHour, AWeek.Days[I-1].StartMinute);
-    AGrid.cells[4,I] := TimeToString(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
+      if (AWeek.Days[I-1].Weekday > 0) and (AWeek.Days[I-1].Weekday < 8) then
+      begin
+        AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I-1].Weekday];
+		  end;
+      AGrid.cells[3,I] := TimeToText(AWeek.Days[I-1].StartHour, AWeek.Days[I-1].StartMinute);
+      AGrid.cells[4,I] := TimeToText(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
+	  end;
+	end;
+end;
 
-	end;
-	end;
+// Get the real day of the week as 1 = Monday
+function RealDayOfWeek(ADate: TDate): integer;
+var
+  day: integer;
+begin
+  day := DayOfWeek(ADate);
+
+  if (day = 1) then
+  begin
+    day := 7;
+  end
+  else
+  begin
+    day := day - 1;
+  end;
+
+  Result := day;
+end;
+
+// Extract the Hour of a '12:00' - String
+function getHour(time: string): integer;
+var
+  I: integer;
+  pos: integer;
+  res: integer;
+begin
+  time := trim(time);
+  for I := 1 to length(time) do
+  begin
+    if (time[I] = ':') then
+    begin
+      pos := I;
+    end;
+  end;
+
+  time := trim(LeftStr(time, pos - 1));
+  if TryStrToInt(time, res) then
+  begin
+    Result := res;
+  end
+  else
+  begin
+    Result := 0;
+  end;
 
 end;
+
+// Extract the Minute of a '12:00' - String
+function getMinute(time: string): integer;
+var
+  I: integer;
+  pos: integer;
+  res: integer;
+begin
+  time := trim(time);
+  for I := 1 to length(time) do
+  begin
+    if (time[I] = ':') then
+    begin
+      pos := I;
+    end;
+  end;
+
+  time := trim(RightStr(time, length(time) - pos));
+  if TryStrToInt(time, res) then
+  begin
+    Result := res;
+  end
+  else
+  begin
+    Result := 0;
+  end;
+end;
+
 
 end.

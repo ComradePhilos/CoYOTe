@@ -1,19 +1,20 @@
 object Form2: TForm2
   Left = 714
-  Height = 267
+  Height = 320
   Top = 267
-  Width = 496
-  BorderIcons = [biSystemMenu, biMinimize]
-  BorderStyle = bsSingle
+  Width = 506
   Caption = 'About'
-  ClientHeight = 267
-  ClientWidth = 496
+  ClientHeight = 320
+  ClientWidth = 506
   Position = poMainFormCenter
+  ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object StaticText1: TStaticText
-    Left = 188
+    AnchorSideLeft.Control = Panel1
+    AnchorSideLeft.Side = asrBottom
+    Left = 193
     Height = 21
-    Top = 10
+    Top = 14
     Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
@@ -29,24 +30,29 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 8
     Height = 15
-    Top = 190
+    Top = 243
     Width = 45
+    Anchors = [akLeft, akBottom]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
     Height = 15
-    Top = 218
+    Top = 271
     Width = 59
+    Anchors = [akLeft, akBottom]
     Caption = 'Build-Date:'
     ParentColor = False
   end
   object Memo1: TMemo
-    Left = 189
-    Height = 215
+    AnchorSideLeft.Control = Panel1
+    AnchorSideLeft.Side = asrBottom
+    Left = 193
+    Height = 268
     Top = 43
-    Width = 299
+    Width = 305
+    Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clWhite
     Lines.Strings = (
       'A lightweight tool to keep an eye on your working '
@@ -61,25 +67,26 @@ object Form2: TForm2
     TabOrder = 1
   end
   object Panel1: TPanel
+    AnchorSideRight.Control = Memo1
     Left = 8
-    Height = 160
+    Height = 177
     Top = 16
-    Width = 172
-    AutoSize = True
+    Width = 176
+    BorderSpacing.Right = 9
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    Caption = 'Panel1'
-    ClientHeight = 156
-    ClientWidth = 168
+    ClientHeight = 173
+    ClientWidth = 172
     TabOrder = 2
+    OnClick = Panel1Click
     object Image1: TImage
       Cursor = crHandPoint
       Left = 1
-      Height = 154
+      Height = 169
       Hint = 'Visit Programme Page on Github!'
       Top = 1
-      Width = 166
+      Width = 169
       OnClick = Image1Click
       ParentShowHint = False
       Picture.Data = {

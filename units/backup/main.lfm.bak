@@ -411,6 +411,7 @@ object Form1: TForm1
       end
       object MenuItem23: TMenuItem
         Caption = 'people...'
+        Enabled = False
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           2000000000000004000064000000640000000000000000000000FFFFFF003E0B

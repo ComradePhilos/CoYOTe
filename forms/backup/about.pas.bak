@@ -20,6 +20,7 @@ type
 		Panel1: TPanel;
     StaticText1: TStaticText;
 		procedure Image1Click(Sender: TObject);
+		procedure Panel1Click(Sender: TObject);
 
   private
     { private declarations }
@@ -40,6 +41,11 @@ implementation
 procedure TForm2.Image1Click(Sender: TObject);
 begin
   openDocument('https://github.com/ComradePhilos/CoYOTe');
+end;
+
+procedure TForm2.Panel1Click(Sender: TObject);
+begin
+
 end;
 
 end.

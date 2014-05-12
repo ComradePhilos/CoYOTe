@@ -181,10 +181,6 @@ msgstr ""
 msgid "Build-Date:"
 msgstr ""
 
-#: tform2.panel1.caption
-msgid "Panel1"
-msgstr ""
-
 #: tform2.statictext1.caption
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
 msgstr ""
