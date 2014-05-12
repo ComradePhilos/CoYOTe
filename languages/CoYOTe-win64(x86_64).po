@@ -190,10 +190,6 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: tform3.bitbtn1.hint
-msgid "Create text automatically using the lowest and the highest date"
-msgstr ""
-
 #: tform3.buttonadd.caption
 msgid "ButtonAdd"
 msgstr ""
@@ -263,6 +259,11 @@ msgstr ""
 msgid "Edit selected period"
 msgstr ""
 
+#: tform3.createlabelbutton.hint
+msgctxt "TFORM3.CREATELABELBUTTON.HINT"
+msgid "Create text automatically using the lowest and the highest date"
+msgstr ""
+
 #: tform3.descriptionedit.editlabel.caption
 msgid "Description Text"
 msgstr ""
@@ -278,15 +279,6 @@ msgstr ""
 #: tform3.hoursperdayedit.text
 msgctxt "tform3.hoursperdayedit.text"
 msgid "8"
-msgstr ""
-
-#: tform3.hoursperdayedit1.editlabel.caption
-msgid "Pause per day in h"
-msgstr ""
-
-#: tform3.hoursperdayedit1.text
-msgctxt "TFORM3.HOURSPERDAYEDIT1.TEXT"
-msgid "0,75"
 msgstr ""
 
 #: tform3.label1.caption
@@ -319,6 +311,16 @@ msgstr ""
 #: tform3.menuignore.caption
 msgctxt "TFORM3.MENUIGNORE.CAPTION"
 msgid "Ignore"
+msgstr ""
+
+#: tform3.pauseperdayedit.editlabel.caption
+msgctxt "TFORM3.PAUSEPERDAYEDIT.EDITLABEL.CAPTION"
+msgid "Pause per day in h"
+msgstr ""
+
+#: tform3.pauseperdayedit.text
+msgctxt "TFORM3.PAUSEPERDAYEDIT.TEXT"
+msgid "0,75"
 msgstr ""
 
 #: tform3.toolbar1.caption

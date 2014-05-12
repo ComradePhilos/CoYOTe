@@ -113,8 +113,8 @@ end;
 
 procedure TForm4.FormShow(Sender: TObject);
 begin
-  CheckInputs(self);
   Clear;
+  CheckInputs(self);
 end;
 
 procedure TForm4.CheckInputs(Sender: TObject);

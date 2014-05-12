@@ -66,6 +66,7 @@ type
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
+    property PausePerDay: Double read FPausePerDay write FPausePerDay;
     property AverageTimePerDay: Double read calcAverageTime;
     property FromDate: TDate read FFromDate write FFromDate;
     property ToDate: TDate read FToDate write FToDate;
@@ -205,6 +206,10 @@ begin
     self.Days.Add(TWorkDay.Create);
     self.Days[I].Date := AWeek.Days[I].Date;
     self.Days[I].Weekday := AWeek.Days[I].Weekday;
+    self.Days[I].StartHour := AWeek.Days[I].StartHour;
+    self.Days[I].EndHour := AWeek.Days[I].EndHour;
+    self.Days[I].StartMinute := AWeek.Days[I].StartMinute;
+    self.Days[I].EndMinute := AWeek.Days[I].EndMinute;
   end;
 end;
 
@@ -233,7 +238,7 @@ begin
   Result := 0;
   for I := 0 to self.Days.Count-1 do
   begin
-    Result := Result + self.Days[I].getAmountOfTime;
+    Result := Result + self.Days[I].getAmountOfTime - self.FPausePerDay;
 	end;
 end;
 
@@ -293,8 +298,10 @@ begin
   clearStringGrid(AGrid);
   AGrid.RowCount := AWeek.WeekLength+1;
 
+  if (AWeek.Days.Count > 0) then
+  begin
   // write contents to right grid
-  for I := 1 to AWeek.WeekLength do
+  for I := 1 to AWeek.Weeklength do
   begin
 
     AGrid.Cells[0,I] := IntToStr(I);
@@ -306,24 +313,11 @@ begin
       AGrid.cells[1,I] := txtWeekdays[Aweek.Days[I-1].Weekday];
 		end;
 
-    if (AWeek.Days[I-1].StartMinute < 10) then
-    begin
-      AGrid.cells[3,I] := IntToStr(AWeek.Days[I-1].StartHour) + ':0' + IntToStr(AWeek.Days[I-1].StartMinute);
-    end
-    else
-    begin
-      AGrid.cells[3,I] := IntToStr(AWeek.Days[I-1].StartHour) + ':' + IntToStr(AWeek.Days[I-1].StartMinute);
-    end;
+    AGrid.cells[3,I] := TimeToString(AWeek.Days[I-1].StartHour, AWeek.Days[I-1].StartMinute);
+    AGrid.cells[4,I] := TimeToString(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
 
-    if (AWeek.Days[I-1].EndMinute < 10) then
-    begin
-      AGrid.cells[4,I] := IntToStr(AWeek.Days[I-1].EndHour) + ':0' + IntToStr(AWeek.Days[I-1].EndMinute);
-    end
-    else
-    begin
-      AGrid.cells[4,I] := IntToStr(AWeek.Days[I-1].EndHour) + ':' + IntToStr(AWeek.Days[I-1].EndMinute);
-    end;
-  end;
+	end;
+	end;
 
 end;
 

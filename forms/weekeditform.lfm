@@ -469,7 +469,7 @@ object Form3: TForm3
     EditLabel.ParentColor = False
     TabOrder = 5
   end
-  object BitBtn1: TBitBtn
+  object CreateLabelButton: TBitBtn
     AnchorSideLeft.Control = DescriptionEdit
     AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = HoursPerDayEdit
@@ -516,7 +516,7 @@ object Form3: TForm3
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
       FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
     }
-    OnClick = BitBtn1Click
+    OnClick = CreateLabelButtonClick
     ParentShowHint = False
     ShowHint = True
     Spacing = 0
@@ -566,17 +566,17 @@ object Form3: TForm3
       ParentFont = False
     end
   end
-  object HoursPerDayEdit1: TLabeledEdit
+  object PausePerDayEdit: TLabeledEdit
     Left = 654
     Height = 25
     Top = 439
     Width = 128
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
-    EditLabel.AnchorSideLeft.Control = HoursPerDayEdit1
-    EditLabel.AnchorSideRight.Control = HoursPerDayEdit1
+    EditLabel.AnchorSideLeft.Control = PausePerDayEdit
+    EditLabel.AnchorSideRight.Control = PausePerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = HoursPerDayEdit1
+    EditLabel.AnchorSideBottom.Control = PausePerDayEdit
     EditLabel.Left = 654
     EditLabel.Height = 17
     EditLabel.Top = 419

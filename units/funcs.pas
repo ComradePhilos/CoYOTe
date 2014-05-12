@@ -6,6 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Translations;
+
 {
   The Real Day of the Week. Starting with 1 for Monday instead of Sunday
   I had to do this, because the original "DayOfWeek" returns a "1" for "Sunday"
@@ -19,10 +20,7 @@ function getHour(time: string): integer;
 // Gets You the minute part of a clock time like 19:15 as an Integer -> 15
 function getMinute(time: string): integer;
 
-// Searches in a language-file for the translation by looking for the name in the file
-function searchForTranslation(VariableName: string; ALanguage: string): string;
-
-function minsBetween( startMins, EndMins: Integer): Integer;
+function timeToString(AHour, AMinute: integer): string;
 
 
 implementation
@@ -103,15 +101,24 @@ begin
   end;
 end;
 
-function minsBetween( startMins, EndMins: Integer): Integer;
+function timeToString(AHour, AMinute: integer): string;
 begin
+  if (AMinute >= 0) and (AMinute < 60) then
+  begin
+    if (AMinute < 10) then
+    begin
+      Result := IntToStr(AHour) + ':0' + IntToStr(AMinute);
+    end
+    else
+    begin
+      Result := IntToStr(AHour) + ':' + IntToStr(AMinute);
+    end;
+  end
+  else
+  begin
+    Result := 'invalid time entered!';
+  end;
 
-end;
-
-function searchForTranslation(VariableName: string; ALanguage: string): string;
-begin
-
-  Result := '';
 end;
 
 end.

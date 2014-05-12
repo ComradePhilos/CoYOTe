@@ -1248,14 +1248,17 @@ object Form1: TForm1
     object MenuItem20: TMenuItem
       Caption = 'add period'
       ImageIndex = 1
+      OnClick = AddWeek
     end
     object MenuItem24: TMenuItem
       Caption = 'edit period'
       ImageIndex = 2
+      OnClick = EditButtonClick
     end
     object MenuItem25: TMenuItem
       Caption = 'delete period'
       ImageIndex = 0
+      OnClick = RemoveSelected
     end
   end
   object UsersList: TPopupMenu
