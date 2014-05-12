@@ -340,9 +340,13 @@ begin
 
   diff := FWeek.getSum - (FWeek.Days.Count*FWeek.IntendedTimePerDay);
 
-  if (diff > -0.5) then
+  if (diff >= 0) then
   begin
     Label3.Font.Color := clGreen;
+	end
+  else if (diff < 0) and (diff > -0.5) then
+  begin
+    Label3.Font.Color := $000080FF;
 	end
   else
   begin

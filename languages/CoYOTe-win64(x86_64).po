@@ -169,12 +169,20 @@ msgctxt "tform2.caption"
 msgid "About"
 msgstr ""
 
+#: tform2.image1.hint
+msgid "Visit Programme Page on Github!"
+msgstr ""
+
 #: tform2.label1.caption
 msgid "Version :"
 msgstr ""
 
 #: tform2.label2.caption
 msgid "Build-Date:"
+msgstr ""
+
+#: tform2.panel1.caption
+msgid "Panel1"
 msgstr ""
 
 #: tform2.statictext1.caption

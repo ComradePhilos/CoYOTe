@@ -317,12 +317,6 @@ begin
   HoursPerDayEdit.Text := FloatToStr(AWeek.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
 
-  for I := 0 to FWeek.Days.Count-1 do
-  begin
-   // WeekGrid.Cells[3,I+1] := TimeToString(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute) ;
-   // WeekGrid.Cells[4,I+1] := TimeToString(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute) ;
- 	end;
-
   FWeekIndex := ANumber;
   WeekDaysToStringGrid(WeekGrid, FWeek);
   UpdateTitel;
@@ -346,23 +340,24 @@ begin
 
   diff := FWeek.getSum - (FWeek.Days.Count*FWeek.IntendedTimePerDay);
 
-  if (diff > -0.5) then
+  if (diff >= 0) then
   begin
     Label3.Font.Color := clGreen;
+	end
+  else if (diff < 0) and (diff > -0.5) then
+  begin
+    Label3.Font.Color := $000080FF;
 	end
   else
   begin
     Label3.Font.Color := clRed;
 	end;
 
-  //if (FWeek.Days.Count > 0) then
-  //begin
   for I := 0 to FWeek.Days.Count-1 do
   begin
     WeekGrid.Cells[3,I+1] := TimeToString(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute) ;
     WeekGrid.Cells[4,I+1] := TimeToString(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute) ;
 	end;
-	//end;
 
 	Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
   Label2.Caption := 'Sum:   ' + FormatFloat('0.00', FWeek.getSum) + ' h';

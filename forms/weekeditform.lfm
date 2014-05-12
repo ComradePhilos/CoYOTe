@@ -53,6 +53,7 @@ object Form3: TForm3
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poMainFormCenter
+  ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
     Left = 0
