@@ -1,8 +1,56 @@
 msgid "(philip.maerksch@gmx.de)"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: coyotedefaults.emdateorder
+msgid "Error: The dates are in the wrong order!"
+msgstr ""
+
+#: coyotedefaults.emhoursperday
+msgid "Error: Enter a valid amount of time per day!"
+msgstr ""
+
+#: coyotedefaults.txtcaptiondelete
+msgid "Really delete?"
+msgstr ""
+
+#: coyotedefaults.txtclearmsg
+msgid "This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?"
+msgstr ""
+
+#: coyotedefaults.txtdeleteallmsg
+msgid "Do you really wish to delete every entry? All data will be lost if you do not make a copy!"
+msgstr ""
+
+#: coyotedefaults.txtdeletemsg
+msgid "Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!"
+msgstr ""
+
+#: coyotedefaults.txtfilesaved
+msgid "File saved..."
+msgstr ""
+
+#: coyotedefaults.txtquitmsg
+msgid "Do you really want to quit? (Be sure you saved your changes!)"
+msgstr ""
+
+#: coyotedefaults.txtquitprogramme
+msgid "Quit Programme"
+msgstr ""
+
+#: coyotedefaults.txtremovemsg
+msgid "Do you really want to delete the selected day? This will delete all data related to it!"
+msgstr ""
+
+#: tform1.addweekbutton.caption
+msgid "AddWeekButton"
+msgstr ""
+
 #: tform1.caption
 msgid "CoYOT(e) - Overtime Calculator"
+msgstr ""
+
+#: tform1.editweekbutton.caption
+msgid "EditWeekButton"
 msgstr ""
 
 #: tform1.groupbox1.caption
@@ -33,10 +81,6 @@ msgstr ""
 msgid "Open"
 msgstr ""
 
-#: tform1.menuitem15.caption
-msgid "Save"
-msgstr ""
-
 #: tform1.menuitem16.caption
 msgid "periods"
 msgstr ""
@@ -56,6 +100,31 @@ msgstr ""
 #: tform1.menuitem2.caption
 msgctxt "tform1.menuitem2.caption"
 msgid "Edit"
+msgstr ""
+
+#: tform1.menuitem20.caption
+msgid "add period"
+msgstr ""
+
+#: tform1.menuitem21.caption
+msgid "Example User 1"
+msgstr ""
+
+#: tform1.menuitem22.caption
+msgid "MaxMustermann"
+msgstr ""
+
+#: tform1.menuitem23.caption
+msgid "people..."
+msgstr ""
+
+#: tform1.menuitem24.caption
+msgid "edit period"
+msgstr ""
+
+#: tform1.menuitem25.caption
+msgctxt "TFORM1.MENUITEM25.CAPTION"
+msgid "delete period"
 msgstr ""
 
 #: tform1.menuitem3.caption
@@ -85,6 +154,19 @@ msgstr ""
 
 #: tform1.menuitem9.caption
 msgid "Options"
+msgstr ""
+
+#: tform1.menusave.caption
+msgctxt "TFORM1.MENUSAVE.CAPTION"
+msgid "Save"
+msgstr ""
+
+#: tform1.removeweekbutton.caption
+msgid "RemoveWeekButton"
+msgstr ""
+
+#: tform1.statusbar1.panels[0].text
+msgid "Warning! This programme version is still work in progress and not recommended for general use yet!"
 msgstr ""
 
 #: tform1.stringgrid1.columns[0].title.caption
@@ -119,22 +201,17 @@ msgctxt "tform1.toolbar1.caption"
 msgid "ToolBar1"
 msgstr ""
 
-#: tform1.toolbutton1.caption
-msgctxt "tform1.toolbutton1.caption"
-msgid "ToolButton1"
-msgstr ""
-
-#: tform1.toolbutton2.caption
-msgid "ToolButton2"
-msgstr ""
-
-#: tform1.toolbutton3.caption
-msgid "ToolButton3"
+#: tform1.toolbutton4.caption
+msgid "ToolButton4"
 msgstr ""
 
 #: tform2.caption
 msgctxt "tform2.caption"
 msgid "About"
+msgstr ""
+
+#: tform2.image1.hint
+msgid "Visit Programme Page on Github!"
 msgstr ""
 
 #: tform2.label1.caption
@@ -151,15 +228,11 @@ msgstr ""
 
 #: tform3.applybutton.caption
 msgctxt "TFORM3.APPLYBUTTON.CAPTION"
-msgid "Apply"
+msgid "Apply and Back"
 msgstr ""
 
 #: tform3.backbutton.caption
 msgid "Back"
-msgstr ""
-
-#: tform3.bitbtn1.hint
-msgid "Create text automatically using the lowest and the highest date"
 msgstr ""
 
 #: tform3.buttonadd.caption
@@ -175,7 +248,7 @@ msgid "ButtonApply"
 msgstr ""
 
 #: tform3.buttonapply.hint
-msgid "apply changes"
+msgid "apply changes, keep the window focused"
 msgstr ""
 
 #: tform3.buttondelete.caption
@@ -183,6 +256,7 @@ msgid "ButtonDelete"
 msgstr ""
 
 #: tform3.buttondelete.hint
+msgctxt "tform3.buttondelete.hint"
 msgid "delete period"
 msgstr ""
 
@@ -230,8 +304,17 @@ msgstr ""
 msgid "Edit selected period"
 msgstr ""
 
+#: tform3.createlabelbutton.hint
+msgctxt "TFORM3.CREATELABELBUTTON.HINT"
+msgid "Create text automatically using the lowest and the highest date"
+msgstr ""
+
 #: tform3.descriptionedit.editlabel.caption
 msgid "Description Text"
+msgstr ""
+
+#: tform3.groupbox1.caption
+msgid "Summary"
 msgstr ""
 
 #: tform3.hoursperdayedit.editlabel.caption
@@ -240,6 +323,18 @@ msgstr ""
 
 #: tform3.hoursperdayedit.text
 msgid "8"
+msgstr ""
+
+#: tform3.label1.caption
+msgid "Goal: "
+msgstr ""
+
+#: tform3.label2.caption
+msgid "Sum:"
+msgstr ""
+
+#: tform3.label3.caption
+msgid "Diff.:"
 msgstr ""
 
 #: tform3.menuadd.caption
@@ -253,11 +348,23 @@ msgstr ""
 
 #: tform3.menuedit.caption
 msgctxt "TFORM3.MENUEDIT.CAPTION"
-msgid "Edit"
+msgid "Edit Date"
 msgstr ""
 
-#: tform3.menuignore.caption
-msgid "Ignore"
+#: tform3.menuhalfdayoff.caption
+msgid "1/2 day holiday"
+msgstr ""
+
+#: tform3.menuonedayoff.caption
+msgid "1 day holiday"
+msgstr ""
+
+#: tform3.pauseperdayedit.editlabel.caption
+msgid "Pause per day in h"
+msgstr ""
+
+#: tform3.pauseperdayedit.text
+msgid "0,75"
 msgstr ""
 
 #: tform3.toolbar1.caption
@@ -268,6 +375,10 @@ msgstr ""
 #: tform3.toolbutton1.caption
 msgctxt "TFORM3.TOOLBUTTON1.CAPTION"
 msgid "ToolButton1"
+msgstr ""
+
+#: tform3.toolbutton2.hint
+msgid "Add days from a chosen date to a chosen date"
 msgstr ""
 
 #: tform3.toolbutton5.caption
@@ -291,22 +402,26 @@ msgstr ""
 
 #: tform3.weekgrid.columns[3].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[3].TITLE.CAPTION"
-msgid "Start"
+msgid "start"
 msgstr ""
 
 #: tform3.weekgrid.columns[4].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[4].TITLE.CAPTION"
-msgid "End"
+msgid "end"
 msgstr ""
 
 #: tform3.weekgrid.columns[5].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[5].TITLE.CAPTION"
-msgid "Time off"
+msgid "time off"
 msgstr ""
 
 #: tform3.weekgrid.columns[6].title.caption
 msgctxt "TFORM3.WEEKGRID.COLUMNS[6].TITLE.CAPTION"
-msgid "addit."
+msgid "total"
+msgstr ""
+
+#: tform3.weekgrid.columns[7].title.caption
+msgid "diff"
 msgstr ""
 
 #: tform4.applybutton.caption
@@ -322,19 +437,8 @@ msgstr ""
 msgid "open edit window afterwards"
 msgstr ""
 
-#: tform4.fromdateedit.cancelcaption
-msgctxt "TFORM4.FROMDATEEDIT.CANCELCAPTION"
-msgid "Cancel"
-msgstr ""
-
-#: tform4.fromdateedit.dialogtitle
-msgctxt "TFORM4.FROMDATEEDIT.DIALOGTITLE"
-msgid "Select Beginning of the week"
-msgstr ""
-
-#: tform4.fromdateedit.okcaption
-msgctxt "TFORM4.FROMDATEEDIT.OKCAPTION"
-msgid "OK"
+#: tform4.checkbox2.caption
+msgid "empty week"
 msgstr ""
 
 #: tform4.label1.caption
@@ -345,21 +449,6 @@ msgstr ""
 #: tform4.label2.caption
 msgctxt "TFORM4.LABEL2.CAPTION"
 msgid "To"
-msgstr ""
-
-#: tform4.todateedit.cancelcaption
-msgctxt "TFORM4.TODATEEDIT.CANCELCAPTION"
-msgid "Cancel"
-msgstr ""
-
-#: tform4.todateedit.dialogtitle
-msgctxt "TFORM4.TODATEEDIT.DIALOGTITLE"
-msgid "Select Date"
-msgstr ""
-
-#: tform4.todateedit.okcaption
-msgctxt "TFORM4.TODATEEDIT.OKCAPTION"
-msgid "OK"
 msgstr ""
 
 #: tform4.undobutton.caption

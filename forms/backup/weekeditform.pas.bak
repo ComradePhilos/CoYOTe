@@ -7,8 +7,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
   Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
-  { eigene Units }
-  workdays, funcs;
+  { own Units }
+  workdays, funcs, CoyoteDefaults;
 
 type
 
@@ -36,6 +36,7 @@ type
     MenuEdit: TMenuItem;
     MenuAdd: TMenuItem;
     PopupMenu1: TPopupMenu;
+    SaveDialog1: TSaveDialog;
     ToolBar1: TToolBar;
     ButtonLeft: TToolButton;
     ButtonRight: TToolButton;
@@ -96,10 +97,6 @@ var
 
 implementation
 
-const
-  txtDeleteMsg = 'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
-  txtRemoveMsg = 'Do you really want to delete the selected day? This will delete all data related to it!';
-  txtClearMsg = 'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
 
 {$R *.lfm}
 

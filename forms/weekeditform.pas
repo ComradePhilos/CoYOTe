@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
   Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
-  { eigene Units }
+  { own Units }
   workdays, funcs, CoyoteDefaults;
 
 type
@@ -36,6 +36,7 @@ type
     MenuEdit: TMenuItem;
     MenuAdd: TMenuItem;
     PopupMenu1: TPopupMenu;
+    SaveDialog1: TSaveDialog;
     ToolBar1: TToolBar;
     ButtonLeft: TToolButton;
     ButtonRight: TToolButton;
@@ -254,11 +255,11 @@ begin
 	end;
   if (lowest <> highest) then
   begin
-    DescriptionEdit.Text := DateToStr(lowest) + '   to   ' + DateToStr(highest);
+    DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest) + '   to   ' + FormatDateTime('dd.mm.yyyy', highest);
 	end
   else
   begin
-    DescriptionEdit.Text := DateToStr(lowest);
+    DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest);
 	end;
 	UpdateTitel;
 end;

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, EditBtn,
-  StdCtrls, ExtCtrls, Buttons, ComCtrls,
+  StdCtrls, ExtCtrls, Buttons, ComCtrls, Calendar,
   workdays, WeekEditForm,
   CoyoteDefaults;
 
@@ -18,13 +18,13 @@ type
 
   TForm4 = class(TForm)
     ApplyButton: TBitBtn;
+    Calendar1: TCalendar;
+    Calendar2: TCalendar;
     CheckBox1: TCheckBox;
     CheckBox2: TCheckBox;
-    FromDateEdit: TDateEdit;
     Label1: TLabel;
     Label2: TLabel;
     StatusBar1: TStatusBar;
-    ToDateEdit: TDateEdit;
     UndoButton: TBitBtn;
     procedure ApplyButtonClick(Sender: TObject);
     procedure CheckBox2Change(Sender: TObject);
@@ -76,9 +76,9 @@ begin
   begin
     // Check if the values are convertable and only execute, if the
     // Event-Handling-Routine has been assigned
-    if (TryStrToDate(FromDateEdit.Text, locDate1)) then
+    if (TryStrToDate(Calendar1.Date, locDate1)) then
     begin
-      if (TryStrToDate(ToDateEdit.Text, locDate2)) then
+      if (TryStrToDate(Calendar2.Date, locDate2)) then
       begin
         if assigned(FOnApplyClick) then
         begin
@@ -93,8 +93,8 @@ end;
 
 procedure TForm4.CheckBox2Change(Sender: TObject);
 begin
-  FromDateEdit.Enabled := not CheckBox2.checked;
-  ToDateEdit.Enabled := not CheckBox2.checked;
+  Calendar1.Enabled := not CheckBox2.checked;
+  Calendar2.Enabled := not CheckBox2.checked;
   CheckInputs(self);
 end;
 
@@ -125,7 +125,7 @@ begin
   begin
     ApplyButton.Enabled := false;
     // Check if the Input is valid
-    if TryStrToDate(FromDateEdit.Text, locDate1) and TryStrToDate(ToDateEdit.Text, locDate2) then
+    if TryStrToDate(Calendar1.Date, locDate1) and TryStrToDate(Calendar2.Date, locDate2) then
     begin
       if (locDate2 >= locDate1) then
       begin
@@ -150,8 +150,8 @@ end;
 procedure TForm4.Clear;
 begin
   FWeek.Clear;
-  FromDateEdit.Text := '';
-  ToDateEdit.Text := '';
+  //FromDateEdit.Text := '';
+  //ToDateEdit.Text := '';
   ApplyButton.Enabled := False;
 end;
 

@@ -15,6 +15,7 @@ ResourceString
 
   txtCaptionDelete = 'Really delete?';
   txtQuitProgramme = 'Quit Programme';
+  txtFileSaved = 'File saved...';
 
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';

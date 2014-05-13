@@ -18,7 +18,7 @@ uses
 	Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox,
 	DateUtils,
   { Forms }
-  WeekEditForm, WeekAddForm, about
+  WeekEditForm, WeekAddForm, about,
   { eigene Units }
   workdays, funcs, CoyoteDefaults ;
 
@@ -37,7 +37,7 @@ type
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
     MenuItem14: TMenuItem;
-    MenuItem15: TMenuItem;
+    MenuSave: TMenuItem;
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
     MenuItem18: TMenuItem;
@@ -72,6 +72,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure MenuAbout(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
+    procedure MenuSaveClick(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -169,6 +170,7 @@ begin
 
   AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
+  //AddWeekForm.FromDateEdit.;
   EnableButtons;
 
   // $00FFDBB7   Standardfarbe
@@ -330,6 +332,26 @@ begin
   end;
 end;
 
+procedure TForm1.MenuSaveClick(Sender: TObject);
+var
+  SaveDlg: TSaveDialog;
+begin
+  SaveDlg := TSaveDialog.Create(self);
+  SaveDlg.InitialDir := '../data/';
+  SaveDlg.DoFolderChange;
+  SaveDlg.FileName := 'test user.sav';
+  try
+    if SaveDlg.Execute then
+    begin
+      SaveToFile(SaveDlg.FileName, FWeekList);
+      StatusBar1.Panels[0].Text := txtFileSaved;
+    end;
+  finally
+    SaveDlg.Free;
+  end;
+
+end;
+
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
   if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
@@ -351,4 +373,4 @@ begin
 end;
 
 
-end.
+end.

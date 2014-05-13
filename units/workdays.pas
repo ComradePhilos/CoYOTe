@@ -7,7 +7,7 @@ unit workdays;
 interface
 
 uses Classes, SysUtils, DateUtils, fgl, Grids,
-      funcs, CoyoteDefaults;
+     CoyoteDefaults;
 
 type
 
@@ -140,9 +140,9 @@ end;
 function TWorkDay.WeekDayToText(): string;
 begin
   if (FWeekday > 0) then
-    Result := txtWeekdays[FWeekday] + DateToStr(FDate)
+    Result := txtWeekdays[FWeekday] + FormatDateTime('dd.mm.yyyy', FDate)
   else
-    Result := DateToStr(FDate);
+    Result := FormatDateTime('dd.mm.yyyy', FDate);
 end;
 
 function TWorkDay.getAmountOfTime: Double;
@@ -181,7 +181,7 @@ begin
   FIntendedTimePerDay := 8;
   FPausePerDay := 0.75;
   FDays := TWorkDays.Create(true);
-  FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
+  FWeekLabel := FormatDateTime('dd.mm.yyyy', FromDate) + '   to   ' + FormatDateTime('dd.mm.yyyy', ToDate);
   for I := 0 to FWeekLength-1 do
   begin
     FDays.Add(TWorkDay.Create);
@@ -314,7 +314,7 @@ begin
     for I := 1 to AWeek.Weeklength do
     begin
       AGrid.Cells[0,I] := IntToStr(I);
-      AGrid.Cells[2,I] := DateToStr(AWeek.Days[I-1].Date);
+      AGrid.Cells[2,I] := FormatDateTime('dd.mm.yyyy', AWeek.Days[I-1].Date);
 
       if (AWeek.Days[I-1].Weekday > 0) and (AWeek.Days[I-1].Weekday < 8) then
       begin
@@ -412,4 +412,4 @@ begin
 end;
 
 
-end.
+end.
