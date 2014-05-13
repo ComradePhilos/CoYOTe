@@ -142,7 +142,6 @@ begin
     begin
       FWeek.Days.Delete(FSelectionIndex);
       FWeek.WeekLength := FWeek.WeekLength - 1;
-      //WeekDaysToStringGrid(WeekGrid, FWeek);
       UpdateWindow;
     end;
   end;
@@ -210,7 +209,6 @@ begin
 		end;
 	finally
     DateDlg.Free;
-    //WeekDaysToStringGrid(WeekGrid, FWeek);
     updateWindow;
 	end;
 
@@ -255,11 +253,11 @@ begin
 	end;
   if (lowest <> highest) then
   begin
-    DescriptionEdit.Text := DateToStr(lowest) + '   to   ' + DateToStr(highest);
+    DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest) + '   to   ' + FormatDateTime('dd.mm.yyyy', highest);
 	end
   else
   begin
-    DescriptionEdit.Text := DateToStr(lowest);
+    DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest);
 	end;
 	UpdateTitel;
 end;
@@ -340,7 +338,6 @@ procedure TForm3.ButtonUndoClick(Sender: TObject);
 begin
   // Undo all changes and revert to FWeekCopy
   FWeek.assign(FWeekCopy);
-  //WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(FWeekCopy.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(FWeekCopy.PausePerDay);
@@ -373,7 +370,6 @@ begin
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
 
   FWeekIndex := ANumber;
-  //WeekDaysToStringGrid(WeekGrid, FWeek);
   UpdateTitel;
   UpdateWindow;
 end;

@@ -150,8 +150,6 @@ end;
 procedure TForm4.Clear;
 begin
   FWeek.Clear;
-  //FromDateEdit.Text := '';
-  //ToDateEdit.Text := '';
   ApplyButton.Enabled := False;
 end;
 

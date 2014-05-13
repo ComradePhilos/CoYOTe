@@ -126,7 +126,6 @@ begin
       FWeek.WeekLength := FWeek.WeekLength + 1;
       FWeek.Days[FWeek.WeekLength - 1].Date := calDialog.Date;
       FWeek.Days[FWeek.WeekLength - 1].Weekday := RealDayOfWeek(calDialog.Date);
-      //WeekDaysToStringGrid(WeekGrid, FWeek);
       UpdateWindow;
     end;
   finally
@@ -142,7 +141,6 @@ begin
     begin
       FWeek.Days.Delete(FSelectionIndex);
       FWeek.WeekLength := FWeek.WeekLength - 1;
-      //WeekDaysToStringGrid(WeekGrid, FWeek);
       UpdateWindow;
     end;
   end;
@@ -210,7 +208,6 @@ begin
 		end;
 	finally
     DateDlg.Free;
-    //WeekDaysToStringGrid(WeekGrid, FWeek);
     updateWindow;
 	end;
 
@@ -340,7 +337,6 @@ procedure TForm3.ButtonUndoClick(Sender: TObject);
 begin
   // Undo all changes and revert to FWeekCopy
   FWeek.assign(FWeekCopy);
-  //WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(FWeekCopy.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(FWeekCopy.PausePerDay);
@@ -373,7 +369,6 @@ begin
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
 
   FWeekIndex := ANumber;
-  //WeekDaysToStringGrid(WeekGrid, FWeek);
   UpdateTitel;
   UpdateWindow;
 end;

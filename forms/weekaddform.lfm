@@ -1,10 +1,10 @@
 object Form4: TForm4
-  Left = 843
-  Height = 300
-  Top = 229
+  Left = 408
+  Height = 307
+  Top = 468
   Width = 405
   Caption = 'Add a new period of time'
-  ClientHeight = 300
+  ClientHeight = 307
   ClientWidth = 405
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -29,13 +29,12 @@ object Form4: TForm4
   end
   object ApplyButton: TBitBtn
     AnchorSideLeft.Side = asrCenter
-    AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 298
     Height = 30
-    Top = 243
+    Top = 250
     Width = 94
-    Anchors = [akTop]
+    Anchors = [akRight, akBottom]
     BorderSpacing.Left = 60
     BorderSpacing.Right = 13
     BorderSpacing.Around = 3
@@ -124,8 +123,9 @@ object Form4: TForm4
     AnchorSideLeft.Control = Owner
     Left = 10
     Height = 30
-    Top = 241
+    Top = 248
     Width = 85
+    Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 10
     Caption = 'Cancel'
     Glyph.Data = {
@@ -211,7 +211,7 @@ object Form4: TForm4
   object StatusBar1: TStatusBar
     Left = 0
     Height = 21
-    Top = 279
+    Top = 286
     Width = 405
     Panels = <    
       item
@@ -222,8 +222,9 @@ object Form4: TForm4
   object CheckBox1: TCheckBox
     Left = 169
     Height = 24
-    Top = 217
+    Top = 224
     Width = 223
+    Anchors = [akRight, akBottom]
     Caption = 'open edit window afterwards'
     Checked = True
     State = cbChecked
@@ -232,27 +233,33 @@ object Form4: TForm4
   object CheckBox2: TCheckBox
     Left = 10
     Height = 24
-    Top = 217
+    Top = 224
     Width = 107
+    Anchors = [akLeft, akBottom]
     Caption = 'empty week'
     OnChange = CheckBox2Change
     TabOrder = 4
   end
   object Calendar1: TCalendar
+    AnchorSideRight.Control = Calendar2
     Left = 10
-    Height = 184
+    Height = 191
     Top = 32
-    Width = 184
+    Width = 188
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Right = 10
     DateTime = 41772
     DisplaySettings = [dsShowHeadings, dsShowDayNames, dsShowWeekNumbers, dsStartMonday]
     OnChange = CheckInputs
     TabOrder = 5
   end
   object Calendar2: TCalendar
+    AnchorSideLeft.Control = Calendar1
     Left = 208
-    Height = 184
+    Height = 191
     Top = 32
     Width = 184
+    Anchors = [akTop, akRight, akBottom]
     DateTime = 41772
     DisplaySettings = [dsShowHeadings, dsShowDayNames, dsShowWeekNumbers, dsStartMonday]
     OnChange = CheckInputs
