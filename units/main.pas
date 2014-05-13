@@ -137,7 +137,6 @@ var
   I: integer;
 begin
 
-
   FOSName := 'unknown';  // for those poor guys using Minix, BSD, Solaris and such things ;)
   // detectable OS
   {$IFDEF macos}
@@ -150,9 +149,8 @@ begin
   FOSName := 'Linux';    // for those poor guys, who need to compensate the little budget ;)
   {$ENDIF}
 
-
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.2.2';
+  FVersionNr := '0.0.2.3';
   FVersionDate := '13.05.2014';
   FLazarusVersion := '1.2.2';
   self.Caption := FProgrammeName + '  ' + FVersionNr;

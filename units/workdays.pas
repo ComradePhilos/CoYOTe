@@ -19,6 +19,7 @@ type
     FStartMinute: integer;    // The minute work starts that day
     FEndHour: integer;        // The hour work ends that day
     FEndMinute: integer;      // The minute work ends that day
+    FTimeOff: Double;         // hours that are taken off - freetime
 
     FWeekDay: integer;         // Weekday 1 - 7
     FDate: TDate;              // Date of the specific Day
@@ -38,6 +39,7 @@ type
     property EndMinute: Integer read FEndMinute write FEndMinute;
     property Date: TDate read FDate write FDate;
     property Weekday: integer read FWeekday write FWeekday;
+    property TimeOff: Double read FTimeOff write FTimeOff;
     property AdditionalTime: double read FAdditionaltime write FAdditionaltime;
     property TimeWorked: double read calcDifference;
 
@@ -48,6 +50,7 @@ type
 //############################################ Period ###########################################################
   TWorkWeek = class
   private
+    // Remember to also change the assign-method when adding/deleting variables
     FWeekLabel: String;                 // A Description Text shown in the list
     FDays: TWorkDays;                   // The Days related to this period
     FFromDate: TDate;
@@ -155,7 +158,7 @@ begin
 
   StartTime := StartTime + (60*60*FStartHour) + (60*FStartMinute);
   EndTime := EndTime + (60*60*FEndHour) + (60*FEndMinute);
-  Result :=(EndTime - StartTime)/3600;
+  Result := self.TimeOff + (EndTime - StartTime)/3600;
 end;
 
 //############################################ Week ###########################################################
@@ -215,6 +218,7 @@ begin
     FDays[I].EndHour := AWeek.Days[I].EndHour;
     FDays[I].StartMinute := AWeek.Days[I].StartMinute;
     FDays[I].EndMinute := AWeek.Days[I].EndMinute;
+    FDays[I].TimeOff := AWeek.Days[I].TimeOff;
   end;
 end;
 
@@ -321,6 +325,9 @@ begin
 		  end;
       AGrid.cells[3,I] := TimeToText(AWeek.Days[I-1].StartHour, AWeek.Days[I-1].StartMinute);
       AGrid.cells[4,I] := TimeToText(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
+      AGrid.Cells[5,I] := FloatToStr(AWeek.Days[I-1].TimeOff);
+      AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
+      AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
 	  end;
 	end;
 end;

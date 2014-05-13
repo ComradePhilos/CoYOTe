@@ -129,7 +129,7 @@ begin
       FWeek.WeekLength := FWeek.WeekLength + 1;
       FWeek.Days[FWeek.WeekLength - 1].Date := calDialog.Date;
       FWeek.Days[FWeek.WeekLength - 1].Weekday := RealDayOfWeek(calDialog.Date);
-      WeekDaysToStringGrid(WeekGrid, FWeek);
+      //WeekDaysToStringGrid(WeekGrid, FWeek);
       UpdateWindow;
     end;
   finally
@@ -145,7 +145,7 @@ begin
     begin
       FWeek.Days.Delete(FSelectionIndex);
       FWeek.WeekLength := FWeek.WeekLength - 1;
-      WeekDaysToStringGrid(WeekGrid, FWeek);
+      //WeekDaysToStringGrid(WeekGrid, FWeek);
       UpdateWindow;
     end;
   end;
@@ -202,6 +202,7 @@ begin
       begin
         locTo := DateDlg.Date;
 
+        Fweek.WeekLength := FWeek.WeekLength + DaysBetween(locFrom,locTo)+1 ;
         for I := 0 to DaysBetween(locFrom,locTo) do
         begin
           FWeek.Days.Add(TWorkDay.Create);
@@ -212,7 +213,7 @@ begin
 		end;
 	finally
     DateDlg.Free;
-    WeekDaysToStringGrid(WeekGrid, FWeek);
+    //WeekDaysToStringGrid(WeekGrid, FWeek);
     updateWindow;
 	end;
 
@@ -291,6 +292,7 @@ begin
       FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4,I+1]);
       FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3,I+1]);
       FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4,I+1]);
+      FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5,I+1]);
 		end;
 
     UpdateTitel;
@@ -341,7 +343,7 @@ procedure TForm3.ButtonUndoClick(Sender: TObject);
 begin
   // Undo all changes and revert to FWeekCopy
   FWeek.assign(FWeekCopy);
-  WeekDaysToStringGrid(WeekGrid, FWeek);
+  //WeekDaysToStringGrid(WeekGrid, FWeek);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(FWeekCopy.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(FWeekCopy.PausePerDay);
@@ -374,7 +376,7 @@ begin
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
 
   FWeekIndex := ANumber;
-  WeekDaysToStringGrid(WeekGrid, FWeek);
+  //WeekDaysToStringGrid(WeekGrid, FWeek);
   UpdateTitel;
   UpdateWindow;
 end;
@@ -409,13 +411,16 @@ begin
     Label3.Font.Color := clRed;
 	end;
 
+  WeekDaysToStringGrid(WeekGrid, FWeek);
+
+  {
   for I := 0 to FWeek.Days.Count-1 do
   begin
     WeekGrid.Cells[3,I+1] := TimeToText(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute);
     WeekGrid.Cells[4,I+1] := TimeToText(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute);
     WeekGrid.Cells[6,I+1] := FormatFloat('0.00', (FWeek.Days[I].getAmountOfTime-FWeek.PausePerDay));
     WeekGrid.Cells[7,I+1] := FormatFloat('0.00', (FWeek.Days[I].getAmountOfTime-FWeek.PausePerDay) - FWeek.IntendedTimePerDay);
-	end;
+	end; }
 
 	Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
   Label2.Caption := 'Sum:   ' + FormatFloat('0.00', FWeek.getSum) + ' h';
