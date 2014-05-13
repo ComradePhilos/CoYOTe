@@ -309,12 +309,15 @@ msgstr ""
 
 #: tform3.menuedit.caption
 msgctxt "TFORM3.MENUEDIT.CAPTION"
-msgid "Edit"
+msgid "Edit Date"
 msgstr ""
 
-#: tform3.menuignore.caption
-msgctxt "TFORM3.MENUIGNORE.CAPTION"
-msgid "Ignore"
+#: tform3.menuhalfdayoff.caption
+msgid "1/2 day holiday"
+msgstr ""
+
+#: tform3.menuonedayoff.caption
+msgid "1 day holiday"
 msgstr ""
 
 #: tform3.pauseperdayedit.editlabel.caption

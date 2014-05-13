@@ -25,12 +25,13 @@ type
 		GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
 		DescriptionEdit: TLabeledEdit;
+		MenuHalfDayOff: TMenuItem;
 		PausePerDayEdit: TLabeledEdit;
     ImageList1: TImageList;
 		Label1: TLabel;
 		Label2: TLabel;
 		Label3: TLabel;
-    MenuIgnore: TMenuItem;
+    MenuOneDayOff: TMenuItem;
     MenuDelete: TMenuItem;
     MenuEdit: TMenuItem;
     MenuAdd: TMenuItem;
@@ -61,6 +62,7 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
+		procedure MenuOneDayOffClick(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 
   private
@@ -163,6 +165,21 @@ begin
   finally
     calDialog.Free;
   end;
+end;
+
+procedure TForm3.MenuOneDayOffClick(Sender: TObject);
+begin
+  if (FWeek.Days.Count > 0) then
+  begin
+    if (Sender = MenuOneDayOff) then
+    begin
+      WeekGrid.Cells[5,FSelectionIndex+1] := HoursPerDayEdit.Text;
+		end;
+    if (Sender = MenuHalfDayOff) then
+    begin
+      WeekGrid.Cells[5,FSelectionIndex+1] := FloatToStr(StrToFloat(HoursPerDayEdit.Text)/2);
+		end;
+	end;
 end;
 
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
@@ -358,8 +375,10 @@ begin
 
   for I := 0 to FWeek.Days.Count-1 do
   begin
-    WeekGrid.Cells[3,I+1] := TimeToText(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute) ;
-    WeekGrid.Cells[4,I+1] := TimeToText(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute) ;
+    WeekGrid.Cells[3,I+1] := TimeToText(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute);
+    WeekGrid.Cells[4,I+1] := TimeToText(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute);
+    WeekGrid.Cells[6,I+1] := FormatFloat('0.00', (FWeek.Days[I].getAmountOfTime-FWeek.PausePerDay));
+    WeekGrid.Cells[7,I+1] := FormatFloat('0.00', (FWeek.Days[I].getAmountOfTime-FWeek.PausePerDay) - FWeek.IntendedTimePerDay);
 	end;
 
 	Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';

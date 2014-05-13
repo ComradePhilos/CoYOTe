@@ -1,11 +1,11 @@
 object Form2: TForm2
   Left = 1287
-  Height = 320
+  Height = 327
   Top = 553
-  Width = 506
+  Width = 548
   Caption = 'About'
-  ClientHeight = 320
-  ClientWidth = 506
+  ClientHeight = 327
+  ClientWidth = 548
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
@@ -30,7 +30,7 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 8
     Height = 15
-    Top = 243
+    Top = 250
     Width = 45
     Anchors = [akLeft, akBottom]
     Caption = 'Version :'
@@ -39,7 +39,7 @@ object Form2: TForm2
   object Label2: TLabel
     Left = 8
     Height = 15
-    Top = 271
+    Top = 278
     Width = 59
     Anchors = [akLeft, akBottom]
     Caption = 'Build-Date:'
@@ -49,14 +49,15 @@ object Form2: TForm2
     AnchorSideLeft.Control = Panel1
     AnchorSideLeft.Side = asrBottom
     Left = 193
-    Height = 268
+    Height = 275
     Top = 43
-    Width = 305
+    Width = 347
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clWhite
     Lines.Strings = (
-      'A lightweight tool to keep an eye on your working '
-      'times'
+      'A lightweight tool to keep an eye on your working times easily. '
+      'This programme helps you to find out how many hours of '
+      'work you collected in a specific period of time.'
       ''
       'Contributors'
       '------------------------------------------'

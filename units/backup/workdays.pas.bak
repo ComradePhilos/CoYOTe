@@ -262,7 +262,7 @@ end;
 
 function timeToText(AHour, AMinute: integer): string;
 begin
-  if (AMinute >= 0) and (AMinute < 60) then
+  if (AMinute >= 0) and (AMinute < 60) and (AHour >= 0) and (AHour < 24) then
   begin
     if (AMinute < 10) then
     begin
@@ -352,7 +352,6 @@ var
   res: integer;
 begin
   time := trim(time);
-
   for I := 1 to length(time) do
   begin
     if (time[I] = ':') then
@@ -362,7 +361,6 @@ begin
   end;
 
   time := trim(LeftStr(time, pos - 1));
-
   if TryStrToInt(time, res) then
   begin
     Result := res;
@@ -382,7 +380,6 @@ var
   res: integer;
 begin
   time := trim(time);
-
   for I := 1 to length(time) do
   begin
     if (time[I] = ':') then
@@ -392,7 +389,6 @@ begin
   end;
 
   time := trim(RightStr(time, length(time) - pos));
-
   if TryStrToInt(time, res) then
   begin
     Result := res;

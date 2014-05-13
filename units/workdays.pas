@@ -262,7 +262,7 @@ end;
 
 function timeToText(AHour, AMinute: integer): string;
 begin
-  if (AMinute >= 0) and (AMinute < 60) then
+  if (AMinute >= 0) and (AMinute < 60) and (AHour >= 0) and (AHour < 24) then
   begin
     if (AMinute < 10) then
     begin
@@ -363,7 +363,11 @@ begin
   time := trim(LeftStr(time, pos - 1));
   if TryStrToInt(time, res) then
   begin
-    Result := res;
+    if (res > 23) or (res < 0) then
+    begin
+      res := 0;
+		end;
+		Result := res;
   end
   else
   begin
@@ -391,6 +395,10 @@ begin
   time := trim(RightStr(time, length(time) - pos));
   if TryStrToInt(time, res) then
   begin
+    if (res > 59) or (res < 0) then
+    begin
+      res := 0;
+		end;
     Result := res;
   end
   else
