@@ -158,7 +158,7 @@ begin
 
   StartTime := StartTime + (60*60*FStartHour) + (60*FStartMinute);
   EndTime := EndTime + (60*60*FEndHour) + (60*FEndMinute);
-  Result :=(EndTime - StartTime)/3600;
+  Result := self.TimeOff + (EndTime - StartTime)/3600;
 end;
 
 //############################################ Week ###########################################################

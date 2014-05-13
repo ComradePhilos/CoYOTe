@@ -7,7 +7,7 @@ unit workdays;
 interface
 
 uses Classes, SysUtils, DateUtils, fgl, Grids,
-      funcs;
+      funcs, CoyoteDefaults;
 
 type
 
@@ -92,9 +92,6 @@ function RealDayOfWeek(ADate: TDate): integer;
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
 
-
-const
-  txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
 
 implementation
 

@@ -1,6 +1,42 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: coyotedefaults.emdateorder
+msgid "Error: The dates are in the wrong order!"
+msgstr ""
+
+#: coyotedefaults.emhoursperday
+msgid "Error: Enter a valid amount of time per day!"
+msgstr ""
+
+#: coyotedefaults.txtcaptiondelete
+msgid "Really delete?"
+msgstr ""
+
+#: coyotedefaults.txtclearmsg
+msgid "This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?"
+msgstr ""
+
+#: coyotedefaults.txtdeleteallmsg
+msgid "Do you really wish to delete every entry? All data will be lost if you do not make a copy!"
+msgstr ""
+
+#: coyotedefaults.txtdeletemsg
+msgid "Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!"
+msgstr ""
+
+#: coyotedefaults.txtquitmsg
+msgid "Do you really want to quit? (Be sure you saved your changes!)"
+msgstr ""
+
+#: coyotedefaults.txtquitprogramme
+msgid "Quit Programme"
+msgstr ""
+
+#: coyotedefaults.txtremovemsg
+msgid "Do you really want to delete the selected day? This will delete all data related to it!"
+msgstr ""
+
 #: tform1.addweekbutton.caption
 msgid "AddWeekButton"
 msgstr ""

@@ -12,8 +12,6 @@ uses
   Classes, SysUtils, Translations;
 
 
-
-
 implementation
 
 

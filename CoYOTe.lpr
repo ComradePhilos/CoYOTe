@@ -9,7 +9,7 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   runtimetypeinfocontrols,
   main,
   workdays,
-  funcs,
+  funcs, CoyoteDefaults,
   about, WeekEditForm, WeekAddForm;
 
 {$R *.res}

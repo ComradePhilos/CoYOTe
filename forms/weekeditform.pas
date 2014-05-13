@@ -8,7 +8,7 @@ uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
   Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
   { eigene Units }
-  workdays, funcs;
+  workdays, funcs, CoyoteDefaults;
 
 type
 
@@ -96,10 +96,6 @@ var
 
 implementation
 
-const
-  txtDeleteMsg = 'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
-  txtRemoveMsg = 'Do you really want to delete the selected day? This will delete all data related to it!';
-  txtClearMsg = 'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
 
 {$R *.lfm}
 

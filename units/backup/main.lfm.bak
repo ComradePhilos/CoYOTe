@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 724
-  Height = 637
+  Height = 634
   Top = 218
-  Width = 1021
+  Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 617
-  ClientWidth = 1021
+  ClientHeight = 614
+  ClientWidth = 1030
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -19,7 +19,7 @@ object Form1: TForm1
   LCLVersion = '1.2.2.0'
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
-    Left = 744
+    Left = 753
     Height = 363
     Top = 28
     Width = 272
@@ -37,9 +37,9 @@ object Form1: TForm1
   object StringGrid1: TStringGrid
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 565
+    Height = 562
     Top = 27
-    Width = 739
+    Width = 748
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Right = 5
     ColCount = 6
@@ -108,8 +108,8 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 594
-    Width = 1021
+    Top = 591
+    Width = 1030
     Panels = <    
       item
         Text = 'Warning! This programme version is still work in progress and not recommended for general use yet!'
@@ -121,11 +121,11 @@ object Form1: TForm1
     Left = 0
     Height = 27
     Top = 0
-    Width = 1021
+    Width = 1030
     ButtonHeight = 23
     ButtonWidth = 20
     Caption = 'ToolBar1'
-    Color = 16767927
+    Color = 15066597
     EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
     EdgeInner = esNone
     EdgeOuter = esNone

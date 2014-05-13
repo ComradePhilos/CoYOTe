@@ -7,7 +7,8 @@ interface
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, EditBtn,
   StdCtrls, ExtCtrls, Buttons, ComCtrls,
-  workdays, WeekEditForm;
+  workdays, WeekEditForm,
+  CoyoteDefaults;
 
 type
 
@@ -50,9 +51,6 @@ var
 
 implementation
 
-const
-  emDateOrder = 'Error: The dates are in the wrong order!';
-  emHoursPerDay = 'Error: Enter a valid amount of time per day!';
 
 {$R *.lfm}
 

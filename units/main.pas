@@ -18,9 +18,9 @@ uses
 	Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox,
 	DateUtils,
   { Forms }
-  WeekEditForm, WeekAddForm,
+  WeekEditForm, WeekAddForm, about,
   { eigene Units }
-  workdays, funcs, about;
+  workdays, funcs, CoyoteDefaults ;
 
 type
 
@@ -120,13 +120,7 @@ var
 
 implementation
 
-const
-  txtDeleteMsg = 'Are you sure you want to delete the period with all data? This cannot be made undone afterwards!';
-  txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
-  txtQuitMsg = 'Do you really want to quit? (Be sure you saved your changes!)';
 
-  txtCaptionDelete = 'Really delete?';
-  txtQuitProgramme = 'Quit Programme';
 
 {$R *.lfm}
 
@@ -150,7 +144,7 @@ begin
   {$ENDIF}
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.2.3';
+  FVersionNr := '0.0.2.4';
   FVersionDate := '13.05.2014';
   FLazarusVersion := '1.2.2';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -160,6 +154,7 @@ begin
   defHoursPerDay := 8;
   defDaysPerWeek := 5;
 
+  // Create Instances
   FWeekList := TWeekList.Create;
   WeeksToStringGrid(StringGrid1, FWeekList);
   AboutForm := TForm2.Create(nil);
@@ -176,6 +171,8 @@ begin
   AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
   EnableButtons;
 
+  // $00FFDBB7   Standardfarbe
+
 end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
@@ -183,8 +180,7 @@ begin
   AboutForm.Free;
   EditWeekForm.Free;
   AddWeekForm.Free;
-  //FWeekList.Free;
-  FreeAndNil(FWeekList);
+  FWeekList.Free;
 end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
