@@ -1,8 +1,16 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: tform1.addweekbutton.caption
+msgid "AddWeekButton"
+msgstr ""
+
 #: tform1.caption
 msgid "CoYOT(e) - Overtime Calculator"
+msgstr ""
+
+#: tform1.editweekbutton.caption
+msgid "EditWeekButton"
 msgstr ""
 
 #: tform1.groupbox1.caption
@@ -112,6 +120,10 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
+#: tform1.removeweekbutton.caption
+msgid "RemoveWeekButton"
+msgstr ""
+
 #: tform1.statusbar1.panels[0].text
 msgid "Warning! This programme version is still work in progress and not recommended for general use yet!"
 msgstr ""
@@ -145,19 +157,6 @@ msgstr ""
 #: tform1.toolbar1.caption
 msgctxt "tform1.toolbar1.caption"
 msgid "ToolBar1"
-msgstr ""
-
-#: tform1.toolbutton1.caption
-msgctxt "tform1.toolbutton1.caption"
-msgid "ToolButton1"
-msgstr ""
-
-#: tform1.toolbutton2.caption
-msgid "ToolButton2"
-msgstr ""
-
-#: tform1.toolbutton3.caption
-msgid "ToolButton3"
 msgstr ""
 
 #: tform1.toolbutton4.caption
@@ -338,6 +337,10 @@ msgstr ""
 #: tform3.toolbutton1.caption
 msgctxt "TFORM3.TOOLBUTTON1.CAPTION"
 msgid "ToolButton1"
+msgstr ""
+
+#: tform3.toolbutton2.hint
+msgid "Add days from a chosen date to a chosen date"
 msgstr ""
 
 #: tform3.toolbutton5.caption

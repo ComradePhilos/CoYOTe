@@ -61,9 +61,9 @@ type
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
     ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
+    AddWeekButton: TToolButton;
+    RemoveWeekButton: TToolButton;
+    EditWeekButton: TToolButton;
 		ToolButton4: TToolButton;
 
     procedure AddWeek(Sender: TObject);
@@ -152,7 +152,7 @@ begin
 
 
   FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.2.1';
+  FVersionNr := '0.0.2.2';
   FVersionDate := '13.05.2014';
   FLazarusVersion := '1.2.2';
   self.Caption := FProgrammeName + '  ' + FVersionNr;
@@ -302,6 +302,16 @@ begin
     Toolbar1.Buttons[1].Enabled := False;
     Toolbar1.Buttons[2].Enabled := False;
   end;
+  if (FSelectionIndex >= 0) then
+  begin
+    RemoveWeekButton.Enabled := True;
+    EditWeekButton.Enabled := True;
+	end
+  else
+  begin
+    RemoveWeekButton.Enabled := False;
+    EditWeekButton.Enabled := False;
+	end;
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);

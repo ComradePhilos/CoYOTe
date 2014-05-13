@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs, ComCtrls,
+  Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
   { eigene Units }
   workdays, funcs;
 
@@ -44,6 +44,7 @@ type
     ButtonRemove: TToolButton;
     ButtonEmpty: TToolButton;
     ButtonApply: TToolButton;
+		ToolButton2: TToolButton;
     ToolButton5: TToolButton;
     ButtonUndo: TToolButton;
     ButtonDelete: TToolButton;
@@ -63,6 +64,7 @@ type
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
 		procedure MenuOneDayOffClick(Sender: TObject);
+		procedure AddNumberOfDays(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 
   private
@@ -180,6 +182,41 @@ begin
       WeekGrid.Cells[5,FSelectionIndex+1] := FloatToStr(StrToFloat(HoursPerDayEdit.Text)/2);
 		end;
 	end;
+end;
+
+procedure TForm3.AddNumberOfDays(Sender: TObject);
+var
+  locFrom, locTo: TDate;
+  DateDlg: TCalendarDialog;
+  I: Integer;
+begin
+  DateDlg := TCalendarDialog.Create(self);
+  DateDlg.Title := 'Select first day';
+  try
+    if DateDlg.Execute then
+    begin
+      locFrom := DateDlg.Date;
+
+      DateDlg.Title := 'Select last day';
+      if DateDlg.Execute then
+      begin
+        locTo := DateDlg.Date;
+
+        Fweek.WeekLength := FWeek.WeekLength + DaysBetween(locFrom,locTo)+1 ;
+        for I := 0 to DaysBetween(locFrom,locTo) do
+        begin
+          FWeek.Days.Add(TWorkDay.Create);
+          FWeek.Days[FWeek.Days.Count-1].Date := locFrom+I;
+          FWeek.Days[FWeek.Days.Count-1].Weekday := RealDayofWeek(locFrom+I);
+				end;
+			end;
+		end;
+	finally
+    DateDlg.Free;
+    WeekDaysToStringGrid(WeekGrid, FWeek);
+    updateWindow;
+	end;
+
 end;
 
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);

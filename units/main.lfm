@@ -38,7 +38,7 @@ object Form1: TForm1
     AnchorSideRight.Control = GroupBox1
     Left = 0
     Height = 565
-    Top = 26
+    Top = 27
     Width = 739
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Right = 5
@@ -128,36 +128,37 @@ object Form1: TForm1
     Color = 16767927
     EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
     EdgeInner = esNone
+    EdgeOuter = esNone
     Images = ImageList1
     Indent = 2
     ParentColor = False
     TabOrder = 3
-    object ToolButton1: TToolButton
-      Left = 3
-      Top = 1
+    object AddWeekButton: TToolButton
+      Left = 2
+      Top = 0
       AutoSize = True
-      Caption = 'ToolButton1'
+      Caption = 'AddWeekButton'
       ImageIndex = 0
       OnClick = AddWeek
     end
-    object ToolButton2: TToolButton
-      Left = 31
-      Top = 1
-      Caption = 'ToolButton2'
+    object RemoveWeekButton: TToolButton
+      Left = 30
+      Top = 0
+      Caption = 'RemoveWeekButton'
       ImageIndex = 1
       OnClick = RemoveSelected
     end
-    object ToolButton3: TToolButton
-      Left = 59
-      Top = 1
-      Caption = 'ToolButton3'
+    object EditWeekButton: TToolButton
+      Left = 58
+      Top = 0
+      Caption = 'EditWeekButton'
       ImageIndex = 2
       OnClick = EditButtonClick
       ShowCaption = False
     end
     object ToolButton4: TToolButton
-      Left = 87
-      Top = 1
+      Left = 86
+      Top = 0
       Width = 5
       Caption = 'ToolButton4'
       Style = tbsDivider

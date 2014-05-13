@@ -61,9 +61,9 @@ type
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
     ToolBar1: TToolBar;
-    ToolButton1: TToolButton;
-    ToolButton2: TToolButton;
-    ToolButton3: TToolButton;
+    AddWeekButton: TToolButton;
+    RemoveWeekButton: TToolButton;
+    EditWeekButton: TToolButton;
 		ToolButton4: TToolButton;
 
     procedure AddWeek(Sender: TObject);
@@ -137,8 +137,9 @@ var
   I: integer;
 begin
 
-  // detect OS
+
   FOSName := 'unknown';  // for those poor guys using Minix, BSD, Solaris and such things ;)
+  // detectable OS
   {$IFDEF macos}
   FOSName := 'MacOS';    // for those poor guys, who need to compensate the little penis ;)
   {$ENDIF}
@@ -301,6 +302,16 @@ begin
     Toolbar1.Buttons[1].Enabled := False;
     Toolbar1.Buttons[2].Enabled := False;
   end;
+  if (FSelectionIndex >= 0) then
+  begin
+    RemoveWeekButton.Enabled := True;
+    EditWeekButton.Enabled := True;
+	end
+  else
+  begin
+    RemoveWeekButton.Enabled := False;
+    EditWeekButton.Enabled := False;
+	end;
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);

@@ -30,6 +30,7 @@ TFORM3.BUTTONDELETE.HINT=delete period
 TFORM3.BUTTONDELETE.CAPTION=ButtonDelete
 TFORM3.BUTTONAPPLY.HINT=apply changes, keep the window focused
 TFORM3.BUTTONAPPLY.CAPTION=ButtonApply
+TFORM3.TOOLBUTTON2.HINT=Add days from a chosen date to a chosen date
 TFORM3.DESCRIPTIONEDIT.EDITLABEL.CAPTION=Description Text
 TFORM3.CREATELABELBUTTON.HINT=Create text automatically using the lowest and the highest date
 TFORM3.GROUPBOX1.CAPTION=Summary
