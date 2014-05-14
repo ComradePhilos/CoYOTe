@@ -284,6 +284,7 @@ end;
 procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList);
 var
   I: Integer;
+  diff: Double;
 begin
   clearStringGrid(AGrid);
   AGrid.RowCount := 1 + AWeekList.Count;
@@ -292,6 +293,10 @@ begin
     AGrid.Cells[0,1+I] := IntToStr(I+1);
     AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
     AGrid.Cells[2,1+I] := IntToStr(AWeekList.Items[I].WeekLength);
+    AGrid.Cells[3,1+I] := FormatFloat('0.00', AWeekList.Items[I].getSum);
+    AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength);
+    diff :=  (AWeekList.Items[I].getSum - (AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength));
+    AGrid.Cells[5,1+I] := FormatFloat('0.00', diff);
   end;
 end;
 
@@ -413,4 +418,4 @@ begin
 end;
 
 
-end.
+end.

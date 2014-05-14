@@ -54,7 +54,7 @@ msgid "14.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.2.5"
+msgid "0.0.2.6"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -91,10 +91,6 @@ msgstr ""
 
 #: tform1.menuitem13.caption
 msgid "German"
-msgstr ""
-
-#: tform1.menuitem14.caption
-msgid "Open"
 msgstr ""
 
 #: tform1.menuitem16.caption
@@ -170,6 +166,10 @@ msgstr ""
 
 #: tform1.menuitem9.caption
 msgid "Options"
+msgstr ""
+
+#: tform1.menuload.caption
+msgid "Load"
 msgstr ""
 
 #: tform1.menusave.caption

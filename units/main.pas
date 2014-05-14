@@ -8,8 +8,6 @@
 // possibility to add Users and Persons to make it possible for Bosses/Teamleaders to control attendance times of employees
 // MAYBE: possibility to add more than one work period to a day e.g. for several jobs or alternative pause systems
 // Todo:
-// * complete the gridview on the main window
-// * load Values from file
 // * each person (for each year) will be a file in future
 // * add Remarks to a period to comment/describe it
 unit main;
@@ -41,7 +39,7 @@ type
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
-    MenuItem14: TMenuItem;
+    MenuLoad: TMenuItem;
     MenuSave: TMenuItem;
     MenuItem16: TMenuItem;
     MenuItem17: TMenuItem;
@@ -77,6 +75,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure MenuAbout(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
+    procedure MenuLoadClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
@@ -329,6 +328,26 @@ begin
   end;
 end;
 
+procedure TForm1.MenuLoadClick(Sender: TObject);
+var
+  OpenDlg: TOpenDialog;
+begin
+  OpenDlg := TOpenDialog.Create(self);
+  try
+    OpenDlg.InitialDir := '../data/';
+    OpenDlg.DoFolderChange;
+    if OpenDlg.Execute then
+    begin
+      loadFromFile(OpenDlg.FileName, FWeekList);
+    end;
+  finally
+    OpenDlg.Free;
+    WeeksToStringGrid(StringGrid1, FWeekList);
+    EnableButtons;
+  end;
+
+end;
+
 procedure TForm1.MenuSaveClick(Sender: TObject);
 var
   SaveDlg: TSaveDialog;
@@ -370,4 +389,4 @@ begin
 end;
 
 
-end.
+end.

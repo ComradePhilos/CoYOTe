@@ -1,10 +1,10 @@
 object Form1: TForm1
-  Left = 724
+  Left = 330
   Height = 634
-  Top = 178
+  Top = 214
   Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 614
+  ClientHeight = 634
   ClientWidth = 1030
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -37,7 +37,7 @@ object Form1: TForm1
   object StringGrid1: TStringGrid
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 562
+    Height = 582
     Top = 27
     Width = 748
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -61,21 +61,25 @@ object Form1: TForm1
         Alignment = taCenter
         Title.Alignment = taCenter
         Title.Caption = 'days'
+        Width = 86
       end    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Caption = 'sum'
-        Width = 70
+        Width = 86
       end    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Caption = 'target'
-        Width = 70
+        Width = 88
       end    
       item
+        Alignment = taCenter
         Title.Alignment = taCenter
         Title.Caption = 'diff.'
-        Width = 70
+        Width = 84
       end>
     FixedColor = clWhite
     FixedCols = 0
@@ -99,16 +103,16 @@ object Form1: TForm1
     ColWidths = (
       54
       208
-      64
-      70
-      70
-      70
+      86
+      86
+      88
+      84
     )
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 591
+    Height = 21
+    Top = 613
     Width = 1030
     Panels = <    
       item
@@ -208,9 +212,8 @@ object Form1: TForm1
         }
         OnClick = MenuSaveClick
       end
-      object MenuItem14: TMenuItem
-        Caption = 'Open'
-        Enabled = False
+      object MenuLoad: TMenuItem
+        Caption = 'Load'
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           20000000000000040000640000006400000000000000000000005D4F45A7A465
@@ -247,6 +250,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
+        OnClick = MenuLoadClick
       end
       object MenuItem5: TMenuItem
         Caption = 'Exit'
@@ -1483,4 +1487,4 @@ object Form1: TForm1
       91FF919191FF8A8A8AE0FFFFFF00
     }
   end
-end
+end

@@ -49,7 +49,6 @@ var
 
 implementation
 
-
 {$R *.lfm}
 
 { TForm4 }
@@ -91,9 +90,12 @@ end;
 
 procedure TForm4.CheckBox2Change(Sender: TObject);
 begin
-  // Calendar1.Enabled := not CheckBox2.checked;   // looks shitty on Windows
-  Calendar1.Visible := not CheckBox2.checked;
-  Calendar2.Visible := not CheckBox2.checked;
+  {$IFDEF mswindows}
+  Calendar1.Visible := not CheckBox2.Checked;     // Would look shitty in windows otherwise
+  Calendar2.Visible := not CheckBox2.Checked;
+  {$ENDIF}
+  Calendar1.Enabled := not CheckBox2.Checked;
+  Calendar2.Enabled := not CheckBox2.Checked;
   CheckInputs(self);
 end;
 
@@ -118,9 +120,9 @@ var
   locDate2: TDate;
   locHours: integer;
 begin
-  if not CheckBox2.checked then
+  if not CheckBox2.Checked then
   begin
-    ApplyButton.Enabled := false;
+    ApplyButton.Enabled := False;
     // Check if the Input is valid
     if TryStrToDate(Calendar1.Date, locDate1) and TryStrToDate(Calendar2.Date, locDate2) then
     begin
