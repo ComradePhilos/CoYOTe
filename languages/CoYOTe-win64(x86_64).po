@@ -9,6 +9,14 @@ msgstr ""
 msgid "Error: Enter a valid amount of time per day!"
 msgstr ""
 
+#: coyotedefaults.lazarusversion
+msgid "1.2.2"
+msgstr ""
+
+#: coyotedefaults.programmename
+msgid "CoYOT(e)"
+msgstr ""
+
 #: coyotedefaults.txtcaptiondelete
 msgid "Really delete?"
 msgstr ""
@@ -25,6 +33,10 @@ msgstr ""
 msgid "Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!"
 msgstr ""
 
+#: coyotedefaults.txtfilesaved
+msgid "File saved..."
+msgstr ""
+
 #: coyotedefaults.txtquitmsg
 msgid "Do you really want to quit? (Be sure you saved your changes!)"
 msgstr ""
@@ -35,6 +47,14 @@ msgstr ""
 
 #: coyotedefaults.txtremovemsg
 msgid "Do you really want to delete the selected day? This will delete all data related to it!"
+msgstr ""
+
+#: coyotedefaults.versiondate
+msgid "13.05.2014"
+msgstr ""
+
+#: coyotedefaults.versionnr
+msgid "0.0.2.5"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -75,10 +95,6 @@ msgstr ""
 
 #: tform1.menuitem14.caption
 msgid "Open"
-msgstr ""
-
-#: tform1.menuitem15.caption
-msgid "Save"
 msgstr ""
 
 #: tform1.menuitem16.caption
@@ -154,6 +170,11 @@ msgstr ""
 
 #: tform1.menuitem9.caption
 msgid "Options"
+msgstr ""
+
+#: tform1.menusave.caption
+msgctxt "TFORM1.MENUSAVE.CAPTION"
+msgid "Save"
 msgstr ""
 
 #: tform1.removeweekbutton.caption
@@ -434,40 +455,12 @@ msgstr ""
 msgid "empty week"
 msgstr ""
 
-#: tform4.fromdateedit.cancelcaption
-msgctxt "tform4.fromdateedit.cancelcaption"
-msgid "Cancel"
-msgstr ""
-
-#: tform4.fromdateedit.dialogtitle
-msgid "Select Beginning of the week"
-msgstr ""
-
-#: tform4.fromdateedit.okcaption
-msgctxt "tform4.fromdateedit.okcaption"
-msgid "OK"
-msgstr ""
-
 #: tform4.label1.caption
 msgid "From"
 msgstr ""
 
 #: tform4.label2.caption
 msgid "To"
-msgstr ""
-
-#: tform4.todateedit.cancelcaption
-msgctxt "TFORM4.TODATEEDIT.CANCELCAPTION"
-msgid "Cancel"
-msgstr ""
-
-#: tform4.todateedit.dialogtitle
-msgid "Select Date"
-msgstr ""
-
-#: tform4.todateedit.okcaption
-msgctxt "TFORM4.TODATEEDIT.OKCAPTION"
-msgid "OK"
 msgstr ""
 
 #: tform4.undobutton.caption

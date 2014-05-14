@@ -126,7 +126,6 @@ begin
       FWeek.WeekLength := FWeek.WeekLength + 1;
       FWeek.Days[FWeek.WeekLength - 1].Date := calDialog.Date;
       FWeek.Days[FWeek.WeekLength - 1].Weekday := RealDayOfWeek(calDialog.Date);
-      //WeekDaysToStringGrid(WeekGrid, FWeek);
       UpdateWindow;
     end;
   finally

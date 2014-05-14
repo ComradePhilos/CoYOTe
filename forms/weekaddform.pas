@@ -36,13 +36,11 @@ type
 
   private
     { private declarations }
-    FWeek: TWorkWeek;
     FOnApplyClick: TApplyEvent;
     procedure Clear;
   public
     { public declarations }
 
-    //property Week: TWorkWeek read FWeek write FWeek;
     property OnApplyClick: TApplyEvent read FOnApplyClick write FOnApplyClick;
   end;
 
@@ -93,20 +91,19 @@ end;
 
 procedure TForm4.CheckBox2Change(Sender: TObject);
 begin
-  Calendar1.Enabled := not CheckBox2.checked;
-  Calendar2.Enabled := not CheckBox2.checked;
+  // Calendar1.Enabled := not CheckBox2.checked;   // looks shitty on Windows
+  Calendar1.Visible := not CheckBox2.checked;
+  Calendar2.Visible := not CheckBox2.checked;
   CheckInputs(self);
 end;
 
 procedure TForm4.FormCreate(Sender: TObject);
 begin
-  FWeek := TworkWeek.Create;
   Clear;
 end;
 
 procedure TForm4.FormDestroy(Sender: TObject);
 begin
-  FWeek.Free;
 end;
 
 procedure TForm4.FormShow(Sender: TObject);
@@ -149,7 +146,6 @@ end;
 
 procedure TForm4.Clear;
 begin
-  FWeek.Clear;
   ApplyButton.Enabled := False;
 end;
 

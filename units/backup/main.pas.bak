@@ -7,6 +7,11 @@
 // in future:
 // possibility to add Users and Persons to make it possible for Bosses/Teamleaders to control attendance times of employees
 // MAYBE: possibility to add more than one work period to a day e.g. for several jobs or alternative pause systems
+// Todo:
+// * complete the gridview on the main window
+// * load Values from file
+// * each person (for each year) will be a file in future
+// * add Remarks to a period to comment/describe it
 unit main;
 
 {$mode objfpc}{$H+}
@@ -86,10 +91,10 @@ type
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
 
-    FProgrammeName: string;       // Official Name shown to the user
-    FVersionNr: string;           // Programme-Version
-    FVersionDate: string;         // Build-Date
-    FLazarusVersion: string;      // Version of the Lazarus IDE the programme was built with
+    //FProgrammeName: string;       // Official Name shown to the user
+    //FVersionNr: string;           // Programme-Version
+    //FVersionDate: string;         // Build-Date
+    //FLazarusVersion: string;      // Version of the Lazarus IDE the programme was built with
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
 
@@ -144,11 +149,7 @@ begin
   FOSName := 'Linux';    // for those poor guys, who need to compensate the little budget ;)
   {$ENDIF}
 
-  FProgrammeName := 'CoYOT(e)';
-  FVersionNr := '0.0.2.4';
-  FVersionDate := '13.05.2014';
-  FLazarusVersion := '1.2.2';
-  self.Caption := FProgrammeName + '  ' + FVersionNr;
+  Caption := ProgrammeName + '  ' + VersionNr;
   FLanguage := 'English';
 
   // default values
@@ -168,9 +169,9 @@ begin
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
   EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
 
-  AboutForm.Label1.Caption := 'Version: ' + FVersionNr + ' ( ' + FOSName + ' )';
-  AboutForm.Label2.Caption := 'Build Date: ' + FVersionDate;
-  //AddWeekForm.FromDateEdit.;
+  AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
+  AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
+
   EnableButtons;
 
   // $00FFDBB7   Standardfarbe
@@ -337,7 +338,7 @@ var
   SaveDlg: TSaveDialog;
 begin
   SaveDlg := TSaveDialog.Create(self);
-  SaveDlg.InitialDir := '../data/';
+  SaveDlg.InitialDir := '../data/';         // surprisingly works on Windows too
   SaveDlg.DoFolderChange;
   SaveDlg.FileName := 'test user.sav';
   try
@@ -373,4 +374,4 @@ begin
 end;
 
 
-end.
+end.

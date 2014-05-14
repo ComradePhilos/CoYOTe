@@ -58,6 +58,7 @@ type
     FWeekLength: integer;               // Workdays in that particular week
     FIntendedTimePerDay: double;        // The time you intend to work per day
     FPausePerDay: Double;               // Obligatory Pause Time, time you need to stay at work additionally
+    // FPerson: TPerson;                // The Person related to the week data
 
     function calcAverageTime: double;
 
@@ -181,7 +182,7 @@ begin
   FIntendedTimePerDay := 8;
   FPausePerDay := 0.75;
   FDays := TWorkDays.Create(true);
-  FWeekLabel := DateToStr(FromDate) + '   to   ' + DateToStr(ToDate);
+  FWeekLabel := FormatDateTime('dd.mm.yyyy', FromDate) + '   to   ' + FormatDateTime('dd.mm.yyyy', ToDate);
   for I := 0 to FWeekLength-1 do
   begin
     FDays.Add(TWorkDay.Create);
@@ -412,4 +413,4 @@ begin
 end;
 
 
-end.
+end.

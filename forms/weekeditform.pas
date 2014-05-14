@@ -405,15 +405,6 @@ begin
 
   WeekDaysToStringGrid(WeekGrid, FWeek);
 
-  {
-  for I := 0 to FWeek.Days.Count-1 do
-  begin
-    WeekGrid.Cells[3,I+1] := TimeToText(FWeek.Days[I].StartHour, FWeek.Days[I].StartMinute);
-    WeekGrid.Cells[4,I+1] := TimeToText(FWeek.Days[I].EndHour, FWeek.Days[I].EndMinute);
-    WeekGrid.Cells[6,I+1] := FormatFloat('0.00', (FWeek.Days[I].getAmountOfTime-FWeek.PausePerDay));
-    WeekGrid.Cells[7,I+1] := FormatFloat('0.00', (FWeek.Days[I].getAmountOfTime-FWeek.PausePerDay) - FWeek.IntendedTimePerDay);
-	end; }
-
 	Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
   Label2.Caption := 'Sum:   ' + FormatFloat('0.00', FWeek.getSum) + ' h';
   Label3.Caption := 'Diff.:  ' + FormatFloat('0.00', diff) + ' h';

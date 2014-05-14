@@ -93,8 +93,9 @@ end;
 
 procedure TForm4.CheckBox2Change(Sender: TObject);
 begin
-  Calendar1.Enabled := not CheckBox2.checked;
-  Calendar2.Enabled := not CheckBox2.checked;
+  // Calendar1.Enabled := not CheckBox2.checked;   // looks shitty on Windows
+  Calendar1.Visible := not CheckBox2.checked;
+  Calendar2.Visible := not CheckBox2.checked;
   CheckInputs(self);
 end;
 

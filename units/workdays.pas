@@ -58,6 +58,7 @@ type
     FWeekLength: integer;               // Workdays in that particular week
     FIntendedTimePerDay: double;        // The time you intend to work per day
     FPausePerDay: Double;               // Obligatory Pause Time, time you need to stay at work additionally
+    // FPerson: TPerson;                // The Person related to the week data
 
     function calcAverageTime: double;
 
@@ -276,7 +277,7 @@ begin
   end
   else
   begin
-    Result := 'invalid time entered!';
+    Result := 'time not convertable!';
   end;
 end;
 
@@ -412,4 +413,4 @@ begin
 end;
 
 
-end.
+end.

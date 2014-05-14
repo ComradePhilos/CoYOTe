@@ -1,7 +1,7 @@
 object Form3: TForm3
-  Left = 394
+  Left = 338
   Height = 541
-  Top = 333
+  Top = 239
   Width = 837
   Caption = 'Edit selected period'
   ClientHeight = 541
@@ -1674,5 +1674,9 @@ object Form3: TForm3
       714E7070714D6E6E6F4B626263483A3A3B410D0D0F3E07070840070708400607
       0840070707390303031900000002
     }
+  end
+  object SaveDialog1: TSaveDialog
+    left = 200
+    top = 488
   end
 end
