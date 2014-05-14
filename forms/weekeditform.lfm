@@ -1,16 +1,10 @@
 object Form3: TForm3
-<<<<<<< HEAD
   Left = 338
   Height = 541
   Top = 239
-=======
-  Left = 689
-  Height = 545
-  Top = 443
->>>>>>> c429b05f2f2cfc2fbb2454c6b46eca70bc030b9b
   Width = 837
   Caption = 'Edit selected period'
-  ClientHeight = 545
+  ClientHeight = 541
   ClientWidth = 837
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -63,7 +57,7 @@ object Form3: TForm3
   LCLVersion = '1.2.2.0'
   object WeekGrid: TStringGrid
     Left = 0
-    Height = 396
+    Height = 392
     Top = 28
     Width = 702
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -146,7 +140,7 @@ object Form3: TForm3
   object ApplyButton: TBitBtn
     Left = 695
     Height = 30
-    Top = 503
+    Top = 499
     Width = 131
     Anchors = [akRight, akBottom]
     Caption = 'Apply and Back'
@@ -240,7 +234,7 @@ object Form3: TForm3
     AnchorSideRight.Control = ApplyButton
     Left = 8
     Height = 30
-    Top = 503
+    Top = 499
     Width = 79
     Anchors = [akLeft, akBottom]
     BorderSpacing.Right = 280
@@ -334,11 +328,7 @@ object Form3: TForm3
   object HoursPerDayEdit: TLabeledEdit
     Left = 568
     Height = 25
-<<<<<<< HEAD
     Top = 455
-=======
-    Top = 459
->>>>>>> c429b05f2f2cfc2fbb2454c6b46eca70bc030b9b
     Width = 98
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
@@ -348,11 +338,7 @@ object Form3: TForm3
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 568
     EditLabel.Height = 17
-<<<<<<< HEAD
     EditLabel.Top = 435
-=======
-    EditLabel.Top = 439
->>>>>>> c429b05f2f2cfc2fbb2454c6b46eca70bc030b9b
     EditLabel.Width = 98
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
@@ -478,11 +464,7 @@ object Form3: TForm3
     AnchorSideBottom.Side = asrBottom
     Left = 8
     Height = 25
-<<<<<<< HEAD
     Top = 456
-=======
-    Top = 460
->>>>>>> c429b05f2f2cfc2fbb2454c6b46eca70bc030b9b
     Width = 508
     Anchors = [akLeft, akRight, akBottom]
     BorderSpacing.Right = 52
@@ -492,11 +474,7 @@ object Form3: TForm3
     EditLabel.AnchorSideBottom.Control = DescriptionEdit
     EditLabel.Left = 8
     EditLabel.Height = 17
-<<<<<<< HEAD
     EditLabel.Top = 436
-=======
-    EditLabel.Top = 440
->>>>>>> c429b05f2f2cfc2fbb2454c6b46eca70bc030b9b
     EditLabel.Width = 508
     EditLabel.Caption = 'Description Text'
     EditLabel.ParentColor = False
@@ -509,7 +487,7 @@ object Form3: TForm3
     Left = 524
     Height = 24
     Hint = 'Create text automatically using the lowest and the highest date'
-    Top = 460
+    Top = 456
     Width = 29
     Anchors = [akRight, akBottom]
     BorderSpacing.Right = 15
@@ -559,12 +537,12 @@ object Form3: TForm3
     AnchorSideLeft.Control = WeekGrid
     AnchorSideLeft.Side = asrBottom
     Left = 702
-    Height = 396
+    Height = 392
     Top = 28
     Width = 131
     Anchors = [akTop, akLeft, akBottom]
     Caption = 'Summary'
-    ClientHeight = 378
+    ClientHeight = 374
     ClientWidth = 127
     TabOrder = 7
     object Label1: TLabel
@@ -602,11 +580,7 @@ object Form3: TForm3
   object PausePerDayEdit: TLabeledEdit
     Left = 695
     Height = 25
-<<<<<<< HEAD
     Top = 455
-=======
-    Top = 459
->>>>>>> c429b05f2f2cfc2fbb2454c6b46eca70bc030b9b
     Width = 128
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
@@ -616,11 +590,7 @@ object Form3: TForm3
     EditLabel.AnchorSideBottom.Control = PausePerDayEdit
     EditLabel.Left = 695
     EditLabel.Height = 17
-<<<<<<< HEAD
     EditLabel.Top = 435
-=======
-    EditLabel.Top = 439
->>>>>>> c429b05f2f2cfc2fbb2454c6b46eca70bc030b9b
     EditLabel.Width = 128
     EditLabel.Caption = 'Pause per day in h'
     EditLabel.ParentColor = False

@@ -7,6 +7,14 @@ unit CoyoteDefaults;
 interface
 
 ResourceString
+
+  // Programme-Information
+  ProgrammeName = 'CoYOT(e)';    // Official Name shown to the user
+  VersionNr = '0.0.2.5';         // Programme-Version
+  VersionDate = '13.05.2014';    // Build-Date
+  LazarusVersion = '1.2.2';      // Version of the Lazarus IDE the programme was built with
+
+  // Messages / Errors
   txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
   txtDeleteMsg = 'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
   txtRemoveMsg = 'Do you really want to delete the selected day? This will delete all data related to it!';
@@ -20,11 +28,7 @@ ResourceString
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
 
-  ProgrammeName = 'CoYOT(e)';
-  VersionNr = '0.0.2.5';
-  VersionDate = '13.05.2014';
-  LazarusVersion = '1.2.2';
-
+  // constants
   const
   txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
 
