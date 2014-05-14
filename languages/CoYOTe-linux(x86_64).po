@@ -9,6 +9,14 @@ msgstr ""
 msgid "Error: Enter a valid amount of time per day!"
 msgstr ""
 
+#: coyotedefaults.lazarusversion
+msgid "1.2.2"
+msgstr ""
+
+#: coyotedefaults.programmename
+msgid "CoYOT(e)"
+msgstr ""
+
 #: coyotedefaults.txtcaptiondelete
 msgid "Really delete?"
 msgstr ""
@@ -39,6 +47,14 @@ msgstr ""
 
 #: coyotedefaults.txtremovemsg
 msgid "Do you really want to delete the selected day? This will delete all data related to it!"
+msgstr ""
+
+#: coyotedefaults.versiondate
+msgid "14.05.2014"
+msgstr ""
+
+#: coyotedefaults.versionnr
+msgid "0.0.2.5"
 msgstr ""
 
 #: tform1.addweekbutton.caption
