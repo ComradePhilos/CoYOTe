@@ -7,23 +7,22 @@ object Form4: TForm4
   ClientHeight = 284
   ClientWidth = 432
   OnCreate = FormCreate
-  OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object Label1: TLabel
     Left = 86
-    Height = 15
+    Height = 17
     Top = 8
-    Width = 28
+    Width = 36
     Caption = 'From'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 288
-    Height = 15
+    Height = 17
     Top = 8
-    Width = 14
+    Width = 16
     Caption = 'To'
     ParentColor = False
   end
@@ -34,7 +33,7 @@ object Form4: TForm4
     AnchorSideRight.Side = asrBottom
     Left = 325
     Height = 30
-    Top = 222
+    Top = 227
     Width = 94
     Anchors = [akTop, akRight]
     BorderSpacing.Left = 60
@@ -128,7 +127,7 @@ object Form4: TForm4
     AnchorSideTop.Side = asrBottom
     Left = 10
     Height = 30
-    Top = 222
+    Top = 227
     Width = 85
     BorderSpacing.Left = 10
     BorderSpacing.Top = 7
@@ -215,8 +214,8 @@ object Form4: TForm4
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 261
+    Height = 21
+    Top = 263
     Width = 432
     Panels = <    
       item
@@ -227,10 +226,10 @@ object Form4: TForm4
   object CheckBox1: TCheckBox
     AnchorSideTop.Control = Calendar2
     AnchorSideTop.Side = asrBottom
-    Left = 246
-    Height = 19
+    Left = 196
+    Height = 24
     Top = 196
-    Width = 173
+    Width = 223
     Anchors = [akTop, akRight]
     BorderSpacing.Top = 4
     Caption = 'open edit window afterwards'
@@ -242,9 +241,9 @@ object Form4: TForm4
     AnchorSideTop.Control = Calendar1
     AnchorSideTop.Side = asrBottom
     Left = 10
-    Height = 19
+    Height = 24
     Top = 196
-    Width = 84
+    Width = 107
     BorderSpacing.Top = 4
     Caption = 'empty week'
     OnChange = CheckBox2Change
@@ -255,7 +254,7 @@ object Form4: TForm4
     Left = 10
     Height = 160
     Top = 32
-    Width = 176
+    Width = 223
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Right = 10
     DateTime = 41772

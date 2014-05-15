@@ -9,6 +9,7 @@
 // * add Remarks to a period to comment/describe it
 // * merge weeks
 // * switch day order in week
+// * add switchable advanced view, which will add more colums to the grid
 
 unit main;
 
@@ -44,9 +45,6 @@ type
     MenuItem13: TMenuItem;
     MenuLoad: TMenuItem;
     MenuSave: TMenuItem;
-    MenuItem16: TMenuItem;
-    MenuItem17: TMenuItem;
-    MenuItem18: TMenuItem;
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem20: TMenuItem;
@@ -58,8 +56,6 @@ type
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuItem5: TMenuItem;
-    MenuItem6: TMenuItem;
-    MenuItem7: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     PopupMenu1: TPopupMenu;
@@ -89,7 +85,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure MenuQuit(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
-		procedure StringGrid1Click(Sender: TObject);
 
   private
     { private declarations }
@@ -198,28 +193,17 @@ end;
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 begin
   FSelectionIndex := aRow - 1;
-  //StringGrid1.gets
-  //updateWindow;
-  //FSelectionIndex := aRow - 1;
-end;
-
-procedure TForm1.StringGrid1Click(Sender: TObject);
-begin
-  //FSelectionIndex := StringGrid1.Row;
-  //updateWindow;
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
 begin
   AddWeekForm.Visible := True;
   AddWeekForm.Show;
-  //UpdateWindow;
 end;
 
 procedure TForm1.AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: integer);
 begin
   FWeekList.Items[Index].Assign(AWeek);
-  //WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
   updateWindow;
 end;
 
@@ -265,7 +249,6 @@ begin
     if (MessageDlg(txtCaptionDelete, txtDeleteMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       FWeekList.Delete(FSelectionIndex);
-      //WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
       FSelectionIndex := -1;
     end;
     updateWindow;
@@ -400,17 +383,15 @@ begin
   sum := 0;
   goal := 0;
   diff := 0;
-  //if (FWeekList.Count > 0) then
-  //begin
-    for I := 0 to FWeekList.Count - 1 do
-    begin
-      sum := sum + FWeekList.Items[I].getSum;
-      goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
-    end;
-    diff := sum - goal;
-    WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
-  //end;
-  StringGrid1.Row := FSelectionIndex;
+  for I := 0 to FWeekList.Count - 1 do
+  begin
+    sum := sum + FWeekList.Items[I].getSum;
+    goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
+  end;
+  diff := sum - goal;
+  WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
+  //StringGrid1.Row := FSelectionIndex;
+
   Label1.Caption := 'Sum: ' + FormatFloat('0.00', sum) + ' h';
   Label2.Caption := 'Goal: ' + FormatFloat('0.00', goal) + ' h';
   Label3.Caption := 'Diff.: ' + FormatFloat('0.00', diff) + ' h';
@@ -444,7 +425,6 @@ begin
     RemoveWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
   end;
-  //updateWindow;
 end;
 
 end.

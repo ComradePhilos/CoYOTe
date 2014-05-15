@@ -43,9 +43,4 @@ begin
   openDocument('https://github.com/ComradePhilos/CoYOTe');
 end;
 
-procedure TForm2.Panel1Click(Sender: TObject);
-begin
-
-end;
-
-end.
+end.

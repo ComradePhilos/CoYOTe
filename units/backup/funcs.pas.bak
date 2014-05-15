@@ -80,12 +80,14 @@ begin
     l := 0;
     lines.LoadFromFile(filename);
 
+    // Number of Weeks
     if TryStrToInt(lines[0], locInt) then
     begin
       count := locInt;
       Inc(l);
     end;
 
+    // load Test-Float to set the format settings
     FormatDouble.DecimalSeparator := LeftStr(lines[l],2)[2];
     inc(l);
 

@@ -258,7 +258,6 @@ begin
 end;
 
 
-
 // ############################################### additional Functions ################################################
 
 function timeToText(AHour, AMinute: integer): string;

@@ -20,7 +20,6 @@ type
     FEndHour: integer;        // The hour work ends that day
     FEndMinute: integer;      // The minute work ends that day
     FTimeOff: Double;         // hours that are taken off - freetime
-
     FWeekDay: integer;         // Weekday 1 - 7
     FDate: TDate;              // Date of the specific Day
     FAdditionalTime: double;   // Time to add or substract additional time e.g. if you took 1 hour off

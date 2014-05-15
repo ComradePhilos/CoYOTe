@@ -66,8 +66,6 @@ type
     procedure MenuEditClick(Sender: TObject);
 		procedure MenuOneDayOffClick(Sender: TObject);
 		procedure AddNumberOfDays(Sender: TObject);
-		procedure WeekGridDrawCell(Sender: TObject; aCol, aRow: Integer;
-					aRect: TRect; aState: TGridDrawState);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 
   private
@@ -212,15 +210,6 @@ begin
     DateDlg.Free;
     updateWindow;
 	end;
-
-end;
-
-procedure TForm3.WeekGridDrawCell(Sender: TObject; aCol, aRow: Integer;
-			aRect: TRect; aState: TGridDrawState);
-begin
-  //if (FSelectionIndex = aRow) then
-  //begin
-  ////end;
 end;
 
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);

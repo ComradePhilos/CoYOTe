@@ -15,7 +15,7 @@ object Form2: TForm2
     Left = 193
     Height = 21
     Top = 14
-    Width = 314
+    Width = 311
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -29,18 +29,18 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 15
-    Top = 250
-    Width = 45
+    Height = 17
+    Top = 248
+    Width = 58
     Anchors = [akLeft, akBottom]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 15
-    Top = 278
-    Width = 59
+    Height = 17
+    Top = 276
+    Width = 74
     Anchors = [akLeft, akBottom]
     Caption = 'Build-Date:'
     ParentColor = False
@@ -77,10 +77,9 @@ object Form2: TForm2
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    ClientHeight = 173
-    ClientWidth = 172
+    ClientHeight = 175
+    ClientWidth = 174
     TabOrder = 2
-    OnClick = Panel1Click
     object Image1: TImage
       Cursor = crHandPoint
       Left = 1
@@ -604,4 +603,4 @@ object Form2: TForm2
       Stretch = True
     end
   end
-end
+end

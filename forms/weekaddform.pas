@@ -29,7 +29,6 @@ type
     procedure ApplyButtonClick(Sender: TObject);
     procedure CheckBox2Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure CheckInputs(Sender: TObject);
     procedure UndoButtonClick(Sender: TObject);
@@ -90,10 +89,6 @@ end;
 
 procedure TForm4.CheckBox2Change(Sender: TObject);
 begin
-  //{$IFDEF mswindows}
-  //Calendar1.Visible := not CheckBox2.Checked;     // Would look shitty in windows otherwise
-  //Calendar2.Visible := not CheckBox2.Checked;
-  //{$ENDIF}
   Calendar1.Enabled := not CheckBox2.Checked;
   Calendar2.Enabled := not CheckBox2.Checked;
   CheckInputs(self);
@@ -102,10 +97,6 @@ end;
 procedure TForm4.FormCreate(Sender: TObject);
 begin
   Clear;
-end;
-
-procedure TForm4.FormDestroy(Sender: TObject);
-begin
 end;
 
 procedure TForm4.FormShow(Sender: TObject);

@@ -105,18 +105,6 @@ msgstr ""
 msgid "German"
 msgstr ""
 
-#: tform1.menuitem16.caption
-msgid "periods"
-msgstr ""
-
-#: tform1.menuitem17.caption
-msgid "add a period"
-msgstr ""
-
-#: tform1.menuitem18.caption
-msgid "remove all periods"
-msgstr ""
-
 #: tform1.menuitem19.caption
 msgid "Color Theme..."
 msgstr ""
@@ -161,14 +149,6 @@ msgstr ""
 
 #: tform1.menuitem5.caption
 msgid "Exit"
-msgstr ""
-
-#: tform1.menuitem6.caption
-msgid "show Overtimes"
-msgstr ""
-
-#: tform1.menuitem7.caption
-msgid "show Clock Times"
 msgstr ""
 
 #: tform1.menuitem8.caption

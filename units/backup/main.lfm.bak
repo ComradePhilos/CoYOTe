@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 248
   Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 614
+  ClientHeight = 634
   ClientWidth = 1030
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -37,7 +37,7 @@ object Form1: TForm1
     TabOrder = 0
     object Label1: TLabel
       Left = 16
-      Height = 17
+      Height = 16
       Top = 40
       Width = 30
       Caption = 'sum: '
@@ -45,15 +45,15 @@ object Form1: TForm1
     end
     object Label2: TLabel
       Left = 16
-      Height = 17
+      Height = 16
       Top = 72
-      Width = 50
+      Width = 47
       Caption = 'needed:'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 16
-      Height = 17
+      Height = 16
       Top = 104
       Width = 26
       Caption = 'diff.:'
@@ -63,7 +63,7 @@ object Form1: TForm1
   object StringGrid1: TStringGrid
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 565
+    Height = 585
     Top = 27
     Width = 753
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -124,7 +124,6 @@ object Form1: TForm1
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
-    OnClick = StringGrid1Click
     OnSelectCell = SelectWeek
     ColWidths = (
       54
@@ -137,8 +136,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 591
+    Height = 21
+    Top = 613
     Width = 1030
     Panels = <    
       item
@@ -511,14 +510,6 @@ object Form1: TForm1
     end
     object MenuItem3: TMenuItem
       Caption = 'View'
-      object MenuItem6: TMenuItem
-        Caption = 'show Overtimes'
-        Enabled = False
-      end
-      object MenuItem7: TMenuItem
-        Caption = 'show Clock Times'
-        Enabled = False
-      end
     end
     object MenuItem9: TMenuItem
       Caption = 'Options'
@@ -1685,4 +1676,4 @@ object Form1: TForm1
       91FF919191FF8A8A8AE0FFFFFF00
     }
   end
-end
+end
