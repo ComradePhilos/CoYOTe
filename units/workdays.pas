@@ -20,7 +20,6 @@ type
     FEndHour: integer;        // The hour work ends that day
     FEndMinute: integer;      // The minute work ends that day
     FTimeOff: Double;         // hours that are taken off - freetime
-
     FWeekDay: integer;         // Weekday 1 - 7
     FDate: TDate;              // Date of the specific Day
     FAdditionalTime: double;   // Time to add or substract additional time e.g. if you took 1 hour off
@@ -53,8 +52,8 @@ type
     // Remember to also change the assign-method when adding/deleting variables
     FWeekLabel: String;                 // A Description Text shown in the list
     FDays: TWorkDays;                   // The Days related to this period
-    FFromDate: TDate;
-    FToDate: TDate;
+    FFromDate: TDate;                   // The lowest Date of the week
+    FToDate: TDate;                     // The highest Date of the week
     FWeekLength: integer;               // Workdays in that particular week
     FIntendedTimePerDay: double;        // The time you intend to work per day
     FPausePerDay: Double;               // Obligatory Pause Time, time you need to stay at work additionally
@@ -67,8 +66,8 @@ type
     constructor Create(AFromDate, AToDate: TDate); overload;
     destructor Destroy;
     procedure Clear;
-    procedure assign(AWeek: TWorkWeek);
-    function getSum: Double;
+    procedure assign(AWeek: TWorkWeek);      // Assign the values of AWeek to this instance
+    function getSum: Double;                 // calculate the sum of working time of the week
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -290,7 +289,6 @@ begin
   AGrid.RowCount := 1 + AWeekList.Count;
   for I := 0 to AWeekList.Count - 1 do
   begin
-    //AGrid.Font.Bold := (I = SelectionIndex);
 		AGrid.Cells[0,1+I] := IntToStr(I+1);
     AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
     AGrid.Cells[2,1+I] := IntToStr(AWeekList.Items[I].WeekLength);
@@ -298,7 +296,6 @@ begin
     AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength);
     diff :=  (AWeekList.Items[I].getSum - (AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength));
     AGrid.Cells[5,1+I] := FormatFloat('0.00', diff);
-    //AGrid.Font.Bold := False;
   end;
 end;
 
@@ -420,4 +417,4 @@ begin
 end;
 
 
-end.
+end.

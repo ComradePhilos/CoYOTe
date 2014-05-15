@@ -27,7 +27,8 @@ var
 begin
   lines := TStringList.Create;
   try
-    lines.Add(IntToStr(AWeekList.Count));
+    lines.Add(IntToStr(AWeekList.Count));  // Number of Weeks
+    lines.Add(FloatToStr(1.2345));         // Testfloat, so that the load-function can interpret floating values
     for I := 0 to AWeekList.Count - 1 do
     begin
       lines.Add(AWeekList.Items[I].WeekLabel);                         // Label of the week
@@ -63,15 +64,18 @@ var
   lines: TStringList;
   count: Integer;    // Number of Days
   locInt: Integer;
+  locDate: TDate;
   locDay: Integer;
   locMonth: Integer;
   locYear: Integer;
   locDouble: Double;
+  FormatDouble: TFormatSettings;
 begin
   lines := TStringList.Create;
   AWeekList.Clear;
 
   try
+
 
     l := 0;
     lines.LoadFromFile(filename);
@@ -81,6 +85,9 @@ begin
       count := locInt;
       Inc(l);
     end;
+
+    FormatDouble.DecimalSeparator := LeftStr(lines[l],2)[2];
+    inc(l);
 
     for I := 0 to count - 1 do
     begin
@@ -100,13 +107,13 @@ begin
         inc(l);
       end;
       // Time per Day
-      if TryStrToFloat(lines[l], locDouble) then
+      if TryStrToFloat(lines[l], locDouble, FormatDouble) then
       begin
         AWeekList.Items[I].IntendedTimePerDay := locDouble;
         inc(l);
       end;
       // Pause per Day
-      if TryStrToFloat(lines[l], locDouble) then
+      if TryStrToFloat(lines[l], locDouble, FormatDouble) then
       begin
         AWeekList.Items[I].PausePerDay := locDouble;
         inc(l);
@@ -159,7 +166,7 @@ begin
           inc(l);
         end;
         // Time off
-        if TryStrToFloat(lines[l], locDouble) then
+        if TryStrToFloat(lines[l], locDouble, FormatDouble) then
         begin
           AWeekList.Items[I].Days[d].TimeOff := locDouble;
           inc(l);
@@ -172,4 +179,4 @@ begin
 end;
 
 
-end.
+end.

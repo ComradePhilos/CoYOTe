@@ -182,7 +182,7 @@ begin
   updateWindow;
   Toolbar1.Color := $00FFDBB7;
   EditWeekForm.ToolBar1.Color := $00FFDBB7;
-  //self.Color := $00FFDBB7;
+
   // $00FFDBB7   Standardfarbe
 
 end;
@@ -447,4 +447,4 @@ begin
   //updateWindow;
 end;
 
-end.
+end.
