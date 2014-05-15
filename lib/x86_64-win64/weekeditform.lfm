@@ -1,7 +1,7 @@
 object Form3: TForm3
-  Left = 338
+  Left = 543
   Height = 541
-  Top = 239
+  Top = 350
   Width = 837
   Caption = 'Edit selected period'
   ClientHeight = 541
@@ -125,6 +125,7 @@ object Form3: TForm3
     TitleFont.Pitch = fpVariable
     TitleFont.Quality = fqDraft
     TitleStyle = tsNative
+    OnDrawCell = WeekGridDrawCell
     OnMouseUp = WeekGridMouseUp
     ColWidths = (
       47

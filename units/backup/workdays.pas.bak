@@ -86,7 +86,7 @@ TWeekList = specialize TFPGObjectList<TWorkWeek>;
 // ############################################### additional Functions ################################################
 
 procedure ClearStringGrid(AGrid: TStringGrid);
-procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList);
+procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList; SelectionIndex: Integer);
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 function timeToText(AHour, AMinute: integer): string;
 function RealDayOfWeek(ADate: TDate): integer;
@@ -281,7 +281,7 @@ begin
   end;
 end;
 
-procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList);
+procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList; SelectionIndex: Integer);
 var
   I: Integer;
   diff: Double;
@@ -290,13 +290,15 @@ begin
   AGrid.RowCount := 1 + AWeekList.Count;
   for I := 0 to AWeekList.Count - 1 do
   begin
-    AGrid.Cells[0,1+I] := IntToStr(I+1);
+    AGrid.Font.Bold := (I = SelectionIndex);
+		AGrid.Cells[0,1+I] := IntToStr(I+1);
     AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
     AGrid.Cells[2,1+I] := IntToStr(AWeekList.Items[I].WeekLength);
     AGrid.Cells[3,1+I] := FormatFloat('0.00', AWeekList.Items[I].getSum);
     AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength);
-    diff :=  ((AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength) - AWeekList.Items[I].getSum);
+    diff :=  (AWeekList.Items[I].getSum - (AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength));
     AGrid.Cells[5,1+I] := FormatFloat('0.00', diff);
+    AGrid.Font.Bold := False;
   end;
 end;
 
@@ -418,4 +420,4 @@ begin
 end;
 
 
-end.
+end.

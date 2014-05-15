@@ -90,10 +90,10 @@ end;
 
 procedure TForm4.CheckBox2Change(Sender: TObject);
 begin
-  {$IFDEF mswindows}
-  Calendar1.Visible := not CheckBox2.Checked;     // Would look shitty in windows otherwise
-  Calendar2.Visible := not CheckBox2.Checked;
-  {$ENDIF}
+  //{$IFDEF mswindows}
+  //Calendar1.Visible := not CheckBox2.Checked;     // Would look shitty in windows otherwise
+  //Calendar2.Visible := not CheckBox2.Checked;
+  //{$ENDIF}
   Calendar1.Enabled := not CheckBox2.Checked;
   Calendar2.Enabled := not CheckBox2.Checked;
   CheckInputs(self);
@@ -142,6 +142,7 @@ begin
   else
   begin
     ApplyButton.Enabled := True;
+    StatusBar1.Panels[0].Text := '';
   end;
 end;
 

@@ -228,8 +228,25 @@ msgctxt "tform1.toolbar1.caption"
 msgid "ToolBar1"
 msgstr ""
 
+#: tform1.toolbutton1.caption
+msgid "SaveButton"
+msgstr ""
+
+#: tform1.toolbutton2.caption
+msgid "OpenButton"
+msgstr ""
+
+#: tform1.toolbutton3.caption
+msgid "ToolButton3"
+msgstr ""
+
 #: tform1.toolbutton4.caption
 msgid "ToolButton4"
+msgstr ""
+
+#: tform1.toolbutton5.caption
+msgctxt "TFORM1.TOOLBUTTON5.CAPTION"
+msgid "ToolButton5"
 msgstr ""
 
 #: tform2.caption
@@ -413,6 +430,7 @@ msgid "Add days from a chosen date to a chosen date"
 msgstr ""
 
 #: tform3.toolbutton5.caption
+msgctxt "tform3.toolbutton5.caption"
 msgid "ToolButton5"
 msgstr ""
 

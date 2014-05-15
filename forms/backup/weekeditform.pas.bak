@@ -14,7 +14,7 @@ type
 
   TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
   TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: Integer) of Object;
-  TNextWeekEvent = procedure(Sender: TObject; var AWeek: TWorkWeek; Index: Integer) of Object;
+  TNextWeekEvent = procedure(Sender: TObject; Index: Integer) of Object;
 
   { TForm3 }
 
