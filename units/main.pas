@@ -104,7 +104,7 @@ type
     procedure AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: integer);
 
     // triggered when a Form wants a specific week
-    procedure GetWeek(Sender: TObject; var AWeek: TWorkWeek; Index: integer);
+    procedure GetWeek(Sender: TObject; Index: integer);
 
     // triggered when a certain week is deleted
     procedure RemoveWeekFromList(Sender: TObject; Index: integer);
@@ -217,7 +217,7 @@ begin
   end;
 end;
 
-procedure TForm1.getWeek(Sender: TObject; var AWeek: TWorkWeek; Index: integer);
+procedure TForm1.getWeek(Sender: TObject; Index: integer);
 begin
   if (FWeekList.Count > 0) then
   begin
@@ -333,6 +333,7 @@ var
   OpenDlg: TOpenDialog;
 begin
   OpenDlg := TOpenDialog.Create(self);
+  OpenDlg.Title := 'Open file';
   try
     OpenDlg.InitialDir := '../data/';
     OpenDlg.DoFolderChange;
@@ -356,6 +357,8 @@ begin
   SaveDlg.InitialDir := '../data/';         // surprisingly works on Windows too
   SaveDlg.DoFolderChange;
   SaveDlg.FileName := 'test user.sav';
+  SaveDlg.Options := [ofOverwritePrompt];
+  SaveDlg.Title := 'Save as';
   try
     if SaveDlg.Execute then
     begin
@@ -389,4 +392,4 @@ begin
 end;
 
 
-end.
+end.

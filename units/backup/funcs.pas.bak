@@ -38,7 +38,7 @@ begin
       lines.Add(IntToStr(AWeekList.Items[I].WeekLength));
       for F := 0 to AWeekList.Items[I].Days.Count - 1 do
       begin
-        lines.Add(DateToStr(AWeekList.Items[I].Days[F].Date));
+        lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].Days[F].Date));
         lines.Add(IntToStr(AWeekList.Items[I].Days[F].Weekday));
         lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartHour));
         lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartMinute));
@@ -63,12 +63,13 @@ var
   lines: TStringList;
   count: Integer;    // Number of Days
   locInt: Integer;
-  locDate: TDate;
+  locDay: Integer;
+  locMonth: Integer;
+  locYear: Integer;
   locDouble: Double;
-  //AWeekList: TWeekList;
 begin
-  //AWeekList := TWeekList.Create;
   lines := TStringList.Create;
+  AWeekList.Clear;
 
   try
 
@@ -134,31 +135,31 @@ begin
           inc(l);
         end;
         // Start-Hour
-        if TryStrToInt(lines[I], locInt) then
+        if TryStrToInt(lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].StartHour := locInt;
           inc(l);
         end;
         // Start-Minute
-        if TryStrToInt(lines[I], locInt) then
+        if TryStrToInt(lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].StartMinute := locInt;
           inc(l);
         end;
         // End-Hour
-        if TryStrToInt(lines[I], locInt) then
+        if TryStrToInt(lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].EndHour := locInt;
           inc(l);
         end;
         // End-Minute
-        if TryStrToInt(lines[I], locInt) then
+        if TryStrToInt(lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].EndMinute := locInt;
           inc(l);
         end;
         // Time off
-        if TryStrToFloat(lines[I], locDouble) then
+        if TryStrToFloat(lines[l], locDouble) then
         begin
           AWeekList.Items[I].Days[d].TimeOff := locDouble;
           inc(l);
@@ -171,4 +172,4 @@ begin
 end;
 
 
-end.
+end.

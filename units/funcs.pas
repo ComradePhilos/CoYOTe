@@ -38,7 +38,7 @@ begin
       lines.Add(IntToStr(AWeekList.Items[I].WeekLength));
       for F := 0 to AWeekList.Items[I].Days.Count - 1 do
       begin
-        lines.Add(DateToStr(AWeekList.Items[I].Days[F].Date));
+        lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].Days[F].Date));
         lines.Add(IntToStr(AWeekList.Items[I].Days[F].Weekday));
         lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartHour));
         lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartMinute));
@@ -64,11 +64,13 @@ var
   count: Integer;    // Number of Days
   locInt: Integer;
   locDate: TDate;
+  locDay: Integer;
+  locMonth: Integer;
+  locYear: Integer;
   locDouble: Double;
-  //AWeekList: TWeekList;
 begin
-  //AWeekList := TWeekList.Create;
   lines := TStringList.Create;
+  AWeekList.Clear;
 
   try
 
@@ -171,4 +173,4 @@ begin
 end;
 
 
-end.
+end.

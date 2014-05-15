@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 214
   Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 634
+  ClientHeight = 614
   ClientWidth = 1030
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -37,7 +37,7 @@ object Form1: TForm1
   object StringGrid1: TStringGrid
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 582
+    Height = 562
     Top = 27
     Width = 748
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -111,8 +111,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 613
+    Height = 23
+    Top = 591
     Width = 1030
     Panels = <    
       item
@@ -1376,8 +1376,8 @@ object Form1: TForm1
     end
   end
   object UsersList: TPopupMenu
-    left = 944
-    top = 448
+    left = 992
+    top = 400
     object MenuItem21: TMenuItem
       Caption = 'Example User 1'
     end
@@ -1487,4 +1487,4 @@ object Form1: TForm1
       91FF919191FF8A8A8AE0FFFFFF00
     }
   end
-end
+end

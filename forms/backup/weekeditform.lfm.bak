@@ -401,6 +401,7 @@ object Form3: TForm3
       Top = 0
       Caption = 'ButtonRemove'
       ImageIndex = 7
+      OnClick = MenuDeleteClick
       ParentShowHint = False
       ShowHint = True
     end

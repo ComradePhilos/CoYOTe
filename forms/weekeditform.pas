@@ -14,7 +14,7 @@ type
 
   TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
   TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: Integer) of Object;
-  TNextWeekEvent = procedure(Sender: TObject; var AWeek: TWorkWeek; Index: Integer) of Object;
+  TNextWeekEvent = procedure(Sender: TObject; Index: Integer) of Object;
 
   { TForm3 }
 
@@ -316,7 +316,7 @@ begin
   // Get previous week
   if assigned(FOnNextWeekClick) then
   begin
-    FOnNextWeekClick(self, FWeek, FWeekIndex-1);
+    FOnNextWeekClick(self, FWeekIndex-1);
     UpdateTitel;
     UpdateWindow;
   end;
@@ -327,7 +327,7 @@ begin
   // Get Next week
   if assigned(FOnNextWeekClick) then
   begin
-    FOnNextWeekClick(self, FWeek, FWeekIndex+1);
+    FOnNextWeekClick(self, FWeekIndex+1);
     UpdateTitel;
     UpdateWindow;
   end;

@@ -316,7 +316,7 @@ begin
   // Get previous week
   if assigned(FOnNextWeekClick) then
   begin
-    FOnNextWeekClick(self, FWeek, FWeekIndex-1);
+    FOnNextWeekClick(self, FWeekIndex-1);
     UpdateTitel;
     UpdateWindow;
   end;
@@ -327,7 +327,7 @@ begin
   // Get Next week
   if assigned(FOnNextWeekClick) then
   begin
-    FOnNextWeekClick(self, FWeek, FWeekIndex+1);
+    FOnNextWeekClick(self, FWeekIndex+1);
     UpdateTitel;
     UpdateWindow;
   end;
