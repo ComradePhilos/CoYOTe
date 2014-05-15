@@ -33,6 +33,9 @@ type
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
 		ImageList2: TImageList;
+		Label1: TLabel;
+		Label2: TLabel;
+		Label3: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -111,6 +114,9 @@ type
 
     // Checks for each button, wether it has to get
     procedure EnableButtons;
+
+    // Updates the Information shown
+    procedure UpdateWindow;
 
   public
     { public declarations }
@@ -304,6 +310,7 @@ begin
     RemoveWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
 	end;
+  updateWindow;
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);
@@ -391,5 +398,24 @@ begin
   end;
 end;
 
+
+procedure TForm1.UpdateWindow;
+var
+  I: Integer;
+  sum: Double;
+  goal: Double;
+  diff: Double;
+begin
+  sum := 0;
+  For I := 0 to FWeekList.Count -1 do
+  begin
+    sum := sum + FWeekList.Items[I].getSum;
+    goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
+	end;
+  diff := sum - goal;
+	Label1.Caption := 'Sum: ' + FormatFloat('0.00', sum);
+  Label2.Caption := 'Goal: ' + FormatFloat('0.00', goal);
+  Label3.Caption := 'Diff.: ' + FormatFloat('0.00', diff);
+end;
 
 end.

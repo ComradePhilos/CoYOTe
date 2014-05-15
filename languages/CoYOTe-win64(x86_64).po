@@ -54,7 +54,7 @@ msgid "15.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.2.7"
+msgid "0.0.2.8"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -71,6 +71,18 @@ msgstr ""
 
 #: tform1.groupbox1.caption
 msgid "Information and Statistics"
+msgstr ""
+
+#: tform1.label1.caption
+msgid "sum: "
+msgstr ""
+
+#: tform1.label2.caption
+msgid "needed:"
+msgstr ""
+
+#: tform1.label3.caption
+msgid "diff.:"
 msgstr ""
 
 #: tform1.menuitem1.caption
