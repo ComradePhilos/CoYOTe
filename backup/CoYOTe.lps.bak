@@ -23,7 +23,7 @@
         <UnitName Value="main"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="88"/>
         <CursorPos X="74" Y="12"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
@@ -46,8 +46,8 @@
         <UnitName Value="funcs"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="70" Y="14"/>
+        <TopLine Value="116"/>
+        <CursorPos X="101" Y="145"/>
         <UsageCount Value="193"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -58,11 +58,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="about"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="25"/>
-        <CursorPos X="3" Y="55"/>
+        <TopLine Value="1"/>
+        <CursorPos X="90" Y="28"/>
         <UsageCount Value="191"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -76,7 +75,7 @@
         <UnitName Value="WeekEditForm"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="335"/>
+        <TopLine Value="289"/>
         <CursorPos X="7" Y="212"/>
         <UsageCount Value="133"/>
         <Loaded Value="True"/>
@@ -101,10 +100,11 @@
         <Filename Value="units\CoyoteDefaults.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CoyoteDefaults"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="57" Y="16"/>
+        <CursorPos X="20" Y="14"/>
         <UsageCount Value="40"/>
         <Loaded Value="True"/>
       </Unit7>
@@ -162,7 +162,7 @@
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
         <Filename Value="units\funcs.pas"/>
         <Caret Line="89" Column="42" TopLine="58"/>
@@ -279,10 +279,6 @@
         <Filename Value="forms\about.pas"/>
         <Caret Line="56" Column="44" TopLine="35"/>
       </Position29>
-      <Position30>
-        <Filename Value="forms\about.pas"/>
-        <Caret Line="18" Column="13" TopLine="34"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>

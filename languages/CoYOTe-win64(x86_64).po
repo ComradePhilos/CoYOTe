@@ -1,5 +1,8 @@
-msgid ""
+msgid "Lukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid "Lukas Franke"
+msgstr ""
 
 #: coyotedefaults.emdateorder
 msgid "Error: The dates are in the wrong order!"
@@ -50,11 +53,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "15.05.2014"
+msgid "16.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.2.8"
+msgid "0.0.2.9"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -266,8 +269,29 @@ msgstr ""
 msgid "Build-Date:"
 msgstr ""
 
+#: tform2.label3.caption
+msgid "A lightweight tool to keep an eye on your working times easily. "
+msgstr ""
+
+#: tform2.label4.caption
+msgid "Coming soon"
+msgstr ""
+
 #: tform2.statictext1.caption
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
+msgstr ""
+
+#: tform2.tabsheet1.caption
+msgctxt "TFORM2.TABSHEET1.CAPTION"
+msgid "About"
+msgstr ""
+
+#: tform2.tabsheet2.caption
+msgid "version log"
+msgstr ""
+
+#: tform2.tabsheet3.caption
+msgid "license"
 msgstr ""
 
 #: tform3.applybutton.caption

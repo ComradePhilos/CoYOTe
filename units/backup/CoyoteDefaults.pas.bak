@@ -1,5 +1,5 @@
 {
- This Unit shall contain default values for strings etc.
+ This Unit shall contain default values for strings, constant values etc.
 }
 
 unit CoyoteDefaults;
