@@ -1,11 +1,13 @@
 object Form2: TForm2
-  Left = 1287
-  Height = 327
-  Top = 553
-  Width = 548
+  Left = 800
+  Height = 287
+  Top = 203
+  Width = 615
+  BorderStyle = bsSizeToolWin
   Caption = 'About'
-  ClientHeight = 327
-  ClientWidth = 548
+  ClientHeight = 287
+  ClientWidth = 615
+  OnCreate = FormCreate
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
@@ -14,8 +16,8 @@ object Form2: TForm2
     AnchorSideLeft.Side = asrBottom
     Left = 193
     Height = 21
-    Top = 14
-    Width = 311
+    Top = 16
+    Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -29,46 +31,23 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 17
-    Top = 248
-    Width = 58
+    Height = 16
+    Top = 209
+    Width = 47
     Anchors = [akLeft, akBottom]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 17
-    Top = 276
-    Width = 74
+    Height = 16
+    Top = 237
+    Width = 64
     Anchors = [akLeft, akBottom]
     Caption = 'Build-Date:'
     ParentColor = False
   end
-  object Memo1: TMemo
-    AnchorSideLeft.Control = Panel1
-    AnchorSideLeft.Side = asrBottom
-    Left = 193
-    Height = 275
-    Top = 43
-    Width = 347
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    Color = clWhite
-    Lines.Strings = (
-      'A lightweight tool to keep an eye on your working times easily. '
-      'This programme helps you to find out how many hours of '
-      'work you collected in a specific period of time.'
-      ''
-      'Contributors'
-      '------------------------------------------'
-      'Philip Märksch'
-      'Lukas Franke'
-    )
-    ReadOnly = True
-    TabOrder = 1
-  end
   object Panel1: TPanel
-    AnchorSideRight.Control = Memo1
     Left = 8
     Height = 177
     Top = 16
@@ -77,9 +56,9 @@ object Form2: TForm2
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    ClientHeight = 175
-    ClientWidth = 174
-    TabOrder = 2
+    ClientHeight = 173
+    ClientWidth = 172
+    TabOrder = 1
     object Image1: TImage
       Cursor = crHandPoint
       Left = 1
@@ -603,4 +582,59 @@ object Form2: TForm2
       Stretch = True
     end
   end
-end
+  object PageControl1: TPageControl
+    AnchorSideTop.Side = asrBottom
+    Left = 193
+    Height = 216
+    Top = 49
+    Width = 407
+    ActivePage = TabSheet1
+    Anchors = [akTop, akLeft, akRight]
+    TabIndex = 0
+    TabOrder = 2
+    object TabSheet1: TTabSheet
+      Caption = 'About'
+      ClientHeight = 187
+      ClientWidth = 399
+      object Label3: TLabel
+        Left = 16
+        Height = 128
+        Top = 16
+        Width = 351
+        Caption = 'A lightweight tool to keep an eye on your working times easily. '#13#10'This programme helps you to find out how many hours of '#13#10'work you collected in a specific period of time.'#13#10#13#10'Contributors'#13#10'------------------------------------------'#13#10'Philip Märksch'#13#10'Lukas Franke'
+        ParentColor = False
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'version log'
+      ClientHeight = 187
+      ClientWidth = 399
+      object Memo1: TMemo
+        AnchorSideRight.Side = asrBottom
+        Left = 8
+        Height = 170
+        Top = 8
+        Width = 395
+        Lines.Strings = (
+          'Memo1'
+        )
+        ReadOnly = True
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      AnchorSideRight.Side = asrBottom
+      Caption = 'license'
+      ClientHeight = 187
+      ClientWidth = 407
+      object Label4: TLabel
+        Left = 152
+        Height = 16
+        Top = 88
+        Width = 73
+        Caption = 'Coming soon'
+        ParentColor = False
+      end
+    end
+  end
+end

@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, lclintf;
+  StdCtrls, lclintf, ComCtrls, types;
 
 type
 
@@ -16,10 +16,18 @@ type
 				Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
     Memo1: TMemo;
+    PageControl1: TPageControl;
 		Panel1: TPanel;
     StaticText1: TStaticText;
-		procedure Image1Click(Sender: TObject);
+    TabSheet1: TTabSheet;
+    TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
+                procedure FormCreate(Sender: TObject);
+  procedure Image1Click(Sender: TObject);
+
 
   private
     { private declarations }
@@ -42,4 +50,14 @@ begin
   openDocument('https://github.com/ComradePhilos/CoYOTe');
 end;
 
-end.
+procedure TForm2.FormCreate(Sender: TObject);
+begin
+  Memo1.Lines.LoadFromFile('../docs/versions.log');
+end;
+
+
+
+
+
+
+end.

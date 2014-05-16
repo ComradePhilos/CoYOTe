@@ -1,4 +1,20 @@
 
+# hash value = 82078425
+coyotedefaults.programmename='CoYOT(e)'
+
+
+# hash value = 51582248
+coyotedefaults.versionnr='0.0.2.8'
+
+
+# hash value = 58858324
+coyotedefaults.versiondate='15.05.2014'
+
+
+# hash value = 3413266
+coyotedefaults.lazarusversion='1.2.2'
+
+
 # hash value = 247878721
 coyotedefaults.txtdeleteallmsg='Do you really wish to delete every entry?'+
 ' All data will be lost if you do not make a copy!'
