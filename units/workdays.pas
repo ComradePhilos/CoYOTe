@@ -92,6 +92,8 @@ function RealDayOfWeek(ADate: TDate): integer;
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
 
+function isTimeEarliest(relevantHour, relevantMinute, earliestHour, earliestMinute: Integer): Boolean;
+function isTimeLatest(relevantHour, relevantMinute, latestHour, latestMinute: Integer): Boolean;
 
 implementation
 
@@ -258,7 +260,32 @@ begin
 end;
 
 
-// ############################################### additional Functions ################################################
+// ############################################### External Functions ################################################
+function isTimeEarliest(relevantHour, relevantMinute, earliestHour, earliestMinute: Integer): Boolean;
+begin
+  Result := False;
+  if (relevantHour < earliestHour) then
+  begin
+    Result := True;
+  end;
+  if (relevantHour = earliestHour) then
+  begin
+    Result := (relevantHour < earliestMinute);
+  end;
+end;
+
+function isTimeLatest(relevantHour, relevantMinute, latestHour, latestMinute: Integer): Boolean;
+begin
+  Result := False;
+  if (relevantHour > latestHour) then
+  begin
+    Result := True;
+  end;
+  if (relevantHour = latestHour) then
+  begin
+    Result := (relevantHour > latestMinute);
+  end;
+end;
 
 function timeToText(AHour, AMinute: integer): string;
 begin
@@ -416,4 +443,4 @@ begin
 end;
 
 
-end.
+end.

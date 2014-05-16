@@ -1,8 +1,5 @@
-msgid "Lukas FrankeLukas FrankeLukas FrankeLukas Franke"
+msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
-
-msgid "Lukas Franke"
-msgstr ""
 
 #: coyotedefaults.emdateorder
 msgid "Error: The dates are in the wrong order!"
@@ -88,6 +85,14 @@ msgstr ""
 msgid "diff.:"
 msgstr ""
 
+#: tform1.label4.caption
+msgid "Earliest begin: "
+msgstr ""
+
+#: tform1.label5.caption
+msgid "Latest quitting"
+msgstr ""
+
 #: tform1.menuitem1.caption
 msgid "File"
 msgstr ""
@@ -106,18 +111,6 @@ msgstr ""
 
 #: tform1.menuitem13.caption
 msgid "German"
-msgstr ""
-
-#: tform1.menuitem16.caption
-msgid "periods"
-msgstr ""
-
-#: tform1.menuitem17.caption
-msgid "add a period"
-msgstr ""
-
-#: tform1.menuitem18.caption
-msgid "remove all periods"
 msgstr ""
 
 #: tform1.menuitem19.caption
@@ -164,14 +157,6 @@ msgstr ""
 
 #: tform1.menuitem5.caption
 msgid "Exit"
-msgstr ""
-
-#: tform1.menuitem6.caption
-msgid "show Overtimes"
-msgstr ""
-
-#: tform1.menuitem7.caption
-msgid "show Clock Times"
 msgstr ""
 
 #: tform1.menuitem8.caption

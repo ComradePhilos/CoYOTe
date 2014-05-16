@@ -3,7 +3,6 @@ object Form2: TForm2
   Height = 288
   Top = 203
   Width = 625
-  BorderStyle = bsSizeToolWin
   Caption = 'About'
   ClientHeight = 288
   ClientWidth = 625
@@ -585,7 +584,7 @@ object Form2: TForm2
   object PageControl1: TPageControl
     AnchorSideTop.Side = asrBottom
     Left = 193
-    Height = 216
+    Height = 221
     Top = 49
     Width = 417
     ActivePage = TabSheet3
@@ -629,7 +628,7 @@ object Form2: TForm2
     object TabSheet3: TTabSheet
       AnchorSideRight.Side = asrBottom
       Caption = 'license'
-      ClientHeight = 188
+      ClientHeight = 193
       ClientWidth = 409
       object Label4: TLabel
         Left = 152

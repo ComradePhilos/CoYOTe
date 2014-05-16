@@ -7,7 +7,6 @@ object Form4: TForm4
   ClientHeight = 284
   ClientWidth = 432
   OnCreate = FormCreate
-  OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'

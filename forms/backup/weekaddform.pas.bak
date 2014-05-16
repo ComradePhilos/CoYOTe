@@ -29,7 +29,6 @@ type
     procedure ApplyButtonClick(Sender: TObject);
     procedure CheckBox2Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure CheckInputs(Sender: TObject);
     procedure UndoButtonClick(Sender: TObject);

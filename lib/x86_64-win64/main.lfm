@@ -4,7 +4,7 @@ object Form1: TForm1
   Top = 248
   Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 634
+  ClientHeight = 614
   ClientWidth = 1030
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
@@ -28,7 +28,7 @@ object Form1: TForm1
     ClientHeight = 345
     ClientWidth = 269
     Font.CharSet = ANSI_CHARSET
-    Font.Height = -13
+    Font.Height = -12
     Font.Name = 'Ubuntu'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -47,7 +47,7 @@ object Form1: TForm1
       Left = 16
       Height = 16
       Top = 72
-      Width = 47
+      Width = 45
       Caption = 'needed:'
       ParentColor = False
     end
@@ -55,15 +55,31 @@ object Form1: TForm1
       Left = 16
       Height = 16
       Top = 104
-      Width = 26
+      Width = 24
       Caption = 'diff.:'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 16
+      Height = 16
+      Top = 160
+      Width = 83
+      Caption = 'Earliest begin: '
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 16
+      Height = 16
+      Top = 192
+      Width = 86
+      Caption = 'Latest quitting'
       ParentColor = False
     end
   end
   object StringGrid1: TStringGrid
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 585
+    Height = 565
     Top = 27
     Width = 753
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -136,8 +152,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 613
+    Height = 23
+    Top = 591
     Width = 1030
     Panels = <    
       item
@@ -1557,4 +1573,4 @@ object Form1: TForm1
       91FF919191FF8A8A8AE0FFFFFF00
     }
   end
-end
+end

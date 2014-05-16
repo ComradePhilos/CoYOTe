@@ -210,7 +210,6 @@ begin
     DateDlg.Free;
     updateWindow;
 	end;
-
 end;
 
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
