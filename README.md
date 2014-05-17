@@ -38,6 +38,8 @@ on almost every computer and operating system you want - Thanks to Lazarus IDE a
 </ul>
 </p>
 
+<img style="float:left" src="https://dl.dropboxusercontent.com/u/76923843/coyote.png">
+
 ### what is planned in future?
 <p>
 <ul>
