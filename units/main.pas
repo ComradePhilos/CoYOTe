@@ -10,6 +10,8 @@
 // * merge weeks
 // * switch day order in week
 // * add switchable advanced view, which will add more colums to the grid
+// * fix that days with vacation still substract time for pause/lunch
+// * Days with vacation should not be counted for earliest begin etc...
 
 unit main;
 
@@ -329,7 +331,6 @@ begin
     OpenDlg.Free;
     updateWindow;
   end;
-
 end;
 
 procedure TForm1.MenuSaveClick(Sender: TObject);
@@ -351,7 +352,6 @@ begin
   finally
     SaveDlg.Free;
   end;
-
 end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
@@ -390,36 +390,41 @@ begin
   goal := 0;
   diff := 0;
 
-
-
+  // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
   begin
     sum := sum + FWeekList.Items[I].getSum;
     goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
 
+    // earliest begin and latest leave
     for d := 0 to FWeekList.Items[I].Days.Count - 1 do
     begin
-      if (I > 0) then
+      if (FWeekList.Items[I].Days[d].TimeOff < FWeekList.Items[I].IntendedTimePerDay) then
       begin
-        if (isTimeEarliest(FWeekList.Items[I].Days[d].StartHour,FWeekList.Items[I].Days[d].StartMinute, earliestHour, earliestMin)) then
+        if (I > 0) then
         begin
-          earliestHour := FWeekList.Items[I].Days.Items[d].StartHour;
-          earliestMin := FWeekList.Items[I].Days.Items[d].StartMinute;
-          earlyDate := FWeekList.Items[I].Days[d].Date;
-				end;
-        if (isTimeLatest(FWeekList.Items[I].Days[d].EndHour,FWeekList.Items[I].Days[d].EndMinute, latestHour, latestMin)) then
+          if (isTimeEarliest(FWeekList.Items[I].Days[d].StartHour, FWeekList.Items[I].Days[d].StartMinute,
+            earliestHour, earliestMin)) then
+          begin
+            earliestHour := FWeekList.Items[I].Days.Items[d].StartHour;
+            earliestMin := FWeekList.Items[I].Days.Items[d].StartMinute;
+            earlyDate := FWeekList.Items[I].Days[d].Date;
+          end;
+          if (isTimeLatest(FWeekList.Items[I].Days[d].EndHour, FWeekList.Items[I].Days[d].EndMinute,
+            latestHour, latestMin)) then
+          begin
+            latestHour := FWeekList.Items[I].Days.Items[d].EndHour;
+            latestMin := FWeekList.Items[I].Days.Items[d].EndMinute;
+            lateDate := FWeekList.Items[I].Days[d].Date;
+          end;
+        end
+        else
         begin
-          latestHour := FWeekList.Items[I].Days.Items[d].EndHour;
-          latestMin := FWeekList.Items[I].Days.Items[d].EndMinute;
-          lateDate := FWeekList.Items[I].Days[d].Date;
-				end;
-			end
-      else
-      begin
-        earliestHour := FWeekList.Items[0].Days.Items[0].StartHour;
-        earliestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
-        latestHour := FWeekList.Items[0].Days.Items[0].StartHour;
-        latestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
+          earliestHour := FWeekList.Items[0].Days.Items[0].StartHour;
+          earliestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
+          latestHour := FWeekList.Items[0].Days.Items[0].StartHour;
+          latestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
+        end;
       end;
     end;
   end;
@@ -469,4 +474,4 @@ begin
   end;
 end;
 
-end.
+end.

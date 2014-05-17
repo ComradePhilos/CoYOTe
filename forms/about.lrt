@@ -3,7 +3,7 @@ TFORM2.STATICTEXT1.CAPTION=CoYOt(e) - Control Your OverTimes (easily)
 TFORM2.LABEL1.CAPTION=Version :
 TFORM2.LABEL2.CAPTION=Build-Date:
 TFORM2.IMAGE1.HINT=Visit Programme Page on Github!
-TFORM2.TABSHEET1.CAPTION=About
+TFORM2.TABSHEET1.CAPTION=  About  
 TFORM2.LABEL3.CAPTION=A lightweight tool to keep an eye on your working times easily. 
 This programme helps you to find out how many hours of 
 work you collected in a specific period of time.
@@ -12,6 +12,7 @@ Contributors
 ------------------------------------------
 Philip Märksch
 Lukas Franke
-TFORM2.TABSHEET2.CAPTION=version log
-TFORM2.TABSHEET3.CAPTION=license
+TFORM2.TABSHEET2.CAPTION=Changelog
+TFORM2.RADIOGROUP1.CAPTION=Versions
+TFORM2.TABSHEET3.CAPTION=  License  
 TFORM2.LABEL4.CAPTION=Coming soon

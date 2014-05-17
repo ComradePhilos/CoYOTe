@@ -1,11 +1,11 @@
 object Form4: TForm4
-  Left = 408
+  Left = 2328
   Height = 284
   Top = 428
-  Width = 432
+  Width = 405
   Caption = 'Add a new period of time'
   ClientHeight = 284
-  ClientWidth = 432
+  ClientWidth = 405
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
@@ -19,7 +19,7 @@ object Form4: TForm4
     ParentColor = False
   end
   object Label2: TLabel
-    Left = 288
+    Left = 303
     Height = 17
     Top = 8
     Width = 16
@@ -31,7 +31,7 @@ object Form4: TForm4
     AnchorSideTop.Control = CheckBox2
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Side = asrBottom
-    Left = 325
+    Left = 298
     Height = 30
     Top = 227
     Width = 94
@@ -216,7 +216,7 @@ object Form4: TForm4
     Left = 0
     Height = 21
     Top = 263
-    Width = 432
+    Width = 405
     Panels = <    
       item
         Width = 50
@@ -226,7 +226,7 @@ object Form4: TForm4
   object CheckBox1: TCheckBox
     AnchorSideTop.Control = Calendar2
     AnchorSideTop.Side = asrBottom
-    Left = 196
+    Left = 169
     Height = 24
     Top = 196
     Width = 223
@@ -254,7 +254,7 @@ object Form4: TForm4
     Left = 10
     Height = 160
     Top = 32
-    Width = 223
+    Width = 196
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Right = 10
     DateTime = 41772
@@ -264,7 +264,7 @@ object Form4: TForm4
   end
   object Calendar2: TCalendar
     AnchorSideLeft.Control = Calendar1
-    Left = 243
+    Left = 216
     Height = 160
     Top = 32
     Width = 176

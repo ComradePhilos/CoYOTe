@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 432
+  Left = 297
   Height = 634
-  Top = 248
+  Top = 183
   Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
   ClientHeight = 634
@@ -25,10 +25,10 @@ object Form1: TForm1
     Width = 273
     Anchors = [akTop, akRight]
     Caption = 'Information and Statistics'
-    ClientHeight = 345
+    ClientHeight = 346
     ClientWidth = 269
     Font.CharSet = ANSI_CHARSET
-    Font.Height = -13
+    Font.Height = -12
     Font.Name = 'Ubuntu'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
@@ -37,26 +37,42 @@ object Form1: TForm1
     TabOrder = 0
     object Label1: TLabel
       Left = 16
-      Height = 16
+      Height = 15
       Top = 40
-      Width = 30
+      Width = 28
       Caption = 'sum: '
       ParentColor = False
     end
     object Label2: TLabel
       Left = 16
-      Height = 16
+      Height = 15
       Top = 72
-      Width = 47
+      Width = 45
       Caption = 'needed:'
       ParentColor = False
     end
     object Label3: TLabel
       Left = 16
-      Height = 16
+      Height = 15
       Top = 104
-      Width = 26
+      Width = 24
       Caption = 'diff.:'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 16
+      Height = 15
+      Top = 160
+      Width = 81
+      Caption = 'Earliest begin: '
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 16
+      Height = 15
+      Top = 192
+      Width = 81
+      Caption = 'Latest quitting'
       ParentColor = False
     end
   end

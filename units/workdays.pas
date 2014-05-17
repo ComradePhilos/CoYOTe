@@ -246,8 +246,15 @@ begin
   Result := 0;
   for I := 0 to self.Days.Count-1 do
   begin
-    Result := Result + self.Days[I].getAmountOfTime - self.FPausePerDay;
-	end;
+    if (self.Days[I].TimeOff = self.IntendedTimePerDay) then
+    begin
+      Result := Result + self.Days[I].getAmountOfTime
+    end
+    else
+    begin
+      Result := Result + self.Days[I].getAmountOfTime - self.FPausePerDay;
+    end;
+  end;
 end;
 
 procedure TWorkWeek.Clear;
@@ -443,4 +450,4 @@ begin
 end;
 
 
-end.
+end.

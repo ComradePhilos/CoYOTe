@@ -1,6 +1,6 @@
 {
   This Unit shall contain all additional functions that do not fit in a specific
-  Unit or Class. (e.g. Translations, String-Conversions... )
+  Unit or Class. (e.g. Translations, String-Conversions, help functions... )
 }
 unit funcs;
 
@@ -14,116 +14,116 @@ uses
   workdays;
 
 // Save WeekList to File
-procedure SaveToFile(filename: String; AWeekList: TWeekList);
+procedure SaveToFile(filename: string; AWeekList: TWeekList);
 
 // Load WeekList from File
-procedure LoadFromFile(filename: String; AWeekList: TWeekList);
+procedure LoadFromFile(filename: string; AWeekList: TWeekList);
 
 
 implementation
 
-procedure SaveToFile(filename: String; AWeekList: TWeekList);
+procedure SaveToFile(filename: string; AWeekList: TWeekList);
 var
-  lines: TStringList;
-  I: Integer;
-  F: Integer;
+  Lines: TStringList;
+  I: integer;
+  F: integer;
 begin
-  lines := TStringList.Create;
+  Lines := TStringList.Create;
   try
-    lines.Add(IntToStr(AWeekList.Count));  // Number of Weeks
-    lines.Add(FloatToStr(1.2345));         // Testfloat, so that the load-function can interpret floating values
+    Lines.Add(IntToStr(AWeekList.Count));  // Number of Weeks
+    Lines.Add(FloatToStr(1.2345));         // Testfloat, so that the load-function can interpret floating values
     for I := 0 to AWeekList.Count - 1 do
     begin
-      lines.Add(AWeekList.Items[I].WeekLabel);                         // Label of the week
-      lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate));               // From-Date
-      lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));                 // To-Date
-      lines.Add(FloatToStr(AWeekList.Items[I].IntendedTimePerDay));    // Intended time of work per day
-      lines.Add(FloatToStr(AWeekList.Items[I].PausePerDay));
-      lines.Add(IntToStr(AWeekList.Items[I].WeekLength));
+      Lines.Add(AWeekList.Items[I].WeekLabel);                         // Label of the week
+      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate));               // From-Date
+      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));                 // To-Date
+      Lines.Add(FloatToStr(AWeekList.Items[I].IntendedTimePerDay));    // Intended time of work per day
+      Lines.Add(FloatToStr(AWeekList.Items[I].PausePerDay));
+      Lines.Add(IntToStr(AWeekList.Items[I].WeekLength));
       for F := 0 to AWeekList.Items[I].Days.Count - 1 do
       begin
-        lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].Days[F].Date));
-        lines.Add(IntToStr(AWeekList.Items[I].Days[F].Weekday));
-        lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartHour));
-        lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartMinute));
-        lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndHour));
-        lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndMinute));
-        lines.Add(FloatToStr(AWeekList.Items[I].Days[F].TimeOff));
+        Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].Days[F].Date));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].Weekday));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartHour));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartMinute));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndHour));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndMinute));
+        Lines.Add(FloatToStr(AWeekList.Items[I].Days[F].TimeOff));
       end;
     end;
-    lines.SaveToFile(filename);
+    Lines.SaveToFile(filename);
   finally
-    lines.Free;
+    Lines.Free;
   end;
 end;
 
-procedure LoadFromFile(filename: String; AWeekList: TWeekList);
+procedure LoadFromFile(filename: string; AWeekList: TWeekList);
 var
-  I: Integer;        // Week-Counter
-  l: Integer;        // Line-Counter
-  d: Integer;        // Day-Counter
-  lines: TStringList;
-  count: Integer;    // Number of Days
-  locInt: Integer;
+  I: integer;        // Week-Counter
+  l: integer;        // Line-Counter
+  d: integer;        // Day-Counter
+  Lines: TStringList;
+  Count: integer;    // Number of Days
+  locInt: integer;
   locDate: TDate;
-  locDay: Integer;
-  locMonth: Integer;
-  locYear: Integer;
-  locDouble: Double;
+  locDay: integer;
+  locMonth: integer;
+  locYear: integer;
+  locDouble: double;
   FormatDouble: TFormatSettings;
 begin
-  lines := TStringList.Create;
+  Lines := TStringList.Create;
   AWeekList.Clear;
 
   try
     l := 0;
-    lines.LoadFromFile(filename);
+    Lines.LoadFromFile(filename);
 
     // Number of Weeks
-    if TryStrToInt(lines[0], locInt) then
+    if TryStrToInt(Lines[0], locInt) then
     begin
-      count := locInt;
+      Count := locInt;
       Inc(l);
     end;
 
     // load Test-Float to set the format settings
-    FormatDouble.DecimalSeparator := LeftStr(lines[l],2)[2];
-    inc(l);
+    FormatDouble.DecimalSeparator := LeftStr(Lines[l], 2)[2];
+    Inc(l);
 
-    for I := 0 to count - 1 do
+    for I := 0 to Count - 1 do
     begin
       AWeekList.Add(TWorkWeek.Create);
-      AWeekList.Items[I].WeekLabel := lines[l];
-      inc(l);
+      AWeekList.Items[I].WeekLabel := Lines[l];
+      Inc(l);
       // Start - Date
-      if TryStrToDate(lines[l], locDate, '.') then
+      if TryStrToDate(Lines[l], locDate, '.') then
       begin
         AWeekList.Items[I].FromDate := locDate;
-        inc(l);
+        Inc(l);
       end;
       // End- Date
-      if TryStrToDate(lines[l], locDate, '.') then
+      if TryStrToDate(Lines[l], locDate, '.') then
       begin
         AWeekList.Items[I].ToDate := locDate;
-        inc(l);
+        Inc(l);
       end;
       // Time per Day
-      if TryStrToFloat(lines[l], locDouble, FormatDouble) then
+      if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
       begin
         AWeekList.Items[I].IntendedTimePerDay := locDouble;
-        inc(l);
+        Inc(l);
       end;
       // Pause per Day
-      if TryStrToFloat(lines[l], locDouble, FormatDouble) then
+      if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
       begin
         AWeekList.Items[I].PausePerDay := locDouble;
-        inc(l);
+        Inc(l);
       end;
       // Weeklength
-      if TryStrToInt(lines[l], locInt) then
+      if TryStrToInt(Lines[l], locInt) then
       begin
         AWeekList.Items[I].WeekLength := locInt;
-        inc(l);
+        Inc(l);
       end;
 
       // Days
@@ -131,51 +131,51 @@ begin
       begin
         AWeekList.Items[I].Days.Add(TWorkDay.Create);
         // Datum
-        if TryStrToDate(lines[l], locDate, '.') then
+        if TryStrToDate(Lines[l], locDate, '.') then
         begin
-          AWeekList.Items[I].Days[d].Date:= locDate;
-          inc(l);
+          AWeekList.Items[I].Days[d].Date := locDate;
+          Inc(l);
         end;
         // Wochentag
-        if TryStrToInt(lines[l], locInt) then
+        if TryStrToInt(Lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].Weekday := locInt;
-          inc(l);
+          Inc(l);
         end;
         // Start-Hour
-        if TryStrToInt(lines[l], locInt) then
+        if TryStrToInt(Lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].StartHour := locInt;
-          inc(l);
+          Inc(l);
         end;
         // Start-Minute
-        if TryStrToInt(lines[l], locInt) then
+        if TryStrToInt(Lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].StartMinute := locInt;
-          inc(l);
+          Inc(l);
         end;
         // End-Hour
-        if TryStrToInt(lines[l], locInt) then
+        if TryStrToInt(Lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].EndHour := locInt;
-          inc(l);
+          Inc(l);
         end;
         // End-Minute
-        if TryStrToInt(lines[l], locInt) then
+        if TryStrToInt(Lines[l], locInt) then
         begin
           AWeekList.Items[I].Days[d].EndMinute := locInt;
-          inc(l);
+          Inc(l);
         end;
         // Time off
-        if TryStrToFloat(lines[l], locDouble, FormatDouble) then
+        if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
         begin
           AWeekList.Items[I].Days[d].TimeOff := locDouble;
-          inc(l);
+          Inc(l);
         end;
       end; { for d := .... }
     end;  { for I := ... }
   finally
-    lines.Free;
+    Lines.Free;
   end;
 end;
 

@@ -283,7 +283,7 @@ begin
   end;
   if (relevantHour = latestHour) then
   begin
-    Result := (relevantHour < latestMinute);
+    Result := (relevantHour > latestMinute);
   end;
 end;
 

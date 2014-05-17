@@ -13,7 +13,10 @@ uses
   { own Units }
   workdays;
 
+// Save WeekList to File
 procedure SaveToFile(filename: String; AWeekList: TWeekList);
+
+// Load WeekList from File
 procedure LoadFromFile(filename: String; AWeekList: TWeekList);
 
 
@@ -54,8 +57,6 @@ begin
   end;
 end;
 
-
-
 procedure LoadFromFile(filename: String; AWeekList: TWeekList);
 var
   I: Integer;        // Week-Counter
@@ -75,8 +76,6 @@ begin
   AWeekList.Clear;
 
   try
-
-
     l := 0;
     lines.LoadFromFile(filename);
 
