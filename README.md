@@ -1,9 +1,10 @@
 # CoYOT(e)
+#### Control Your OverTimes (easily)
 <p align="left">
   <img style="float:left" src="https://dl.dropboxusercontent.com/u/76923843/Untitled.png" width=200>   
 </p>  
-  Control Your OverTimes (easily). This programme is a lightweight tool for employees who want to have an overview over their working time or       people who want to track working times of their employees/colleagues made with Lazarus IDE and therefore written in Pascal. 
-  
+This programme is a lightweight and userfriendly tool to keep an eye on overtimes at work. It calculates - based on attendance times the user entered - how many hours of working time the user accumulated and visualises the balance so that he always is up to date. If used consequently one can save precious free time and organize working time in a way that employees and bosses might profit from. 
+
 ### installation
 <p>
 <ul>
@@ -35,6 +36,7 @@ on almost every computer and operating system you want - Thanks to Lazarus IDE a
 <li>  comfort functions for vacation/ time off </li> 
 <li>  edit days </li>
 <li>  load and save the data to/from a file </li>
+<li>  change the color theme - will be improved later</li>
 </ul>
 </p>
 
@@ -46,6 +48,8 @@ on almost every computer and operating system you want - Thanks to Lazarus IDE a
 <li>  managing multiple "users" for companies/teams etc. </li>
 <li>  statistics, e.g. bar charts or graph charts </li>
 <li>  releases for Windows, MacOS and Linux </li>
+<li>  language support for multiple languages ( currently english only ) </li>
+<li>  if needed, export funtions for external programmes </li>
 <li>  UI improvements </li> 
 </ul>
 </p>
