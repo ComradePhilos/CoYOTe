@@ -50,13 +50,14 @@ type
   TWorkWeek = class
   private
     // Remember to also change the assign-method when adding/deleting variables
-    FWeekLabel: String;                 // A Description Text shown in the list
+    FWeekLabel: String;                 // The "Name" of the week shown in grid
     FDays: TWorkDays;                   // The Days related to this period
     FFromDate: TDate;                   // The lowest Date of the week
     FToDate: TDate;                     // The highest Date of the week
     FWeekLength: integer;               // Workdays in that particular week
     FIntendedTimePerDay: double;        // The time you intend to work per day
     FPausePerDay: Double;               // Obligatory Pause Time, time you need to stay at work additionally
+    FDescriptionText: TStringList;      // Description Text
     // FPerson: TPerson;                // The Person related to the week data
 
     function calcAverageTime: double;
@@ -77,6 +78,7 @@ type
     property ToDate: TDate read FToDate write FToDate;
     property Days: TWorkDays read FDays write FDays;
     property WeekLabel: String read FWeekLabel write FWeekLabel;
+    property DescriptionText: TStringList read FDescriptionText write FDescriptionText;
 
   end;
 
@@ -171,6 +173,7 @@ begin
   FWeekLength := 0;
   FIntendedTimePerDay := 8;
   FPausePerDay := 0.75;
+  FDescriptionText := TStringList.Create;
 end;
 
 constructor TWorkWeek.Create(AFromDate, AToDate: TDate);
@@ -190,11 +193,13 @@ begin
     FDays[I].Weekday := RealDayOfWeek(AFromDate + I);
     FDays[I].Date := AFromDate + I;
   end;
+  FDescriptionText := TStringList.Create;
 end;
 
 destructor TWorkWeek.Destroy;
 begin
   FDays.Free;
+  FDescriptionText.Free;
 end;
 
 procedure TWorkWeek.assign(AWeek: TWorkWeek);
@@ -207,6 +212,7 @@ begin
   FWeekLabel := AWeek.WeekLabel;
   FIntendedTimePerDay := AWeek.IntendedTimePerDay;
   FPausePerDay := AWeek.PausePerDay;
+  FDescriptionText := AWeek.DescriptionText;
   FDays.Clear;
   for I := 0 to self.WeekLength -1 do
   begin

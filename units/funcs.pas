@@ -43,6 +43,11 @@ begin
       Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));                 // To-Date
       Lines.Add(FloatToStr(AWeekList.Items[I].IntendedTimePerDay));    // Intended time of work per day
       Lines.Add(FloatToStr(AWeekList.Items[I].PausePerDay));
+      Lines.Add(IntToStr(AWeekList.Items[I].DescriptionText.Count));
+      for F := 0 to AWeekList.Items[I].DescriptionText.Count - 1 do
+      begin
+        Lines.Add(AWeekList.Items[I].DescriptionText[F]);
+      end;
       Lines.Add(IntToStr(AWeekList.Items[I].WeekLength));
       for F := 0 to AWeekList.Items[I].Days.Count - 1 do
       begin
@@ -123,6 +128,17 @@ begin
         AWeekList.Items[I].PausePerDay := locDouble;
         Inc(l);
       end;
+
+      if TryStrToInt(Lines[l], locInt) then
+      begin
+        inc(l);
+        for d := 0 to locInt - 1 do
+        begin
+          AWeekList.Items[I].DescriptionText.Add(lines[l]);
+          inc(l);
+        end;
+      end;
+
       // Weeklength
       if TryStrToInt(Lines[l], locInt) then
       begin
@@ -199,6 +215,7 @@ begin
     ALabel.Font.Color := clRed;
   end;
 end;
+
 
 procedure colorText(ALabel: TLabel; value, toleranceLimit: Double);
 begin

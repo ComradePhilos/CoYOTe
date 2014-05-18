@@ -25,6 +25,8 @@ type
 		GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
 		DescriptionEdit: TLabeledEdit;
+    Label4: TLabel;
+    Memo1: TMemo;
 		MenuHalfDayOff: TMenuItem;
 		PausePerDayEdit: TLabeledEdit;
     ImageList1: TImageList;
@@ -277,6 +279,12 @@ begin
       FWeek.PausePerDay := locDouble;
 		end;
 
+    FWeek.DescriptionText.Clear;
+    for I := 0 to Memo1.Lines.Count -1 do
+    begin
+      FWeek.DescriptionText.Add(Memo1.Lines.Strings[I]);
+    end;
+
     // apply values from grid
     for I := 0 to FWeek.Days.Count-1 do
     begin
@@ -365,6 +373,7 @@ begin
   DescriptionEdit.Text := AWeek.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(AWeek.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
+  Memo1.Lines := AWeek.DescriptionText;
 
   FWeekIndex := ANumber;
   UpdateTitel;

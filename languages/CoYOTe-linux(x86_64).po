@@ -54,7 +54,7 @@ msgid "18.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.2.9"
+msgid "0.0.3.0"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -360,7 +360,8 @@ msgid "Create text automatically using the lowest and the highest date"
 msgstr ""
 
 #: tform3.descriptionedit.editlabel.caption
-msgid "Description Text"
+msgctxt "tform3.descriptionedit.editlabel.caption"
+msgid "Weeklabel"
 msgstr ""
 
 #: tform3.groupbox1.caption
@@ -385,6 +386,11 @@ msgstr ""
 
 #: tform3.label3.caption
 msgid "Diff.:"
+msgstr ""
+
+#: tform3.label4.caption
+msgctxt "TFORM3.LABEL4.CAPTION"
+msgid "Description Text"
 msgstr ""
 
 #: tform3.menuadd.caption

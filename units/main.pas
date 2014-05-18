@@ -10,7 +10,6 @@
 // * merge weeks
 // * switch day order in week
 // * add switchable advanced view, which will add more colums to the grid
-// * Days with vacation should not be counted for earliest begin etc...
 
 unit main;
 
@@ -325,6 +324,7 @@ begin
     begin
       loadFromFile(OpenDlg.FileName, FWeekList);
     end;
+    StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
   finally
     OpenDlg.Free;
     updateWindow;
