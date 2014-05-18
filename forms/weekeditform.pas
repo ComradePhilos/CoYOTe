@@ -42,7 +42,6 @@ type
     ButtonRight: TToolButton;
     ToolButton1: TToolButton;
     ButtonAdd: TToolButton;
-    ButtonRemove: TToolButton;
     ButtonEmpty: TToolButton;
     ButtonApply: TToolButton;
 		ToolButton2: TToolButton;
@@ -382,25 +381,13 @@ var
   diff: Double;
   I: Integer;
 begin
-  ButtonRemove.Enabled := (FWeek.Days.Count > 0);
   ButtonEmpty.Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[1].Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[2].Enabled := (FWeek.Days.Count > 0);
 
   diff := FWeek.getSum - (FWeek.Days.Count*FWeek.IntendedTimePerDay);
 
-  if (diff >= 0) then
-  begin
-    Label3.Font.Color := clGreen;
-	end
-  else if (diff < 0) and (diff > -0.5) then
-  begin
-    Label3.Font.Color := $000080FF;
-	end
-  else
-  begin
-    Label3.Font.Color := clRed;
-	end;
+  ColorText(Label3, diff, 0.5);
 
   WeekDaysToStringGrid(WeekGrid, FWeek);
 

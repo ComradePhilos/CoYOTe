@@ -54,7 +54,7 @@ end;
 
 procedure TForm2.RadioGroup1Click(Sender: TObject);
 begin
-  Memo1.Lines.LoadFromFile('../docs/versions/' + (RadioGroup1.Items[RadioGroup1.ItemIndex]);
+  Memo1.Lines.LoadFromFile('../docs/versions/' + (RadioGroup1.Items[RadioGroup1.ItemIndex]));
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);

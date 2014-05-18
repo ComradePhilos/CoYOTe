@@ -10,7 +10,6 @@
 // * merge weeks
 // * switch day order in week
 // * add switchable advanced view, which will add more colums to the grid
-// * fix that days with vacation still substract time for pause/lunch
 // * Days with vacation should not be counted for earliest begin etc...
 
 unit main;
@@ -307,7 +306,6 @@ begin
     begin
       Toolbar1.Color := colorDlg.Color;
       EditWeekForm.ToolBar1.Color := colorDlg.Color;
-      GroupBox1.Color := colorDlg.Color;
     end;
   finally
     colorDlg.Free;
@@ -432,6 +430,7 @@ begin
   WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
   //StringGrid1.Row := FSelectionIndex;
 
+  colorText(Label3, sum, goal, 0.5);
   Label1.Caption := 'Sum: ' + FormatFloat('0.00', sum) + ' h';
   Label2.Caption := 'Goal: ' + FormatFloat('0.00', goal) + ' h';
   Label3.Caption := 'Diff.: ' + FormatFloat('0.00', diff) + ' h';

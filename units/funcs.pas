@@ -9,7 +9,7 @@ unit funcs;
 interface
 
 uses
-  Classes, SysUtils, Translations, DateUtils,
+  Classes, SysUtils, Translations, DateUtils, StdCtrls, Graphics,
   { own Units }
   workdays;
 
@@ -18,6 +18,10 @@ procedure SaveToFile(filename: string; AWeekList: TWeekList);
 
 // Load WeekList from File
 procedure LoadFromFile(filename: string; AWeekList: TWeekList);
+
+// Creates a Colored Text depending on balance etc..
+procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: Double);
+procedure colorText(ALabel: TLabel; value, toleranceLimit: Double); overload;
 
 
 implementation
@@ -179,5 +183,37 @@ begin
   end;
 end;
 
+
+procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: Double);
+begin
+  if (value1 - value2) >= 0 then
+  begin
+    ALabel.Font.Color := clGreen;
+  end
+  else if ((value1 - value2) >= (0 - toleranceLimit)) then
+  begin
+    ALabel.Font.Color := $000080FF;
+  end
+  else
+  begin
+    ALabel.Font.Color := clRed;
+  end;
+end;
+
+procedure colorText(ALabel: TLabel; value, toleranceLimit: Double);
+begin
+  if value >= 0 then
+  begin
+    ALabel.Font.Color := clGreen;
+  end
+  else if value >= (0 - toleranceLimit) then
+  begin
+    ALabel.Font.Color := $000080FF;
+  end
+  else
+  begin
+    ALabel.Font.Color := clRed;
+  end;
+end;
 
 end.

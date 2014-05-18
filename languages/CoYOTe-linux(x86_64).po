@@ -1,8 +1,5 @@
-msgid "(philip.maerksch@gmx.de)Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
+msgid "(philip.maerksch@gmx.de)Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
-
-msgid "Lukas Franke"
-msgstr ""
 
 #: coyotedefaults.emdateorder
 msgid "Error: The dates are in the wrong order!"
@@ -53,7 +50,7 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "17.05.2014"
+msgid "18.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
@@ -335,14 +332,6 @@ msgstr ""
 
 #: tform3.buttonleft.hint
 msgid "Switch to previous period"
-msgstr ""
-
-#: tform3.buttonremove.caption
-msgid "ButtonRemove"
-msgstr ""
-
-#: tform3.buttonremove.hint
-msgid "remove selected day"
 msgstr ""
 
 #: tform3.buttonright.caption

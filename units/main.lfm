@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 297
+  Left = 395
   Height = 634
-  Top = 183
+  Top = 392
   Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
   ClientHeight = 634
@@ -55,9 +55,16 @@ object Form1: TForm1
       Left = 16
       Height = 15
       Top = 104
-      Width = 24
+      Width = 25
       Caption = 'diff.:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -12
+      Font.Name = 'Ubuntu'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
       ParentColor = False
+      ParentFont = False
     end
     object Label4: TLabel
       Left = 16
