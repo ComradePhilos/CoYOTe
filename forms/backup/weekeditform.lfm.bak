@@ -329,8 +329,8 @@ object Form3: TForm3
   end
   object HoursPerDayEdit: TLabeledEdit
     Left = 584
-    Height = 26
-    Top = 413
+    Height = 25
+    Top = 414
     Width = 98
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
@@ -339,7 +339,7 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
     EditLabel.Left = 584
-    EditLabel.Height = 16
+    EditLabel.Height = 17
     EditLabel.Top = 394
     EditLabel.Width = 98
     EditLabel.Caption = 'Hours  per day'
@@ -456,8 +456,8 @@ object Form3: TForm3
     AnchorSideRight.Control = HoursPerDayEdit
     AnchorSideBottom.Side = asrBottom
     Left = 8
-    Height = 26
-    Top = 413
+    Height = 25
+    Top = 414
     Width = 524
     Anchors = [akLeft, akRight, akBottom]
     BorderSpacing.Right = 52
@@ -466,7 +466,7 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = DescriptionEdit
     EditLabel.Left = 8
-    EditLabel.Height = 16
+    EditLabel.Height = 17
     EditLabel.Top = 394
     EditLabel.Width = 524
     EditLabel.Caption = 'Weeklabel'
@@ -540,7 +540,7 @@ object Form3: TForm3
     TabOrder = 7
     object Label1: TLabel
       Left = 8
-      Height = 16
+      Height = 17
       Top = 30
       Width = 34
       Caption = 'Goal: '
@@ -548,7 +548,7 @@ object Form3: TForm3
     end
     object Label2: TLabel
       Left = 8
-      Height = 16
+      Height = 17
       Top = 59
       Width = 28
       Caption = 'Sum:'
@@ -556,9 +556,9 @@ object Form3: TForm3
     end
     object Label3: TLabel
       Left = 8
-      Height = 16
+      Height = 17
       Top = 89
-      Width = 30
+      Width = 32
       Caption = 'Diff.:'
       Font.CharSet = ANSI_CHARSET
       Font.Height = -13
@@ -572,8 +572,8 @@ object Form3: TForm3
   end
   object PausePerDayEdit: TLabeledEdit
     Left = 695
-    Height = 26
-    Top = 415
+    Height = 25
+    Top = 416
     Width = 128
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
@@ -582,7 +582,7 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = PausePerDayEdit
     EditLabel.Left = 695
-    EditLabel.Height = 16
+    EditLabel.Height = 17
     EditLabel.Top = 396
     EditLabel.Width = 128
     EditLabel.Caption = 'Pause per day in h'
@@ -595,13 +595,14 @@ object Form3: TForm3
     Height = 90
     Top = 472
     Width = 816
+    Anchors = [akLeft, akRight, akBottom]
     TabOrder = 9
   end
   object Label4: TLabel
     Left = 8
-    Height = 16
+    Height = 17
     Top = 449
-    Width = 95
+    Width = 100
     Caption = 'Description Text'
     ParentColor = False
   end

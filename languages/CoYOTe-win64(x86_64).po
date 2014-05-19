@@ -1,6 +1,9 @@
 msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+msgid "Lukas Franke"
+msgstr ""
+
 #: coyotedefaults.emdateorder
 msgid "Error: The dates are in the wrong order!"
 msgstr ""

@@ -214,11 +214,20 @@ begin
 end;
 
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
+var
+  locInt: Integer;
 begin
   if (Button = mbRight) then
   begin
-    FSelectionIndex := Weekgrid.Row - 1;
-    PopUpMenu1.PopUp;
+    if TryStrToInt(WeekGrid.Cells[0,WeekGrid.Row], locInt) then
+    begin
+      FSelectionIndex := locInt-1;
+      PopUpMenu1.PopUp;
+		end
+    else
+    begin
+      FSelectionIndex := -1;
+		end;
   end
   else
   begin
