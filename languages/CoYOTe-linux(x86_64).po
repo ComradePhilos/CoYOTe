@@ -50,11 +50,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "18.05.2014"
+msgid "20.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.3.0"
+msgid "0.0.3.2"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -256,15 +256,11 @@ msgid "Build-Date:"
 msgstr ""
 
 #: tform2.label3.caption
-msgid "A lightweight tool to keep an eye on your working times easily. "
+msgid "Versions"
 msgstr ""
 
 #: tform2.label4.caption
 msgid "Coming soon"
-msgstr ""
-
-#: tform2.radiogroup1.caption
-msgid "Versions"
 msgstr ""
 
 #: tform2.statictext1.caption
