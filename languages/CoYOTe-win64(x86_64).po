@@ -1,4 +1,4 @@
-msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
+msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
 #: coyotedefaults.emdateorder
@@ -50,11 +50,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "16.05.2014"
+msgid "19.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.2.9"
+msgid "0.0.3.1"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -262,21 +262,25 @@ msgstr ""
 msgid "Coming soon"
 msgstr ""
 
+#: tform2.radiogroup1.caption
+msgid "Versions"
+msgstr ""
+
 #: tform2.statictext1.caption
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
 msgstr ""
 
 #: tform2.tabsheet1.caption
 msgctxt "TFORM2.TABSHEET1.CAPTION"
-msgid "About"
+msgid "  About  "
 msgstr ""
 
 #: tform2.tabsheet2.caption
-msgid "version log"
+msgid "Changelog"
 msgstr ""
 
 #: tform2.tabsheet3.caption
-msgid "license"
+msgid "  License  "
 msgstr ""
 
 #: tform3.applybutton.caption
@@ -329,14 +333,6 @@ msgstr ""
 msgid "Switch to previous period"
 msgstr ""
 
-#: tform3.buttonremove.caption
-msgid "ButtonRemove"
-msgstr ""
-
-#: tform3.buttonremove.hint
-msgid "remove selected day"
-msgstr ""
-
 #: tform3.buttonright.caption
 msgid "ButtonRight"
 msgstr ""
@@ -363,7 +359,8 @@ msgid "Create text automatically using the lowest and the highest date"
 msgstr ""
 
 #: tform3.descriptionedit.editlabel.caption
-msgid "Description Text"
+msgctxt "tform3.descriptionedit.editlabel.caption"
+msgid "Weeklabel"
 msgstr ""
 
 #: tform3.groupbox1.caption
@@ -389,6 +386,11 @@ msgstr ""
 
 #: tform3.label3.caption
 msgid "Diff.:"
+msgstr ""
+
+#: tform3.label4.caption
+msgctxt "TFORM3.LABEL4.CAPTION"
+msgid "Description Text"
 msgstr ""
 
 #: tform3.menuadd.caption

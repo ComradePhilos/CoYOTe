@@ -1,7 +1,7 @@
 object Form2: TForm2
-  Left = 413
+  Left = 889
   Height = 325
-  Top = 211
+  Top = 165
   Width = 650
   Caption = 'About'
   ClientHeight = 325
@@ -16,7 +16,7 @@ object Form2: TForm2
     Left = 193
     Height = 21
     Top = 6
-    Width = 311
+    Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -30,18 +30,18 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 17
-    Top = 246
-    Width = 58
+    Height = 15
+    Top = 248
+    Width = 45
     Anchors = [akLeft, akBottom]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 17
-    Top = 274
-    Width = 74
+    Height = 15
+    Top = 276
+    Width = 59
     Anchors = [akLeft, akBottom]
     Caption = 'Build-Date:'
     ParentColor = False
@@ -55,8 +55,8 @@ object Form2: TForm2
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    ClientHeight = 175
-    ClientWidth = 174
+    ClientHeight = 173
+    ClientWidth = 172
     TabOrder = 1
     object Image1: TImage
       Cursor = crHandPoint
@@ -593,13 +593,13 @@ object Form2: TForm2
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = '  About  '
-      ClientHeight = 251
-      ClientWidth = 445
+      ClientHeight = 254
+      ClientWidth = 441
       object Label3: TLabel
         Left = 16
-        Height = 231
+        Height = 234
         Top = 16
-        Width = 420
+        Width = 416
         Anchors = [akTop, akLeft, akRight, akBottom]
         AutoSize = False
         Caption = 'A lightweight tool to keep an eye on your working times easily. '#13#10'This programme helps you to find out how many hours of '#13#10'work you collected in a specific period of time.'#13#10#13#10'Contributors'#13#10'------------------------------------------'#13#10'Philip Märksch'#13#10'Lukas Franke'
@@ -617,6 +617,7 @@ object Form2: TForm2
         Top = 4
         Width = 317
         Anchors = [akTop, akLeft, akRight, akBottom]
+        ReadOnly = True
         TabOrder = 0
       end
       object RadioGroup1: TRadioGroup
@@ -653,4 +654,4 @@ object Form2: TForm2
       end
     end
   end
-end
+end

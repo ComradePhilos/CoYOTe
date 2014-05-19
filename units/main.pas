@@ -5,11 +5,15 @@
 }
 
 // Todo:
-// * each person (for each year) will be a file in future
-// * add Remarks to a period to comment/describe it
+// * each person (for each year) will be a file
 // * merge weeks
 // * switch day order in week
 // * add switchable advanced view, which will add more colums to the grid
+// !! * change the ListToGrid-function so that temporary changes won't be
+//    deleted after a refresh of the grid
+
+// features in future:
+// * Database Support for local or external database servers (e.g. Firebird)
 
 unit main;
 
@@ -193,8 +197,18 @@ begin
 end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
+var
+  locInt: Integer;
 begin
-  FSelectionIndex := aRow - 1;
+  if TryStrToInt(StringGrid1.Cells[0,aRow], locInt) then
+  begin
+    FSelectionIndex := locInt - 1;
+	end
+  else
+  begin
+    FSelectionIndex := - 1;
+	end;
+
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -473,4 +487,4 @@ begin
   end;
 end;
 
-end.
+end.
