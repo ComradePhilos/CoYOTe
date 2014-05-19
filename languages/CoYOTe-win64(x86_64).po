@@ -1,8 +1,5 @@
-msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
+msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
-
-msgid "Lukas Franke"
-msgstr ""
 
 #: coyotedefaults.emdateorder
 msgid "Error: The dates are in the wrong order!"
@@ -57,7 +54,7 @@ msgid "19.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.3.1"
+msgid "0.0.3.2"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -258,15 +255,12 @@ msgid "Build-Date:"
 msgstr ""
 
 #: tform2.label3.caption
-msgid "A lightweight tool to keep an eye on your working times easily. "
+msgctxt "TFORM2.LABEL3.CAPTION"
+msgid "Versions"
 msgstr ""
 
 #: tform2.label4.caption
 msgid "Coming soon"
-msgstr ""
-
-#: tform2.radiogroup1.caption
-msgid "Versions"
 msgstr ""
 
 #: tform2.statictext1.caption

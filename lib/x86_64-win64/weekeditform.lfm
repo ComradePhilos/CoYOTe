@@ -1,7 +1,7 @@
 object Form3: TForm3
   Left = 707
   Height = 620
-  Top = 148
+  Top = 108
   Width = 837
   Caption = 'Edit selected period'
   ClientHeight = 0

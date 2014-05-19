@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, lclintf, ComCtrls, types, IBConnection, FBAdmin;
+  StdCtrls, lclintf, ComCtrls, CheckLst, types, IBConnection, FBAdmin;
 
 type
 
@@ -16,12 +16,13 @@ type
 	  Image1: TImage;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
+		Label3: TLabel;
     Label4: TLabel;
+		ListBox1: TListBox;
     Memo1: TMemo;
+		Memo2: TMemo;
     PageControl1: TPageControl;
 		Panel1: TPanel;
-    RadioGroup1: TRadioGroup;
     StaticText1: TStaticText;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
@@ -54,7 +55,7 @@ end;
 
 procedure TForm2.RadioGroup1Click(Sender: TObject);
 begin
-  Memo1.Lines.LoadFromFile('../docs/versions/' + (RadioGroup1.Items[RadioGroup1.ItemIndex]));
+  Memo1.Lines.LoadFromFile('../docs/versions/' + (ListBox1.Items[ListBox1.ItemIndex]));
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);
@@ -66,17 +67,10 @@ begin
   repeat
     if (length(searchRec.Name) > 2) then
     begin
-      RadioGroup1.Items.Add(searchRec.Name);
+      ListBox1.Items.Add(searchRec.Name);
     end;
   until FindNext(searchRec) <> 0;
   FindClose(searchRec);
-
-  //Memo1.Lines.LoadFromFile('../docs/versions.log');
 end;
 
-
-
-
-
-
-end.
+end.
