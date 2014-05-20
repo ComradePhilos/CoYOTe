@@ -35,6 +35,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+				ComboBox1: TComboBox;
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
     ImageList2: TImageList;
@@ -266,6 +267,7 @@ begin
       Index := FWeekList.Count - 1;
     end;
     EditWeekForm.showWeek(FWeekList.Items[Index], Index);
+    EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
   end;
 end;
 

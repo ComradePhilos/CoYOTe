@@ -35,6 +35,7 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
+				ComboBox1: TComboBox;
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
     ImageList2: TImageList;
@@ -185,6 +186,9 @@ begin
   Toolbar1.Color := $00FFDBB7;
   EditWeekForm.ToolBar1.Color := $00FFDBB7;
 
+  Progressbar1.Parent := Statusbar1;
+  Progressbar1.Left := 0;
+  Progressbar1.Top := 0;
   FChangesMade := False;
 
   // $00FFDBB7   Standardfarbe
@@ -228,7 +232,7 @@ begin
   FWeekList.Items[Index].Assign(AWeek);
   updateWindow;
   WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
-  EditWeekForm.ComboBox1.ItemIndex := FSelectionIndex;
+  EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
   FChangesMade := True;
 end;
 
@@ -266,6 +270,7 @@ begin
       Index := FWeekList.Count - 1;
     end;
     EditWeekForm.showWeek(FWeekList.Items[Index], Index);
+    EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
   end;
 end;
 

@@ -65,6 +65,10 @@ msgstr ""
 msgid "CoYOT(e) - Overtime Calculator"
 msgstr ""
 
+#: tform1.combobox1.text
+msgid "Test User 1"
+msgstr ""
+
 #: tform1.editweekbutton.caption
 msgid "EditWeekButton"
 msgstr ""

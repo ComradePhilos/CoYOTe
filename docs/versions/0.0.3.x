@@ -6,3 +6,4 @@
 * close dialog now only warns if changes were made
 * fixed a minor bug in the about form
 * improved the refreshing of the grid in week editing so the values don't get lost
+* changed the icon/logo temporarly to a blue-ish color
