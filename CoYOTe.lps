@@ -23,8 +23,8 @@
         <UnitName Value="main"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="257"/>
-        <CursorPos X="43" Y="285"/>
+        <TopLine Value="1"/>
+        <CursorPos X="25" Y="20"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -46,7 +46,7 @@
         <UnitName Value="funcs"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="150"/>
+        <TopLine Value="189"/>
         <CursorPos X="53" Y="189"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -58,10 +58,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="about"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="20"/>
-        <CursorPos X="29" Y="22"/>
+        <TopLine Value="19"/>
+        <CursorPos X="5" Y="60"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -90,8 +91,8 @@
         <UnitName Value="WeekAddForm"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="55"/>
-        <CursorPos X="18" Y="63"/>
+        <TopLine Value="1"/>
+        <CursorPos X="29" Y="15"/>
         <UsageCount Value="148"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -100,11 +101,10 @@
         <Filename Value="units\CoyoteDefaults.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CoyoteDefaults"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="23" Y="13"/>
+        <CursorPos X="31" Y="8"/>
         <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit7>

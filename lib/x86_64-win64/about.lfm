@@ -21,7 +21,7 @@ object Form2: TForm2
     Left = 193
     Height = 21
     Top = 6
-    Width = 311
+    Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -35,18 +35,18 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 16
+    Height = 17
     Top = 227
-    Width = 50
+    Width = 51
     Anchors = [akLeft]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 16
+    Height = 17
     Top = 274
-    Width = 65
+    Width = 68
     Anchors = [akLeft]
     Caption = 'Build-Date:'
     ParentColor = False
@@ -60,14 +60,14 @@ object Form2: TForm2
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    ClientHeight = 175
-    ClientWidth = 174
+    ClientHeight = 173
+    ClientWidth = 172
     TabOrder = 1
     object Image1: TImage
       Cursor = crHandPoint
       Left = 1
       Height = 169
-      Hint = 'Visit Programme Page on Github!'
+      Hint = 'Visit the CoYOTe-Page on Github.com!'
       Top = 0
       Width = 169
       OnClick = Image1Click
@@ -2041,12 +2041,12 @@ object Form2: TForm2
     object TabSheet1: TTabSheet
       Caption = '  About  '
       ClientHeight = 252
-      ClientWidth = 445
+      ClientWidth = 441
       object Memo2: TMemo
         Left = 8
         Height = 234
         Top = 8
-        Width = 424
+        Width = 420
         Anchors = [akTop, akLeft, akRight, akBottom]
         Lines.Strings = (
           'A lightweight tool to keep an eye on your working times easily. '
@@ -2063,6 +2063,7 @@ object Form2: TForm2
           ''
           'Clemens Schoke - Icon/Logo'
         )
+        ReadOnly = True
         TabOrder = 0
       end
     end
@@ -2104,7 +2105,6 @@ object Form2: TForm2
         ParentFont = False
         ScrollWidth = 120
         TabOrder = 1
-        TopIndex = -1
       end
       object Label3: TLabel
         Left = 4
@@ -2130,4 +2130,4 @@ object Form2: TForm2
       end
     end
   end
-end
+end

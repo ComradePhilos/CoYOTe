@@ -55,7 +55,10 @@ end;
 
 procedure TForm2.RadioGroup1Click(Sender: TObject);
 begin
-  Memo1.Lines.LoadFromFile('../docs/versions/' + (ListBox1.Items[ListBox1.ItemIndex]));
+  if (ListBox1.ItemIndex >= 0) then
+  begin
+    Memo1.Lines.LoadFromFile('../docs/versions/' + (ListBox1.Items[ListBox1.ItemIndex]));
+	end;
 end;
 
 procedure TForm2.FormCreate(Sender: TObject);

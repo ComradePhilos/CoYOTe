@@ -11,6 +11,7 @@
 // * add switchable advanced view, which will add more colums to the grid
 // !! * change the ListToGrid-function so that temporary changes won't be
 //    deleted after a refresh of the grid
+// * improve the close-Dialog
 
 // features in future:
 // * Database Support for local or external database servers (e.g. Firebird)
@@ -198,16 +199,19 @@ end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 var
-  locInt: Integer;
+  locInt: integer;
 begin
-  if TryStrToInt(StringGrid1.Cells[0,aRow], locInt) and (StringGrid1.RowCount > 1) then
+  if (StringGrid1.RowCount > 1) then
   begin
-  //  FSelectionIndex := locInt - 1;
-	end
-  else
-  begin
-   // FSelectionIndex := - 1;
-	end;
+    if TryStrToInt(StringGrid1.Cells[0, aRow], locInt) then
+    begin
+      FSelectionIndex := locInt - 1;
+    end
+    else
+    begin
+      FSelectionIndex := -1;
+    end;
+  end;
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -440,10 +444,10 @@ begin
     end;
   end;
   diff := sum - goal;
-  if (FWeekList.Count > 0 ) then
+  if (FWeekList.Count > 0) then
   begin
     WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
-	end;
+  end;
 
   colorText(Label3, sum, goal, 0.5);
   Label1.Caption := 'Sum: ' + FormatFloat('0.00', sum) + ' h';

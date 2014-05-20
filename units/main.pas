@@ -11,6 +11,7 @@
 // * add switchable advanced view, which will add more colums to the grid
 // !! * change the ListToGrid-function so that temporary changes won't be
 //    deleted after a refresh of the grid
+// * improve the close-Dialog, so that it only appears when there have been changes
 
 // features in future:
 // * Database Support for local or external database servers (e.g. Firebird)
