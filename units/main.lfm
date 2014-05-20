@@ -139,7 +139,7 @@ object Form1: TForm1
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goSmoothScroll]
     ParentFont = False
     PopupMenu = PopupMenu1
-    RowCount = 20
+    RowCount = 1
     TabOrder = 1
     TitleFont.CharSet = ANSI_CHARSET
     TitleFont.Height = -13

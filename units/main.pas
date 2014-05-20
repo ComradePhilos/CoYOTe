@@ -198,17 +198,19 @@ end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 var
-  locInt: Integer;
+  locInt: integer;
 begin
-  if TryStrToInt(StringGrid1.Cells[0,aRow], locInt) then
+  if (StringGrid1.RowCount > 1) then
   begin
-    FSelectionIndex := locInt - 1;
-	end
-  else
-  begin
-    FSelectionIndex := - 1;
-	end;
-
+    if TryStrToInt(StringGrid1.Cells[0, aRow], locInt) then
+    begin
+      FSelectionIndex := locInt - 1;
+    end
+    else
+    begin
+      FSelectionIndex := -1;
+    end;
+  end;
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -441,8 +443,10 @@ begin
     end;
   end;
   diff := sum - goal;
-  WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
-  //StringGrid1.Row := FSelectionIndex;
+  if (FWeekList.Count > 0) then
+  begin
+    WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
+  end;
 
   colorText(Label3, sum, goal, 0.5);
   Label1.Caption := 'Sum: ' + FormatFloat('0.00', sum) + ' h';
@@ -467,6 +471,8 @@ begin
     Toolbar1.Buttons[1].Enabled := True;
     Toolbar1.Buttons[2].Enabled := True;
     ToolButton1.Enabled := True;
+    RemoveWeekButton.Enabled := True;
+    EditWeekButton.Enabled := True;
   end
   else
   begin
@@ -474,14 +480,6 @@ begin
     Toolbar1.Buttons[2].Enabled := False;
     ToolButton1.Enabled := False;
     EditWeekButton.Enabled := False;
-  end;
-  if (FSelectionIndex >= 0) then
-  begin
-    RemoveWeekButton.Enabled := True;
-    EditWeekButton.Enabled := True;
-  end
-  else
-  begin
     RemoveWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
   end;
