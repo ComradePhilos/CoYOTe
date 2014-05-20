@@ -1,11 +1,11 @@
 object Form3: TForm3
   Left = 707
   Height = 620
-  Top = 148
+  Top = 108
   Width = 837
   Caption = 'Edit selected period'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 620
+  ClientWidth = 837
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -55,92 +55,8 @@ object Form3: TForm3
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
-  object WeekGrid: TStringGrid
-    Left = 0
-    Height = 365
-    Top = 28
-    Width = 702
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    ColCount = 8
-    ColumnClickSorts = True
-    Columns = <    
-      item
-        ReadOnly = True
-        Title.Alignment = taCenter
-        Title.Caption = 'Nr.'
-        Width = 47
-      end    
-      item
-        ReadOnly = True
-        Title.Alignment = taCenter
-        Title.Caption = 'day'
-        Width = 50
-      end    
-      item
-        Alignment = taCenter
-        ReadOnly = True
-        Title.Alignment = taCenter
-        Title.Caption = 'date'
-        Width = 122
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'start'
-        Width = 110
-      end    
-      item
-        Alignment = taCenter
-        Title.Alignment = taCenter
-        Title.Caption = 'end'
-        Width = 105
-      end    
-      item
-        Alignment = taCenter
-        Color = clDefault
-        Title.Alignment = taCenter
-        Title.Caption = 'time off'
-        Width = 69
-      end    
-      item
-        Alignment = taCenter
-        ReadOnly = True
-        Title.Alignment = taCenter
-        Title.Caption = 'total'
-        Width = 72
-      end    
-      item
-        Alignment = taCenter
-        ReadOnly = True
-        Title.Alignment = taCenter
-        Title.Caption = 'diff'
-        Width = 68
-      end>
-    DefaultRowHeight = 29
-    FixedCols = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goSmoothScroll]
-    RowCount = 7
-    TabOrder = 0
-    TitleFont.CharSet = ANSI_CHARSET
-    TitleFont.Height = -13
-    TitleFont.Name = 'Ubuntu'
-    TitleFont.Pitch = fpVariable
-    TitleFont.Quality = fqDraft
-    TitleStyle = tsNative
-    OnMouseUp = WeekGridMouseUp
-    ColWidths = (
-      47
-      50
-      122
-      110
-      105
-      69
-      72
-      68
-    )
-  end
   object ApplyButton: TBitBtn
-    Left = 695
+    Left = 693
     Height = 30
     Top = 573
     Width = 131
@@ -347,111 +263,6 @@ object Form3: TForm3
     TabOrder = 3
     Text = '8'
   end
-  object ToolBar1: TToolBar
-    Left = 0
-    Height = 28
-    Top = 0
-    Width = 837
-    Caption = 'ToolBar1'
-    Color = 15066597
-    EdgeBorders = [ebTop, ebBottom]
-    EdgeInner = esNone
-    EdgeOuter = esNone
-    Images = ImageList1
-    ParentColor = False
-    TabOrder = 4
-    object ButtonLeft: TToolButton
-      Left = 1
-      Hint = 'Switch to previous period'
-      Top = 0
-      Caption = 'Go left'
-      ImageIndex = 3
-      OnClick = ButtonLeftClick
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object ButtonRight: TToolButton
-      Left = 29
-      Hint = 'Switch to next period'
-      Top = 0
-      Caption = 'ButtonRight'
-      ImageIndex = 4
-      OnClick = ButtonRightClick
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object ToolButton1: TToolButton
-      Left = 57
-      Top = 0
-      Width = 5
-      Caption = 'ToolButton1'
-      Style = tbsDivider
-    end
-    object ButtonAdd: TToolButton
-      Left = 62
-      Hint = 'add another day to the period'
-      Top = 0
-      Caption = 'ButtonAdd'
-      ImageIndex = 5
-      OnClick = MenuAddClick
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object ButtonEmpty: TToolButton
-      Left = 118
-      Hint = 'remove all days but keep period'
-      Top = 0
-      Caption = 'ButtonEmpty'
-      ImageIndex = 8
-      OnClick = ButtonEmptyClick
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object ToolButton5: TToolButton
-      Left = 146
-      Top = 0
-      Width = 5
-      Caption = 'ToolButton5'
-      Style = tbsDivider
-    end
-    object ButtonUndo: TToolButton
-      Left = 151
-      Hint = 'undo changes'
-      Top = 0
-      Caption = 'ButtonUndo'
-      ImageIndex = 6
-      OnClick = ButtonUndoClick
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object ButtonDelete: TToolButton
-      Left = 179
-      Hint = 'delete period'
-      Top = 0
-      Caption = 'ButtonDelete'
-      ImageIndex = 9
-      OnClick = DeleteWeek
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object ButtonApply: TToolButton
-      Left = 207
-      Hint = 'apply changes, keep the window focused'
-      Top = 0
-      Caption = 'ButtonApply'
-      ImageIndex = 11
-      OnClick = ApplyButtonClick
-      ParentShowHint = False
-      ShowHint = True
-    end
-    object ToolButton2: TToolButton
-      Left = 90
-      Hint = 'Add days from a chosen date to a chosen date'
-      Top = 0
-      ImageIndex = 10
-      OnClick = AddNumberOfDays
-    end
-  end
   object DescriptionEdit: TLabeledEdit
     AnchorSideRight.Control = HoursPerDayEdit
     AnchorSideBottom.Side = asrBottom
@@ -533,7 +344,7 @@ object Form3: TForm3
     Height = 365
     Top = 28
     Width = 131
-    Anchors = [akTop, akLeft, akBottom]
+    Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = 'Summary'
     ClientHeight = 347
     ClientWidth = 127
@@ -603,8 +414,214 @@ object Form3: TForm3
     Height = 17
     Top = 449
     Width = 100
+    Anchors = [akLeft, akBottom]
     Caption = 'Description Text'
     ParentColor = False
+  end
+  object WeekGrid: TStringGrid
+    Left = 0
+    Height = 365
+    Top = 28
+    Width = 702
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ColCount = 8
+    ColumnClickSorts = True
+    Columns = <    
+      item
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'Nr.'
+        Width = 47
+      end    
+      item
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'day'
+        Width = 50
+      end    
+      item
+        Alignment = taCenter
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'date'
+        Width = 122
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'start'
+        Width = 110
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'end'
+        Width = 105
+      end    
+      item
+        Alignment = taCenter
+        Color = clDefault
+        Title.Alignment = taCenter
+        Title.Caption = 'time off'
+        Width = 69
+      end    
+      item
+        Alignment = taCenter
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'total'
+        Width = 72
+      end    
+      item
+        Alignment = taCenter
+        ReadOnly = True
+        Title.Alignment = taCenter
+        Title.Caption = 'diff'
+        Width = 68
+      end>
+    DefaultRowHeight = 29
+    FixedCols = 0
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goSmoothScroll]
+    RowCount = 7
+    TabOrder = 0
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -13
+    TitleFont.Name = 'Ubuntu'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+    TitleStyle = tsNative
+    OnEditingDone = WeekGridEditingDone
+    OnMouseUp = WeekGridMouseUp
+    ColWidths = (
+      47
+      50
+      122
+      110
+      105
+      69
+      72
+      68
+    )
+  end
+  object ToolBar1: TToolBar
+    Left = 0
+    Height = 28
+    Top = 0
+    Width = 837
+    Caption = 'ToolBar1'
+    Color = 15066597
+    EdgeBorders = [ebTop, ebBottom]
+    EdgeInner = esNone
+    EdgeOuter = esNone
+    Images = ImageList1
+    ParentColor = False
+    TabOrder = 4
+    object ButtonLeft: TToolButton
+      Left = 1
+      Hint = 'Switch to previous period'
+      Top = 0
+      Caption = 'Go left'
+      ImageIndex = 3
+      OnClick = ButtonLeftClick
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ButtonRight: TToolButton
+      Left = 29
+      Hint = 'Switch to next period'
+      Top = 0
+      Caption = 'ButtonRight'
+      ImageIndex = 4
+      OnClick = ButtonRightClick
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton1: TToolButton
+      Left = 219
+      Top = 0
+      Width = 5
+      Caption = 'ToolButton1'
+      Style = tbsDivider
+    end
+    object ButtonAdd: TToolButton
+      Left = 224
+      Hint = 'add another day to the period'
+      Top = 0
+      Caption = 'ButtonAdd'
+      ImageIndex = 5
+      OnClick = MenuAddClick
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ButtonEmpty: TToolButton
+      Left = 280
+      Hint = 'remove all days but keep period'
+      Top = 0
+      Caption = 'ButtonEmpty'
+      ImageIndex = 8
+      OnClick = ButtonEmptyClick
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton5: TToolButton
+      Left = 308
+      Top = 0
+      Width = 5
+      Caption = 'ToolButton5'
+      Style = tbsDivider
+    end
+    object ButtonUndo: TToolButton
+      Left = 313
+      Hint = 'undo changes'
+      Top = 0
+      Caption = 'ButtonUndo'
+      ImageIndex = 6
+      OnClick = ButtonUndoClick
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ButtonDelete: TToolButton
+      Left = 341
+      Hint = 'delete period'
+      Top = 0
+      Caption = 'ButtonDelete'
+      ImageIndex = 9
+      OnClick = DeleteWeek
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ButtonApply: TToolButton
+      Left = 369
+      Hint = 'apply changes, keep the window focused'
+      Top = 0
+      Caption = 'ButtonApply'
+      ImageIndex = 11
+      OnClick = ApplyButtonClick
+      ParentShowHint = False
+      ShowHint = True
+    end
+    object ToolButton2: TToolButton
+      Left = 252
+      Hint = 'Add days from a chosen date to a chosen date'
+      Top = 0
+      ImageIndex = 10
+      OnClick = AddNumberOfDays
+    end
+    object ComboBox1: TComboBox
+      Left = 57
+      Height = 25
+      Top = 0
+      Width = 162
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -11
+      Font.Name = 'Ubuntu'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ItemHeight = 16
+      OnSelect = ComboBox1Select
+      ParentFont = False
+      TabOrder = 0
+    end
   end
   object PopupMenu1: TPopupMenu
     left = 8

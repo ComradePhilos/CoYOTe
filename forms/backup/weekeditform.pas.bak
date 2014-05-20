@@ -21,6 +21,7 @@ type
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
+		ComboBox1: TComboBox;
 		CreateLabelButton: TBitBtn;
 		GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
@@ -54,6 +55,7 @@ type
 
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
+		procedure ComboBox1Select(Sender: TObject);
 		procedure CreateLabelButtonClick(Sender: TObject);
     procedure ButtonEmptyClick(Sender: TObject);
     procedure ButtonLeftClick(Sender: TObject);
@@ -67,6 +69,7 @@ type
     procedure MenuEditClick(Sender: TObject);
 		procedure MenuOneDayOffClick(Sender: TObject);
 		procedure AddNumberOfDays(Sender: TObject);
+		procedure WeekGridEditingDone(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 
   private
@@ -213,6 +216,24 @@ begin
 	end;
 end;
 
+procedure TForm3.WeekGridEditingDone(Sender: TObject);
+var
+  I: Integer;
+begin
+  try
+    // apply values from grid
+    for I := 0 to FWeek.Days.Count-1 do
+    begin
+      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3,I+1]);
+      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4,I+1]);
+      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3,I+1]);
+      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4,I+1]);
+      FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5,I+1]);
+		end;
+	except
+	end;
+end;
+
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 var
   locInt: Integer;
@@ -322,6 +343,16 @@ begin
   begin
     FWeek.Clear;
     ClearStringGrid(WeekGrid);
+    UpdateWindow;
+  end;
+end;
+
+procedure TForm3.ComboBox1Select(Sender: TObject);
+begin
+  if assigned(FOnNextWeekClick) then
+  begin
+    FOnNextWeekClick(self, ComboBox1.ItemIndex);
+    UpdateTitel;
     UpdateWindow;
   end;
 end;

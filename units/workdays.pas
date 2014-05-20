@@ -6,7 +6,7 @@ unit workdays;
 
 interface
 
-uses Classes, SysUtils, DateUtils, fgl, Grids,
+uses Classes, SysUtils, DateUtils, fgl, Grids, StdCtrls,
      CoyoteDefaults;
 
 type
@@ -89,6 +89,8 @@ TWeekList = specialize TFPGObjectList<TWorkWeek>;
 procedure ClearStringGrid(AGrid: TStringGrid);
 procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList; SelectionIndex: Integer);
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
+procedure WeeksToComboBox(AComboBox: TComboBox; AWeekList: TWeekList);
+
 function timeToText(AHour, AMinute: integer): string;
 function RealDayOfWeek(ADate: TDate): integer;
 function getHour(time: string): integer;
@@ -349,7 +351,10 @@ end;
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 var
   I: Integer;
+  //locGrid: TStringGrid;
 begin
+  //locGrid.Assign(AGrid);
+
   clearStringGrid(AGrid);
   AGrid.RowCount := AWeek.WeekLength+1;
 
@@ -370,6 +375,18 @@ begin
       AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
       AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
 	  end;
+	end;
+end;
+
+
+procedure WeeksToComboBox(AComboBox: TComboBox; AWeekList: TWeekList);
+var
+  I: Integer;
+begin
+  AComboBox.Clear;
+  For I := 0 to AWeekList.Count - 1 do
+  begin
+    AComboBox.Items.Add(AWeekList.Items[I].WeekLabel);
 	end;
 end;
 
@@ -456,4 +473,4 @@ begin
 end;
 
 
-end.
+end.

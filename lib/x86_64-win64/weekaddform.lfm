@@ -1,11 +1,11 @@
 object Form4: TForm4
   Left = 428
   Height = 284
-  Top = 261
+  Top = 221
   Width = 405
   Caption = 'Add a new period of time'
-  ClientHeight = 284
-  ClientWidth = 405
+  ClientHeight = 0
+  ClientWidth = 0
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter

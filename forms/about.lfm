@@ -1,11 +1,11 @@
 object Form2: TForm2
   Left = 492
   Height = 325
-  Top = 154
+  Top = 114
   Width = 650
   Caption = 'About'
-  ClientHeight = 325
-  ClientWidth = 650
+  ClientHeight = 0
+  ClientWidth = 0
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -2043,10 +2043,10 @@ object Form2: TForm2
       ClientHeight = 252
       ClientWidth = 441
       object Memo2: TMemo
-        Left = 8
-        Height = 234
-        Top = 8
-        Width = 420
+        Left = 2
+        Height = 246
+        Top = 4
+        Width = 436
         Anchors = [akTop, akLeft, akRight, akBottom]
         Lines.Strings = (
           'A lightweight tool to keep an eye on your working times easily. '
@@ -2064,18 +2064,19 @@ object Form2: TForm2
           'Clemens Schoke - Icon/Logo'
         )
         ReadOnly = True
+        ScrollBars = ssAutoBoth
         TabOrder = 0
       end
     end
     object TabSheet2: TTabSheet
       Caption = 'Changelog'
       ClientHeight = 252
-      ClientWidth = 445
+      ClientWidth = 441
       object Memo1: TMemo
         Left = 125
         Height = 246
         Top = 4
-        Width = 317
+        Width = 313
         Anchors = [akTop, akLeft, akRight, akBottom]
         Color = clWhite
         Font.CharSet = ANSI_CHARSET
@@ -2086,6 +2087,7 @@ object Form2: TForm2
         Font.Quality = fqDraft
         ParentFont = False
         ReadOnly = True
+        ScrollBars = ssAutoBoth
         TabOrder = 0
       end
       object ListBox1: TListBox
@@ -2108,9 +2110,9 @@ object Form2: TForm2
       end
       object Label3: TLabel
         Left = 4
-        Height = 16
+        Height = 17
         Top = 2
-        Width = 50
+        Width = 51
         Caption = 'Versions'
         ParentColor = False
       end

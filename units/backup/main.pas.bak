@@ -7,11 +7,10 @@
 // Todo:
 // * each person (for each year) will be a file
 // * merge weeks
-// * switch day order in week
+// * switchable day order in week
 // * add switchable advanced view, which will add more colums to the grid
-// !! * change the ListToGrid-function so that temporary changes won't be
-//    deleted after a refresh of the grid
-// * improve the close-Dialog
+// * add progress-visualization for saving/loading
+
 
 // features in future:
 // * Database Support for local or external database servers (e.g. Firebird)
@@ -99,6 +98,7 @@ type
     defDaysPerWeek: integer;      // Standard Value
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
+    FChangesMade: boolean;
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
@@ -185,6 +185,8 @@ begin
   Toolbar1.Color := $00FFDBB7;
   EditWeekForm.ToolBar1.Color := $00FFDBB7;
 
+  FChangesMade := False;
+
   // $00FFDBB7   Standardfarbe
 
 end;
@@ -218,12 +220,16 @@ procedure TForm1.AddWeek(Sender: TObject);
 begin
   AddWeekForm.Visible := True;
   AddWeekForm.Show;
+  FChangesMade := True;
 end;
 
 procedure TForm1.AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: integer);
 begin
   FWeekList.Items[Index].Assign(AWeek);
   updateWindow;
+  WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
+  EditWeekForm.ComboBox1.ItemIndex := FSelectionIndex;
+  FChangesMade := True;
 end;
 
 procedure TForm1.EditButtonClick(Sender: TObject);
@@ -242,6 +248,8 @@ begin
     end;
     EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex], FSelectionIndex);
     EditWeekForm.Visible := True;
+    WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
+    EditWeekForm.ComboBox1.ItemIndex := FSelectionIndex;
   end;
 end;
 
@@ -271,6 +279,7 @@ begin
       FSelectionIndex := -1;
     end;
     updateWindow;
+    FChangesMade := True;
   end;
 end;
 
@@ -282,6 +291,7 @@ begin
     begin
       FWeekList.Clear;
       updateWindow;
+      FChangesMade := True;
     end;
   end;
 end;
@@ -294,6 +304,7 @@ begin
   begin
     FSelectionIndex := FWeekList.Count - 1;
     EditButtonClick(self);
+    FChangesMade := True;
   end;
 end;
 
@@ -302,8 +313,10 @@ begin
   if (Index >= 0) and (Index < FWeekList.Count) then
   begin
     FWeekList.Delete(Index);
+    updateWindow;
+    FChangesMade := True;
   end;
-  updateWindow;
+
 end;
 
 procedure TForm1.MenuAbout(Sender: TObject);
@@ -345,6 +358,7 @@ begin
   finally
     OpenDlg.Free;
     updateWindow;
+    FChangesMade := False;
   end;
 end;
 
@@ -366,12 +380,20 @@ begin
     end;
   finally
     SaveDlg.Free;
+    FChangesMade := False;
   end;
 end;
 
 procedure TForm1.MenuQuit(Sender: TObject);
 begin
-  if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if FChangesMade then
+  begin
+    if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+    begin
+      Application.Terminate;
+    end;
+  end
+  else
   begin
     Application.Terminate;
   end;
@@ -379,14 +401,22 @@ end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-  if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+  if FChangesMade then
   begin
-    CanClose := True;
+    if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+    begin
+      CanClose := True;
+    end
+    else
+    begin
+      CanClose := False;
+    end;
   end
   else
   begin
-    CanClose := False;
+    CanClose := True;
   end;
+
 end;
 
 
