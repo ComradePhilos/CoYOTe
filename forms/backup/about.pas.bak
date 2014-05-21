@@ -17,6 +17,7 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+		Label4: TLabel;
     ListBox1: TListBox;
     Memo1: TMemo;
     Memo2: TMemo;
@@ -29,8 +30,8 @@ type
     TabSheet3: TTabSheet;
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
+		procedure Label4Click(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
-
 
   private
     { private declarations }
@@ -53,6 +54,11 @@ begin
   openDocument('https://github.com/ComradePhilos/CoYOTe');
 end;
 
+procedure TForm2.Label4Click(Sender: TObject);
+begin
+  OpenDocument('http://www.gnu.org/licenses/gpl-3.0.txt');
+end;
+
 procedure TForm2.RadioGroup1Click(Sender: TObject);
 begin
   if (ListBox1.ItemIndex >= 0) then
@@ -71,9 +77,12 @@ begin
     if (length(searchRec.Name) > 2) then
     begin
       ListBox1.Items.Add(searchRec.Name);
+      ListBox1.ItemIndex := ListBox1.Items.Count-1;
+      RadioGroup1Click(self);
     end;
   until FindNext(searchRec) <> 0;
   FindClose(searchRec);
+
   try
     Memo3.Lines.LoadFromFile('../docs/gpl.txt');
   except

@@ -10,6 +10,7 @@
 // * switchable day order in week
 // * add switchable advanced view, which will add more colums to the grid
 // * add progress-visualization for saving/loading  - maybe
+// * make URL-Links able to open on Unix-Systems
 
 
 // features in future:
@@ -474,6 +475,7 @@ begin
         end;
       end;
     end;
+
   end;
   diff := sum - goal;
   if (FWeekList.Count > 0) then

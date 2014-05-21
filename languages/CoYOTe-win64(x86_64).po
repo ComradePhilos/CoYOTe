@@ -263,6 +263,14 @@ msgctxt "TFORM2.LABEL3.CAPTION"
 msgid "Versions"
 msgstr ""
 
+#: tform2.label4.caption
+msgid "General Public License v3"
+msgstr ""
+
+#: tform2.label4.hint
+msgid "http://www.gnu.org/licenses/gpl-3.0.txt"
+msgstr ""
+
 #: tform2.statictext1.caption
 msgid "CoYOt(e) - Control Your OverTimes (easily)  "
 msgstr ""

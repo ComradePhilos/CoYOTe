@@ -1,11 +1,11 @@
 object Form3: TForm3
   Left = 707
   Height = 620
-  Top = 108
+  Top = 68
   Width = 837
   Caption = 'Edit selected period'
-  ClientHeight = 620
-  ClientWidth = 837
+  ClientHeight = 0
+  ClientWidth = 0
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'

@@ -28,6 +28,10 @@ type
       FBirthday: TDate;                 // Date of Birth
       FDateOfEmployment: TDate;         // The Date when the person got employed
     public
+
+      property FirstName: String read FFirstName write FFirstName;
+      property FamilyName: String read FFamilyName write FFamilyName;
+      property ID: String read FIDNumber write FIDNumber;
 	end;
 
 implementation

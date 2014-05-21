@@ -474,6 +474,7 @@ begin
         end;
       end;
     end;
+
   end;
   diff := sum - goal;
   if (FWeekList.Count > 0) then

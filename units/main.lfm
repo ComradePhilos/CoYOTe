@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 395
   Height = 634
-  Top = 352
+  Top = 312
   Width = 1030
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 614
+  ClientWidth = 1030
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -20,12 +20,12 @@ object Form1: TForm1
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
     Left = 753
-    Height = 363
+    Height = 562
     Top = 28
     Width = 273
-    Anchors = [akTop, akRight]
+    Anchors = [akTop, akRight, akBottom]
     Caption = 'Information and Statistics'
-    ClientHeight = 345
+    ClientHeight = 544
     ClientWidth = 269
     Font.CharSet = ANSI_CHARSET
     Font.Height = -12
@@ -38,7 +38,7 @@ object Form1: TForm1
     object Label1: TLabel
       Left = 16
       Height = 16
-      Top = 40
+      Top = 21
       Width = 30
       Caption = 'sum: '
       ParentColor = False
@@ -46,7 +46,7 @@ object Form1: TForm1
     object Label2: TLabel
       Left = 16
       Height = 16
-      Top = 72
+      Top = 47
       Width = 45
       Caption = 'needed:'
       ParentColor = False
@@ -54,7 +54,7 @@ object Form1: TForm1
     object Label3: TLabel
       Left = 16
       Height = 16
-      Top = 104
+      Top = 77
       Width = 28
       Caption = 'diff.:'
       Font.CharSet = ANSI_CHARSET
@@ -69,7 +69,7 @@ object Form1: TForm1
     object Label4: TLabel
       Left = 16
       Height = 16
-      Top = 160
+      Top = 104
       Width = 83
       Caption = 'Earliest begin: '
       ParentColor = False
@@ -77,7 +77,7 @@ object Form1: TForm1
     object Label5: TLabel
       Left = 16
       Height = 16
-      Top = 192
+      Top = 136
       Width = 86
       Caption = 'Latest quitting'
       ParentColor = False
@@ -1486,8 +1486,7 @@ object Form1: TForm1
     end
   end
   object UsersList: TPopupMenu
-    left = 992
-    top = 400
+    left = 808
     object MenuItem21: TMenuItem
       Caption = 'Example User 1'
     end

@@ -1,7 +1,7 @@
 object Form2: TForm2
   Left = 492
   Height = 325
-  Top = 114
+  Top = 74
   Width = 650
   Caption = 'About'
   ClientHeight = 325
@@ -1169,19 +1169,39 @@ object Form2: TForm2
       ClientWidth = 441
       object Memo3: TMemo
         Left = 12
-        Height = 249
-        Top = -1
+        Height = 231
+        Top = 22
         Width = 421
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -13
-        Font.Name = 'Ubuntu Mono'
-        Font.Pitch = fpVariable
+        Font.Name = 'Consolas'
+        Font.Pitch = fpFixed
         Font.Quality = fqDraft
         ParentFont = False
         ScrollBars = ssAutoBoth
         TabOrder = 0
         WordWrap = False
+      end
+      object Label4: TLabel
+        Cursor = crHandPoint
+        Left = 12
+        Height = 16
+        Hint = 'http://www.gnu.org/licenses/gpl-3.0.txt'
+        Top = 1
+        Width = 175
+        Caption = 'General Public License v3'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -15
+        Font.Name = 'Ubuntu Mono'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold, fsUnderline]
+        ParentColor = False
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = Label4Click
       end
     end
   end
