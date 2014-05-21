@@ -54,7 +54,7 @@ msgid "21.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.3.5"
+msgid "0.0.3.6"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -261,10 +261,6 @@ msgstr ""
 #: tform2.label3.caption
 msgctxt "TFORM2.LABEL3.CAPTION"
 msgid "Versions"
-msgstr ""
-
-#: tform2.label4.caption
-msgid "Coming soon"
 msgstr ""
 
 #: tform2.statictext1.caption

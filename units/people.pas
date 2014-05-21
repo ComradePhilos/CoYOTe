@@ -27,6 +27,7 @@ type
       FSex: String;                     // Male / Female ... won't exclude other possibilities
       FBirthday: TDate;                 // Date of Birth
       FDateOfEmployment: TDate;         // The Date when the person got employed
+    public
 	end;
 
 implementation

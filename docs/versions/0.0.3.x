@@ -15,3 +15,5 @@
 * improved the refreshing of the grid in week editing so the values don't get lost
 
 * changed the icon/logo temporarly to a blue-ish color
+
+* added GPL(General Public License) Version 3 to the project and the about-form

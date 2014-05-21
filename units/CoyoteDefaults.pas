@@ -10,7 +10,7 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';    // Official Name shown to the user
-  VersionNr = '0.0.3.5';         // Programme-Version
+  VersionNr = '0.0.3.6';         // Programme-Version
   VersionDate = '21.05.2014';    // Build-Date
   LazarusVersion = '1.2.2';      // Version of the Lazarus IDE the programme was built with
 

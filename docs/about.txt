@@ -1,0 +1,13 @@
+A lightweight tool to keep an eye on your working times easily. 
+This programme helps you to find out how many hours of 
+work you collected in a specific period of time.
+
+Contributors
+------------------------------------------
+
+Philip Märksch - Programming, Github, Project-Initiator
+(comradephilos@googlemail.com)
+
+Lukas Franke - Programming, Github
+
+Clemens Schoke - Icon/Logo

@@ -1103,26 +1103,11 @@ object Form2: TForm2
       ClientHeight = 252
       ClientWidth = 441
       object Memo2: TMemo
-        Left = 2
+        Left = 0
         Height = 246
         Top = 4
         Width = 436
         Anchors = [akTop, akLeft, akRight, akBottom]
-        Lines.Strings = (
-          'A lightweight tool to keep an eye on your working times easily. '
-          'This programme helps you to find out how many hours of '
-          'work you collected in a specific period of time.'
-          ''
-          'Contributors'
-          '------------------------------------------'
-          ''
-          'Philip Märksch - Programming, Github, Project-Initiator'
-          '(comradephilos@googlemail.com)'
-          ''
-          'Lukas Franke - Programming, Github'
-          ''
-          'Clemens Schoke - Icon/Logo'
-        )
         ReadOnly = True
         ScrollBars = ssAutoBoth
         TabOrder = 0
@@ -1181,14 +1166,22 @@ object Form2: TForm2
       AnchorSideRight.Side = asrBottom
       Caption = '  License  '
       ClientHeight = 252
-      ClientWidth = 445
-      object Label4: TLabel
-        Left = 152
-        Height = 15
-        Top = 88
-        Width = 72
-        Caption = 'Coming soon'
-        ParentColor = False
+      ClientWidth = 441
+      object Memo3: TMemo
+        Left = 12
+        Height = 249
+        Top = -1
+        Width = 421
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Ubuntu Mono'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        WordWrap = False
       end
     end
   end

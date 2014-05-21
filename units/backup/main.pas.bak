@@ -9,7 +9,7 @@
 // * merge weeks
 // * switchable day order in week
 // * add switchable advanced view, which will add more colums to the grid
-// * add progress-visualization for saving/loading
+// * add progress-visualization for saving/loading  - maybe
 
 
 // features in future:
