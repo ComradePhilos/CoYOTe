@@ -1,0 +1,27 @@
+{
+  A unit that will contain all classes and functions that relate to people
+  and groups of people.
+}
+
+unit people;
+
+interface
+
+uses Classes, fgl;
+
+
+type
+  TPerson = class
+    private
+      FFirstName: String;               // First Name (can be multiple names) e.g. Klaus Dieter
+      FFamilyName: String;              // Family Name
+      FIDNumber: String;                // ID Number of the person in a company/team etc...
+      // FRole: String;                 // What position/role does the person have ?
+      FAge: Integer;                    // Age in years
+      FBirthday: TDate;                 // Date of Birth
+      FDateOfEmployment: TDate;         // The Date when the person got employed
+	end;
+
+implementation
+
+end.

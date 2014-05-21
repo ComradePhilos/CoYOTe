@@ -67,7 +67,7 @@ object Form2: TForm2
       Cursor = crHandPoint
       Left = 1
       Height = 169
-      Hint = 'Visit the CoYOTe-Page on Github.com!'
+      Hint = 'Visit website of the project on Github!'
       Top = 0
       Width = 169
       OnClick = Image1Click

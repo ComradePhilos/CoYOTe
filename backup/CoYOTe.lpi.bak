@@ -42,7 +42,7 @@
         <PackageName Value="LCL"/>
       </Item3>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="9">
       <Unit0>
         <Filename Value="CoYOTe.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -96,13 +96,10 @@
         <UnitName Value="CoyoteDefaults"/>
       </Unit7>
       <Unit8>
-        <Filename Value="forms\weekaddform.lfm"/>
+        <Filename Value="units\people.pas"/>
         <IsPartOfProject Value="True"/>
+        <UnitName Value="people"/>
       </Unit8>
-      <Unit9>
-        <Filename Value="forms\weekaddform.lrt"/>
-        <IsPartOfProject Value="True"/>
-      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

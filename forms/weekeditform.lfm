@@ -609,7 +609,7 @@ object Form3: TForm3
     end
     object ComboBox1: TComboBox
       Left = 57
-      Height = 25
+      Height = 24
       Top = 0
       Width = 162
       Font.CharSet = ANSI_CHARSET

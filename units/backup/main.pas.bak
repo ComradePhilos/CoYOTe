@@ -186,9 +186,6 @@ begin
   Toolbar1.Color := $00FFDBB7;
   EditWeekForm.ToolBar1.Color := $00FFDBB7;
 
-  Progressbar1.Parent := Statusbar1;
-  Progressbar1.Left := 0;
-  Progressbar1.Top := 0;
   FChangesMade := False;
 
   // $00FFDBB7   Standardfarbe
