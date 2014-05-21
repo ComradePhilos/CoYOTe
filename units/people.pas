@@ -2,18 +2,24 @@
   A unit that will contain all classes and functions that relate to people
   and groups of people. These are the "users" that are selectable in the main
   programme. Each person will have its own tables.
+
+  Todo:
 }
 
 unit people;
 
 interface
 
-uses Classes, fgl;
+uses Classes, fgl, workdays;
 
 
 type
+
+  TPersonnelTimeList = specialize TFPGObjectList<TWeekList>;
+
   TPerson = class
     private
+      // personal information
       FFirstName: String;               // First Name (can be multiple names) e.g. Klaus Dieter
       FFamilyName: String;              // Family Name
       FIDNumber: String;                // ID Number of the person in a company/team etc...
@@ -27,7 +33,13 @@ type
       FSex: String;                     // Male / Female ... won't exclude other possibilities
       FBirthday: TDate;                 // Date of Birth
       FDateOfEmployment: TDate;         // The Date when the person got employed
+
+      // essential programme data
+      FTimeData: TPersonnelTimeList;
     public
+
+      constructor Create;
+      destructor Destroy;
 
       property FirstName: String read FFirstName write FFirstName;
       property FamilyName: String read FFamilyName write FFamilyName;
@@ -35,5 +47,17 @@ type
 	end;
 
 implementation
+
+
+
+constructor TPerson.Create;
+begin
+  FTimeData := TPersonnelTimeList.Create;
+end;
+
+destructor TPerson.Destroy;
+begin
+  FTimeData.Free;
+end;
 
 end.
