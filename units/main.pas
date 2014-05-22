@@ -1,21 +1,21 @@
 {
-*****************************************************************************
-<one line to give the program's name and a brief idea of what it does.>     *
-Copyright (C) <year>  <name of author>                                      *
-                                                                            *
-This program is free software: you can redistribute it and/or modify        *
-it under the terms of the GNU General Public License as published by        *
-the Free Software Foundation, either version 3 of the License, or           *
-(at your option) any later version.                                         *
-                                                                            *
-This program is distributed in the hope that it will be useful,             *
-but WITHOUT ANY WARRANTY; without even the implied warranty of              *
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the               *
-GNU General Public License for more details.                                *
-                                                                            *
-You should have received a copy of the GNU General Public License           *
-along with this program.  If not, see <http://www.gnu.org/licenses/>.       *
-*****************************************************************************
+***************************************************************************
+  CoYOT(e) - the simple and lightweight time tracking tool                *
+  Copyright (C) <2014>  <Philip Märksch>                                  *
+                                                                          *
+  This program is free software: you can redistribute it and/or modify    *
+  it under the terms of the GNU General Public License as published by    *
+  the Free Software Foundation, either version 3 of the License, or       *
+  (at your option) any later version.                                     *
+                                                                          *
+  This program is distributed in the hope that it will be useful,         *
+  but WITHOUT ANY WARRANTY; without even the implied warranty of          *
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           *
+  GNU General Public License for more details.                            *
+                                                                          *
+  You should have received a copy of the GNU General Public License       *
+  along with this program.  If not, see http://www.gnu.org/licenses/      *
+***************************************************************************
 }
 
 // Todo:
@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.       *
 // * add switchable advanced view, which will add more colums to the grid
 // * add progress-visualization for saving/loading  - maybe
 // * make URL-Links able to open on Unix-Systems
+// * Show number of vacation days in "statistics"  as hours and days
 
 
 // features in future:
@@ -122,6 +123,8 @@ type
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
+
+    FCurrentUser: Integer;        // ID of the currently selected "User"/Person
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);

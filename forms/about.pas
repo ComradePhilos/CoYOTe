@@ -22,12 +22,14 @@ type
     Memo1: TMemo;
     Memo2: TMemo;
     Memo3: TMemo;
+		Memo4: TMemo;
     PageControl1: TPageControl;
     Panel1: TPanel;
     StaticText1: TStaticText;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
+		Contributors: TTabSheet;
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
 		procedure Label4Click(Sender: TObject);
@@ -90,6 +92,7 @@ begin
   end;
 
   AboutText := TStringList.Create;
+  // following seems not to work on Linux
   try
     try
       AboutText.LoadFromFile('../docs/about.txt');

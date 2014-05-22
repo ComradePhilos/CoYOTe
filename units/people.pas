@@ -3,6 +3,9 @@
   and groups of people. These are the "users" that are selectable in the main
   programme. Each person will have its own tables.
 
+  NOTE that these TPersons are not USERS! TPerson just holds Data of a person
+  you want to track working time off!
+
   Todo:
 }
 
@@ -18,11 +21,15 @@ type
   TPersonnelTimeList = specialize TFPGObjectList<TWeekList>;
 
   TPerson = class
+
+      PeopleCount: Integer;
+
     private
       // personal information
       FFirstName: String;               // First Name (can be multiple names) e.g. Klaus Dieter
       FFamilyName: String;              // Family Name
       FIDNumber: String;                // ID Number of the person in a company/team etc...
+      FInternalID: Integer;             // programme-internal ID number that is unique and automatically generated
       FResidence: String;               // Where does the person live
       FAdress: String;                  // Adress-Information e.g. street
       FPhoneNumber1: String;            // Phone Numbers
@@ -35,7 +42,7 @@ type
       FDateOfEmployment: TDate;         // The Date when the person got employed
 
       // essential programme data
-      FTimeData: TPersonnelTimeList;
+      FTimeData: TPersonnelTimeList;    // A List of TWeekLists
     public
 
       constructor Create;
@@ -44,6 +51,7 @@ type
       property FirstName: String read FFirstName write FFirstName;
       property FamilyName: String read FFamilyName write FFamilyName;
       property ID: String read FIDNumber write FIDNumber;
+      property TimeData: TPersonnelTimeList read FTimeData write FTimeData;
 	end;
 
 implementation

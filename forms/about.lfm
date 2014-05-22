@@ -1,11 +1,11 @@
 object Form2: TForm2
-  Left = 492
-  Height = 325
-  Top = 74
-  Width = 650
+  Left = 557
+  Height = 402
+  Top = 186
+  Width = 756
   Caption = 'About'
-  ClientHeight = 325
-  ClientWidth = 650
+  ClientHeight = 402
+  ClientWidth = 756
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -36,7 +36,7 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 8
     Height = 17
-    Top = 227
+    Top = 283
     Width = 51
     Anchors = [akLeft]
     Caption = 'Version :'
@@ -45,7 +45,7 @@ object Form2: TForm2
   object Label2: TLabel
     Left = 8
     Height = 17
-    Top = 274
+    Top = 341
     Width = 68
     Anchors = [akLeft]
     Caption = 'Build-Date:'
@@ -1091,12 +1091,12 @@ object Form2: TForm2
   object PageControl1: TPageControl
     AnchorSideTop.Side = asrBottom
     Left = 193
-    Height = 282
+    Height = 359
     Top = 33
-    Width = 449
-    ActivePage = TabSheet1
+    Width = 555
+    ActivePage = TabSheet3
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 0
+    TabIndex = 2
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = '  About  '
@@ -1108,9 +1108,83 @@ object Form2: TForm2
         Top = 4
         Width = 436
         Anchors = [akTop, akLeft, akRight, akBottom]
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -12
+        Font.Name = 'Ubuntu Light'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        ParentFont = False
         ReadOnly = True
         ScrollBars = ssAutoBoth
         TabOrder = 0
+      end
+    end
+    object Contributors: TTabSheet
+      Caption = 'Contributors'
+      ClientHeight = 252
+      ClientWidth = 441
+      object Memo4: TMemo
+        Left = 0
+        Height = 246
+        Top = 4
+        Width = 436
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Lines.Strings = (
+          'Contributors'
+          '------------------------------------------'
+          ''
+          'Philip Märksch - Programming, Github, Project-Initiator'
+          '(comradephilos@googlemail.com)'
+          ''
+          'Lukas Franke - Programming, Github'
+          ''
+          'Clemens Schoke - Icon/Logo'
+        )
+        ReadOnly = True
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+      end
+    end
+    object TabSheet3: TTabSheet
+      AnchorSideRight.Side = asrBottom
+      Caption = '  Licence  '
+      ClientHeight = 329
+      ClientWidth = 547
+      object Memo3: TMemo
+        Left = 12
+        Height = 308
+        Top = 22
+        Width = 527
+        Anchors = [akTop, akLeft, akRight, akBottom]
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -13
+        Font.Name = 'Consolas'
+        Font.Pitch = fpFixed
+        Font.Quality = fqDraft
+        ParentFont = False
+        ScrollBars = ssAutoBoth
+        TabOrder = 0
+        WordWrap = False
+      end
+      object Label4: TLabel
+        Cursor = crHandPoint
+        Left = 12
+        Height = 16
+        Hint = 'http://www.gnu.org/licenses/gpl-3.0.txt'
+        Top = 1
+        Width = 175
+        Caption = 'General Public License v3'
+        Font.CharSet = ANSI_CHARSET
+        Font.Height = -15
+        Font.Name = 'Ubuntu Mono'
+        Font.Pitch = fpVariable
+        Font.Quality = fqDraft
+        Font.Style = [fsBold, fsUnderline]
+        ParentColor = False
+        ParentFont = False
+        ParentShowHint = False
+        ShowHint = True
+        OnClick = Label4Click
       end
     end
     object TabSheet2: TTabSheet
@@ -1160,48 +1234,6 @@ object Form2: TForm2
         Width = 51
         Caption = 'Versions'
         ParentColor = False
-      end
-    end
-    object TabSheet3: TTabSheet
-      AnchorSideRight.Side = asrBottom
-      Caption = '  License  '
-      ClientHeight = 252
-      ClientWidth = 441
-      object Memo3: TMemo
-        Left = 12
-        Height = 231
-        Top = 22
-        Width = 421
-        Anchors = [akTop, akLeft, akRight, akBottom]
-        Font.CharSet = ANSI_CHARSET
-        Font.Height = -13
-        Font.Name = 'Consolas'
-        Font.Pitch = fpFixed
-        Font.Quality = fqDraft
-        ParentFont = False
-        ScrollBars = ssAutoBoth
-        TabOrder = 0
-        WordWrap = False
-      end
-      object Label4: TLabel
-        Cursor = crHandPoint
-        Left = 12
-        Height = 16
-        Hint = 'http://www.gnu.org/licenses/gpl-3.0.txt'
-        Top = 1
-        Width = 175
-        Caption = 'General Public License v3'
-        Font.CharSet = ANSI_CHARSET
-        Font.Height = -15
-        Font.Name = 'Ubuntu Mono'
-        Font.Pitch = fpVariable
-        Font.Quality = fqDraft
-        Font.Style = [fsBold, fsUnderline]
-        ParentColor = False
-        ParentFont = False
-        ParentShowHint = False
-        ShowHint = True
-        OnClick = Label4Click
       end
     end
   end
