@@ -67,8 +67,9 @@ type
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
+		MenuSaveAs: TMenuItem;
     MenuLoad: TMenuItem;
-    MenuSave: TMenuItem;
+    MenuQuickSave: TMenuItem;
     MenuItem19: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem20: TMenuItem;
@@ -79,7 +80,7 @@ type
     MenuItem25: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
-    MenuItem5: TMenuItem;
+    MenuQuit: TMenuItem;
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     PopupMenu1: TPopupMenu;
@@ -92,7 +93,6 @@ type
     StringGrid1: TStringGrid;
     ToolBar1: TToolBar;
     AddWeekButton: TToolButton;
-    RemoveWeekButton: TToolButton;
     EditWeekButton: TToolButton;
     ToolButton4: TToolButton;
 
@@ -103,11 +103,12 @@ type
     procedure MenuAbout(Sender: TObject);
     procedure MenuItem19Click(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
+		procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure MenuQuit(Sender: TObject);
+    procedure MenuQuitClick(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 
   private
@@ -126,6 +127,7 @@ type
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
 
     FCurrentUser: Integer;        // ID of the currently selected "User"/Person
+    FCurrentFilePath: String;     // If known - Name of the currently opened File
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -184,6 +186,7 @@ begin
   defHoursPerDay := 8;
   defDaysPerWeek := 5;
   FSelectionIndex := -1;
+  FCurrentFilePath := '';
 
   // Create Instances
   FWeekList := TWeekList.Create;
@@ -210,6 +213,7 @@ begin
   // $00FFDBB7   Standardfarbe
 
 end;
+
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
@@ -298,9 +302,9 @@ begin
     begin
       FWeekList.Delete(FSelectionIndex);
       FSelectionIndex := -1;
+      FChangesMade := True;
     end;
     updateWindow;
-    FChangesMade := True;
   end;
 end;
 
@@ -376,11 +380,23 @@ begin
       loadFromFile(OpenDlg.FileName, FWeekList);
     end;
     StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
+    FCurrentFilePath := OpenDlg.FileName;
   finally
     OpenDlg.Free;
     updateWindow;
     FChangesMade := False;
   end;
+end;
+
+procedure TForm1.MenuQuickSaveClick(Sender: TObject);
+begin
+  if (FCurrentFilePath <> '') then
+  begin
+    SaveToFile(FCurrentFilePath, FWeekList);
+    StatusBar1.Panels[0].Text := txtFileSaved;
+    FChangesMade := False;
+    EnableButtons;
+	end;
 end;
 
 procedure TForm1.MenuSaveClick(Sender: TObject);
@@ -398,6 +414,7 @@ begin
     begin
       SaveToFile(SaveDlg.FileName, FWeekList);
       StatusBar1.Panels[0].Text := txtFileSaved;
+      FCurrentFilePath := SaveDlg.FileName;
     end;
   finally
     SaveDlg.Free;
@@ -405,7 +422,7 @@ begin
   end;
 end;
 
-procedure TForm1.MenuQuit(Sender: TObject);
+procedure TForm1.MenuQuitClick(Sender: TObject);
 begin
   if FChangesMade then
   begin
@@ -528,7 +545,7 @@ begin
     Toolbar1.Buttons[1].Enabled := True;
     Toolbar1.Buttons[2].Enabled := True;
     ToolButton1.Enabled := True;
-    RemoveWeekButton.Enabled := True;
+    //RemoveWeekButton.Enabled := True;
     EditWeekButton.Enabled := True;
   end
   else
@@ -537,9 +554,13 @@ begin
     Toolbar1.Buttons[2].Enabled := False;
     ToolButton1.Enabled := False;
     EditWeekButton.Enabled := False;
-    RemoveWeekButton.Enabled := False;
+    //RemoveWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
   end;
+
+  MenuQuickSave.Enabled := FChangesMade;
+  ToolButton1.Enabled := FChangesMade;
+
 end;
 
 end.

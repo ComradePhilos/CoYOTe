@@ -21,3 +21,5 @@
 * added a new unit (people) with classes and functions to make it possible to manage persons
 
 * added function to count vacation days
+
+* improved Saving behavior

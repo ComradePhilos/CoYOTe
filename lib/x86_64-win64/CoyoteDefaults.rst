@@ -35,9 +35,9 @@ coyotedefaults.txtclearmsg='This will clear the current week and make it '+
 'empty but will NOT delete the week! Do you wish to Continue?'
 
 
-# hash value = 176234585
-coyotedefaults.txtquitmsg='Do you really want to quit? (Be sure you saved'+
-' your changes!)'
+# hash value = 244286321
+coyotedefaults.txtquitmsg='Do you really want to quit? You did not save y'+
+'our changes yet!'
 
 
 # hash value = 21099631

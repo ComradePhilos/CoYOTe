@@ -38,7 +38,7 @@ msgid "File saved..."
 msgstr ""
 
 #: coyotedefaults.txtquitmsg
-msgid "Do you really want to quit? (Be sure you saved your changes!)"
+msgid "Do you really want to quit? You did not save your changes yet!"
 msgstr ""
 
 #: coyotedefaults.txtquitprogramme
@@ -163,10 +163,6 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
-#: tform1.menuitem5.caption
-msgid "Exit"
-msgstr ""
-
 #: tform1.menuitem8.caption
 msgctxt "TFORM1.MENUITEM8.CAPTION"
 msgid "About"
@@ -180,13 +176,19 @@ msgstr ""
 msgid "Load"
 msgstr ""
 
-#: tform1.menusave.caption
-msgctxt "TFORM1.MENUSAVE.CAPTION"
+#: tform1.menuquicksave.caption
+msgctxt "TFORM1.MENUQUICKSAVE.CAPTION"
 msgid "Save"
 msgstr ""
 
-#: tform1.removeweekbutton.caption
-msgid "RemoveWeekButton"
+#: tform1.menuquit.caption
+msgctxt "TFORM1.MENUQUIT.CAPTION"
+msgid "Exit"
+msgstr ""
+
+#: tform1.menusaveas.caption
+msgctxt "TFORM1.MENUSAVEAS.CAPTION"
+msgid "Save as..."
 msgstr ""
 
 #: tform1.statusbar1.panels[0].text
