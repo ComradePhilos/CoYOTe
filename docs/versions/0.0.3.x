@@ -19,3 +19,5 @@
 * added GPL(General Public License) Version 3 to the project and the about-form
 
 * added a new unit (people) with classes and functions to make it possible to manage persons
+
+* added function to count vacation days

@@ -60,6 +60,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
+		Label6: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem10: TMenuItem;
@@ -447,6 +448,7 @@ var
   sum: double;
   goal: double;
   diff: double;
+  vacationdays: Double;
   earliestHour, earliestMin: integer;
   latestHour, latestMin: integer;
   earlyDate, lateDate: TDate;
@@ -454,12 +456,14 @@ begin
   sum := 0;
   goal := 0;
   diff := 0;
+  vacationdays := 0;
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
   begin
     sum := sum + FWeekList.Items[I].getSum;
     goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
+    vacationdays := vacationdays + FWeekList.Items[I].getAmountOfVacation;
 
     // earliest begin and latest leave
     for d := 0 to FWeekList.Items[I].Days.Count - 1 do
@@ -504,6 +508,7 @@ begin
   Label1.Caption := 'Sum: ' + FormatFloat('0.00', sum) + ' h';
   Label2.Caption := 'Goal: ' + FormatFloat('0.00', goal) + ' h';
   Label3.Caption := 'Diff.: ' + FormatFloat('0.00', diff) + ' h';
+  Label6.Caption := 'Vacation taken: ' + FormatFloat('0.0', vacationdays) + ' days';
 
   if (earlyDate <> 0) then
   begin

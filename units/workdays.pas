@@ -69,6 +69,7 @@ type
     procedure Clear;
     procedure assign(AWeek: TWorkWeek);      // Assign the values of AWeek to this instance
     function getSum: Double;                 // calculate the sum of working time of the week
+    function getAmountOfVacation: Double;    // Returns the number of days a person has taken off
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -274,6 +275,21 @@ begin
   FIntendedTimePerDay := 8;
 end;
 
+function TWorkWeek.getAmountOfVacation: Double;
+var
+  I: Integer;
+  sum: Double;
+begin
+  sum := 0;
+  for I := 0 to FDays.Count - 1 do
+  begin
+    if (FIntendedTimePerDay > 0) then
+    begin
+      sum := sum + (FDays.Items[I].TimeOff/FIntendedTimePerDay);
+		end;
+	end;
+  Result := sum;
+end;
 
 // ############################################### External Functions ################################################
 function isTimeEarliest(relevantHour, relevantMinute, earliestHour, earliestMinute: Integer): Boolean;

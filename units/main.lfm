@@ -54,7 +54,7 @@ object Form1: TForm1
     object Label3: TLabel
       Left = 16
       Height = 16
-      Top = 77
+      Top = 75
       Width = 28
       Caption = 'diff.:'
       Font.CharSet = ANSI_CHARSET
@@ -69,7 +69,7 @@ object Form1: TForm1
     object Label4: TLabel
       Left = 16
       Height = 16
-      Top = 104
+      Top = 118
       Width = 83
       Caption = 'Earliest begin: '
       ParentColor = False
@@ -77,9 +77,17 @@ object Form1: TForm1
     object Label5: TLabel
       Left = 16
       Height = 16
-      Top = 136
+      Top = 141
       Width = 86
       Caption = 'Latest quitting'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 16
+      Height = 16
+      Top = 164
+      Width = 85
+      Caption = 'vacation taken:'
       ParentColor = False
     end
   end

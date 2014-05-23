@@ -10,8 +10,8 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';    // Official Name shown to the user
-  VersionNr = '0.0.3.7';         // Programme-Version
-  VersionDate = '22.05.2014';    // Build-Date
+  VersionNr = '0.0.3.8';         // Programme-Version
+  VersionDate = '23.05.2014';    // Build-Date
   LazarusVersion = '1.2.2';      // Version of the Lazarus IDE the programme was built with
 
   // Messages / Errors
@@ -19,7 +19,7 @@ ResourceString
   txtDeleteMsg = 'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
   txtRemoveMsg = 'Do you really want to delete the selected day? This will delete all data related to it!';
   txtClearMsg = 'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
-  txtQuitMsg = 'Do you really want to quit? (Be sure you saved your changes!)';
+  txtQuitMsg = 'Do you really want to quit? You did not save your changes yet!';
 
   txtCaptionDelete = 'Really delete?';
   txtQuitProgramme = 'Quit Programme';
