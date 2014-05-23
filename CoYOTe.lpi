@@ -48,7 +48,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="9">
+    <Units Count="10">
       <Unit0>
         <Filename Value="CoYOTe.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -106,6 +106,14 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="people"/>
       </Unit8>
+      <Unit9>
+        <Filename Value="forms\personeditform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form5"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PersonEditForm"/>
+      </Unit9>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

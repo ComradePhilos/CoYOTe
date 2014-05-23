@@ -1,0 +1,176 @@
+object Form5: TForm5
+  Left = 375
+  Height = 333
+  Top = 171
+  Width = 466
+  Caption = 'Edit Person'
+  ClientHeight = 333
+  ClientWidth = 466
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Ubuntu'
+  Font.Pitch = fpVariable
+  Font.Quality = fqDraft
+  LCLVersion = '1.2.2.0'
+  object LabeledEdit1: TLabeledEdit
+    Left = 16
+    Height = 25
+    Top = 55
+    Width = 287
+    EditLabel.AnchorSideLeft.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit1
+    EditLabel.Left = 16
+    EditLabel.Height = 17
+    EditLabel.Top = 35
+    EditLabel.Width = 287
+    EditLabel.Caption = 'First name'
+    EditLabel.ParentColor = False
+    TabOrder = 0
+  end
+  object LabeledEdit2: TLabeledEdit
+    Left = 16
+    Height = 25
+    Top = 104
+    Width = 287
+    EditLabel.AnchorSideLeft.Control = LabeledEdit2
+    EditLabel.AnchorSideRight.Control = LabeledEdit2
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit2
+    EditLabel.Left = 16
+    EditLabel.Height = 17
+    EditLabel.Top = 84
+    EditLabel.Width = 287
+    EditLabel.Caption = 'Family Name'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+  end
+  object Panel1: TPanel
+    Left = 320
+    Height = 128
+    Top = 8
+    Width = 138
+    BevelOuter = bvNone
+    BevelWidth = 2
+    BorderWidth = 1
+    BorderStyle = bsSingle
+    Caption = 'Panel1'
+    ClientHeight = 124
+    ClientWidth = 134
+    TabOrder = 2
+    object Image1: TImage
+      Left = -1
+      Height = 129
+      Top = -4
+      Width = 138
+    end
+  end
+  object LabeledEdit3: TLabeledEdit
+    Left = 16
+    Height = 25
+    Top = 161
+    Width = 208
+    EditLabel.AnchorSideLeft.Control = LabeledEdit3
+    EditLabel.AnchorSideRight.Control = LabeledEdit3
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit3
+    EditLabel.Left = 16
+    EditLabel.Height = 17
+    EditLabel.Top = 141
+    EditLabel.Width = 208
+    EditLabel.Caption = 'Phone Number'
+    EditLabel.ParentColor = False
+    TabOrder = 3
+  end
+  object StaticText1: TStaticText
+    Left = 16
+    Height = 18
+    Top = 8
+    Width = 142
+    AutoSize = True
+    Caption = 'FamilyName, FirstName'
+    TabOrder = 4
+  end
+  object LabeledEdit4: TLabeledEdit
+    Left = 250
+    Height = 25
+    Top = 161
+    Width = 208
+    EditLabel.AnchorSideLeft.Control = LabeledEdit4
+    EditLabel.AnchorSideRight.Control = LabeledEdit4
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit4
+    EditLabel.Left = 250
+    EditLabel.Height = 17
+    EditLabel.Top = 141
+    EditLabel.Width = 208
+    EditLabel.Caption = 'Phone Number (2)'
+    EditLabel.ParentColor = False
+    TabOrder = 5
+  end
+  object LabeledEdit5: TLabeledEdit
+    Left = 16
+    Height = 25
+    Top = 216
+    Width = 208
+    EditLabel.AnchorSideLeft.Control = LabeledEdit5
+    EditLabel.AnchorSideRight.Control = LabeledEdit5
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit5
+    EditLabel.Left = 16
+    EditLabel.Height = 17
+    EditLabel.Top = 196
+    EditLabel.Width = 208
+    EditLabel.Caption = 'E-Mail'
+    EditLabel.ParentColor = False
+    TabOrder = 6
+  end
+  object BitBtn1: TBitBtn
+    Left = 226
+    Height = 25
+    Hint = 'Compose E-Mail'
+    Top = 216
+    Width = 31
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000012527
+      270E5457582C53565733515455334F5252334D5050334B4E4E33494C4C33474A
+      4A33454848334346463341444433414344323335352000000006000000025D60
+      6135BDBFC0CDCECFD0E4CACCCCE3C8CACAE3C7C8C8E3C5C6C7E3C4C5C6E3C3C4
+      C4E3C2C3C4E3C1C2C3E3C1C2C2E3BDBEBEE68789898D00000010BBC0C200979C
+      9D28D9DBDBE4E9EAE9FFEBEBEBFFE8E8E8FFE5E5E5FFE5E4E4FFE4E4E4FFE4E4
+      E4FFE4E4E4FFE4E4E4FFDFDFDFFFDDDEDDFFABADAE9200000001A3A7A900A3A8
+      A925DCDDDEE3E9E9E9FFE1E3E1FFE4E6E4FFEAEAEAFFE7E6E7FFE5E5E5FFE5E4
+      E5FFE2E2E2FFD5D7D5FFD9DBD9FFDFDFDFFFAEAFB08EFFFFFF00A3A7A900A3A8
+      A925DEDFDFE3EDEDEDFFEAEAEAFFD7DAD7FFD0D4D0FFDFE1DFFFDCDEDCFFD8D9
+      D8FFCACDCAFFD7D9D7FFE4E4E4FFE0E0E0FFADAFAF8EFFFFFF00A3A8A900A3A8
+      A925DFE0E1E3F0EFEFFFEBEBEBFFCDD0CDFFC5C7C5FFC8CAC8FFC8CAC8FFC7C9
+      C7FFC7C8C7FFDBDBDBFFE7E7E7FFE2E2E2FFADAFB08DFFFFFF00A3A8AA00A3A8
+      AA25E1E2E2E3F1F1F1FFDDDFDDFFDDDFDDFFE7E7E7FFE6E6E6FFE6E6E6FFE5E5
+      E5FFE3E3E3FFDAD9D9FFE4E3E3FFE5E4E4FFAEB0B08DFFFFFF00A4A8AA00A3A8
+      AA25E2E3E4E3E6E7E6FFE2E3E2FFF3F3F3FFF3F3F3FFF2F2F2FFF0F0F0FFEEEE
+      EEFFEAEDEDFFDBEAEAFFD0E2E3FFDBE4E5FFAEB0B18CFFFFFF00A3A8AA00A5AA
+      AB25DDDEDEE3DADBDAFFD4D4D4FFD6D6D6FFDEDEDEFFE8E8E8FFF0F0F0FFEAF4
+      F4FFBDF3F6FF91F3F7FF7FEBF0FF91E1E5FF86BDC092000000019FA4A5009AA0
+      A118D2D4D5CCE1E1E1FFDCDCDCFFD8D8D8FFD3D3D3FFD0CFCFFFCDD0D0FFA9DD
+      E0FF6BEEF5FF53F4FDFF50F0F8FF4EE8F0FF3DD9E0A100F1FC1A898F9100FFFF
+      FF00B6B9BB52DBDCDDEBE4E4E4FFDFDFDFFFDCDCDCFFDAD9D9FFCBD7D7FF82DF
+      E3FF4BEDF5FF7EF6FCFF9DF8FCFF59F2FAF71CF1FCA90BF4FF3E000000008086
+      890025313502BABEBF6ADFE0E0F1E6E6E6FFE2E2E2FFDFDEDEFFCEDDDEFF80E5
+      EAFF4EF0F8FF96F8FDFFBAFAFDFC64F7FEEE1DF5FFAF0CF3FF46000000000000
+      0000898E9000626B6D05BCBFC073E0E1E1F2E9E9E9FFE5E5E5FFDCE2E2FF9DE6
+      E9FF58EEF5FF56F2FAF960F6FEED37F6FFD715F4FF8B0AF3FF2B000000000000
+      000000000000878C8E00696F7106B8BBBC6BDBDCDDE7E4E4E5FCE1E2E2FBC6E0
+      E2FA71DCE1D421ECF6A91BF4FFA915F4FF880DF3FF4105F3FF09000000000000
+      0000000000000000000073797B005F666804A4A8A941B2B5B669B1B3B469A8AE
+      AE6358BABF3306F4FF340BF3FF3F09F3FF2805F3FF090DF3FF00
+    }
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+  end
+end

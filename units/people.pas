@@ -13,7 +13,7 @@ unit people;
 
 interface
 
-uses Classes, fgl, workdays;
+uses Classes, fgl, ExtCtrls, workdays;
 
 
 type
@@ -35,10 +35,13 @@ type
       FPhoneNumber1: String;            // Phone Numbers
       FPhoneNumber2: String;
       FEMail: String;                   // Email-Adress
+
       // FRole: String;                 // What position/role does the person have ?
+      FPhoto: TImage;
       FAge: Integer;                    // Age in years
       FSex: String;                     // Male / Female ... won't exclude other possibilities
       FBirthday: TDate;                 // Date of Birth
+      FDaysOfVacationPerYear: Double;   // May be set either globally or for each person uniquely
       FDateOfEmployment: TDate;         // The Date when the person got employed
 
       // essential programme data

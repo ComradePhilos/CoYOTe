@@ -14,6 +14,7 @@ type
 
   TForm2 = class(TForm)
     Image1: TImage;
+		Image2: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;

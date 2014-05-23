@@ -19,13 +19,12 @@
 }
 
 // Todo:
-// * each person (for each year) will be a file
-// * merge weeks
+// * mergable weeks
 // * switchable day order in week
 // * add switchable advanced view, which will add more colums to the grid
-// * add progress-visualization for saving/loading  - maybe
 // * make URL-Links able to open on Unix-Systems
-// * Show number of vacation days in "statistics"  as hours and days
+// * Work on Personnel Management
+// * Functionality to instantly open Thunderbird to write EMails to Persons
 
 
 // features in future:
@@ -67,6 +66,7 @@ type
     MenuItem11: TMenuItem;
     MenuItem12: TMenuItem;
     MenuItem13: TMenuItem;
+		MenuItem5: TMenuItem;
 		MenuSaveAs: TMenuItem;
     MenuLoad: TMenuItem;
     MenuQuickSave: TMenuItem;

@@ -10,7 +10,7 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   main,
   workdays,
   funcs, CoyoteDefaults, people,
-  about, WeekEditForm, WeekAddForm;
+  about, WeekEditForm, WeekAddForm, personeditform;
 
 {$R *.res}
 

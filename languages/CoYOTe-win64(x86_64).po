@@ -163,6 +163,10 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+#: tform1.menuitem5.caption
+msgid "Manual (PDF)"
+msgstr ""
+
 #: tform1.menuitem8.caption
 msgctxt "TFORM1.MENUITEM8.CAPTION"
 msgid "About"
@@ -257,6 +261,12 @@ msgid "Contributors"
 msgstr ""
 
 #: tform2.image1.hint
+msgctxt "tform2.image1.hint"
+msgid "Visit website of the project on Github!"
+msgstr ""
+
+#: tform2.image2.hint
+msgctxt "TFORM2.IMAGE2.HINT"
 msgid "Visit website of the project on Github!"
 msgstr ""
 
