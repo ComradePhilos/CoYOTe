@@ -23,3 +23,5 @@
 * added function to count vacation days
 
 * improved Saving behavior
+
+* added window to edit personal data of e.g. employees

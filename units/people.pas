@@ -7,6 +7,7 @@
   you want to track working time off!
 
   Todo:
+  * include TPerson into the system
 }
 
 unit people;
@@ -26,7 +27,8 @@ type
 
     private
       // personal information
-      FFirstName: String;               // First Name (can be multiple names) e.g. Klaus Dieter
+      // Not sure if everything is useful or needed for this tiny programme
+      FFirstName: String;               // First Name (can be multiple names like "Horst Kevin Gerome" :D )
       FFamilyName: String;              // Family Name
       FIDNumber: String;                // ID Number of the person in a company/team etc...
       FInternalID: Integer;             // programme-internal ID number that is unique and automatically generated
@@ -45,7 +47,7 @@ type
       FDateOfEmployment: TDate;         // The Date when the person got employed
 
       // essential programme data
-      FTimeData: TPersonnelTimeList;    // A List of TWeekLists
+      FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window
     public
 
       constructor Create;

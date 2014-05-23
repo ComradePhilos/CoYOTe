@@ -24,8 +24,8 @@
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="74" Y="24"/>
+        <TopLine Value="7"/>
+        <CursorPos X="70" Y="29"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -36,7 +36,7 @@
         <UnitName Value="workdays"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="167"/>
+        <TopLine Value="453"/>
         <CursorPos X="19" Y="266"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
@@ -47,7 +47,7 @@
         <UnitName Value="funcs"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="172"/>
         <CursorPos X="37" Y="10"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -61,7 +61,7 @@
         <UnitName Value="about"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="23"/>
+        <TopLine Value="1"/>
         <CursorPos X="82" Y="47"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -76,9 +76,9 @@
         <UnitName Value="WeekEditForm"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="377"/>
         <CursorPos X="100" Y="363"/>
-        <UsageCount Value="161"/>
+        <UsageCount Value="162"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -91,9 +91,9 @@
         <UnitName Value="WeekAddForm"/>
         <EditorIndex Value="2"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
+        <TopLine Value="4"/>
         <CursorPos X="45" Y="106"/>
-        <UsageCount Value="159"/>
+        <UsageCount Value="160"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -104,8 +104,8 @@
         <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="113" Y="21"/>
-        <UsageCount Value="68"/>
+        <CursorPos X="83" Y="14"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -114,120 +114,12 @@
         <UnitName Value="people"/>
         <EditorIndex Value="6"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="13"/>
-        <CursorPos X="29" Y="16"/>
-        <UsageCount Value="26"/>
+        <TopLine Value="1"/>
+        <CursorPos X="22" Y="6"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
-        <Filename Value="forms\weekaddform.lfm"/>
-        <UsageCount Value="25"/>
-        <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit9>
-      <Unit10>
-        <Filename Value="forms\weekaddform.lrt"/>
-        <UsageCount Value="25"/>
-        <DefaultSyntaxHighlighter Value="None"/>
-      </Unit10>
-      <Unit11>
-        <Filename Value="forms\addweekform.pas"/>
-        <ComponentName Value="Form4"/>
-        <HasResources Value="True"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="AddWeekForm"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="13" Y="1"/>
-        <UsageCount Value="15"/>
-      </Unit11>
-      <Unit12>
-        <Filename Value="..\Preisverwaltung\Units\UGLImport.pas"/>
-        <UnitName Value="UGLImport"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="119"/>
-        <CursorPos X="53" Y="162"/>
-        <UsageCount Value="10"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="..\Preisverwaltung\Units\UGL\FTP.pas"/>
-        <UnitName Value="FTP"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="357"/>
-        <CursorPos X="28" Y="402"/>
-        <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="C:\usr\share\lazarus\1.0.14\lcl\grids.pas"/>
-        <UnitName Value="Grids"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1541"/>
-        <CursorPos X="3" Y="1570"/>
-        <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="C:\usr\share\fpcsrc\2.6.2\rtl\objpas\sysutils\datih.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="96"/>
-        <CursorPos X="10" Y="132"/>
-        <UsageCount Value="1"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="..\..\..\Desktop\TPV - Master\Units\AdditionalMethods.pas"/>
-        <UnitName Value="AdditionalMethods"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="61"/>
-        <CursorPos X="82" Y="16"/>
-        <UsageCount Value="9"/>
-      </Unit16>
-      <Unit17>
-        <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.4\rtl\objpas\sysutils\filutilh.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="4"/>
-        <CursorPos X="32" Y="91"/>
-        <UsageCount Value="11"/>
-      </Unit17>
-      <Unit18>
-        <Filename Value="units\persons.pas"/>
-        <UnitName Value="persons"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="12" Y="1"/>
-        <UsageCount Value="20"/>
-      </Unit18>
-      <Unit19>
-        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="639"/>
-        <CursorPos X="19" Y="674"/>
-        <UsageCount Value="10"/>
-      </Unit19>
-      <Unit20>
-        <Filename Value="..\..\..\Desktop\Materialcenter\Units\ConstructionSiteExport\HandicraftData.pas"/>
-        <UnitName Value="HandicraftData"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="1" Y="1"/>
-        <UsageCount Value="10"/>
-      </Unit20>
-      <Unit21>
-        <Filename Value="..\..\..\Desktop\Materialcenter\Units\AdditionalMethods.pas"/>
-        <UnitName Value="AdditionalMethods"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="97" Y="15"/>
-        <UsageCount Value="10"/>
-      </Unit21>
-      <Unit22>
-        <Filename Value="forms\personedit.pas"/>
-        <ComponentName Value="Form5"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="PersonEditForm"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="33" Y="9"/>
-        <UsageCount Value="20"/>
-      </Unit22>
-      <Unit23>
         <Filename Value="forms\personeditform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form5"/>
@@ -238,9 +130,117 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="52" Y="22"/>
-        <UsageCount Value="20"/>
+        <UsageCount Value="21"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="forms\weekaddform.lfm"/>
+        <UsageCount Value="25"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="forms\weekaddform.lrt"/>
+        <UsageCount Value="25"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="forms\addweekform.pas"/>
+        <ComponentName Value="Form4"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="AddWeekForm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="13" Y="1"/>
+        <UsageCount Value="15"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="..\Preisverwaltung\Units\UGLImport.pas"/>
+        <UnitName Value="UGLImport"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="119"/>
+        <CursorPos X="53" Y="162"/>
+        <UsageCount Value="10"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="..\Preisverwaltung\Units\UGL\FTP.pas"/>
+        <UnitName Value="FTP"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="357"/>
+        <CursorPos X="28" Y="402"/>
+        <UsageCount Value="10"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="C:\usr\share\lazarus\1.0.14\lcl\grids.pas"/>
+        <UnitName Value="Grids"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1541"/>
+        <CursorPos X="3" Y="1570"/>
+        <UsageCount Value="10"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="C:\usr\share\fpcsrc\2.6.2\rtl\objpas\sysutils\datih.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="96"/>
+        <CursorPos X="10" Y="132"/>
+        <UsageCount Value="1"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="..\..\..\Desktop\TPV - Master\Units\AdditionalMethods.pas"/>
+        <UnitName Value="AdditionalMethods"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="61"/>
+        <CursorPos X="82" Y="16"/>
+        <UsageCount Value="9"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.4\rtl\objpas\sysutils\filutilh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="4"/>
+        <CursorPos X="32" Y="91"/>
+        <UsageCount Value="11"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="units\persons.pas"/>
+        <UnitName Value="persons"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="12" Y="1"/>
+        <UsageCount Value="20"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="639"/>
+        <CursorPos X="19" Y="674"/>
+        <UsageCount Value="10"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="..\..\..\Desktop\Materialcenter\Units\ConstructionSiteExport\HandicraftData.pas"/>
+        <UnitName Value="HandicraftData"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="1" Y="1"/>
+        <UsageCount Value="10"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="..\..\..\Desktop\Materialcenter\Units\AdditionalMethods.pas"/>
+        <UnitName Value="AdditionalMethods"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="97" Y="15"/>
+        <UsageCount Value="10"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="forms\personedit.pas"/>
+        <ComponentName Value="Form5"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="PersonEditForm"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="33" Y="9"/>
+        <UsageCount Value="20"/>
       </Unit23>
     </Units>
     <General>

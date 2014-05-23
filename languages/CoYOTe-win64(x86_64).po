@@ -534,3 +534,47 @@ msgctxt "TFORM4.UNDOBUTTON.CAPTION"
 msgid "Cancel"
 msgstr ""
 
+#: tform5.bitbtn1.hint
+msgid "Compose E-Mail"
+msgstr ""
+
+#: tform5.caption
+msgid "Edit Person"
+msgstr ""
+
+#: tform5.labelededit1.editlabel.caption
+msgid "First name"
+msgstr ""
+
+#: tform5.labelededit2.editlabel.caption
+msgid "Family Name"
+msgstr ""
+
+#: tform5.labelededit3.editlabel.caption
+msgid "Phone Number"
+msgstr ""
+
+#: tform5.labelededit4.editlabel.caption
+msgid "Phone Number (2)"
+msgstr ""
+
+#: tform5.labelededit5.editlabel.caption
+msgid "E-Mail"
+msgstr ""
+
+#: tform5.labelededit6.editlabel.caption
+msgid "Place"
+msgstr ""
+
+#: tform5.labelededit7.editlabel.caption
+msgid "Street and StreetNR"
+msgstr ""
+
+#: tform5.panel1.caption
+msgid "Panel1"
+msgstr ""
+
+#: tform5.statictext1.caption
+msgid "FamilyName, FirstName"
+msgstr ""
+
