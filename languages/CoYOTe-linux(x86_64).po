@@ -38,7 +38,7 @@ msgid "File saved..."
 msgstr ""
 
 #: coyotedefaults.txtquitmsg
-msgid "Do you really want to quit? (Be sure you saved your changes!)"
+msgid "Do you really want to quit? You did not save your changes yet!"
 msgstr ""
 
 #: coyotedefaults.txtquitprogramme
@@ -50,11 +50,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "20.05.2014"
+msgid "23.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.3.2"
+msgid "0.0.3.8"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -63,6 +63,10 @@ msgstr ""
 
 #: tform1.caption
 msgid "CoYOT(e) - Overtime Calculator"
+msgstr ""
+
+#: tform1.combobox1.text
+msgid "Test User 1"
 msgstr ""
 
 #: tform1.editweekbutton.caption
@@ -91,6 +95,10 @@ msgstr ""
 
 #: tform1.label5.caption
 msgid "Latest quitting"
+msgstr ""
+
+#: tform1.label6.caption
+msgid "vacation taken:"
 msgstr ""
 
 #: tform1.menuitem1.caption
@@ -156,7 +164,8 @@ msgid "Help"
 msgstr ""
 
 #: tform1.menuitem5.caption
-msgid "Exit"
+msgctxt "tform1.menuitem5.caption"
+msgid "Manual (PDF)"
 msgstr ""
 
 #: tform1.menuitem8.caption
@@ -172,13 +181,18 @@ msgstr ""
 msgid "Load"
 msgstr ""
 
-#: tform1.menusave.caption
-msgctxt "TFORM1.MENUSAVE.CAPTION"
+#: tform1.menuquicksave.caption
+msgctxt "TFORM1.MENUQUICKSAVE.CAPTION"
 msgid "Save"
 msgstr ""
 
-#: tform1.removeweekbutton.caption
-msgid "RemoveWeekButton"
+#: tform1.menuquit.caption
+msgctxt "TFORM1.MENUQUIT.CAPTION"
+msgid "Exit"
+msgstr ""
+
+#: tform1.menusaveas.caption
+msgid "Save as..."
 msgstr ""
 
 #: tform1.statusbar1.panels[0].text
@@ -243,8 +257,18 @@ msgctxt "tform2.caption"
 msgid "About"
 msgstr ""
 
+#: tform2.contributors.caption
+msgid "Contributors"
+msgstr ""
+
 #: tform2.image1.hint
-msgid "Visit Programme Page on Github!"
+msgctxt "tform2.image1.hint"
+msgid "Visit website of the project on Github!"
+msgstr ""
+
+#: tform2.image2.hint
+msgctxt "tform2.image2.hint"
+msgid "Visit website of the project on Github!"
 msgstr ""
 
 #: tform2.label1.caption
@@ -260,7 +284,11 @@ msgid "Versions"
 msgstr ""
 
 #: tform2.label4.caption
-msgid "Coming soon"
+msgid "General Public License v3"
+msgstr ""
+
+#: tform2.label4.hint
+msgid "http://www.gnu.org/licenses/gpl-3.0.txt"
 msgstr ""
 
 #: tform2.statictext1.caption
@@ -277,7 +305,7 @@ msgid "Changelog"
 msgstr ""
 
 #: tform2.tabsheet3.caption
-msgid "  License  "
+msgid "  Licence  "
 msgstr ""
 
 #: tform3.applybutton.caption

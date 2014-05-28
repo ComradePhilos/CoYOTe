@@ -3,12 +3,12 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 51582498
-coyotedefaults.versionnr='0.0.3.2'
+# hash value = 51582504
+coyotedefaults.versionnr='0.0.3.8'
 
 
-# hash value = 58851412
-coyotedefaults.versiondate='20.05.2014'
+# hash value = 58852692
+coyotedefaults.versiondate='23.05.2014'
 
 
 # hash value = 3413266
@@ -35,9 +35,9 @@ coyotedefaults.txtclearmsg='This will clear the current week and make it '+
 'empty but will NOT delete the week! Do you wish to Continue?'
 
 
-# hash value = 176234585
-coyotedefaults.txtquitmsg='Do you really want to quit? (Be sure you saved'+
-' your changes!)'
+# hash value = 244286321
+coyotedefaults.txtquitmsg='Do you really want to quit? You did not save y'+
+'our changes yet!'
 
 
 # hash value = 21099631

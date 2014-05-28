@@ -14,26 +14,26 @@ type
 
   TForm2 = class(TForm)
     Image1: TImage;
-		Image2: TImage;
+    Image2: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-		Label4: TLabel;
+    Label4: TLabel;
     ListBox1: TListBox;
     Memo1: TMemo;
     Memo2: TMemo;
     Memo3: TMemo;
-		Memo4: TMemo;
+    Memo4: TMemo;
     PageControl1: TPageControl;
     Panel1: TPanel;
     StaticText1: TStaticText;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
-		Contributors: TTabSheet;
+    Contributors: TTabSheet;
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
-		procedure Label4Click(Sender: TObject);
+    procedure Label4Click(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
 
   private
@@ -74,17 +74,24 @@ procedure TForm2.FormCreate(Sender: TObject);
 var
   searchRec: TSearchRec;
   AboutText: TStringList;
+  I: Integer;
 begin
   FindFirst('../docs/versions/*', faAnyFile, searchRec);
   repeat
     if (length(searchRec.Name) > 2) then
     begin
       ListBox1.Items.Add(searchRec.Name);
-      ListBox1.ItemIndex := ListBox1.Items.Count-1;
+      ListBox1.ItemIndex := ListBox1.Items.Count - 1;
       RadioGroup1Click(self);
     end;
   until FindNext(searchRec) <> 0;
   FindClose(searchRec);
+
+  try
+    Memo2.Lines.LoadFromFile('../docs/about.txt');
+  except
+    Memo2.Lines[0] := 'about.txt not found!';
+  end;
 
   try
     Memo3.Lines.LoadFromFile('../docs/gpl.txt');
@@ -92,19 +99,7 @@ begin
     Memo3.Lines.Add('License Text not found!');
   end;
 
-  AboutText := TStringList.Create;
-  // following seems not to work on Linux
-  try
-    try
-      AboutText.LoadFromFile('../docs/about.txt');
-      Memo2.Lines.Text := SysToUTF8(AboutText.Text);
-      //Memo2.Lines.LoadFromFile('../docs/about.txt');
-    except
-      Memo2.Lines.Add('about.txt not found!');
-    end;
-  finally
-    AboutText.Free;
-  end;
+
 end;
 
-end.
+end.

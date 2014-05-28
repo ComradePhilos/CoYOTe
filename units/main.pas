@@ -212,8 +212,6 @@ begin
 
   FChangesMade := False;
 
-  // $00FFDBB7   Standardfarbe
-
 end;
 
 
@@ -565,4 +563,4 @@ begin
 
 end;
 
-end.
+end.

@@ -21,7 +21,7 @@ object Form2: TForm2
     Left = 193
     Height = 21
     Top = 6
-    Width = 314
+    Width = 311
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -35,18 +35,18 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 17
+    Height = 16
     Top = 283
-    Width = 51
+    Width = 50
     Anchors = [akLeft]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 17
+    Height = 16
     Top = 341
-    Width = 68
+    Width = 65
     Anchors = [akLeft]
     Caption = 'Build-Date:'
     ParentColor = False
@@ -60,8 +60,8 @@ object Form2: TForm2
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    ClientHeight = 173
-    ClientWidth = 172
+    ClientHeight = 175
+    ClientWidth = 174
     TabOrder = 1
     object Image1: TImage
       Cursor = crHandPoint
@@ -2041,12 +2041,12 @@ object Form2: TForm2
     object TabSheet1: TTabSheet
       Caption = '  About  '
       ClientHeight = 329
-      ClientWidth = 547
+      ClientWidth = 551
       object Memo2: TMemo
         Left = 0
         Height = 323
         Top = 4
-        Width = 542
+        Width = 546
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -12
@@ -2062,7 +2062,7 @@ object Form2: TForm2
     object Contributors: TTabSheet
       Caption = 'Contributors'
       ClientHeight = 329
-      ClientWidth = 547
+      ClientWidth = 551
       object Memo4: TMemo
         Left = 0
         Height = 323
@@ -2089,7 +2089,7 @@ object Form2: TForm2
       AnchorSideRight.Side = asrBottom
       Caption = '  Licence  '
       ClientHeight = 329
-      ClientWidth = 547
+      ClientWidth = 551
       object Memo3: TMemo
         Left = 12
         Height = 308
@@ -2129,8 +2129,8 @@ object Form2: TForm2
     end
     object TabSheet2: TTabSheet
       Caption = 'Changelog'
-      ClientHeight = 252
-      ClientWidth = 441
+      ClientHeight = 329
+      ClientWidth = 551
       object Memo1: TMemo
         Left = 125
         Height = 246
@@ -2166,6 +2166,7 @@ object Form2: TForm2
         ParentFont = False
         ScrollWidth = 120
         TabOrder = 1
+        TopIndex = -1
       end
       object Label3: TLabel
         Left = 4
@@ -2235,4 +2236,4 @@ object Form2: TForm2
     }
     ShowHint = True
   end
-end
+end
