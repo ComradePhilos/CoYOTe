@@ -50,11 +50,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "23.05.2014"
+msgid "28.05.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.3.8"
+msgid "0.0.3.9"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -263,12 +263,11 @@ msgstr ""
 
 #: tform2.image1.hint
 msgctxt "tform2.image1.hint"
-msgid "Visit website of the project on Github!"
+msgid "Visit the Project-Page on Github.com!"
 msgstr ""
 
 #: tform2.image2.hint
-msgctxt "tform2.image2.hint"
-msgid "Visit website of the project on Github!"
+msgid "Visit GPL-Website!"
 msgstr ""
 
 #: tform2.label1.caption
@@ -281,14 +280,6 @@ msgstr ""
 
 #: tform2.label3.caption
 msgid "Versions"
-msgstr ""
-
-#: tform2.label4.caption
-msgid "General Public License v3"
-msgstr ""
-
-#: tform2.label4.hint
-msgid "http://www.gnu.org/licenses/gpl-3.0.txt"
 msgstr ""
 
 #: tform2.statictext1.caption
@@ -535,5 +526,49 @@ msgstr ""
 #: tform4.undobutton.caption
 msgctxt "TFORM4.UNDOBUTTON.CAPTION"
 msgid "Cancel"
+msgstr ""
+
+#: tform5.bitbtn1.hint
+msgid "Compose E-Mail"
+msgstr ""
+
+#: tform5.caption
+msgid "Edit Person"
+msgstr ""
+
+#: tform5.labelededit1.editlabel.caption
+msgid "First name"
+msgstr ""
+
+#: tform5.labelededit2.editlabel.caption
+msgid "Family Name"
+msgstr ""
+
+#: tform5.labelededit3.editlabel.caption
+msgid "Phone Number"
+msgstr ""
+
+#: tform5.labelededit4.editlabel.caption
+msgid "Phone Number (2)"
+msgstr ""
+
+#: tform5.labelededit5.editlabel.caption
+msgid "E-Mail"
+msgstr ""
+
+#: tform5.labelededit6.editlabel.caption
+msgid "Place"
+msgstr ""
+
+#: tform5.labelededit7.editlabel.caption
+msgid "Street and StreetNR"
+msgstr ""
+
+#: tform5.panel1.caption
+msgid "Panel1"
+msgstr ""
+
+#: tform5.statictext1.caption
+msgid "FamilyName, FirstName"
 msgstr ""
 

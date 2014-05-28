@@ -58,7 +58,6 @@ type
     FIntendedTimePerDay: double;        // The time you intend to work per day
     FPausePerDay: Double;               // Obligatory Pause Time, time you need to stay at work additionally
     FDescriptionText: TStringList;      // Description Text
-    // FPerson: TPerson;                // The Person related to the week data
 
     function calcAverageTime: double;
 
@@ -489,4 +488,4 @@ begin
 end;
 
 
-end.
+end.

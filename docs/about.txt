@@ -1,8 +1,1 @@
-CoYOT(e) - the simple and lightweight time tracking tool               
-Copyright (C) 2014  Philip Märksch		                                   
-                                                                          
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.                                     
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.                            
-You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/      
-
 This programme is a lightweight and userfriendly tool to keep an eye on overtimes at work. It calculates - based on attendance times the user entered - how many hours of working time the user accumulated and visualises the balance so that he always is up to date. If used consequently one can save precious free time and organize working time in a way that employees and bosses might profit from. 

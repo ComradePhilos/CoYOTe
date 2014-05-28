@@ -9,7 +9,7 @@ unit funcs;
 interface
 
 uses
-  Classes, SysUtils, Translations, DateUtils, StdCtrls, Graphics,
+  Classes, SysUtils, Translations, DateUtils, StdCtrls, Graphics, Process, LCLIntF,
   { own Units }
   workdays;
 
@@ -22,6 +22,9 @@ procedure LoadFromFile(filename: string; AWeekList: TWeekList);
 // Creates a Colored Text depending on balance etc..
 procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: Double);
 procedure colorText(ALabel: TLabel; value, toleranceLimit: Double); overload;
+
+// Opens a URL not depending on the OS
+procedure OpenURL(AURL: String);
 
 
 implementation
@@ -75,9 +78,6 @@ var
   Count: integer;    // Number of Days
   locInt: integer;
   locDate: TDate;
-  locDay: integer;
-  locMonth: integer;
-  locYear: integer;
   locDouble: double;
   FormatDouble: TFormatSettings;
 begin
@@ -216,6 +216,7 @@ begin
   end;
 end;
 
+
 procedure colorText(ALabel: TLabel; value, toleranceLimit: Double);
 begin
   if value >= 0 then
@@ -231,5 +232,30 @@ begin
     ALabel.Font.Color := clRed;
   end;
 end;
+
+
+procedure OpenURL(AURL: String);
+var
+  AProcess: TProcess;
+begin
+
+  {$IFDEF linux}
+  AProcess:=TProcess.Create(nil);
+  try
+    AProcess.CommandLine:='xdg-open "'+AURL+'"';
+    AProcess.Execute;
+  finally
+    AProcess.Free;
+  end;
+  {$ENDIF}
+  {$IFDEF mswindows}
+  OpenDocument(AURL);             // Uses the API
+  {$ENDIF}
+end;
+
+
+end;
+
+
 
 end.

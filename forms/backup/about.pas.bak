@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
-  Dialogs, ExtCtrls, StdCtrls, lclintf, ComCtrls, CheckLst, types;
+  Dialogs, ExtCtrls, StdCtrls, lclintf, ComCtrls, CheckLst, types,
+  funcs;
 
 type
 
@@ -18,7 +19,6 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    Label4: TLabel;
     ListBox1: TListBox;
     Memo1: TMemo;
     Memo2: TMemo;
@@ -33,7 +33,7 @@ type
     Contributors: TTabSheet;
     procedure FormCreate(Sender: TObject);
     procedure Image1Click(Sender: TObject);
-    procedure Label4Click(Sender: TObject);
+    procedure OpenGPLClick(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
 
   private
@@ -54,12 +54,13 @@ implementation
 
 procedure TForm2.Image1Click(Sender: TObject);
 begin
-  openDocument('https://github.com/ComradePhilos/CoYOTe');
+  OpenURL('https://github.com/ComradePhilos/CoYOTe');
 end;
 
-procedure TForm2.Label4Click(Sender: TObject);
+
+procedure TForm2.OpenGPLClick(Sender: TObject);
 begin
-  OpenDocument('http://www.gnu.org/licenses/gpl-3.0.txt');
+  OpenURL('http://www.gnu.org/licenses/gpl-3.0.txt');
 end;
 
 procedure TForm2.RadioGroup1Click(Sender: TObject);
@@ -86,6 +87,12 @@ begin
     end;
   until FindNext(searchRec) <> 0;
   FindClose(searchRec);
+
+  try
+    Memo2.Lines.LoadFromFile('../docs/about.txt');
+  except
+    Memo2.Lines[0] := 'about.txt not found!';
+  end;
 
   try
     Memo3.Lines.LoadFromFile('../docs/gpl.txt');

@@ -339,12 +339,9 @@ end;
 
 procedure TForm3.ButtonEmptyClick(Sender: TObject);
 begin
-  //if (MessageDlg('Delete selected day?', txtRemoveMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
-  //begin
     FWeek.Clear;
     ClearStringGrid(WeekGrid);
     UpdateWindow;
-  //end;
 end;
 
 procedure TForm3.ComboBox1Select(Sender: TObject);

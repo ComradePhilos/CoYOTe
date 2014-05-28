@@ -23,9 +23,8 @@
 // * mergable weeks
 // * switchable day order in week
 // * add switchable advanced view, which will add more colums to the grid
-// * make URL-Links able to open on Unix-Systems
 // * Work on Personnel Management
-// * Functionality to instantly open Thunderbird to write EMails to Persons
+// * Functionality to instantly open Thunderbird to write E-Mails to Persons
 // * Restructure the code ( sort functions, renaming, .. whatever is needed )
 
 
