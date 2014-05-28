@@ -63,26 +63,26 @@ type
 		Label6: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
-    MenuItem10: TMenuItem;
+    MenuSettings: TMenuItem;
     MenuItem11: TMenuItem;
-    MenuItem12: TMenuItem;
-    MenuItem13: TMenuItem;
-		MenuItem5: TMenuItem;
+    MenuEnglish: TMenuItem;
+    MenuGerman: TMenuItem;
+		MenuManual: TMenuItem;
 		MenuSaveAs: TMenuItem;
     MenuLoad: TMenuItem;
     MenuQuickSave: TMenuItem;
-    MenuItem19: TMenuItem;
+    MenuColorTheme: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem20: TMenuItem;
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
-    MenuItem23: TMenuItem;
+    MenuPeople: TMenuItem;
     MenuItem24: TMenuItem;
     MenuItem25: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuQuit: TMenuItem;
-    MenuItem8: TMenuItem;
+    MenuAbout: TMenuItem;
     MenuItem9: TMenuItem;
     PopupMenu1: TPopupMenu;
     ToolButton1: TToolButton;
@@ -101,8 +101,8 @@ type
     procedure EditButtonClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
-    procedure MenuAbout(Sender: TObject);
-    procedure MenuItem19Click(Sender: TObject);
+    procedure MenuAboutClick(Sender: TObject);
+    procedure ColorThemeClick(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
 		procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
@@ -343,12 +343,12 @@ begin
 
 end;
 
-procedure TForm1.MenuAbout(Sender: TObject);
+procedure TForm1.MenuAboutClick(Sender: TObject);
 begin
   AboutForm.Visible := True;
 end;
 
-procedure TForm1.MenuItem19Click(Sender: TObject);
+procedure TForm1.ColorThemeClick(Sender: TObject);
 var
   colorDlg: TColorDialog;
 begin

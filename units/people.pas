@@ -38,8 +38,8 @@ type
       FPhoneNumber2: String;
       FEMail: String;                   // Email-Adress
 
-      // FRole: String;                 // What position/role does the person have ?
-      FPhoto: TImage;
+      FPhoto: TImage;                   // Maybe it is better to store the local path to a picture instead of a
+                                        // whole picture binarily
       FAge: Integer;                    // Age in years
       FSex: String;                     // Male / Female ... won't exclude other possibilities
       FBirthday: TDate;                 // Date of Birth

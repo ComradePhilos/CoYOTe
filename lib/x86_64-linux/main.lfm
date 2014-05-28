@@ -430,7 +430,7 @@ object Form1: TForm1
     end
     object MenuItem2: TMenuItem
       Caption = 'Edit'
-      object MenuItem23: TMenuItem
+      object MenuPeople: TMenuItem
         Caption = 'people...'
         Enabled = False
         Bitmap.Data = {
@@ -477,7 +477,7 @@ object Form1: TForm1
     end
     object MenuItem9: TMenuItem
       Caption = 'Options'
-      object MenuItem10: TMenuItem
+      object MenuSettings: TMenuItem
         Caption = 'Programme Settings...'
         Enabled = False
         Bitmap.Data = {
@@ -546,7 +546,7 @@ object Form1: TForm1
           00000000000000000000
         }
       end
-      object MenuItem19: TMenuItem
+      object MenuColorTheme: TMenuItem
         Caption = 'Color Theme...'
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
@@ -584,7 +584,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
-        OnClick = MenuItem19Click
+        OnClick = ColorThemeClick
       end
       object MenuItem11: TMenuItem
         Caption = 'Language'
@@ -624,7 +624,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
-        object MenuItem12: TMenuItem
+        object MenuEnglish: TMenuItem
           Caption = 'English'
           Bitmap.Data = {
             DE030000424DDE030000000000003600000028000000120000000D0000000100
@@ -661,7 +661,7 @@ object Form1: TForm1
             EBFF
           }
         end
-        object MenuItem13: TMenuItem
+        object MenuGerman: TMenuItem
           Caption = 'German'
           Enabled = False
           Bitmap.Data = {
@@ -703,7 +703,7 @@ object Form1: TForm1
     end
     object MenuItem4: TMenuItem
       Caption = 'Help'
-      object MenuItem5: TMenuItem
+      object MenuManual: TMenuItem
         Caption = 'Manual (PDF)'
         Enabled = False
         Bitmap.Data = {
@@ -743,7 +743,7 @@ object Form1: TForm1
           00FF914600FF914600FF914600FF914600FF833E0074FFFFFF00
         }
       end
-      object MenuItem8: TMenuItem
+      object MenuAbout: TMenuItem
         Caption = 'About'
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
@@ -781,7 +781,7 @@ object Form1: TForm1
           0000000000003C53A8006289E0000501390A4855962D7078A9489088965A9F94
           95628777772A4B0000031A44B400000000000000000000000000
         }
-        OnClick = MenuAbout
+        OnClick = MenuAboutClick
       end
     end
   end

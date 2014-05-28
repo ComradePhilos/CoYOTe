@@ -366,9 +366,7 @@ end;
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 var
   I: Integer;
-  //locGrid: TStringGrid;
 begin
-  //locGrid.Assign(AGrid);
 
   clearStringGrid(AGrid);
   AGrid.RowCount := AWeek.WeekLength+1;
