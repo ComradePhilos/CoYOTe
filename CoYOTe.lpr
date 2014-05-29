@@ -10,7 +10,7 @@ uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   main,
   workdays,
   funcs, CoyoteDefaults, people,
-  about, WeekEditForm, WeekAddForm, personeditform;
+  about, WeekEditForm, WeekAddForm, personeditform, DBConnectForm;
 
 {$R *.res}
 
@@ -20,5 +20,6 @@ begin
   Application.CreateForm(TForm1, Form1);
   Application.CreateForm(TForm2, Form2);
 	Application.CreateForm(TForm3, Form3);
+  Application.CreateForm(TForm6, Form6);
   Application.Run;
-end.
+end.

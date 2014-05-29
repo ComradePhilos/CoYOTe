@@ -48,7 +48,7 @@
         <PackageName Value="LCL"/>
       </Item5>
     </RequiredPackages>
-    <Units Count="10">
+    <Units Count="11">
       <Unit0>
         <Filename Value="CoYOTe.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -114,6 +114,13 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="PersonEditForm"/>
       </Unit9>
+      <Unit10>
+        <Filename Value="forms\dbconnectform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form6"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DBConnectForm"/>
+      </Unit10>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

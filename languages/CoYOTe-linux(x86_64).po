@@ -163,6 +163,10 @@ msgstr ""
 msgid "Help"
 msgstr ""
 
+#: tform1.menuitem5.caption
+msgid "Database Connection"
+msgstr ""
+
 #: tform1.menuitem9.caption
 msgid "Options"
 msgstr ""
@@ -575,5 +579,65 @@ msgstr ""
 
 #: tform5.statictext1.caption
 msgid "FamilyName, FirstName"
+msgstr ""
+
+#: tform6.bitbtn2.caption
+msgctxt "TFORM6.BITBTN2.CAPTION"
+msgid "Cancel"
+msgstr ""
+
+#: tform6.caption
+msgid "Connect to database"
+msgstr ""
+
+#: tform6.connectbtn.caption
+msgctxt "TFORM6.CONNECTBTN.CAPTION"
+msgid "Connect"
+msgstr ""
+
+#: tform6.disconnectbtn.caption
+msgid "Disconnect"
+msgstr ""
+
+#: tform6.labelededit1.editlabel.caption
+msgid "Hostname"
+msgstr ""
+
+#: tform6.labelededit1.text
+msgid "LabeledEdit1"
+msgstr ""
+
+#: tform6.labelededit2.editlabel.caption
+msgid "Port"
+msgstr ""
+
+#: tform6.labelededit2.text
+msgid "LabeledEdit2"
+msgstr ""
+
+#: tform6.labelededit3.editlabel.caption
+msgid "User"
+msgstr ""
+
+#: tform6.labelededit3.text
+msgid "LabeledEdit3"
+msgstr ""
+
+#: tform6.labelededit4.editlabel.caption
+msgctxt "tform6.labelededit4.editlabel.caption"
+msgid "LabeledEdit4"
+msgstr ""
+
+#: tform6.labelededit4.text
+msgctxt "TFORM6.LABELEDEDIT4.TEXT"
+msgid "LabeledEdit4"
+msgstr ""
+
+#: tform6.labelededit5.editlabel.caption
+msgid "Database Name"
+msgstr ""
+
+#: tform6.labelededit5.text
+msgid "LabeledEdit5"
 msgstr ""
 

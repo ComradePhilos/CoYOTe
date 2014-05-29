@@ -39,10 +39,10 @@ interface
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
   ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl, BarChart,
-  Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox,
+  Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox, IBConnection,
   DateUtils,
   { Forms }
-  WeekEditForm, WeekAddForm, about,
+  WeekEditForm, WeekAddForm, about, DBConnectForm,
   { eigene Units }
   workdays, funcs, CoyoteDefaults;
 
@@ -51,7 +51,8 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-				ComboBox1: TComboBox;
+    ComboBox1: TComboBox;
+    IBConnection1: TIBConnection;
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
     ImageList2: TImageList;
@@ -63,6 +64,7 @@ type
 		Label6: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
+    MenuItem5: TMenuItem;
     MenuSettings: TMenuItem;
     MenuItem11: TMenuItem;
     MenuEnglish: TMenuItem;
@@ -103,6 +105,7 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure MenuAboutClick(Sender: TObject);
     procedure ColorThemeClick(Sender: TObject);
+    procedure MenuDatabaseClick(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
 		procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
@@ -126,6 +129,7 @@ type
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
+    DBForm: TForm6;               // The window to connect to the firebird database
 
     FCurrentUser: Integer;        // ID of the currently selected "User"/Person
     FCurrentFilePath: String;     // If known - Name of the currently opened File
@@ -195,6 +199,7 @@ begin
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
+  DBForm := TForm6.Create(nil);
 
   // Event Handling
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
@@ -363,6 +368,11 @@ begin
   finally
     colorDlg.Free;
   end;
+end;
+
+procedure TForm1.MenuDatabaseClick(Sender: TObject);
+begin
+  DBForm.Show;
 end;
 
 procedure TForm1.MenuLoadClick(Sender: TObject);
