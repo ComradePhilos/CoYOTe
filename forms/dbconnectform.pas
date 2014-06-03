@@ -10,7 +10,8 @@ interface
 
 uses
   Classes, SysUtils, IBConnection, FileUtil, Forms, Controls, Graphics, Dialogs,
-  Buttons, ExtCtrls, maskedit, StdCtrls, ComCtrls;
+  Buttons, ExtCtrls, maskedit, StdCtrls, ComCtrls,
+  CoyoteDefaults;
 
 type
 
@@ -52,7 +53,7 @@ procedure TForm6.FormCreate(Sender: TObject);
 begin
   LabeledEdit1.Text := '';
   LabeledEdit2.Text := '';
-  LabeledEdit3.Text := 'SYSDBA';
+  LabeledEdit3.Text := dbDefaultUser;
   LabeledEdit4.Text := '';
   LabeledEdit5.Text := '';
 end;

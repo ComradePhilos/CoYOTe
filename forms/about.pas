@@ -77,6 +77,7 @@ var
   AboutText: TStringList;
   I: Integer;
 begin
+  PageControl1.PageIndex := 2;
   FindFirst('../docs/versions/*', faAnyFile, searchRec);
   repeat
     if (length(searchRec.Name) > 2) then

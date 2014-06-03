@@ -242,7 +242,7 @@ begin
   {$IFDEF linux}
   AProcess:=TProcess.Create(nil);
   try
-    AProcess.CommandLine:='xdg-open "'+AURL+'"';
+    AProcess.CommandLine:='xdg-open "'+AURL+'"';  // Shell command
     AProcess.Execute;
   finally
     AProcess.Free;

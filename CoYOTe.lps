@@ -24,7 +24,7 @@
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="78" Y="28"/>
+        <CursorPos X="67" Y="19"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -47,7 +47,7 @@
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="47" Y="231"/>
+        <CursorPos X="40" Y="13"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
       </Unit3>
@@ -58,10 +58,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="about"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="92" Y="71"/>
+        <TopLine Value="44"/>
+        <CursorPos X="65" Y="79"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -75,9 +76,9 @@
         <UnitName Value="WeekEditForm"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="91"/>
-        <CursorPos X="28" Y="99"/>
-        <UsageCount Value="168"/>
+        <TopLine Value="68"/>
+        <CursorPos X="50" Y="97"/>
+        <UsageCount Value="171"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit5>
@@ -88,11 +89,12 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="WeekAddForm"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="1"/>
         <WindowIndex Value="0"/>
         <TopLine Value="57"/>
-        <CursorPos X="53" Y="79"/>
-        <UsageCount Value="166"/>
+        <CursorPos X="75" Y="70"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="169"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit6>
@@ -100,12 +102,11 @@
         <Filename Value="units\CoyoteDefaults.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CoyoteDefaults"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="26" Y="15"/>
-        <UsageCount Value="75"/>
+        <CursorPos X="48" Y="13"/>
+        <UsageCount Value="78"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -116,7 +117,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="34" Y="37"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="36"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
@@ -130,21 +131,36 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="65" Y="27"/>
-        <UsageCount Value="27"/>
+        <UsageCount Value="30"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
       <Unit10>
+        <Filename Value="forms\dbconnectform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form6"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="DBConnectForm"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="84" Y="27"/>
+        <UsageCount Value="25"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit10>
+      <Unit11>
         <Filename Value="forms\weekaddform.lfm"/>
         <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
-      </Unit10>
-      <Unit11>
+      </Unit11>
+      <Unit12>
         <Filename Value="forms\weekaddform.lrt"/>
         <UsageCount Value="25"/>
         <DefaultSyntaxHighlighter Value="None"/>
-      </Unit11>
-      <Unit12>
+      </Unit12>
+      <Unit13>
         <Filename Value="forms\addweekform.pas"/>
         <ComponentName Value="Form4"/>
         <HasResources Value="True"/>
@@ -154,85 +170,85 @@
         <TopLine Value="1"/>
         <CursorPos X="13" Y="1"/>
         <UsageCount Value="15"/>
-      </Unit12>
-      <Unit13>
+      </Unit13>
+      <Unit14>
         <Filename Value="..\Preisverwaltung\Units\UGLImport.pas"/>
         <UnitName Value="UGLImport"/>
         <WindowIndex Value="0"/>
         <TopLine Value="119"/>
         <CursorPos X="53" Y="162"/>
         <UsageCount Value="10"/>
-      </Unit13>
-      <Unit14>
+      </Unit14>
+      <Unit15>
         <Filename Value="..\Preisverwaltung\Units\UGL\FTP.pas"/>
         <UnitName Value="FTP"/>
         <WindowIndex Value="0"/>
         <TopLine Value="357"/>
         <CursorPos X="28" Y="402"/>
         <UsageCount Value="10"/>
-      </Unit14>
-      <Unit15>
+      </Unit15>
+      <Unit16>
         <Filename Value="C:\usr\share\lazarus\1.0.14\lcl\grids.pas"/>
         <UnitName Value="Grids"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1541"/>
         <CursorPos X="3" Y="1570"/>
         <UsageCount Value="10"/>
-      </Unit15>
-      <Unit16>
+      </Unit16>
+      <Unit17>
         <Filename Value="C:\usr\share\fpcsrc\2.6.2\rtl\objpas\sysutils\datih.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="96"/>
         <CursorPos X="10" Y="132"/>
         <UsageCount Value="1"/>
-      </Unit16>
-      <Unit17>
+      </Unit17>
+      <Unit18>
         <Filename Value="..\..\..\Desktop\TPV - Master\Units\AdditionalMethods.pas"/>
         <UnitName Value="AdditionalMethods"/>
         <WindowIndex Value="0"/>
         <TopLine Value="61"/>
         <CursorPos X="82" Y="16"/>
         <UsageCount Value="9"/>
-      </Unit17>
-      <Unit18>
+      </Unit18>
+      <Unit19>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.4\rtl\objpas\sysutils\filutilh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="4"/>
         <CursorPos X="32" Y="91"/>
         <UsageCount Value="11"/>
-      </Unit18>
-      <Unit19>
+      </Unit19>
+      <Unit20>
         <Filename Value="units\persons.pas"/>
         <UnitName Value="persons"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="12" Y="1"/>
         <UsageCount Value="20"/>
-      </Unit19>
-      <Unit20>
+      </Unit20>
+      <Unit21>
         <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
         <WindowIndex Value="0"/>
         <TopLine Value="639"/>
         <CursorPos X="19" Y="674"/>
         <UsageCount Value="10"/>
-      </Unit20>
-      <Unit21>
+      </Unit21>
+      <Unit22>
         <Filename Value="..\..\..\Desktop\Materialcenter\Units\ConstructionSiteExport\HandicraftData.pas"/>
         <UnitName Value="HandicraftData"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="1" Y="1"/>
         <UsageCount Value="10"/>
-      </Unit21>
-      <Unit22>
+      </Unit22>
+      <Unit23>
         <Filename Value="..\..\..\Desktop\Materialcenter\Units\AdditionalMethods.pas"/>
         <UnitName Value="AdditionalMethods"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="97" Y="15"/>
         <UsageCount Value="10"/>
-      </Unit22>
-      <Unit23>
+      </Unit23>
+      <Unit24>
         <Filename Value="forms\personedit.pas"/>
         <ComponentName Value="Form5"/>
         <ResourceBaseClass Value="Form"/>
@@ -241,28 +257,14 @@
         <TopLine Value="1"/>
         <CursorPos X="33" Y="9"/>
         <UsageCount Value="20"/>
-      </Unit23>
-      <Unit24>
+      </Unit24>
+      <Unit25>
         <Filename Value="..\..\..\..\usr\share\lazarus\1.2.2\components\lazutils\fileutil.pas"/>
         <UnitName Value="FileUtil"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="10" Y="31"/>
         <UsageCount Value="10"/>
-      </Unit24>
-      <Unit25>
-        <Filename Value="forms\dbconnectform.pas"/>
-        <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form6"/>
-        <ResourceBaseClass Value="Form"/>
-        <UnitName Value="DBConnectForm"/>
-        <EditorIndex Value="1"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="44" Y="14"/>
-        <UsageCount Value="22"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit25>
       <Unit26>
         <Filename Value="..\..\..\..\usr\share\fpcsrc\2.6.4\packages\fcl-db\src\base\db.pas"/>

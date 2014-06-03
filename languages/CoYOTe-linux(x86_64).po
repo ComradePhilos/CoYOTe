@@ -1,6 +1,10 @@
 msgid "(philip.maerksch@gmx.de)Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: coyotedefaults.dbdefaultuser
+msgid "SYSDBA"
+msgstr ""
+
 #: coyotedefaults.emdateorder
 msgid "Error: The dates are in the wrong order!"
 msgstr ""
@@ -50,11 +54,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "28.05.2014"
+msgid "03.06.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.3.9"
+msgid "0.0.4.1"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -625,7 +629,7 @@ msgstr ""
 
 #: tform6.labelededit4.editlabel.caption
 msgctxt "tform6.labelededit4.editlabel.caption"
-msgid "LabeledEdit4"
+msgid "Password"
 msgstr ""
 
 #: tform6.labelededit4.text

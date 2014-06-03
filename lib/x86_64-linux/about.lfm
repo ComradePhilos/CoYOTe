@@ -6,6 +6,8 @@ object Form2: TForm2
   Caption = 'About'
   ClientHeight = 402
   ClientWidth = 756
+  Constraints.MinHeight = 100
+  Constraints.MinWidth = 200
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -2034,9 +2036,9 @@ object Form2: TForm2
     Height = 359
     Top = 33
     Width = 555
-    ActivePage = TabSheet3
+    ActivePage = TabSheet2
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 2
+    TabIndex = 3
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = '  About  '
@@ -2211,6 +2213,7 @@ object Form2: TForm2
         OnClick = RadioGroup1Click
         ParentFont = False
         ScrollWidth = 120
+        Sorted = True
         TabOrder = 1
         TopIndex = -1
       end

@@ -3,12 +3,12 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 51582505
-coyotedefaults.versionnr='0.0.3.9'
+# hash value = 51582753
+coyotedefaults.versionnr='0.0.4.1'
 
 
-# hash value = 58853460
-coyotedefaults.versiondate='28.05.2014'
+# hash value = 59925844
+coyotedefaults.versiondate='03.06.2014'
 
 
 # hash value = 3413266
@@ -59,4 +59,8 @@ coyotedefaults.emdateorder='Error: The dates are in the wrong order!'
 # hash value = 85614353
 coyotedefaults.emhoursperday='Error: Enter a valid amount of time per day'+
 '!'
+
+
+# hash value = 93223009
+coyotedefaults.dbdefaultuser='SYSDBA'
 

@@ -32,7 +32,7 @@ type
     TabSheet3: TTabSheet;
     Contributors: TTabSheet;
     procedure FormCreate(Sender: TObject);
-    procedure Image1Click(Sender: TObject);
+    procedure OpenGithubClick(Sender: TObject);
     procedure OpenGPLClick(Sender: TObject);
     procedure RadioGroup1Click(Sender: TObject);
 
@@ -52,7 +52,7 @@ implementation
 { TForm2 }
 
 
-procedure TForm2.Image1Click(Sender: TObject);
+procedure TForm2.OpenGithubClick(Sender: TObject);
 begin
   OpenURL('https://github.com/ComradePhilos/CoYOTe');
 end;
@@ -77,6 +77,7 @@ var
   AboutText: TStringList;
   I: Integer;
 begin
+  PageControl1.PageIndex := 2;
   FindFirst('../docs/versions/*', faAnyFile, searchRec);
   repeat
     if (length(searchRec.Name) > 2) then

@@ -10,8 +10,8 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';    // Official Name shown to the user
-  VersionNr = '0.0.4.0';         // Programme-Version
-  VersionDate = '29.05.2014';    // Build-Date
+  VersionNr = '0.0.4.1';         // Programme-Version
+  VersionDate = '03.06.2014';    // Build-Date
   LazarusVersion = '1.2.2';      // Version of the Lazarus IDE the programme was built with
 
   // Messages / Errors
@@ -27,6 +27,8 @@ ResourceString
 
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
+
+  dbDefaultUser = 'SYSDBA';
 
   // constants
   const

@@ -1,1 +1,5 @@
-This programme is a lightweight and userfriendly tool to keep an eye on overtimes at work. It calculates - based on attendance times the user entered - how many hours of working time the user accumulated and visualises the balance so that he always is up to date. If used consequently one can save precious free time and organize working time in a way that employees and bosses might profit from. 
+CoYOT(e) is a lightweight and userfriendly tool to keep an eye on overtimes at work. 
+It calculates - based on attendance times the user entered - how many hours of working 
+time the user accumulated and visualises the balance so that he always is up to date. 
+If used consequently one can save precious free time and organize working time in a way 
+that employees and bosses might profit from. 

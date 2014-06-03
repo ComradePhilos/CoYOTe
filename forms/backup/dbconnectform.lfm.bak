@@ -3,6 +3,8 @@ object Form6: TForm6
   Height = 251
   Top = 377
   Width = 445
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'Connect to database'
   ClientHeight = 251
   ClientWidth = 445
@@ -173,7 +175,7 @@ object Form6: TForm6
     EditLabel.Height = 17
     EditLabel.Top = 121
     EditLabel.Width = 229
-    EditLabel.Caption = 'LabeledEdit4'
+    EditLabel.Caption = 'Password'
     EditLabel.ParentColor = False
     PasswordChar = '*'
     TabOrder = 5

@@ -70,7 +70,7 @@ object Form2: TForm2
       Hint = 'Visit the Project-Page on Github.com!'
       Top = 0
       Width = 169
-      OnClick = Image1Click
+      OnClick = OpenGithubClick
       ParentShowHint = False
       Picture.Data = {
         1754506F727461626C654E6574776F726B4772617068696374F3000089504E47
@@ -2034,9 +2034,9 @@ object Form2: TForm2
     Height = 359
     Top = 33
     Width = 555
-    ActivePage = TabSheet3
+    ActivePage = TabSheet2
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 2
+    TabIndex = 3
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = '  About  '
@@ -2211,6 +2211,7 @@ object Form2: TForm2
         OnClick = RadioGroup1Click
         ParentFont = False
         ScrollWidth = 120
+        Sorted = True
         TabOrder = 1
         TopIndex = -1
       end

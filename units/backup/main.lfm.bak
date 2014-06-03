@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 395
-  Height = 634
-  Top = 312
-  Width = 1030
+  Left = 427
+  Height = 460
+  Top = 303
+  Width = 884
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 634
-  ClientWidth = 1030
+  ClientHeight = 460
+  ClientWidth = 884
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -19,14 +19,16 @@ object Form1: TForm1
   LCLVersion = '1.2.2.0'
   object GroupBox1: TGroupBox
     AnchorSideRight.Side = asrBottom
-    Left = 753
-    Height = 582
+    Left = 607
+    Height = 410
     Top = 28
     Width = 273
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Information and Statistics'
-    ClientHeight = 565
+    ClientHeight = 393
     ClientWidth = 269
+    Constraints.MinHeight = 100
+    Constraints.MinWidth = 200
     Font.CharSet = ANSI_CHARSET
     Font.Height = -12
     Font.Name = 'Ubuntu'
@@ -94,9 +96,9 @@ object Form1: TForm1
   object StringGrid1: TStringGrid
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 585
-    Top = 27
-    Width = 753
+    Height = 411
+    Top = 25
+    Width = 607
     Anchors = [akTop, akLeft, akRight, akBottom]
     ColCount = 6
     ColumnClickSorts = True
@@ -168,8 +170,8 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 611
-    Width = 1030
+    Top = 437
+    Width = 884
     AutoSize = False
     Panels = <    
       item
@@ -185,7 +187,7 @@ object Form1: TForm1
     Left = 0
     Height = 27
     Top = 0
-    Width = 1030
+    Width = 884
     ButtonHeight = 23
     ButtonWidth = 30
     Caption = 'ToolBar1'
@@ -263,7 +265,8 @@ object Form1: TForm1
     end
   end
   object MainMenu1: TMainMenu
-    left = 984
+    left = 40
+    top = 56
     object MenuItem1: TMenuItem
       Caption = 'File'
       object MenuSaveAs: TMenuItem
@@ -813,7 +816,8 @@ object Form1: TForm1
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    left = 952
+    left = 232
+    top = 56
     Bitmap = {
       4C69090000001800000018000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1468,7 +1472,8 @@ object Form1: TForm1
   end
   object PopupMenu1: TPopupMenu
     Images = ImageList2
-    left = 920
+    left = 96
+    top = 56
     object MenuItem20: TMenuItem
       Caption = 'add period'
       Bitmap.Data = {
@@ -1594,7 +1599,8 @@ object Form1: TForm1
     end
   end
   object UsersList: TPopupMenu
-    left = 808
+    left = 8
+    top = 56
     object MenuItem21: TMenuItem
       Caption = 'Example User 1'
     end
@@ -1603,7 +1609,8 @@ object Form1: TForm1
     end
   end
   object ImageList2: TImageList
-    left = 888
+    left = 160
+    top = 56
     Bitmap = {
       4C69030000001000000010000000FFFFFF00FFFFFF0000000001292929449191
       91CA26262648000000040000000100000001000000043232323C9B9B9BC72929
@@ -1710,7 +1717,7 @@ object Form1: TForm1
     KeepConnection = True
     HostName = 'localhost'
     LogEvents = []
-    left = 720
-    top = 32
+    left = 8
+    top = 128
   end
 end

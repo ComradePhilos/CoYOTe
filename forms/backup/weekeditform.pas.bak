@@ -13,27 +13,27 @@ uses
 type
 
   TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
-  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: Integer) of Object;
-  TNextWeekEvent = procedure(Sender: TObject; Index: Integer) of Object;
+  TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: integer) of object;
+  TNextWeekEvent = procedure(Sender: TObject; Index: integer) of object;
 
   { TForm3 }
 
   TForm3 = class(TForm)
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
-		ComboBox1: TComboBox;
-		CreateLabelButton: TBitBtn;
-		GroupBox1: TGroupBox;
+    ComboBox1: TComboBox;
+    CreateLabelButton: TBitBtn;
+    GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
-		DescriptionEdit: TLabeledEdit;
+    DescriptionEdit: TLabeledEdit;
     Label4: TLabel;
     Memo1: TMemo;
-		MenuHalfDayOff: TMenuItem;
-		PausePerDayEdit: TLabeledEdit;
+    MenuHalfDayOff: TMenuItem;
+    PausePerDayEdit: TLabeledEdit;
     ImageList1: TImageList;
-		Label1: TLabel;
-		Label2: TLabel;
-		Label3: TLabel;
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
     MenuOneDayOff: TMenuItem;
     MenuDelete: TMenuItem;
     MenuEdit: TMenuItem;
@@ -47,7 +47,7 @@ type
     ButtonAdd: TToolButton;
     ButtonEmpty: TToolButton;
     ButtonApply: TToolButton;
-		ToolButton2: TToolButton;
+    ToolButton2: TToolButton;
     ToolButton5: TToolButton;
     ButtonUndo: TToolButton;
     ButtonDelete: TToolButton;
@@ -55,8 +55,8 @@ type
 
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
-		procedure ComboBox1Select(Sender: TObject);
-		procedure CreateLabelButtonClick(Sender: TObject);
+    procedure ComboBox1Select(Sender: TObject);
+    procedure CreateLabelButtonClick(Sender: TObject);
     procedure ButtonEmptyClick(Sender: TObject);
     procedure ButtonLeftClick(Sender: TObject);
     procedure ButtonRightClick(Sender: TObject);
@@ -67,9 +67,9 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
-		procedure MenuOneDayOffClick(Sender: TObject);
-		procedure AddNumberOfDays(Sender: TObject);
-		procedure WeekGridEditingDone(Sender: TObject);
+    procedure MenuOneDayOffClick(Sender: TObject);
+    procedure AddNumberOfDays(Sender: TObject);
+    procedure WeekGridEditingDone(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 
   private
@@ -93,7 +93,7 @@ type
     property OnRemoveClick: TRemoveEvent read FOnRemoveClick write FOnRemoveClick;
     property OnApplyClick: TApplyEvent read FOnApplyClick write FOnApplyClick;
     property OnNextWeekClick: TNextWeekEvent read FOnNextWeekClick write FOnNextWeekClick;
-    property WeekIndex: Integer read FWeekIndex write FWeekIndex;
+    property WeekIndex: integer read FWeekIndex write FWeekIndex;
   end;
 
 var
@@ -174,20 +174,20 @@ begin
   begin
     if (Sender = MenuOneDayOff) then
     begin
-      WeekGrid.Cells[5,FSelectionIndex+1] := HoursPerDayEdit.Text;
-		end;
+      WeekGrid.Cells[5, FSelectionIndex + 1] := HoursPerDayEdit.Text;
+    end;
     if (Sender = MenuHalfDayOff) then
     begin
-      WeekGrid.Cells[5,FSelectionIndex+1] := FloatToStr(StrToFloat(HoursPerDayEdit.Text)/2);
-		end;
-	end;
+      WeekGrid.Cells[5, FSelectionIndex + 1] := FloatToStr(StrToFloat(HoursPerDayEdit.Text) / 2);
+    end;
+  end;
 end;
 
 procedure TForm3.AddNumberOfDays(Sender: TObject);
 var
   locFrom, locTo: TDate;
   DateDlg: TCalendarDialog;
-  I: Integer;
+  I: integer;
 begin
   DateDlg := TCalendarDialog.Create(self);
   DateDlg.Title := 'Select first day';
@@ -201,54 +201,54 @@ begin
       begin
         locTo := DateDlg.Date;
 
-        Fweek.WeekLength := FWeek.WeekLength + DaysBetween(locFrom,locTo)+1 ;
-        for I := 0 to DaysBetween(locFrom,locTo) do
+        Fweek.WeekLength := FWeek.WeekLength + DaysBetween(locFrom, locTo) + 1;
+        for I := 0 to DaysBetween(locFrom, locTo) do
         begin
           FWeek.Days.Add(TWorkDay.Create);
-          FWeek.Days[FWeek.Days.Count-1].Date := locFrom+I;
-          FWeek.Days[FWeek.Days.Count-1].Weekday := RealDayofWeek(locFrom+I);
-				end;
-			end;
-		end;
-	finally
+          FWeek.Days[FWeek.Days.Count - 1].Date := locFrom + I;
+          FWeek.Days[FWeek.Days.Count - 1].Weekday := RealDayofWeek(locFrom + I);
+        end;
+      end;
+    end;
+  finally
     DateDlg.Free;
     updateWindow;
-	end;
+  end;
 end;
 
 procedure TForm3.WeekGridEditingDone(Sender: TObject);
 var
-  I: Integer;
+  I: integer;
 begin
   try
     // apply values from grid
-    for I := 0 to FWeek.Days.Count-1 do
+    for I := 0 to FWeek.Days.Count - 1 do
     begin
-      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3,I+1]);
-      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4,I+1]);
-      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3,I+1]);
-      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4,I+1]);
-      FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5,I+1]);
-		end;
-	except
-	end;
+      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3, I + 1]);
+      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4, I + 1]);
+      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
+      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
+      FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
+    end;
+  except
+  end;
 end;
 
 procedure TForm3.WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 var
-  locInt: Integer;
+  locInt: integer;
 begin
   if (Button = mbRight) then
   begin
-    if TryStrToInt(WeekGrid.Cells[0,WeekGrid.Row], locInt) then
+    if TryStrToInt(WeekGrid.Cells[0, WeekGrid.Row], locInt) then
     begin
-      FSelectionIndex := locInt-1;
+      FSelectionIndex := locInt - 1;
       PopUpMenu1.PopUp;
-		end
+    end
     else
     begin
       FSelectionIndex := -1;
-		end;
+    end;
   end
   else
   begin
@@ -265,7 +265,7 @@ procedure TForm3.CreateLabelButtonClick(Sender: TObject);
 var
   lowest: TDate;
   highest: TDate;
-  I: Integer;
+  I: integer;
 begin
   lowest := FWeek.Days[0].Date;
   highest := FWeek.Days[0].Date;
@@ -274,74 +274,75 @@ begin
     if (FWeek.Days[I].Date < lowest) then
     begin
       lowest := FWeek.Days[I].Date;
-		end;
+    end;
     if (FWeek.Days[I].Date > highest) then
     begin
       highest := FWeek.Days[I].Date;
-		end;
-	end;
+    end;
+  end;
   if (lowest <> highest) then
   begin
     DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest) + '   to   ' + FormatDateTime('dd.mm.yyyy', highest);
-	end
+  end
   else
   begin
     DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest);
-	end;
-	UpdateTitel;
+  end;
+  UpdateTitel;
 end;
 
 procedure TForm3.ApplyButtonClick(Sender: TObject);
 var
-  locDouble: Double;
-  I: Integer;
+  locDouble: double;
+  I: integer;
 begin
   if assigned(FOnApplyClick) then
   begin
 
     FWeek.WeekLabel := DescriptionEdit.Text;
-    if TryStrToFloat( HoursPerDayEdit.Text, locDouble ) then
+    if TryStrToFloat(HoursPerDayEdit.Text, locDouble) then
     begin
       FWeek.IntendedTimePerDay := locDouble;
-		end;
-    if TryStrToFloat( PausePerDayEdit.Text, locDouble ) then
+    end;
+    if TryStrToFloat(PausePerDayEdit.Text, locDouble) then
     begin
       FWeek.PausePerDay := locDouble;
-		end;
+    end;
 
     FWeek.DescriptionText.Clear;
-    for I := 0 to Memo1.Lines.Count -1 do
+    for I := 0 to Memo1.Lines.Count - 1 do
     begin
       FWeek.DescriptionText.Add(Memo1.Lines.Strings[I]);
     end;
 
     // apply values from grid
-    for I := 0 to FWeek.Days.Count-1 do
+    for I := 0 to FWeek.Days.Count - 1 do
     begin
-      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3,I+1]);
-      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4,I+1]);
-      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3,I+1]);
-      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4,I+1]);
-      FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5,I+1]);
-		end;
+      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3, I + 1]);
+      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4, I + 1]);
+      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
+      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
+      FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
+    end;
 
     UpdateTitel;
-    FWeekCopy.assign(FWeek);
+    FWeekCopy.Assign(FWeek);
     FOnApplyClick(self, FWeek, FWeekIndex);
+
     // option to close window too
     if (Sender = ApplyButton) then
     begin
       self.Visible := False;
-		end;
-	end;
+    end;
+  end;
   UpdateWindow;
 end;
 
 procedure TForm3.ButtonEmptyClick(Sender: TObject);
 begin
-    FWeek.Clear;
-    ClearStringGrid(WeekGrid);
-    UpdateWindow;
+  FWeek.Clear;
+  ClearStringGrid(WeekGrid);
+  UpdateWindow;
 end;
 
 procedure TForm3.ComboBox1Select(Sender: TObject);
@@ -359,7 +360,7 @@ begin
   // Get previous week
   if assigned(FOnNextWeekClick) then
   begin
-    FOnNextWeekClick(self, FWeekIndex-1);
+    FOnNextWeekClick(self, FWeekIndex - 1);
     UpdateTitel;
     UpdateWindow;
   end;
@@ -370,7 +371,7 @@ begin
   // Get Next week
   if assigned(FOnNextWeekClick) then
   begin
-    FOnNextWeekClick(self, FWeekIndex+1);
+    FOnNextWeekClick(self, FWeekIndex + 1);
     UpdateTitel;
     UpdateWindow;
   end;
@@ -379,7 +380,7 @@ end;
 procedure TForm3.ButtonUndoClick(Sender: TObject);
 begin
   // Undo all changes and revert to FWeekCopy
-  FWeek.assign(FWeekCopy);
+  FWeek.Assign(FWeekCopy);
   DescriptionEdit.Text := FWeekCopy.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(FWeekCopy.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(FWeekCopy.PausePerDay);
@@ -402,11 +403,11 @@ end;
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 var
-  I: Integer;
+  I: integer;
 begin
   FWeek.Clear;
-  FWeek.assign(AWeek);
-  FWeekCopy.assign(AWeek);
+  FWeek.Assign(AWeek);
+  FWeekCopy.Assign(AWeek);
   DescriptionEdit.Text := AWeek.WeekLabel;
   HoursPerDayEdit.Text := FloatToStr(AWeek.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
@@ -424,20 +425,20 @@ end;
 
 procedure TForm3.UpdateWindow;
 var
-  diff: Double;
-  I: Integer;
+  diff: double;
+  I: integer;
 begin
   ButtonEmpty.Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[1].Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[2].Enabled := (FWeek.Days.Count > 0);
 
-  diff := FWeek.getSum - (FWeek.Days.Count*FWeek.IntendedTimePerDay);
+  diff := FWeek.getSum - (FWeek.Days.Count * FWeek.IntendedTimePerDay);
 
   ColorText(Label3, diff, 0.5);
 
   WeekDaysToStringGrid(WeekGrid, FWeek);
 
-	Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count*FWeek.IntendedTimePerDay) + ' h';
+  Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count * FWeek.IntendedTimePerDay) + ' h';
   Label2.Caption := 'Sum:   ' + FormatFloat('0.00', FWeek.getSum) + ' h';
   Label3.Caption := 'Diff.:  ' + FormatFloat('0.00', diff) + ' h';
 end;
