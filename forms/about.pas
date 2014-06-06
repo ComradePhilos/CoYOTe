@@ -101,6 +101,8 @@ begin
     Memo3.Lines.Add('License Text not found!');
   end;
 
+  self.Constraints.MinHeight := (Panel1.Top*2) + Panel1.Height;
+  self.Constraints.MinWidth := (Panel1.Left*2) + Panel1.Width;
 
 end;
 

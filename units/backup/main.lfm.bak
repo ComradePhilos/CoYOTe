@@ -6,6 +6,8 @@ object Form1: TForm1
   Caption = 'CoYOT(e) - Overtime Calculator'
   ClientHeight = 460
   ClientWidth = 884
+  Constraints.MinHeight = 100
+  Constraints.MinWidth = 200
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -27,8 +29,6 @@ object Form1: TForm1
     Caption = 'Information and Statistics'
     ClientHeight = 393
     ClientWidth = 269
-    Constraints.MinHeight = 100
-    Constraints.MinWidth = 200
     Font.CharSet = ANSI_CHARSET
     Font.Height = -12
     Font.Name = 'Ubuntu'

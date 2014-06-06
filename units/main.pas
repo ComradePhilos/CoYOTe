@@ -214,6 +214,10 @@ begin
   Toolbar1.Color := $00FFDBB7;
   EditWeekForm.ToolBar1.Color := $00FFDBB7;
 
+  // Constraints
+  self.Constraints.MinWidth := Groupbox1.Width;
+  self.Constraints.MinHeight := round(Groupbox1.Width/2);
+
   FChangesMade := False;
 
 end;

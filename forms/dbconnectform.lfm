@@ -298,10 +298,10 @@ object Form6: TForm6
   end
   object IBConnection1: TIBConnection
     Connected = False
-    LoginPrompt = False
+    LoginPrompt = True
     AfterConnect = IBConnection1AfterConnect
     AfterDisconnect = IBConnection1AfterDisconnect
-    KeepConnection = False
+    KeepConnection = True
     LogEvents = []
     left = 24
     top = 176

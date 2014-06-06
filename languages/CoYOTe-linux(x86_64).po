@@ -54,7 +54,7 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "03.06.2014"
+msgid "04.06.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
