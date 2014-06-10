@@ -42,7 +42,7 @@ uses
   Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox, IBConnection,
   DateUtils,
   { Forms }
-  WeekEditForm, WeekAddForm, about, DBConnectForm,
+  WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm,
   { eigene Units }
   workdays, funcs, CoyoteDefaults;
 
@@ -107,6 +107,7 @@ type
     procedure ColorThemeClick(Sender: TObject);
     procedure MenuDatabaseClick(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
+		procedure MenuPeopleClick(Sender: TObject);
 		procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
@@ -130,6 +131,7 @@ type
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
     DBForm: TForm6;               // The window to connect to the firebird database
+    PersonForm: TForm5;
 
     FCurrentUser: Integer;        // ID of the currently selected "User"/Person
     FCurrentFilePath: String;     // If known - Name of the currently opened File
@@ -200,6 +202,7 @@ begin
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
   DBForm := TForm6.Create(nil);
+  PersonForm := TForm5.Create(nil);
 
   // Event Handling
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
@@ -401,6 +404,11 @@ begin
   end;
 end;
 
+procedure TForm1.MenuPeopleClick(Sender: TObject);
+begin
+  PersonForm.Show;
+end;
+
 procedure TForm1.MenuQuickSaveClick(Sender: TObject);
 begin
   if (FCurrentFilePath <> '') then
@@ -576,4 +584,4 @@ begin
 
 end;
 
-end.
+end.

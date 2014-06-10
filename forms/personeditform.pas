@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons;
+  StdCtrls, Buttons, LCLIntF, Process;
 
 type
 
@@ -24,6 +24,7 @@ type
     LabeledEdit7: TLabeledEdit;
     Panel1: TPanel;
     StaticText1: TStaticText;
+		procedure OpenEMailClient(Sender: TObject);
   private
     { private declarations }
   public
@@ -36,6 +37,26 @@ var
 implementation
 
 {$R *.lfm}
+
+{ TForm5 }
+
+procedure TForm5.OpenEMailClient(Sender: TObject);
+var
+  mailadress: String;
+  AProcess: TProcess;
+begin
+  mailadress := LabeledEdit5.Text;
+
+  AProcess:=TProcess.Create(nil);
+  try
+    AProcess.CommandLine:='thunderbird "'+mailadress+'"';  // Shell command
+    AProcess.Execute;
+  finally
+    AProcess.Free;
+  end;
+  //OpenDocument('philip.maerksch@gmx.de');
+end;
+
 
 end.
 

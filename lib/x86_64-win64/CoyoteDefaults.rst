@@ -3,12 +3,12 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 51582753
-coyotedefaults.versionnr='0.0.4.1'
+# hash value = 51582754
+coyotedefaults.versionnr='0.0.4.2'
 
 
-# hash value = 59925588
-coyotedefaults.versiondate='04.06.2014'
+# hash value = 59904084
+coyotedefaults.versiondate='10.06.2014'
 
 
 # hash value = 3413266
@@ -63,4 +63,8 @@ coyotedefaults.emhoursperday='Error: Enter a valid amount of time per day'+
 
 # hash value = 93223009
 coyotedefaults.dbdefaultuser='SYSDBA'
+
+
+# hash value = 222080
+coyotedefaults.dbdefaultport='3050'
 

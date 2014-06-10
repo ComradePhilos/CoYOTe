@@ -1,7 +1,7 @@
 object Form5: TForm5
-  Left = 375
+  Left = 377
   Height = 383
-  Top = 171
+  Top = 178
   Width = 466
   Caption = 'Edit Person'
   ClientHeight = 383
@@ -132,7 +132,6 @@ object Form5: TForm5
     Hint = 'Compose E-Mail'
     Top = 343
     Width = 31
-    Enabled = False
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
       2000000000000004000064000000640000000000000000000000000000000000
@@ -169,6 +168,7 @@ object Form5: TForm5
       0000000000000000000073797B005F666804A4A8A941B2B5B669B1B3B469A8AE
       AE6358BABF3306F4FF340BF3FF3F09F3FF2805F3FF090DF3FF00
     }
+    OnClick = OpenEMailClient
     ParentShowHint = False
     ShowHint = True
     TabOrder = 7

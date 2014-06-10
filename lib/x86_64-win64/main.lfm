@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 427
+  Left = 322
   Height = 460
-  Top = 303
+  Top = 401
   Width = 884
   Caption = 'CoYOT(e) - Overtime Calculator'
   ClientHeight = 440
@@ -259,7 +259,7 @@ object Form1: TForm1
       Left = 137
       Height = 25
       Top = 0
-      Width = 327
+      Width = 95
       ItemHeight = 17
       ItemIndex = 0
       Items.Strings = (
@@ -465,7 +465,6 @@ object Form1: TForm1
       end
       object MenuPeople: TMenuItem
         Caption = 'people...'
-        Enabled = False
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           2000000000000004000064000000640000000000000000000000FFFFFF003E0B
@@ -502,6 +501,7 @@ object Form1: TForm1
           C600026DC600026EC6000062C306186EC88F65A2DCE894C3E9FB8DC5EEFD5CA2
           DAF31E5892BF0020443000162C00000000000000030000000300
         }
+        OnClick = MenuPeopleClick
       end
     end
     object MenuItem3: TMenuItem

@@ -1,6 +1,10 @@
 msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: coyotedefaults.dbdefaultport
+msgid "3050"
+msgstr ""
+
 #: coyotedefaults.dbdefaultuser
 msgid "SYSDBA"
 msgstr ""
@@ -54,11 +58,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "04.06.2014"
+msgid "10.06.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.4.1"
+msgid "0.0.4.2"
 msgstr ""
 
 #: tform1.addweekbutton.caption
