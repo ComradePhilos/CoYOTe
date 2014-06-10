@@ -62,9 +62,9 @@ coyotedefaults.emhoursperday='Error: Enter a valid amount of time per day'+
 
 
 # hash value = 93223009
-coyotedefaults.dbdefaultuser='SYSDBA'
+coyotedefaults.dbdefaultfirebirduser='SYSDBA'
 
 
 # hash value = 222080
-coyotedefaults.dbdefaultport='3050'
+coyotedefaults.dbdefaultfirebirdport='3050'
 

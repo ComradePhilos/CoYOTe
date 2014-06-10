@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Lazarus>
+    <ColorSchemes Version="9">
+      <Names Count="1">
+        <Item1 Value="Philos Scheme Lazarus"/>
+      </Names>
+      <Globals Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <ahaGutter Background="2564127" Foreground="10131073"/>
+          <ahaDefault Background="2301211" Foreground="15000288"/>
+          <ahaErrorLine Background="clRed" Foreground="clWhite"/>
+          <ahaMouseLink Foreground="4227327" FrameColor="11635815" FrameEdges="sfeBottom"/>
+          <ahaTextBlock Background="clGray" Foreground="15000288"/>
+          <ahaWordGroup Background="clWindowFrame" Foreground="clYellow" FrameColor="clWhite"/>
+          <ahaFoldedCode Background="3420457" Foreground="13407323" FrameColor="11635815"/>
+          <ahaLineNumber Background="4470065" Foreground="clWhite"/>
+          <ahaRightMargin Background="3420457" Foreground="15000288"/>
+          <ahaBracketMatch Background="55147" Foreground="clBlack" Style="fsBold"/>
+          <ahaHighlightAll Background="16512" Foreground="15000288"/>
+          <ahaModifiedLine Background="5453877" Foreground="clLime" FrameColor="59900"/>
+          <ahaHighlightWord Background="8083803" FrameColor="clSilver"/>
+          <ahaLineHighlight Background="4929844"/>
+          <ahaSyncroEditCur FrameColor="clFuchsia"/>
+          <ahaExecutionPoint Background="10066380" Foreground="clBlack"/>
+          <ahaSyncroEditArea Background="5257012"/>
+          <ahaSyncroEditSync FrameColor="clRed"/>
+          <ahaCodeFoldingTree Background="4468525" Foreground="13210958"/>
+          <ahaGutterSeparator Background="3420457" Foreground="12051176"/>
+          <ahaSyncroEditOther FrameColor="9744532"/>
+          <ahaTemplateEditCur FrameColor="clAqua"/>
+          <ahaTemplateEditSync FrameColor="clFuchsia"/>
+          <ahaEnabledBreakpoint Background="16762823" Foreground="clBlack"/>
+          <ahaIncrementalSearch Background="3420457" Foreground="6381921"/>
+          <ahaInvalidBreakpoint Background="clGreen" Foreground="clWhite"/>
+          <ahaTemplateEditOther FrameColor="clMaroon"/>
+          <ahaUnknownBreakpoint Background="clGreen" Foreground="clWhite"/>
+          <ahaDisabledBreakpoint Background="16762823" Foreground="clGray"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </Globals>
+      <LangObjectPascal Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <ahaGutter Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+          <Number Foreground="clFuchsia"/>
+          <String Foreground="1823118"/>
+          <Symbol Foreground="12051176"/>
+          <Comment Foreground="8287080" Style="fsBold"/>
+          <Assembler Foreground="clYellow" Style="fsBold"/>
+          <Directive Foreground="clYellow" Style="fsBold"/>
+          <ahaDefault Background="3420457"/>
+          <Reserved_word Foreground="clMenuHighlight" Style="fsBold"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangObjectPascal>
+      <LangLazarus_Form_definition Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Key Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangLazarus_Form_definition>
+      <LangXML_document Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Text Background="3420457" Foreground="30444" Style="fsBold"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <Element_Name Background="3420457" Foreground="30444" Style="fsBold"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <CDATA_Section Background="3420457" Foreground="15000288" Style="fsItalic"/>
+          <Attribute_Name Background="3420457" Foreground="clRed"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <Attribute_Value Background="3420457" Foreground="12419744" Style="fsBold"/>
+          <DOCTYPE_Section Background="3420457" Foreground="15000288" Style="fsItalic"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <Entity_Reference Background="3420457" Foreground="12051176" Style="fsBold"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+          <Processing_Instruction Background="3420457" Foreground="6539155"/>
+          <Namespace_Attribute_Name Background="3420457" Foreground="clRed"/>
+          <Namespace_Attribute_Value Background="3420457" Foreground="12419744" Style="fsBold"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangXML_document>
+      <LangHTML_document Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Asp Background="clYellow" Foreground="clBlack"/>
+          <Value Foreground="16744448"/>
+          <Symbol Foreground="clRed"/>
+          <Comment Foreground="clBlue" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <Identifier Style="fsBold"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <Unknown_word Foreground="clRed" Style="fsBold"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Reserved_word Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <Escape_ampersand Foreground="clLime" Style="fsBold"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangHTML_document>
+      <LangC__ Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Space Background="3420457" Foreground="15000288"/>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <Assembler Background="3420457" Foreground="15000288"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <Preprocessor Background="3420457" Foreground="15000288" Style="fsBold"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangC__>
+      <LangPerl Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Space Background="3420457" Foreground="15000288"/>
+          <Number Background="3420457" Foreground="2280959"/>
+          <Pragma Background="3420457" Foreground="15000288" Style="fsBold"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <Variable Background="3420457" Foreground="clPurple" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangPerl>
+      <LangJava Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Space Background="3420457" Foreground="15000288"/>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Documentation Background="3420457" Foreground="15000288" Style="fsBold"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangJava>
+      <LangUNIX_Shell_Script Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <Variable Background="3420457" Foreground="clPurple"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangUNIX_Shell_Script>
+      <LangPython Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Float Background="3420457" Foreground="2280959"/>
+          <Octal Background="3420457" Foreground="2280959"/>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <Hexadecimal Background="3420457" Foreground="2280959"/>
+          <SyntaxError Background="3420457" Foreground="15000288"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Documentation Background="3420457" Foreground="15000288" Style="fsBold"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+          <Non_reserved_keyword Background="3420457" Foreground="15000288" Style="fsBold"/>
+          <System_functions_and_variables Background="3420457" Foreground="15000288" Style="fsBold"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangPython>
+      <LangPHP Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangPHP>
+      <LangSQL Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <Function Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <Data_type Background="3420457" Foreground="15000288" Style="fsBold"/>
+          <Exception Background="3420457" Foreground="15000288" Style="fsItalic"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <Default_packages Background="3420457" Foreground="30444" Style="fsBold"/>
+          <SQL_Plus_command Background="3420457" Foreground="clPurple" Style="fsBold"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+          <Reserved_word__PL_SQL_ Background="3420457" Foreground="6539155" Style="fsBold"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangSQL>
+      <LangJavascript Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Number Background="3420457" Foreground="2280959"/>
+          <String Background="3420457" Foreground="30444"/>
+          <Symbol Background="3420457" Foreground="12051176"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Reserved_word Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangJavascript>
+      <LangDiff_File Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <Unknown_word Background="clGreen" Foreground="clWhite" Style="fsItalic"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <Diff_New_File Background="3420457" Foreground="12051176" Style="fsBold"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <Diff_Added_line Background="3420457" Foreground="clBlack"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <Diff_Changed_Line Background="3420457" Foreground="clBlack"/>
+          <Diff_Chunk_Marker Background="3420457" Foreground="12051176" Style="fsBold"/>
+          <Diff_Removed_Line Background="3420457" Foreground="clBlack"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+          <Diff_Original_File Background="3420457" Foreground="clRed" Style="fsBold"/>
+          <Diff_Chunk_Line_Counts Background="3420457" Foreground="2280959" Style="fsBold"/>
+          <Diff_Chunk_New_Line_Count Background="3420457" Foreground="15000288" Style="fsBold"/>
+          <Diff_Chunk_Original_Line_Count Background="3420457" Foreground="30444" Style="fsBold"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangDiff_File>
+      <LangMS_DOS_batch_language Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Key Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <Number Background="3420457" Foreground="2280959"/>
+          <Comment Background="3420457" Foreground="9669757" Style="fsItalic"/>
+          <Variable Background="3420457" Foreground="15000288"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangMS_DOS_batch_language>
+      <LangINI_file Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <Comment Background="3420457" Foreground="9669757" Style="fsItalic"/>
+          <Section Background="3420457" Foreground="6539155" Style="fsBold"/>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </LangINI_file>
+      <Langpo_language_files Version="9">
+        <SchemePhilos_Scheme_Lazarus>
+          <ahaGutter Background="3420457"/>
+          <ahaDefault Background="3420457"/>
+          <ahaMouseLink Foreground="11635815"/>
+          <ahaTextBlock Background="16512"/>
+          <ahaWordGroup Background="clNone" Foreground="clNone" FrameColor="clRed"/>
+          <ahaFoldedCode Foreground="13408665" FrameColor="clSilver"/>
+          <ahaLineNumber Background="3420457" Foreground="10131073"/>
+          <ahaBracketMatch Background="clNone" Foreground="clNone"/>
+          <ahaModifiedLine Background="3420457"/>
+          <ahaHighlightWord Background="15132390"/>
+          <ahaLineHighlight Background="clNone"/>
+          <ahaSyncroEditArea Background="clMoneyGreen"/>
+          <ahaCodeFoldingTree Background="3420457" Foreground="12051176"/>
+        </SchemePhilos_Scheme_Lazarus>
+      </Langpo_language_files>
+    </ColorSchemes>
+  </Lazarus>
+</CONFIG>

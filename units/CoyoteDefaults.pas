@@ -30,8 +30,8 @@ ResourceString
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
 
-  dbDefaultUser = 'SYSDBA';
-  dbDefaultPort = '3050';
+  dbDefaultFirebirdUser = 'SYSDBA';
+  dbDefaultFirebirdPort = '3050';
 
   // constants
   const

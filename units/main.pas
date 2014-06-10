@@ -22,10 +22,10 @@
 // Todo:
 // * mergable weeks
 // * switchable day order in week
-// * add switchable advanced view, which will add more colums to the grid
 // * Work on Personnel Management
-// * Functionality to instantly open Thunderbird to write E-Mails to Persons
+// * Functionality to instantly open Thunderbird or other mail clients to write E-Mails to Persons
 // * Restructure the code ( sort functions, renaming, .. whatever is needed )
+// * function to mark days as e.g. offical holidays
 
 
 // features in future:
@@ -172,8 +172,8 @@ implementation
 procedure TForm1.FormCreate(Sender: TObject);
 var
   I: integer;
+  defColor: LongInt;
 begin
-
   FOSName := 'unknown';  // for those poor guys using Minix, BSD, Solaris and such things ;)
   // detectable OS
   {$IFDEF macos}
@@ -214,8 +214,10 @@ begin
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
 
   updateWindow;
-  Toolbar1.Color := $00FFDBB7;
-  EditWeekForm.ToolBar1.Color := $00FFDBB7;
+
+  defColor := $00E0E0E0; // $00FFDBB7;
+  Toolbar1.Color := defColor;
+  EditWeekForm.ToolBar1.Color := defColor;
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
@@ -231,6 +233,8 @@ begin
   AboutForm.Free;
   EditWeekForm.Free;
   AddWeekForm.Free;
+  PersonForm.Free;
+  DBForm.Free;
   FWeekList.Free;
 end;
 

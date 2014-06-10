@@ -51,9 +51,9 @@ implementation
 
 procedure TForm6.FormCreate(Sender: TObject);
 begin
-  LabeledEdit1.Text := '';
-  LabeledEdit2.Text := '';
-  LabeledEdit3.Text := dbDefaultUser;
+  LabeledEdit1.Text := '';                        // will be loaded from settings file in future
+  LabeledEdit2.Text := dbDefaultFirebirdPort;
+  LabeledEdit3.Text := dbDefaultFirebirdUser;
   LabeledEdit4.Text := '';
   LabeledEdit5.Text := '';
 end;

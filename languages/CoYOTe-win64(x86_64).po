@@ -1,11 +1,13 @@
 msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
-#: coyotedefaults.dbdefaultport
+#: coyotedefaults.dbdefaultfirebirdport
+msgctxt "coyotedefaults.dbdefaultfirebirdport"
 msgid "3050"
 msgstr ""
 
-#: coyotedefaults.dbdefaultuser
+#: coyotedefaults.dbdefaultfirebirduser
+msgctxt "coyotedefaults.dbdefaultfirebirduser"
 msgid "SYSDBA"
 msgstr ""
 

@@ -1,7 +1,7 @@
 {
  This Unit shall contain default values for strings, constant values etc.
 
- It might be possible to do the translations here, but automization might be better
+ It might be possible to do the translations here, but automation might be better
 }
 
 unit CoyoteDefaults;

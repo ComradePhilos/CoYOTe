@@ -109,7 +109,7 @@ object Form6: TForm6
   end
   object LabeledEdit1: TLabeledEdit
     Left = 8
-    Height = 27
+    Height = 23
     Top = 34
     Width = 320
     EditLabel.AnchorSideLeft.Control = LabeledEdit1
@@ -117,8 +117,8 @@ object Form6: TForm6
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit1
     EditLabel.Left = 8
-    EditLabel.Height = 17
-    EditLabel.Top = 14
+    EditLabel.Height = 15
+    EditLabel.Top = 16
     EditLabel.Width = 320
     EditLabel.Caption = 'Hostname'
     EditLabel.ParentColor = False
@@ -127,7 +127,7 @@ object Form6: TForm6
   end
   object LabeledEdit2: TLabeledEdit
     Left = 336
-    Height = 27
+    Height = 23
     Top = 34
     Width = 101
     EditLabel.AnchorSideLeft.Control = LabeledEdit2
@@ -135,8 +135,8 @@ object Form6: TForm6
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit2
     EditLabel.Left = 336
-    EditLabel.Height = 17
-    EditLabel.Top = 14
+    EditLabel.Height = 15
+    EditLabel.Top = 16
     EditLabel.Width = 101
     EditLabel.Caption = 'Port'
     EditLabel.ParentColor = False
@@ -145,7 +145,7 @@ object Form6: TForm6
   end
   object LabeledEdit3: TLabeledEdit
     Left = 8
-    Height = 27
+    Height = 23
     Top = 141
     Width = 173
     EditLabel.AnchorSideLeft.Control = LabeledEdit3
@@ -153,8 +153,8 @@ object Form6: TForm6
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit3
     EditLabel.Left = 8
-    EditLabel.Height = 17
-    EditLabel.Top = 121
+    EditLabel.Height = 15
+    EditLabel.Top = 123
     EditLabel.Width = 173
     EditLabel.Caption = 'User'
     EditLabel.ParentColor = False
@@ -163,7 +163,7 @@ object Form6: TForm6
   end
   object LabeledEdit4: TLabeledEdit
     Left = 208
-    Height = 27
+    Height = 23
     Top = 141
     Width = 229
     EchoMode = emPassword
@@ -172,8 +172,8 @@ object Form6: TForm6
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit4
     EditLabel.Left = 208
-    EditLabel.Height = 17
-    EditLabel.Top = 121
+    EditLabel.Height = 15
+    EditLabel.Top = 123
     EditLabel.Width = 229
     EditLabel.Caption = 'Password'
     EditLabel.ParentColor = False
@@ -183,7 +183,7 @@ object Form6: TForm6
   end
   object LabeledEdit5: TLabeledEdit
     Left = 8
-    Height = 27
+    Height = 23
     Top = 88
     Width = 229
     EditLabel.AnchorSideLeft.Control = LabeledEdit5
@@ -191,8 +191,8 @@ object Form6: TForm6
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit5
     EditLabel.Left = 8
-    EditLabel.Height = 17
-    EditLabel.Top = 68
+    EditLabel.Height = 15
+    EditLabel.Top = 70
     EditLabel.Width = 229
     EditLabel.Caption = 'Database Name'
     EditLabel.ParentColor = False
@@ -201,8 +201,8 @@ object Form6: TForm6
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 21
-    Top = 230
+    Height = 23
+    Top = 228
     Width = 445
     Panels = <    
       item
@@ -298,10 +298,10 @@ object Form6: TForm6
   end
   object IBConnection1: TIBConnection
     Connected = False
-    LoginPrompt = False
+    LoginPrompt = True
     AfterConnect = IBConnection1AfterConnect
     AfterDisconnect = IBConnection1AfterDisconnect
-    KeepConnection = False
+    KeepConnection = True
     LogEvents = []
     left = 24
     top = 176
