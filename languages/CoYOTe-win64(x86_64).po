@@ -1,6 +1,10 @@
 msgid "Lukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas FrankeLukas Franke"
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: coyotedefaults.dbdefaultuser
+msgid "SYSDBA"
+msgstr ""
+
 #: coyotedefaults.emdateorder
 msgid "Error: The dates are in the wrong order!"
 msgstr ""
@@ -50,11 +54,11 @@ msgid "Do you really want to delete the selected day? This will delete all data 
 msgstr ""
 
 #: coyotedefaults.versiondate
-msgid "23.05.2014"
+msgid "04.06.2014"
 msgstr ""
 
 #: coyotedefaults.versionnr
-msgid "0.0.3.8"
+msgid "0.0.4.1"
 msgstr ""
 
 #: tform1.addweekbutton.caption
@@ -101,28 +105,32 @@ msgstr ""
 msgid "vacation taken:"
 msgstr ""
 
+#: tform1.menuabout.caption
+msgctxt "TFORM1.MENUABOUT.CAPTION"
+msgid "About"
+msgstr ""
+
+#: tform1.menucolortheme.caption
+msgctxt "TFORM1.MENUCOLORTHEME.CAPTION"
+msgid "Color Theme..."
+msgstr ""
+
+#: tform1.menuenglish.caption
+msgctxt "TFORM1.MENUENGLISH.CAPTION"
+msgid "English"
+msgstr ""
+
+#: tform1.menugerman.caption
+msgctxt "TFORM1.MENUGERMAN.CAPTION"
+msgid "German"
+msgstr ""
+
 #: tform1.menuitem1.caption
 msgid "File"
 msgstr ""
 
-#: tform1.menuitem10.caption
-msgid "Programme Settings..."
-msgstr ""
-
 #: tform1.menuitem11.caption
 msgid "Language"
-msgstr ""
-
-#: tform1.menuitem12.caption
-msgid "English"
-msgstr ""
-
-#: tform1.menuitem13.caption
-msgid "German"
-msgstr ""
-
-#: tform1.menuitem19.caption
-msgid "Color Theme..."
 msgstr ""
 
 #: tform1.menuitem2.caption
@@ -140,10 +148,6 @@ msgstr ""
 
 #: tform1.menuitem22.caption
 msgid "MaxMustermann"
-msgstr ""
-
-#: tform1.menuitem23.caption
-msgid "people..."
 msgstr ""
 
 #: tform1.menuitem24.caption
@@ -164,12 +168,8 @@ msgid "Help"
 msgstr ""
 
 #: tform1.menuitem5.caption
-msgid "Manual (PDF)"
-msgstr ""
-
-#: tform1.menuitem8.caption
-msgctxt "TFORM1.MENUITEM8.CAPTION"
-msgid "About"
+msgctxt "tform1.menuitem5.caption"
+msgid "Database Connection"
 msgstr ""
 
 #: tform1.menuitem9.caption
@@ -178,6 +178,16 @@ msgstr ""
 
 #: tform1.menuload.caption
 msgid "Load"
+msgstr ""
+
+#: tform1.menumanual.caption
+msgctxt "TFORM1.MENUMANUAL.CAPTION"
+msgid "Manual (PDF)"
+msgstr ""
+
+#: tform1.menupeople.caption
+msgctxt "TFORM1.MENUPEOPLE.CAPTION"
+msgid "people..."
 msgstr ""
 
 #: tform1.menuquicksave.caption
@@ -193,6 +203,11 @@ msgstr ""
 #: tform1.menusaveas.caption
 msgctxt "TFORM1.MENUSAVEAS.CAPTION"
 msgid "Save as..."
+msgstr ""
+
+#: tform1.menusettings.caption
+msgctxt "TFORM1.MENUSETTINGS.CAPTION"
+msgid "Programme Settings..."
 msgstr ""
 
 #: tform1.statusbar1.panels[0].text
@@ -262,12 +277,12 @@ msgstr ""
 
 #: tform2.image1.hint
 msgctxt "tform2.image1.hint"
-msgid "Visit website of the project on Github!"
+msgid "Visit the Project-Page on Github.com!"
 msgstr ""
 
 #: tform2.image2.hint
 msgctxt "TFORM2.IMAGE2.HINT"
-msgid "Visit website of the project on Github!"
+msgid "Visit GPL-Website!"
 msgstr ""
 
 #: tform2.label1.caption
@@ -281,14 +296,6 @@ msgstr ""
 #: tform2.label3.caption
 msgctxt "TFORM2.LABEL3.CAPTION"
 msgid "Versions"
-msgstr ""
-
-#: tform2.label4.caption
-msgid "General Public License v3"
-msgstr ""
-
-#: tform2.label4.hint
-msgid "http://www.gnu.org/licenses/gpl-3.0.txt"
 msgstr ""
 
 #: tform2.statictext1.caption
@@ -576,5 +583,62 @@ msgstr ""
 
 #: tform5.statictext1.caption
 msgid "FamilyName, FirstName"
+msgstr ""
+
+#: tform6.bitbtn2.caption
+msgctxt "TFORM6.BITBTN2.CAPTION"
+msgid "Cancel"
+msgstr ""
+
+#: tform6.caption
+msgid "Connect to database"
+msgstr ""
+
+#: tform6.connectbtn.caption
+msgid "Connect"
+msgstr ""
+
+#: tform6.disconnectbtn.caption
+msgid "Disconnect"
+msgstr ""
+
+#: tform6.labelededit1.editlabel.caption
+msgid "Hostname"
+msgstr ""
+
+#: tform6.labelededit1.text
+msgid "LabeledEdit1"
+msgstr ""
+
+#: tform6.labelededit2.editlabel.caption
+msgid "Port"
+msgstr ""
+
+#: tform6.labelededit2.text
+msgid "LabeledEdit2"
+msgstr ""
+
+#: tform6.labelededit3.editlabel.caption
+msgid "User"
+msgstr ""
+
+#: tform6.labelededit3.text
+msgid "LabeledEdit3"
+msgstr ""
+
+#: tform6.labelededit4.editlabel.caption
+msgid "Password"
+msgstr ""
+
+#: tform6.labelededit4.text
+msgid "LabeledEdit4"
+msgstr ""
+
+#: tform6.labelededit5.editlabel.caption
+msgid "Database Name"
+msgstr ""
+
+#: tform6.labelededit5.text
+msgid "LabeledEdit5"
 msgstr ""
 

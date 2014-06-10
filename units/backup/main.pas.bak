@@ -216,7 +216,7 @@ begin
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
-  self.Constraints.MinHeight := Groupbox1.Width/2;
+  self.Constraints.MinHeight := round(Groupbox1.Width/2);
 
   FChangesMade := False;
 

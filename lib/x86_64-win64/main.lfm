@@ -1,11 +1,13 @@
 object Form1: TForm1
-  Left = 395
-  Height = 634
-  Top = 312
-  Width = 1030
+  Left = 427
+  Height = 460
+  Top = 303
+  Width = 884
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 614
-  ClientWidth = 1030
+  ClientHeight = 440
+  ClientWidth = 884
+  Constraints.MinHeight = 100
+  Constraints.MinWidth = 200
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -18,14 +20,16 @@ object Form1: TForm1
   Position = poScreenCenter
   LCLVersion = '1.2.2.0'
   object GroupBox1: TGroupBox
+    AnchorSideTop.Control = ToolBar1
+    AnchorSideTop.Side = asrBottom
     AnchorSideRight.Side = asrBottom
-    Left = 753
-    Height = 562
-    Top = 28
+    Left = 607
+    Height = 393
+    Top = 25
     Width = 273
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Information and Statistics'
-    ClientHeight = 544
+    ClientHeight = 375
     ClientWidth = 269
     Font.CharSet = ANSI_CHARSET
     Font.Height = -12
@@ -92,11 +96,13 @@ object Form1: TForm1
     end
   end
   object StringGrid1: TStringGrid
+    AnchorSideTop.Control = ToolBar1
+    AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 565
-    Top = 27
-    Width = 753
+    Height = 393
+    Top = 25
+    Width = 607
     Anchors = [akTop, akLeft, akRight, akBottom]
     ColCount = 6
     ColumnClickSorts = True
@@ -168,8 +174,8 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 591
-    Width = 1030
+    Top = 417
+    Width = 884
     AutoSize = False
     Panels = <    
       item
@@ -183,9 +189,10 @@ object Form1: TForm1
   end
   object ToolBar1: TToolBar
     Left = 0
-    Height = 27
+    Height = 25
     Top = 0
-    Width = 1030
+    Width = 884
+    AutoSize = True
     ButtonHeight = 23
     ButtonWidth = 30
     Caption = 'ToolBar1'
@@ -252,7 +259,7 @@ object Form1: TForm1
       Left = 137
       Height = 25
       Top = 0
-      Width = 100
+      Width = 327
       ItemHeight = 17
       ItemIndex = 0
       Items.Strings = (
@@ -263,7 +270,8 @@ object Form1: TForm1
     end
   end
   object MainMenu1: TMainMenu
-    left = 984
+    left = 40
+    top = 56
     object MenuItem1: TMenuItem
       Caption = 'File'
       object MenuSaveAs: TMenuItem
@@ -430,7 +438,32 @@ object Form1: TForm1
     end
     object MenuItem2: TMenuItem
       Caption = 'Edit'
-      object MenuItem23: TMenuItem
+      object MenuItem5: TMenuItem
+        Caption = 'Database Connection'
+        Bitmap.Data = {
+          42020000424D4202000000000000420000002800000010000000100000000100
+          100003000000000200006400000064000000000000000000000000F80000E007
+          00001F000000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAA522842FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFD39CB2949294EB5A8A520C63B29410848A52
+          494AE739FFFFFFFF14A514A5F39C14A555AD34A5EF7BF7BDF39C38C6F7BDD39C
+          D7BDCB5AE73934A534A579CE7DEFBEF7BEF75DEFB6B518C6B6B53084108475AD
+          F7BDCB5AE73955ADFBDE9EF7DBDE9AD6DBDEEF7B55ADFBDE518C38C6518C1084
+          9AD6718C694A75AD9EF7FBDEBAD69AD6DBDE518CF7BD3CE7CF7BFBDE92943084
+          FBDE55AD4D6B75AD9EF71CE7DBDEBAD6FBDEDBDE55AD59CE34A58E73CF7B75AD
+          38C6CF7BFFFF96B59EF73CE7FBDEDBDE1CE7DBDE929459CEB6B59AD69AD675AD
+          38C66D6B494A96B5BEF75DEF1CE7FBDE1CE7FBDE34A5718CB6B575AD75AD3084
+          EF7B6D6BFFFFB6B5BEF77DEF3CE71CE73CE71CE779CE18C618C6718C518CFFFF
+          FFFFFFFFFFFFB6B5BEF75DEFFBDEBAD6BAD69AD618C6F7BD18C63CE714A5FFFF
+          FFFFFFFFFFFFB6B5BEF73CE77DEFBEF7DFFFDFFF9EF7FBDE18C63CE734A5FFFF
+          FFFFFFFFFFFFD7BDDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFFF5DEF34A5FFFF
+          FFFFFFFFFFFFD7BD1CE7FFFFFFFFFFFFFFFFFFFFFFFFFFFFDFFF79CE55ADFFFF
+          FFFFFFFFFFFFF7BDD7BD9AD65DEF9EF7FFFFFFFF7DEF1CE718C675AD75ADFFFF
+          FFFFFFFFFFFFFFFFF7BDD7BDD7BDD7BDB6B5B6B5B6B596B596B575ADFFFFFFFF
+          FFFFFFFFFFFF
+        }
+        OnClick = MenuDatabaseClick
+      end
+      object MenuPeople: TMenuItem
         Caption = 'people...'
         Enabled = False
         Bitmap.Data = {
@@ -477,7 +510,7 @@ object Form1: TForm1
     end
     object MenuItem9: TMenuItem
       Caption = 'Options'
-      object MenuItem10: TMenuItem
+      object MenuSettings: TMenuItem
         Caption = 'Programme Settings...'
         Enabled = False
         Bitmap.Data = {
@@ -546,7 +579,7 @@ object Form1: TForm1
           00000000000000000000
         }
       end
-      object MenuItem19: TMenuItem
+      object MenuColorTheme: TMenuItem
         Caption = 'Color Theme...'
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
@@ -584,7 +617,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
-        OnClick = MenuItem19Click
+        OnClick = ColorThemeClick
       end
       object MenuItem11: TMenuItem
         Caption = 'Language'
@@ -624,7 +657,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
         }
-        object MenuItem12: TMenuItem
+        object MenuEnglish: TMenuItem
           Caption = 'English'
           Bitmap.Data = {
             DE030000424DDE030000000000003600000028000000120000000D0000000100
@@ -661,7 +694,7 @@ object Form1: TForm1
             EBFF
           }
         end
-        object MenuItem13: TMenuItem
+        object MenuGerman: TMenuItem
           Caption = 'German'
           Enabled = False
           Bitmap.Data = {
@@ -703,7 +736,7 @@ object Form1: TForm1
     end
     object MenuItem4: TMenuItem
       Caption = 'Help'
-      object MenuItem5: TMenuItem
+      object MenuManual: TMenuItem
         Caption = 'Manual (PDF)'
         Enabled = False
         Bitmap.Data = {
@@ -743,7 +776,7 @@ object Form1: TForm1
           00FF914600FF914600FF914600FF914600FF833E0074FFFFFF00
         }
       end
-      object MenuItem8: TMenuItem
+      object MenuAbout: TMenuItem
         Caption = 'About'
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
@@ -781,14 +814,15 @@ object Form1: TForm1
           0000000000003C53A8006289E0000501390A4855962D7078A9489088965A9F94
           95628777772A4B0000031A44B400000000000000000000000000
         }
-        OnClick = MenuAbout
+        OnClick = MenuAboutClick
       end
     end
   end
   object ImageList1: TImageList
     Height = 24
     Width = 24
-    left = 952
+    left = 232
+    top = 56
     Bitmap = {
       4C69090000001800000018000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
@@ -1443,7 +1477,8 @@ object Form1: TForm1
   end
   object PopupMenu1: TPopupMenu
     Images = ImageList2
-    left = 920
+    left = 96
+    top = 56
     object MenuItem20: TMenuItem
       Caption = 'add period'
       Bitmap.Data = {
@@ -1569,7 +1604,8 @@ object Form1: TForm1
     end
   end
   object UsersList: TPopupMenu
-    left = 808
+    left = 8
+    top = 56
     object MenuItem21: TMenuItem
       Caption = 'Example User 1'
     end
@@ -1578,7 +1614,8 @@ object Form1: TForm1
     end
   end
   object ImageList2: TImageList
-    left = 888
+    left = 160
+    top = 56
     Bitmap = {
       4C69030000001000000010000000FFFFFF00FFFFFF0000000001292929449191
       91CA26262648000000040000000100000001000000043232323C9B9B9BC72929
@@ -1678,5 +1715,14 @@ object Form1: TForm1
       57FF2A6087FF4A88BCFF558EB2FF848E96FF919191FF919191FF919191FF9191
       91FF919191FF8A8A8AE0FFFFFF00
     }
+  end
+  object IBConnection1: TIBConnection
+    Connected = False
+    LoginPrompt = True
+    KeepConnection = True
+    HostName = 'localhost'
+    LogEvents = []
+    left = 8
+    top = 128
   end
 end
