@@ -84,7 +84,6 @@ var
   FormatDouble: TFormatSettings;
 begin
   Lines := TStringList.Create;
-  AWeekList.Clear;
 
   try
     l := 1;
@@ -92,6 +91,7 @@ begin
 
     if (Lines[0] = 'CoYOTe file') then
     begin
+    AWeekList.Clear;
     // Number of Weeks
     if TryStrToInt(Lines[1], locInt) then
     begin

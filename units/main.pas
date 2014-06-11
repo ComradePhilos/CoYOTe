@@ -374,8 +374,11 @@ end;
 procedure TForm1.MenuLoadClick(Sender: TObject);
 var
   OpenDlg: TOpenDialog;
+  //localCopy: TWeekList;
 begin
   OpenDlg := TOpenDialog.Create(self);
+  //localCopy := TWeekList.Create;
+  //localCopy.Assign(FWeekList);
   OpenDlg.Title := 'Open file';
   try
     OpenDlg.InitialDir := '../data/';
@@ -391,10 +394,12 @@ begin
       begin
         StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" could not be loaded!';
         FCurrentFilePath := '';
+        //FWeekList.Assign(localCopy);
 			end;
 		end;
   finally
     OpenDlg.Free;
+    //localCopy.Free;
     FChangesMade := False;
     updateWindow;
   end;

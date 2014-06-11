@@ -205,7 +205,7 @@ object Form1: TForm1
     ParentColor = False
     TabOrder = 3
     object AddWeekButton: TToolButton
-      Left = 72
+      Left = 7
       Top = 0
       AutoSize = True
       Caption = 'AddWeekButton'
@@ -213,7 +213,7 @@ object Form1: TForm1
       OnClick = AddWeek
     end
     object EditWeekButton: TToolButton
-      Left = 102
+      Left = 37
       Top = 0
       Caption = 'EditWeekButton'
       ImageIndex = 2
@@ -228,14 +228,14 @@ object Form1: TForm1
       Style = tbsDivider
     end
     object ToolButton1: TToolButton
-      Left = 37
+      Left = 102
       Top = 0
       Caption = 'SaveButton'
       ImageIndex = 7
       OnClick = MenuQuickSaveClick
     end
     object ToolButton2: TToolButton
-      Left = 7
+      Left = 72
       Top = 0
       Caption = 'OpenButton'
       ImageIndex = 8
