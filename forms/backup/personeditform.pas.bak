@@ -35,6 +35,9 @@ type
 		ToolButton3: TToolButton;
 		ToolButton4: TToolButton;
 		ToolButton5: TToolButton;
+		ToolButton6: TToolButton;
+		ToolButton7: TToolButton;
+		ToolButton8: TToolButton;
 		procedure BitBtn2Click(Sender: TObject);
   procedure BitBtn3Click(Sender: TObject);
   procedure OpenEMailClient(Sender: TObject);

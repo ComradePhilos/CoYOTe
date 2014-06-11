@@ -250,10 +250,10 @@ end;
 procedure TForm1.AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: integer);
 begin
   FWeekList.Items[Index].Assign(AWeek);
-  updateWindow;
   WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
   EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
   FChangesMade := True;
+  updateWindow;
 end;
 
 procedure TForm1.EditButtonClick(Sender: TObject);
