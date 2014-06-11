@@ -21,12 +21,11 @@
 
 // Todo:
 // * mergable weeks
-// * switchable day order in week
+// * switchable day order in weeks
 // * Work on Personnel Management
 // * Functionality to instantly open Thunderbird or other mail clients to write E-Mails to Persons
 // * function to mark days as e.g. offical holidays
 // * expand Firebird Support
-// * change the loading function to not load anything when file is invalid - otherwise programme crashes
 
 
 unit main;
@@ -251,10 +250,10 @@ end;
 procedure TForm1.AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: integer);
 begin
   FWeekList.Items[Index].Assign(AWeek);
-  updateWindow;
   WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
   EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
   FChangesMade := True;
+  updateWindow;
 end;
 
 procedure TForm1.EditButtonClick(Sender: TObject);
@@ -396,8 +395,8 @@ begin
 		end;
   finally
     OpenDlg.Free;
-    updateWindow;
     FChangesMade := False;
+    updateWindow;
   end;
 end;
 
@@ -437,6 +436,7 @@ begin
   finally
     SaveDlg.Free;
     FChangesMade := False;
+    EnableButtons;
   end;
 end;
 
