@@ -24,12 +24,10 @@
 // * switchable day order in week
 // * Work on Personnel Management
 // * Functionality to instantly open Thunderbird or other mail clients to write E-Mails to Persons
-// * Restructure the code ( sort functions, renaming, .. whatever is needed )
 // * function to mark days as e.g. offical holidays
+// * expand Firebird Support
+// * change the loading function to not load anything when file is invalid - otherwise programme crashes
 
-
-// features in future:
-// * Database Support for local or external database servers (e.g. Firebird)
 
 unit main;
 
@@ -133,6 +131,7 @@ type
     DBForm: TForm6;               // The window to connect to the firebird database
     PersonForm: TForm5;
 
+    // may become obsolete with the newest changes
     FCurrentUser: Integer;        // ID of the currently selected "User"/Person
     FCurrentFilePath: String;     // If known - Name of the currently opened File
 
@@ -186,7 +185,7 @@ begin
   FOSName := 'Linux';    // for those poor guys, who need to compensate the little budget ;)
   {$ENDIF}
 
-  Caption := ProgrammeName + '  ' + VersionNr;
+  self.Caption := ProgrammeName + '  ' + VersionNr;
   FLanguage := 'English';
 
   // default values
@@ -482,7 +481,6 @@ begin
 
 end;
 
-
 procedure TForm1.UpdateWindow;
 var
   I: integer;
@@ -570,7 +568,6 @@ begin
     Toolbar1.Buttons[1].Enabled := True;
     Toolbar1.Buttons[2].Enabled := True;
     ToolButton1.Enabled := True;
-    //RemoveWeekButton.Enabled := True;
     EditWeekButton.Enabled := True;
   end
   else
@@ -579,7 +576,6 @@ begin
     Toolbar1.Buttons[2].Enabled := False;
     ToolButton1.Enabled := False;
     EditWeekButton.Enabled := False;
-    //RemoveWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
   end;
 

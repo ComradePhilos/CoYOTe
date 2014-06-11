@@ -27,6 +27,7 @@ type
     PageControl1: TPageControl;
     Panel1: TPanel;
     StaticText1: TStaticText;
+		StatusBar1: TStatusBar;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;

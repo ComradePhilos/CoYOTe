@@ -271,6 +271,8 @@ var
   highest: TDate;
   I: integer;
 begin
+  if (FWeek.Days.Count > 0) then
+  begin
   lowest := FWeek.Days[0].Date;
   highest := FWeek.Days[0].Date;
   for I := 1 to FWeek.Days.Count - 1 do
@@ -292,7 +294,12 @@ begin
   begin
     DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest);
   end;
-  UpdateTitel;
+	end
+  else
+  begin
+    DescriptionEdit.Text := 'empty week';
+	end;
+	UpdateTitel;
 end;
 
 procedure TForm3.ApplyButtonClick(Sender: TObject);

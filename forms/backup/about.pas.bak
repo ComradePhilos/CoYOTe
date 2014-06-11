@@ -27,6 +27,7 @@ type
     PageControl1: TPageControl;
     Panel1: TPanel;
     StaticText1: TStaticText;
+		StatusBar1: TStatusBar;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
     TabSheet3: TTabSheet;
@@ -101,8 +102,8 @@ begin
     Memo3.Lines.Add('License Text not found!');
   end;
 
-  self.Constraints.MinHeight := Panel1.Top + Panel1.Height;
-  self.Constraints.MinWidth := Panel1.Left + Panel1.Width;
+  self.Constraints.MinHeight := (Panel1.Top*2) + Panel1.Height;
+  self.Constraints.MinWidth := (Panel1.Left*2) + Panel1.Width;
 
 end;
 

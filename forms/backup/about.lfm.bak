@@ -23,7 +23,7 @@ object Form2: TForm2
     Left = 193
     Height = 21
     Top = 6
-    Width = 311
+    Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -37,18 +37,18 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 16
+    Height = 17
     Top = 283
-    Width = 50
+    Width = 51
     Anchors = [akLeft]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 16
+    Height = 17
     Top = 341
-    Width = 65
+    Width = 68
     Anchors = [akLeft]
     Caption = 'Build-Date:'
     ParentColor = False
@@ -62,8 +62,8 @@ object Form2: TForm2
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    ClientHeight = 175
-    ClientWidth = 174
+    ClientHeight = 173
+    ClientWidth = 172
     TabOrder = 1
     object Image1: TImage
       Cursor = crHandPoint
@@ -2178,12 +2178,12 @@ object Form2: TForm2
     object TabSheet2: TTabSheet
       Caption = 'Changelog'
       ClientHeight = 329
-      ClientWidth = 551
+      ClientWidth = 547
       object Memo1: TMemo
         Left = 125
-        Height = 321
+        Height = 310
         Top = 4
-        Width = 422
+        Width = 418
         Anchors = [akTop, akLeft, akRight, akBottom]
         Color = clWhite
         Font.CharSet = ANSI_CHARSET
@@ -2199,7 +2199,7 @@ object Form2: TForm2
       end
       object ListBox1: TListBox
         Left = 0
-        Height = 297
+        Height = 290
         Top = 24
         Width = 120
         Anchors = [akTop, akLeft, akBottom]
@@ -2215,16 +2215,22 @@ object Form2: TForm2
         ScrollWidth = 120
         Sorted = True
         TabOrder = 1
-        TopIndex = -1
       end
       object Label3: TLabel
         Left = 4
-        Height = 16
+        Height = 17
         Top = 2
-        Width = 50
+        Width = 51
         Caption = 'Versions'
         ParentColor = False
       end
     end
   end
-end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 379
+    Width = 756
+    Panels = <>
+  end
+end

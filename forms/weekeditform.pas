@@ -112,7 +112,7 @@ begin
   FWeekCopy := TWorkWeek.Create;
 
   //self.Constraints.MinWidth := Groupbox1.Width;
-  self.Constraints.MinWidth := BackButton.Width + ApplyButton.Width+20;
+  self.Constraints.MinWidth := BackButton.Width + ApplyButton.Width + 20;
   self.Constraints.MinHeight := Memo1.Height + Label3.Top + 80;//Label3.Top+20;
 end;
 
@@ -271,26 +271,33 @@ var
   highest: TDate;
   I: integer;
 begin
-  lowest := FWeek.Days[0].Date;
-  highest := FWeek.Days[0].Date;
-  for I := 1 to FWeek.Days.Count - 1 do
+  if (FWeek.Days.Count > 0) then
   begin
-    if (FWeek.Days[I].Date < lowest) then
+    lowest := FWeek.Days[0].Date;
+    highest := FWeek.Days[0].Date;
+    for I := 1 to FWeek.Days.Count - 1 do
     begin
-      lowest := FWeek.Days[I].Date;
+      if (FWeek.Days[I].Date < lowest) then
+      begin
+        lowest := FWeek.Days[I].Date;
+      end;
+      if (FWeek.Days[I].Date > highest) then
+      begin
+        highest := FWeek.Days[I].Date;
+      end;
     end;
-    if (FWeek.Days[I].Date > highest) then
+    if (lowest <> highest) then
     begin
-      highest := FWeek.Days[I].Date;
+      DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest) + '   to   ' + FormatDateTime('dd.mm.yyyy', highest);
+    end
+    else
+    begin
+      DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest);
     end;
-  end;
-  if (lowest <> highest) then
-  begin
-    DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest) + '   to   ' + FormatDateTime('dd.mm.yyyy', highest);
   end
   else
   begin
-    DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest);
+    DescriptionEdit.Text := 'empty week';
   end;
   UpdateTitel;
 end;

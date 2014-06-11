@@ -342,13 +342,15 @@ object Form3: TForm3
   object GroupBox1: TGroupBox
     AnchorSideLeft.Control = WeekGrid
     AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = ToolBar1
+    AnchorSideTop.Side = asrBottom
     Left = 645
-    Height = 205
-    Top = 28
+    Height = 209
+    Top = 24
     Width = 131
     Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = 'Summary'
-    ClientHeight = 187
+    ClientHeight = 191
     ClientWidth = 127
     TabOrder = 7
     object Label1: TLabel
@@ -421,9 +423,11 @@ object Form3: TForm3
     ParentColor = False
   end
   object WeekGrid: TStringGrid
+    AnchorSideTop.Control = ToolBar1
+    AnchorSideTop.Side = asrBottom
     Left = 0
-    Height = 205
-    Top = 28
+    Height = 209
+    Top = 24
     Width = 645
     Anchors = [akTop, akLeft, akRight, akBottom]
     ColCount = 8
