@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons, LCLIntF, Process;
+  StdCtrls, Buttons, LCLIntF, ComCtrls, Process;
 
 type
 
@@ -14,7 +14,11 @@ type
 
   TForm5 = class(TForm)
     BitBtn1: TBitBtn;
+		BitBtn2: TBitBtn;
+		BitBtn3: TBitBtn;
+		ComboBox1: TComboBox;
     Image1: TImage;
+		ImageList1: TImageList;
     LabeledEdit1: TLabeledEdit;
     LabeledEdit2: TLabeledEdit;
     LabeledEdit3: TLabeledEdit;
@@ -24,7 +28,19 @@ type
     LabeledEdit7: TLabeledEdit;
     Panel1: TPanel;
     StaticText1: TStaticText;
-		procedure OpenEMailClient(Sender: TObject);
+		StatusBar1: TStatusBar;
+		ToolBar1: TToolBar;
+		ToolButton1: TToolButton;
+		ToolButton2: TToolButton;
+		ToolButton3: TToolButton;
+		ToolButton4: TToolButton;
+		ToolButton5: TToolButton;
+		ToolButton6: TToolButton;
+		ToolButton7: TToolButton;
+		ToolButton8: TToolButton;
+		procedure BitBtn2Click(Sender: TObject);
+  procedure BitBtn3Click(Sender: TObject);
+  procedure OpenEMailClient(Sender: TObject);
   private
     { private declarations }
   public
@@ -55,6 +71,16 @@ begin
     AProcess.Free;
   end;
   //OpenDocument('philip.maerksch@gmx.de');
+end;
+
+procedure TForm5.BitBtn3Click(Sender: TObject);
+begin
+  self.Visible := False;
+end;
+
+procedure TForm5.BitBtn2Click(Sender: TObject);
+begin
+  StaticText1.Caption := LabeledEdit2.Text + ', ' + LabeledEdit1.Text;
 end;
 
 

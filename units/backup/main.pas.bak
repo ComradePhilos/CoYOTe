@@ -22,15 +22,12 @@
 // Todo:
 // * mergable weeks
 // * switchable day order in week
-// * add switchable advanced view, which will add more colums to the grid
 // * Work on Personnel Management
-// * Functionality to instantly open Thunderbird to write E-Mails to Persons
-// * Restructure the code ( sort functions, renaming, .. whatever is needed )
-// *
+// * Functionality to instantly open Thunderbird or other mail clients to write E-Mails to Persons
+// * function to mark days as e.g. offical holidays
+// * expand Firebird Support
+// * change the loading function to not load anything when file is invalid - otherwise programme crashes
 
-
-// features in future:
-// * Database Support for local or external database servers (e.g. Firebird)
 
 unit main;
 
@@ -39,9 +36,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
-  ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl, BarChart,
-  Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox, IBConnection,
-  DateUtils,
+  ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons, ActnList,
+  IBConnection, DateUtils,
   { Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm,
   { eigene Units }
@@ -134,6 +130,7 @@ type
     DBForm: TForm6;               // The window to connect to the firebird database
     PersonForm: TForm5;
 
+    // may become obsolete with the newest changes
     FCurrentUser: Integer;        // ID of the currently selected "User"/Person
     FCurrentFilePath: String;     // If known - Name of the currently opened File
 
@@ -171,9 +168,6 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
-var
-  I: integer;
-  defColor: LongInt;
 begin
   FOSName := 'unknown';  // for those poor guys using Minix, BSD, Solaris and such things ;)
   // detectable OS
@@ -187,7 +181,7 @@ begin
   FOSName := 'Linux';    // for those poor guys, who need to compensate the little budget ;)
   {$ENDIF}
 
-  Caption := ProgrammeName + '  ' + VersionNr;
+  self.Caption := ProgrammeName + '  ' + VersionNr;
   FLanguage := 'English';
 
   // default values
@@ -216,9 +210,9 @@ begin
 
   updateWindow;
 
-  defColor := $00E0E0E0; // $00FFDBB7;
-  Toolbar1.Color := defColor;
-  EditWeekForm.ToolBar1.Color := defColor;
+  Toolbar1.Color := defToolbarColor;
+  EditWeekForm.ToolBar1.Color := defToolbarColor;
+  PersonForm.Toolbar1.Color := defToolbarColor;
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
@@ -483,7 +477,6 @@ begin
 
 end;
 
-
 procedure TForm1.UpdateWindow;
 var
   I: integer;
@@ -500,6 +493,11 @@ begin
   goal := 0;
   diff := 0;
   vacationdays := 0;
+
+  earliestMin := 0;
+  earliestHour := 0;
+  latestMin := 0;
+  latestHour := 0;
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
@@ -571,7 +569,6 @@ begin
     Toolbar1.Buttons[1].Enabled := True;
     Toolbar1.Buttons[2].Enabled := True;
     ToolButton1.Enabled := True;
-    //RemoveWeekButton.Enabled := True;
     EditWeekButton.Enabled := True;
   end
   else
@@ -580,7 +577,6 @@ begin
     Toolbar1.Buttons[2].Enabled := False;
     ToolButton1.Enabled := False;
     EditWeekButton.Enabled := False;
-    //RemoveWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
   end;
 

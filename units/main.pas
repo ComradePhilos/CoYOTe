@@ -36,9 +36,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
-  ComCtrls, ButtonPanel, DBCtrls, DBGrids, Calendar, EditBtn, FileCtrl, BarChart,
-  Grids, Menus, StdCtrls, ExtCtrls, ExtDlgs, Buttons, ActnList, ColorBox, IBConnection,
-  DateUtils,
+  ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons, ActnList,
+  IBConnection, DateUtils,
   { Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm,
   { eigene Units }
@@ -132,7 +131,7 @@ type
     PersonForm: TForm5;
 
     // may become obsolete with the newest changes
-    FCurrentUser: Integer;        // ID of the currently selected "User"/Person
+    //FCurrentUser: Integer;        // ID of the currently selected "User"/Person
     FCurrentFilePath: String;     // If known - Name of the currently opened File
 
     // triggered when a week is added
@@ -169,9 +168,6 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
-var
-  I: integer;
-  defColor: LongInt;
 begin
   FOSName := 'unknown';  // for those poor guys using Minix, BSD, Solaris and such things ;)
   // detectable OS
@@ -214,9 +210,9 @@ begin
 
   updateWindow;
 
-  defColor := $00E0E0E0; // $00FFDBB7;
-  Toolbar1.Color := defColor;
-  EditWeekForm.ToolBar1.Color := defColor;
+  Toolbar1.Color := defToolbarColor;
+  EditWeekForm.ToolBar1.Color := defToolbarColor;
+  PersonForm.Toolbar1.Color := defToolbarColor;
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
@@ -497,6 +493,11 @@ begin
   goal := 0;
   diff := 0;
   vacationdays := 0;
+
+  earliestMin := 0;
+  earliestHour := 0;
+  latestMin := 0;
+  latestHour := 0;
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
