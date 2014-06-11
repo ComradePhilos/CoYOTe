@@ -399,7 +399,7 @@ begin
 		end;
   finally
     OpenDlg.Free;
-    localCopy.Free;
+    //localCopy.Free;
     FChangesMade := False;
     updateWindow;
   end;
@@ -418,7 +418,11 @@ begin
     StatusBar1.Panels[0].Text := txtFileSaved;
     FChangesMade := False;
     EnableButtons;
-  end;
+  end
+  else
+  begin
+    MenuSaveClick(nil);
+	end;
 end;
 
 procedure TForm1.MenuSaveClick(Sender: TObject);

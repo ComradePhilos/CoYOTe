@@ -25,7 +25,8 @@
 // * Work on Personnel Management
 // * Functionality to instantly open Thunderbird or other mail clients to write E-Mails to Persons
 // * function to mark days as e.g. offical holidays
-// * expand Firebird Support
+// * it might be that the firebird database support will be dropped in future. Or at least the whole
+//    concept needs some more thinking 
 
 
 unit main;
@@ -418,7 +419,11 @@ begin
     StatusBar1.Panels[0].Text := txtFileSaved;
     FChangesMade := False;
     EnableButtons;
-  end;
+  end
+  else
+  begin
+    MenuSaveClick(nil);
+	end;
 end;
 
 procedure TForm1.MenuSaveClick(Sender: TObject);
