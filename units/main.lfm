@@ -1479,7 +1479,7 @@ object Form1: TForm1
     Images = ImageList2
     left = 112
     top = 144
-    object MenuItem20: TMenuItem
+    object PopupAddPeriod: TMenuItem
       Caption = 'add period'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
@@ -1520,7 +1520,7 @@ object Form1: TForm1
       ImageIndex = 1
       OnClick = AddWeek
     end
-    object MenuItem24: TMenuItem
+    object PopupEditPeriod: TMenuItem
       Caption = 'edit period'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
@@ -1561,7 +1561,7 @@ object Form1: TForm1
       ImageIndex = 2
       OnClick = EditButtonClick
     end
-    object MenuItem25: TMenuItem
+    object PopupRemovePeriod: TMenuItem
       Caption = 'delete period'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100

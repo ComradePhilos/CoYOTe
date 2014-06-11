@@ -58,7 +58,7 @@ type
     Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-		Label6: TLabel;
+    Label6: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem5: TMenuItem;
@@ -66,18 +66,18 @@ type
     MenuItem11: TMenuItem;
     MenuEnglish: TMenuItem;
     MenuGerman: TMenuItem;
-		MenuManual: TMenuItem;
-		MenuSaveAs: TMenuItem;
+    MenuManual: TMenuItem;
+    MenuSaveAs: TMenuItem;
     MenuLoad: TMenuItem;
     MenuQuickSave: TMenuItem;
     MenuColorTheme: TMenuItem;
     MenuItem2: TMenuItem;
-    MenuItem20: TMenuItem;
+    PopupAddPeriod: TMenuItem;
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
     MenuPeople: TMenuItem;
-    MenuItem24: TMenuItem;
-    MenuItem25: TMenuItem;
+    PopupEditPeriod: TMenuItem;
+    PopupRemovePeriod: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuQuit: TMenuItem;
@@ -104,8 +104,8 @@ type
     procedure ColorThemeClick(Sender: TObject);
     procedure MenuDatabaseClick(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
-		procedure MenuPeopleClick(Sender: TObject);
-		procedure MenuQuickSaveClick(Sender: TObject);
+    procedure MenuPeopleClick(Sender: TObject);
+    procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
@@ -132,7 +132,7 @@ type
 
     // may become obsolete with the newest changes
     //FCurrentUser: Integer;        // ID of the currently selected "User"/Person
-    FCurrentFilePath: String;     // If known - Name of the currently opened File
+    FCurrentFilePath: string;     // If known - Name of the currently opened File
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -216,7 +216,7 @@ begin
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
-  self.Constraints.MinHeight := round(Groupbox1.Width/2);
+  self.Constraints.MinHeight := round(Groupbox1.Width / 2);
 
   FChangesMade := False;
 
@@ -234,19 +234,10 @@ begin
 end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
-var
-  locInt: integer;
 begin
-  if (StringGrid1.RowCount > 1) then
+  if (StringGrid1.RowCount > 1) and canSelect then
   begin
-    if TryStrToInt(StringGrid1.Cells[0, aRow], locInt) then
-    begin
-      FSelectionIndex := locInt - 1;
-    end
-    else
-    begin
-      FSelectionIndex := -1;
-    end;
+    FSelectionIndex := aRow - 1;
   end;
 end;
 
@@ -416,7 +407,7 @@ begin
     StatusBar1.Panels[0].Text := txtFileSaved;
     FChangesMade := False;
     EnableButtons;
-	end;
+  end;
 end;
 
 procedure TForm1.MenuSaveClick(Sender: TObject);
@@ -484,7 +475,7 @@ var
   sum: double;
   goal: double;
   diff: double;
-  vacationdays: Double;
+  vacationdays: double;
   earliestHour, earliestMin: integer;
   latestHour, latestMin: integer;
   earlyDate, lateDate: TDate;
@@ -570,6 +561,8 @@ begin
     Toolbar1.Buttons[2].Enabled := True;
     ToolButton1.Enabled := True;
     EditWeekButton.Enabled := True;
+    PopupEditPeriod.Enabled := True;
+    PopupRemovePeriod.Enabled := True;
   end
   else
   begin
@@ -578,6 +571,8 @@ begin
     ToolButton1.Enabled := False;
     EditWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
+    PopupEditPeriod.Enabled := False;
+    PopupRemovePeriod.Enabled := False;
   end;
 
   MenuQuickSave.Enabled := FChangesMade;
