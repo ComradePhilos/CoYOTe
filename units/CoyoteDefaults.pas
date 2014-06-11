@@ -29,6 +29,7 @@ ResourceString
 
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
+  emInvalidFileFormat = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
 
   dbDefaultFirebirdUser = 'SYSDBA';
   dbDefaultFirebirdPort = '3050';

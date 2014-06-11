@@ -383,10 +383,17 @@ begin
     OpenDlg.DoFolderChange;
     if OpenDlg.Execute then
     begin
-      loadFromFile(OpenDlg.FileName, FWeekList);
-    end;
-    StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
-    FCurrentFilePath := OpenDlg.FileName;
+      if loadFromFile(OpenDlg.FileName, FWeekList) then
+      begin
+        StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
+        FCurrentFilePath := OpenDlg.FileName;
+			end
+      else
+      begin
+        StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" could not be loaded!';
+        FCurrentFilePath := '';
+			end;
+		end;
   finally
     OpenDlg.Free;
     updateWindow;

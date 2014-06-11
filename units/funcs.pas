@@ -10,14 +10,15 @@ interface
 
 uses
   Classes, SysUtils, Translations, DateUtils, StdCtrls, Graphics, Process, LCLIntF,
+  Forms,
   { own Units }
-  workdays;
+  workdays, CoyoteDefaults;
 
 // Save WeekList to File
 procedure SaveToFile(filename: string; AWeekList: TWeekList);
 
 // Load WeekList from File
-procedure LoadFromFile(filename: string; AWeekList: TWeekList);
+function LoadFromFile(filename: string; AWeekList: TWeekList): Boolean;
 
 // Creates a Colored Text depending on balance etc..
 procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: Double);
@@ -37,13 +38,14 @@ var
 begin
   Lines := TStringList.Create;
   try
+    Lines.Add('CoYOTe file');
     Lines.Add(IntToStr(AWeekList.Count));  // Number of Weeks
     Lines.Add(FloatToStr(1.2345));         // Testfloat, so that the load-function can interpret floating values
     for I := 0 to AWeekList.Count - 1 do
     begin
       Lines.Add(AWeekList.Items[I].WeekLabel);                         // Label of the week
-      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate));               // From-Date
-      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));                 // To-Date
+      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate)); // From-Date
+      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));  // To-Date
       Lines.Add(FloatToStr(AWeekList.Items[I].IntendedTimePerDay));    // Intended time of work per day
       Lines.Add(FloatToStr(AWeekList.Items[I].PausePerDay));
       Lines.Add(IntToStr(AWeekList.Items[I].DescriptionText.Count));
@@ -69,7 +71,7 @@ begin
   end;
 end;
 
-procedure LoadFromFile(filename: string; AWeekList: TWeekList);
+function LoadFromFile(filename: string; AWeekList: TWeekList): Boolean;
 var
   I: integer;        // Week-Counter
   l: integer;        // Line-Counter
@@ -85,11 +87,13 @@ begin
   AWeekList.Clear;
 
   try
-    l := 0;
+    l := 1;
     Lines.LoadFromFile(filename);
 
+    if (Lines[0] = 'CoYOTe file') then
+    begin
     // Number of Weeks
-    if TryStrToInt(Lines[0], locInt) then
+    if TryStrToInt(Lines[1], locInt) then
     begin
       Count := locInt;
       Inc(l);
@@ -194,7 +198,14 @@ begin
         end;
       end; { for d := .... }
     end;  { for I := ... }
-  finally
+    Result := True;
+		end
+    else
+    begin
+      application.MessageBox(PChar(emInvalidFileFormat), 'Invalid file format!', 0);
+      Result := False;
+		end;
+	finally
     Lines.Free;
   end;
 end;
@@ -254,4 +265,4 @@ begin
 end;
 
 
-end.
+end.

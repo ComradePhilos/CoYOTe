@@ -72,12 +72,12 @@ type
     MenuQuickSave: TMenuItem;
     MenuColorTheme: TMenuItem;
     MenuItem2: TMenuItem;
-    MenuItem20: TMenuItem;
+    PopupAddPeriod: TMenuItem;
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
     MenuPeople: TMenuItem;
-    MenuItem24: TMenuItem;
-    MenuItem25: TMenuItem;
+    PopupEditPeriod: TMenuItem;
+    PopupRemovePeriod: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuQuit: TMenuItem;
@@ -383,10 +383,17 @@ begin
     OpenDlg.DoFolderChange;
     if OpenDlg.Execute then
     begin
-      loadFromFile(OpenDlg.FileName, FWeekList);
-    end;
-    StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
-    FCurrentFilePath := OpenDlg.FileName;
+      if loadFromFile(OpenDlg.FileName, FWeekList) then
+      begin
+        StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
+        FCurrentFilePath := OpenDlg.FileName;
+			end
+      else
+      begin
+        StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" could not be loaded';
+        FCurrentFilePath := '';
+			end;
+		end;
   finally
     OpenDlg.Free;
     updateWindow;
@@ -561,6 +568,8 @@ begin
     Toolbar1.Buttons[2].Enabled := True;
     ToolButton1.Enabled := True;
     EditWeekButton.Enabled := True;
+    PopupEditPeriod.Enabled := True;
+    PopupRemovePeriod.Enabled := True;
   end
   else
   begin
@@ -569,6 +578,8 @@ begin
     ToolButton1.Enabled := False;
     EditWeekButton.Enabled := False;
     EditWeekButton.Enabled := False;
+    PopupEditPeriod.Enabled := False;
+    PopupRemovePeriod.Enabled := False;
   end;
 
   MenuQuickSave.Enabled := FChangesMade;

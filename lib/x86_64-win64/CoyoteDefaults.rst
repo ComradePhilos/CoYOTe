@@ -61,6 +61,11 @@ coyotedefaults.emhoursperday='Error: Enter a valid amount of time per day'+
 '!'
 
 
+# hash value = 17622801
+coyotedefaults.eminvalidfileformat='The file could not be loaded, because'+
+' it is not a valid CoYOT(e) file!'
+
+
 # hash value = 93223009
 coyotedefaults.dbdefaultfirebirduser='SYSDBA'
 
