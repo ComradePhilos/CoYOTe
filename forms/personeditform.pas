@@ -40,6 +40,7 @@ type
 		ToolButton8: TToolButton;
 		procedure BitBtn2Click(Sender: TObject);
   procedure BitBtn3Click(Sender: TObject);
+	procedure FormCreate(Sender: TObject);
   procedure OpenEMailClient(Sender: TObject);
   private
     { private declarations }
@@ -59,23 +60,20 @@ implementation
 procedure TForm5.OpenEMailClient(Sender: TObject);
 var
   mailadress: String;
-  AProcess: TProcess;
 begin
   mailadress := LabeledEdit5.Text;
 
-  AProcess:=TProcess.Create(nil);
-  try
-    AProcess.CommandLine:='thunderbird "'+mailadress+'"';  // Shell command
-    AProcess.Execute;
-  finally
-    AProcess.Free;
-  end;
-  //OpenDocument('philip.maerksch@gmx.de');
 end;
 
 procedure TForm5.BitBtn3Click(Sender: TObject);
 begin
   self.Visible := False;
+end;
+
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+  self.Constraints.MinHeight := self.Height;
+  self.Constraints.MinWidth := self.Width;
 end;
 
 procedure TForm5.BitBtn2Click(Sender: TObject);

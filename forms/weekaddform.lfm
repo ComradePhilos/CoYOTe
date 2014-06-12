@@ -25,6 +25,7 @@ object Form4: TForm4
     Height = 15
     Top = 8
     Width = 14
+    Anchors = [akTop, akRight]
     Caption = 'To'
     ParentColor = False
   end
@@ -37,7 +38,7 @@ object Form4: TForm4
     Height = 30
     Top = 222
     Width = 94
-    Anchors = [akTop, akRight]
+    Anchors = [akRight, akBottom]
     BorderSpacing.Left = 60
     BorderSpacing.Top = 4
     BorderSpacing.Right = 13
@@ -131,6 +132,7 @@ object Form4: TForm4
     Height = 30
     Top = 222
     Width = 85
+    Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 10
     BorderSpacing.Top = 7
     Caption = 'Cancel'
@@ -232,7 +234,7 @@ object Form4: TForm4
     Height = 19
     Top = 196
     Width = 173
-    Anchors = [akTop, akRight]
+    Anchors = [akRight, akBottom]
     BorderSpacing.Top = 4
     Caption = 'open edit window afterwards'
     Checked = True
@@ -246,6 +248,7 @@ object Form4: TForm4
     Height = 19
     Top = 196
     Width = 84
+    Anchors = [akLeft, akBottom]
     BorderSpacing.Top = 4
     Caption = 'empty week'
     OnChange = CheckBox2Change
@@ -253,11 +256,13 @@ object Form4: TForm4
   end
   object Calendar1: TCalendar
     AnchorSideRight.Control = Calendar2
+    AnchorSideRight.Side = asrBottom
     Left = 10
     Height = 160
     Top = 32
     Width = 176
     Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoSize = True
     BorderSpacing.Right = 10
     DateTime = 41772
     DisplaySettings = [dsShowHeadings, dsShowDayNames, dsStartMonday]
@@ -266,11 +271,16 @@ object Form4: TForm4
   end
   object Calendar2: TCalendar
     AnchorSideLeft.Control = Calendar1
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = CheckBox2
+    AnchorSideBottom.Side = asrBottom
     Left = 216
     Height = 160
     Top = 32
     Width = 176
     Anchors = [akTop, akRight, akBottom]
+    AutoSize = True
     DateTime = 41772
     DisplaySettings = [dsShowHeadings, dsShowDayNames, dsStartMonday]
     OnChange = CheckInputs

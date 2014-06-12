@@ -40,6 +40,7 @@ type
 		ToolButton8: TToolButton;
 		procedure BitBtn2Click(Sender: TObject);
   procedure BitBtn3Click(Sender: TObject);
+	procedure FormCreate(Sender: TObject);
   procedure OpenEMailClient(Sender: TObject);
   private
     { private declarations }
@@ -76,6 +77,12 @@ end;
 procedure TForm5.BitBtn3Click(Sender: TObject);
 begin
   self.Visible := False;
+end;
+
+procedure TForm5.FormCreate(Sender: TObject);
+begin
+  self.Constraints.MinHeight := self.Height;
+  self.Constraints.MinWidth := self.Width;
 end;
 
 procedure TForm5.BitBtn2Click(Sender: TObject);

@@ -11,6 +11,7 @@ object Form5: TForm5
   Font.Name = 'Ubuntu'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnCreate = FormCreate
   LCLVersion = '1.2.2.0'
   object LabeledEdit1: TLabeledEdit
     Left = 16
@@ -195,7 +196,7 @@ object Form5: TForm5
     Left = 16
     Height = 25
     Top = 187
-    Width = 296
+    Width = 287
     EditLabel.AnchorSideLeft.Control = LabeledEdit7
     EditLabel.AnchorSideRight.Control = LabeledEdit7
     EditLabel.AnchorSideRight.Side = asrBottom
@@ -203,7 +204,7 @@ object Form5: TForm5
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 167
-    EditLabel.Width = 296
+    EditLabel.Width = 287
     EditLabel.Caption = 'Street and StreetNR'
     EditLabel.ParentColor = False
     TabOrder = 9
@@ -360,20 +361,20 @@ object Form5: TForm5
       ImageIndex = 5
     end
     object ToolButton6: TToolButton
-      Left = 212
+      Left = 215
       Top = 2
       Caption = 'ToolButton6'
       ImageIndex = 3
     end
     object ToolButton7: TToolButton
-      Left = 238
+      Left = 241
       Top = 2
       Width = 5
       Caption = 'ToolButton7'
       Style = tbsDivider
     end
     object ToolButton8: TToolButton
-      Left = 243
+      Left = 246
       Top = 2
       Caption = 'ToolButton8'
       ImageIndex = 4

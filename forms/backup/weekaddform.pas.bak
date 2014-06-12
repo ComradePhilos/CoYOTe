@@ -97,6 +97,8 @@ end;
 procedure TForm4.FormCreate(Sender: TObject);
 begin
   Clear;
+  Calendar1.DateTime := now;
+  Calendar2.DateTime := now;
 end;
 
 procedure TForm4.FormShow(Sender: TObject);

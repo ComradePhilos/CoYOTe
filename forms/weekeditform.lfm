@@ -436,7 +436,7 @@ object Form3: TForm3
       item
         ReadOnly = True
         Title.Alignment = taCenter
-        Title.Caption = 'Nr.'
+        Title.Caption = '#'
         Width = 47
       end    
       item

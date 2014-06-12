@@ -11,6 +11,7 @@ object Form5: TForm5
   Font.Name = 'Ubuntu'
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
+  OnCreate = FormCreate
   LCLVersion = '1.2.2.0'
   object LabeledEdit1: TLabeledEdit
     Left = 16

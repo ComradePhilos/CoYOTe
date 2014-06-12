@@ -399,7 +399,7 @@ begin
   AComboBox.Clear;
   For I := 0 to AWeekList.Count - 1 do
   begin
-    AComboBox.Items.Add(AWeekList.Items[I].WeekLabel);
+    AComboBox.Items.Add('#'+ IntToStr(I+1) + ': ' + AWeekList.Items[I].WeekLabel);
 	end;
 end;
 
@@ -486,4 +486,4 @@ begin
 end;
 
 
-end.
+end.

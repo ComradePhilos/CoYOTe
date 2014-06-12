@@ -580,6 +580,7 @@ begin
     EditWeekButton.Enabled := True;
     PopupEditPeriod.Enabled := True;
     PopupRemovePeriod.Enabled := True;
+    MenuSaveAs.Enabled := True;
   end
   else
   begin
@@ -590,10 +591,11 @@ begin
     EditWeekButton.Enabled := False;
     PopupEditPeriod.Enabled := False;
     PopupRemovePeriod.Enabled := False;
+    MenuSaveAs.Enabled := False;
   end;
 
-  MenuQuickSave.Enabled := FChangesMade;
-  ToolButton1.Enabled := FChangesMade;
+  MenuQuickSave.Enabled := FChangesMade and (FCurrentFilePath <> '');
+  ToolButton1.Enabled := FChangesMade and (FCurrentFilePath <> '');
 
 end;
 
