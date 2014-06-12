@@ -5,7 +5,7 @@ object Form6: TForm6
   Width = 445
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'Connect to database'
+  Caption = 'database connection information'
   ClientHeight = 251
   ClientWidth = 445
   FormStyle = fsStayOnTop
@@ -100,7 +100,7 @@ object Form6: TForm6
     Left = 8
     Height = 23
     Top = 88
-    Width = 229
+    Width = 429
     EditLabel.AnchorSideLeft.Control = LabeledEdit5
     EditLabel.AnchorSideRight.Control = LabeledEdit5
     EditLabel.AnchorSideRight.Side = asrBottom
@@ -108,7 +108,7 @@ object Form6: TForm6
     EditLabel.Left = 8
     EditLabel.Height = 15
     EditLabel.Top = 70
-    EditLabel.Width = 229
+    EditLabel.Width = 429
     EditLabel.Caption = 'Database Name'
     EditLabel.ParentColor = False
     TabOrder = 2
@@ -217,7 +217,7 @@ object Form6: TForm6
     AfterDisconnect = IBConnection1AfterDisconnect
     KeepConnection = True
     LogEvents = []
-    left = 8
-    top = 168
+    left = 192
+    top = 192
   end
 end

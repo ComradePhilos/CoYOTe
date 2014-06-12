@@ -5,7 +5,7 @@ object Form6: TForm6
   Width = 445
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
-  Caption = 'Connect to database'
+  Caption = 'database connection information'
   ClientHeight = 251
   ClientWidth = 445
   FormStyle = fsStayOnTop

@@ -24,6 +24,9 @@
 // * switchable day order in weeks
 // * Work on Personnel Management
 // * database commit and download
+// * add settings / config files
+// * use tango icons where possible - look and feel
+
 
 // sorry for any german comments in the code, I may have mixed it sometimes ;)
 
@@ -59,7 +62,7 @@ type
     Label6: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
-    MenuItem5: TMenuItem;
+		MenuDBSettings: TMenuItem;
 		MenuItem6: TMenuItem;
 		MenuItem7: TMenuItem;
     MenuSettings: TMenuItem;
@@ -147,7 +150,7 @@ type
     procedure RemoveWeekFromList(Sender: TObject; Index: integer);
 
     // triggered when database is connected
-    procedure GetDatabaseConnection(Sender: TObject; AIBConnection: TIBConnection);
+    procedure GetDatabaseConnection(Sender: TObject; canConnect: Boolean);
 
     // Checks for each button, wether it has to get
     procedure EnableButtons;
@@ -489,10 +492,21 @@ begin
 
 end;
 
-procedure TForm1.GetDatabaseConnection(Sender: TObject; AIBConnection: TIBConnection);
+procedure TForm1.GetDatabaseConnection(Sender: TObject; canConnect: Boolean);
 begin
-  IBConnection1.Assign(AIBConnection);
-  StatusBar1.Panels[0].Text := 'Datenbank verbunden!';
+  //IBConnection1.Assign(AIBConnection);
+  if canConnect then
+  begin
+    StatusBar1.Panels[0].Text := 'database connection validated!';
+    MenuItem6.Enabled := True;
+    MenuItem7.Enabled := True;
+	end
+  else
+  begin
+    StatusBar1.Panels[0].Text := 'database connection could not be validated!';
+    MenuItem6.Enabled := False;
+    MenuItem7.Enabled := False;
+	end;
 end;
 
 procedure TForm1.UpdateWindow;

@@ -32,7 +32,7 @@ ResourceString
   emInvalidFileFormat = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
 
   dbDefaultFirebirdUser = 'SYSDBA';
-  dbDefaultFirebirdPort = '3050';
+  dbDefaultFirebirdPort = '';     // 3050
 
   // constants
   const

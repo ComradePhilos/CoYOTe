@@ -16,7 +16,7 @@ uses
 
 type
 
-  TDBConnectEvent = procedure(Sender: TObject; AIBConnection: TIBConnection) of object;
+  TDBConnectEvent = procedure(Sender: TObject; canConnect: Boolean) of object;
 
   { TForm6 }
 
@@ -70,7 +70,7 @@ begin
   Statusbar1.Panels[0].Text := 'Database is connectable! =)';
   //ConnectBtn.Enabled := False;
   //DisconnectBtn.Enabled := True;
-  //FDBConnectEvent(self, IBConnection1);
+  FDBConnectEvent(self, True);
 end;
 
 procedure TForm6.IBConnection1AfterDisconnect(Sender: TObject);
@@ -78,6 +78,7 @@ begin
   //Statusbar1.Panels[0].Text := 'Datenbank Verbindung getrennt...';
   //ConnectBtn.Enabled := True;
   //DisconnectBtn.Enabled := False;
+  FDBConnectEvent(self, False);
 end;
 
 procedure TForm6.BitBtn2Click(Sender: TObject);
