@@ -443,7 +443,6 @@ begin
   end;
 end;
 
-
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 var
   I: integer;

@@ -23,11 +23,9 @@
 // * mergable weeks
 // * switchable day order in weeks
 // * Work on Personnel Management
-// * Functionality to instantly open Thunderbird or other mail clients to write E-Mails to Persons
-// * function to mark days as e.g. offical holidays
-// * it might be that the firebird database support will be dropped in future. Or at least the whole
-//    concept needs some more thinking 
+// * database commit and download
 
+// sorry for any german comments in the code, I may have mixed it sometimes ;)
 
 unit main;
 
@@ -148,6 +146,9 @@ type
     // triggered when a certain week is deleted
     procedure RemoveWeekFromList(Sender: TObject; Index: integer);
 
+    // triggered when database is connected
+    procedure GetDatabaseConnection(Sender: TObject; AIBConnection: TIBConnection);
+
     // Checks for each button, wether it has to get
     procedure EnableButtons;
 
@@ -206,6 +207,7 @@ begin
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
   EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
+  DBForm.DBConnectEvent := @GetDatabaseConnection;
 
   AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
@@ -485,6 +487,12 @@ begin
     CanClose := True;
   end;
 
+end;
+
+procedure TForm1.GetDatabaseConnection(Sender: TObject; AIBConnection: TIBConnection);
+begin
+  IBConnection1.Assign(AIBConnection);
+  StatusBar1.Panels[0].Text := 'Datenbank verbunden!';
 end;
 
 procedure TForm1.UpdateWindow;

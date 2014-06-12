@@ -1,6 +1,7 @@
 // TODO:
 // * use the main IB-Connection instead of this local one. Maybe using a reference to the
 //   instance in the main form
+// * maybe only use this window as an input. The main programme will then decide when to connect to the database
 
 unit DBConnectForm;
 
@@ -15,12 +16,13 @@ uses
 
 type
 
+  TDBConnectEvent = procedure(Sender: TObject; AIBConnection: TIBConnection) of object;
+
   { TForm6 }
 
   TForm6 = class(TForm)
-    ConnectBtn: TBitBtn;
     BitBtn2: TBitBtn;
-    DisconnectBtn: TBitBtn;
+		ConnectBtn1: TBitBtn;
     IBConnection1: TIBConnection;
     LabeledEdit1: TLabeledEdit;
     LabeledEdit2: TLabeledEdit;
@@ -28,6 +30,7 @@ type
     LabeledEdit4: TLabeledEdit;
     LabeledEdit5: TLabeledEdit;
     StatusBar1: TStatusBar;
+		procedure ConnectBtn1Click(Sender: TObject);
     procedure ConnectBtnClick(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure DisconnectBtnClick(Sender: TObject);
@@ -36,8 +39,10 @@ type
     procedure IBConnection1AfterDisconnect(Sender: TObject);
   private
     { private declarations }
+    FDBConnectEvent: TDBConnectEvent;
   public
     { public declarations }
+    property DBConnectEvent: TDBConnectEvent read FDBConnectEvent write FDBConnectEvent;
   end;
 
 var
@@ -56,20 +61,23 @@ begin
   LabeledEdit3.Text := dbDefaultFirebirdUser;
   LabeledEdit4.Text := '';
   LabeledEdit5.Text := '';
+
+
 end;
 
 procedure TForm6.IBConnection1AfterConnect(Sender: TObject);
 begin
-  Statusbar1.Panels[0].Text := 'Datenbank Verbindung hergestellt!';
-  ConnectBtn.Enabled := False;
-  DisconnectBtn.Enabled := True;
+  Statusbar1.Panels[0].Text := 'Database is connectable! =)';
+  //ConnectBtn.Enabled := False;
+  //DisconnectBtn.Enabled := True;
+  //FDBConnectEvent(self, IBConnection1);
 end;
 
 procedure TForm6.IBConnection1AfterDisconnect(Sender: TObject);
 begin
-  Statusbar1.Panels[0].Text := 'Datenbank Verbindung getrennt...';
-  ConnectBtn.Enabled := True;
-  DisconnectBtn.Enabled := False;
+  //Statusbar1.Panels[0].Text := 'Datenbank Verbindung getrennt...';
+  //ConnectBtn.Enabled := True;
+  //DisconnectBtn.Enabled := False;
 end;
 
 procedure TForm6.BitBtn2Click(Sender: TObject);
@@ -95,6 +103,19 @@ begin
 
   IBConnection1.Open;
 
+end;
+
+procedure TForm6.ConnectBtn1Click(Sender: TObject);
+begin
+  Statusbar1.Panels[0].Text := 'Database is not connectable! =(';
+  try
+    connectbtnClick(nil);
+	except
+    on e:Exception do
+    begin
+		end;
+	end;
+	DisconnectBtnClick(nil);
 end;
 
 end.

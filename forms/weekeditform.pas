@@ -118,9 +118,8 @@ begin
   FWeek := TWorkWeek.Create;
   FWeekCopy := TWorkWeek.Create;
 
-  //self.Constraints.MinWidth := Groupbox1.Width;
   self.Constraints.MinWidth := BackButton.Width + ApplyButton.Width + 20;
-  self.Constraints.MinHeight := Memo1.Height + Label3.Top + 80;//Label3.Top+20;
+  self.Constraints.MinHeight := Memo1.Height + Label3.Top + 80;
 end;
 
 procedure TForm3.FormDestroy(Sender: TObject);

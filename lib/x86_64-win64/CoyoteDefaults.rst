@@ -3,8 +3,8 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 51582757
-coyotedefaults.versionnr='0.0.4.5'
+# hash value = 51582758
+coyotedefaults.versionnr='0.0.4.6'
 
 
 # hash value = 59905620
@@ -70,6 +70,5 @@ coyotedefaults.eminvalidfileformat='The file could not be loaded, because'+
 coyotedefaults.dbdefaultfirebirduser='SYSDBA'
 
 
-# hash value = 222080
-coyotedefaults.dbdefaultfirebirdport='3050'
-
+# hash value = 4294967295
+coyotedefaults.dbdefaultfirebirdport=
