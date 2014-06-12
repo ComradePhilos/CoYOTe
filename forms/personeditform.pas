@@ -60,10 +60,29 @@ implementation
 procedure TForm5.OpenEMailClient(Sender: TObject);
 var
   mailadress: String;
+  AProcess: TProcess;
 begin
   mailadress := LabeledEdit5.Text;
-
+  {$IFDEF linux}
+  {
+  AProcess := TProcess.Create(nil);
+  try
+    AProcess.CommandLine := 'thunderbird';   // if installed - has to be checked somewhere
+    AProcess.Execute;
+	finally
+    AProcess.Free;
+	end;      }
+  OpenURL('mailto:'+mailadress);
+  {$ENDIF}
+  {$IFDEF mswindows}
+  //OpenDocument('mailto:'+mailadress);
+  OpenURL('mailto:'+mailadress);
+  {$ENDIF}
+  {$IFDEF macos}
+  OpenURL('mailto:'+mailadress);
+  {$ENDIF}
 end;
+
 
 procedure TForm5.BitBtn3Click(Sender: TObject);
 begin

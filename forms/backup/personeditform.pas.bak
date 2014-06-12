@@ -63,15 +63,26 @@ var
   AProcess: TProcess;
 begin
   mailadress := LabeledEdit5.Text;
-
-  AProcess:=TProcess.Create(nil);
+  {$IFDEF linux}
+  {
+  AProcess := TProcess.Create(nil);
   try
-    AProcess.CommandLine:='thunderbird "'+mailadress+'"';  // Shell command
+    AProcess.CommandLine := 'thunderbird';   // if installed - has to be checked somewhere
     AProcess.Execute;
-  finally
+	finally
     AProcess.Free;
-  end;
-  //OpenDocument('philip.maerksch@gmx.de');
+	end;      }
+  OpenURL('mailto:'+mailadress);
+  {$ENDIF}
+  {$IFDEF mswindows}
+  //OpenDocument('mailto:'+mailadress);
+  OpenURL('mailto:'+mailadress);
+  {$ENDIF}
+  {$IFDEF macos}
+  OpenURL('mailto:'+mailadress);
+  {$ENDIF}
+end;
+
 end;
 
 procedure TForm5.BitBtn3Click(Sender: TObject);
