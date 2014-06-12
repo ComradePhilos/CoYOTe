@@ -650,8 +650,13 @@ object Form1: TForm1
       end
     end
     object MenuItem3: TMenuItem
-      Caption = 'View'
-      Enabled = False
+      Caption = 'Database'
+      object MenuItem6: TMenuItem
+        Caption = 'load from database'
+      end
+      object MenuItem7: TMenuItem
+        Caption = 'push to database'
+      end
     end
     object MenuItem9: TMenuItem
       Caption = 'Options'

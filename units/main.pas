@@ -62,6 +62,8 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem5: TMenuItem;
+		MenuItem6: TMenuItem;
+		MenuItem7: TMenuItem;
     MenuSettings: TMenuItem;
     MenuItem11: TMenuItem;
     MenuEnglish: TMenuItem;

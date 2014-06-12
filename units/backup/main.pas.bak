@@ -62,6 +62,8 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuItem5: TMenuItem;
+		MenuItem6: TMenuItem;
+		MenuItem7: TMenuItem;
     MenuSettings: TMenuItem;
     MenuItem11: TMenuItem;
     MenuEnglish: TMenuItem;
@@ -511,7 +513,8 @@ begin
   for I := 0 to FWeekList.Count - 1 do
   begin
     sum := sum + FWeekList.Items[I].getSum;
-    goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
+    //goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
+    goal := goal + FWeekList.Items[I].getGoalHours;
     vacationdays := vacationdays + FWeekList.Items[I].getAmountOfVacation;
 
     // earliest begin and latest leave
