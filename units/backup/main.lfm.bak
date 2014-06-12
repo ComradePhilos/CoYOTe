@@ -110,7 +110,7 @@ object Form1: TForm1
       item
         Alignment = taRightJustify
         Title.Alignment = taCenter
-        Title.Caption = 'Nr'
+        Title.Caption = '#'
         Width = 54
       end    
       item

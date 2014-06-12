@@ -2033,22 +2033,22 @@ object Form2: TForm2
   object PageControl1: TPageControl
     AnchorSideTop.Side = asrBottom
     Left = 193
-    Height = 359
+    Height = 346
     Top = 33
     Width = 555
-    ActivePage = TabSheet2
+    ActivePage = TabSheet1
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 3
+    TabIndex = 0
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = '  About  '
-      ClientHeight = 329
-      ClientWidth = 551
+      ClientHeight = 316
+      ClientWidth = 547
       object Memo2: TMemo
         Left = 0
-        Height = 323
+        Height = 310
         Top = 4
-        Width = 546
+        Width = 542
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -12
@@ -2063,13 +2063,13 @@ object Form2: TForm2
     end
     object Contributors: TTabSheet
       Caption = 'Contributors'
-      ClientHeight = 329
-      ClientWidth = 551
+      ClientHeight = 316
+      ClientWidth = 547
       object Memo4: TMemo
         Left = 2
-        Height = 323
+        Height = 310
         Top = 3
-        Width = 546
+        Width = 542
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -13
@@ -2096,13 +2096,13 @@ object Form2: TForm2
     object TabSheet3: TTabSheet
       AnchorSideRight.Side = asrBottom
       Caption = '  Licence  '
-      ClientHeight = 329
-      ClientWidth = 551
+      ClientHeight = 316
+      ClientWidth = 547
       object Memo3: TMemo
         Left = 3
-        Height = 309
+        Height = 296
         Top = 17
-        Width = 545
+        Width = 541
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -13

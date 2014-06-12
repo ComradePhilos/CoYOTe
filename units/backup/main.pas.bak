@@ -390,14 +390,14 @@ begin
       begin
         StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
         FCurrentFilePath := OpenDlg.FileName;
-			end
+      end
       else
       begin
         StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" could not be loaded!';
         FCurrentFilePath := '';
         //FWeekList.Assign(localCopy);
-			end;
-		end;
+      end;
+    end;
   finally
     OpenDlg.Free;
     //localCopy.Free;
@@ -423,7 +423,7 @@ begin
   else
   begin
     MenuSaveClick(nil);
-	end;
+  end;
 end;
 
 procedure TForm1.MenuSaveClick(Sender: TObject);
@@ -517,31 +517,34 @@ begin
     // earliest begin and latest leave
     for d := 0 to FWeekList.Items[I].Days.Count - 1 do
     begin
-      if (FWeekList.Items[I].Days[d].TimeOff < FWeekList.Items[I].IntendedTimePerDay) then
+      if (FWeekList.Items[I].Days[d].Tag = '') then
       begin
-        if (I > 0) then
+        if (FWeekList.Items[I].Days[d].TimeOff < FWeekList.Items[I].IntendedTimePerDay) then
         begin
-          if (isTimeEarliest(FWeekList.Items[I].Days[d].StartHour, FWeekList.Items[I].Days[d].StartMinute,
-            earliestHour, earliestMin)) then
+          if (I > 0) then
           begin
-            earliestHour := FWeekList.Items[I].Days.Items[d].StartHour;
-            earliestMin := FWeekList.Items[I].Days.Items[d].StartMinute;
-            earlyDate := FWeekList.Items[I].Days[d].Date;
-          end;
-          if (isTimeLatest(FWeekList.Items[I].Days[d].EndHour, FWeekList.Items[I].Days[d].EndMinute,
-            latestHour, latestMin)) then
+            if (isTimeEarliest(FWeekList.Items[I].Days[d].StartHour, FWeekList.Items[I].Days[d].StartMinute,
+              earliestHour, earliestMin)) then
+            begin
+              earliestHour := FWeekList.Items[I].Days.Items[d].StartHour;
+              earliestMin := FWeekList.Items[I].Days.Items[d].StartMinute;
+              earlyDate := FWeekList.Items[I].Days[d].Date;
+            end;
+            if (isTimeLatest(FWeekList.Items[I].Days[d].EndHour, FWeekList.Items[I].Days[d].EndMinute,
+              latestHour, latestMin)) then
+            begin
+              latestHour := FWeekList.Items[I].Days.Items[d].EndHour;
+              latestMin := FWeekList.Items[I].Days.Items[d].EndMinute;
+              lateDate := FWeekList.Items[I].Days[d].Date;
+            end;
+          end
+          else
           begin
-            latestHour := FWeekList.Items[I].Days.Items[d].EndHour;
-            latestMin := FWeekList.Items[I].Days.Items[d].EndMinute;
-            lateDate := FWeekList.Items[I].Days[d].Date;
+            earliestHour := FWeekList.Items[0].Days.Items[0].StartHour;
+            earliestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
+            latestHour := FWeekList.Items[0].Days.Items[0].StartHour;
+            latestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
           end;
-        end
-        else
-        begin
-          earliestHour := FWeekList.Items[0].Days.Items[0].StartHour;
-          earliestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
-          latestHour := FWeekList.Items[0].Days.Items[0].StartHour;
-          latestMin := FWeekList.Items[0].Days.Items[0].StartMinute;
         end;
       end;
     end;

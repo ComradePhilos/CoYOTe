@@ -63,6 +63,7 @@ begin
         Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndHour));
         Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndMinute));
         Lines.Add(FloatToStr(AWeekList.Items[I].Days[F].TimeOff));
+        Lines.Add(AWeekList.Items[I].Days[F].Tag);
       end;
     end;
     Lines.SaveToFile(filename);
@@ -196,6 +197,8 @@ begin
           AWeekList.Items[I].Days[d].TimeOff := locDouble;
           Inc(l);
         end;
+        AWeekList.Items[I].Days[d].Tag := Lines[l];
+        Inc(l);
       end; { for d := .... }
     end;  { for I := ... }
     Result := True;
@@ -251,6 +254,15 @@ var
 begin
 
   {$IFDEF linux}
+  AProcess:=TProcess.Create(nil);
+  try
+    AProcess.CommandLine:='xdg-open "'+AURL+'"';  // Shell command
+    AProcess.Execute;
+  finally
+    AProcess.Free;
+  end;
+  {$ENDIF}
+  {$IFDEF macos}
   AProcess:=TProcess.Create(nil);
   try
     AProcess.CommandLine:='xdg-open "'+AURL+'"';  // Shell command

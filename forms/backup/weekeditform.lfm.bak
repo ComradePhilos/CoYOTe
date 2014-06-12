@@ -1,11 +1,11 @@
 object Form3: TForm3
-  Left = 465
-  Height = 460
-  Top = 207
-  Width = 780
+  Left = 178
+  Height = 462
+  Top = 212
+  Width = 850
   Caption = 'Edit selected period'
-  ClientHeight = 460
-  ClientWidth = 780
+  ClientHeight = 462
+  ClientWidth = 850
   Constraints.MinHeight = 460
   Constraints.MinWidth = 780
   Font.CharSet = ANSI_CHARSET
@@ -58,9 +58,9 @@ object Form3: TForm3
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object ApplyButton: TBitBtn
-    Left = 636
+    Left = 706
     Height = 30
-    Top = 413
+    Top = 415
     Width = 131
     Anchors = [akRight, akBottom]
     Caption = 'Apply and Back'
@@ -154,7 +154,7 @@ object Form3: TForm3
     AnchorSideRight.Control = ApplyButton
     Left = 8
     Height = 30
-    Top = 413
+    Top = 415
     Width = 79
     Anchors = [akLeft, akBottom]
     BorderSpacing.Right = 280
@@ -246,9 +246,9 @@ object Form3: TForm3
     TabOrder = 2
   end
   object HoursPerDayEdit: TLabeledEdit
-    Left = 527
+    Left = 597
     Height = 25
-    Top = 254
+    Top = 256
     Width = 98
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
@@ -256,9 +256,9 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Control = HoursPerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = HoursPerDayEdit
-    EditLabel.Left = 527
+    EditLabel.Left = 597
     EditLabel.Height = 17
-    EditLabel.Top = 234
+    EditLabel.Top = 236
     EditLabel.Width = 98
     EditLabel.Caption = 'Hours  per day'
     EditLabel.ParentColor = False
@@ -270,8 +270,8 @@ object Form3: TForm3
     AnchorSideBottom.Side = asrBottom
     Left = 8
     Height = 25
-    Top = 254
-    Width = 467
+    Top = 256
+    Width = 537
     Anchors = [akLeft, akRight, akBottom]
     BorderSpacing.Right = 52
     EditLabel.AnchorSideLeft.Control = DescriptionEdit
@@ -280,8 +280,8 @@ object Form3: TForm3
     EditLabel.AnchorSideBottom.Control = DescriptionEdit
     EditLabel.Left = 8
     EditLabel.Height = 17
-    EditLabel.Top = 234
-    EditLabel.Width = 467
+    EditLabel.Top = 236
+    EditLabel.Width = 537
     EditLabel.Caption = 'Weeklabel'
     EditLabel.ParentColor = False
     TabOrder = 5
@@ -290,10 +290,10 @@ object Form3: TForm3
     AnchorSideLeft.Control = DescriptionEdit
     AnchorSideLeft.Side = asrBottom
     AnchorSideRight.Control = HoursPerDayEdit
-    Left = 483
+    Left = 553
     Height = 24
     Hint = 'Create text automatically using the lowest and the highest date'
-    Top = 255
+    Top = 257
     Width = 29
     Anchors = [akRight, akBottom]
     BorderSpacing.Right = 15
@@ -344,13 +344,13 @@ object Form3: TForm3
     AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = ToolBar1
     AnchorSideTop.Side = asrBottom
-    Left = 645
-    Height = 209
+    Left = 715
+    Height = 211
     Top = 24
     Width = 131
     Anchors = [akTop, akLeft, akRight, akBottom]
     Caption = 'Summary'
-    ClientHeight = 191
+    ClientHeight = 193
     ClientWidth = 127
     TabOrder = 7
     object Label1: TLabel
@@ -386,9 +386,9 @@ object Form3: TForm3
     end
   end
   object PausePerDayEdit: TLabeledEdit
-    Left = 638
+    Left = 708
     Height = 25
-    Top = 256
+    Top = 258
     Width = 128
     Alignment = taRightJustify
     Anchors = [akRight, akBottom]
@@ -396,9 +396,9 @@ object Form3: TForm3
     EditLabel.AnchorSideRight.Control = PausePerDayEdit
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = PausePerDayEdit
-    EditLabel.Left = 638
+    EditLabel.Left = 708
     EditLabel.Height = 17
-    EditLabel.Top = 236
+    EditLabel.Top = 238
     EditLabel.Width = 128
     EditLabel.Caption = 'Pause per day in h'
     EditLabel.ParentColor = False
@@ -408,15 +408,15 @@ object Form3: TForm3
   object Memo1: TMemo
     Left = 8
     Height = 90
-    Top = 312
-    Width = 759
+    Top = 314
+    Width = 829
     Anchors = [akLeft, akRight, akBottom]
     TabOrder = 9
   end
   object Label4: TLabel
     Left = 8
     Height = 17
-    Top = 289
+    Top = 291
     Width = 100
     Anchors = [akLeft, akBottom]
     Caption = 'Description Text'
@@ -426,17 +426,17 @@ object Form3: TForm3
     AnchorSideTop.Control = ToolBar1
     AnchorSideTop.Side = asrBottom
     Left = 0
-    Height = 209
+    Height = 211
     Top = 24
-    Width = 645
+    Width = 715
     Anchors = [akTop, akLeft, akRight, akBottom]
-    ColCount = 8
+    ColCount = 9
     ColumnClickSorts = True
     Columns = <    
       item
         ReadOnly = True
         Title.Alignment = taCenter
-        Title.Caption = 'Nr.'
+        Title.Caption = '#'
         Width = 47
       end    
       item
@@ -484,6 +484,11 @@ object Form3: TForm3
         Title.Alignment = taCenter
         Title.Caption = 'diff'
         Width = 68
+      end    
+      item
+        Alignment = taCenter
+        Title.Alignment = taCenter
+        Title.Caption = 'tag'
       end>
     DefaultRowHeight = 29
     FixedCols = 0
@@ -507,13 +512,14 @@ object Form3: TForm3
       69
       72
       68
+      64
     )
   end
   object ToolBar1: TToolBar
     Left = 0
     Height = 24
     Top = 0
-    Width = 780
+    Width = 850
     AutoSize = True
     Caption = 'ToolBar1'
     Color = 15066597
@@ -634,7 +640,7 @@ object Form3: TForm3
     left = 8
     top = 248
     object MenuAdd: TMenuItem
-      Caption = 'Insert'
+      Caption = 'insert'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000FFFFFF00FFFF
@@ -674,7 +680,7 @@ object Form3: TForm3
       OnClick = MenuAddClick
     end
     object MenuEdit: TMenuItem
-      Caption = 'Edit Date'
+      Caption = 'change date'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000515151753D3D
@@ -714,7 +720,7 @@ object Form3: TForm3
       OnClick = MenuEditClick
     end
     object MenuDelete: TMenuItem
-      Caption = 'Delete'
+      Caption = 'delete'
       Bitmap.Data = {
         36040000424D3604000000000000360000002800000010000000100000000100
         2000000000000004000064000000640000000000000000000000000000000000
@@ -752,6 +758,21 @@ object Form3: TForm3
         2EFF36342EFF36342E3E36342E21000000000000000000000000
       }
       OnClick = MenuDeleteClick
+    end
+    object MenuItem1: TMenuItem
+      Caption = 'mark as'
+      object MarkNormal: TMenuItem
+        Caption = 'normal day'
+        OnClick = MarkNormalClick
+      end
+      object MarkHoliday: TMenuItem
+        Caption = 'official holiday'
+        OnClick = MarkHolidayClick
+      end
+      object MarkIgnore: TMenuItem
+        Caption = 'ignore day'
+        OnClick = MarkIgnoreClick
+      end
     end
     object MenuOneDayOff: TMenuItem
       Caption = '1 day holiday'

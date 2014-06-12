@@ -29,6 +29,10 @@ type
     Label4: TLabel;
     Memo1: TMemo;
     MenuHalfDayOff: TMenuItem;
+		MenuItem1: TMenuItem;
+		MarkHoliday: TMenuItem;
+		MarkNormal: TMenuItem;
+		MarkIgnore: TMenuItem;
     PausePerDayEdit: TLabeledEdit;
     ImageList1: TImageList;
     Label1: TLabel;
@@ -64,6 +68,9 @@ type
     procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+		procedure MarkHolidayClick(Sender: TObject);
+		procedure MarkIgnoreClick(Sender: TObject);
+		procedure MarkNormalClick(Sender: TObject);
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
@@ -120,6 +127,30 @@ procedure TForm3.FormDestroy(Sender: TObject);
 begin
   FWeek.Free;
   FWeekCopy.Free;
+end;
+
+procedure TForm3.MarkHolidayClick(Sender: TObject);
+begin
+  if (FWeek.Days.Count > 0) then
+  begin
+    WeekGrid.Cells[8, FSelectionIndex + 1] := 'official holiday';
+	end;
+end;
+
+procedure TForm3.MarkIgnoreClick(Sender: TObject);
+begin
+  if (FWeek.Days.Count > 0) then
+  begin
+    WeekGrid.Cells[8, FSelectionIndex + 1] := 'ignore';
+	end;
+end;
+
+procedure TForm3.MarkNormalClick(Sender: TObject);
+begin
+  if (FWeek.Days.Count > 0) then
+  begin
+    WeekGrid.Cells[8, FSelectionIndex + 1] := '';
+	end;
 end;
 
 procedure TForm3.MenuAddClick(Sender: TObject);
@@ -334,6 +365,7 @@ begin
       FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
       FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
       FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
+      FWeek.Days[I].Tag := WeekGrid.Cells[8,I+1];
     end;
 
     UpdateTitel;
@@ -411,7 +443,6 @@ begin
   end;
 end;
 
-
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
 var
   I: integer;
@@ -443,13 +474,13 @@ begin
   PopUpMenu1.Items[1].Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[2].Enabled := (FWeek.Days.Count > 0);
 
-  diff := FWeek.getSum - (FWeek.Days.Count * FWeek.IntendedTimePerDay);
+  diff := FWeek.getSum - FWeek.getGoalHours;
 
   ColorText(Label3, diff, 0.5);
 
   WeekDaysToStringGrid(WeekGrid, FWeek);
 
-  Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.Days.Count * FWeek.IntendedTimePerDay) + ' h';
+  Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.getGoalHours) + ' h';
   Label2.Caption := 'Sum:   ' + FormatFloat('0.00', FWeek.getSum) + ' h';
   Label3.Caption := 'Diff.:  ' + FormatFloat('0.00', diff) + ' h';
 end;

@@ -63,6 +63,8 @@ begin
         Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndHour));
         Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndMinute));
         Lines.Add(FloatToStr(AWeekList.Items[I].Days[F].TimeOff));
+
+        Lines.Add(AWeekList.Items[I].Days[F].Tag);
       end;
     end;
     Lines.SaveToFile(filename);
@@ -82,11 +84,8 @@ var
   locDate: TDate;
   locDouble: double;
   FormatDouble: TFormatSettings;
-  localCopy: TWeekList;
 begin
   Lines := TStringList.Create;
-  //AWeekList.Clear;
-  localCopy := TWeekList.Create;
 
   try
     l := 1;
@@ -94,6 +93,7 @@ begin
 
     if (Lines[0] = 'CoYOTe file') then
     begin
+    AWeekList.Clear;
     // Number of Weeks
     if TryStrToInt(Lines[1], locInt) then
     begin
@@ -107,31 +107,31 @@ begin
 
     for I := 0 to Count - 1 do
     begin
-      localCopy.Add(TWorkWeek.Create);
-      localCopy.Items[I].WeekLabel := Lines[l];
+      AWeekList.Add(TWorkWeek.Create);
+      AWeekList.Items[I].WeekLabel := Lines[l];
       Inc(l);
       // Start - Date
       if TryStrToDate(Lines[l], locDate, '.') then
       begin
-        localCopy.Items[I].FromDate := locDate;
+        AWeekList.Items[I].FromDate := locDate;
         Inc(l);
       end;
       // End- Date
       if TryStrToDate(Lines[l], locDate, '.') then
       begin
-        localCopy.Items[I].ToDate := locDate;
+        AWeekList.Items[I].ToDate := locDate;
         Inc(l);
       end;
       // Time per Day
       if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
       begin
-        localCopy.Items[I].IntendedTimePerDay := locDouble;
+        AWeekList.Items[I].IntendedTimePerDay := locDouble;
         Inc(l);
       end;
       // Pause per Day
       if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
       begin
-        localCopy.Items[I].PausePerDay := locDouble;
+        AWeekList.Items[I].PausePerDay := locDouble;
         Inc(l);
       end;
 
@@ -140,7 +140,7 @@ begin
         inc(l);
         for d := 0 to locInt - 1 do
         begin
-          localCopy.Items[I].DescriptionText.Add(lines[l]);
+          AWeekList.Items[I].DescriptionText.Add(lines[l]);
           inc(l);
         end;
       end;
@@ -148,60 +148,59 @@ begin
       // Weeklength
       if TryStrToInt(Lines[l], locInt) then
       begin
-        localCopy.Items[I].WeekLength := locInt;
+        AWeekList.Items[I].WeekLength := locInt;
         Inc(l);
       end;
 
       // Days
       for d := 0 to AWeekList.Items[I].WeekLength - 1 do
       begin
-        localCopy.Items[I].Days.Add(TWorkDay.Create);
+        AWeekList.Items[I].Days.Add(TWorkDay.Create);
         // Datum
         if TryStrToDate(Lines[l], locDate, '.') then
         begin
-          localCopy.Items[I].Days[d].Date := locDate;
+          AWeekList.Items[I].Days[d].Date := locDate;
           Inc(l);
         end;
         // Wochentag
         if TryStrToInt(Lines[l], locInt) then
         begin
-          localCopy.Items[I].Days[d].Weekday := locInt;
+          AWeekList.Items[I].Days[d].Weekday := locInt;
           Inc(l);
         end;
         // Start-Hour
         if TryStrToInt(Lines[l], locInt) then
         begin
-          localCopy.Items[I].Days[d].StartHour := locInt;
+          AWeekList.Items[I].Days[d].StartHour := locInt;
           Inc(l);
         end;
         // Start-Minute
         if TryStrToInt(Lines[l], locInt) then
         begin
-          localCopy.Items[I].Days[d].StartMinute := locInt;
+          AWeekList.Items[I].Days[d].StartMinute := locInt;
           Inc(l);
         end;
         // End-Hour
         if TryStrToInt(Lines[l], locInt) then
         begin
-          localCopy.Items[I].Days[d].EndHour := locInt;
+          AWeekList.Items[I].Days[d].EndHour := locInt;
           Inc(l);
         end;
         // End-Minute
         if TryStrToInt(Lines[l], locInt) then
         begin
-          localCopy.Items[I].Days[d].EndMinute := locInt;
+          AWeekList.Items[I].Days[d].EndMinute := locInt;
           Inc(l);
         end;
         // Time off
         if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
         begin
-          localCopy.Items[I].Days[d].TimeOff := locDouble;
+          AWeekList.Items[I].Days[d].TimeOff := locDouble;
           Inc(l);
         end;
       end; { for d := .... }
     end;  { for I := ... }
     Result := True;
-    AWeekList.Assign(localCopy);
 		end
     else
     begin
@@ -210,7 +209,6 @@ begin
 		end;
 	finally
     Lines.Free;
-    localCopy.Free;
   end;
 end;
 
@@ -255,6 +253,15 @@ var
 begin
 
   {$IFDEF linux}
+  AProcess:=TProcess.Create(nil);
+  try
+    AProcess.CommandLine:='xdg-open "'+AURL+'"';  // Shell command
+    AProcess.Execute;
+  finally
+    AProcess.Free;
+  end;
+  {$ENDIF}
+  {$IFDEF macos}
   AProcess:=TProcess.Create(nil);
   try
     AProcess.CommandLine:='xdg-open "'+AURL+'"';  // Shell command

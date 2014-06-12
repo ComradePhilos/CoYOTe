@@ -20,13 +20,16 @@ type
     FEndHour: integer;        // The hour work ends that day
     FEndMinute: integer;      // The minute work ends that day
     FTimeOff: Double;         // hours that are taken off - freetime
-    FWeekDay: integer;         // Weekday 1 - 7
-    FDate: TDate;              // Date of the specific Day
-    FAdditionalTime: double;   // Time to add or substract additional time e.g. if you took 1 hour off
+    FWeekDay: integer;        // Weekday 1 - 7
+    FDate: TDate;             // Date of the specific Day
+    FAdditionalTime: double;  // Time to add or substract additional time e.g. if you took 1 hour off
+    FTag: String;             // add a tag to the specifig day e.g. "offical holiday", "ignore"...
 
     function calcDifference: double;    // The function that will actually calculate work time of one day
 
   public
+    constructor Create;
+
     procedure Clear;
     procedure setTime(hour, min: integer; mode: boolean);
     function WeekDayToText: String;
@@ -40,6 +43,7 @@ type
     property Weekday: integer read FWeekday write FWeekday;
     property TimeOff: Double read FTimeOff write FTimeOff;
     property AdditionalTime: double read FAdditionaltime write FAdditionaltime;
+    property Tag: String read FTag write FTag;
     property TimeWorked: double read calcDifference;
 
   end;
@@ -66,9 +70,10 @@ type
     constructor Create(AFromDate, AToDate: TDate); overload;
     destructor Destroy;
     procedure Clear;
-    procedure assign(AWeek: TWorkWeek);      // Assign the values of AWeek to this instance
-    function getSum: Double;                 // calculate the sum of working time of the week
-    function getAmountOfVacation: Double;    // Returns the number of days a person has taken off
+    procedure assign(AWeek: TWorkWeek);       // Assign the values of AWeek to this instance
+    function getSum: Double;                  // calculate the sum of working time of the week
+    function getAmountOfVacation: Double;     // Returns the number of days a person has taken off
+    function getGoalHours: Double;            // Returns the number of hours that have to be achieved
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -103,6 +108,10 @@ implementation
 
 
 //############################################ DAY ###########################################################
+constructor TWorkDay.Create;
+begin
+  FTag := '';
+end;
 
 procedure TWorkDay.Clear;
 begin
@@ -113,6 +122,7 @@ begin
 
   FDate := 0;
   FAdditionalTime := 0;
+  FTag := '';
 end;
 
 procedure TWorkDay.setTime(hour, min: integer; mode: boolean);
@@ -226,6 +236,7 @@ begin
     FDays[I].StartMinute := AWeek.Days[I].StartMinute;
     FDays[I].EndMinute := AWeek.Days[I].EndMinute;
     FDays[I].TimeOff := AWeek.Days[I].TimeOff;
+    FDays[I].Tag := AWeek.Days[I].Tag;
   end;
 end;
 
@@ -254,15 +265,35 @@ begin
   Result := 0;
   for I := 0 to self.Days.Count-1 do
   begin
-    if (self.Days[I].TimeOff = self.IntendedTimePerDay) then
+    if (self.Days[I].Tag = '') then
     begin
-      Result := Result + self.Days[I].getAmountOfTime
-    end
-    else
-    begin
-      Result := Result + self.Days[I].getAmountOfTime - self.FPausePerDay;
+      if (self.Days[I].TimeOff = self.IntendedTimePerDay) then
+      begin
+        Result := Result + self.Days[I].getAmountOfTime
+      end
+      else
+      begin
+        Result := Result + self.Days[I].getAmountOfTime - self.FPausePerDay;
+      end;
     end;
   end;
+
+end;
+
+function TWorkWeek.getGoalHours: Double;
+var
+  sum: Double;
+  I: Integer;
+begin
+  sum := 0;
+  for I := 0 to FDays.Count - 1 do
+  begin
+    if (Days[I].Tag = '') then
+    begin
+      sum := sum + FIntendedTimePerDay;
+		end;
+	end;
+  Result := sum;
 end;
 
 procedure TWorkWeek.Clear;
@@ -349,8 +380,9 @@ begin
     AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
     AGrid.Cells[2,1+I] := IntToStr(AWeekList.Items[I].WeekLength);
     AGrid.Cells[3,1+I] := FormatFloat('0.00', AWeekList.Items[I].getSum);
-    AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength);
-    diff :=  (AWeekList.Items[I].getSum - (AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength));
+    //AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength);
+    AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].getGoalHours);
+    diff :=  (AWeekList.Items[I].getSum - AWeekList.Items[I].getGoalHours);
     AGrid.Cells[5,1+I] := FormatFloat('0.00', diff);
   end;
 end;
@@ -387,6 +419,7 @@ begin
       AGrid.Cells[5,I] := FloatToStr(AWeek.Days[I-1].TimeOff);
       AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
       AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
+      AGrid.Cells[8,I] := AWeek.Days[I-1].Tag;
 	  end;
 	end;
 end;
@@ -399,7 +432,7 @@ begin
   AComboBox.Clear;
   For I := 0 to AWeekList.Count - 1 do
   begin
-    AComboBox.Items.Add(AWeekList.Items[I].WeekLabel);
+    AComboBox.Items.Add('#'+ IntToStr(I+1) + ': ' + AWeekList.Items[I].WeekLabel);
 	end;
 end;
 
@@ -486,4 +519,4 @@ begin
 end;
 
 
-end.
+end.
