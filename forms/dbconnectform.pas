@@ -22,6 +22,7 @@ type
 
   TForm6 = class(TForm)
     BitBtn2: TBitBtn;
+		BitBtn3: TBitBtn;
 		ConnectBtn1: TBitBtn;
     IBConnection1: TIBConnection;
     LabeledEdit1: TLabeledEdit;
@@ -30,7 +31,8 @@ type
     LabeledEdit4: TLabeledEdit;
     LabeledEdit5: TLabeledEdit;
     StatusBar1: TStatusBar;
-		procedure ConnectBtn1Click(Sender: TObject);
+		procedure BitBtn3Click(Sender: TObject);
+  procedure ConnectBtn1Click(Sender: TObject);
     procedure ConnectBtnClick(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure DisconnectBtnClick(Sender: TObject);
@@ -56,13 +58,11 @@ implementation
 
 procedure TForm6.FormCreate(Sender: TObject);
 begin
+  {
   LabeledEdit1.Text := '';                        // will be loaded from settings file in future
   LabeledEdit2.Text := dbDefaultFirebirdPort;
   LabeledEdit3.Text := dbDefaultFirebirdUser;
-  LabeledEdit4.Text := '';
-  LabeledEdit5.Text := '';
-
-
+  LabeledEdit5.Text := '';   }
 end;
 
 procedure TForm6.IBConnection1AfterConnect(Sender: TObject);
@@ -117,6 +117,15 @@ begin
 		end;
 	end;
 	DisconnectBtnClick(nil);
+end;
+
+procedure TForm6.BitBtn3Click(Sender: TObject);
+begin
+  LabeledEdit1.Text := '';
+  LabeledEdit2.Text := '';
+  LabeledEdit3.Text := '';
+  LabeledEdit4.Text := '';
+  LabeledEdit5.Text := '';
 end;
 
 end.

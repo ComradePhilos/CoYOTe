@@ -24,11 +24,11 @@
 // * switchable day order in weeks
 // * Work on Personnel Management
 // * database commit and download
-// * add settings / config files
 // * use tango icons where possible - look and feel
+// * add "open recent file"
 
 
-// sorry for any german comments in the code, I may have mixed it sometimes ;)
+// sorry for any german comments in the code, I may have mixed it up sometimes ;)
 
 unit main;
 
@@ -62,9 +62,9 @@ type
     Label6: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
-		MenuDBSettings: TMenuItem;
-		MenuItem6: TMenuItem;
-		MenuItem7: TMenuItem;
+    MenuDBSettings: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
     MenuSettings: TMenuItem;
     MenuItem11: TMenuItem;
     MenuEnglish: TMenuItem;
@@ -101,7 +101,7 @@ type
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
-		procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
     procedure MenuAboutClick(Sender: TObject);
@@ -151,7 +151,7 @@ type
     procedure RemoveWeekFromList(Sender: TObject; Index: integer);
 
     // triggered when database is connected
-    procedure GetDatabaseConnection(Sender: TObject; canConnect: Boolean);
+    procedure GetDatabaseConnection(Sender: TObject; canConnect: boolean);
 
     // Checks for each button, wether it has to get
     procedure EnableButtons;
@@ -162,6 +162,9 @@ type
     // Load the values from ini file
     procedure LoadIniFile;
     procedure SaveIniFile;
+
+    // apply a color to the theme
+    procedure ApplyColor(AColor: Integer);
 
   public
     { public declarations }
@@ -221,12 +224,7 @@ begin
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
 
   LoadIniFile;
-
   updateWindow;
-
-  Toolbar1.Color := defToolbarColor;
-  EditWeekForm.ToolBar1.Color := defToolbarColor;
-  PersonForm.Toolbar1.Color := defToolbarColor;
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
@@ -389,11 +387,8 @@ end;
 procedure TForm1.MenuLoadClick(Sender: TObject);
 var
   OpenDlg: TOpenDialog;
-  //localCopy: TWeekList;
 begin
   OpenDlg := TOpenDialog.Create(self);
-  //localCopy := TWeekList.Create;
-  //localCopy.Assign(FWeekList);
   OpenDlg.Title := 'Open file';
   try
     OpenDlg.InitialDir := '../data/';
@@ -409,12 +404,10 @@ begin
       begin
         StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" could not be loaded!';
         FCurrentFilePath := '';
-        //FWeekList.Assign(localCopy);
       end;
     end;
   finally
     OpenDlg.Free;
-    //localCopy.Free;
     FChangesMade := False;
     updateWindow;
   end;
@@ -471,11 +464,13 @@ begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       Application.Terminate;
+      SaveIniFile;
     end;
   end
   else
   begin
     Application.Terminate;
+    SaveIniFile;
   end;
 end;
 
@@ -496,10 +491,9 @@ begin
   begin
     CanClose := True;
   end;
-
 end;
 
-procedure TForm1.GetDatabaseConnection(Sender: TObject; canConnect: Boolean);
+procedure TForm1.GetDatabaseConnection(Sender: TObject; canConnect: boolean);
 begin
   //IBConnection1.Assign(AIBConnection);
   if canConnect then
@@ -507,18 +501,18 @@ begin
     StatusBar1.Panels[0].Text := 'database connection validated!';
     MenuItem6.Enabled := True;
     MenuItem7.Enabled := True;
-	end
+  end
   else
   begin
     StatusBar1.Panels[0].Text := 'database connection could not be validated!';
     MenuItem6.Enabled := False;
     MenuItem7.Enabled := False;
-	end;
+  end;
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-   SaveIniFile;
+  SaveIniFile;
 end;
 
 procedure TForm1.SaveIniFile;
@@ -533,20 +527,56 @@ begin
   ini.WriteString('MainForm', 'width', IntToStr(self.Width));
   ini.WriteString('MainForm', 'height', IntToStr(self.Height));
   ini.WriteString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(self.WindowState)));
+
+  ini.WriteString('EditWeekForm', 'xpos', IntToStr(EditWeekForm.Left));
+  ini.WriteString('EditWeekForm', 'ypos', IntToStr(EditWeekForm.Top));
+  ini.WriteString('EditWeekForm', 'width', IntToStr(EditWeekForm.Width));
+  ini.WriteString('EditWeekForm', 'height', IntToStr(EditWeekForm.Height));
+  ini.WriteString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(EditWeekForm.WindowState)));
+
+  ini.WriteString('DBInfo', 'hostname', DBForm.LabeledEdit1.Text);
+  ini.WriteString('DBInfo', 'port', DBForm.LabeledEdit2.Text);
+  ini.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
+  ini.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
+
+  ini.WriteString('Theme', 'color', IntToStr(Toolbar1.Color));
 end;
 
 procedure TForm1.LoadIniFile;
 var
   ini: TINIFile;
-  s: String;
+  s: string;
 begin
   ini := TINIFile.Create('coyote.ini');
+
   self.Left := StrToInt(ini.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
   self.Top := StrToInt(ini.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
-  self.width := StrToInt(ini.ReadString('MainForm', 'width', IntToStr(self.Width)));
+  self.Width := StrToInt(ini.ReadString('MainForm', 'width', IntToStr(self.Width)));
   self.Height := StrToInt(ini.ReadString('MainForm', 'height', IntToStr(self.Height)));
   s := ini.ReadString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsMaximized)));
-  self.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState),s))
+  self.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
+
+  EditWeekForm.Left := StrToInt(ini.ReadString('EditWeekForm', 'xpos', IntToStr(self.Left)));
+  EditWeekForm.Top := StrToInt(ini.ReadString('EditWeekForm', 'ypos', IntToStr(self.Top)));
+  EditWeekForm.Width := StrToInt(ini.ReadString('EditWeekForm', 'width', IntToStr(self.Width)));
+  EditWeekForm.Height := StrToInt(ini.ReadString('EditWeekForm', 'height', IntToStr(self.Height)));
+  s := ini.ReadString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsMaximized)));
+  EditWeekForm.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
+
+  DBForm.LabeledEdit1.Text := ini.ReadString('DBInfo', 'hostname', '');
+  DBForm.LabeledEdit2.Text := ini.ReadString('DBInfo', 'port', dbDefaultFirebirdPort);
+  DBForm.LabeledEdit5.Text := ini.ReadString('DBInfo', 'dbname', '');
+  DBForm.LabeledEdit3.Text := ini.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
+
+  ApplyColor(StrToInt(ini.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
+
+end;
+
+procedure TForm1.ApplyColor(AColor: Integer);
+begin
+  Toolbar1.Color := AColor;
+  EditWeekForm.ToolBar1.Color := AColor;
+  PersonForm.Toolbar1.Color := AColor;
 end;
 
 procedure TForm1.UpdateWindow;

@@ -56,13 +56,11 @@ implementation
 
 procedure TForm6.FormCreate(Sender: TObject);
 begin
+  {
   LabeledEdit1.Text := '';                        // will be loaded from settings file in future
   LabeledEdit2.Text := dbDefaultFirebirdPort;
   LabeledEdit3.Text := dbDefaultFirebirdUser;
-  LabeledEdit4.Text := '';
-  LabeledEdit5.Text := '';
-
-
+  LabeledEdit5.Text := '';   }
 end;
 
 procedure TForm6.IBConnection1AfterConnect(Sender: TObject);
@@ -78,7 +76,6 @@ begin
   //Statusbar1.Panels[0].Text := 'Datenbank Verbindung getrennt...';
   //ConnectBtn.Enabled := True;
   //DisconnectBtn.Enabled := False;
-  FDBConnectEvent(self, False);
 end;
 
 procedure TForm6.BitBtn2Click(Sender: TObject);
@@ -108,6 +105,7 @@ end;
 
 procedure TForm6.ConnectBtn1Click(Sender: TObject);
 begin
+  FDBConnectEvent(self, False);
   Statusbar1.Panels[0].Text := 'Database is not connectable! =(';
   try
     connectbtnClick(nil);

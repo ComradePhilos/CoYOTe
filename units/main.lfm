@@ -180,7 +180,7 @@ object Form1: TForm1
     AutoSize = False
     Panels = <    
       item
-        Text = 'Warning! This programme version is still work in progress and not recommended for general use yet!'
+        Text = 'Warning! This programme version is not final! Many functions may not work yet!'
         Width = 800
       end    
       item

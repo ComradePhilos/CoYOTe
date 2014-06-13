@@ -83,7 +83,6 @@ begin
   {$ENDIF}
 end;
 
-end;
 
 procedure TForm5.BitBtn3Click(Sender: TObject);
 begin

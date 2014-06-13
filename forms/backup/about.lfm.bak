@@ -2036,9 +2036,9 @@ object Form2: TForm2
     Height = 346
     Top = 33
     Width = 555
-    ActivePage = TabSheet1
+    ActivePage = Contributors
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = '  About  '
@@ -2084,6 +2084,7 @@ object Form2: TForm2
           '(comradephilos@googlemail.com)'
           ''
           'Lukas Franke - Programming, Github'
+          '(kontakt@lukas-franke.com)'
           ''
           'Clemens Schoke - Icon/Logo'
         )
