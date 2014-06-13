@@ -550,14 +550,14 @@ object Form3: TForm3
       ShowHint = True
     end
     object ToolButton1: TToolButton
-      Left = 219
+      Left = 227
       Top = 0
       Width = 5
       Caption = 'ToolButton1'
       Style = tbsDivider
     end
     object ButtonAdd: TToolButton
-      Left = 224
+      Left = 232
       Hint = 'add another day to the period'
       Top = 0
       Caption = 'ButtonAdd'
@@ -567,7 +567,7 @@ object Form3: TForm3
       ShowHint = True
     end
     object ButtonEmpty: TToolButton
-      Left = 280
+      Left = 288
       Hint = 'remove all days but keep period'
       Top = 0
       Caption = 'ButtonEmpty'
@@ -577,14 +577,14 @@ object Form3: TForm3
       ShowHint = True
     end
     object ToolButton5: TToolButton
-      Left = 308
+      Left = 316
       Top = 0
       Width = 5
       Caption = 'ToolButton5'
       Style = tbsDivider
     end
     object ButtonUndo: TToolButton
-      Left = 313
+      Left = 321
       Hint = 'undo changes'
       Top = 0
       Caption = 'ButtonUndo'
@@ -594,7 +594,7 @@ object Form3: TForm3
       ShowHint = True
     end
     object ButtonDelete: TToolButton
-      Left = 341
+      Left = 349
       Hint = 'delete period'
       Top = 0
       Caption = 'ButtonDelete'
@@ -604,17 +604,17 @@ object Form3: TForm3
       ShowHint = True
     end
     object ButtonApply: TToolButton
-      Left = 369
+      Left = 377
       Hint = 'apply changes, keep the window focused'
       Top = 0
       Caption = 'ButtonApply'
-      ImageIndex = 11
+      ImageIndex = 0
       OnClick = ApplyButtonClick
       ParentShowHint = False
       ShowHint = True
     end
     object ToolButton2: TToolButton
-      Left = 252
+      Left = 260
       Hint = 'Add days from a chosen date to a chosen date'
       Top = 0
       ImageIndex = 10
@@ -624,7 +624,7 @@ object Form3: TForm3
       Left = 57
       Height = 24
       Top = 0
-      Width = 162
+      Width = 170
       Font.CharSet = ANSI_CHARSET
       Font.Height = -11
       Font.Name = 'Ubuntu'

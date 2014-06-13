@@ -260,7 +260,8 @@ object Form1: TForm1
       Left = 137
       Height = 25
       Top = 0
-      Width = 95
+      Width = 111
+      Enabled = False
       ItemHeight = 17
       ItemIndex = 0
       Items.Strings = (

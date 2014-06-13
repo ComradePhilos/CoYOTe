@@ -71,7 +71,7 @@ type
     destructor Destroy;
     procedure Clear;
     procedure assign(AWeek: TWorkWeek);       // Assign the values of AWeek to this instance
-    function getSum: Double;                  // calculate the sum of working time of the week
+    function getSum: Double;                  // come here and getsum - calculate the sum of working time of the week
     function getAmountOfVacation: Double;     // Returns the number of days a person has taken off
     function getGoalHours: Double;            // Returns the number of hours that have to be achieved
 
@@ -177,8 +177,6 @@ end;
 //############################################ Week ###########################################################
 
 constructor TWorkWeek.Create;
-var
-  I: Integer;
 begin
   FDays := TWorkDays.Create(true);
   FWeekLabel := 'empty week';

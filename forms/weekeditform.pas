@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, Arrow, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
+  Buttons, StdCtrls, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
   { own Units }
   workdays, funcs, CoyoteDefaults;
 
@@ -449,8 +449,6 @@ begin
 end;
 
 procedure TForm3.showWeek(AWeek: TWorkWeek; ANumber: integer);
-var
-  I: integer;
 begin
   FWeek.Clear;
   FWeek.Assign(AWeek);
@@ -473,7 +471,6 @@ end;
 procedure TForm3.UpdateWindow;
 var
   diff: double;
-  I: integer;
 begin
   ButtonEmpty.Enabled := (FWeek.Days.Count > 0);
   PopUpMenu1.Items[1].Enabled := (FWeek.Days.Count > 0);

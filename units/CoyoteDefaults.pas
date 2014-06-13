@@ -21,7 +21,7 @@ ResourceString
   txtDeleteMsg = 'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
   txtRemoveMsg = 'Do you really want to delete the selected day? This will delete all data related to it!';
   txtClearMsg = 'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
-  txtQuitMsg = 'Do you really want to quit? You did not save your changes yet!';
+  txtQuitMsg = 'You did not save your changes yet! Do you really want to quit?';
 
   txtCaptionDelete = 'Really delete?';
   txtQuitProgramme = 'Quit Programme';

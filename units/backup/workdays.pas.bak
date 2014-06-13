@@ -71,7 +71,7 @@ type
     destructor Destroy;
     procedure Clear;
     procedure assign(AWeek: TWorkWeek);       // Assign the values of AWeek to this instance
-    function getSum: Double;                  // calculate the sum of working time of the week
+    function getSum: Double;                  // come here and getsum - calculate the sum of working time of the week
     function getAmountOfVacation: Double;     // Returns the number of days a person has taken off
     function getGoalHours: Double;            // Returns the number of hours that have to be achieved
 
@@ -418,8 +418,15 @@ begin
       AGrid.cells[4,I] := TimeToText(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
       AGrid.Cells[5,I] := FloatToStr(AWeek.Days[I-1].TimeOff);
       AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
-      AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
-      AGrid.Cells[8,I] := AWeek.Days[I-1].Tag;
+      if (AWeek.Days[I-1].Tag = '') then
+      begin
+        AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
+			end
+      else
+      begin
+        AGrid.Cells[7,I] := '0';
+			end;
+			AGrid.Cells[8,I] := AWeek.Days[I-1].Tag;
 	  end;
 	end;
 end;

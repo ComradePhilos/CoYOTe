@@ -216,7 +216,11 @@ begin
     begin
       WeekGrid.Cells[5, FSelectionIndex + 1] := FloatToStr(StrToFloat(HoursPerDayEdit.Text) / 2);
     end;
-  end;
+    if (Sender = MenuItem3) then
+    begin
+      WeekGrid.Cells[5, FSelectionIndex + 1] := '0';
+		end;
+	end;
 end;
 
 procedure TForm3.AddNumberOfDays(Sender: TObject);

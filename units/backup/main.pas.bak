@@ -554,14 +554,14 @@ begin
   self.Top := StrToInt(ini.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
   self.Width := StrToInt(ini.ReadString('MainForm', 'width', IntToStr(self.Width)));
   self.Height := StrToInt(ini.ReadString('MainForm', 'height', IntToStr(self.Height)));
-  s := ini.ReadString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsMaximized)));
+  s := ini.ReadString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
   self.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
 
   EditWeekForm.Left := StrToInt(ini.ReadString('EditWeekForm', 'xpos', IntToStr(self.Left)));
   EditWeekForm.Top := StrToInt(ini.ReadString('EditWeekForm', 'ypos', IntToStr(self.Top)));
   EditWeekForm.Width := StrToInt(ini.ReadString('EditWeekForm', 'width', IntToStr(self.Width)));
   EditWeekForm.Height := StrToInt(ini.ReadString('EditWeekForm', 'height', IntToStr(self.Height)));
-  s := ini.ReadString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsMaximized)));
+  s := ini.ReadString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
   EditWeekForm.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
 
   DBForm.LabeledEdit1.Text := ini.ReadString('DBInfo', 'hostname', '');
