@@ -38,7 +38,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
   ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons, ActnList,
-  IBConnection, DateUtils,
+  IBConnection, DateUtils, INIFiles, TypInfo,
   { Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm,
   { eigene Units }
@@ -101,6 +101,7 @@ type
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
+		procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
     procedure MenuAboutClick(Sender: TObject);
@@ -158,6 +159,10 @@ type
     // Updates the Information shown
     procedure UpdateWindow;
 
+    // Load the values from ini file
+    procedure LoadIniFile;
+    procedure SaveIniFile;
+
   public
     { public declarations }
   end;
@@ -214,6 +219,8 @@ begin
 
   AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
+
+  LoadIniFile;
 
   updateWindow;
 
@@ -464,11 +471,13 @@ begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       Application.Terminate;
+      SaveIniFile;
     end;
   end
   else
   begin
     Application.Terminate;
+    SaveIniFile;
   end;
 end;
 
@@ -507,6 +516,39 @@ begin
     MenuItem6.Enabled := False;
     MenuItem7.Enabled := False;
 	end;
+end;
+
+procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+   SaveIniFile;
+end;
+
+procedure TForm1.SaveIniFile;
+var
+  ini: TINIFile;
+begin
+  // Write INI-File
+  ini := TINIFile.Create('coyote.ini');
+  ini.UpdateFile;
+  ini.WriteString('MainForm', 'xpos', IntToStr(self.Left));
+  ini.WriteString('MainForm', 'ypos', IntToStr(self.Top));
+  ini.WriteString('MainForm', 'width', IntToStr(self.Width));
+  ini.WriteString('MainForm', 'height', IntToStr(self.Height));
+  ini.WriteString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(self.WindowState)));
+end;
+
+procedure TForm1.LoadIniFile;
+var
+  ini: TINIFile;
+  s: String;
+begin
+  ini := TINIFile.Create('coyote.ini');
+  self.Left := StrToInt(ini.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
+  self.Top := StrToInt(ini.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
+  self.width := StrToInt(ini.ReadString('MainForm', 'width', IntToStr(self.Width)));
+  self.Height := StrToInt(ini.ReadString('MainForm', 'height', IntToStr(self.Height)));
+  s := ini.ReadString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsMaximized)));
+  self.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState),s))
 end;
 
 procedure TForm1.UpdateWindow;

@@ -14,6 +14,7 @@ object Form1: TForm1
   Font.Pitch = fpVariable
   Font.Quality = fqDraft
   Menu = MainMenu1
+  OnClose = FormClose
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
@@ -537,6 +538,7 @@ object Form1: TForm1
       end
       object MenuItem6: TMenuItem
         Caption = 'load from database'
+        Enabled = False
         Bitmap.Data = {
           C6070000424DC607000000000000360000002800000016000000160000000100
           2000000000009007000064000000640000000000000000000000FEFEFE00FEFE
@@ -605,6 +607,7 @@ object Form1: TForm1
       end
       object MenuItem7: TMenuItem
         Caption = 'push to database'
+        Enabled = False
         Bitmap.Data = {
           C6070000424DC607000000000000360000002800000016000000160000000100
           2000000000009007000064000000640000000000000000000000FEFEFE00FEFE
