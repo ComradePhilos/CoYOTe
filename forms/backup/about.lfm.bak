@@ -2083,7 +2083,7 @@ object Form2: TForm2
           'Philip Märksch - Programming, Github, Project-Initiator'
           '(comradephilos@googlemail.com)'
           ''
-          'Lukas Franke - Programming, Github'
+          'Lukas Franke - Programming, Github, MacOS-Support'
           '(kontakt@lukas-franke.com)'
           ''
           'Clemens Schoke - Icon/Logo'
@@ -2178,11 +2178,11 @@ object Form2: TForm2
     end
     object TabSheet2: TTabSheet
       Caption = 'Changelog'
-      ClientHeight = 329
+      ClientHeight = 316
       ClientWidth = 547
       object Memo1: TMemo
         Left = 125
-        Height = 310
+        Height = 297
         Top = 4
         Width = 418
         Anchors = [akTop, akLeft, akRight, akBottom]
@@ -2200,7 +2200,7 @@ object Form2: TForm2
       end
       object ListBox1: TListBox
         Left = 0
-        Height = 290
+        Height = 277
         Top = 24
         Width = 120
         Anchors = [akTop, akLeft, akBottom]

@@ -371,8 +371,9 @@ begin
     colorDlg.Color := Toolbar1.Color;
     if colorDlg.Execute then
     begin
-      Toolbar1.Color := colorDlg.Color;
-      EditWeekForm.ToolBar1.Color := colorDlg.Color;
+      //Toolbar1.Color := colorDlg.Color;
+      //EditWeekForm.ToolBar1.Color := colorDlg.Color;
+      ApplyColor(colorDlg.Color);
     end;
   finally
     colorDlg.Free;

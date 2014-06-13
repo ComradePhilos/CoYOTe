@@ -5,7 +5,7 @@ unit about;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
+  Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, StdCtrls, lclintf, ComCtrls, CheckLst, types,
   funcs;
 
@@ -78,7 +78,7 @@ var
   AboutText: TStringList;
   I: Integer;
 begin
-  PageControl1.PageIndex := 2;
+  PageControl1.PageIndex := 1;
   FindFirst('../docs/versions/*', faAnyFile, searchRec);
   repeat
     if (length(searchRec.Name) > 2) then
@@ -105,6 +105,8 @@ begin
   self.Constraints.MinHeight := (Panel1.Top*2) + Panel1.Height;
   self.Constraints.MinWidth := (Panel1.Left*2) + Panel1.Width;
 
+  IpFileDataProvider1.
+
 end;
 
-end.
+end.

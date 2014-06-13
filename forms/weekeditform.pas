@@ -28,17 +28,19 @@ type
     DescriptionEdit: TLabeledEdit;
     Label4: TLabel;
     Memo1: TMemo;
-    MenuHalfDayOff: TMenuItem;
 		MenuItem1: TMenuItem;
 		MarkHoliday: TMenuItem;
 		MarkNormal: TMenuItem;
 		MarkIgnore: TMenuItem;
+		MenuItem2: TMenuItem;
+		MenuItem3: TMenuItem;
+		MenuOneDayOff: TMenuItem;
+		MenuHalfDayOff: TMenuItem;
     PausePerDayEdit: TLabeledEdit;
     ImageList1: TImageList;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    MenuOneDayOff: TMenuItem;
     MenuDelete: TMenuItem;
     MenuEdit: TMenuItem;
     MenuAdd: TMenuItem;
@@ -214,7 +216,11 @@ begin
     begin
       WeekGrid.Cells[5, FSelectionIndex + 1] := FloatToStr(StrToFloat(HoursPerDayEdit.Text) / 2);
     end;
-  end;
+    if (Sender = MenuItem3) then
+    begin
+      WeekGrid.Cells[5, FSelectionIndex + 1] := '0';
+		end;
+	end;
 end;
 
 procedure TForm3.AddNumberOfDays(Sender: TObject);

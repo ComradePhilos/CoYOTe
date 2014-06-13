@@ -5,7 +5,7 @@ unit about;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics,
+  Classes, SysUtils, FileUtil, IpHtml, Ipfilebroker, Forms, Controls, Graphics,
   Dialogs, ExtCtrls, StdCtrls, lclintf, ComCtrls, CheckLst, types,
   funcs;
 

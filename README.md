@@ -1,7 +1,7 @@
 # CoYOT(e)
 #### Control Your OverTimes (easily)
 <p align="left">
-  <img style="float:left" src="https://dl.dropboxusercontent.com/u/76923843/new.png" width=200>   
+  <img style="float:left" src="https://camo.githubusercontent.com/d03c7836440de6dbc9eac0ea3cadcc5094afe6a2/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f37363932333834332f6e65772e706e67" width=200>   
 </p>  
 This programme is a lightweight and userfriendly tool to keep an eye on overtimes at work. It calculates - based on attendance times the user entered - how many hours of working time the user accumulated and visualises the balance so that he always is up to date. If used consequently one can save precious free time and organize working time in a way that employees and bosses might profit from. 
 
@@ -53,3 +53,7 @@ on almost every computer and operating system you want - Thanks to Lazarus IDE a
 <li>  UI improvements </li> 
 </ul>
 </p>
+
+### downloads
+You will find any downloadable version by clicking the link to the download page. Read the release notes carefully! 
+<a href="https://github.com/ComradePhilos/CoYOTe/releases">Download Page</a>
