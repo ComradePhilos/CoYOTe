@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
+  Buttons, StdCtrls, ExtCtrls, Menus, ExtDlgs, ComCtrls, ButtonPanel, DateUtils,
   { own Units }
   workdays, funcs, CoyoteDefaults;
 
@@ -46,6 +46,7 @@ type
     MenuAdd: TMenuItem;
     PopupMenu1: TPopupMenu;
     SaveDialog1: TSaveDialog;
+		StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     ButtonLeft: TToolButton;
     ButtonRight: TToolButton;

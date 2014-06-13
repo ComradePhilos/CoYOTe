@@ -260,7 +260,8 @@ object Form1: TForm1
       Left = 137
       Height = 25
       Top = 0
-      Width = 95
+      Width = 111
+      Enabled = False
       ItemHeight = 17
       ItemIndex = 0
       Items.Strings = (
@@ -357,7 +358,7 @@ object Form1: TForm1
         OnClick = MenuQuickSaveClick
       end
       object MenuLoad: TMenuItem
-        Caption = 'Load'
+        Caption = 'Open...'
         Bitmap.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           2000000000000004000064000000640000000000000000000000514A459EA465
@@ -395,6 +396,9 @@ object Form1: TForm1
           59FD585C5AFD5D615FD6555555155B5B5B005B5B5B005B5B5B00
         }
         OnClick = MenuLoadClick
+      end
+      object MenuOpenRecent: TMenuItem
+        Caption = 'Recent...'
       end
       object MenuQuit: TMenuItem
         Caption = 'Exit'

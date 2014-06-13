@@ -63,6 +63,7 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
+		MenuOpenRecent: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuSettings: TMenuItem;
@@ -136,7 +137,8 @@ type
 
     // may become obsolete with the newest changes
     //FCurrentUser: Integer;        // ID of the currently selected "User"/Person
-    FCurrentFilePath: string;     // If known - Name of the currently opened File
+    FCurrentFilePath: string;       // If known - Name of the currently opened File
+    FRecentlyOpened: TStringList;     // The files that have been opened lately - will be in ini file
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -206,6 +208,7 @@ begin
 
   // Create Instances
   FWeekList := TWeekList.Create;
+  FRecentlyOpened := TStringList.Create;
 
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
