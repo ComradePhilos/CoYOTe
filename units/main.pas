@@ -27,8 +27,12 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * database commit and download
 // * use tango icons where possible - look and feel
 
+// * database support will be improved/continued when the main functionality is working and the concept is finished
+//    ( e.g. ability to compare multiple people/years/files whatever.. )
 // * the obligatory pause time added to your whole work time applies at least after 6 hours of work in Germany,
 //  so on a 6-hour day you need to have the pause. This topic needs to be kept in mind for calculation
+// * think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
+//    OR think about saving in whole directory, like DataNorm
 
 unit main;
 
@@ -41,7 +45,7 @@ uses
   IBConnection, DateUtils, INIFiles, TypInfo,
   { Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm,
-  { eigene Units }
+  { own Units }
   workdays, funcs, CoyoteDefaults;
 
 type
@@ -63,6 +67,8 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
+		MenuItem5: TMenuItem;
+		MenuItem8: TMenuItem;
     MenuOpenRecent: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
@@ -124,7 +130,7 @@ type
     defDaysPerWeek: integer;      // Standard Value
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
-    FChangesMade: boolean;
+    FChangesMade: boolean;        // True, if changes have been made to the file
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
@@ -151,9 +157,6 @@ type
 
     // triggered when a certain week is deleted
     procedure RemoveWeekFromList(Sender: TObject; Index: integer);
-
-    // triggered when database is connected
-    procedure GetDatabaseConnection(Sender: TObject; canConnect: boolean);
 
     // Checks for each button, wether it has to get enabled or disabled
     procedure EnableButtons;
@@ -212,6 +215,7 @@ begin
   FWeekList := TWeekList.Create;
   FOpenRecent := TStringList.Create;
 
+  // Sub-Forms
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
   AddWeekForm := TForm4.Create(nil);
@@ -223,7 +227,6 @@ begin
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
   EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
-  DBForm.DBConnectEvent := @GetDatabaseConnection;
 
   AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
@@ -499,23 +502,6 @@ begin
   else
   begin
     CanClose := True;
-  end;
-end;
-
-procedure TForm1.GetDatabaseConnection(Sender: TObject; canConnect: boolean);
-begin
-  //IBConnection1.Assign(AIBConnection);
-  if canConnect then
-  begin
-    StatusBar1.Panels[0].Text := 'database connection validated!';
-    MenuItem6.Enabled := True;
-    MenuItem7.Enabled := True;
-  end
-  else
-  begin
-    StatusBar1.Panels[0].Text := 'database connection could not be validated!';
-    MenuItem6.Enabled := False;
-    MenuItem7.Enabled := False;
   end;
 end;
 
