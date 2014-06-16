@@ -17,6 +17,7 @@
   along with this program.  If not, see http://www.gnu.org/licenses/    *
                                                                         *
 *************************************************************************
+sorry for any German in the code, I may have mixed it up sometimes ;)
 }
 
 // Todo:
@@ -25,10 +26,6 @@
 // * Work on Personnel Management
 // * database commit and download
 // * use tango icons where possible - look and feel
-// * add "open recent file"
-
-
-// sorry for any german comments in the code, I may have mixed it up sometimes ;)
 
 unit main;
 
@@ -168,24 +165,18 @@ type
     // apply a color to the theme
     procedure ApplyColor(AColor: integer);
 
-    // adds a filename to a list and to the menuitem
+    // adds a filename to the recent files-list and adds it to the mainmenu
     procedure AddToRecentlyOpened(AFileName: string; AList: TStringList; AMenuItem: TMenuItem);
-
-    procedure OpenRecentCLick(Sender: TObject);
+    procedure OpenRecentCLick(Sender: TObject);  // dynamic onClick-Event for Recent Files
 
   public
     { public declarations }
   end;
 
-
-
-
 var
   Form1: TForm1;
 
 implementation
-
-
 
 {$R *.lfm}
 
@@ -533,6 +524,7 @@ end;
 procedure TForm1.SaveIniFile;
 var
   ini: TINIFile;
+  I: Integer;
 begin
   // Write INI-File
   ini := TINIFile.Create('coyote.ini');
@@ -554,6 +546,12 @@ begin
   ini.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
   ini.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
 
+  ini.WriteString('RecentFiles', 'count', IntToStr(FRecentlyOpened.Count));
+  for I := 0 to FRecentlyOpened.Count - 1 do
+  begin
+  	ini.WriteString('RecentFiles', IntToStr(I), FRecentlyOpened[I]);
+	end;
+
   ini.WriteString('Theme', 'color', IntToStr(Toolbar1.Color));
 end;
 
@@ -561,6 +559,7 @@ procedure TForm1.LoadIniFile;
 var
   ini: TINIFile;
   s: string;
+  I: Integer;
 begin
   ini := TINIFile.Create('coyote.ini');
 
@@ -582,6 +581,11 @@ begin
   DBForm.LabeledEdit2.Text := ini.ReadString('DBInfo', 'port', dbDefaultFirebirdPort);
   DBForm.LabeledEdit5.Text := ini.ReadString('DBInfo', 'dbname', '');
   DBForm.LabeledEdit3.Text := ini.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
+
+  for I := 0 to StrToInt(ini.ReadString('RecentFiles', 'count', '0')) - 1 do
+  begin
+    AddToRecentlyOpened(ini.ReadString('RecentFiles', IntToStr(I), ''), FRecentlyOpened, MenuOpenRecent);
+	end;
 
   ApplyColor(StrToInt(ini.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
 
@@ -734,6 +738,11 @@ begin
     AList.Delete(found);
   end;
   AList.Add(AFileName);
+
+  if (AList.Count > 10) then
+  begin
+    Alist.Delete(0);
+	end;
 
   AMenuItem.Clear;
   for I := AList.Count - 1 downto 0 do
