@@ -18,14 +18,14 @@ uses
 procedure SaveToFile(filename: string; AWeekList: TWeekList);
 
 // Load WeekList from File
-function LoadFromFile(filename: string; AWeekList: TWeekList): Boolean;
+function LoadFromFile(filename: string; AWeekList: TWeekList): boolean;
 
 // Creates a Colored Text depending on balance etc..
-procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: Double);
-procedure colorText(ALabel: TLabel; value, toleranceLimit: Double); overload;
+procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: double);
+procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 
 // Opens a URL not depending on the OS
-procedure OpenURL(AURL: String);
+procedure OpenURL(AURL: string);
 
 
 implementation
@@ -72,7 +72,7 @@ begin
   end;
 end;
 
-function LoadFromFile(filename: string; AWeekList: TWeekList): Boolean;
+function LoadFromFile(filename: string; AWeekList: TWeekList): boolean;
 var
   I: integer;        // Week-Counter
   l: integer;        // Line-Counter
@@ -92,129 +92,129 @@ begin
 
     if (Lines[0] = 'CoYOTe file') then
     begin
-    AWeekList.Clear;
-    // Number of Weeks
-    if TryStrToInt(Lines[1], locInt) then
-    begin
-      Count := locInt;
+      AWeekList.Clear;
+      // Number of Weeks
+      if TryStrToInt(Lines[1], locInt) then
+      begin
+        Count := locInt;
+        Inc(l);
+      end;
+
+      // load Test-Float to set the format settings
+      FormatDouble.DecimalSeparator := LeftStr(Lines[l], 2)[2];
       Inc(l);
-    end;
 
-    // load Test-Float to set the format settings
-    FormatDouble.DecimalSeparator := LeftStr(Lines[l], 2)[2];
-    Inc(l);
-
-    for I := 0 to Count - 1 do
-    begin
-      AWeekList.Add(TWorkWeek.Create);
-      AWeekList.Items[I].WeekLabel := Lines[l];
-      Inc(l);
-      // Start - Date
-      if TryStrToDate(Lines[l], locDate, '.') then
+      for I := 0 to Count - 1 do
       begin
-        AWeekList.Items[I].FromDate := locDate;
+        AWeekList.Add(TWorkWeek.Create);
+        AWeekList.Items[I].WeekLabel := Lines[l];
         Inc(l);
-      end;
-      // End- Date
-      if TryStrToDate(Lines[l], locDate, '.') then
-      begin
-        AWeekList.Items[I].ToDate := locDate;
-        Inc(l);
-      end;
-      // Time per Day
-      if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
-      begin
-        AWeekList.Items[I].IntendedTimePerDay := locDouble;
-        Inc(l);
-      end;
-      // Pause per Day
-      if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
-      begin
-        AWeekList.Items[I].PausePerDay := locDouble;
-        Inc(l);
-      end;
-
-      if TryStrToInt(Lines[l], locInt) then
-      begin
-        inc(l);
-        for d := 0 to locInt - 1 do
-        begin
-          AWeekList.Items[I].DescriptionText.Add(lines[l]);
-          inc(l);
-        end;
-      end;
-
-      // Weeklength
-      if TryStrToInt(Lines[l], locInt) then
-      begin
-        AWeekList.Items[I].WeekLength := locInt;
-        Inc(l);
-      end;
-
-      // Days
-      for d := 0 to AWeekList.Items[I].WeekLength - 1 do
-      begin
-        AWeekList.Items[I].Days.Add(TWorkDay.Create);
-        // Datum
+        // Start - Date
         if TryStrToDate(Lines[l], locDate, '.') then
         begin
-          AWeekList.Items[I].Days[d].Date := locDate;
+          AWeekList.Items[I].FromDate := locDate;
           Inc(l);
         end;
-        // Wochentag
-        if TryStrToInt(Lines[l], locInt) then
+        // End- Date
+        if TryStrToDate(Lines[l], locDate, '.') then
         begin
-          AWeekList.Items[I].Days[d].Weekday := locInt;
+          AWeekList.Items[I].ToDate := locDate;
           Inc(l);
         end;
-        // Start-Hour
-        if TryStrToInt(Lines[l], locInt) then
-        begin
-          AWeekList.Items[I].Days[d].StartHour := locInt;
-          Inc(l);
-        end;
-        // Start-Minute
-        if TryStrToInt(Lines[l], locInt) then
-        begin
-          AWeekList.Items[I].Days[d].StartMinute := locInt;
-          Inc(l);
-        end;
-        // End-Hour
-        if TryStrToInt(Lines[l], locInt) then
-        begin
-          AWeekList.Items[I].Days[d].EndHour := locInt;
-          Inc(l);
-        end;
-        // End-Minute
-        if TryStrToInt(Lines[l], locInt) then
-        begin
-          AWeekList.Items[I].Days[d].EndMinute := locInt;
-          Inc(l);
-        end;
-        // Time off
+        // Time per Day
         if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
         begin
-          AWeekList.Items[I].Days[d].TimeOff := locDouble;
+          AWeekList.Items[I].IntendedTimePerDay := locDouble;
           Inc(l);
         end;
-        AWeekList.Items[I].Days[d].Tag := Lines[l];
-        Inc(l);
-      end; { for d := .... }
-    end;  { for I := ... }
-    Result := True;
-		end
+        // Pause per Day
+        if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
+        begin
+          AWeekList.Items[I].PausePerDay := locDouble;
+          Inc(l);
+        end;
+
+        if TryStrToInt(Lines[l], locInt) then
+        begin
+          Inc(l);
+          for d := 0 to locInt - 1 do
+          begin
+            AWeekList.Items[I].DescriptionText.Add(Lines[l]);
+            Inc(l);
+          end;
+        end;
+
+        // Weeklength
+        if TryStrToInt(Lines[l], locInt) then
+        begin
+          AWeekList.Items[I].WeekLength := locInt;
+          Inc(l);
+        end;
+
+        // Days
+        for d := 0 to AWeekList.Items[I].WeekLength - 1 do
+        begin
+          AWeekList.Items[I].Days.Add(TWorkDay.Create);
+          // Datum
+          if TryStrToDate(Lines[l], locDate, '.') then
+          begin
+            AWeekList.Items[I].Days[d].Date := locDate;
+            Inc(l);
+          end;
+          // Wochentag
+          if TryStrToInt(Lines[l], locInt) then
+          begin
+            AWeekList.Items[I].Days[d].Weekday := locInt;
+            Inc(l);
+          end;
+          // Start-Hour
+          if TryStrToInt(Lines[l], locInt) then
+          begin
+            AWeekList.Items[I].Days[d].StartHour := locInt;
+            Inc(l);
+          end;
+          // Start-Minute
+          if TryStrToInt(Lines[l], locInt) then
+          begin
+            AWeekList.Items[I].Days[d].StartMinute := locInt;
+            Inc(l);
+          end;
+          // End-Hour
+          if TryStrToInt(Lines[l], locInt) then
+          begin
+            AWeekList.Items[I].Days[d].EndHour := locInt;
+            Inc(l);
+          end;
+          // End-Minute
+          if TryStrToInt(Lines[l], locInt) then
+          begin
+            AWeekList.Items[I].Days[d].EndMinute := locInt;
+            Inc(l);
+          end;
+          // Time off
+          if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
+          begin
+            AWeekList.Items[I].Days[d].TimeOff := locDouble;
+            Inc(l);
+          end;
+          AWeekList.Items[I].Days[d].Tag := Lines[l];
+          Inc(l);
+        end; { for d := .... }
+      end;  { for I := ... }
+      Result := True;
+    end
     else
     begin
       application.MessageBox(PChar(emInvalidFileFormat), 'Invalid file format!', 0);
       Result := False;
-		end;
-	finally
+    end;
+  finally
     Lines.Free;
   end;
 end;
 
 
-procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: Double);
+procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: double);
 begin
   if (value1 - value2) >= 0 then
   begin
@@ -231,13 +231,13 @@ begin
 end;
 
 
-procedure colorText(ALabel: TLabel; value, toleranceLimit: Double);
+procedure colorText(ALabel: TLabel; Value, toleranceLimit: double);
 begin
-  if value >= 0 then
+  if Value >= 0 then
   begin
     ALabel.Font.Color := clGreen;
   end
-  else if value >= (0 - toleranceLimit) then
+  else if Value >= (0 - toleranceLimit) then
   begin
     ALabel.Font.Color := $000080FF;
   end
@@ -248,24 +248,24 @@ begin
 end;
 
 
-procedure OpenURL(AURL: String);
+procedure OpenURL(AURL: string);
 var
   AProcess: TProcess;
 begin
 
   {$IFDEF linux}
-  AProcess:=TProcess.Create(nil);
+  AProcess := TProcess.Create(nil);
   try
-    AProcess.CommandLine:='xdg-open "'+AURL+'"';  // Shell command
+    AProcess.CommandLine := 'xdg-open "' + AURL + '"';  // Shell command
     AProcess.Execute;
   finally
     AProcess.Free;
   end;
   {$ENDIF}
   {$IFDEF macos}
-  AProcess:=TProcess.Create(nil);
+  AProcess := TProcess.Create(nil);
   try
-    AProcess.CommandLine:='xdg-open "'+AURL+'"';  // Shell command
+    AProcess.CommandLine := 'xdg-open "' + AURL + '"';  // Shell command
     AProcess.Execute;
   finally
     AProcess.Free;

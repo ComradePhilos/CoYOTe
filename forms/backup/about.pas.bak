@@ -15,7 +15,6 @@ type
 
   TForm2 = class(TForm)
     Image1: TImage;
-    Image2: TImage;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -104,8 +103,6 @@ begin
 
   self.Constraints.MinHeight := (Panel1.Top*2) + Panel1.Height;
   self.Constraints.MinWidth := (Panel1.Left*2) + Panel1.Width;
-
-  IpFileDataProvider1.
 
 end;
 

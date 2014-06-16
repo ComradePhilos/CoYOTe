@@ -12,8 +12,8 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';    // Official Name shown to the user
-  VersionNr = '0.0.4.9';         // Programme-Version
-  VersionDate = '13.06.2014';    // Build-Date
+  VersionNr = '0.0.4.10';         // Programme-Version
+  VersionDate = '16.06.2014';    // Build-Date
   LazarusVersion = '1.2.2';      // Version of the Lazarus IDE the programme was built with
 
   // Messages / Errors
@@ -30,6 +30,7 @@ ResourceString
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
   emInvalidFileFormat = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
+  emFileNotFound = 'Error: The file could not be found!';
 
   dbDefaultFirebirdUser = 'SYSDBA';
   dbDefaultFirebirdPort = '';     // 3050

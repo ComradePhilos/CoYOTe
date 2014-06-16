@@ -17,7 +17,7 @@
   along with this program.  If not, see http://www.gnu.org/licenses/    *
                                                                         *
 *************************************************************************
-sorry for any German in the code, I may have mixed it up sometimes ;)
+sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 }
 
 // Todo:
@@ -26,6 +26,9 @@ sorry for any German in the code, I may have mixed it up sometimes ;)
 // * Work on Personnel Management
 // * database commit and download
 // * use tango icons where possible - look and feel
+
+// * the obligatory pause time added to your whole work time applies at least after 6 hours of work in Germany,
+//  so on a 6-hour day you need to have the pause. This topic needs to be kept in mind for calculation
 
 unit main;
 
@@ -135,7 +138,7 @@ type
     // may become obsolete with the newest changes
     //FCurrentUser: Integer;        // ID of the currently selected "User"/Person
     FCurrentFilePath: string;       // If known - Name of the currently opened File
-    FRecentlyOpened: TStringList;     // The files that have been opened lately - will be in ini file
+    FOpenRecent: TStringList;   // The files that have been opened lately - will be in ini file
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -152,7 +155,7 @@ type
     // triggered when database is connected
     procedure GetDatabaseConnection(Sender: TObject; canConnect: boolean);
 
-    // Checks for each button, wether it has to get
+    // Checks for each button, wether it has to get enabled or disabled
     procedure EnableButtons;
 
     // Updates the Information shown
@@ -166,7 +169,7 @@ type
     procedure ApplyColor(AColor: integer);
 
     // adds a filename to the recent files-list and adds it to the mainmenu
-    procedure AddToRecentlyOpened(AFileName: string; AList: TStringList; AMenuItem: TMenuItem);
+    procedure AddToOpenRecent(AFilePath: string; AList: TStringList; AMenuItem: TMenuItem);
     procedure OpenRecentCLick(Sender: TObject);  // dynamic onClick-Event for Recent Files
 
   public
@@ -207,7 +210,7 @@ begin
 
   // Create Instances
   FWeekList := TWeekList.Create;
-  FRecentlyOpened := TStringList.Create;
+  FOpenRecent := TStringList.Create;
 
   AboutForm := TForm2.Create(nil);
   EditWeekForm := TForm3.Create(nil);
@@ -402,7 +405,7 @@ begin
       begin
         StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
         FCurrentFilePath := OpenDlg.FileName;
-        AddToRecentlyOpened(FCurrentFilePath, FRecentlyOpened, MenuOpenRecent);
+        AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
       end
       else
       begin
@@ -427,7 +430,7 @@ begin
   if (FCurrentFilePath <> '') then
   begin
     SaveToFile(FCurrentFilePath, FWeekList);
-    AddToRecentlyOpened(FCurrentFilePath, FRecentlyOpened, MenuOpenRecent);
+    AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
     StatusBar1.Panels[0].Text := txtFileSaved;
     FChangesMade := False;
     EnableButtons;
@@ -452,7 +455,7 @@ begin
     if SaveDlg.Execute then
     begin
       SaveToFile(SaveDlg.FileName, FWeekList);
-      AddToRecentlyOpened(SaveDlg.FileName, FRecentlyOpened, MenuOpenRecent);
+      AddToOpenRecent(SaveDlg.FileName, FOpenRecent, MenuOpenRecent);
       StatusBar1.Panels[0].Text := txtFileSaved;
       FCurrentFilePath := SaveDlg.FileName;
     end;
@@ -524,7 +527,7 @@ end;
 procedure TForm1.SaveIniFile;
 var
   ini: TINIFile;
-  I: Integer;
+  I: integer;
 begin
   // Write INI-File
   ini := TINIFile.Create('coyote.ini');
@@ -546,11 +549,11 @@ begin
   ini.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
   ini.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
 
-  ini.WriteString('RecentFiles', 'count', IntToStr(FRecentlyOpened.Count));
-  for I := 0 to FRecentlyOpened.Count - 1 do
+  ini.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
+  for I := 0 to FOpenRecent.Count - 1 do
   begin
-  	ini.WriteString('RecentFiles', IntToStr(I), FRecentlyOpened[I]);
-	end;
+    ini.WriteString('RecentFiles', IntToStr(I), FOpenRecent[I]);
+  end;
 
   ini.WriteString('Theme', 'color', IntToStr(Toolbar1.Color));
 end;
@@ -559,7 +562,7 @@ procedure TForm1.LoadIniFile;
 var
   ini: TINIFile;
   s: string;
-  I: Integer;
+  I: integer;
 begin
   ini := TINIFile.Create('coyote.ini');
 
@@ -584,8 +587,8 @@ begin
 
   for I := 0 to StrToInt(ini.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
-    AddToRecentlyOpened(ini.ReadString('RecentFiles', IntToStr(I), ''), FRecentlyOpened, MenuOpenRecent);
-	end;
+    AddToOpenRecent(ini.ReadString('RecentFiles', IntToStr(I), ''), FOpenRecent, MenuOpenRecent);
+  end;
 
   ApplyColor(StrToInt(ini.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
 
@@ -713,12 +716,12 @@ begin
 
   MenuQuickSave.Enabled := FChangesMade and (FCurrentFilePath <> '');
   ToolButton1.Enabled := FChangesMade and (FCurrentFilePath <> '');
+  MenuOpenRecent.Enabled := (MenuOpenRecent.Count > 0);
 
 end;
 
 
-
-procedure TForm1.AddToRecentlyOpened(AFileName: string; AList: TStringList; AMenuItem: TMenuItem);
+procedure TForm1.AddToOpenRecent(AFilePath: string; AList: TStringList; AMenuItem: TMenuItem);
 var
   I: integer;
   found: integer;
@@ -726,32 +729,35 @@ begin
 
   found := -1;
 
-  // delete earlier entries and clear menuitem
-  for I := 0 to AList.Count - 1 do
+  if (AFilePath <> '') then
   begin
-    if (AList[I] = AFileName) then
-      found := I;
+    // delete earlier entries and clear menuitem
+    for I := 0 to AList.Count - 1 do
+    begin
+      if (AList[I] = AFilePath) then
+        found := I;
+    end;
+
+    if (found >= 0) then
+    begin
+      AList.Delete(found);
+    end;
+    AList.Add(AFilePath);
+
+    if (AList.Count > 10) then
+    begin
+      Alist.Delete(0);
+    end;
+
+    AMenuItem.Clear;
+    for I := AList.Count - 1 downto 0 do
+    begin
+      AMenuItem.Add(TMenuItem.Create(nil));
+      AMenuItem.Items[AList.Count - 1 - I].Caption := AList[I];
+      AMenuItem.Items[AList.Count - 1 - I].OnClick := @OpenRecentCLick;
+    end;
   end;
-
-  if (found >= 0) then
-  begin
-    AList.Delete(found);
-  end;
-  AList.Add(AFileName);
-
-  if (AList.Count > 10) then
-  begin
-    Alist.Delete(0);
-	end;
-
-  AMenuItem.Clear;
-  for I := AList.Count - 1 downto 0 do
-  begin
-    AMenuItem.Add(TMenuItem.Create(nil));
-    AMenuItem.Items[AList.Count - 1 - I].Caption := AList[I];
-    AMenuItem.Items[AList.Count - 1 - I].OnClick := @OpenRecentCLick;
-  end;
-
+  UpdateWindow;
 end;
 
 procedure TForm1.OpenRecentCLick(Sender: TObject);
@@ -761,18 +767,28 @@ begin
   filename := TMenuItem(Sender).Caption;
   if Sender.ClassNameIs('TMenuItem') then
   begin
+    try
     if loadFromFile(filename, FWeekList) then
     begin
       StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
       FCurrentFilePath := filename;
-      AddToRecentlyOpened(FCurrentFilePath, FRecentlyOpened, MenuOpenRecent);
+      AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
+      FChangesMade := False;
     end
     else
     begin
       StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" could not be loaded!';
       FCurrentFilePath := '';
     end;
-  end;
+		except
+      on e:Exception do
+      begin
+        Application.MessageBox(PChar(emFileNotFound), 'File not found', 0);
+        FOpenRecent.Delete(FOpenRecent.Count-1-MenuOpenRecent.IndexOf(TMenuItem(Sender)));
+        MenuOpenRecent.Delete(MenuOpenRecent.IndexOf(TMenuItem(Sender)));
+			end;
+		end;
+	end;
 
   UpdateWindow;
 end;

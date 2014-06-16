@@ -3,12 +3,12 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 51582761
-coyotedefaults.versionnr='0.0.4.9'
+# hash value = 20017776
+coyotedefaults.versionnr='0.0.4.10'
 
 
-# hash value = 59905364
-coyotedefaults.versiondate='13.06.2014'
+# hash value = 59906644
+coyotedefaults.versiondate='16.06.2014'
 
 
 # hash value = 3413266
@@ -64,6 +64,10 @@ coyotedefaults.emhoursperday='Error: Enter a valid amount of time per day'+
 # hash value = 17622801
 coyotedefaults.eminvalidfileformat='The file could not be loaded, because'+
 ' it is not a valid CoYOT(e) file!'
+
+
+# hash value = 111016481
+coyotedefaults.emfilenotfound='Error: The file could not be found!'
 
 
 # hash value = 93223009
