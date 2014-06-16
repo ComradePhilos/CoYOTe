@@ -27,12 +27,13 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * database commit and download
 // * use tango icons where possible - look and feel
 
-// * database support will be improved/continued when the main functionality is working and the concept is finished
+// # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
-// * the obligatory pause time added to your whole work time applies at least after 6 hours of work in Germany,
+// # the obligatory pause time added to your whole work time applies at least after 6 hours of work in Germany,
 //  so on a 6-hour day you need to have the pause. This topic needs to be kept in mind for calculation
-// * think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
+// # think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
 //    OR think about saving in whole directory, like DataNorm
+// # we might end up not using one WeekList, but a list of WeekLists for each person our system should track time for
 
 unit main;
 
@@ -67,8 +68,8 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
-		MenuItem5: TMenuItem;
-		MenuItem8: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem8: TMenuItem;
     MenuOpenRecent: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
@@ -144,7 +145,7 @@ type
     // may become obsolete with the newest changes
     //FCurrentUser: Integer;        // ID of the currently selected "User"/Person
     FCurrentFilePath: string;       // If known - Name of the currently opened File
-    FOpenRecent: TStringList;   // The files that have been opened lately - will be in ini file
+    FOpenRecent: TStringList;       // The files that have been opened lately - will be in ini file
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -379,8 +380,6 @@ begin
     colorDlg.Color := Toolbar1.Color;
     if colorDlg.Execute then
     begin
-      //Toolbar1.Color := colorDlg.Color;
-      //EditWeekForm.ToolBar1.Color := colorDlg.Color;
       ApplyColor(colorDlg.Color);
     end;
   finally
@@ -613,7 +612,6 @@ begin
   for I := 0 to FWeekList.Count - 1 do
   begin
     sum := sum + FWeekList.Items[I].getSum;
-    //goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
     goal := goal + FWeekList.Items[I].getGoalHours;
     vacationdays := vacationdays + FWeekList.Items[I].getAmountOfVacation;
 
@@ -751,9 +749,8 @@ var
   filename: string;
 begin
   filename := TMenuItem(Sender).Caption;
-  if Sender.ClassNameIs('TMenuItem') then
-  begin
-    try
+
+  try
     if loadFromFile(filename, FWeekList) then
     begin
       StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
@@ -766,15 +763,14 @@ begin
       StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" could not be loaded!';
       FCurrentFilePath := '';
     end;
-		except
-      on e:Exception do
-      begin
-        Application.MessageBox(PChar(emFileNotFound), 'File not found', 0);
-        FOpenRecent.Delete(FOpenRecent.Count-1-MenuOpenRecent.IndexOf(TMenuItem(Sender)));
-        MenuOpenRecent.Delete(MenuOpenRecent.IndexOf(TMenuItem(Sender)));
-			end;
-		end;
-	end;
+  except
+    on e: Exception do
+    begin
+      Application.MessageBox(PChar(emFileNotFound), 'File not found', 0);
+      FOpenRecent.Delete(FOpenRecent.Count - 1 - MenuOpenRecent.IndexOf(TMenuItem(Sender)));
+      MenuOpenRecent.Delete(MenuOpenRecent.IndexOf(TMenuItem(Sender)));
+    end;
+  end;
 
   UpdateWindow;
 end;

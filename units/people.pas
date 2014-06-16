@@ -3,7 +3,7 @@
   and groups of people. These are the "users" that are selectable in the main
   programme. Each person will have its own tables.
 
-  NOTE that these TPersons are not USERS! TPerson just holds Data of a person
+  NOTE that these TPersons are not like USERS! TPerson just holds Data of a person
   you want to track working time off!
 
   Todo:
@@ -19,8 +19,10 @@ uses Classes, fgl, ExtCtrls, workdays;
 
 type
 
+  // The list of weeklists
   TPersonnelTimeList = specialize TFPGObjectList<TWeekList>;
 
+  // The class that implements the people
   TPerson = class
 
       PeopleCount: Integer;

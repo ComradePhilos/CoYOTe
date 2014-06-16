@@ -24,7 +24,7 @@ function LoadFromFile(filename: string; AWeekList: TWeekList): boolean;
 procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: double);
 procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 
-// Opens a URL not depending on the OS
+// Opens a URL depending on the OS
 procedure OpenURL(AURL: string);
 
 

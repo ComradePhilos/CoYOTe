@@ -3,7 +3,7 @@
   and groups of people. These are the "users" that are selectable in the main
   programme. Each person will have its own tables.
 
-  NOTE that these TPersons are not USERS! TPerson just holds Data of a person
+  NOTE that these TPersons are not like USERS! TPerson just holds Data of a person
   you want to track working time off!
 
   Todo:
@@ -38,7 +38,6 @@ type
       FPhoneNumber2: String;
       FEMail: String;                   // Email-Adress
 
-      // FRole: String;                 // What position/role does the person have ?
       FPhoto: TImage;                   // Maybe it is better to store the local path to a picture instead of a
                                         // whole picture binarily
       FAge: Integer;                    // Age in years
