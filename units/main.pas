@@ -63,7 +63,7 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
-		MenuOpenRecent: TMenuItem;
+    MenuOpenRecent: TMenuItem;
     MenuItem6: TMenuItem;
     MenuItem7: TMenuItem;
     MenuSettings: TMenuItem;
@@ -166,11 +166,19 @@ type
     procedure SaveIniFile;
 
     // apply a color to the theme
-    procedure ApplyColor(AColor: Integer);
+    procedure ApplyColor(AColor: integer);
+
+    // adds a filename to a list and to the menuitem
+    procedure AddToRecentlyOpened(AFileName: string; AList: TStringList; AMenuItem: TMenuItem);
+
+    procedure OpenRecentCLick(Sender: TObject);
 
   public
     { public declarations }
   end;
+
+
+
 
 var
   Form1: TForm1;
@@ -403,6 +411,7 @@ begin
       begin
         StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
         FCurrentFilePath := OpenDlg.FileName;
+        AddToRecentlyOpened(FCurrentFilePath, FRecentlyOpened, MenuOpenRecent);
       end
       else
       begin
@@ -427,6 +436,7 @@ begin
   if (FCurrentFilePath <> '') then
   begin
     SaveToFile(FCurrentFilePath, FWeekList);
+    AddToRecentlyOpened(FCurrentFilePath, FRecentlyOpened, MenuOpenRecent);
     StatusBar1.Panels[0].Text := txtFileSaved;
     FChangesMade := False;
     EnableButtons;
@@ -451,6 +461,7 @@ begin
     if SaveDlg.Execute then
     begin
       SaveToFile(SaveDlg.FileName, FWeekList);
+      AddToRecentlyOpened(SaveDlg.FileName, FRecentlyOpened, MenuOpenRecent);
       StatusBar1.Panels[0].Text := txtFileSaved;
       FCurrentFilePath := SaveDlg.FileName;
     end;
@@ -576,7 +587,7 @@ begin
 
 end;
 
-procedure TForm1.ApplyColor(AColor: Integer);
+procedure TForm1.ApplyColor(AColor: integer);
 begin
   Toolbar1.Color := AColor;
   EditWeekForm.ToolBar1.Color := AColor;
@@ -699,6 +710,62 @@ begin
   MenuQuickSave.Enabled := FChangesMade and (FCurrentFilePath <> '');
   ToolButton1.Enabled := FChangesMade and (FCurrentFilePath <> '');
 
+end;
+
+
+
+procedure TForm1.AddToRecentlyOpened(AFileName: string; AList: TStringList; AMenuItem: TMenuItem);
+var
+  I: integer;
+  found: integer;
+begin
+
+  found := -1;
+
+  // delete earlier entries and clear menuitem
+  for I := 0 to AList.Count - 1 do
+  begin
+    if (AList[I] = AFileName) then
+      found := I;
+  end;
+
+  if (found >= 0) then
+  begin
+    AList.Delete(found);
+  end;
+  AList.Add(AFileName);
+
+  AMenuItem.Clear;
+  for I := AList.Count - 1 downto 0 do
+  begin
+    AMenuItem.Add(TMenuItem.Create(nil));
+    AMenuItem.Items[AList.Count - 1 - I].Caption := AList[I];
+    AMenuItem.Items[AList.Count - 1 - I].OnClick := @OpenRecentCLick;
+  end;
+
+end;
+
+procedure TForm1.OpenRecentCLick(Sender: TObject);
+var
+  filename: string;
+begin
+  filename := TMenuItem(Sender).Caption;
+  if Sender.ClassNameIs('TMenuItem') then
+  begin
+    if loadFromFile(filename, FWeekList) then
+    begin
+      StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
+      FCurrentFilePath := filename;
+      AddToRecentlyOpened(FCurrentFilePath, FRecentlyOpened, MenuOpenRecent);
+    end
+    else
+    begin
+      StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" could not be loaded!';
+      FCurrentFilePath := '';
+    end;
+  end;
+
+  UpdateWindow;
 end;
 
 end.

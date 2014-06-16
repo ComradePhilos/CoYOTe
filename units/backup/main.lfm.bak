@@ -398,7 +398,7 @@ object Form1: TForm1
         OnClick = MenuLoadClick
       end
       object MenuOpenRecent: TMenuItem
-        Caption = 'Recent...'
+        Caption = 'Open Recent'
       end
       object MenuQuit: TMenuItem
         Caption = 'Exit'

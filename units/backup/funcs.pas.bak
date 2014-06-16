@@ -10,7 +10,7 @@ interface
 
 uses
   Classes, SysUtils, Translations, DateUtils, StdCtrls, Graphics, Process, LCLIntF,
-  Forms,
+  Forms, Menus,
   { own Units }
   workdays, CoyoteDefaults;
 
@@ -26,6 +26,9 @@ procedure colorText(ALabel: TLabel; value, toleranceLimit: Double); overload;
 
 // Opens a URL not depending on the OS
 procedure OpenURL(AURL: String);
+
+// adds a filename to a list and to the menuitem
+procedure AddToRecentlyOpened(AFileName: String; AList: TStringList; AMenuItem: TMenuItem);
 
 
 implementation
@@ -63,7 +66,6 @@ begin
         Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndHour));
         Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndMinute));
         Lines.Add(FloatToStr(AWeekList.Items[I].Days[F].TimeOff));
-
         Lines.Add(AWeekList.Items[I].Days[F].Tag);
       end;
     end;
@@ -198,6 +200,8 @@ begin
           AWeekList.Items[I].Days[d].TimeOff := locDouble;
           Inc(l);
         end;
+        AWeekList.Items[I].Days[d].Tag := Lines[l];
+        Inc(l);
       end; { for d := .... }
     end;  { for I := ... }
     Result := True;
@@ -275,5 +279,33 @@ begin
   {$ENDIF}
 end;
 
+
+procedure AddToRecentlyOpened(AFileName: String; AList: TStringList; AMenuItem: TMenuItem);
+var
+  I: Integer;
+  //found: Boolean;
+begin
+  //found := false;
+
+  // delete earlier entries and clear menuitem
+  for I := 0 to AList.Count - 1 do
+  begin
+    AMenuItem.Delete(I);
+    if (AList[I] = AFileName) then
+    begin
+      AList.Delete(I);
+		end;
+	end;
+
+  AList.Add(AFileName);
+
+  for I := AList.Count - 1 downto 0 do
+  begin
+    AMenuItem.Add(TMenuItem.Create(nil));
+    AMenuItem.Items[I].Caption := AList[I];
+	end;
+
+
+end;
 
 end.

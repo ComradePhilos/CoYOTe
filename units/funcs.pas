@@ -10,7 +10,7 @@ interface
 
 uses
   Classes, SysUtils, Translations, DateUtils, StdCtrls, Graphics, Process, LCLIntF,
-  Forms,
+  Forms, Menus,
   { own Units }
   workdays, CoyoteDefaults;
 
