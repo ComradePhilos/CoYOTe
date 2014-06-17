@@ -39,6 +39,8 @@ This programme is open source. That means you can use it freely and distribute i
 
 <img style="float:left" src="https://camo.githubusercontent.com/cbbf2c1edd2d710605b376abdb9121b6ec7e5838/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f37363932333834332f53637265656e73686f742532302d25323031342e30362e323031342532302d2532303232253341313525334133302e706e67">
 
+<img style="float:left" src="https://camo.githubusercontent.com/a6fd91bb65acfd2735e9546ff6823ec62b903472/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f37363932333834332f626572756673736368756c652e706e67">
+
 ### what is planned in future?
 <p>
 <ul>
@@ -53,7 +55,7 @@ This programme is open source. That means you can use it freely and distribute i
 
 ### downloads
 You will find any downloadable version by clicking the link to the <a href="https://github.com/ComradePhilos/CoYOTe/releases">Download Page</a>. Read the release notes carefully! Alternatively you can of course always download
-the latest commit of the programme on this main page ( click "download zip" on the right ), if you know what you are doing. 
+the latest commit of the programme on this main page ( click "<a href="https://github.com/ComradePhilos/CoYOTe/archive/master.zip">download zip</a>" on the right ), if you know what you are doing. 
 
 
 ### compile or edit the project

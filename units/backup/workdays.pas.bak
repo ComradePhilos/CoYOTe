@@ -101,8 +101,8 @@ function RealDayOfWeek(ADate: TDate): integer;
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
 
-function isTimeEarliest(relevantHour, relevantMinute, earliestHour, earliestMinute: Integer): Boolean;
-function isTimeLatest(relevantHour, relevantMinute, latestHour, latestMinute: Integer): Boolean;
+function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
+function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
 
 implementation
 
@@ -265,7 +265,8 @@ begin
   begin
     if (self.Days[I].Tag = '') then
     begin
-      if (self.Days[I].TimeOff = self.IntendedTimePerDay) then
+      // If e.g. 6 hours in Germany have passed, an obligatory time for pause has to be added
+      if (self.Days[I].getAmountOfTime < defTimeForPause) then
       begin
         Result := Result + self.Days[I].getAmountOfTime
       end
@@ -320,29 +321,29 @@ begin
 end;
 
 // ############################################### External Functions ################################################
-function isTimeEarliest(relevantHour, relevantMinute, earliestHour, earliestMinute: Integer): Boolean;
+function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 begin
   Result := False;
-  if (relevantHour < earliestHour) then
+  if (AHour < earliestHour) then
   begin
     Result := True;
   end;
-  if (relevantHour = earliestHour) then
+  if (AHour = earliestHour) then
   begin
-    Result := (relevantHour < earliestMinute);
+    Result := (AHour < earliestMinute);
   end;
 end;
 
-function isTimeLatest(relevantHour, relevantMinute, latestHour, latestMinute: Integer): Boolean;
+function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
 begin
   Result := False;
-  if (relevantHour > latestHour) then
+  if (AHour > latestHour) then
   begin
     Result := True;
   end;
-  if (relevantHour = latestHour) then
+  if (AHour = latestHour) then
   begin
-    Result := (relevantHour > latestMinute);
+    Result := (AHour > latestMinute);
   end;
 end;
 
@@ -418,7 +419,14 @@ begin
       AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
       if (AWeek.Days[I-1].Tag = '') then
       begin
-        AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
+        if (AWeek.Days[I-1].getAmountOfTime < defTimeForPause) then
+        begin
+          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime - AWeek.IntendedTimePerDay));
+				end
+        else
+        begin
+          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
+				end;
 			end
       else
       begin

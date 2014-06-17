@@ -265,7 +265,8 @@ begin
   begin
     if (self.Days[I].Tag = '') then
     begin
-      if (self.Days[I].TimeOff = self.IntendedTimePerDay) then
+      // If e.g. 6 hours in Germany have passed, an obligatory time for pause has to be added
+      if (self.Days[I].getAmountOfTime < defTimeForPause) then
       begin
         Result := Result + self.Days[I].getAmountOfTime
       end
@@ -418,11 +419,21 @@ begin
       AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
       if (AWeek.Days[I-1].Tag = '') then
       begin
-        AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
+        if (AWeek.Days[I-1].getAmountOfTime < defTimeForPause) then
+        begin
+          AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime));
+          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime - AWeek.IntendedTimePerDay));
+				end
+        else
+        begin
+          AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
+          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
+				end;
 			end
       else
       begin
-        AGrid.Cells[7,I] := '0';
+        AGrid.Cells[6,I] := '0.00';
+        AGrid.Cells[7,I] := '0.00';
 			end;
 			AGrid.Cells[8,I] := AWeek.Days[I-1].Tag;
 	  end;
