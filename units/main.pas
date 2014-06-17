@@ -129,7 +129,7 @@ type
   private
     { private declarations }
     defHoursPerDay: double;       // Standard Value
-    defDaysPerWeek: integer;      // Standard Value
+    defDaysPerWeek: integer;      // Standard Value                                             Projektvorstellungen
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
     FChangesMade: boolean;        // True, if changes have been made to the file

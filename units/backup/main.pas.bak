@@ -55,6 +55,7 @@ type
 
   TForm1 = class(TForm)
     ComboBox1: TComboBox;
+		ComboBox2: TComboBox;
     IBConnection1: TIBConnection;
     ImageList1: TImageList;
     GroupBox1: TGroupBox;

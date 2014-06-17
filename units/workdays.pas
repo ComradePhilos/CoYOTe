@@ -171,7 +171,7 @@ begin
 
   StartTime := StartTime + (60*60*FStartHour) + (60*FStartMinute);
   EndTime := EndTime + (60*60*FEndHour) + (60*FEndMinute);
-  Result := self.TimeOff + (EndTime - StartTime)/3600;
+  Result := {self.TimeOff +} (EndTime - StartTime)/3600;
 end;
 
 //############################################ Week ###########################################################
@@ -289,7 +289,7 @@ begin
   begin
     if (Days[I].Tag = '') then
     begin
-      sum := sum + FIntendedTimePerDay;
+      sum := sum + FIntendedTimePerDay - FDays[I].TimeOff;
 		end;
 	end;
   Result := sum;
@@ -417,17 +417,18 @@ begin
       AGrid.cells[4,I] := TimeToText(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
       AGrid.Cells[5,I] := FloatToStr(AWeek.Days[I-1].TimeOff);
       AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
+      // if it is tagges as holiday or ignored, then ignore
       if (AWeek.Days[I-1].Tag = '') then
       begin
         if (AWeek.Days[I-1].getAmountOfTime < defTimeForPause) then
         begin
           AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime));
-          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime - AWeek.IntendedTimePerDay));
+          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime - (AWeek.IntendedTimePerDay-AWeek.Days[I-1].TimeOff)));
 				end
         else
         begin
           AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
-          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - AWeek.IntendedTimePerDay);
+          AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - (AWeek.IntendedTimePerDay-AWeek.Days[I-1].TimeOff));
 				end;
 			end
       else
