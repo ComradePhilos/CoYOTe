@@ -12,7 +12,7 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.0.4.10';         // Programme-Version
+  VersionNr = '0.0.5.0';         // Programme-Version
   VersionDate = '17.06.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
 
@@ -39,7 +39,6 @@ ResourceString
   const
   txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
   defToolbarColor = $00E0E0E0; // $00FFDBB7;
-  defTimeForPause = 6;
 
 implementation
 

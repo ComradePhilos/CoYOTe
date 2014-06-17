@@ -28,10 +28,12 @@ type
     function calcDifference: double;    // The function that will actually calculate work time of one day
 
   public
-    constructor Create;
+    constructor Create; overload;
+    constructor Create(ADay: TWorkDay); overload;
 
     procedure Clear;
     procedure setTime(hour, min: integer; mode: boolean);
+    procedure Assign(ADay: TWorkDay);
     function WeekDayToText: String;
     function getAmountOfTime: Double;
 
@@ -96,6 +98,10 @@ procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList; SelectionI
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 procedure WeeksToComboBox(AComboBox: TComboBox; AWeekList: TWeekList);
 
+// Inserts a day to a week at specified Index
+procedure InsertDayToWeek(ADay: TWorkDay; AWeek: TWorkWeek; AIndex: Integer);
+
+
 function timeToText(AHour, AMinute: integer): string;
 function RealDayOfWeek(ADate: TDate): integer;
 function getHour(time: string): integer;
@@ -104,6 +110,10 @@ function getMinute(time: string): integer;
 function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
 
+var
+  defHoursUntilPause: Integer = 6;  // Amount of time before the obligatory pause is needed / added
+  defHoursPerDay: double = 8;       // Standard Value
+
 implementation
 
 
@@ -111,6 +121,24 @@ implementation
 constructor TWorkDay.Create;
 begin
   FTag := '';
+end;
+
+constructor TWorkDay.Create(ADay: TWorkDay);
+begin
+  self.Assign(ADay);
+end;
+
+procedure TWorkDay.Assign(ADay: TWorkDay);
+begin
+  FStartHour := ADay.StartHour;
+  FStartMinute := ADay.StartMinute;
+  FEndHour := ADay.EndHour;
+  FEndMinute := ADay.EndMinute;
+
+  FDate := ADay.Date;
+  FWeekDay := getRealDayOfWeek(FDate);
+  FAdditionalTime := ADay.AdditionalTime;
+  FTag := ADay.Tag;
 end;
 
 procedure TWorkDay.Clear;
@@ -181,7 +209,7 @@ begin
   FDays := TWorkDays.Create(true);
   FWeekLabel := 'empty week';
   FWeekLength := 0;
-  FIntendedTimePerDay := 8;
+  FIntendedTimePerDay := defHoursPerDay;
   FPausePerDay := 0.75;
   FDescriptionText := TStringList.Create;
 end;
@@ -193,7 +221,7 @@ begin
   FFromDate := AFromDate;
   FToDate := AToDate;
   FWeekLength := DaysBetween(FToDate,FFromDate)+ 1;
-  FIntendedTimePerDay := 8;
+  FIntendedTimePerDay := defHoursPerDay;
   FPausePerDay := 0.75;
   FDays := TWorkDays.Create(true);
   FWeekLabel := FormatDateTime('dd.mm.yyyy', FromDate) + '   to   ' + FormatDateTime('dd.mm.yyyy', ToDate);
@@ -266,7 +294,7 @@ begin
     if (self.Days[I].Tag = '') then
     begin
       // If e.g. 6 hours in Germany have passed, an obligatory time for pause has to be added
-      if (self.Days[I].getAmountOfTime < defTimeForPause) then
+      if (self.Days[I].getAmountOfTime < defHoursUntilPause) then
       begin
         Result := Result + self.Days[I].getAmountOfTime
       end
@@ -417,9 +445,11 @@ begin
       AGrid.cells[4,I] := TimeToText(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
       AGrid.Cells[5,I] := FloatToStr(AWeek.Days[I-1].TimeOff);
       AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
+      // if it is tagges as holiday or ignored, then ignore
       if (AWeek.Days[I-1].Tag = '') then
       begin
-        if (AWeek.Days[I-1].getAmountOfTime < defTimeForPause) then
+        // if working time is under 6 hours then there is no break needed
+        if (AWeek.Days[I-1].getAmountOfTime < defHoursUntilPause) then
         begin
           AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime));
           AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime - (AWeek.IntendedTimePerDay-AWeek.Days[I-1].TimeOff)));
@@ -534,5 +564,16 @@ begin
   end;
 end;
 
+
+procedure InsertDayToWeek(ADay: TWorkDay; AWeek: TWorkWeek; AIndex: Integer);
+begin
+  if (AWeek.Days.Count > 1) then
+  begin
+    //if (AIndex >= 0) and (AIndex <= AWeek.Days.Count) then
+		//begin
+		  AWeek.Days.Insert(AIndex, ADay);
+		//end;
+	end;
+end;
 
 end.

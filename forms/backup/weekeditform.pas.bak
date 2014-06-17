@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, Grids,
-  Buttons, StdCtrls, ExtCtrls, Menus, ExtDlgs, ComCtrls, DateUtils,
+  Buttons, StdCtrls, ExtCtrls, Menus, ExtDlgs, ComCtrls, ButtonPanel, DateUtils,
   { own Units }
   workdays, funcs, CoyoteDefaults;
 
@@ -34,6 +34,9 @@ type
 		MarkIgnore: TMenuItem;
 		MenuItem2: TMenuItem;
 		MenuItem3: TMenuItem;
+		MenuItem4: TMenuItem;
+		MenuItem5: TMenuItem;
+		MenuItem6: TMenuItem;
 		MenuOneDayOff: TMenuItem;
 		MenuHalfDayOff: TMenuItem;
     PausePerDayEdit: TLabeledEdit;
@@ -77,6 +80,8 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
+		procedure MenuItem5Click(Sender: TObject);
+		procedure MenuItem6Click(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
     procedure WeekGridEditingDone(Sender: TObject);
@@ -89,15 +94,16 @@ type
     FWeekIndex: integer;                  // Index of the current week referring to the weeklist in main
     FSelectionIndex: integer;             // Index of the row in the grid that is selected
 
-    FOnRemoveClick: TRemoveEvent;
-    FOnApplyClick: TApplyEvent;
-    FOnNextWeekClick: TNextWeekEvent;
+    FOnRemoveClick: TRemoveEvent;         // Triggered, when Items is removed
+    FOnApplyClick: TApplyEvent;           // Triggered, when apply button was clicked
+    FOnNextWeekClick: TNextWeekEvent;     // Triggered, when user wants to switch to another week of the list
 
     procedure UpdateTitel;
     procedure UpdateWindow;
 
   public
     { public declarations }
+    // called from main: feeds window with data
     procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
 
     property OnRemoveClick: TRemoveEvent read FOnRemoveClick write FOnRemoveClick;
@@ -203,6 +209,33 @@ begin
   finally
     calDialog.Free;
   end;
+end;
+
+procedure TForm3.MenuItem5Click(Sender: TObject);
+begin
+  //InsertDayToWeek(FWeek.Days[FSelectionIndex], FWeek, FSelectionIndex-1);
+  if (FWeek.Days.Count > 1) then
+  begin
+    if (FSelectionIndex >= 1) and ( FSelectionIndex < FWeek.Days.Count) then
+    begin
+      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex-1);
+      FWeek.Days.Delete(FSelectionIndex+1);
+      updateWindow;
+		end;
+	end;
+end;
+
+procedure TForm3.MenuItem6Click(Sender: TObject);
+begin
+  if (FWeek.Days.Count > 1) then
+  begin
+    if (FSelectionIndex >= 0) and (FSelectionIndex <= FWeek.Days.Count - 1) then
+    begin
+      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex+2);
+      FWeek.Days.Delete(FSelectionIndex);
+      updateWindow;
+		end;
+	end;
 end;
 
 procedure TForm3.MenuOneDayOffClick(Sender: TObject);

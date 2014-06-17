@@ -3,8 +3,8 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 51583008
-coyotedefaults.versionnr='0.0.5.0'
+# hash value = 51583009
+coyotedefaults.versionnr='0.0.5.1'
 
 
 # hash value = 59906388
@@ -66,8 +66,9 @@ coyotedefaults.eminvalidfileformat='The file could not be loaded, because'+
 ' it is not a valid CoYOT(e) file!'
 
 
-# hash value = 111016481
-coyotedefaults.emfilenotfound='Error: The file could not be found!'
+# hash value = 182413169
+coyotedefaults.emfilenotfound='Error: The selected file could not be foun'+
+'d!'
 
 
 # hash value = 93223009

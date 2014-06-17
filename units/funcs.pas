@@ -27,7 +27,6 @@ procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 // Opens a URL depending on the OS
 procedure OpenURL(AURL: string);
 
-
 implementation
 
 procedure SaveToFile(filename: string; AWeekList: TWeekList);

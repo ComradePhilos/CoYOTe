@@ -1,7 +1,5 @@
 {
  This Unit shall contain default values for strings, constant values etc.
-
- It might be possible to do the translations here, but automation might be better
 }
 
 unit CoyoteDefaults;
@@ -12,7 +10,7 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.0.5.0';         // Programme-Version
+  VersionNr = '0.0.5.1';          // Programme-Version
   VersionDate = '17.06.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
 
@@ -30,16 +28,15 @@ ResourceString
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
   emInvalidFileFormat = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
-  emFileNotFound = 'Error: The file could not be found!';
+  emFileNotFound = 'Error: The selected file could not be found!';
 
   dbDefaultFirebirdUser = 'SYSDBA';
-  dbDefaultFirebirdPort = '';     // 3050
+  dbDefaultFirebirdPort = ''; // 3050
 
   // constants
   const
   txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
   defToolbarColor = $00E0E0E0; // $00FFDBB7;
-  defTimeForPause = 6;
 
 implementation
 

@@ -26,6 +26,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * Work on Personnel Management
 // * database commit and download
 // * use tango icons where possible - look and feel
+// * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
@@ -34,6 +35,9 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // # think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
 //    OR think about saving in whole directory, like DataNorm
 // # we might end up not using one WeekList, but a list of WeekLists for each person our system should track time for
+// # we should support some kind of anonymous methods, that calculate the time etc... So the classes in workdays.pas
+//  get a little more abstract and will get the methods to calculate dynamically, like dependency injection. This could
+//  help to support other common practice in other countries. Right now you would have to change code in many units.
 
 unit main;
 
@@ -128,11 +132,9 @@ type
 
   private
     { private declarations }
-    defHoursPerDay: double;       // Standard Value
-    defDaysPerWeek: integer;      // Standard Value
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
-    FChangesMade: boolean;        // True, if changes have been made to the file
+    FPersonSelected: Integer;     // Index of the person selected - maybe change to string?
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
@@ -143,10 +145,10 @@ type
     DBForm: TForm6;               // The window to connect to the firebird database
     PersonForm: TForm5;
 
-    // may become obsolete with the newest changes
-    //FCurrentUser: Integer;        // ID of the currently selected "User"/Person
-    FCurrentFilePath: string;       // If known - Name of the currently opened File
-    FOpenRecent: TStringList;       // The files that have been opened lately - will be in ini file
+    //FCurrentUser: Integer;      // ID of the currently selected "User"/Person
+    FCurrentFilePath: string;     // If known - Name of the currently opened File
+    FOpenRecent: TStringList;     // The files that have been opened lately - will be in ini file
+    FChangesMade: boolean;        // True, if changes have been made to the file
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -201,17 +203,16 @@ begin
   FOSName := 'Windows';  // for those poor guys, who need to compensate the little brain ;)
   {$ENDIF}
   {$IFDEF linux}
-  FOSName := 'Linux';    // for those poor guys, who need to compensate the little budget ;)
+  FOSName := 'Linux';    // for those poor guys, who need to compensate the huge brain and the monstrous penis ;)
   {$ENDIF}
 
   self.Caption := ProgrammeName + '  ' + VersionNr;
   FLanguage := 'English';
 
   // default values
-  defHoursPerDay := 8;
-  defDaysPerWeek := 5;
   FSelectionIndex := -1;
   FCurrentFilePath := '';
+  FChangesMade := False;
 
   // Create Instances
   FWeekList := TWeekList.Create;
@@ -224,14 +225,14 @@ begin
   DBForm := TForm6.Create(nil);
   PersonForm := TForm5.Create(nil);
 
+  AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
+  AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
+
   // Event Handling
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
   EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
-
-  AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
-  AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
 
   LoadIniFile;
   updateWindow;
@@ -239,8 +240,6 @@ begin
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
   self.Constraints.MinHeight := round(Groupbox1.Width / 2);
-
-  FChangesMade := False;
 
 end;
 
@@ -512,71 +511,71 @@ end;
 
 procedure TForm1.SaveIniFile;
 var
-  ini: TINIFile;
+  INI: TINIFile;
   I: integer;
 begin
   // Write INI-File
-  ini := TINIFile.Create('coyote.ini');
-  ini.UpdateFile;
-  ini.WriteString('MainForm', 'xpos', IntToStr(self.Left));
-  ini.WriteString('MainForm', 'ypos', IntToStr(self.Top));
-  ini.WriteString('MainForm', 'width', IntToStr(self.Width));
-  ini.WriteString('MainForm', 'height', IntToStr(self.Height));
-  ini.WriteString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(self.WindowState)));
+  INI := TINIFile.Create('coyote.ini');
+  INI.UpdateFile;
+  INI.WriteString('MainForm', 'xpos', IntToStr(self.Left));
+  INI.WriteString('MainForm', 'ypos', IntToStr(self.Top));
+  INI.WriteString('MainForm', 'width', IntToStr(self.Width));
+  INI.WriteString('MainForm', 'height', IntToStr(self.Height));
+  INI.WriteString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(self.WindowState)));
 
-  ini.WriteString('EditWeekForm', 'xpos', IntToStr(EditWeekForm.Left));
-  ini.WriteString('EditWeekForm', 'ypos', IntToStr(EditWeekForm.Top));
-  ini.WriteString('EditWeekForm', 'width', IntToStr(EditWeekForm.Width));
-  ini.WriteString('EditWeekForm', 'height', IntToStr(EditWeekForm.Height));
-  ini.WriteString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(EditWeekForm.WindowState)));
+  INI.WriteString('EditWeekForm', 'xpos', IntToStr(EditWeekForm.Left));
+  INI.WriteString('EditWeekForm', 'ypos', IntToStr(EditWeekForm.Top));
+  INI.WriteString('EditWeekForm', 'width', IntToStr(EditWeekForm.Width));
+  INI.WriteString('EditWeekForm', 'height', IntToStr(EditWeekForm.Height));
+  INI.WriteString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(EditWeekForm.WindowState)));
 
-  ini.WriteString('DBInfo', 'hostname', DBForm.LabeledEdit1.Text);
-  ini.WriteString('DBInfo', 'port', DBForm.LabeledEdit2.Text);
-  ini.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
-  ini.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
+  INI.WriteString('DBInfo', 'hostname', DBForm.LabeledEdit1.Text);
+  INI.WriteString('DBInfo', 'port', DBForm.LabeledEdit2.Text);
+  INI.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
+  INI.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
 
-  ini.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
+  INI.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
   for I := 0 to FOpenRecent.Count - 1 do
   begin
-    ini.WriteString('RecentFiles', IntToStr(I), FOpenRecent[I]);
+    INI.WriteString('RecentFiles', IntToStr(I), FOpenRecent[I]);
   end;
 
-  ini.WriteString('Theme', 'color', IntToStr(Toolbar1.Color));
+  INI.WriteString('Theme', 'color', IntToStr(Toolbar1.Color));
 end;
 
 procedure TForm1.LoadIniFile;
 var
-  ini: TINIFile;
+  INI: TINIFile;
   s: string;
   I: integer;
 begin
-  ini := TINIFile.Create('coyote.ini');
+  INI := TINIFile.Create('coyote.ini');
 
-  self.Left := StrToInt(ini.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
-  self.Top := StrToInt(ini.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
-  self.Width := StrToInt(ini.ReadString('MainForm', 'width', IntToStr(self.Width)));
-  self.Height := StrToInt(ini.ReadString('MainForm', 'height', IntToStr(self.Height)));
-  s := ini.ReadString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
+  self.Left := StrToInt(INI.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
+  self.Top := StrToInt(INI.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
+  self.Width := StrToInt(INI.ReadString('MainForm', 'width', IntToStr(self.Width)));
+  self.Height := StrToInt(INI.ReadString('MainForm', 'height', IntToStr(self.Height)));
+  s := INI.ReadString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
   self.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
 
-  EditWeekForm.Left := StrToInt(ini.ReadString('EditWeekForm', 'xpos', IntToStr(self.Left)));
-  EditWeekForm.Top := StrToInt(ini.ReadString('EditWeekForm', 'ypos', IntToStr(self.Top)));
-  EditWeekForm.Width := StrToInt(ini.ReadString('EditWeekForm', 'width', IntToStr(self.Width)));
-  EditWeekForm.Height := StrToInt(ini.ReadString('EditWeekForm', 'height', IntToStr(self.Height)));
-  s := ini.ReadString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
+  EditWeekForm.Left := StrToInt(INI.ReadString('EditWeekForm', 'xpos', IntToStr(self.Left)));
+  EditWeekForm.Top := StrToInt(INI.ReadString('EditWeekForm', 'ypos', IntToStr(self.Top)));
+  EditWeekForm.Width := StrToInt(INI.ReadString('EditWeekForm', 'width', IntToStr(self.Width)));
+  EditWeekForm.Height := StrToInt(INI.ReadString('EditWeekForm', 'height', IntToStr(self.Height)));
+  s := INI.ReadString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
   EditWeekForm.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
 
-  DBForm.LabeledEdit1.Text := ini.ReadString('DBInfo', 'hostname', '');
-  DBForm.LabeledEdit2.Text := ini.ReadString('DBInfo', 'port', dbDefaultFirebirdPort);
-  DBForm.LabeledEdit5.Text := ini.ReadString('DBInfo', 'dbname', '');
-  DBForm.LabeledEdit3.Text := ini.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
+  DBForm.LabeledEdit1.Text := INI.ReadString('DBInfo', 'hostname', '');
+  DBForm.LabeledEdit2.Text := INI.ReadString('DBInfo', 'port', dbDefaultFirebirdPort);
+  DBForm.LabeledEdit5.Text := INI.ReadString('DBInfo', 'dbname', '');
+  DBForm.LabeledEdit3.Text := INI.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
 
-  for I := 0 to StrToInt(ini.ReadString('RecentFiles', 'count', '0')) - 1 do
+  for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
-    AddToOpenRecent(ini.ReadString('RecentFiles', IntToStr(I), ''), FOpenRecent, MenuOpenRecent);
+    AddToOpenRecent(INI.ReadString('RecentFiles', IntToStr(I), ''), FOpenRecent, MenuOpenRecent);
   end;
 
-  ApplyColor(StrToInt(ini.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
+  ApplyColor(StrToInt(INI.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
 
 end;
 
