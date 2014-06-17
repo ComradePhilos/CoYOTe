@@ -101,8 +101,8 @@ function RealDayOfWeek(ADate: TDate): integer;
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
 
-function isTimeEarliest(relevantHour, relevantMinute, earliestHour, earliestMinute: Integer): Boolean;
-function isTimeLatest(relevantHour, relevantMinute, latestHour, latestMinute: Integer): Boolean;
+function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
+function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
 
 implementation
 
@@ -320,29 +320,29 @@ begin
 end;
 
 // ############################################### External Functions ################################################
-function isTimeEarliest(relevantHour, relevantMinute, earliestHour, earliestMinute: Integer): Boolean;
+function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 begin
   Result := False;
-  if (relevantHour < earliestHour) then
+  if (AHour < earliestHour) then
   begin
     Result := True;
   end;
-  if (relevantHour = earliestHour) then
+  if (AHour = earliestHour) then
   begin
-    Result := (relevantHour < earliestMinute);
+    Result := (AHour < earliestMinute);
   end;
 end;
 
-function isTimeLatest(relevantHour, relevantMinute, latestHour, latestMinute: Integer): Boolean;
+function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
 begin
   Result := False;
-  if (relevantHour > latestHour) then
+  if (AHour > latestHour) then
   begin
     Result := True;
   end;
-  if (relevantHour = latestHour) then
+  if (AHour = latestHour) then
   begin
-    Result := (relevantHour > latestMinute);
+    Result := (AHour > latestMinute);
   end;
 end;
 

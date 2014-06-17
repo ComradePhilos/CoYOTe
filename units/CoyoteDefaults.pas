@@ -11,10 +11,10 @@ interface
 ResourceString
 
   // Programme-Information
-  ProgrammeName = 'CoYOT(e)';    // Official Name shown to the user
+  ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
   VersionNr = '0.0.4.10';         // Programme-Version
-  VersionDate = '16.06.2014';    // Build-Date
-  LazarusVersion = '1.2.2';      // Version of the Lazarus IDE the programme was built with
+  VersionDate = '17.06.2014';     // Date of the latest changes
+  LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
 
   // Messages / Errors
   txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';

@@ -33,7 +33,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 //  so on a 6-hour day you need to have the pause. This topic needs to be kept in mind for calculation
 // # think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
 //    OR think about saving in whole directory, like DataNorm
-// # we might end up not using a WeekList, but a List of WeekLists for each person our system should track time for
+// # we might end up not using one WeekList, but a list of WeekLists for each person our system should track time for
 
 unit main;
 
@@ -380,8 +380,6 @@ begin
     colorDlg.Color := Toolbar1.Color;
     if colorDlg.Execute then
     begin
-      //Toolbar1.Color := colorDlg.Color;
-      //EditWeekForm.ToolBar1.Color := colorDlg.Color;
       ApplyColor(colorDlg.Color);
     end;
   finally
@@ -614,7 +612,6 @@ begin
   for I := 0 to FWeekList.Count - 1 do
   begin
     sum := sum + FWeekList.Items[I].getSum;
-    //goal := goal + (FWeekList.Items[I].IntendedTimePerDay * FWeekList.Items[I].Days.Count);
     goal := goal + FWeekList.Items[I].getGoalHours;
     vacationdays := vacationdays + FWeekList.Items[I].getAmountOfVacation;
 
@@ -754,18 +751,11 @@ begin
   filename := TMenuItem(Sender).Caption;
 
   try
-    if loadFromFile(filename, FWeekList) then
-    begin
-      StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
-      FCurrentFilePath := filename;
-      AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
-      FChangesMade := False;
-    end
-    else
-    begin
-      StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" could not be loaded!';
-      FCurrentFilePath := '';
-    end;
+    loadFromFile(filename, FWeekList);
+    StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
+    FCurrentFilePath := filename;
+    AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
+    FChangesMade := False;
   except
     on e: Exception do
     begin

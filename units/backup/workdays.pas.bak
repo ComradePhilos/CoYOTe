@@ -177,8 +177,6 @@ end;
 //############################################ Week ###########################################################
 
 constructor TWorkWeek.Create;
-var
-  I: Integer;
 begin
   FDays := TWorkDays.Create(true);
   FWeekLabel := 'empty week';

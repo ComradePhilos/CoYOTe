@@ -55,6 +55,7 @@ type
 
   TForm1 = class(TForm)
     ComboBox1: TComboBox;
+		ComboBox2: TComboBox;
     IBConnection1: TIBConnection;
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
@@ -751,18 +752,11 @@ begin
   filename := TMenuItem(Sender).Caption;
 
   try
-    if loadFromFile(filename, FWeekList) then
-    begin
-      StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
-      FCurrentFilePath := filename;
-      AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
-      FChangesMade := False;
-    end
-    else
-    begin
-      StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" could not be loaded!';
-      FCurrentFilePath := '';
-    end;
+    loadFromFile(filename, FWeekList);
+    StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
+    FCurrentFilePath := filename;
+    AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
+    FChangesMade := False;
   except
     on e: Exception do
     begin

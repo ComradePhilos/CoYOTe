@@ -49,7 +49,7 @@ type
       FDateOfEmployment: TDate;         // The Date when the person got employed
 
       // essential programme data
-      FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window
+      FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window/e.g. for each year
     public
 
       constructor Create;

@@ -19,8 +19,10 @@ uses Classes, fgl, ExtCtrls, workdays;
 
 type
 
+  // The list of weeklists
   TPersonnelTimeList = specialize TFPGObjectList<TWeekList>;
 
+  // The class that implements the people
   TPerson = class
 
       PeopleCount: Integer;
