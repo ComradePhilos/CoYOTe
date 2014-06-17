@@ -322,7 +322,6 @@ object Form6: TForm6
     Connected = False
     LoginPrompt = True
     AfterConnect = IBConnection1AfterConnect
-    AfterDisconnect = IBConnection1AfterDisconnect
     KeepConnection = True
     LogEvents = []
     left = 408

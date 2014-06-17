@@ -38,7 +38,6 @@ type
     procedure DisconnectBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure IBConnection1AfterConnect(Sender: TObject);
-    procedure IBConnection1AfterDisconnect(Sender: TObject);
   private
     { private declarations }
     FDBConnectEvent: TDBConnectEvent;
@@ -64,12 +63,6 @@ end;
 procedure TForm6.IBConnection1AfterConnect(Sender: TObject);
 begin
   Statusbar1.Panels[0].Text := 'Database is connectable! =)';
-  FDBConnectEvent(self, True);
-end;
-
-procedure TForm6.IBConnection1AfterDisconnect(Sender: TObject);
-begin
-
 end;
 
 procedure TForm6.BitBtn2Click(Sender: TObject);
@@ -99,7 +92,7 @@ end;
 
 procedure TForm6.ConnectBtn1Click(Sender: TObject);
 begin
-  FDBConnectEvent(self, False);
+  //FDBConnectEvent(self, False);
   Statusbar1.Panels[0].Text := 'Database is not connectable! =(';
   try
     connectbtnClick(nil);
