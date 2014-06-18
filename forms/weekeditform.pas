@@ -35,8 +35,10 @@ type
 		MenuItem2: TMenuItem;
 		MenuItem3: TMenuItem;
 		MenuItem4: TMenuItem;
-		MenuItem5: TMenuItem;
-		MenuItem6: TMenuItem;
+		MenuMoveTop: TMenuItem;
+		MenuMoveBottom: TMenuItem;
+		MenuMoveUp: TMenuItem;
+		MenuMoveDown: TMenuItem;
 		MenuOneDayOff: TMenuItem;
 		MenuHalfDayOff: TMenuItem;
     PausePerDayEdit: TLabeledEdit;
@@ -80,8 +82,7 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
-		procedure MenuItem5Click(Sender: TObject);
-		procedure MenuItem6Click(Sender: TObject);
+		procedure MenuMoveClick(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
     procedure WeekGridEditingDone(Sender: TObject);
@@ -211,30 +212,41 @@ begin
   end;
 end;
 
-procedure TForm3.MenuItem5Click(Sender: TObject);
+procedure TForm3.MenuMoveClick(Sender: TObject);
 begin
-  //InsertDayToWeek(FWeek.Days[FSelectionIndex], FWeek, FSelectionIndex-1);
   if (FWeek.Days.Count > 1) then
   begin
-    if (FSelectionIndex >= 1) and ( FSelectionIndex < FWeek.Days.Count) then
+    // Move Item to Top
+    if (Sender = MenuMoveTop) then
     begin
-      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex-1);
+      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, 0);
       FWeek.Days.Delete(FSelectionIndex+1);
-      updateWindow;
 		end;
-	end;
-end;
-
-procedure TForm3.MenuItem6Click(Sender: TObject);
-begin
-  if (FWeek.Days.Count > 1) then
-  begin
-    if (FSelectionIndex >= 0) and (FSelectionIndex < FWeek.Days.Count - 1) then
+    // Move Item to Bottom
+    if (Sender = MenuMoveBottom) then
     begin
-      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex+2);
+      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FWeek.Days.Count);
       FWeek.Days.Delete(FSelectionIndex);
-      updateWindow;
 		end;
+    // Move Item 1 step up
+    if (Sender = MenuMoveUp) then
+    begin
+      if (FSelectionIndex >= 1) and ( FSelectionIndex < FWeek.Days.Count) then
+      begin
+        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex-1);
+        FWeek.Days.Delete(FSelectionIndex+1);
+      end;
+		end;
+    // Move Item 1 step down
+    if (Sender = MenuMoveDown) then
+    begin
+      if (FSelectionIndex >= 0) and (FSelectionIndex < FWeek.Days.Count - 1) then
+      begin
+        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex+2);
+        FWeek.Days.Delete(FSelectionIndex);
+      end;
+		end;
+		updateWindow;
 	end;
 end;
 
