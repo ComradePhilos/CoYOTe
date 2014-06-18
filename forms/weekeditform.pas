@@ -34,9 +34,15 @@ type
     MarkHoliday: TMenuItem;
     MarkNormal: TMenuItem;
     MarkIgnore: TMenuItem;
+		MenuItem10: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
+		MenuItem5: TMenuItem;
+		MenuItem6: TMenuItem;
+		MenuItem7: TMenuItem;
+		MenuItem8: TMenuItem;
+		MenuItem9: TMenuItem;
     MenuMoveTop: TMenuItem;
     MenuMoveBottom: TMenuItem;
     MenuMoveUp: TMenuItem;

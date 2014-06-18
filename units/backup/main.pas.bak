@@ -868,10 +868,13 @@ begin
       end;
     end;
     updateWindow;
+    // Updating the EditweekForm
     EditWeekForm.showWeek(FWeekList.Items[tempIndex], tempIndex);
     EditWeekForm.WeekIndex := tempIndex;
     WeeksToCombobox(EditWeekForm.ComboBox1, FWeekList);
     WeeksToCombobox(EditWeekForm.ComboBox2, FWeekList);
+    EditWeekForm.ComboBox1.ItemIndex := tempIndex;
+    EditWeekForm.ComboBox2.ItemIndex := tempIndex;
   end;
 end;
 
