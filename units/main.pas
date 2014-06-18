@@ -24,6 +24,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * Work on Personnel Management
 // * database commit and download
 // * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
+// * save all people and lists in one file
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
@@ -240,7 +241,7 @@ begin
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
   EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
-  EditWeekForm.OnMergeWeeksClick := @MergeWeeks;
+  EditWeekForm.OnMergeWeeksClick := @MergeWeeks;        // assign the merge event of the EditWeekForm to merge function
 
   LoadIniFile;
   updateWindow;

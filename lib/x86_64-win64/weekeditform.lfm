@@ -503,6 +503,7 @@ object Form3: TForm3
     TitleStyle = tsNative
     OnEditingDone = WeekGridEditingDone
     OnMouseUp = WeekGridMouseUp
+    OnPrepareCanvas = WeekGridPrepareCanvas
     ColWidths = (
       47
       50

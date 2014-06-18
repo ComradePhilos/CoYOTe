@@ -92,6 +92,8 @@ type
     procedure MergeWeeksClick(Sender: TObject);
     procedure WeekGridEditingDone(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
+		procedure WeekGridPrepareCanvas(sender: TObject; aCol, aRow: Integer;
+					aState: TGridDrawState);
 
   private
     { private declarations }
@@ -366,6 +368,21 @@ begin
   begin
     FSelectionIndex := -1;
   end;
+end;
+
+procedure TForm3.WeekGridPrepareCanvas(sender: TObject; aCol, aRow: Integer;
+			aState: TGridDrawState);
+var
+  I: Integer;
+begin
+    if (WeekGrid.Cells[8,aRow] <> '') then
+  begin
+    WeekGrid.Canvas.Font.Color := $000080FF;//clWindowFrame;
+	end
+  else
+  begin
+    WeekGrid.Font.Color := clBlack;
+	end;
 end;
 
 procedure TForm3.BackButtonClick(Sender: TObject);
