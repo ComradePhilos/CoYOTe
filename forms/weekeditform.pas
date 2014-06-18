@@ -22,6 +22,7 @@ type
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
     ComboBox1: TComboBox;
+		ComboBox2: TComboBox;
     CreateLabelButton: TBitBtn;
     GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
@@ -60,6 +61,8 @@ type
     ButtonEmpty: TToolButton;
     ButtonApply: TToolButton;
     ToolButton2: TToolButton;
+		ToolButton3: TToolButton;
+		ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ButtonUndo: TToolButton;
     ButtonDelete: TToolButton;

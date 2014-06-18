@@ -22,6 +22,7 @@ type
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
     ComboBox1: TComboBox;
+		ComboBox2: TComboBox;
     CreateLabelButton: TBitBtn;
     GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
@@ -60,6 +61,8 @@ type
     ButtonEmpty: TToolButton;
     ButtonApply: TToolButton;
     ToolButton2: TToolButton;
+		ToolButton3: TToolButton;
+		ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ButtonUndo: TToolButton;
     ButtonDelete: TToolButton;
@@ -216,16 +219,19 @@ procedure TForm3.MenuMoveClick(Sender: TObject);
 begin
   if (FWeek.Days.Count > 1) then
   begin
+    // Move Item to Top
     if (Sender = MenuMoveTop) then
     begin
       InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, 0);
       FWeek.Days.Delete(FSelectionIndex+1);
 		end;
+    // Move Item to Bottom
     if (Sender = MenuMoveBottom) then
     begin
       InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FWeek.Days.Count);
       FWeek.Days.Delete(FSelectionIndex);
 		end;
+    // Move Item 1 step up
     if (Sender = MenuMoveUp) then
     begin
       if (FSelectionIndex >= 1) and ( FSelectionIndex < FWeek.Days.Count) then
@@ -234,6 +240,7 @@ begin
         FWeek.Days.Delete(FSelectionIndex+1);
       end;
 		end;
+    // Move Item 1 step down
     if (Sender = MenuMoveDown) then
     begin
       if (FSelectionIndex >= 0) and (FSelectionIndex < FWeek.Days.Count - 1) then

@@ -1,7 +1,7 @@
 {
 *************************************************************************
   CoYOT(e) - the simple and lightweight time tracking tool              *
-  Copyright (C) <2014>  <Philip Märksch>                                *
+  Copyright (C) 2014  Philip Märksch and the CoYOT(e)-team              *
                                                                         *
   This program is free software: you can redistribute it and/or modify  *
   it under the terms of the GNU General Public License as published by  *
@@ -22,10 +22,8 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 
 // Todo:
 // * mergable weeks
-// * switchable day order in weeks
 // * Work on Personnel Management
 // * database commit and download
-// * use tango icons where possible - look and feel
 // * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
@@ -63,7 +61,6 @@ type
     IBConnection1: TIBConnection;
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
-    ImageList2: TImageList;
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
@@ -73,6 +70,17 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
+		MenuItem10: TMenuItem;
+		MenuItem12: TMenuItem;
+		MenuItem13: TMenuItem;
+		MenuItem14: TMenuItem;
+		MenuItem15: TMenuItem;
+		MenuItem16: TMenuItem;
+		MenuItem17: TMenuItem;
+		MenuItem18: TMenuItem;
+		PopupAddPeriod: TMenuItem;
+		PopupEditPeriod: TMenuItem;
+		PopupRemovePeriod: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem8: TMenuItem;
     MenuOpenRecent: TMenuItem;
@@ -88,12 +96,9 @@ type
     MenuQuickSave: TMenuItem;
     MenuColorTheme: TMenuItem;
     MenuItem2: TMenuItem;
-    PopupAddPeriod: TMenuItem;
     MenuItem21: TMenuItem;
     MenuItem22: TMenuItem;
     MenuPeople: TMenuItem;
-    PopupEditPeriod: TMenuItem;
-    PopupRemovePeriod: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
     MenuQuit: TMenuItem;
