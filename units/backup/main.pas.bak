@@ -25,7 +25,6 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * database commit and download
 // * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
 // * save all people and lists in one file
-// * mark tagged days with a color
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
@@ -58,7 +57,7 @@ type
 
   TForm1 = class(TForm)
     ComboBox1: TComboBox;
-		ComboBox2: TComboBox;
+    ComboBox2: TComboBox;
     IBConnection1: TIBConnection;
     ImageList1: TImageList;
     GroupBox1: TGroupBox;
@@ -71,17 +70,17 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
-		MenuMove: TMenuItem;
-		MenuMoveTop: TMenuItem;
-		MenuMoveUp: TMenuItem;
-		MenuMoveDown: TMenuItem;
-		MenuMoveBottom: TMenuItem;
-		MenuSort: TMenuItem;
-		MenuItem17: TMenuItem;
-		MenuItem18: TMenuItem;
-		PopupAddPeriod: TMenuItem;
-		PopupEditPeriod: TMenuItem;
-		PopupRemovePeriod: TMenuItem;
+    MenuMove: TMenuItem;
+    MenuMoveTop: TMenuItem;
+    MenuMoveUp: TMenuItem;
+    MenuMoveDown: TMenuItem;
+    MenuMoveBottom: TMenuItem;
+    MenuSort: TMenuItem;
+    MenuItem17: TMenuItem;
+    MenuItem18: TMenuItem;
+    PopupAddPeriod: TMenuItem;
+    PopupEditPeriod: TMenuItem;
+    PopupRemovePeriod: TMenuItem;
     MenuItem5: TMenuItem;
     MenuItem8: TMenuItem;
     MenuOpenRecent: TMenuItem;
@@ -140,7 +139,7 @@ type
     { private declarations }
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
-    FPersonSelected: Integer;     // Index of the person selected - maybe change to string?
+    FPersonSelected: integer;     // Index of the person selected - maybe change to string?
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
@@ -169,7 +168,7 @@ type
     procedure RemoveWeekFromList(Sender: TObject; AIndex: integer);
 
     // Merges two weeks and by default deletes the second one afterwards
-    procedure MergeWeeks(Sender: TObject; AIndex1, AIndex2: Integer; DeleteFirst: Boolean = False);
+    procedure MergeWeeks(Sender: TObject; AIndex1, AIndex2: integer; DeleteFirst: boolean = False);
 
     // Checks for each button, wether it has to get enabled or disabled
     procedure EnableButtons;
@@ -279,20 +278,20 @@ begin
   FChangesMade := True;
 end;
 
-procedure TForm1.MergeWeeks(Sender: TObject; AIndex1, AIndex2: Integer; DeleteFirst: Boolean = False);
+procedure TForm1.MergeWeeks(Sender: TObject; AIndex1, AIndex2: integer; DeleteFirst: boolean = False);
 var
-  I: Integer;
+  I: integer;
 begin
   if DeleteFirst then
   begin
     swap(AIndex1, AIndex2);
-	end;
-  For I := 0 to FWeekList.Items[AIndex2].Days.Count -1 do
+  end;
+  for I := 0 to FWeekList.Items[AIndex2].Days.Count - 1 do
   begin
     // calling the copy-constructor
     FWeekList.Items[AIndex1].Days.Add(FWeekList.Items[AIndex2].Days[I]);
     FWeekList.Items[AIndex1].WeekLength := FWeekList.Items[AIndex1].WeekLength + 1;
-	end;
+  end;
   FWeekList.Delete(AIndex2);
   FChangesMade := True;
   updateWindow;
@@ -560,15 +559,27 @@ begin
   INI.WriteString('EditWeekForm', 'height', IntToStr(EditWeekForm.Height));
   INI.WriteString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(EditWeekForm.WindowState)));
 
+
   INI.WriteString('DBInfo', 'hostname', DBForm.LabeledEdit1.Text);
   INI.WriteString('DBInfo', 'port', DBForm.LabeledEdit2.Text);
   INI.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
   INI.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
 
+  // Recent Files
   INI.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
   for I := 0 to FOpenRecent.Count - 1 do
   begin
     INI.WriteString('RecentFiles', IntToStr(I), FOpenRecent[I]);
+  end;
+
+  // grid column sizes
+  for I := 0 to EditWeekForm.WeekGrid.ColCount - 1 do
+  begin
+    INI.WriteString('EditWeekForm', 'col' + IntToStr(I + 1), IntToStr(EditWeekForm.WeekGrid.Columns.Items[I].Width));
+  end;
+  for I := 0 to StringGrid1.ColCount - 1 do
+  begin
+    INI.WriteString('MainForm', 'col' + IntToStr(I + 1), IntToStr(StringGrid1.Columns.Items[I].Width));
   end;
 
   INI.WriteString('Theme', 'color', IntToStr(Toolbar1.Color));
@@ -604,6 +615,17 @@ begin
   for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
     AddToOpenRecent(INI.ReadString('RecentFiles', IntToStr(I), ''), FOpenRecent, MenuOpenRecent);
+  end;
+  for I =: 0 to EditWeekForm.WeekGrid.ColCount - 1 do
+  begin
+    EditWeekForm.WeekGrid.Columns.Items[I].Width :=
+      StrToInt(INI.ReadString('EditWeekForm', 'col' + IntToStr(I + 1),
+      IntToStr(EditWeekForm.WeekGrid.Columns.Items[I].Width)));
+  end;
+  for I := 0 to StringGrid1.ColCount - 1 do
+  begin
+    StringGrid1.Columns.Items[I].Width :=
+      StrToInt(INI.ReadString('MainForm', 'col' + IntToStr(I + 1), IntToStr(StringGrid1.Columns.Items[I].Width)));
   end;
 
   ApplyColor(StrToInt(INI.ReadString('Theme', 'color', IntToStr(defToolbarColor))));

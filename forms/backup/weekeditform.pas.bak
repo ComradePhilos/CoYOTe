@@ -377,7 +377,7 @@ var
 begin
     if (WeekGrid.Cells[8,aRow] <> '') then
   begin
-    WeekGrid.Canvas.Font.Color := clWindowFrame;
+    WeekGrid.Canvas.Font.Color := $000080FF;//clWindowFrame;
 	end
   else
   begin
