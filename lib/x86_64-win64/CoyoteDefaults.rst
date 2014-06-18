@@ -71,6 +71,16 @@ coyotedefaults.emfilenotfound='Error: The selected file could not be foun'+
 'd!'
 
 
+# hash value = 113672449
+coyotedefaults.emmergenoweekselected='Cannot merge, because no week to me'+
+'rge with has been selected! Please select one using the combobox!'
+
+
+# hash value = 146457857
+coyotedefaults.emmergesameweek='Cannot merge a week with itself! Please s'+
+'elect a different week via the combobox!'
+
+
 # hash value = 93223009
 coyotedefaults.dbdefaultfirebirduser='SYSDBA'
 

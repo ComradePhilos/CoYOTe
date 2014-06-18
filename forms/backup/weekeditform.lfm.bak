@@ -643,6 +643,7 @@ object Form3: TForm3
       Top = 0
       Caption = 'ToolButton3'
       ImageIndex = 11
+      OnClick = MergeWeeksClick
       ParentShowHint = False
       ShowHint = True
     end
@@ -656,7 +657,7 @@ object Form3: TForm3
     object ComboBox2: TComboBox
       Left = 410
       Height = 24
-      Hint = 'select a week to merge with'
+      Hint = 'select a target week'
       Top = 0
       Width = 170
       Font.CharSet = ANSI_CHARSET
@@ -665,7 +666,6 @@ object Form3: TForm3
       Font.Pitch = fpVariable
       Font.Quality = fqDraft
       ItemHeight = 16
-      OnSelect = ComboBox1Select
       ParentFont = False
       TabOrder = 1
     end

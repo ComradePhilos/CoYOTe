@@ -1999,7 +1999,7 @@ object Form1: TForm1
         OnClick = RemoveSelected
       end
     end
-    object MenuItem10: TMenuItem
+    object MenuMove: TMenuItem
       Caption = 'move'
       Bitmap.Data = {
         C6070000424DC607000000000000360000002800000016000000160000000100
@@ -2066,7 +2066,7 @@ object Form1: TForm1
         0145000000000000000100000000000000000000000000000000000000000000
         00000000000000000000
       }
-      object MenuItem12: TMenuItem
+      object MenuMoveTop: TMenuItem
         Caption = 'top'
         Bitmap.Data = {
           C6070000424DC607000000000000360000002800000016000000160000000100
@@ -2134,7 +2134,7 @@ object Form1: TForm1
           3AE8FFFFFF00FFFFFF00
         }
       end
-      object MenuItem13: TMenuItem
+      object MenuMoveUp: TMenuItem
         Caption = 'up'
         Bitmap.Data = {
           C6070000424DC607000000000000360000002800000016000000160000000100
@@ -2202,7 +2202,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00
         }
       end
-      object MenuItem14: TMenuItem
+      object MenuMoveDown: TMenuItem
         Caption = 'down'
         Bitmap.Data = {
           C6070000424DC607000000000000360000002800000016000000160000000100
@@ -2270,7 +2270,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00
         }
       end
-      object MenuItem15: TMenuItem
+      object MenuMoveBottom: TMenuItem
         Caption = 'bottom'
         Bitmap.Data = {
           C6070000424DC607000000000000360000002800000016000000160000000100
@@ -2339,7 +2339,7 @@ object Form1: TForm1
         }
       end
     end
-    object MenuItem16: TMenuItem
+    object MenuSort: TMenuItem
       Caption = 'sort'
       object MenuItem17: TMenuItem
         Caption = 'none'

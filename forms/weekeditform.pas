@@ -15,6 +15,7 @@ type
   TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
   TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: integer) of object;
   TNextWeekEvent = procedure(Sender: TObject; Index: integer) of object;
+  TMergeWeeksEvent = procedure(Sender: TObject; AIndex1, AIndex2: Integer; DeleteFirst: Boolean = false) of object;
 
   { TForm3 }
 
@@ -22,26 +23,26 @@ type
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
     ComboBox1: TComboBox;
-		ComboBox2: TComboBox;
+    ComboBox2: TComboBox;
     CreateLabelButton: TBitBtn;
     GroupBox1: TGroupBox;
     HoursPerDayEdit: TLabeledEdit;
     DescriptionEdit: TLabeledEdit;
     Label4: TLabel;
     Memo1: TMemo;
-		MenuItem1: TMenuItem;
-		MarkHoliday: TMenuItem;
-		MarkNormal: TMenuItem;
-		MarkIgnore: TMenuItem;
-		MenuItem2: TMenuItem;
-		MenuItem3: TMenuItem;
-		MenuItem4: TMenuItem;
-		MenuMoveTop: TMenuItem;
-		MenuMoveBottom: TMenuItem;
-		MenuMoveUp: TMenuItem;
-		MenuMoveDown: TMenuItem;
-		MenuOneDayOff: TMenuItem;
-		MenuHalfDayOff: TMenuItem;
+    MenuItem1: TMenuItem;
+    MarkHoliday: TMenuItem;
+    MarkNormal: TMenuItem;
+    MarkIgnore: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuMoveTop: TMenuItem;
+    MenuMoveBottom: TMenuItem;
+    MenuMoveUp: TMenuItem;
+    MenuMoveDown: TMenuItem;
+    MenuOneDayOff: TMenuItem;
+    MenuHalfDayOff: TMenuItem;
     PausePerDayEdit: TLabeledEdit;
     ImageList1: TImageList;
     Label1: TLabel;
@@ -52,7 +53,7 @@ type
     MenuAdd: TMenuItem;
     PopupMenu1: TPopupMenu;
     SaveDialog1: TSaveDialog;
-		StatusBar1: TStatusBar;
+    StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     ButtonLeft: TToolButton;
     ButtonRight: TToolButton;
@@ -61,8 +62,8 @@ type
     ButtonEmpty: TToolButton;
     ButtonApply: TToolButton;
     ToolButton2: TToolButton;
-		ToolButton3: TToolButton;
-		ToolButton4: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
     ToolButton5: TToolButton;
     ButtonUndo: TToolButton;
     ButtonDelete: TToolButton;
@@ -79,15 +80,16 @@ type
     procedure DeleteWeek(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
-		procedure MarkHolidayClick(Sender: TObject);
-		procedure MarkIgnoreClick(Sender: TObject);
-		procedure MarkNormalClick(Sender: TObject);
+    procedure MarkHolidayClick(Sender: TObject);
+    procedure MarkIgnoreClick(Sender: TObject);
+    procedure MarkNormalClick(Sender: TObject);
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
-		procedure MenuMoveClick(Sender: TObject);
+    procedure MenuMoveClick(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
+    procedure MergeWeeksClick(Sender: TObject);
     procedure WeekGridEditingDone(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 
@@ -101,6 +103,7 @@ type
     FOnRemoveClick: TRemoveEvent;         // Triggered, when Items is removed
     FOnApplyClick: TApplyEvent;           // Triggered, when apply button was clicked
     FOnNextWeekClick: TNextWeekEvent;     // Triggered, when user wants to switch to another week of the list
+    FOnMergeWeeksClick: TMergeWeeksEvent;  // Triggered, when weeks are going to be merged
 
     procedure UpdateTitel;
     procedure UpdateWindow;
@@ -113,6 +116,7 @@ type
     property OnRemoveClick: TRemoveEvent read FOnRemoveClick write FOnRemoveClick;
     property OnApplyClick: TApplyEvent read FOnApplyClick write FOnApplyClick;
     property OnNextWeekClick: TNextWeekEvent read FOnNextWeekClick write FOnNextWeekClick;
+    property OnMergeWeeksClick: TMergeWeeksEvent read FOnMergeWeeksClick write FOnMergeWeeksClick;
     property WeekIndex: integer read FWeekIndex write FWeekIndex;
   end;
 
@@ -146,7 +150,7 @@ begin
   if (FWeek.Days.Count > 0) then
   begin
     WeekGrid.Cells[8, FSelectionIndex + 1] := 'official holiday';
-	end;
+  end;
 end;
 
 procedure TForm3.MarkIgnoreClick(Sender: TObject);
@@ -154,7 +158,7 @@ begin
   if (FWeek.Days.Count > 0) then
   begin
     WeekGrid.Cells[8, FSelectionIndex + 1] := 'ignore';
-	end;
+  end;
 end;
 
 procedure TForm3.MarkNormalClick(Sender: TObject);
@@ -162,7 +166,7 @@ begin
   if (FWeek.Days.Count > 0) then
   begin
     WeekGrid.Cells[8, FSelectionIndex + 1] := '';
-	end;
+  end;
 end;
 
 procedure TForm3.MenuAddClick(Sender: TObject);
@@ -223,34 +227,34 @@ begin
     if (Sender = MenuMoveTop) then
     begin
       InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, 0);
-      FWeek.Days.Delete(FSelectionIndex+1);
-		end;
+      FWeek.Days.Delete(FSelectionIndex + 1);
+    end;
     // Move Item to Bottom
     if (Sender = MenuMoveBottom) then
     begin
       InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FWeek.Days.Count);
       FWeek.Days.Delete(FSelectionIndex);
-		end;
+    end;
     // Move Item 1 step up
     if (Sender = MenuMoveUp) then
     begin
-      if (FSelectionIndex >= 1) and ( FSelectionIndex < FWeek.Days.Count) then
+      if (FSelectionIndex >= 1) and (FSelectionIndex < FWeek.Days.Count) then
       begin
-        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex-1);
-        FWeek.Days.Delete(FSelectionIndex+1);
+        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex - 1);
+        FWeek.Days.Delete(FSelectionIndex + 1);
       end;
-		end;
+    end;
     // Move Item 1 step down
     if (Sender = MenuMoveDown) then
     begin
       if (FSelectionIndex >= 0) and (FSelectionIndex < FWeek.Days.Count - 1) then
       begin
-        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex+2);
+        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex + 2);
         FWeek.Days.Delete(FSelectionIndex);
       end;
-		end;
-		updateWindow;
-	end;
+    end;
+    updateWindow;
+  end;
 end;
 
 procedure TForm3.MenuOneDayOffClick(Sender: TObject);
@@ -268,8 +272,8 @@ begin
     if (Sender = MenuItem3) then
     begin
       WeekGrid.Cells[5, FSelectionIndex + 1] := '0';
-		end;
-	end;
+    end;
+  end;
 end;
 
 procedure TForm3.AddNumberOfDays(Sender: TObject);
@@ -302,6 +306,25 @@ begin
   finally
     DateDlg.Free;
     updateWindow;
+  end;
+end;
+
+procedure TForm3.MergeWeeksClick(Sender: TObject);
+begin
+  if (ComboBox2.ItemIndex < 0) then
+  begin
+    Application.MessageBox(PChar(emMergeNoWeekSelected), 'Error', 0);
+    exit;
+  end;
+  if (ComboBox1.ItemIndex = ComboBox2.ItemIndex) then
+  begin
+    Application.MessageBox(PChar(emMergeSameWeek), 'Error', 0);
+    exit;
+	end;
+  if assigned(FOnMergeWeeksClick) then
+  begin
+    FOnMergeWeeksClick(self, ComboBox1.ItemIndex, ComboBox2.ItemIndex);
+    FOnNextWeekClick(self, ComboBox1.ItemIndex);
   end;
 end;
 
@@ -373,7 +396,8 @@ begin
     end;
     if (lowest <> highest) then
     begin
-      DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest) + '   to   ' + FormatDateTime('dd.mm.yyyy', highest);
+      DescriptionEdit.Text := FormatDateTime('dd.mm.yyyy', lowest) + '   to   ' +
+        FormatDateTime('dd.mm.yyyy', highest);
     end
     else
     begin
@@ -419,7 +443,7 @@ begin
       FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
       FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
       FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
-      FWeek.Days[I].Tag := WeekGrid.Cells[8,I+1];
+      FWeek.Days[I].Tag := WeekGrid.Cells[8, I + 1];
     end;
 
     UpdateTitel;
@@ -506,6 +530,7 @@ begin
   HoursPerDayEdit.Text := FloatToStr(AWeek.IntendedTimePerDay);
   PausePerDayEdit.Text := FloatToStr(AWeek.PausePerDay);
   Memo1.Lines := AWeek.DescriptionText;
+  Combobox2.ItemIndex := 0;
 
   FWeekIndex := ANumber;
   UpdateTitel;
@@ -537,6 +562,5 @@ begin
 end;
 
 end.
-
 
 

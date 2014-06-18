@@ -21,7 +21,6 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 }
 
 // Todo:
-// * mergable weeks
 // * Work on Personnel Management
 // * database commit and download
 // * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
@@ -70,12 +69,12 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
-		MenuItem10: TMenuItem;
-		MenuItem12: TMenuItem;
-		MenuItem13: TMenuItem;
-		MenuItem14: TMenuItem;
-		MenuItem15: TMenuItem;
-		MenuItem16: TMenuItem;
+		MenuMove: TMenuItem;
+		MenuMoveTop: TMenuItem;
+		MenuMoveUp: TMenuItem;
+		MenuMoveDown: TMenuItem;
+		MenuMoveBottom: TMenuItem;
+		MenuSort: TMenuItem;
 		MenuItem17: TMenuItem;
 		MenuItem18: TMenuItem;
 		PopupAddPeriod: TMenuItem;
@@ -167,6 +166,9 @@ type
     // triggered when a certain week is deleted
     procedure RemoveWeekFromList(Sender: TObject; AIndex: integer);
 
+    // Merges two weeks and by default deletes the second one afterwards
+    procedure MergeWeeks(Sender: TObject; AIndex1, AIndex2: Integer; DeleteFirst: Boolean = False);
+
     // Checks for each button, wether it has to get enabled or disabled
     procedure EnableButtons;
 
@@ -238,6 +240,7 @@ begin
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
   EditWeekForm.OnNextWeekClick := @GetWeek;             // switch to specified week via Index
+  EditWeekForm.OnMergeWeeksClick := @MergeWeeks;
 
   LoadIniFile;
   updateWindow;
@@ -274,10 +277,30 @@ begin
   FChangesMade := True;
 end;
 
+procedure TForm1.MergeWeeks(Sender: TObject; AIndex1, AIndex2: Integer; DeleteFirst: Boolean = False);
+var
+  I: Integer;
+begin
+  if DeleteFirst then
+  begin
+    swap(AIndex1, AIndex2);
+	end;
+  For I := 0 to FWeekList.Items[AIndex2].Days.Count -1 do
+  begin
+    // calling the copy-constructor
+    FWeekList.Items[AIndex1].Days.Add(FWeekList.Items[AIndex2].Days[I]);
+    FWeekList.Items[AIndex1].WeekLength := FWeekList.Items[AIndex1].WeekLength + 1;
+	end;
+  FWeekList.Delete(AIndex2);
+  FChangesMade := True;
+  updateWindow;
+end;
+
 procedure TForm1.AssignWeek(Sender: TObject; AWeek: TWorkWeek; Index: integer);
 begin
   FWeekList.Items[Index].Assign(AWeek);
   WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
+  WeeksToComboBox(EditWeekForm.ComboBox2, FweekList);
   EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
   FChangesMade := True;
   updateWindow;
@@ -300,6 +323,7 @@ begin
     EditWeekForm.showWeek(FWeekList.Items[FSelectionIndex], FSelectionIndex);
     EditWeekForm.Visible := True;
     WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
+    WeeksToComboBox(EditWeekForm.ComboBox2, FweekList);
     EditWeekForm.ComboBox1.ItemIndex := FSelectionIndex;
   end;
 end;
@@ -318,6 +342,7 @@ begin
     end;
     EditWeekForm.showWeek(FWeekList.Items[Index], Index);
     EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
+    EditWeekForm.ComboBox2.ItemIndex := 0;
   end;
 end;
 
@@ -705,6 +730,7 @@ begin
   MenuQuickSave.Enabled := FChangesMade and (FCurrentFilePath <> '');
   ToolButton1.Enabled := FChangesMade and (FCurrentFilePath <> '');
   MenuOpenRecent.Enabled := (MenuOpenRecent.Count > 0);
+  MenuMove.Enabled := (FWeekList.Count > 1);
 
 end;
 

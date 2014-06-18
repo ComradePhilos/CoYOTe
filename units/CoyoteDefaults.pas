@@ -29,6 +29,8 @@ ResourceString
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
   emInvalidFileFormat = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
   emFileNotFound = 'Error: The selected file could not be found!';
+  emMergeNoWeekSelected = 'Cannot merge, because no week to merge with has been selected! Please select one using the combobox!' ;
+  emMergeSameWeek = 'Cannot merge a week with itself! Please select a different week via the combobox!';
 
   dbDefaultFirebirdUser = 'SYSDBA';
   dbDefaultFirebirdPort = ''; // 3050

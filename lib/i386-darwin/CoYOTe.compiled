@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CONFIG>
-  <Compiler Value="/usr/local/bin/ppc386" Date="1393445779"/>
-  <Params Value=" -MObjFPC -Scghi -O3  -k-framework -kCarbon -k-framework -kOpenGL -k-dylib_file -k/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib:/System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib -vewnhi -Fi/Users/lukasfranke/Documents/CoYOTe/lib/i386-darwin -Fu/Users/lukasfranke/Documents/CoYOTe/units -Fu/Users/lukasfranke/Documents/CoYOTe/forms -Fu/Developer/lazarus/components/rtticontrols/lib/i386-darwin/carbon -Fu/Developer/lazarus/components/ideintf/units/i386-darwin/carbon -Fu/Developer/lazarus/components/lazcontrols/lib/i386-darwin/carbon -Fu/Developer/lazarus/lcl/units/i386-darwin/carbon -Fu/Developer/lazarus/lcl/units/i386-darwin -Fu/Developer/lazarus/components/lazutils/lib/i386-darwin -Fu/Developer/lazarus/packager/units/i386-darwin -Fu/Users/lukasfranke/Documents/CoYOTe/ -FU/Users/lukasfranke/Documents/CoYOTe/lib/i386-darwin/ -l -FE/Users/lukasfranke/Documents/CoYOTe/bin/ -oCoYOTe-darwin(i386) -dLCL -dLCLcarbon CoYOTe.lpr"/>
-</CONFIG>

@@ -27,6 +27,9 @@ procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 // Opens a URL depending on the OS
 procedure OpenURL(AURL: string);
 
+// swaps two Indices
+procedure swap(var AIndex1, AIndex2: Integer);
+
 implementation
 
 procedure SaveToFile(filename: string; AWeekList: TWeekList);
@@ -275,5 +278,14 @@ begin
   {$ENDIF}
 end;
 
+
+procedure swap(var AIndex1, AIndex2: Integer);
+var
+  temp: Integer;
+begin
+  temp := AIndex1;
+  AIndex1 := AIndex2;
+  AIndex2 := temp;
+end;
 
 end.

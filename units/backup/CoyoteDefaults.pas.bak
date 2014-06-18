@@ -10,8 +10,8 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.0.5.1';          // Programme-Version
-  VersionDate = '17.06.2014';     // Date of the latest changes
+  VersionNr = '0.0.5.2';          // Programme-Version
+  VersionDate = '18.06.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
 
   // Messages / Errors
@@ -29,6 +29,8 @@ ResourceString
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';
   emInvalidFileFormat = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
   emFileNotFound = 'Error: The selected file could not be found!';
+  emMergeNoWeekSelected = 'Cannot merge, because no week to merge with has been selected! Please select one using the combobox!' ;
+  emMergeSameWeek = 'Cannot merge a week with itself! Please select a different week via the combobox';
 
   dbDefaultFirebirdUser = 'SYSDBA';
   dbDefaultFirebirdPort = ''; // 3050
