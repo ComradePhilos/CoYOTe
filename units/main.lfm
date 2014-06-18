@@ -2133,6 +2133,7 @@ object Form1: TForm1
           3AFF04733AFF04733AFF04733AFF04733AFF04733AFF04733AFF04733AFF0474
           3AE8FFFFFF00FFFFFF00
         }
+        OnClick = MoveClick
       end
       object MenuMoveUp: TMenuItem
         Caption = 'up'
@@ -2201,6 +2202,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00
         }
+        OnClick = MoveClick
       end
       object MenuMoveDown: TMenuItem
         Caption = 'down'
@@ -2269,6 +2271,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00
         }
+        OnClick = MoveClick
       end
       object MenuMoveBottom: TMenuItem
         Caption = 'bottom'
@@ -2337,6 +2340,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
           FF00FFFFFF00FFFFFF00
         }
+        OnClick = MoveClick
       end
     end
     object MenuSort: TMenuItem

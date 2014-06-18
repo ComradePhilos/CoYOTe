@@ -24,8 +24,8 @@ function LoadFromFile(filename: string; AWeekList: TWeekList): boolean;
 procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: double);
 procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 
-// Opens a URL depending on the OS
-procedure OpenURL(AURL: string);
+// swaps two Indices
+procedure swap(var AIndex1, AIndex2: Integer);
 
 implementation
 
@@ -246,34 +246,13 @@ begin
   end;
 end;
 
-
-procedure OpenURL(AURL: string);
+procedure swap(var AIndex1, AIndex2: Integer);
 var
-  AProcess: TProcess;
+  temp: Integer;
 begin
-
-  {$IFDEF linux}
-  AProcess := TProcess.Create(nil);
-  try
-    AProcess.CommandLine := 'xdg-open "' + AURL + '"';  // Shell command
-    AProcess.Execute;
-  finally
-    AProcess.Free;
-  end;
-  {$ENDIF}
-  {$IFDEF macos}
-  AProcess := TProcess.Create(nil);
-  try
-    AProcess.CommandLine := 'xdg-open "' + AURL + '"';  // Shell command
-    AProcess.Execute;
-  finally
-    AProcess.Free;
-  end;
-  {$ENDIF}
-  {$IFDEF mswindows}
-  OpenDocument(AURL);             // Uses the API
-  {$ENDIF}
+  temp := AIndex1;
+  AIndex1 := AIndex2;
+  AIndex2 := temp;
 end;
-
 
 end.

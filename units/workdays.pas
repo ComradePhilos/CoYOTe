@@ -70,6 +70,7 @@ type
   public
     constructor Create;
     constructor Create(AFromDate, AToDate: TDate); overload;
+    constructor Create(AWorkWeek: TWorkWeek); overload;
     destructor Destroy;
     procedure Clear;
     procedure assign(AWeek: TWorkWeek);       // Assign the values of AWeek to this instance
@@ -232,6 +233,12 @@ begin
     FDays[I].Date := AFromDate + I;
   end;
   FDescriptionText := TStringList.Create;
+end;
+
+constructor TWorkWeek.Create(AWorkWeek: TWorkWeek);
+begin
+  FDays := TWorkDays.Create(true);
+  self.assign(AWorkWeek);
 end;
 
 destructor TWorkWeek.Destroy;
@@ -564,15 +571,11 @@ begin
   end;
 end;
 
-
 procedure InsertDayToWeek(ADay: TWorkDay; AWeek: TWorkWeek; AIndex: Integer);
 begin
   if (AWeek.Days.Count > 1) then
   begin
-    //if (AIndex >= 0) and (AIndex <= AWeek.Days.Count) then
-		//begin
-		  AWeek.Days.Insert(AIndex, ADay);
-		//end;
+	  AWeek.Days.Insert(AIndex, ADay);
 	end;
 end;
 

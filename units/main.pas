@@ -133,6 +133,7 @@ type
     procedure RemoveAll(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure MenuQuitClick(Sender: TObject);
+    procedure MoveClick(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
 
   private
@@ -820,6 +821,60 @@ begin
   end;
 
   UpdateWindow;
+end;
+
+procedure TForm1.MoveClick(Sender: TObject);
+var
+  tempIndex: Integer;
+begin
+  if (FWeekList.Count > 1) then
+  begin
+    tempIndex := FSelectionIndex;
+    // Move Item to Top
+    if (Sender = MenuMoveTop) then
+    begin
+      FWeekList.Insert(0,TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+      FWeekList.Delete(FSelectionIndex + 1);
+      tempIndex := 0;
+    end;
+
+    // Move Item to Bottom
+    if (Sender = MenuMoveBottom) then
+    begin
+      FWeekList.Insert(FWeekList.Count,TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+      FWeekList.Delete(FSelectionIndex);
+      tempIndex := FWeekList.Count-1;
+    end;
+
+    // Move Item 1 step up
+    if (Sender = MenuMoveUp) then
+    begin
+      if (FSelectionIndex >= 1) and (FSelectionIndex < FWeekList.Count) then
+      begin
+        FWeekList.Insert(FSelectionIndex-1, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+        FWeekList.Delete(FSelectionIndex + 1);
+        tempIndex -= 1;
+      end;
+    end;
+
+    // Move Item 1 step down
+    if (Sender = MenuMoveDown) then
+    begin
+      if (FSelectionIndex >= 0) and (FSelectionIndex < FWeekList.Count - 1) then
+      begin
+        FWeekList.Insert(FSelectionIndex+2, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+        FWeekList.Delete(FSelectionIndex);
+        tempIndex += 1;
+      end;
+    end;
+    updateWindow;
+    EditWeekForm.showWeek(FWeekList.Items[tempIndex], tempIndex);
+    EditWeekForm.WeekIndex := tempIndex;
+    WeeksToCombobox(EditWeekForm.ComboBox1, FWeekList);
+    WeeksToCombobox(EditWeekForm.ComboBox2, FWeekList);
+    EditWeekForm.ComboBox1.ItemIndex := tempIndex;
+    EditWeekForm.ComboBox2.ItemIndex := tempIndex;
+  end;
 end;
 
 end.

@@ -15,7 +15,7 @@ type
   TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
   TApplyEvent = procedure(Sender: TObject; AWeek: TWorkWeek; Index: integer) of object;
   TNextWeekEvent = procedure(Sender: TObject; Index: integer) of object;
-  TMergeWeeksEvent = procedure(Sender: TObject; AIndex1, AIndex2: Integer; DeleteFirst: Boolean = false) of object;
+  TMergeWeeksEvent = procedure(Sender: TObject; AIndex1, AIndex2: integer; DeleteFirst: boolean = False) of object;
 
   { TForm3 }
 
@@ -92,8 +92,7 @@ type
     procedure MergeWeeksClick(Sender: TObject);
     procedure WeekGridEditingDone(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
-		procedure WeekGridPrepareCanvas(sender: TObject; aCol, aRow: Integer;
-					aState: TGridDrawState);
+    procedure WeekGridPrepareCanvas(Sender: TObject; aCol, aRow: integer; aState: TGridDrawState);
 
   private
     { private declarations }
@@ -322,7 +321,7 @@ begin
   begin
     Application.MessageBox(PChar(emMergeSameWeek), 'Error', 0);
     exit;
-	end;
+  end;
   if assigned(FOnMergeWeeksClick) then
   begin
     FOnMergeWeeksClick(self, ComboBox1.ItemIndex, ComboBox2.ItemIndex);
@@ -370,19 +369,18 @@ begin
   end;
 end;
 
-procedure TForm3.WeekGridPrepareCanvas(sender: TObject; aCol, aRow: Integer;
-			aState: TGridDrawState);
+procedure TForm3.WeekGridPrepareCanvas(Sender: TObject; aCol, aRow: integer; aState: TGridDrawState);
 var
-  I: Integer;
+  I: integer;
 begin
-    if (WeekGrid.Cells[8,aRow] <> '') then
+  if (WeekGrid.Cells[8, aRow] <> '') then
   begin
     WeekGrid.Canvas.Font.Color := $000080FF;//clWindowFrame;
-	end
+  end
   else
   begin
     WeekGrid.Font.Color := clBlack;
-	end;
+  end;
 end;
 
 procedure TForm3.BackButtonClick(Sender: TObject);
@@ -579,5 +577,7 @@ begin
 end;
 
 end.
+
+
 
 

@@ -24,9 +24,6 @@ function LoadFromFile(filename: string; AWeekList: TWeekList): boolean;
 procedure colorText(ALabel: TLabel; value1, value2, toleranceLimit: double);
 procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 
-// Opens a URL depending on the OS
-procedure OpenURL(AURL: string);
-
 // swaps two Indices
 procedure swap(var AIndex1, AIndex2: Integer);
 
@@ -81,7 +78,7 @@ var
   d: integer;        // Day-Counter
   Lines: TStringList;
   Count: integer;    // Number of Days
-  locInt: integer;
+  locInt: integer;   // local values for conversion
   locDate: TDate;
   locDouble: double;
   FormatDouble: TFormatSettings;
@@ -235,11 +232,11 @@ end;
 
 procedure colorText(ALabel: TLabel; Value, toleranceLimit: double);
 begin
-  if Value >= 0 then
+  if (Value >= 0) then
   begin
     ALabel.Font.Color := clGreen;
   end
-  else if Value >= (0 - toleranceLimit) then
+  else if (Value >= (0 - toleranceLimit)) then
   begin
     ALabel.Font.Color := $000080FF;
   end
@@ -248,36 +245,6 @@ begin
     ALabel.Font.Color := clRed;
   end;
 end;
-
-
-procedure OpenURL(AURL: string);
-var
-  AProcess: TProcess;
-begin
-
-  {$IFDEF linux}
-  AProcess := TProcess.Create(nil);
-  try
-    AProcess.CommandLine := 'xdg-open "' + AURL + '"';  // Shell command
-    AProcess.Execute;
-  finally
-    AProcess.Free;
-  end;
-  {$ENDIF}
-  {$IFDEF macos}
-  AProcess := TProcess.Create(nil);
-  try
-    AProcess.CommandLine := 'xdg-open "' + AURL + '"';  // Shell command
-    AProcess.Execute;
-  finally
-    AProcess.Free;
-  end;
-  {$ENDIF}
-  {$IFDEF mswindows}
-  OpenDocument(AURL);             // Uses the API
-  {$ENDIF}
-end;
-
 
 procedure swap(var AIndex1, AIndex2: Integer);
 var
