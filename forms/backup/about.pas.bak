@@ -75,7 +75,6 @@ procedure TForm2.FormCreate(Sender: TObject);
 var
   searchRec: TSearchRec;
   AboutText: TStringList;
-  I: Integer;
 begin
   PageControl1.PageIndex := 1;
   FindFirst('../docs/versions/*', faAnyFile, searchRec);

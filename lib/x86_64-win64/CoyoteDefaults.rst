@@ -7,8 +7,8 @@ coyotedefaults.programmename='CoYOT(e)'
 coyotedefaults.versionnr='0.0.5.3'
 
 
-# hash value = 59906132
-coyotedefaults.versiondate='18.06.2014'
+# hash value = 59907924
+coyotedefaults.versiondate='19.06.2014'
 
 
 # hash value = 3413266
@@ -50,6 +50,10 @@ coyotedefaults.txtquitprogramme='Quit Programme'
 
 # hash value = 97069278
 coyotedefaults.txtfilesaved='File saved...'
+
+
+# hash value = 1918110
+coyotedefaults.txtnewfile='Created new file...'
 
 
 # hash value = 249485425

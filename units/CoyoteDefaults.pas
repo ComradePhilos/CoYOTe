@@ -11,7 +11,7 @@ ResourceString
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
   VersionNr = '0.0.5.3';          // Programme-Version
-  VersionDate = '18.06.2014';     // Date of the latest changes
+  VersionDate = '19.06.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
 
   // Messages / Errors
@@ -24,6 +24,7 @@ ResourceString
   txtCaptionDelete = 'Really delete?';
   txtQuitProgramme = 'Quit Programme';
   txtFileSaved = 'File saved...';
+  txtNewFile = 'Created new file...';
 
   emDateOrder = 'Error: The dates are in the wrong order!';
   emHoursPerDay = 'Error: Enter a valid amount of time per day!';

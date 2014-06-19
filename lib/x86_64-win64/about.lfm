@@ -1,11 +1,11 @@
 object Form2: TForm2
   Left = 557
-  Height = 402
+  Height = 294
   Top = 186
-  Width = 756
+  Width = 619
   Caption = 'About'
-  ClientHeight = 402
-  ClientWidth = 756
+  ClientHeight = 294
+  ClientWidth = 619
   Constraints.MinHeight = 100
   Constraints.MinWidth = 200
   Font.CharSet = ANSI_CHARSET
@@ -38,7 +38,7 @@ object Form2: TForm2
   object Label1: TLabel
     Left = 8
     Height = 17
-    Top = 283
+    Top = 205
     Width = 51
     Anchors = [akLeft]
     Caption = 'Version :'
@@ -47,7 +47,7 @@ object Form2: TForm2
   object Label2: TLabel
     Left = 8
     Height = 17
-    Top = 341
+    Top = 247
     Width = 68
     Anchors = [akLeft]
     Caption = 'Build-Date:'
@@ -2033,28 +2033,39 @@ object Form2: TForm2
   object PageControl1: TPageControl
     AnchorSideTop.Side = asrBottom
     Left = 193
-    Height = 346
+    Height = 238
     Top = 33
-    Width = 555
+    Width = 418
     ActivePage = Contributors
     Anchors = [akTop, akLeft, akRight, akBottom]
     TabIndex = 1
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = '  About  '
-      ClientHeight = 316
-      ClientWidth = 547
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo2: TMemo
         Left = 0
-        Height = 310
+        Height = 202
         Top = 4
-        Width = 542
+        Width = 405
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -12
-        Font.Name = 'Ubuntu Mono'
-        Font.Pitch = fpVariable
-        Font.Quality = fqDraft
+        Font.Height = -15
+        Font.Name = 'Ubuntu'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        Lines.Strings = (
+          ''
+          'This programme is a lightweight, open-source and '
+          'userfriendly tool to keep an eye on overtimes at work. '
+          'It calculates - based on attendance times the user '
+          'entered - how many hours of working time the user '
+          'accumulated and visualises the balance so that he '
+          'always is up to date. If used consequently one can save '
+          'precious free time and organize working time in a way '
+          'that employees and bosses might profit from. '
+        )
         ParentFont = False
         ReadOnly = True
         ScrollBars = ssAutoBoth
@@ -2063,17 +2074,17 @@ object Form2: TForm2
     end
     object Contributors: TTabSheet
       Caption = 'Contributors'
-      ClientHeight = 316
-      ClientWidth = 547
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo4: TMemo
         Left = 2
-        Height = 310
+        Height = 202
         Top = 3
-        Width = 542
+        Width = 405
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -13
-        Font.Name = 'Ubuntu Mono'
+        Font.Name = 'Ubuntu'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
         Lines.Strings = (
@@ -2097,13 +2108,13 @@ object Form2: TForm2
     object TabSheet3: TTabSheet
       AnchorSideRight.Side = asrBottom
       Caption = '  Licence  '
-      ClientHeight = 316
-      ClientWidth = 547
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo3: TMemo
         Left = 2
-        Height = 311
+        Height = 203
         Top = 3
-        Width = 542
+        Width = 405
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -13
@@ -2120,19 +2131,19 @@ object Form2: TForm2
     end
     object TabSheet2: TTabSheet
       Caption = 'Changelog'
-      ClientHeight = 316
-      ClientWidth = 547
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo1: TMemo
-        Left = 125
-        Height = 297
+        Left = 93
+        Height = 201
         Top = 4
-        Width = 418
+        Width = 314
         Anchors = [akTop, akLeft, akRight, akBottom]
         Color = clWhite
         Font.CharSet = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -13
-        Font.Name = 'Ubuntu Mono'
+        Font.Name = 'Ubuntu'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
         ParentFont = False
@@ -2142,9 +2153,9 @@ object Form2: TForm2
       end
       object ListBox1: TListBox
         Left = 0
-        Height = 277
+        Height = 181
         Top = 24
-        Width = 120
+        Width = 86
         Anchors = [akTop, akLeft, akBottom]
         BorderStyle = bsNone
         Font.CharSet = ANSI_CHARSET
@@ -2155,7 +2166,7 @@ object Form2: TForm2
         ItemHeight = 0
         OnClick = RadioGroup1Click
         ParentFont = False
-        ScrollWidth = 120
+        ScrollWidth = 12
         Sorted = True
         TabOrder = 1
       end
@@ -2172,8 +2183,8 @@ object Form2: TForm2
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 379
-    Width = 756
+    Top = 271
+    Width = 619
     Panels = <>
   end
 end

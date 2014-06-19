@@ -70,6 +70,8 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
+		MenuItem10: TMenuItem;
+		MenuNew: TMenuItem;
     MenuMove: TMenuItem;
     MenuMoveTop: TMenuItem;
     MenuMoveUp: TMenuItem;
@@ -125,7 +127,9 @@ type
     procedure MenuAboutClick(Sender: TObject);
     procedure ColorThemeClick(Sender: TObject);
     procedure MenuDatabaseClick(Sender: TObject);
+		procedure MenuItem10Click(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
+		procedure MenuNewClick(Sender: TObject);
     procedure MenuPeopleClick(Sender: TObject);
     procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
@@ -154,7 +158,7 @@ type
     //FCurrentUser: Integer;      // ID of the currently selected "User"/Person
     FCurrentFilePath: string;     // If known - Name of the currently opened File
     FOpenRecent: TStringList;     // The files that have been opened lately - will be in ini file
-    FChangesMade: boolean;        // True, if changes have been made to the file
+    FCanSave: boolean;        // True, if changes have been made to the file
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -176,6 +180,9 @@ type
 
     // Updates the Information shown
     procedure UpdateWindow;
+
+    // Clears all values like filename etc..
+    procedure Clear;
 
     // Load the values from ini file
     procedure LoadIniFile;
@@ -221,7 +228,7 @@ begin
   // default values
   FSelectionIndex := -1;
   FCurrentFilePath := '';
-  FChangesMade := False;
+  FCanSave := False;
 
   // Create Instances
   FWeekList := TWeekList.Create;
@@ -253,6 +260,15 @@ begin
 
 end;
 
+procedure TForm1.Clear;
+begin
+  FSelectionIndex := -1;
+  FCurrentFilePath := '';
+  FCanSave := False;
+  FWeekList.Clear;
+  StringGrid1.Clear;
+  updateWindow;
+end;
 
 procedure TForm1.FormDestroy(Sender: TObject);
 begin
@@ -276,7 +292,6 @@ procedure TForm1.AddWeek(Sender: TObject);
 begin
   AddWeekForm.Visible := True;
   AddWeekForm.Show;
-  FChangesMade := True;
 end;
 
 procedure TForm1.MergeWeeks(Sender: TObject; AIndex1, AIndex2: integer; DeleteFirst: boolean = False);
@@ -294,7 +309,7 @@ begin
     FWeekList.Items[AIndex1].WeekLength := FWeekList.Items[AIndex1].WeekLength + 1;
   end;
   FWeekList.Delete(AIndex2);
-  FChangesMade := True;
+  FCanSave := True;
   updateWindow;
 end;
 
@@ -304,7 +319,7 @@ begin
   WeeksToComboBox(EditWeekForm.ComboBox1, FweekList);
   WeeksToComboBox(EditWeekForm.ComboBox2, FweekList);
   EditWeekForm.ComboBox1.ItemIndex := EditWeekForm.WeekIndex;
-  FChangesMade := True;
+  FCanSave := True;
   updateWindow;
 end;
 
@@ -356,7 +371,7 @@ begin
     begin
       FWeekList.Delete(FSelectionIndex);
       FSelectionIndex := -1;
-      FChangesMade := True;
+      FCanSave := True;
     end;
     updateWindow;
   end;
@@ -370,7 +385,7 @@ begin
     begin
       FWeekList.Clear;
       updateWindow;
-      FChangesMade := True;
+      FCanSave := True;
     end;
   end;
 end;
@@ -379,11 +394,12 @@ procedure TForm1.AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards
 begin
   FWeekList.Add(AWeek);
   updateWindow;
+  FCanSave := True;
+  EnableButtons;
   if EditAfterwards then
   begin
     FSelectionIndex := FWeekList.Count - 1;
     EditButtonClick(self);
-    FChangesMade := True;
   end;
 end;
 
@@ -393,7 +409,7 @@ begin
   begin
     FWeekList.Delete(AIndex);
     updateWindow;
-    FChangesMade := True;
+    FCanSave := True;
   end;
 end;
 
@@ -423,6 +439,33 @@ begin
   DBForm.Show;
 end;
 
+procedure TForm1.MenuItem10Click(Sender: TObject);
+var
+  locForm: TForm;
+  locEdit: TEdit;
+  locButton: TButton;
+begin
+  locForm := TForm.Create(self);
+  locForm.Width:=200;
+  locForm.Height:=35;
+  locForm.Position := poMainFormCenter;
+  locForm.Show;
+  locForm.Caption:= 'Enter Index';
+
+  locEdit := TEdit.Create(locForm);
+  locEdit.Parent := locForm;
+  locEdit.Width := 100;
+  locEdit.Height := 30;
+  locEdit.Left := 2;
+  locEdit.Top := 2;
+  locEdit.Anchors := [akLeft, akTop];
+  locEdit.Show;
+
+  locButton := TButton.Create(locForm);
+  locButton.Left := 110;
+  locButton.Top := 2;
+end;
+
 procedure TForm1.MenuLoadClick(Sender: TObject);
 var
   OpenDlg: TOpenDialog;
@@ -448,9 +491,15 @@ begin
     end;
   finally
     OpenDlg.Free;
-    FChangesMade := False;
+    FCanSave := False;
     updateWindow;
   end;
+end;
+
+procedure TForm1.MenuNewClick(Sender: TObject);
+begin
+  Clear;
+  Statusbar1.Panels[0].Text := txtNewFile;
 end;
 
 procedure TForm1.MenuPeopleClick(Sender: TObject);
@@ -465,7 +514,7 @@ begin
     SaveToFile(FCurrentFilePath, FWeekList);
     AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
     StatusBar1.Panels[0].Text := txtFileSaved;
-    FChangesMade := False;
+    FCanSave := False;
     EnableButtons;
   end
   else
@@ -494,14 +543,14 @@ begin
     end;
   finally
     SaveDlg.Free;
-    FChangesMade := False;
+    FCanSave := False;
     EnableButtons;
   end;
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);
 begin
-  if FChangesMade then
+  if FCanSave then
   begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
@@ -518,7 +567,7 @@ end;
 
 procedure TForm1.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 begin
-  if FChangesMade then
+  if FCanSave then
   begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
@@ -723,8 +772,13 @@ begin
       FormatDateTime('dd.mm.yyyy', earlyDate) + ' )';
     Label5.Caption := 'Latest quitting: ' + TimeToText(latestHour, latestMin) + '   ( on ' +
       FormatDateTime('dd.mm.yyyy', lateDate) + ' )';
-  end;
-  EnableButtons;
+  end
+  else
+  begin
+    Label4.Caption := '';//'Earliest begin:';
+    Label5.Caption := '';//'Latest quitting:';
+	end;
+	EnableButtons;
 
 end;
 
@@ -752,8 +806,8 @@ begin
     MenuSaveAs.Enabled := False;
   end;
 
-  MenuQuickSave.Enabled := FChangesMade and (FCurrentFilePath <> '');
-  ToolButton1.Enabled := FChangesMade and (FCurrentFilePath <> '');
+  MenuQuickSave.Enabled := FCanSave and (FCurrentFilePath <> '');
+  ToolButton1.Enabled := FCanSave and (FCurrentFilePath <> '');
   MenuOpenRecent.Enabled := (MenuOpenRecent.Count > 0);
   MenuMove.Enabled := (FWeekList.Count > 1);
 
@@ -810,7 +864,7 @@ begin
     StatusBar1.Panels[0].Text := '"' + ExtractFileName(filename) + '" loaded!';
     FCurrentFilePath := filename;
     AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
-    FChangesMade := False;
+    FCanSave := False;
   except
     on e: Exception do
     begin
@@ -836,6 +890,7 @@ begin
       FWeekList.Insert(0,TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
       FWeekList.Delete(FSelectionIndex + 1);
       tempIndex := 0;
+      FCanSave := True;
     end;
 
     // Move Item to Bottom
@@ -844,6 +899,7 @@ begin
       FWeekList.Insert(FWeekList.Count,TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
       FWeekList.Delete(FSelectionIndex);
       tempIndex := FWeekList.Count-1;
+      FCanSave := True;
     end;
 
     // Move Item 1 step up
@@ -854,6 +910,7 @@ begin
         FWeekList.Insert(FSelectionIndex-1, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
         FWeekList.Delete(FSelectionIndex + 1);
         tempIndex -= 1;
+        FCanSave := True;
       end;
     end;
 
@@ -865,6 +922,7 @@ begin
         FWeekList.Insert(FSelectionIndex+2, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
         FWeekList.Delete(FSelectionIndex);
         tempIndex += 1;
+        FCanSave := True;
       end;
     end;
     updateWindow;
