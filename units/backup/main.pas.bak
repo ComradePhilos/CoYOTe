@@ -71,6 +71,7 @@ type
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
 		MenuItem10: TMenuItem;
+		MenuItem12: TMenuItem;
 		MenuNew: TMenuItem;
     MenuMove: TMenuItem;
     MenuMoveTop: TMenuItem;
@@ -158,7 +159,7 @@ type
     //FCurrentUser: Integer;      // ID of the currently selected "User"/Person
     FCurrentFilePath: string;     // If known - Name of the currently opened File
     FOpenRecent: TStringList;     // The files that have been opened lately - will be in ini file
-    FCanSave: boolean;        // True, if changes have been made to the file
+    FCanSave: boolean;            // True, if changes have been made to the file
 
     // triggered when a week is added
     procedure AddWeekToList(Sender: TObject; AWeek: TWorkWeek; EditAfterwards: boolean);
@@ -443,22 +444,37 @@ procedure TForm1.MenuItem10Click(Sender: TObject);
 var
   locForm: TForm;
   locEdit: TEdit;
-
+  locButton: TButton;
 begin
   locForm := TForm.Create(self);
-  locForm.Width:=200;
-  locForm.Height:=50;
   locForm.Position := poMainFormCenter;
   locForm.Show;
   locForm.Caption:= 'Enter Index';
+
   locEdit := TEdit.Create(locForm);
   locEdit.Parent := locForm;
   locEdit.Width := 100;
   locEdit.Height := 30;
-  locEdit.Left := 5;
-  locEdit.Top := 5;
+  locEdit.Left := 2;
+  locEdit.Top := 2;
   locEdit.Anchors := [akLeft, akTop];
   locEdit.Show;
+
+  locForm.Width:=200;
+  locForm.Height:=LocEdit.Height + 4;
+  locForm.Constraints.MinWidth:=locForm.Width;
+  locForm.Constraints.maxWidth:=locForm.Width;
+  locForm.Constraints.MinHeight:=locForm.Height;
+  locForm.Constraints.maxHeight:=locForm.Height;
+
+  locButton := TButton.Create(locForm);
+  locButton.Parent := locForm;
+  locButton.Left := 102;
+  locButton.Top := 2;
+  locbutton.Width := locEdit.Width-4;
+  locButton.Height := locEdit.Height;
+  locButton.Anchors := [akLeft, akTop];
+  locButton.Caption := 'insert';
 end;
 
 procedure TForm1.MenuLoadClick(Sender: TObject);
