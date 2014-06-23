@@ -34,11 +34,15 @@ type
     MarkHoliday: TMenuItem;
     MarkNormal: TMenuItem;
     MarkIgnore: TMenuItem;
+		MenuItem10: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
 		MenuItem5: TMenuItem;
 		MenuItem6: TMenuItem;
+		MenuItem7: TMenuItem;
+		MenuItem8: TMenuItem;
+		MenuItem9: TMenuItem;
     MenuMoveTop: TMenuItem;
     MenuMoveBottom: TMenuItem;
     MenuMoveUp: TMenuItem;
@@ -50,9 +54,6 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    MenuDelete: TMenuItem;
-    MenuEdit: TMenuItem;
-    MenuAdd: TMenuItem;
     PopupMenu1: TPopupMenu;
     SaveDialog1: TSaveDialog;
     StatusBar1: TStatusBar;

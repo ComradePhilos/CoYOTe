@@ -47,7 +47,7 @@ uses
   ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons, ActnList,
   IBConnection, DateUtils, INIFiles, TypInfo,
   { Forms }
-  WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm,
+  WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm, SettingsForm,
   { own Units }
   workdays, funcs, CoyoteDefaults;
 
@@ -134,6 +134,7 @@ type
     procedure MenuPeopleClick(Sender: TObject);
     procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
+		procedure MenuSettingsClick(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -155,6 +156,7 @@ type
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
     DBForm: TForm6;               // The window to connect to the firebird database
     PersonForm: TForm5;
+    FormSettings: TForm7;
 
     //FCurrentUser: Integer;      // ID of the currently selected "User"/Person
     FCurrentFilePath: string;     // If known - Name of the currently opened File
@@ -241,6 +243,7 @@ begin
   AddWeekForm := TForm4.Create(nil);
   DBForm := TForm6.Create(nil);
   PersonForm := TForm5.Create(nil);
+  FormSettings := TForm7.Create(nil);
 
   AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
@@ -475,6 +478,8 @@ begin
   locButton.Height := locEdit.Height;
   locButton.Anchors := [akLeft, akTop];
   locButton.Caption := 'insert';
+
+
 end;
 
 procedure TForm1.MenuLoadClick(Sender: TObject);
@@ -557,6 +562,11 @@ begin
     FCanSave := False;
     EnableButtons;
   end;
+end;
+
+procedure TForm1.MenuSettingsClick(Sender: TObject);
+begin
+  FormSettings.Visible := True;
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);

@@ -159,6 +159,8 @@ object Form5: TForm5
     Width = 142
     AutoSize = True
     Caption = 'FamilyName, FirstName'
+    Color = clBlack
+    ParentColor = False
     TabOrder = 4
   end
   object LabeledEdit4: TLabeledEdit

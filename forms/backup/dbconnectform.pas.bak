@@ -92,7 +92,7 @@ end;
 
 procedure TForm6.ConnectBtn1Click(Sender: TObject);
 begin
-  FDBConnectEvent(self, False);
+  //FDBConnectEvent(self, False);
   Statusbar1.Panels[0].Text := 'Database is not connectable! =(';
   try
     connectbtnClick(nil);

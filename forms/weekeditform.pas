@@ -54,9 +54,6 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
-    MenuDelete: TMenuItem;
-    MenuEdit: TMenuItem;
-    MenuAdd: TMenuItem;
     PopupMenu1: TPopupMenu;
     SaveDialog1: TSaveDialog;
     StatusBar1: TStatusBar;
