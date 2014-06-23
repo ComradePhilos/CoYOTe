@@ -10,7 +10,7 @@ ResourceString
 
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.0.5.5';          // Programme-Version
+  VersionNr = '0.0.5.6';          // Programme-Version
   VersionDate = '23.06.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
 
@@ -42,9 +42,10 @@ ResourceString
   defToolbarColor = $00E0E0E0; // $00FFDBB7;
 
   var
+    // Standard Values - will be used, if nothing was found in the ini-file
     defHoursUntilPause: double = 6;  // Amount of time before the obligatory pause is needed / added
     defPausePerDay: double = 0.75;
-    defHoursPerDay: double = 8;       // Standard Value
+    defHoursPerDay: double = 8;      // Standard Value
 
 implementation
 

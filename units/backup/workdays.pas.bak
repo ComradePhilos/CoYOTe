@@ -111,9 +111,8 @@ function getMinute(time: string): integer;
 function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
 
-var
-  defHoursUntilPause: Integer = 6;  // Amount of time before the obligatory pause is needed / added
-  defHoursPerDay: double = 8;       // Standard Value
+//var
+
 
 implementation
 

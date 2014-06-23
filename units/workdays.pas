@@ -210,7 +210,7 @@ begin
   FWeekLabel := 'empty week';
   FWeekLength := 0;
   FIntendedTimePerDay := defHoursPerDay;
-  FPausePerDay := 0.75;
+  FPausePerDay := defPausePerDay;
   FDescriptionText := TStringList.Create;
 end;
 
@@ -222,7 +222,7 @@ begin
   FToDate := AToDate;
   FWeekLength := DaysBetween(FToDate,FFromDate)+ 1;
   FIntendedTimePerDay := defHoursPerDay;
-  FPausePerDay := 0.75;
+  FPausePerDay := defPausePerDay;
   FDays := TWorkDays.Create(true);
   FWeekLabel := FormatDateTime('dd.mm.yyyy', FromDate) + '   to   ' + FormatDateTime('dd.mm.yyyy', ToDate);
   for I := 0 to FWeekLength-1 do

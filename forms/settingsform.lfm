@@ -7,7 +7,6 @@ object Form7: TForm7
   ClientHeight = 269
   ClientWidth = 332
   OnCreate = FormCreate
-  OnResize = FormResize
   Position = poMainFormCenter
   LCLVersion = '1.2.2.0'
   object PageControl1: TPageControl
@@ -26,10 +25,10 @@ object Form7: TForm7
       ClientHeight = 195
       ClientWidth = 310
       object StringGrid1: TStringGrid
-        Left = -1
-        Height = 197
-        Top = -1
-        Width = 312
+        Left = 0
+        Height = 196
+        Top = 0
+        Width = 311
         Anchors = [akTop, akLeft, akRight, akBottom]
         ColCount = 2
         Columns = <        
@@ -40,7 +39,6 @@ object Form7: TForm7
         Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goSmoothScroll, goFixedColSizing]
         RowCount = 4
         TabOrder = 0
-        TitleStyle = tsNative
         ColWidths = (
           233
           64
@@ -146,6 +144,7 @@ object Form7: TForm7
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
+    OnClick = BitBtn1Click
     TabOrder = 1
   end
   object BitBtn2: TBitBtn

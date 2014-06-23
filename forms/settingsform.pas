@@ -6,7 +6,9 @@ interface
 
 uses
       Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-			ExtCtrls, ValEdit, ButtonPanel, Buttons, Grids;
+			ExtCtrls, ValEdit, ButtonPanel, Buttons, Grids,
+      { own Units }
+      CoyoteDefaults;
 
 type
 
@@ -20,9 +22,9 @@ type
 						PageControl1: TPageControl;
 						StringGrid1: TStringGrid;
 						TabSheet1: TTabSheet;
-						procedure BitBtn2Click(Sender: TObject);
+						procedure BitBtn1Click(Sender: TObject);
+      procedure BitBtn2Click(Sender: TObject);
       procedure FormCreate(Sender: TObject);
-			procedure FormResize(Sender: TObject);
       private
             { private declarations }
       public
@@ -44,15 +46,25 @@ begin
   self.Constraints.MinHeight := self.Height;
 end;
 
-procedure TForm7.FormResize(Sender: TObject);
-begin
-  //StringGrid1.Columns.Items[0].Width := ;
-end;
-
-
 procedure TForm7.BitBtn2Click(Sender: TObject);
 begin
   self.Visible := False;
+end;
+
+procedure TForm7.BitBtn1Click(Sender: TObject);
+begin
+  try
+    defHoursPerDay := StrToFloat(StringGrid1.Cells[1,1]);
+    defPausePerDay := StrToFloat(StringGrid1.Cells[1,2]);
+    defHoursUntilPause := StrToFloat(StringGrid1.Cells[1,3]);
+    self.Visible := False;
+	except
+    on e:EConvertError do
+    begin
+      application.MessageBox(PChar('Not a valid number input! Try switching "." and "," as the comma separator!'), 'Invalid Input', 0);
+		end;
+	end;
+
 end;
 
 end.
