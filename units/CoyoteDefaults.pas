@@ -6,6 +6,10 @@ unit CoyoteDefaults;
 
 interface
 
+uses INIFiles;
+
+procedure CreateLanguageFile(AFilePath: String);
+
 ResourceString
 
   // Programme-Information
@@ -13,6 +17,8 @@ ResourceString
   VersionNr = '0.0.5.6';          // Programme-Version
   VersionDate = '23.06.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
+  defLanguage = 'English';        // not sure what we will need in future
+  defLanguageShort = 'en';
 
   // Messages / Errors
   txtDeleteAllMsg = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
@@ -36,6 +42,24 @@ ResourceString
   dbDefaultFirebirdUser = 'SYSDBA';
   dbDefaultFirebirdPort = ''; // 3050
 
+  // default short day names
+  txtMon = 'Mon';
+  txtTue = 'Tue';
+  txtWed = 'Wed';
+  txtThu = 'Thu';
+  txtFri = 'Fri';
+  txtSat = 'Sat';
+  txtSun = 'Sun';
+
+  // default long day names
+  txtMonday = 'Monday';
+  txtTuesday = 'Tuesday';
+  txtWednesday = 'Wednesday';
+  txtThursday = 'Thursday';
+  txtFriday = 'Friday';
+  txtSaturday = 'Saturday';
+  txtSunday = 'Sunday';
+
   // constants
   const
   txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
@@ -48,6 +72,14 @@ ResourceString
     defHoursPerDay: double = 8;      // Standard Value
 
 implementation
+
+procedure CreateLanguageFile(AFilePath: String);
+begin
+
+end;
+
+//initialization
+  //LRSTranslator := TPoTranslator.Create('languages/CoYOTe-win64(x86_64).de.po');
 
 
 

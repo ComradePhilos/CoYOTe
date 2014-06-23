@@ -30,14 +30,21 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
+
 // # the obligatory pause time added to your whole work time applies at least after 6 hours of work in Germany,
 //  so on a 6-hour day you need to have the pause. This topic needs to be kept in mind for calculation
+
 // # think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
 //    OR think about saving in whole directory, like DataNorm
+
 // # we might end up not using one WeekList, but a list of WeekLists for each person our system should track time for
+
 // # we should support some kind of anonymous methods, that calculate the time etc... So the classes in workdays.pas
 //  get a little more abstract and will get the methods to calculate dynamically, like dependency injection. This could
 //  help to support other common practice in other countries. Right now you would have to change code in many units.
+
+// # The translations might finally be implemented by using the ini-file component. In fact the i18n function using
+// .po-files was not too different
 
 unit main;
 
@@ -228,7 +235,7 @@ begin
   {$ENDIF}
 
   self.Caption := ProgrammeName + '  ' + VersionNr;
-  FLanguage := 'English';
+  FLanguage := defLanguage;
 
   // default values
   FSelectionIndex := -1;

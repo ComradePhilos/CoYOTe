@@ -15,6 +15,14 @@ coyotedefaults.versiondate='23.06.2014'
 coyotedefaults.lazarusversion='1.2.2'
 
 
+# hash value = 206450904
+coyotedefaults.deflanguage='English'
+
+
+# hash value = 1726
+coyotedefaults.deflanguageshort='en'
+
+
 # hash value = 247878721
 coyotedefaults.txtdeleteallmsg='Do you really wish to delete every entry?'+
 ' All data will be lost if you do not make a copy!'
@@ -91,3 +99,59 @@ coyotedefaults.dbdefaultfirebirduser='SYSDBA'
 
 # hash value = 4294967295
 coyotedefaults.dbdefaultfirebirdport=
+
+# hash value = 21598
+coyotedefaults.txtmon='Mon'
+
+
+# hash value = 23477
+coyotedefaults.txttue='Tue'
+
+
+# hash value = 23988
+coyotedefaults.txtwed='Wed'
+
+
+# hash value = 23285
+coyotedefaults.txtthu='Thu'
+
+
+# hash value = 19849
+coyotedefaults.txtfri='Fri'
+
+
+# hash value = 22916
+coyotedefaults.txtsat='Sat'
+
+
+# hash value = 23230
+coyotedefaults.txtsun='Sun'
+
+
+# hash value = 88492681
+coyotedefaults.txtmonday='Monday'
+
+
+# hash value = 196909785
+coyotedefaults.txttuesday='Tuesday'
+
+
+# hash value = 189581113
+coyotedefaults.txtwednesday='Wednesday'
+
+
+# hash value = 264871721
+coyotedefaults.txtthursday='Thursday'
+
+
+# hash value = 81328777
+coyotedefaults.txtfriday='Friday'
+
+
+# hash value = 146575129
+coyotedefaults.txtsaturday='Saturday'
+
+
+# hash value = 95177353
+coyotedefaults.txtsunday='Sunday'
+
