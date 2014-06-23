@@ -6,7 +6,7 @@ interface
 
 uses
       Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-			ExtCtrls, ValEdit, ButtonPanel, Buttons;
+			ExtCtrls, ValEdit, ButtonPanel, Buttons, Grids;
 
 type
 
@@ -18,9 +18,11 @@ type
 						BitBtn3: TBitBtn;
 						ImageList1: TImageList;
 						PageControl1: TPageControl;
+						StringGrid1: TStringGrid;
 						TabSheet1: TTabSheet;
 						procedure BitBtn2Click(Sender: TObject);
       procedure FormCreate(Sender: TObject);
+			procedure FormResize(Sender: TObject);
       private
             { private declarations }
       public
@@ -41,6 +43,12 @@ begin
   self.Constraints.MinWidth := BitBtn1.Width + BitBtn2.Width + BitBtn3.Width + (3*10);
   self.Constraints.MinHeight := self.Height;
 end;
+
+procedure TForm7.FormResize(Sender: TObject);
+begin
+  //StringGrid1.Columns.Items[0].Width := ;
+end;
+
 
 procedure TForm7.BitBtn2Click(Sender: TObject);
 begin

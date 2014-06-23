@@ -237,6 +237,7 @@ end;
 
 constructor TWorkWeek.Create(AWorkWeek: TWorkWeek);
 begin
+  FDays := TWorkDays.Create(true);
   self.assign(AWorkWeek);
 end;
 

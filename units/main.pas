@@ -25,6 +25,8 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * database commit and download
 // * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
 // * save all people and lists in one file
+// * use Formatsettings for the save and load function
+// * save Position + Size of Settings Form to ini file
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
@@ -566,8 +568,14 @@ begin
 end;
 
 procedure TForm1.MenuSettingsClick(Sender: TObject);
+var
+  fs: TFormatSettings;
 begin
+  //fs.DecimalSeparator := ';
   FormSettings.Visible := True;
+  FormSettings.StringGrid1.Cells[1,1] := FloatToStr(defHoursPerDay);
+  FormSettings.StringGrid1.Cells[1,2] := FloatToStr(defPausePerDay);
+  FormSettings.StringGrid1.Cells[1,3] := FloatToStr(defHoursUntilPause);
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);
@@ -615,7 +623,9 @@ procedure TForm1.SaveIniFile;
 var
   INI: TINIFile;
   I: integer;
+  fs: TFormatSettings;
 begin
+  fs.DecimalSeparator := '.';
   // Write INI-File
   INI := TINIFile.Create('coyote.ini');
   INI.UpdateFile;
@@ -631,11 +641,19 @@ begin
   INI.WriteString('EditWeekForm', 'height', IntToStr(EditWeekForm.Height));
   INI.WriteString('EditWeekForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(EditWeekForm.WindowState)));
 
-
   INI.WriteString('DBInfo', 'hostname', DBForm.LabeledEdit1.Text);
   INI.WriteString('DBInfo', 'port', DBForm.LabeledEdit2.Text);
   INI.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
   INI.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
+
+  INI.WriteString('SettingsForm','xpos', IntToStr(FormSettings.Left));
+  INI.WriteString('SettingsForm','ypos', IntToStr(FormSettings.Top));
+  INI.WriteString('SettingsForm','width', IntToStr(FormSettings.Width));
+  INI.WriteString('SettingsForm','height', IntToStr(FormSettings.Height));
+
+  INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause,fs));
+  INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay,fs));
+  INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay,fs));
 
   // Recent Files
   INI.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
@@ -662,7 +680,9 @@ var
   INI: TINIFile;
   s: string;
   I: integer;
+  fs: TFormatSettings;
 begin
+  fs.DecimalSeparator := '.';
   INI := TINIFile.Create('coyote.ini');
 
   self.Left := StrToInt(INI.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
@@ -683,6 +703,14 @@ begin
   DBForm.LabeledEdit2.Text := INI.ReadString('DBInfo', 'port', dbDefaultFirebirdPort);
   DBForm.LabeledEdit5.Text := INI.ReadString('DBInfo', 'dbname', '');
   DBForm.LabeledEdit3.Text := INI.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
+
+  defHoursUntilPause := StrToFloat(INI.ReadString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause,fs)),fs);
+  defHoursPerDay := StrToFloat(INI.ReadString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay,fs)),fs);
+  defPausePerDay := StrToFloat(INI.ReadString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay,fs)),fs);
+
+  INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause,fs));
+  INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay,fs));
+  INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay,fs));
 
   for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
