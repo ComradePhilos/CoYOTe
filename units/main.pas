@@ -43,9 +43,6 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 //  get a little more abstract and will get the methods to calculate dynamically, like dependency injection. This could
 //  help to support other common practice in other countries. Right now you would have to change code in many units.
 
-// # The translations might finally be implemented by using the ini-file component. In fact the i18n function using
-// .po-files was not too different
-
 unit main;
 
 {$mode objfpc}{$H+}
@@ -94,12 +91,12 @@ type
     PopupEditPeriod: TMenuItem;
     PopupRemovePeriod: TMenuItem;
     MenuItem5: TMenuItem;
-    MenuItem8: TMenuItem;
+    MenuStatistics: TMenuItem;
     MenuOpenRecent: TMenuItem;
-    MenuItem6: TMenuItem;
-    MenuItem7: TMenuItem;
+    MenuDBDownload: TMenuItem;
+    MenuDBUpload: TMenuItem;
     MenuSettings: TMenuItem;
-    MenuItem11: TMenuItem;
+    MenuLanguage: TMenuItem;
     MenuEnglish: TMenuItem;
     MenuGerman: TMenuItem;
     MenuManual: TMenuItem;
@@ -517,7 +514,7 @@ var
   OpenDlg: TOpenDialog;
 begin
   OpenDlg := TOpenDialog.Create(self);
-  OpenDlg.Title := 'Open file';
+  OpenDlg.Title := mcOpen;
   try
     OpenDlg.InitialDir := '../data/';
     OpenDlg.DoFolderChange;
@@ -578,7 +575,7 @@ begin
   SaveDlg.DoFolderChange;
   SaveDlg.FileName := 'test user.sav';
   SaveDlg.Options := [ofOverwritePrompt];
-  SaveDlg.Title := 'Save as';
+  SaveDlg.Title := mcSaveAs;
   try
     if SaveDlg.Execute then
     begin
@@ -1037,6 +1034,18 @@ begin
   MenuLoad.Caption := mcOpen;
   MenuOpenRecent.Caption := mcOpenRecent;
   MenuQuit.Caption := mcExit;
+
+  MenuPeople.Caption := mcPeople;
+  MenuStatistics.Caption := mcStatistics;
+  MenuDBSettings.Caption := mcDatabaseSettings;
+  MenuDBDownload.Caption := mcDatabaseDownload;
+  MenuDBUpload.Caption := mcDatabaseUpload;
+  MenuSettings.Caption := mcProgrammeSettings;
+  MenuColorTheme.Caption := mcColorTheme;
+  MenuLanguage.Caption := mcLanguage;
+  MenuManual.Caption := mcManual;
+  MenuAbout.Caption := mcAbout;
+
 end;
 
 end.

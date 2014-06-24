@@ -1,5 +1,6 @@
 {
  This Unit shall contain default values for strings, constant values etc.
+ This is the place for the translation strings
 }
 
 unit CoyoteDefaults;
@@ -8,92 +9,111 @@ interface
 
 uses INIFiles;
 
-procedure CreateLanguageFile(AFilePath: String);
+procedure CreateLanguageFile(AFilePath: string);
 
-procedure LoadFromLanguageFile(AFilePath: String);
+procedure LoadFromLanguageFile(AFilePath: string);
 
+resourcestring
+  // Programme-Information
+  ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
+  VersionNr = '0.0.5.7';          // Programme-Version
+  VersionDate = '24.06.2014';     // Date of the latest changes
+  LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
+  defLanguage = 'English';        // not sure what we will need in future
+  defLanguageID = 'en';
+
+
+// The following values are either default strings that can be translated using a lang-file or are default values which
+// will be changed if there is an entry in the INI-file.
 
 var
 
-  // Programme-Information
-  ProgrammeName: String = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr: String = '0.0.5.7';          // Programme-Version
-  VersionDate: String = '24.06.2014';     // Date of the latest changes
-  LazarusVersion: String = '1.2.2';       // Version of the Lazarus IDE the programme was created with
-  defLanguage: String = 'English';        // not sure what we will need in future
-  defLanguageID: String = 'en';
-
   // Messages / Errors
-  txtDeleteAllMsg: String = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
-  txtDeleteMsg: String = 'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
-  txtRemoveMsg: String = 'Do you really want to delete the selected day? This will delete all data related to it!';
-  txtClearMsg: String = 'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
-  txtQuitMsg: String = 'You did not save your changes yet! Do you really want to quit?';
+  txtDeleteAllMsg: string = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
+  txtDeleteMsg: string =
+  'Are you sure you want to delete this period including all days related to it? This cannot be made undone afterwards!';
+  txtRemoveMsg: string = 'Do you really want to delete the selected day? This will delete all data related to it!';
+  txtClearMsg: string =
+  'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
+  txtQuitMsg: string = 'You did not save your changes yet! Do you really want to quit?';
 
-  txtCaptionDelete: String = 'Really delete?';
-  txtQuitProgramme: String = 'Quit Programme';
-  txtFileSaved: String = 'File saved...';
-  txtNewFile: String = 'Created new file...';
+  txtCaptionDelete: string = 'Really delete?';
+  txtQuitProgramme: string = 'Quit Programme';
+  txtFileSaved: string = 'File saved...';
+  txtNewFile: string = 'Created new file...';
 
-  emDateOrder: String = 'Error: The dates are in the wrong order!';
-  emHoursPerDay: String = 'Error: Enter a valid amount of time per day!';
-  emInvalidFileFormat: String = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
-  emFileNotFound: String = 'Error: The selected file could not be found!';
-  emMergeNoWeekSelected: String = 'Cannot merge, because no week to merge with has been selected! Please select one using the combobox!' ;
-  emMergeSameWeek: String = 'Cannot merge a week with itself! Please select a different week via the combobox!';
+  emDateOrder: string = 'Error: The dates are in the wrong order!';
+  emHoursPerDay: string = 'Error: Enter a valid amount of time per day!';
+  emInvalidFileFormat: string = 'The file could not be loaded, because it is not a valid CoYOT(e) file!';
+  emFileNotFound: string = 'Error: The selected file could not be found!';
+  emMergeNoWeekSelected: string =
+  'Cannot merge, because no week to merge with has been selected! Please select one using the combobox!';
+  emMergeSameWeek: string = 'Cannot merge a week with itself! Please select a different week via the combobox!';
 
-  dbDefaultFirebirdUser: String = 'SYSDBA';
-  dbDefaultFirebirdPort: String = ''; // 3050
+  dbDefaultFirebirdUser: string = 'SYSDBA';
+  dbDefaultFirebirdPort: string = ''; // 3050
+
+  // Captions in menus
+  mcFile: string = 'File';
+  mcEdit: string = 'Edit';
+  mcShow: string = 'Show';
+  mcDataBase: string = 'Database';
+  mcOptions: string = 'Options';
+  mcHelp: string = 'Help';
+
+  mcNew: string = 'New';
+  mcSaveAs: string = 'Save as';
+  mcSave: string = 'Save';
+  mcOpen: string = 'Open';
+  mcOpenRecent: string = 'Open Recent';
+  mcExit: string = 'Exit';
+
+  mcPeople: String = 'People';
+  mcStatistics: String = 'Statistics';
+  mcDatabaseSettings: String = 'database settings';
+  mcDatabaseUpload: String = 'push to database';
+  mcDatabaseDownload: String = 'load from database';
+  mcProgrammeSettings: String = 'Programme Settings';
+  mcColorTheme: String = 'Color Theme';
+  mcLanguage: String = 'Language';
+  mcManual: String = 'Manual (PDF)';
+  mcAbout: String = 'About';
+
+
+  // default short day names
+  txtMon: string = 'Mon';
+  txtTue: string = 'Tue';
+  txtWed: string = 'Wed';
+  txtThu: string = 'Thu';
+  txtFri: string = 'Fri';
+  txtSat: string = 'Sat';
+  txtSun: string = 'Sun';
 
   // default long day names
-  txtMonday: String = 'Monday';
-  txtTuesday: String = 'Tuesday';
-  txtWednesday: String = 'Wednesday';
-  txtThursday: String = 'Thursday';
-  txtFriday: String = 'Friday';
-  txtSaturday: String = 'Saturday';
-  txtSunday: String = 'Sunday';
+  txtMonday: string = 'Monday';
+  txtTuesday: string = 'Tuesday';
+  txtWednesday: string = 'Wednesday';
+  txtThursday: string = 'Thursday';
+  txtFriday: string = 'Friday';
+  txtSaturday: string = 'Saturday';
+  txtSunday: string = 'Sunday';
 
-  // menu Captions
-  mcFile: String = 'File';
-  mcEdit: String = 'Edit';
-  mcShow: String = 'Show';
-  mcDataBase: String = 'Database';
-  mcOptions: String = 'Options';
-  mcHelp: String = 'Help';
-
-  mcNew: String = 'New';
-  mcSaveAs: String = 'Save as';
-  mcSave: String = 'Save';
-  mcOpen: String = 'Open';
-  mcOpenRecent: String = 'Open Recent';
-
-  defToolbarColor: Integer= $00E0E0E0; // $00FFDBB7;
-
-      // default short day names
-  txtMon: String = 'Mon';
-  txtTue: String = 'Tue';
-  txtWed: String = 'Wed';
-  txtThu: String = 'Thu';
-  txtFri: String = 'Fri';
-  txtSat: String = 'Sat';
-  txtSun: String = 'Sun';
-
-    txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
-    // Standard Values - will be used, if nothing was found in the ini-file
-    defHoursUntilPause: double = 6;  // Amount of time before the obligatory pause is needed / added
-    defPausePerDay: double = 0.75;
-    defHoursPerDay: double = 8;      // Standard Value
+  txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
+  // Standard Values - will be used, if nothing was found in the ini-file
+  defHoursUntilPause: double = 6;  // Amount of time before the obligatory pause is needed / added
+  defPausePerDay: double = 0.75;
+  defHoursPerDay: double = 8;      // Standard Value
+  defToolbarColor: integer = $00E0E0E0; // $00FFDBB7;
 
 implementation
 
-procedure CreateLanguageFile(AFilePath: String);
+procedure CreateLanguageFile(AFilePath: string);
 begin
 
 end;
 
 
-procedure LoadFromLanguageFile(AFilePath: String);
+procedure LoadFromLanguageFile(AFilePath: string);
 var
   INI: TInifile;
 begin
@@ -124,11 +144,25 @@ begin
   mcDataBase := INI.ReadString('MenuCaption', 'mcDataBase', mcDataBase);
   mcOptions := INI.ReadString('MenuCaption', 'mcOptions', mcOptions);
   mcHelp := INI.ReadString('MenuCaption', 'mcHelp', mcHelp);
+
+  mcNew := INI.ReadString('MenuCaption', 'mcNew', mcNew);
+  mcOpen := INI.ReadString('MenuCaption', 'mcOpen', mcOpen);
+  mcOpenRecent := INI.ReadString('MenuCaption', 'mcOpenRecent', mcOpenRecent);
+  mcSaveAs := INI.ReadString('MenuCaption', 'mcSaveAs', mcSaveAs);
+  mcSave := INI.ReadString('MenuCaption', 'mcSave', mcSave);
+  mcExit := INI.ReadString('MenuCaption', 'mcExit', mcExit);
+
+  mcPeople := INI.ReadString('MenuCaption', 'mcPeople', mcPeople);
+  mcStatistics := INI.ReadString('MenuCaption', 'mcStatistics', mcStatistics);
+  mcDatabaseSettings := INI.ReadString('MenuCaption', 'mcDatabaseSettings', mcDatabaseSettings);
+  mcDatabaseUpload := INI.ReadString('MenuCaption', 'mcDatabaseUpload', mcDatabaseUpload);
+  mcDatabaseDownload := INI.ReadString('MenuCaption', 'mcDatabaseDownload', mcDatabaseDownload);
+  mcProgrammeSettings := INI.ReadString('MenuCaption', 'mcProgrammeSettings', mcProgrammeSettings);
+  mcColorTheme := INI.ReadString('MenuCaption', 'mcColorTheme', mcColorTheme);
+  mcLanguage := INI.ReadString('MenuCaption', 'mcLanguage', mcLanguage);
+  mcManual := INI.ReadString('MenuCaption', 'mcManual', mcManual);
+  mcAbout := INI.ReadString('MenuCaption', 'mcAbout', mcAbout);
 end;
-
-//initialization
-  //LRSTranslator := TPoTranslator.Create('languages/CoYOTe-win64(x86_64).de.po');
-
 
 
 end.

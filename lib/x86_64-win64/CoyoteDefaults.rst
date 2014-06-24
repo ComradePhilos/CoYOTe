@@ -3,12 +3,12 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 51583014
-coyotedefaults.versionnr='0.0.5.6'
+# hash value = 51583016
+coyotedefaults.versionnr='0.0.5.8'
 
 
-# hash value = 59901268
-coyotedefaults.versiondate='23.06.2014'
+# hash value = 59901012
+coyotedefaults.versiondate='24.06.2014'
 
 
 # hash value = 3413266
@@ -20,110 +20,5 @@ coyotedefaults.deflanguage='English'
 
 
 # hash value = 1726
-coyotedefaults.deflanguageshort='en'
-
-
-# hash value = 247878721
-coyotedefaults.txtdeleteallmsg='Do you really wish to delete every entry?'+
-' All data will be lost if you do not make a copy!'
-
-
-# hash value = 65444993
-coyotedefaults.txtdeletemsg='Are you sure you want to delete this period '+
-'including all days related to it? This cannot be made undone afterwards!'+
-
-
-# hash value = 61253729
-coyotedefaults.txtremovemsg='Do you really want to delete the selected da'+
-'y? This will delete all data related to it!'
-
-
-# hash value = 35833967
-coyotedefaults.txtclearmsg='This will clear the current week and make it '+
-'empty but will NOT delete the week! Do you wish to Continue?'
-
-
-# hash value = 233224495
-coyotedefaults.txtquitmsg='You did not save your changes yet! Do you real'+
-'ly want to quit?'
-
-
-# hash value = 21099631
-coyotedefaults.txtcaptiondelete='Really delete?'
-
-
-# hash value = 166605349
-coyotedefaults.txtquitprogramme='Quit Programme'
-
-
-# hash value = 97069278
-coyotedefaults.txtfilesaved='File saved...'
-
-
-# hash value = 1918110
-coyotedefaults.txtnewfile='Created new file...'
-
-
-# hash value = 249485425
-coyotedefaults.emdateorder='Error: The dates are in the wrong order!'
-
-
-# hash value = 85614353
-coyotedefaults.emhoursperday='Error: Enter a valid amount of time per day'+
-'!'
-
-
-# hash value = 17622801
-coyotedefaults.eminvalidfileformat='The file could not be loaded, because'+
-' it is not a valid CoYOT(e) file!'
-
-
-# hash value = 182413169
-coyotedefaults.emfilenotfound='Error: The selected file could not be foun'+
-'d!'
-
-
-# hash value = 113672449
-coyotedefaults.emmergenoweekselected='Cannot merge, because no week to me'+
-'rge with has been selected! Please select one using the combobox!'
-
-
-# hash value = 146457857
-coyotedefaults.emmergesameweek='Cannot merge a week with itself! Please s'+
-'elect a different week via the combobox!'
-
-
-# hash value = 93223009
-coyotedefaults.dbdefaultfirebirduser='SYSDBA'
-
-
-# hash value = 4294967295
-coyotedefaults.dbdefaultfirebirdport=
-
-# hash value = 88492681
-coyotedefaults.txtmonday='Monday'
-
-
-# hash value = 196909785
-coyotedefaults.txttuesday='Tuesday'
-
-
-# hash value = 189581113
-coyotedefaults.txtwednesday='Wednesday'
-
-
-# hash value = 264871721
-coyotedefaults.txtthursday='Thursday'
-
-
-# hash value = 81328777
-coyotedefaults.txtfriday='Friday'
-
-
-# hash value = 146575129
-coyotedefaults.txtsaturday='Saturday'
-
-
-# hash value = 95177353
-coyotedefaults.txtsunday='Sunday'
+coyotedefaults.deflanguageid='en'
 

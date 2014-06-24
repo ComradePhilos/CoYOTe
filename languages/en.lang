@@ -32,3 +32,14 @@ mcSave=Save
 mcOpen=Open
 mcOpenRecent=Open Recent
 mcExit=Exit
+
+mcPeople=People
+mcStatistics=Statistics
+mcDatabaseSettings=database settings
+mcDatabaseUpload=push to database
+mcDatabaseDownload=load from database
+mcProgrammeSettings=Programme Settings
+mcColorTheme=Color Theme
+mcLanguage=Language
+mcManual=Manual(PDF)
+mcAbout=About

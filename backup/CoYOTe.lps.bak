@@ -21,10 +21,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="main"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="768"/>
-        <CursorPos X="15" Y="771"/>
+        <TopLine Value="474"/>
+        <CursorPos X="27" Y="517"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -100,12 +101,11 @@
         <Filename Value="units\CoyoteDefaults.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CoyoteDefaults"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="84"/>
-        <CursorPos X="59" Y="134"/>
-        <UsageCount Value="141"/>
+        <TopLine Value="120"/>
+        <CursorPos X="75" Y="158"/>
+        <UsageCount Value="143"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
@@ -116,7 +116,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="19"/>
         <CursorPos X="19" Y="65"/>
-        <UsageCount Value="99"/>
+        <UsageCount Value="101"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
@@ -130,7 +130,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="86"/>
         <CursorPos X="45" Y="98"/>
-        <UsageCount Value="93"/>
+        <UsageCount Value="95"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -145,7 +145,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="2"/>
         <CursorPos X="14" Y="68"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="90"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit10>
@@ -160,7 +160,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
         <CursorPos X="45" Y="27"/>
-        <UsageCount Value="26"/>
+        <UsageCount Value="28"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit11>
@@ -327,124 +327,124 @@
     </General>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="697" Column="105" TopLine="664"/>
-      </Position1>
-      <Position2>
-        <Filename Value="forms\settingsform.pas"/>
-        <Caret Line="19" Column="45" TopLine="1"/>
-      </Position2>
-      <Position3>
-        <Filename Value="forms\personeditform.pas"/>
-        <Caret Line="67" Column="1" TopLine="31"/>
-      </Position3>
-      <Position4>
-        <Filename Value="forms\settingsform.pas"/>
-        <Caret Line="63" Column="57" TopLine="41"/>
-      </Position4>
-      <Position5>
-        <Filename Value="forms\settingsform.pas"/>
-        <Caret Line="71" Column="108" TopLine="16"/>
-      </Position5>
-      <Position6>
         <Filename Value="forms\settingsform.pas"/>
         <Caret Line="48" Column="5" TopLine="20"/>
-      </Position6>
-      <Position7>
+      </Position1>
+      <Position2>
         <Filename Value="units\CoyoteDefaults.pas"/>
         <Caret Line="50" Column="27" TopLine="16"/>
+      </Position2>
+      <Position3>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="7" Column="24" TopLine="1"/>
+      </Position3>
+      <Position4>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="50" Column="58" TopLine="22"/>
+      </Position4>
+      <Position5>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="48" Column="86" TopLine="27"/>
+      </Position5>
+      <Position6>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="45" Column="87" TopLine="14"/>
+      </Position6>
+      <Position7>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="57" Column="82" TopLine="38"/>
       </Position7>
       <Position8>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="7" Column="24" TopLine="1"/>
+        <Caret Line="67" Column="5" TopLine="19"/>
       </Position8>
       <Position9>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="50" Column="58" TopLine="22"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="68" Column="15" TopLine="33"/>
       </Position9>
       <Position10>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="48" Column="86" TopLine="27"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="9" Column="24" TopLine="1"/>
       </Position10>
       <Position11>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="45" Column="87" TopLine="14"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="70" Column="5" TopLine="34"/>
       </Position11>
       <Position12>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="57" Column="82" TopLine="38"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="98" Column="75" TopLine="44"/>
       </Position12>
       <Position13>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="67" Column="5" TopLine="19"/>
+        <Caret Line="69" Column="3" TopLine="36"/>
       </Position13>
       <Position14>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="68" Column="15" TopLine="33"/>
+        <Caret Line="61" Column="11" TopLine="29"/>
       </Position14>
       <Position15>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="9" Column="24" TopLine="1"/>
+        <Caret Line="62" Column="18" TopLine="29"/>
       </Position15>
       <Position16>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="70" Column="5" TopLine="34"/>
+        <Caret Line="68" Column="20" TopLine="30"/>
       </Position16>
       <Position17>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="98" Column="75" TopLine="44"/>
+        <Caret Line="98" Column="74" TopLine="65"/>
       </Position17>
       <Position18>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="69" Column="3" TopLine="36"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="282" Column="70" TopLine="277"/>
       </Position18>
       <Position19>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="61" Column="11" TopLine="29"/>
+        <Caret Line="106" Column="74" TopLine="53"/>
       </Position19>
       <Position20>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="62" Column="18" TopLine="29"/>
+        <Caret Line="55" Column="23" TopLine="19"/>
       </Position20>
       <Position21>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="68" Column="20" TopLine="30"/>
+        <Caret Line="46" Column="36" TopLine="13"/>
       </Position21>
       <Position22>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="98" Column="74" TopLine="65"/>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="747" Column="23" TopLine="723"/>
       </Position22>
       <Position23>
-        <Filename Value="units\workdays.pas"/>
-        <Caret Line="282" Column="70" TopLine="277"/>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="726" Column="10" TopLine="692"/>
       </Position23>
       <Position24>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="106" Column="74" TopLine="53"/>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="732" Column="29" TopLine="699"/>
       </Position24>
       <Position25>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="55" Column="23" TopLine="19"/>
+        <Filename Value="units\main.pas"/>
+        <Caret Line="470" Column="1" TopLine="457"/>
       </Position25>
       <Position26>
         <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="46" Column="36" TopLine="13"/>
+        <Caret Line="22" Column="34" TopLine="10"/>
       </Position26>
       <Position27>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="747" Column="23" TopLine="723"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="17" Column="16" TopLine="1"/>
       </Position27>
       <Position28>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="726" Column="10" TopLine="692"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="125" Column="17" TopLine="112"/>
       </Position28>
       <Position29>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="732" Column="29" TopLine="699"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="143" Column="72" TopLine="109"/>
       </Position29>
       <Position30>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="470" Column="1" TopLine="457"/>
+        <Filename Value="units\CoyoteDefaults.pas"/>
+        <Caret Line="147" Column="49" TopLine="89"/>
       </Position30>
     </JumpHistory>
   </ProjectSession>

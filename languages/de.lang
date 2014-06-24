@@ -12,7 +12,7 @@ txtSun=So
 language=Deutsch
 langID=de
 
-txtCaptionDelete=Fehler: Die ausgewählten Daten sind in falscher Reihenfolge!
+txtCaptionDelete=Fehler: Die ausgewählten Datumsgrenzen sind in falscher Reihenfolge!
 txtQuitProgramme=Programm Beenden
 txtFileSaved=Datei gespeichert...
 txtNewFile=Neue Datei erzeugt
@@ -32,3 +32,14 @@ mcSave=Speichern
 mcOpen=Öffnen
 mcOpenRecent=zuletzt geöffnet
 mcExit=Beenden
+
+mcPeople=Personen
+mcStatistics=Statistiken
+mcDatabaseSettings=Datenbankeinstellungen
+mcDatabaseUpload=speichern in Datenbank
+mcDatabaseDownload=laden aus Datenbank
+mcProgrammeSettings=Programmeinstellungen
+mcColorTheme=Farbschema
+mcLanguage=Sprache
+mcManual=Handbuch(PDF)
+mcAbout=Über

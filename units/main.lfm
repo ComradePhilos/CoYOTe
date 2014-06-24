@@ -616,7 +616,7 @@ object Form1: TForm1
     end
     object MenuItem5: TMenuItem
       Caption = 'Show'
-      object MenuItem8: TMenuItem
+      object MenuStatistics: TMenuItem
         Caption = 'Statistics'
         Enabled = False
         Bitmap.Data = {
@@ -713,7 +713,7 @@ object Form1: TForm1
         }
         OnClick = MenuDatabaseClick
       end
-      object MenuItem6: TMenuItem
+      object MenuDBDownload: TMenuItem
         Caption = 'load from database'
         Enabled = False
         Bitmap.Data = {
@@ -782,7 +782,7 @@ object Form1: TForm1
           FF00FFFFFF00FFFFFF00
         }
       end
-      object MenuItem7: TMenuItem
+      object MenuDBUpload: TMenuItem
         Caption = 'push to database'
         Enabled = False
         Bitmap.Data = {
@@ -963,7 +963,7 @@ object Form1: TForm1
         }
         OnClick = ColorThemeClick
       end
-      object MenuItem11: TMenuItem
+      object MenuLanguage: TMenuItem
         Caption = 'Language'
         Bitmap.Data = {
           C6070000424DC607000000000000360000002800000016000000160000000100
