@@ -14,11 +14,11 @@ type
 
   TForm5 = class(TForm)
     BitBtn1: TBitBtn;
-		BitBtn2: TBitBtn;
-		BitBtn3: TBitBtn;
-		ComboBox1: TComboBox;
+    BitBtn2: TBitBtn;
+    BitBtn3: TBitBtn;
+    ComboBox1: TComboBox;
     Image1: TImage;
-		ImageList1: TImageList;
+    ImageList1: TImageList;
     LabeledEdit1: TLabeledEdit;
     LabeledEdit2: TLabeledEdit;
     LabeledEdit3: TLabeledEdit;
@@ -28,20 +28,21 @@ type
     LabeledEdit7: TLabeledEdit;
     Panel1: TPanel;
     StaticText1: TStaticText;
-		StatusBar1: TStatusBar;
-		ToolBar1: TToolBar;
-		ToolButton1: TToolButton;
-		ToolButton2: TToolButton;
-		ToolButton3: TToolButton;
-		ToolButton4: TToolButton;
-		ToolButton5: TToolButton;
-		ToolButton6: TToolButton;
-		ToolButton7: TToolButton;
-		ToolButton8: TToolButton;
-		procedure BitBtn2Click(Sender: TObject);
-  procedure BitBtn3Click(Sender: TObject);
-	procedure FormCreate(Sender: TObject);
-  procedure OpenEMailClient(Sender: TObject);
+    StatusBar1: TStatusBar;
+    ToolBar1: TToolBar;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    ToolButton8: TToolButton;
+    procedure BitBtn2Click(Sender: TObject);
+    procedure BitBtn3Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure LabeledEdit5Change(Sender: TObject);
+    procedure OpenEMailClient(Sender: TObject);
   private
     { private declarations }
   public
@@ -59,28 +60,15 @@ implementation
 
 procedure TForm5.OpenEMailClient(Sender: TObject);
 var
-  mailadress: String;
+  mailadress: string;
   AProcess: TProcess;
 begin
   mailadress := LabeledEdit5.Text;
-  {$IFDEF linux}
-  {
-  AProcess := TProcess.Create(nil);
-  try
-    AProcess.CommandLine := 'thunderbird';   // if installed - has to be checked somewhere
-    AProcess.Execute;
-	finally
-    AProcess.Free;
-	end;      }
-  OpenURL('mailto:'+mailadress);
-  {$ENDIF}
-  {$IFDEF mswindows}
-  //OpenDocument('mailto:'+mailadress);
-  OpenURL('mailto:'+mailadress);
-  {$ENDIF}
-  {$IFDEF macos}
-  OpenURL('mailto:'+mailadress);
-  {$ENDIF}
+
+  if (mailadress <> '') then
+  begin
+    OpenURL('mailto:' + mailadress);
+  end;
 end;
 
 
@@ -93,6 +81,11 @@ procedure TForm5.FormCreate(Sender: TObject);
 begin
   self.Constraints.MinHeight := self.Height;
   self.Constraints.MinWidth := self.Width;
+end;
+
+procedure TForm5.LabeledEdit5Change(Sender: TObject);
+begin
+  BitBtn1.Enabled := (LabeledEdit5.Text <> '');
 end;
 
 procedure TForm5.BitBtn2Click(Sender: TObject);

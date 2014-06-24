@@ -848,7 +848,7 @@ begin
   Label3.Caption := 'Diff.: ' + FormatFloat('0.00', diff) + ' h';
   Label6.Caption := 'Vacation taken: ' + FormatFloat('0.0', vacationdays) + ' days';
 
-  if (earlyDate <> 0) then
+  if (earlyDate <> 0) and (lateDate <> 0) then
   begin
     Label4.Caption := 'Earliest begin: ' + TimeToText(earliestHour, earliestMin) + '   ( on ' +
       FormatDateTime('dd.mm.yyyy', earlyDate) + ' )';
@@ -857,8 +857,8 @@ begin
   end
   else
   begin
-    Label4.Caption := '';//'Earliest begin:';
-    Label5.Caption := '';//'Latest quitting:';
+    Label4.Caption := ''; //'Earliest begin:';
+    Label5.Caption := ''; //'Latest quitting:';
   end;
   EnableButtons;
 
@@ -951,7 +951,7 @@ begin
     on e: Exception do
     begin
       Application.MessageBox(PChar(emFileNotFound), 'File not found', 0);
-      FOpenRecent.Delete(FOpenRecent.Count - 1 - MenuOpenRecent.IndexOf(TMenuItem(Sender)));
+      FOpenRecent.Delete(FOpenRecent.Count - 1 - MenuOpenRecent.IndexOf(TMenuItem(Sender)));  // Menu is reversed order
       MenuOpenRecent.Delete(MenuOpenRecent.IndexOf(TMenuItem(Sender)));
     end;
   end;

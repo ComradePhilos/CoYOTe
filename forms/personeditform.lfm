@@ -196,6 +196,7 @@ object Form5: TForm5
     EditLabel.Caption = 'E-Mail'
     EditLabel.ParentColor = False
     TabOrder = 6
+    OnChange = LabeledEdit5Change
   end
   object BitBtn1: TBitBtn
     Left = 226

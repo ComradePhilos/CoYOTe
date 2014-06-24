@@ -514,7 +514,7 @@ var
   OpenDlg: TOpenDialog;
 begin
   OpenDlg := TOpenDialog.Create(self);
-  OpenDlg.Title := 'Open file';
+  OpenDlg.Title := mcOpen;
   try
     OpenDlg.InitialDir := '../data/';
     OpenDlg.DoFolderChange;
@@ -575,7 +575,7 @@ begin
   SaveDlg.DoFolderChange;
   SaveDlg.FileName := 'test user.sav';
   SaveDlg.Options := [ofOverwritePrompt];
-  SaveDlg.Title := 'Save as';
+  SaveDlg.Title := mcSaveAs;
   try
     if SaveDlg.Execute then
     begin
@@ -848,7 +848,7 @@ begin
   Label3.Caption := 'Diff.: ' + FormatFloat('0.00', diff) + ' h';
   Label6.Caption := 'Vacation taken: ' + FormatFloat('0.0', vacationdays) + ' days';
 
-  if (earlyDate <> 0) then
+  if (earlyDate <> 0) and (lateDate <> 0) then
   begin
     Label4.Caption := 'Earliest begin: ' + TimeToText(earliestHour, earliestMin) + '   ( on ' +
       FormatDateTime('dd.mm.yyyy', earlyDate) + ' )';
