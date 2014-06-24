@@ -104,7 +104,7 @@ procedure InsertDayToWeek(ADay: TWorkDay; AWeek: TWorkWeek; AIndex: Integer);
 
 
 function timeToText(AHour, AMinute: integer): string;
-function RealDayOfWeek(ADate: TDate): integer;
+function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-bases String instead of a 0 based
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
 

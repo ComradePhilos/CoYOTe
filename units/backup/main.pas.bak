@@ -79,9 +79,9 @@ type
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
-		MenuItem10: TMenuItem;
-		MenuItem12: TMenuItem;
-		MenuNew: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem12: TMenuItem;
+    MenuNew: TMenuItem;
     MenuMove: TMenuItem;
     MenuMoveTop: TMenuItem;
     MenuMoveUp: TMenuItem;
@@ -137,13 +137,13 @@ type
     procedure MenuAboutClick(Sender: TObject);
     procedure ColorThemeClick(Sender: TObject);
     procedure MenuDatabaseClick(Sender: TObject);
-		procedure MenuItem10Click(Sender: TObject);
+    procedure MenuItem10Click(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
-		procedure MenuNewClick(Sender: TObject);
+    procedure MenuNewClick(Sender: TObject);
     procedure MenuPeopleClick(Sender: TObject);
     procedure MenuQuickSaveClick(Sender: TObject);
     procedure MenuSaveClick(Sender: TObject);
-		procedure MenuSettingsClick(Sender: TObject);
+    procedure MenuSettingsClick(Sender: TObject);
     procedure RemoveSelected(Sender: TObject);
     procedure RemoveAll(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -196,6 +196,8 @@ type
     // Clears all values like filename etc..
     procedure Clear;
 
+    procedure TranslateCaptions;
+
     // Load the values from ini file
     procedure LoadIniFile;
     procedure SaveIniFile;
@@ -235,7 +237,7 @@ begin
   {$ENDIF}
 
   self.Caption := ProgrammeName + '  ' + VersionNr;
-  FLanguage := 'English';
+  FLanguage := defLanguage;
 
   // default values
   FSelectionIndex := -1;
@@ -265,7 +267,10 @@ begin
   EditWeekForm.OnMergeWeeksClick := @MergeWeeks;        // assign the merge event of the EditWeekForm to merge function
 
   LoadIniFile;
+  loadFromLanguageFile('../languages/de.lang');
   updateWindow;
+
+  TranslateCaptions;
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
@@ -462,7 +467,7 @@ begin
   locForm := TForm.Create(self);
   locForm.Position := poMainFormCenter;
   locForm.Show;
-  locForm.Caption:= 'Enter Index';
+  locForm.Caption := 'Enter Index';
 
   locEdit := TEdit.Create(locForm);
   locEdit.Parent := locForm;
@@ -473,22 +478,21 @@ begin
   locEdit.Anchors := [akLeft, akTop];
   locEdit.Show;
 
-  locForm.Width:=200;
-  locForm.Height:=LocEdit.Height + 4;
-  locForm.Constraints.MinWidth:=locForm.Width;
-  locForm.Constraints.maxWidth:=locForm.Width;
-  locForm.Constraints.MinHeight:=locForm.Height;
-  locForm.Constraints.maxHeight:=locForm.Height;
+  locForm.Width := 200;
+  locForm.Height := LocEdit.Height + 4;
+  locForm.Constraints.MinWidth := locForm.Width;
+  locForm.Constraints.maxWidth := locForm.Width;
+  locForm.Constraints.MinHeight := locForm.Height;
+  locForm.Constraints.maxHeight := locForm.Height;
 
   locButton := TButton.Create(locForm);
   locButton.Parent := locForm;
   locButton.Left := 102;
   locButton.Top := 2;
-  locbutton.Width := locEdit.Width-4;
+  locbutton.Width := locEdit.Width - 4;
   locButton.Height := locEdit.Height;
   locButton.Anchors := [akLeft, akTop];
   locButton.Caption := 'insert';
-
 
 end;
 
@@ -580,9 +584,9 @@ var
 begin
   //fs.DecimalSeparator := ';
   FormSettings.Visible := True;
-  FormSettings.StringGrid1.Cells[1,1] := FloatToStr(defHoursPerDay);
-  FormSettings.StringGrid1.Cells[1,2] := FloatToStr(defPausePerDay);
-  FormSettings.StringGrid1.Cells[1,3] := FloatToStr(defHoursUntilPause);
+  FormSettings.StringGrid1.Cells[1, 1] := FloatToStr(defHoursPerDay);
+  FormSettings.StringGrid1.Cells[1, 2] := FloatToStr(defPausePerDay);
+  FormSettings.StringGrid1.Cells[1, 3] := FloatToStr(defHoursUntilPause);
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);
@@ -638,8 +642,11 @@ begin
   INI.UpdateFile;
   INI.WriteString('MainForm', 'xpos', IntToStr(self.Left));
   INI.WriteString('MainForm', 'ypos', IntToStr(self.Top));
-  INI.WriteString('MainForm', 'width', IntToStr(self.Width));
-  INI.WriteString('MainForm', 'height', IntToStr(self.Height));
+  if (self.WindowState <> wsMaximized) then
+  begin
+    INI.WriteString('MainForm', 'width', IntToStr(self.Width));
+    INI.WriteString('MainForm', 'height', IntToStr(self.Height));
+  end;
   INI.WriteString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(self.WindowState)));
 
   INI.WriteString('EditWeekForm', 'xpos', IntToStr(EditWeekForm.Left));
@@ -653,14 +660,14 @@ begin
   INI.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
   INI.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
 
-  INI.WriteString('SettingsForm','xpos', IntToStr(FormSettings.Left));
-  INI.WriteString('SettingsForm','ypos', IntToStr(FormSettings.Top));
-  INI.WriteString('SettingsForm','width', IntToStr(FormSettings.Width));
-  INI.WriteString('SettingsForm','height', IntToStr(FormSettings.Height));
+  INI.WriteString('SettingsForm', 'xpos', IntToStr(FormSettings.Left));
+  INI.WriteString('SettingsForm', 'ypos', IntToStr(FormSettings.Top));
+  INI.WriteString('SettingsForm', 'width', IntToStr(FormSettings.Width));
+  INI.WriteString('SettingsForm', 'height', IntToStr(FormSettings.Height));
 
-  INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause,fs));
-  INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay,fs));
-  INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay,fs));
+  INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause, fs));
+  INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs));
+  INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs));
 
   // Recent Files
   INI.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
@@ -711,13 +718,14 @@ begin
   DBForm.LabeledEdit5.Text := INI.ReadString('DBInfo', 'dbname', '');
   DBForm.LabeledEdit3.Text := INI.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
 
-  defHoursUntilPause := StrToFloat(INI.ReadString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause,fs)),fs);
-  defHoursPerDay := StrToFloat(INI.ReadString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay,fs)),fs);
-  defPausePerDay := StrToFloat(INI.ReadString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay,fs)),fs);
+  defHoursUntilPause := StrToFloat(INI.ReadString('Defaults', 'HoursUntilPause',
+    FloatToStr(defHoursUntilPause, fs)), fs);
+  defHoursPerDay := StrToFloat(INI.ReadString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs)), fs);
+  defPausePerDay := StrToFloat(INI.ReadString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs)), fs);
 
-  INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause,fs));
-  INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay,fs));
-  INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay,fs));
+  INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause, fs));
+  INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs));
+  INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs));
 
   for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
@@ -834,8 +842,8 @@ begin
   begin
     Label4.Caption := '';//'Earliest begin:';
     Label5.Caption := '';//'Latest quitting:';
-	end;
-	EnableButtons;
+  end;
+  EnableButtons;
 
 end;
 
@@ -936,7 +944,7 @@ end;
 
 procedure TForm1.MoveClick(Sender: TObject);
 var
-  tempIndex: Integer;
+  tempIndex: integer;
 begin
   if (FWeekList.Count > 1) then
   begin
@@ -944,7 +952,7 @@ begin
     // Move Item to Top
     if (Sender = MenuMoveTop) then
     begin
-      FWeekList.Insert(0,TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+      FWeekList.Insert(0, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
       FWeekList.Delete(FSelectionIndex + 1);
       tempIndex := 0;
       FCanSave := True;
@@ -953,9 +961,9 @@ begin
     // Move Item to Bottom
     if (Sender = MenuMoveBottom) then
     begin
-      FWeekList.Insert(FWeekList.Count,TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+      FWeekList.Insert(FWeekList.Count, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
       FWeekList.Delete(FSelectionIndex);
-      tempIndex := FWeekList.Count-1;
+      tempIndex := FWeekList.Count - 1;
       FCanSave := True;
     end;
 
@@ -964,7 +972,7 @@ begin
     begin
       if (FSelectionIndex >= 1) and (FSelectionIndex < FWeekList.Count) then
       begin
-        FWeekList.Insert(FSelectionIndex-1, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+        FWeekList.Insert(FSelectionIndex - 1, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
         FWeekList.Delete(FSelectionIndex + 1);
         tempIndex -= 1;
         FCanSave := True;
@@ -976,7 +984,7 @@ begin
     begin
       if (FSelectionIndex >= 0) and (FSelectionIndex < FWeekList.Count - 1) then
       begin
-        FWeekList.Insert(FSelectionIndex+2, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
+        FWeekList.Insert(FSelectionIndex + 2, TWorkWeek.Create(FWeekList.Items[FSelectionIndex]));
         FWeekList.Delete(FSelectionIndex);
         tempIndex += 1;
         FCanSave := True;
@@ -991,6 +999,14 @@ begin
     EditWeekForm.ComboBox1.ItemIndex := tempIndex;
     EditWeekForm.ComboBox2.ItemIndex := tempIndex;
   end;
+end;
+
+
+procedure TForm1.TranslateCaptions;
+begin
+  MenuItem1.Caption := mcFile;
+  MenuItem2.Caption := mcEdit;
+  MenuItem5.Caption := mcShow;
 end;
 
 end.

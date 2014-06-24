@@ -100,34 +100,6 @@ coyotedefaults.dbdefaultfirebirduser='SYSDBA'
 # hash value = 4294967295
 coyotedefaults.dbdefaultfirebirdport=
 
-# hash value = 21598
-coyotedefaults.txtmon='Mon'
-
-
-# hash value = 23477
-coyotedefaults.txttue='Tue'
-
-
-# hash value = 23988
-coyotedefaults.txtwed='Wed'
-
-
-# hash value = 23285
-coyotedefaults.txtthu='Thu'
-
-
-# hash value = 19849
-coyotedefaults.txtfri='Fri'
-
-
-# hash value = 22916
-coyotedefaults.txtsat='Sat'
-
-
-# hash value = 23230
-coyotedefaults.txtsun='Sun'
-
-
 # hash value = 88492681
 coyotedefaults.txtmonday='Monday'
 

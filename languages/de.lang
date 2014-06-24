@@ -1,0 +1,22 @@
+[CoyoteDefaults]
+txtMon=Mo
+txtTue=Di
+txtWed=Mi
+txtThu=Do
+txtFri=Fr
+txtSat=Sa
+txtSun=So
+
+txtCaptionDelete=Fehler: Die ausgewählten Daten sind in falscher Reihenfolge!
+txtQuitProgramme=Programm Beenden
+txtFileSaved=Datei gespeichert...
+txtNewFile=Neue Datei erzeugt
+txtQuitMsg=Sie haben Ihre Änderungen an der Datei noch nicht gespeichert! Wollen Sie wirklich beenden?
+
+[MenuCaption]
+mcFile=Datei
+mcEdit=Bearbeiten
+mcShow=Ansicht
+mcDatabase=Datenbank
+mcOptions=Optionen
+mcHelp=Hilfe
