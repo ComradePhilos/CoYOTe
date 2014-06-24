@@ -1,0 +1,34 @@
+# English Translations for CoYOT(e)
+# by
+[CoyoteDefaults]
+txtMon=Mon
+txtTue=Tue
+txtWed=Wed
+txtThu=Thu
+txtFri=Fri
+txtSat=Sat
+txtSun=Sun
+
+language=English
+langID=en
+
+txtCaptionDelete=Fehler: Die ausgewählten Daten sind in falscher Reihenfolge!
+txtQuitProgramme=Programm Beenden
+txtFileSaved=Datei gespeichert...
+txtNewFile=Neue Datei erzeugt
+txtQuitMsg=Sie haben Ihre Änderungen an der Datei noch nicht gespeichert! Wollen Sie wirklich beenden?
+
+[MenuCaption]
+mcFile=File
+mcEdit=Edit
+mcShow=Show
+mcDatabase=Database
+mcOptions=Options
+mcHelp=Help
+
+mcNew=New
+mcSaveAs=Save as
+mcSave=Save
+mcOpen=Open
+mcOpenRecent=Open Recent
+mcExit=Exit

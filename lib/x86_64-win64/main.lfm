@@ -1066,10 +1066,10 @@ object Form1: TForm1
             D1FFC6BBE4FD85310FE97D2400E87D2400E8822C0AE9B998A1F66F5FDEFFA69C
             EBFF
           }
+          OnClick = MenuEnglishClick
         end
         object MenuGerman: TMenuItem
           Caption = 'German'
-          Enabled = False
           Bitmap.Data = {
             DE030000424DDE030000000000003600000028000000120000000D0000000100
             200000000000A80300006400000064000000000000000000000000CEFFFF00CE
@@ -1104,6 +1104,7 @@ object Form1: TForm1
             00FF000000FF000000FF000000FF000000FF000000FF000000FF000000FF0000
             00FF
           }
+          OnClick = MenuGermanClick
         end
       end
     end

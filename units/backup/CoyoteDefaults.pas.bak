@@ -17,11 +17,11 @@ var
 
   // Programme-Information
   ProgrammeName: String = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr: String = '0.0.5.6';          // Programme-Version
-  VersionDate: String = '23.06.2014';     // Date of the latest changes
+  VersionNr: String = '0.0.5.7';          // Programme-Version
+  VersionDate: String = '24.06.2014';     // Date of the latest changes
   LazarusVersion: String = '1.2.2';       // Version of the Lazarus IDE the programme was created with
   defLanguage: String = 'English';        // not sure what we will need in future
-  defLanguageShort: String = 'en';
+  defLanguageID: String = 'en';
 
   // Messages / Errors
   txtDeleteAllMsg: String = 'Do you really wish to delete every entry? All data will be lost if you do not make a copy!';
@@ -121,6 +121,9 @@ begin
   mcFile := INI.ReadString('MenuCaption', 'mcFile', mcFile);
   mcEdit := INI.ReadString('MenuCaption', 'mcEdit', mcEdit);
   mcShow := INI.ReadString('MenuCaption', 'mcShow', mcShow);
+  mcDataBase := INI.ReadString('MenuCaption', 'mcDataBase', mcDataBase);
+  mcOptions := INI.ReadString('MenuCaption', 'mcOptions', mcOptions);
+  mcHelp := INI.ReadString('MenuCaption', 'mcHelp', mcHelp);
 end;
 
 //initialization

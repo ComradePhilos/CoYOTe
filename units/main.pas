@@ -137,6 +137,8 @@ type
     procedure MenuAboutClick(Sender: TObject);
     procedure ColorThemeClick(Sender: TObject);
     procedure MenuDatabaseClick(Sender: TObject);
+		procedure MenuEnglishClick(Sender: TObject);
+		procedure MenuGermanClick(Sender: TObject);
     procedure MenuItem10Click(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
     procedure MenuNewClick(Sender: TObject);
@@ -159,6 +161,7 @@ type
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
+    FLanguageID: String;
 
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
     EditWeekForm: TForm3;         // The window that you can edit a week with
@@ -237,7 +240,6 @@ begin
   {$ENDIF}
 
   self.Caption := ProgrammeName + '  ' + VersionNr;
-  FLanguage := defLanguage;
 
   // default values
   FSelectionIndex := -1;
@@ -267,7 +269,7 @@ begin
   EditWeekForm.OnMergeWeeksClick := @MergeWeeks;        // assign the merge event of the EditWeekForm to merge function
 
   LoadIniFile;
-  loadFromLanguageFile('../languages/de.lang');
+  //loadFromLanguageFile('../languages/de.lang');
   updateWindow;
 
   TranslateCaptions;
@@ -456,6 +458,20 @@ end;
 procedure TForm1.MenuDatabaseClick(Sender: TObject);
 begin
   DBForm.Show;
+end;
+
+procedure TForm1.MenuEnglishClick(Sender: TObject);
+begin
+  FLanguageID := 'en';
+  LoadFromLanguageFile('../languages/en.lang');
+  translateCaptions;
+end;
+
+procedure TForm1.MenuGermanClick(Sender: TObject);
+begin
+  FLanguageID := 'de';
+  LoadFromLanguageFile('../languages/de.lang');
+  translateCaptions;
 end;
 
 procedure TForm1.MenuItem10Click(Sender: TObject);
@@ -668,6 +684,7 @@ begin
   INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause, fs));
   INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs));
   INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs));
+  INI.WriteString('Defaults', 'Language', FLanguageID);
 
   // Recent Files
   INI.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
@@ -722,10 +739,7 @@ begin
     FloatToStr(defHoursUntilPause, fs)), fs);
   defHoursPerDay := StrToFloat(INI.ReadString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs)), fs);
   defPausePerDay := StrToFloat(INI.ReadString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs)), fs);
-
-  INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause, fs));
-  INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs));
-  INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs));
+  FLanguageID := INI.ReadString('Defaults', 'Language', defLanguageID);
 
   for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
@@ -742,6 +756,12 @@ begin
     StringGrid1.Columns.Items[I].Width :=
       StrToInt(INI.ReadString('MainForm', 'col' + IntToStr(I + 1), IntToStr(StringGrid1.Columns.Items[I].Width)));
   end;
+
+  if (FLanguageID <> 'en') then
+  begin
+    loadFromLanguageFile('../languages/'+FLanguageID+'.lang');
+    translateCaptions;
+	end;
 
   ApplyColor(StrToInt(INI.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
 
@@ -1010,6 +1030,13 @@ begin
   MenuItem3.Caption := mcDatabase;
   MenuItem9.Caption := mcOptions;
   MenuItem4.Caption := mcHelp;
+
+  MenuNew.Caption := mcNew;
+  MenuSaveAs.Caption:= mcSaveAs;
+  MenuQuickSave.Caption := mcSave;
+  MenuLoad.Caption := mcOpen;
+  MenuOpenRecent.Caption := mcOpenRecent;
+  MenuQuit.Caption := mcExit;
 end;
 
 end.

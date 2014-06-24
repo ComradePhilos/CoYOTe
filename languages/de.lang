@@ -1,3 +1,5 @@
+# German Translations for CoYOT(e)
+# by
 [CoyoteDefaults]
 txtMon=Mo
 txtTue=Di
@@ -6,6 +8,9 @@ txtThu=Do
 txtFri=Fr
 txtSat=Sa
 txtSun=So
+
+language=Deutsch
+langID=de
 
 txtCaptionDelete=Fehler: Die ausgewählten Daten sind in falscher Reihenfolge!
 txtQuitProgramme=Programm Beenden
@@ -20,3 +25,10 @@ mcShow=Ansicht
 mcDatabase=Datenbank
 mcOptions=Optionen
 mcHelp=Hilfe
+
+mcNew=Neu
+mcSaveAs=Speichern unter
+mcSave=Speichern
+mcOpen=Öffnen
+mcOpenRecent=zuletzt geöffnet
+mcExit=Beenden
