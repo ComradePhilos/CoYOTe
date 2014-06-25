@@ -27,12 +27,10 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * save all people and lists in one file
 // * use Formatsettings for the save and load function
 // * save Position + Size of Settings Form to ini file
+// * sorting functions for Lists
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
-
-// # the obligatory pause time added to your whole work time applies at least after 6 hours of work in Germany,
-//  so on a 6-hour day you need to have the pause. This topic needs to be kept in mind for calculation
 
 // # think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
 //    OR think about saving in whole directory, like DataNorm
@@ -134,9 +132,8 @@ type
     procedure MenuAboutClick(Sender: TObject);
     procedure ColorThemeClick(Sender: TObject);
     procedure MenuDatabaseClick(Sender: TObject);
-		procedure MenuEnglishClick(Sender: TObject);
-		procedure MenuGermanClick(Sender: TObject);
-    procedure MenuItem10Click(Sender: TObject);
+    procedure MenuEnglishClick(Sender: TObject);
+    procedure MenuGermanClick(Sender: TObject);
     procedure MenuLoadClick(Sender: TObject);
     procedure MenuNewClick(Sender: TObject);
     procedure MenuPeopleClick(Sender: TObject);
@@ -158,7 +155,7 @@ type
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
-    FLanguageID: String;
+    FLanguageID: string;
 
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
     EditWeekForm: TForm3;         // The window that you can edit a week with
@@ -266,10 +263,7 @@ begin
   EditWeekForm.OnMergeWeeksClick := @MergeWeeks;        // assign the merge event of the EditWeekForm to merge function
 
   LoadIniFile;
-  //loadFromLanguageFile('../languages/de.lang');
-  updateWindow;
-
-  TranslateCaptions;
+  TranslateCaptions;   // automatically updates the window
 
   // Constraints
   self.Constraints.MinWidth := Groupbox1.Width;
@@ -469,44 +463,6 @@ begin
   FLanguageID := 'de';
   LoadFromLanguageFile('../languages/de.lang');
   translateCaptions;
-end;
-
-procedure TForm1.MenuItem10Click(Sender: TObject);
-var
-  locForm: TForm;
-  locEdit: TEdit;
-  locButton: TButton;
-begin
-  locForm := TForm.Create(self);
-  locForm.Position := poMainFormCenter;
-  locForm.Show;
-  locForm.Caption := 'Enter Index';
-
-  locEdit := TEdit.Create(locForm);
-  locEdit.Parent := locForm;
-  locEdit.Width := 100;
-  locEdit.Height := 30;
-  locEdit.Left := 2;
-  locEdit.Top := 2;
-  locEdit.Anchors := [akLeft, akTop];
-  locEdit.Show;
-
-  locForm.Width := 200;
-  locForm.Height := LocEdit.Height + 4;
-  locForm.Constraints.MinWidth := locForm.Width;
-  locForm.Constraints.maxWidth := locForm.Width;
-  locForm.Constraints.MinHeight := locForm.Height;
-  locForm.Constraints.maxHeight := locForm.Height;
-
-  locButton := TButton.Create(locForm);
-  locButton.Parent := locForm;
-  locButton.Left := 102;
-  locButton.Top := 2;
-  locbutton.Width := locEdit.Width - 4;
-  locButton.Height := locEdit.Height;
-  locButton.Anchors := [akLeft, akTop];
-  locButton.Caption := 'insert';
-
 end;
 
 procedure TForm1.MenuLoadClick(Sender: TObject);
@@ -756,9 +712,9 @@ begin
 
   if (FLanguageID <> 'en') then
   begin
-    loadFromLanguageFile('../languages/'+FLanguageID+'.lang');
+    loadFromLanguageFile('../languages/' + FLanguageID + '.lang');
     translateCaptions;
-	end;
+  end;
 
   ApplyColor(StrToInt(INI.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
 
@@ -796,9 +752,9 @@ begin
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
   begin
-    sum := sum + FWeekList.Items[I].getSum;
-    goal := goal + FWeekList.Items[I].getGoalHours;
-    vacationdays := vacationdays + FWeekList.Items[I].getAmountOfVacation;
+    sum += FWeekList.Items[I].getSum;
+    goal += FWeekList.Items[I].getGoalHours;
+    vacationdays += FWeekList.Items[I].getAmountOfVacation;
 
     // earliest begin and latest leave
     for d := 0 to FWeekList.Items[I].Days.Count - 1 do
@@ -1007,7 +963,9 @@ begin
         FCanSave := True;
       end;
     end;
+
     updateWindow;
+
     // Updating the EditweekForm
     EditWeekForm.showWeek(FWeekList.Items[tempIndex], tempIndex);
     EditWeekForm.WeekIndex := tempIndex;
@@ -1031,7 +989,7 @@ begin
   MenuItem4.Caption := mcHelp;
 
   MenuNew.Caption := mcNew;
-  MenuSaveAs.Caption:= mcSaveAs;
+  MenuSaveAs.Caption := mcSaveAs;
   MenuQuickSave.Caption := mcSave;
   MenuLoad.Caption := mcOpen;
   MenuOpenRecent.Caption := mcOpenRecent;
@@ -1066,6 +1024,9 @@ begin
   // form-Captions
   AboutForm.Caption := mcAbout;
   FormSettings.Caption := mcProgrammeSettings;
+  AboutForm.PageControl1.Pages[0].Caption := mcAbout;
+  PersonForm.Caption := mcPeople;
+  DBForm.Caption := mcDatabaseSettings;
 
   // StringGrid
   StringGrid1.Columns.Items[1].Title.Caption := txtPeriod;
@@ -1074,6 +1035,7 @@ begin
   StringGrid1.Columns.Items[4].Title.Caption := txtGoal;
   StringGrid1.Columns.Items[5].Title.Caption := txtDiff;
 
+  updateWindow;
 end;
 
 end.

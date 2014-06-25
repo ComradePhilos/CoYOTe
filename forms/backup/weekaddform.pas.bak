@@ -25,13 +25,13 @@ type
     Label1: TLabel;
     Label2: TLabel;
     StatusBar1: TStatusBar;
-    UndoButton: TBitBtn;
+    BackButton: TBitBtn;
     procedure ApplyButtonClick(Sender: TObject);
     procedure CheckBox2Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure CheckInputs(Sender: TObject);
-    procedure UndoButtonClick(Sender: TObject);
+    procedure BackButtonClick(Sender: TObject);
 
   private
     { private declarations }
@@ -52,7 +52,7 @@ implementation
 
 { TForm4 }
 
-procedure TForm4.UndoButtonClick(Sender: TObject);
+procedure TForm4.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
 end;

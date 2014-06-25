@@ -80,6 +80,7 @@ object Form5: TForm5
     00000000000000000000
   }
   OnCreate = FormCreate
+  ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object LabeledEdit1: TLabeledEdit
     Left = 16

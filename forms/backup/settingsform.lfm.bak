@@ -62,10 +62,10 @@ object Form7: TForm7
     end
   end
   object ApplyButton: TBitBtn
-    Left = 251
+    Left = 232
     Height = 30
     Top = 231
-    Width = 75
+    Width = 94
     Anchors = [akRight, akBottom]
     Caption = 'Apply'
     Glyph.Data = {
@@ -234,7 +234,7 @@ object Form7: TForm7
     TabOrder = 2
   end
   object ResetButton: TBitBtn
-    Left = 174
+    Left = 152
     Height = 30
     Top = 231
     Width = 75

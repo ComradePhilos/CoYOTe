@@ -11,6 +11,7 @@ object Form4: TForm4
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poMainFormCenter
+  ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object Label1: TLabel
     Left = 86

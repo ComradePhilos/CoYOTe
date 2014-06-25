@@ -283,7 +283,7 @@ object Form5: TForm5
     Left = 360
     Height = 30
     Top = 344
-    Width = 96
+    Width = 98
     Caption = 'Apply'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100

@@ -9,8 +9,6 @@ interface
 
 uses INIFiles;
 
-procedure CreateLanguageFile(AFilePath: string);
-
 procedure LoadFromLanguageFile(AFilePath: string);
 
 resourcestring
@@ -118,12 +116,6 @@ var
   defToolbarColor: integer = $00E0E0E0; // $00FFDBB7;
 
 implementation
-
-procedure CreateLanguageFile(AFilePath: string);
-begin
-
-end;
-
 
 procedure LoadFromLanguageFile(AFilePath: string);
 var

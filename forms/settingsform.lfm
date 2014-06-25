@@ -8,6 +8,7 @@ object Form7: TForm7
   ClientWidth = 332
   OnCreate = FormCreate
   Position = poMainFormCenter
+  ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object PageControl1: TPageControl
     Left = 8
