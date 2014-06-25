@@ -279,11 +279,11 @@ object Form5: TForm5
     EditLabel.ParentColor = False
     TabOrder = 9
   end
-  object BitBtn2: TBitBtn
-    Left = 381
+  object ApplyButton: TBitBtn
+    Left = 360
     Height = 30
     Top = 344
-    Width = 75
+    Width = 96
     Caption = 'Apply'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
@@ -361,16 +361,16 @@ object Form5: TForm5
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = BitBtn2Click
+    OnClick = ApplyButtonClick
     Spacing = 0
     TabOrder = 10
   end
-  object BitBtn3: TBitBtn
-    Left = 288
+  object BackButton: TBitBtn
+    Left = 264
     Height = 30
     Top = 344
     Width = 91
-    Caption = 'Cancel'
+    Caption = 'Back'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -447,7 +447,7 @@ object Form5: TForm5
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = BitBtn3Click
+    OnClick = BackButtonClick
     TabOrder = 11
   end
   object StatusBar1: TStatusBar

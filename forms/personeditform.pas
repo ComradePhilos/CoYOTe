@@ -14,8 +14,8 @@ type
 
   TForm5 = class(TForm)
     BitBtn1: TBitBtn;
-    BitBtn2: TBitBtn;
-    BitBtn3: TBitBtn;
+    ApplyButton: TBitBtn;
+    BackButton: TBitBtn;
     ComboBox1: TComboBox;
     Image1: TImage;
     ImageList1: TImageList;
@@ -38,8 +38,8 @@ type
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
-    procedure BitBtn2Click(Sender: TObject);
-    procedure BitBtn3Click(Sender: TObject);
+    procedure ApplyButtonClick(Sender: TObject);
+    procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure LabeledEdit5Change(Sender: TObject);
     procedure OpenEMailClient(Sender: TObject);
@@ -72,7 +72,7 @@ begin
 end;
 
 
-procedure TForm5.BitBtn3Click(Sender: TObject);
+procedure TForm5.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
 end;
@@ -88,7 +88,7 @@ begin
   BitBtn1.Enabled := (LabeledEdit5.Text <> '');
 end;
 
-procedure TForm5.BitBtn2Click(Sender: TObject);
+procedure TForm5.ApplyButtonClick(Sender: TObject);
 begin
   StaticText1.Caption := LabeledEdit2.Text + ', ' + LabeledEdit1.Text;
 end;

@@ -18,6 +18,13 @@ txtFileSaved=Datei gespeichert...
 txtNewFile=Neue Datei erzeugt
 txtQuitMsg=Sie haben Ihre Änderungen an der Datei noch nicht gespeichert! Wollen Sie wirklich beenden?
 
+txtSum=Sum
+txtGoal=Goal
+txtDiff=Diff
+txtDays=Days
+txtPeriod=Period
+txtVacation=Vacation
+
 [MenuCaption]
 mcFile=File
 mcEdit=Edit
@@ -43,3 +50,8 @@ mcColorTheme=Color Theme
 mcLanguage=Language
 mcManual=Manual(PDF)
 mcAbout=About
+
+[Buttons]
+bcApply=Apply
+bcBack=Back
+bcReset=Reset

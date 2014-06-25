@@ -843,10 +843,10 @@ begin
   end;
 
   colorText(Label3, sum, goal, 0.5);
-  Label1.Caption := 'Sum: ' + FormatFloat('0.00', sum) + ' h';
-  Label2.Caption := 'Goal: ' + FormatFloat('0.00', goal) + ' h';
-  Label3.Caption := 'Diff.: ' + FormatFloat('0.00', diff) + ' h';
-  Label6.Caption := 'Vacation taken: ' + FormatFloat('0.0', vacationdays) + ' days';
+  Label1.Caption := txtSum + ': ' + FormatFloat('0.00', sum) + ' h';
+  Label2.Caption := txtGoal + ': ' + FormatFloat('0.00', goal) + ' h';
+  Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
+  Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
 
   if (earlyDate <> 0) and (lateDate <> 0) then
   begin
@@ -1021,6 +1021,8 @@ end;
 
 procedure TForm1.TranslateCaptions;
 begin
+
+  // Mein Menu
   MenuItem1.Caption := mcFile;
   MenuItem2.Caption := mcEdit;
   MenuItem5.Caption := mcShow;
@@ -1045,6 +1047,33 @@ begin
   MenuLanguage.Caption := mcLanguage;
   MenuManual.Caption := mcManual;
   MenuAbout.Caption := mcAbout;
+
+  // Buttons
+  EditWeekForm.ApplyButton.Caption := bcApply;
+  FormSettings.ApplyButton.Caption := bcApply;
+  PersonForm.ApplyButton.Caption := bcApply;
+  AddWeekForm.ApplyButton.Caption := bcApply;
+
+  EditWeekForm.BackButton.Caption := bcBack;
+  FormSettings.BackButton.Caption := bcBack;
+  PersonForm.BackButton.Caption := bcBack;
+  DBForm.BackButton.Caption := bcBack;
+  AddWeekForm.BackButton.Caption := bcBack;
+
+  DBForm.ResetButton.Caption := bcReset;
+  FormSettings.ResetButton.Caption := bcReset;
+
+  // form-Captions
+  AboutForm.Caption := mcAbout;
+  FormSettings.Caption := mcProgrammeSettings;
+  AboutForm.PageControl1.Pages[0].Caption := mcAbout;
+
+  // StringGrid
+  StringGrid1.Columns.Items[1].Title.Caption := txtPeriod;
+  StringGrid1.Columns.Items[2].Title.Caption := txtDays;
+  StringGrid1.Columns.Items[3].Title.Caption := txtSum;
+  StringGrid1.Columns.Items[4].Title.Caption := txtGoal;
+  StringGrid1.Columns.Items[5].Title.Caption := txtDiff;
 
 end;
 

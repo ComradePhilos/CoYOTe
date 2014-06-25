@@ -2036,10 +2036,12 @@ object Form2: TForm2
     Height = 238
     Top = 33
     Width = 418
-    ActivePage = Contributors
+    ActivePage = TabSheet1
     Anchors = [akTop, akLeft, akRight, akBottom]
-    TabIndex = 1
+    MultiLine = True
+    TabIndex = 0
     TabOrder = 2
+    Options = [nboMultiLine]
     object TabSheet1: TTabSheet
       Caption = '  About  '
       ClientHeight = 208
@@ -2051,7 +2053,7 @@ object Form2: TForm2
         Width = 405
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -15
+        Font.Height = -13
         Font.Name = 'Ubuntu'
         Font.Pitch = fpFixed
         Font.Quality = fqCleartype

@@ -21,8 +21,8 @@ type
   { TForm6 }
 
   TForm6 = class(TForm)
-    BitBtn2: TBitBtn;
-		BitBtn3: TBitBtn;
+    BackButton: TBitBtn;
+		ResetButton: TBitBtn;
 		ConnectBtn1: TBitBtn;
     IBConnection1: TIBConnection;
     LabeledEdit1: TLabeledEdit;
@@ -31,10 +31,10 @@ type
     LabeledEdit4: TLabeledEdit;
     LabeledEdit5: TLabeledEdit;
     StatusBar1: TStatusBar;
-		procedure BitBtn3Click(Sender: TObject);
+		procedure ResetButtonClick(Sender: TObject);
   procedure ConnectBtn1Click(Sender: TObject);
     procedure ConnectBtnClick(Sender: TObject);
-    procedure BitBtn2Click(Sender: TObject);
+    procedure BackButtonClick(Sender: TObject);
     procedure DisconnectBtnClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure IBConnection1AfterConnect(Sender: TObject);
@@ -65,7 +65,7 @@ begin
   Statusbar1.Panels[0].Text := 'Database is connectable! =)';
 end;
 
-procedure TForm6.BitBtn2Click(Sender: TObject);
+procedure TForm6.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
 end;
@@ -104,7 +104,7 @@ begin
 	DisconnectBtnClick(nil);
 end;
 
-procedure TForm6.BitBtn3Click(Sender: TObject);
+procedure TForm6.ResetButtonClick(Sender: TObject);
 begin
   LabeledEdit1.Text := '';
   LabeledEdit2.Text := '';

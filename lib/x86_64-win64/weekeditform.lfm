@@ -58,12 +58,12 @@ object Form3: TForm3
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object ApplyButton: TBitBtn
-    Left = 760
+    Left = 784
     Height = 30
     Top = 433
-    Width = 133
+    Width = 109
     Anchors = [akRight, akBottom]
-    Caption = 'Apply and Back'
+    Caption = 'Apply'
     Font.CharSet = ANSI_CHARSET
     Font.Height = -12
     Font.Name = 'Ubuntu'

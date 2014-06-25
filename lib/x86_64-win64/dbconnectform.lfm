@@ -36,12 +36,12 @@ object Form6: TForm6
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
-  object BitBtn2: TBitBtn
-    Left = 144
+  object BackButton: TBitBtn
+    Left = 128
     Height = 30
     Top = 192
     Width = 75
-    Caption = 'Cancel'
+    Caption = 'Back'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -118,7 +118,7 @@ object Form6: TForm6
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = BitBtn2Click
+    OnClick = BackButtonClick
     TabOrder = 5
   end
   object LabeledEdit1: TLabeledEdit
@@ -228,7 +228,7 @@ object Form6: TForm6
     Height = 30
     Top = 192
     Width = 133
-    Caption = 'test connection'
+    Caption = 'Test Connection'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000FFFFFF00FFFF
@@ -308,12 +308,12 @@ object Form6: TForm6
     OnClick = ConnectBtn1Click
     TabOrder = 7
   end
-  object BitBtn3: TBitBtn
-    Left = 224
+  object ResetButton: TBitBtn
+    Left = 208
     Height = 30
     Top = 192
-    Width = 75
-    Caption = 'Clear'
+    Width = 91
+    Caption = 'Reset'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -390,7 +390,7 @@ object Form6: TForm6
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = BitBtn3Click
+    OnClick = ResetButtonClick
     Spacing = 0
     TabOrder = 8
   end

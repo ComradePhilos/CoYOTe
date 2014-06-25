@@ -34,10 +34,10 @@ object Form4: TForm4
     AnchorSideTop.Control = CheckBox2
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Side = asrBottom
-    Left = 298
+    Left = 288
     Height = 30
     Top = 222
-    Width = 94
+    Width = 104
     Anchors = [akRight, akBottom]
     BorderSpacing.Left = 60
     BorderSpacing.Top = 4
@@ -124,7 +124,7 @@ object Form4: TForm4
     Spacing = 0
     TabOrder = 0
   end
-  object UndoButton: TBitBtn
+  object BackButton: TBitBtn
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = CheckBox1
     AnchorSideTop.Side = asrBottom
@@ -135,7 +135,7 @@ object Form4: TForm4
     Anchors = [akLeft, akBottom]
     BorderSpacing.Left = 10
     BorderSpacing.Top = 7
-    Caption = 'Cancel'
+    Caption = 'Back'
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -212,7 +212,7 @@ object Form4: TForm4
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = UndoButtonClick
+    OnClick = BackButtonClick
     Spacing = 0
     TabOrder = 1
   end

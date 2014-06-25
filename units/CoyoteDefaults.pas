@@ -9,15 +9,13 @@ interface
 
 uses INIFiles;
 
-procedure CreateLanguageFile(AFilePath: string);
-
 procedure LoadFromLanguageFile(AFilePath: string);
 
 resourcestring
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.0.5.8';          // Programme-Version
-  VersionDate = '24.06.2014';     // Date of the latest changes
+  VersionNr = '0.0.5.9';          // Programme-Version
+  VersionDate = '25.06.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
   defLanguage = 'English';        // not sure what we will need in future
   defLanguageID = 'en';
@@ -49,6 +47,7 @@ var
   emMergeNoWeekSelected: string =
   'Cannot merge, because no week to merge with has been selected! Please select one using the combobox!';
   emMergeSameWeek: string = 'Cannot merge a week with itself! Please select a different week via the combobox!';
+  emInvalidNumber: String = 'Not a valid number input! Try switching "." and "," as the comma separator!';
 
   dbDefaultFirebirdUser: string = 'SYSDBA';
   dbDefaultFirebirdPort: string = ''; // 3050
@@ -79,6 +78,9 @@ var
   mcManual: String = 'Manual (PDF)';
   mcAbout: String = 'About';
 
+  bcApply: String = 'Apply';
+  bcBack: String = 'Back';
+  bcReset: String = 'Reset';
 
   // default short day names
   txtMon: string = 'Mon';
@@ -88,6 +90,14 @@ var
   txtFri: string = 'Fri';
   txtSat: string = 'Sat';
   txtSun: string = 'Sun';
+
+  txtSum: String = 'Sum';
+  txtGoal: String ='Goal';
+  txtDiff: String = 'Diff';
+  txtDays: String = 'Days';
+  txtPeriod: String = 'Period';
+  txtVacation: String = 'Vacation';
+
 
   // default long day names
   txtMonday: string = 'Monday';
@@ -106,12 +116,6 @@ var
   defToolbarColor: integer = $00E0E0E0; // $00FFDBB7;
 
 implementation
-
-procedure CreateLanguageFile(AFilePath: string);
-begin
-
-end;
-
 
 procedure LoadFromLanguageFile(AFilePath: string);
 var
@@ -138,6 +142,13 @@ begin
   txtQuitMsg := INI.ReadString('CoyoteDefaults', 'txtQuitMsg', txtQuitMsg);
   txtQuitProgramme := INI.ReadString('CoyoteDefaults', 'txtQuitProgramme', txtQuitProgramme);
 
+  txtSum := INI.ReadString('CoyoteDefaults', 'txtSum', txtSum);
+  txtGoal := INI.ReadString('CoyoteDefaults', 'txtGoal', txtGoal);
+  txtDiff := INI.ReadString('CoyoteDefaults', 'txtDiff', txtDiff);
+  txtDays := INI.ReadString('CoyoteDefaults', 'txtDays', txtDays);
+  txtPeriod := INI.ReadString('CoyoteDefaults', 'txtPeriod', txtPeriod);
+  txtVacation := INI.ReadString('CoyoteDefaults', 'txtVacation', txtVacation);
+
   mcFile := INI.ReadString('MenuCaption', 'mcFile', mcFile);
   mcEdit := INI.ReadString('MenuCaption', 'mcEdit', mcEdit);
   mcShow := INI.ReadString('MenuCaption', 'mcShow', mcShow);
@@ -162,6 +173,10 @@ begin
   mcLanguage := INI.ReadString('MenuCaption', 'mcLanguage', mcLanguage);
   mcManual := INI.ReadString('MenuCaption', 'mcManual', mcManual);
   mcAbout := INI.ReadString('MenuCaption', 'mcAbout', mcAbout);
+
+  bcApply := INI.ReadString('Buttons', 'bcApply', bcApply);
+  bcBack := INI.ReadString('Buttons', 'bcBack', bcBack);
+  bcReset := INI.ReadString('Buttons', 'bcReset', bcReset);
 end;
 
 
