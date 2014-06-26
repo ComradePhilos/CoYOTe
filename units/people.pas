@@ -3,11 +3,9 @@
   and groups of people. These are the "users" that are selectable in the main
   programme. Each person will have its own tables.
 
-  NOTE that these TPersons are not like USERS! TPerson just holds Data of a person
-  you want to track working time off!
+  NOTE that these TPersons are not USERS! TPerson just holds Data of a person
+  you want to track working time of/for!
 
-  Todo:
-  * include TPerson into the system
 }
 
 unit people;
@@ -15,7 +13,6 @@ unit people;
 interface
 
 uses Classes, fgl, ExtCtrls, workdays;
-
 
 type
 
@@ -28,8 +25,6 @@ type
       PeopleCount: Integer;
 
     private
-      // personal information
-      // Not sure if everything is useful or needed for this tiny programme
       FFirstName: String;               // First Name (can be multiple names like "Horst Kevin Gerome" :D )
       FFamilyName: String;              // Family Name
       FIDNumber: String;                // ID Number of the person in a company/team etc...
@@ -49,6 +44,7 @@ type
       FDateOfEmployment: TDate;         // The Date when the person got employed
 
       // essential programme data
+      FListName: TStringList;           // List of the names referring to a WeekList in FTimeData
       FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window/e.g. for each year
     public
 
@@ -62,8 +58,6 @@ type
 	end;
 
 implementation
-
-
 
 constructor TPerson.Create;
 begin

@@ -41,6 +41,8 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 //  get a little more abstract and will get the methods to calculate dynamically, like dependency injection. This could
 //  help to support other common practice in other countries. Right now you would have to change code in many units.
 
+// # some pictures in the popup menus are not properly shown on Linux Version!!
+
 unit main;
 
 {$mode objfpc}{$H+}
@@ -998,7 +1000,7 @@ end;
 procedure TForm1.TranslateCaptions;
 begin
 
-  // Mein Menu
+  // Main Menu
   MenuItem1.Caption := mcFile;
   MenuItem2.Caption := mcEdit;
   MenuItem5.Caption := mcShow;

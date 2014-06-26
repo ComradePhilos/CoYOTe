@@ -1,11 +1,11 @@
 object Form1: TForm1
   Left = 391
-  Height = 460
-  Top = 249
-  Width = 884
+  Height = 505
+  Top = 204
+  Width = 952
   Caption = 'CoYOT(e) - Overtime Calculator'
-  ClientHeight = 440
-  ClientWidth = 884
+  ClientHeight = 485
+  ClientWidth = 952
   Constraints.MinHeight = 100
   Constraints.MinWidth = 200
   Font.CharSet = ANSI_CHARSET
@@ -19,18 +19,18 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '1.2.2.0'
+  LCLVersion = '1.2.4.0'
   object GroupBox1: TGroupBox
     AnchorSideTop.Control = ToolBar1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Side = asrBottom
-    Left = 607
-    Height = 393
+    Left = 675
+    Height = 438
     Top = 25
     Width = 273
     Anchors = [akTop, akRight, akBottom]
     Caption = 'Overview'
-    ClientHeight = 375
+    ClientHeight = 420
     ClientWidth = 269
     Font.CharSet = ANSI_CHARSET
     Font.Height = -12
@@ -101,9 +101,9 @@ object Form1: TForm1
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = GroupBox1
     Left = 0
-    Height = 393
+    Height = 438
     Top = 25
-    Width = 607
+    Width = 675
     Anchors = [akTop, akLeft, akRight, akBottom]
     ColCount = 6
     ColumnClickSorts = True
@@ -175,8 +175,8 @@ object Form1: TForm1
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 417
-    Width = 884
+    Top = 462
+    Width = 952
     AutoSize = False
     Panels = <    
       item
@@ -192,7 +192,7 @@ object Form1: TForm1
     Left = 0
     Height = 25
     Top = 0
-    Width = 884
+    Width = 952
     AutoSize = True
     ButtonHeight = 23
     ButtonWidth = 30

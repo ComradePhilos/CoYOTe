@@ -38,8 +38,7 @@ CoYOT(e) is open source. That means you can use it freely and distribute it unde
 </p>
 
 ### downloads
-You will find any older version by clicking the link to the <a href="https://github.com/ComradePhilos/CoYOTe/releases">Download Page</a>. Read the release notes carefully! Alternatively you can of course always download
-the newest commit of the programme on this main page ( click "<a href="https://github.com/ComradePhilos/CoYOTe/archive/master.zip">download zip</a>" on the right ), if you know what you are doing. 
+You will find any older version by clicking the link to the <a href="https://github.com/ComradePhilos/CoYOTe/releases">Download Page</a>. Read the release notes carefully! Alternatively you can of course always download the newest commit of the programme on this main page ( click "<a href="https://github.com/ComradePhilos/CoYOTe/archive/master.zip">download zip</a>" on the right ), if you are fine with the fact that the version might look and feel like it is not yet finished and many functions/buttons etc. may have no effect or even may cause errors and crashes.
 
 ### installation
 <p>
@@ -60,4 +59,3 @@ There is no installation tool needed and the programme won't create any files to
 ### compile or edit the project
 The programme is written in Object Pascal and created with Lazarus IDE and the Free Pascal Compiler. To open/edit the project you can open the "coyote.lpi"-file with the <a href="http://www.lazarus.freepascal.org/">Lazarus IDE</a> 
 and start coding/compiling! If you compile CoYOT(e) on a system, that is supported by the Free Pascal Compiler, you will get a binary file matching your system in the "bin"-folder. 
-
