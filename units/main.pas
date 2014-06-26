@@ -633,6 +633,7 @@ begin
   INI.WriteString('SettingsForm', 'ypos', IntToStr(FormSettings.Top));
   INI.WriteString('SettingsForm', 'width', IntToStr(FormSettings.Width));
   INI.WriteString('SettingsForm', 'height', IntToStr(FormSettings.Height));
+  INI.WriteString('SettingsForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(FormSettings.WindowState)));
 
   INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause, fs));
   INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs));
@@ -650,6 +651,10 @@ begin
   for I := 0 to EditWeekForm.WeekGrid.ColCount - 1 do
   begin
     INI.WriteString('EditWeekForm', 'col' + IntToStr(I + 1), IntToStr(EditWeekForm.WeekGrid.Columns.Items[I].Width));
+  end;
+  for I := 0 to FormSettings.StringGrid1.ColCount - 1 do
+  begin
+    INI.WriteString('SettingsForm', 'col' + IntToStr(I + 1), IntToStr(FormSettings.StringGrid1.ColWidths[I]));
   end;
   for I := 0 to StringGrid1.ColCount - 1 do
   begin
@@ -688,6 +693,13 @@ begin
   DBForm.LabeledEdit5.Text := INI.ReadString('DBInfo', 'dbname', '');
   DBForm.LabeledEdit3.Text := INI.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
 
+  FormSettings.Left := StrToInt(INI.ReadString('SettingsForm','xpos', IntToStr(FormSettings.Left)));
+  FormSettings.Top := StrToInt(INI.ReadString('SettingsForm','ypos', IntToStr(FormSettings.Top)));
+  FormSettings.Width:= StrToInt(INI.ReadString('SettingsForm','width', IntToStr(FormSettings.Width)));
+  FormSettings.Height:= StrToInt(INI.ReadString('SettingsForm','height', IntToStr(FormSettings.Height)));
+    s := INI.ReadString('SettingsForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
+  FormSettings.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
+
   defHoursUntilPause := StrToFloat(INI.ReadString('Defaults', 'HoursUntilPause',
     FloatToStr(defHoursUntilPause, fs)), fs);
   defHoursPerDay := StrToFloat(INI.ReadString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs)), fs);
@@ -703,6 +715,12 @@ begin
     EditWeekForm.WeekGrid.Columns.Items[I].Width :=
       StrToInt(INI.ReadString('EditWeekForm', 'col' + IntToStr(I + 1),
       IntToStr(EditWeekForm.WeekGrid.Columns.Items[I].Width)));
+  end;
+  for I := 0 to FormSettings.StringGrid1.ColCount - 1 do
+  begin
+    FormSettings.StringGrid1.ColWidths[I] :=
+      StrToInt(INI.ReadString('SettingsForm', 'col' + IntToStr(I + 1),
+      IntToStr(FormSettings.StringGrid1.ColWidths[I])));
   end;
   for I := 0 to StringGrid1.ColCount - 1 do
   begin
@@ -980,7 +998,7 @@ end;
 procedure TForm1.TranslateCaptions;
 begin
 
-  // Mein Menu
+  // Main Menu
   MenuItem1.Caption := mcFile;
   MenuItem2.Caption := mcEdit;
   MenuItem5.Caption := mcShow;

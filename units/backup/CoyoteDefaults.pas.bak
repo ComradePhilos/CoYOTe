@@ -47,7 +47,7 @@ var
   emMergeNoWeekSelected: string =
   'Cannot merge, because no week to merge with has been selected! Please select one using the combobox!';
   emMergeSameWeek: string = 'Cannot merge a week with itself! Please select a different week via the combobox!';
-  emInvalidNumber: String = 'Not a valid number input! Try switching "." and "," as the comma separator!';
+  emInvalidNumber: string = 'Not a valid number input! Try switching "." and "," as the comma separator!';
 
   dbDefaultFirebirdUser: string = 'SYSDBA';
   dbDefaultFirebirdPort: string = ''; // 3050
@@ -67,20 +67,20 @@ var
   mcOpenRecent: string = 'Open Recent';
   mcExit: string = 'Exit';
 
-  mcPeople: String = 'People';
-  mcStatistics: String = 'Statistics';
-  mcDatabaseSettings: String = 'database settings';
-  mcDatabaseUpload: String = 'push to database';
-  mcDatabaseDownload: String = 'load from database';
-  mcProgrammeSettings: String = 'Programme Settings';
-  mcColorTheme: String = 'Color Theme';
-  mcLanguage: String = 'Language';
-  mcManual: String = 'Manual (PDF)';
-  mcAbout: String = 'About';
+  mcPeople: string = 'People';
+  mcStatistics: string = 'Statistics';
+  mcDatabaseSettings: string = 'database settings';
+  mcDatabaseUpload: string = 'push to database';
+  mcDatabaseDownload: string = 'load from database';
+  mcProgrammeSettings: string = 'Programme Settings';
+  mcColorTheme: string = 'Color Theme';
+  mcLanguage: string = 'Language';
+  mcManual: string = 'Manual (PDF)';
+  mcAbout: string = 'About';
 
-  bcApply: String = 'Apply';
-  bcBack: String = 'Back';
-  bcReset: String = 'Reset';
+  bcApply: string = 'Apply';
+  bcBack: string = 'Back';
+  bcReset: string = 'Reset';
 
   // default short day names
   txtMon: string = 'Mon';
@@ -91,12 +91,12 @@ var
   txtSat: string = 'Sat';
   txtSun: string = 'Sun';
 
-  txtSum: String = 'Sum';
-  txtGoal: String ='Goal';
-  txtDiff: String = 'Diff';
-  txtDays: String = 'Days';
-  txtPeriod: String = 'Period';
-  txtVacation: String = 'Vacation';
+  txtSum: string = 'Sum';
+  txtGoal: string = 'Goal';
+  txtDiff: string = 'Diff';
+  txtDays: string = 'Days';
+  txtPeriod: string = 'Period';
+  txtVacation: string = 'Vacation';
 
 
   // default long day names
