@@ -25,23 +25,18 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * database commit and download
 // * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
 // * save all people and lists in one file
-// * use Formatsettings for the save and load function
 // * save Position + Size of Settings Form to ini file
 // * sorting functions for Lists
+// * implement new saving function using the scheme in "docs"
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
-
-// # think about a new CSV-like file format that supports multiple persons/files that could be loaded/compared
-//    OR think about saving in whole directory, like DataNorm
-
-// # we might end up not using one WeekList, but a list of WeekLists for each person our system should track time for
 
 // # we should support some kind of anonymous methods, that calculate the time etc... So the classes in workdays.pas
 //  get a little more abstract and will get the methods to calculate dynamically, like dependency injection. This could
 //  help to support other common practice in other countries. Right now you would have to change code in many units.
 
-// # some pictures in the popup menus are not properly shown on Linux Version!!
+// # some pictures in the popup menus are not properly shown on Linux Version!! - Lazarus Bug?
 
 unit main;
 
@@ -163,8 +158,8 @@ type
     EditWeekForm: TForm3;         // The window that you can edit a week with
     AddWeekForm: TForm4;          // A window to add a new week to the "data base"
     DBForm: TForm6;               // The window to connect to the firebird database
-    PersonForm: TForm5;
-    FormSettings: TForm7;
+    PersonForm: TForm5;           // Window showing personal information
+    EditSettingsForm: TForm7;     // The settings "menu"
 
     //FCurrentUser: Integer;      // ID of the currently selected "User"/Person
     FCurrentFilePath: string;     // If known - Name of the currently opened File
@@ -226,19 +221,19 @@ begin
   FOSName := 'unknown';  // for those poor guys using Minix, BSD, Solaris and such things ;)
   // detectable OS
   {$IFDEF macos}
-  FOSName := 'MacOS';    // for those poor guys, who need to compensate the little penis ;)
+  FOSName := 'MacOS';    // for those poor guys with the little penis ;)
   {$ENDIF}
   {$IFDEF mswindows}
-  FOSName := 'Windows';  // for those poor guys, who need to compensate the little brain ;)
+  FOSName := 'Windows';  // for those poor guys with the little brain ;)
   {$ENDIF}
   {$IFDEF linux}
-  FOSName := 'Linux';    // for those poor guys, who need to compensate the huge brain and the monstrous penis ;)
+  FOSName := 'Linux';    // for those poor guys with the huge brain and the monstrous penis ;)
   {$ENDIF}
 
   self.Caption := ProgrammeName + '  ' + VersionNr;
 
   // default values
-  FSelectionIndex := -1;
+  FSelectionIndex := -1;      // at start nothing is selected
   FCurrentFilePath := '';
   FCanSave := False;
 
@@ -252,12 +247,12 @@ begin
   AddWeekForm := TForm4.Create(nil);
   DBForm := TForm6.Create(nil);
   PersonForm := TForm5.Create(nil);
-  FormSettings := TForm7.Create(nil);
+  EditSettingsForm := TForm7.Create(nil);
 
   AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
 
-  // Event Handling
+  // Handling events that come from the subforms
   AddWeekForm.OnApplyClick := @AddWeekToList;           // assign event of the add-form
   EditWeekForm.OnRemoveClick := @RemoveWeekFromList;    // assign event for deletion
   EditWeekForm.OnApplyClick := @AssignWeek;             // assign event for applying changes to week
@@ -289,7 +284,7 @@ begin
   EditWeekForm.Free;
   AddWeekForm.Free;
   PersonForm.Free;
-  FormSettings.Free;
+  EditSettingsForm.Free;
   DBForm.Free;
   FWeekList.Free;
 end;
@@ -554,10 +549,10 @@ var
   fs: TFormatSettings;
 begin
   //fs.DecimalSeparator := ';
-  FormSettings.Visible := True;
-  FormSettings.StringGrid1.Cells[1, 1] := FloatToStr(defHoursPerDay);
-  FormSettings.StringGrid1.Cells[1, 2] := FloatToStr(defPausePerDay);
-  FormSettings.StringGrid1.Cells[1, 3] := FloatToStr(defHoursUntilPause);
+  EditSettingsForm.Visible := True;
+  EditSettingsForm.StringGrid1.Cells[1, 1] := FloatToStr(defHoursPerDay);
+  EditSettingsForm.StringGrid1.Cells[1, 2] := FloatToStr(defPausePerDay);
+  EditSettingsForm.StringGrid1.Cells[1, 3] := FloatToStr(defHoursUntilPause);
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);
@@ -631,11 +626,11 @@ begin
   INI.WriteString('DBInfo', 'dbname', DBForm.LabeledEdit5.Text);
   INI.WriteString('DBInfo', 'user', DBForm.LabeledEdit3.Text);
 
-  INI.WriteString('SettingsForm', 'xpos', IntToStr(FormSettings.Left));
-  INI.WriteString('SettingsForm', 'ypos', IntToStr(FormSettings.Top));
-  INI.WriteString('SettingsForm', 'width', IntToStr(FormSettings.Width));
-  INI.WriteString('SettingsForm', 'height', IntToStr(FormSettings.Height));
-  INI.WriteString('SettingsForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(FormSettings.WindowState)));
+  INI.WriteString('SettingsForm', 'xpos', IntToStr(EditSettingsForm.Left));
+  INI.WriteString('SettingsForm', 'ypos', IntToStr(EditSettingsForm.Top));
+  INI.WriteString('SettingsForm', 'width', IntToStr(EditSettingsForm.Width));
+  INI.WriteString('SettingsForm', 'height', IntToStr(EditSettingsForm.Height));
+  INI.WriteString('SettingsForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(EditSettingsForm.WindowState)));
 
   INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause, fs));
   INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs));
@@ -654,9 +649,9 @@ begin
   begin
     INI.WriteString('EditWeekForm', 'col' + IntToStr(I + 1), IntToStr(EditWeekForm.WeekGrid.Columns.Items[I].Width));
   end;
-  for I := 0 to FormSettings.StringGrid1.ColCount - 1 do
+  for I := 0 to EditSettingsForm.StringGrid1.ColCount - 1 do
   begin
-    INI.WriteString('SettingsForm', 'col' + IntToStr(I + 1), IntToStr(FormSettings.StringGrid1.ColWidths[I]));
+    INI.WriteString('SettingsForm', 'col' + IntToStr(I + 1), IntToStr(EditSettingsForm.StringGrid1.ColWidths[I]));
   end;
   for I := 0 to StringGrid1.ColCount - 1 do
   begin
@@ -695,12 +690,12 @@ begin
   DBForm.LabeledEdit5.Text := INI.ReadString('DBInfo', 'dbname', '');
   DBForm.LabeledEdit3.Text := INI.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
 
-  FormSettings.Left := StrToInt(INI.ReadString('SettingsForm','xpos', IntToStr(FormSettings.Left)));
-  FormSettings.Top := StrToInt(INI.ReadString('SettingsForm','ypos', IntToStr(FormSettings.Top)));
-  FormSettings.Width:= StrToInt(INI.ReadString('SettingsForm','width', IntToStr(FormSettings.Width)));
-  FormSettings.Height:= StrToInt(INI.ReadString('SettingsForm','height', IntToStr(FormSettings.Height)));
+  EditSettingsForm.Left := StrToInt(INI.ReadString('SettingsForm','xpos', IntToStr(EditSettingsForm.Left)));
+  EditSettingsForm.Top := StrToInt(INI.ReadString('SettingsForm','ypos', IntToStr(EditSettingsForm.Top)));
+  EditSettingsForm.Width:= StrToInt(INI.ReadString('SettingsForm','width', IntToStr(EditSettingsForm.Width)));
+  EditSettingsForm.Height:= StrToInt(INI.ReadString('SettingsForm','height', IntToStr(EditSettingsForm.Height)));
     s := INI.ReadString('SettingsForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
-  FormSettings.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
+  EditSettingsForm.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
 
   defHoursUntilPause := StrToFloat(INI.ReadString('Defaults', 'HoursUntilPause',
     FloatToStr(defHoursUntilPause, fs)), fs);
@@ -718,11 +713,11 @@ begin
       StrToInt(INI.ReadString('EditWeekForm', 'col' + IntToStr(I + 1),
       IntToStr(EditWeekForm.WeekGrid.Columns.Items[I].Width)));
   end;
-  for I := 0 to FormSettings.StringGrid1.ColCount - 1 do
+  for I := 0 to EditSettingsForm.StringGrid1.ColCount - 1 do
   begin
-    FormSettings.StringGrid1.ColWidths[I] :=
+    EditSettingsForm.StringGrid1.ColWidths[I] :=
       StrToInt(INI.ReadString('SettingsForm', 'col' + IntToStr(I + 1),
-      IntToStr(FormSettings.StringGrid1.ColWidths[I])));
+      IntToStr(EditSettingsForm.StringGrid1.ColWidths[I])));
   end;
   for I := 0 to StringGrid1.ColCount - 1 do
   begin
@@ -1028,22 +1023,22 @@ begin
 
   // Buttons
   EditWeekForm.ApplyButton.Caption := bcApply;
-  FormSettings.ApplyButton.Caption := bcApply;
+  EditSettingsForm.ApplyButton.Caption := bcApply;
   PersonForm.ApplyButton.Caption := bcApply;
   AddWeekForm.ApplyButton.Caption := bcApply;
 
   EditWeekForm.BackButton.Caption := bcBack;
-  FormSettings.BackButton.Caption := bcBack;
+  EditSettingsForm.BackButton.Caption := bcBack;
   PersonForm.BackButton.Caption := bcBack;
   DBForm.BackButton.Caption := bcBack;
   AddWeekForm.BackButton.Caption := bcBack;
 
   DBForm.ResetButton.Caption := bcReset;
-  FormSettings.ResetButton.Caption := bcReset;
+  EditSettingsForm.ResetButton.Caption := bcReset;
 
   // form-Captions
   AboutForm.Caption := mcAbout;
-  FormSettings.Caption := mcProgrammeSettings;
+  EditSettingsForm.Caption := mcProgrammeSettings;
   AboutForm.PageControl1.Pages[0].Caption := mcAbout;
   PersonForm.Caption := mcPeople;
   DBForm.Caption := mcDatabaseSettings;

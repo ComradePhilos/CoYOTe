@@ -16,7 +16,7 @@ resourcestring
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
   VersionNr = '0.0.5.9';          // Programme-Version
   VersionDate = '26.06.2014';     // Date of the latest changes
-  LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
+  LazarusVersion = '1.2.4';       // Version of the Lazarus IDE the programme was created with
   defLanguage = 'English';        // not sure what we will need in future
   defLanguageID = 'en';
 

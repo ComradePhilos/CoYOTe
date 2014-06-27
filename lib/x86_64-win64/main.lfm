@@ -19,7 +19,7 @@ object Form1: TForm1
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   Position = poScreenCenter
-  LCLVersion = '1.2.2.0'
+  LCLVersion = '1.2.4.0'
   object GroupBox1: TGroupBox
     AnchorSideTop.Control = ToolBar1
     AnchorSideTop.Side = asrBottom
@@ -151,7 +151,7 @@ object Form1: TForm1
     Font.Name = 'Ubuntu'
     Font.Pitch = fpVariable
     Font.Quality = fqDraft
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goSmoothScroll]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goColSizing, goThumbTracking, goSmoothScroll]
     ParentFont = False
     PopupMenu = PopupMenu1
     RowCount = 1

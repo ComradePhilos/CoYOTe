@@ -557,7 +557,7 @@ end;
 
 procedure TForm3.UpdateTitel;
 begin
-  self.Caption := 'Period #' + IntToStr(FWeekIndex + 1) + ' (' + FWeek.WeekLabel + ')';
+  self.Caption := txtPeriod + '#' + IntToStr(FWeekIndex + 1) + ' (' + FWeek.WeekLabel + ')';
 end;
 
 procedure TForm3.UpdateWindow;
@@ -574,9 +574,9 @@ begin
 
   WeekDaysToStringGrid(WeekGrid, FWeek);
 
-  Label1.Caption := 'Goal:   ' + FormatFloat('0.00', FWeek.getGoalHours) + ' h';
-  Label2.Caption := 'Sum:   ' + FormatFloat('0.00', FWeek.getSum) + ' h';
-  Label3.Caption := 'Diff.:  ' + FormatFloat('0.00', diff) + ' h';
+  Label1.Caption := txtGoal + ':   ' + FormatFloat('0.00', FWeek.getGoalHours) + ' h';
+  Label2.Caption := txtSum + ':   ' + FormatFloat('0.00', FWeek.getSum) + ' h';
+  Label3.Caption := txtDiff + ':  ' + FormatFloat('0.00', diff) + ' h';
 end;
 
 end.

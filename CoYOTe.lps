@@ -23,8 +23,8 @@
         <UnitName Value="main"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="7"/>
-        <CursorPos X="33" Y="22"/>
+        <TopLine Value="281"/>
+        <CursorPos X="15" Y="283"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -35,8 +35,8 @@
         <UnitName Value="workdays"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="8" Y="1"/>
+        <TopLine Value="465"/>
+        <CursorPos X="40" Y="139"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -75,8 +75,8 @@
         <UnitName Value="WeekEditForm"/>
         <EditorIndex Value="4"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="493"/>
-        <CursorPos X="28" Y="1"/>
+        <TopLine Value="182"/>
+        <CursorPos X="41" Y="184"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -100,23 +100,23 @@
         <Filename Value="units\CoyoteDefaults.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CoyoteDefaults"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
-        <CursorPos X="20" Y="10"/>
-        <UsageCount Value="148"/>
+        <TopLine Value="4"/>
+        <CursorPos X="20" Y="18"/>
+        <UsageCount Value="149"/>
         <Loaded Value="True"/>
       </Unit7>
       <Unit8>
         <Filename Value="units\people.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="people"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="8"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="13"/>
-        <CursorPos X="1" Y="61"/>
-        <UsageCount Value="106"/>
+        <TopLine Value="1"/>
+        <CursorPos X="18" Y="18"/>
+        <UsageCount Value="107"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
@@ -130,7 +130,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="34"/>
         <CursorPos X="19" Y="10"/>
-        <UsageCount Value="100"/>
+        <UsageCount Value="101"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit9>
@@ -145,7 +145,7 @@
         <WindowIndex Value="0"/>
         <TopLine Value="16"/>
         <CursorPos X="6" Y="38"/>
-        <UsageCount Value="95"/>
+        <UsageCount Value="96"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit10>
@@ -159,8 +159,8 @@
         <EditorIndex Value="5"/>
         <WindowIndex Value="0"/>
         <TopLine Value="1"/>
-        <CursorPos X="61" Y="15"/>
-        <UsageCount Value="33"/>
+        <CursorPos X="14" Y="11"/>
+        <UsageCount Value="34"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit11>
@@ -325,127 +325,123 @@
     <General>
       <ActiveWindowIndexAtStart Value="0"/>
     </General>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="29" HistoryIndex="28">
       <Position1>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="9" Column="24" TopLine="1"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="139" Column="15" TopLine="106"/>
       </Position1>
       <Position2>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="70" Column="5" TopLine="34"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="187" Column="51" TopLine="154"/>
       </Position2>
       <Position3>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="98" Column="75" TopLine="44"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="218" Column="46" TopLine="185"/>
       </Position3>
       <Position4>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="69" Column="3" TopLine="36"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="306" Column="72" TopLine="273"/>
       </Position4>
       <Position5>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="61" Column="11" TopLine="29"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="187" Column="60" TopLine="154"/>
       </Position5>
       <Position6>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="62" Column="18" TopLine="29"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="218" Column="55" TopLine="171"/>
       </Position6>
       <Position7>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="68" Column="20" TopLine="30"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="306" Column="64" TopLine="259"/>
       </Position7>
       <Position8>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="98" Column="74" TopLine="65"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="187" Column="60" TopLine="154"/>
       </Position8>
       <Position9>
-        <Filename Value="units\workdays.pas"/>
-        <Caret Line="282" Column="70" TopLine="277"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="218" Column="55" TopLine="159"/>
       </Position9>
       <Position10>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="106" Column="74" TopLine="53"/>
+        <Filename Value="forms\weekeditform.pas"/>
+        <Caret Line="306" Column="64" TopLine="247"/>
       </Position10>
       <Position11>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="55" Column="23" TopLine="19"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="231" Column="34" TopLine="198"/>
       </Position11>
       <Position12>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="46" Column="36" TopLine="13"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="493" Column="23" TopLine="434"/>
       </Position12>
       <Position13>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="747" Column="23" TopLine="723"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="497" Column="19" TopLine="438"/>
       </Position13>
       <Position14>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="726" Column="10" TopLine="692"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="107" Column="25" TopLine="74"/>
       </Position14>
       <Position15>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="732" Column="29" TopLine="699"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="139" Column="24" TopLine="80"/>
       </Position15>
       <Position16>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="470" Column="1" TopLine="457"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="220" Column="44" TopLine="193"/>
       </Position16>
       <Position17>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="22" Column="34" TopLine="10"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="231" Column="34" TopLine="193"/>
       </Position17>
       <Position18>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="17" Column="16" TopLine="1"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="493" Column="23" TopLine="434"/>
       </Position18>
       <Position19>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="125" Column="17" TopLine="112"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="497" Column="19" TopLine="438"/>
       </Position19>
       <Position20>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="143" Column="72" TopLine="109"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="107" Column="25" TopLine="74"/>
       </Position20>
       <Position21>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="147" Column="49" TopLine="89"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="139" Column="24" TopLine="80"/>
       </Position21>
       <Position22>
-        <Filename Value="forms\personeditform.pas"/>
-        <Caret Line="70" Column="5" TopLine="48"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="231" Column="34" TopLine="172"/>
       </Position22>
       <Position23>
-        <Filename Value="units\CoyoteDefaults.pas"/>
-        <Caret Line="148" Column="40" TopLine="91"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="493" Column="23" TopLine="434"/>
       </Position23>
       <Position24>
-        <Filename Value="forms\settingsform.pas"/>
-        <Caret Line="64" Column="36" TopLine="17"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="497" Column="19" TopLine="438"/>
       </Position24>
       <Position25>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="1054" Column="46" TopLine="1008"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="107" Column="25" TopLine="74"/>
       </Position25>
       <Position26>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="464" Column="17" TopLine="451"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="139" Column="24" TopLine="80"/>
       </Position26>
       <Position27>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="320" Column="24" TopLine="277"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="231" Column="34" TopLine="172"/>
       </Position27>
       <Position28>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="467" Column="5" TopLine="460"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="493" Column="23" TopLine="434"/>
       </Position28>
       <Position29>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="696" Column="90" TopLine="662"/>
+        <Filename Value="units\workdays.pas"/>
+        <Caret Line="497" Column="19" TopLine="438"/>
       </Position29>
-      <Position30>
-        <Filename Value="units\main.pas"/>
-        <Caret Line="701" Column="15" TopLine="663"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
   <EditorMacros Count="0"/>

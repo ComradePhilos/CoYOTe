@@ -28,8 +28,8 @@ type
     function calcDifference: double;    // The function that will actually calculate work time of one day
 
   public
-    constructor Create; overload;
-    constructor Create(ADay: TWorkDay); overload;
+    constructor Create; overload;                    // normal day constructor
+    constructor Create(ADay: TWorkDay); overload;    // Creates a new day and copies the values from ADay
 
     procedure Clear;
     procedure setTime(hour, min: integer; mode: boolean);
@@ -70,7 +70,7 @@ type
   public
     constructor Create;
     constructor Create(AFromDate, AToDate: TDate); overload;
-    constructor Create(AWorkWeek: TWorkWeek); overload;
+    constructor Create(AWorkWeek: TWorkWeek); overload;         // Creates a week and copies the values from AWorkWeek
     destructor Destroy;
     procedure Clear;
     procedure assign(AWeek: TWorkWeek);       // Assign the values of AWeek to this instance
@@ -104,7 +104,7 @@ procedure InsertDayToWeek(ADay: TWorkDay; AWeek: TWorkWeek; AIndex: Integer);
 
 
 function timeToText(AHour, AMinute: integer): string;
-function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-bases String instead of a 0 based
+function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-based String instead of a 0 based
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
 
