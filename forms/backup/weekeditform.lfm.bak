@@ -493,7 +493,7 @@ object Form3: TForm3
       end>
     DefaultRowHeight = 29
     FixedCols = 0
-    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goSmoothScroll]
+    Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goEditing, goThumbTracking, goSmoothScroll]
     RowCount = 7
     TabOrder = 0
     TitleFont.CharSet = ANSI_CHARSET

@@ -27,7 +27,8 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * save all people and lists in one file
 // * save Position + Size of Settings Form to ini file
 // * sorting functions for Lists
-// * implement new saving function using the scheme in "docs"
+// * implement new saving function. maybe in XML or HTML style
+// * functions for latest qutting and earliest begin of work
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
@@ -453,6 +454,7 @@ begin
   FLanguageID := 'en';
   LoadFromLanguageFile('../languages/en.lang');
   translateCaptions;
+  updateWindow;
 end;
 
 procedure TForm1.MenuGermanClick(Sender: TObject);
@@ -460,6 +462,7 @@ begin
   FLanguageID := 'de';
   LoadFromLanguageFile('../languages/de.lang');
   translateCaptions;
+  updateWindow;
 end;
 
 procedure TForm1.MenuLoadClick(Sender: TObject);
@@ -545,10 +548,7 @@ begin
 end;
 
 procedure TForm1.MenuSettingsClick(Sender: TObject);
-var
-  fs: TFormatSettings;
 begin
-  //fs.DecimalSeparator := ';
   EditSettingsForm.Visible := True;
   EditSettingsForm.StringGrid1.Cells[1, 1] := FloatToStr(defHoursPerDay);
   EditSettingsForm.StringGrid1.Cells[1, 2] := FloatToStr(defPausePerDay);
@@ -605,11 +605,11 @@ begin
   fs.DecimalSeparator := '.';
   // Write INI-File
   INI := TINIFile.Create('coyote.ini');
-  INI.UpdateFile;
-  INI.WriteString('MainForm', 'xpos', IntToStr(self.Left));
-  INI.WriteString('MainForm', 'ypos', IntToStr(self.Top));
+  //INI.UpdateFile;
   if (self.WindowState <> wsMaximized) then
   begin
+    INI.WriteString('MainForm', 'xpos', IntToStr(self.Left));
+    INI.WriteString('MainForm', 'ypos', IntToStr(self.Top));
     INI.WriteString('MainForm', 'width', IntToStr(self.Width));
     INI.WriteString('MainForm', 'height', IntToStr(self.Height));
   end;
@@ -671,12 +671,16 @@ begin
   fs.DecimalSeparator := '.';
   INI := TINIFile.Create('coyote.ini');
 
-  self.Left := StrToInt(INI.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
-  self.Top := StrToInt(INI.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
-  self.Width := StrToInt(INI.ReadString('MainForm', 'width', IntToStr(self.Width)));
-  self.Height := StrToInt(INI.ReadString('MainForm', 'height', IntToStr(self.Height)));
   s := INI.ReadString('MainForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
   self.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
+  if (self.WindowState <> wsMaximized) then
+  begin
+    self.Left := StrToInt(INI.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
+		self.Top := StrToInt(INI.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
+		self.Width := StrToInt(INI.ReadString('MainForm', 'width', IntToStr(self.Width)));
+		self.Height := StrToInt(INI.ReadString('MainForm', 'height', IntToStr(self.Height)));
+	end;
+
 
   EditWeekForm.Left := StrToInt(INI.ReadString('EditWeekForm', 'xpos', IntToStr(self.Left)));
   EditWeekForm.Top := StrToInt(INI.ReadString('EditWeekForm', 'ypos', IntToStr(self.Top)));
@@ -1043,6 +1047,9 @@ begin
   PersonForm.Caption := mcPeople;
   DBForm.Caption := mcDatabaseSettings;
 
+  GroupBox1.Caption := txtSummary;
+  EditWeekForm.GroupBox1.Caption := txtSummary;
+
   // StringGrid
   StringGrid1.Columns.Items[1].Title.Caption := txtPeriod;
   StringGrid1.Columns.Items[2].Title.Caption := txtDays;
@@ -1050,7 +1057,12 @@ begin
   StringGrid1.Columns.Items[4].Title.Caption := txtGoal;
   StringGrid1.Columns.Items[5].Title.Caption := txtDiff;
 
+  EditWeekForm.WeekGrid.Columns.Items[5].Title.Caption := txtVacation;
+  EditWeekForm.WeekGrid.Columns.Items[6].Title.Caption := txtSum;
+  EditWeekForm.WeekGrid.Columns.Items[7].Title.Caption := txtDiff;
+
   updateWindow;
+  EditWeekForm.UpdateWindow;
 end;
 
 end.

@@ -24,6 +24,7 @@ txtDiff=Diff
 txtDays=Tage
 txtPeriod=Woche
 txtVacation=Urlaub
+txtSummary=Zusammenfassung
 
 [MenuCaption]
 mcFile=Datei

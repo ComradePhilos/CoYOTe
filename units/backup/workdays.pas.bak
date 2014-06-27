@@ -77,6 +77,8 @@ type
     function getSum: Double;                  // come here and getsum - calculate the sum of working time of the week
     function getAmountOfVacation: Double;     // Returns the number of days a person has taken off
     function getGoalHours: Double;            // Returns the number of hours that have to be achieved
+    function getDayOfLatestQuitting: TDate;   // Returns the Date of the latest qutting
+    function getDayOfEarliestBegin: TDate;    // Returns the Date of the earliest begin
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -136,7 +138,7 @@ begin
   FEndMinute := ADay.EndMinute;
 
   FDate := ADay.Date;
-  FWeekDay := RealDayOfWeek(FDate+1);
+  FWeekDay := RealDayOfWeek(FDate);
   FAdditionalTime := ADay.AdditionalTime;
   FTag := ADay.Tag;
 end;
@@ -352,6 +354,16 @@ begin
 		end;
 	end;
   Result := sum;
+end;
+
+function TWorkWeek.getDayOfEarliestBegin: TDate;
+begin
+
+end;
+
+function TWorkWeek.getDayOfLatestQuitting: TData;
+begin
+
 end;
 
 // ############################################### External Functions ################################################

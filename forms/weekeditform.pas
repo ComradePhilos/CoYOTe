@@ -110,12 +110,12 @@ type
     FOnMergeWeeksClick: TMergeWeeksEvent;  // Triggered, when weeks are going to be merged
 
     procedure UpdateTitel;
-    procedure UpdateWindow;
 
   public
     { public declarations }
     // called from main: feeds window with data
     procedure showWeek(AWeek: TWorkWeek; ANumber: integer);
+    procedure UpdateWindow;
 
     property OnRemoveClick: TRemoveEvent read FOnRemoveClick write FOnRemoveClick;
     property OnApplyClick: TApplyEvent read FOnApplyClick write FOnApplyClick;
