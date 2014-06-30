@@ -27,7 +27,8 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * save all people and lists in one file
 // * save Position + Size of Settings Form to ini file
 // * sorting functions for Lists
-// * implement new saving function using the scheme in "docs"
+// * implement new saving function. maybe in XML or HTML style
+// * functions for latest qutting and earliest begin of work
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
@@ -774,7 +775,7 @@ begin
     goal += FWeekList.Items[I].getGoalHours;
     vacationdays += FWeekList.Items[I].getAmountOfVacation;
 
-    // earliest begin and latest leave
+    {// earliest begin and latest leave
     for d := 0 to FWeekList.Items[I].Days.Count - 1 do
     begin
       if (FWeekList.Items[I].Days[d].Tag = '') then
@@ -807,13 +808,14 @@ begin
           end;
         end;
       end;
-    end;
+    end;   }
 
   end;
   diff := sum - goal;
   if (FWeekList.Count > 0) then
   begin
     WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
+    Label4.Caption := 'Earliest begin: ' + DateToStr(getDateOfEarliestBegin(FWeekList));
   end;
 
   colorText(Label3, sum, goal, 0.5);
@@ -822,18 +824,20 @@ begin
   Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
   Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
 
+  {
   if (earlyDate <> 0) and (lateDate <> 0) then
   begin
-    Label4.Caption := 'Earliest begin: ' + TimeToText(earliestHour, earliestMin) + '   ( on ' +
-      FormatDateTime('dd.mm.yyyy', earlyDate) + ' )';
-    Label5.Caption := 'Latest quitting: ' + TimeToText(latestHour, latestMin) + '   ( on ' +
-      FormatDateTime('dd.mm.yyyy', lateDate) + ' )';
+
+    //Label4.Caption := 'Earliest begin: ' + TimeToText(earliestHour, earliestMin) + '   ( on ' +
+    //  FormatDateTime('dd.mm.yyyy', earlyDate) + ' )';
+    //Label5.Caption := 'Latest quitting: ' + TimeToText(latestHour, latestMin) + '   ( on ' +
+    //  FormatDateTime('dd.mm.yyyy', lateDate) + ' )';
   end
   else
   begin
     Label4.Caption := ''; //'Earliest begin:';
     Label5.Caption := ''; //'Latest quitting:';
-  end;
+  end;    }
   EnableButtons;
 
 end;

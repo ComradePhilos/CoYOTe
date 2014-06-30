@@ -97,6 +97,7 @@ var
   txtDays: string = 'Days';
   txtPeriod: string = 'Period';
   txtVacation: string = 'Vacation';
+  txtSummary: String = 'Summary';
 
 
   // default long day names
@@ -148,6 +149,7 @@ begin
   txtDays := INI.ReadString('CoyoteDefaults', 'txtDays', txtDays);
   txtPeriod := INI.ReadString('CoyoteDefaults', 'txtPeriod', txtPeriod);
   txtVacation := INI.ReadString('CoyoteDefaults', 'txtVacation', txtVacation);
+  txtSummary := INI.ReadString('CoyoteDefaults', 'txtSummary', txtSummary);
 
   mcFile := INI.ReadString('MenuCaption', 'mcFile', mcFile);
   mcEdit := INI.ReadString('MenuCaption', 'mcEdit', mcEdit);

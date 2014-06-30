@@ -77,8 +77,8 @@ type
     function getSum: Double;                  // come here and getsum - calculate the sum of working time of the week
     function getAmountOfVacation: Double;     // Returns the number of days a person has taken off
     function getGoalHours: Double;            // Returns the number of hours that have to be achieved
-    function getDayOfLatestQuitting: TDate;   // Returns the Date of the latest qutting
-    function getDayOfEarliestBegin: TDate;    // Returns the Date of the earliest begin
+    function getDayOfLatestQuitting: TWorkDay;// Returns the Date of the latest qutting
+    function getDayOfEarliestBegin: TWorkDay; // Returns the Date of the earliest begin
 
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
@@ -109,6 +109,7 @@ function timeToText(AHour, AMinute: integer): string;
 function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-based String instead of a 0 based
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
+function getDateOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
 
 function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
@@ -356,14 +357,47 @@ begin
   Result := sum;
 end;
 
-function TWorkWeek.getDayOfEarliestBegin: TDate;
+function TWorkWeek.getDayOfEarliestBegin: TWorkDay;
+var
+  I: Integer;
 begin
-
+  if (self.Days.Count > 0) then
+  begin
+    //Result := self.Days.Items[0];  // initialisieren
+		for I := 0 to FDays.Count - 1 do
+		begin
+      if (FDays.Items[I].tag <> '') and (FDays.Items[I].TimeOff < self.IntendedTimePerDay) then
+      begin
+        if (FDays.Items[I].StartHour < Result.StartHour) then
+        begin
+          if (FDays.Items[I].StartMinute < Result.StartMinute) then
+          begin
+            Result := FDays.Items[I];
+				  end;
+			  end;
+		  end;
+		end;
+	end;
 end;
 
-function TWorkWeek.getDayOfLatestQuitting: TData;
+function TWorkWeek.getDayOfLatestQuitting: TWorkDay;
+var
+  I: Integer;
 begin
-
+  if (self.Days.Count > 0) then
+  begin
+    Result := self.Days.Items[0];  // initialisieren
+		for I := 1 to self.Days.Count - 1 do
+		begin
+      if (FDays.Items[I].StartHour > Result.EndHour) then
+      begin
+        if (FDays.Items[I].StartMinute > Result.EndMinute) then
+        begin
+          Result := FDays.Items[I];
+				end;
+			end;
+		end;
+	end;
 end;
 
 // ############################################### External Functions ################################################
@@ -587,6 +621,33 @@ begin
   if (AWeek.Days.Count > 1) then
   begin
 	  AWeek.Days.Insert(AIndex, ADay);
+	end;
+end;
+
+function getDateOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
+var
+  I: Integer;
+  //locHour, locMin: Integer;
+begin
+  if (AWeekList.Count > 0) then
+  begin
+    Result := AWeekList.Items[0].getDayOfEarliestBegin;
+    //locHour := AWeekList.Items[0].getDayOfEarliestBegin.StartHour;
+    //locMin := AWeekList.Items[0].getDayOfEarliestBegin.StartMinute;
+    for I := 1 to AWeekList.Count - 1 do
+    begin
+      if (AWeekList.Items[I].getDayOfEarliestBegin.StartHour < Result.StartHour) then
+      begin
+        if (AWeekList.Items[I].getDayOfEarliestBegin.StartMinute < Result.StartMinute) then
+        begin
+          Result := AWeekList.Items[I].getDayOfEarliestBegin;
+				end;
+			end;
+		end;
+	end
+  else
+  begin
+    Result := 0;
 	end;
 end;
 

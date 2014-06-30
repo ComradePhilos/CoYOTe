@@ -775,7 +775,7 @@ begin
     goal += FWeekList.Items[I].getGoalHours;
     vacationdays += FWeekList.Items[I].getAmountOfVacation;
 
-    // earliest begin and latest leave
+    {// earliest begin and latest leave
     for d := 0 to FWeekList.Items[I].Days.Count - 1 do
     begin
       if (FWeekList.Items[I].Days[d].Tag = '') then
@@ -808,13 +808,14 @@ begin
           end;
         end;
       end;
-    end;
+    end;   }
 
   end;
   diff := sum - goal;
   if (FWeekList.Count > 0) then
   begin
     WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
+    Label4.Caption := 'Earliest begin: ' + DateToStr(getDateOfEarliestBegin(FWeekList).Date);
   end;
 
   colorText(Label3, sum, goal, 0.5);
@@ -823,18 +824,20 @@ begin
   Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
   Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
 
+  {
   if (earlyDate <> 0) and (lateDate <> 0) then
   begin
-    Label4.Caption := 'Earliest begin: ' + TimeToText(earliestHour, earliestMin) + '   ( on ' +
-      FormatDateTime('dd.mm.yyyy', earlyDate) + ' )';
-    Label5.Caption := 'Latest quitting: ' + TimeToText(latestHour, latestMin) + '   ( on ' +
-      FormatDateTime('dd.mm.yyyy', lateDate) + ' )';
+
+    //Label4.Caption := 'Earliest begin: ' + TimeToText(earliestHour, earliestMin) + '   ( on ' +
+    //  FormatDateTime('dd.mm.yyyy', earlyDate) + ' )';
+    //Label5.Caption := 'Latest quitting: ' + TimeToText(latestHour, latestMin) + '   ( on ' +
+    //  FormatDateTime('dd.mm.yyyy', lateDate) + ' )';
   end
   else
   begin
     Label4.Caption := ''; //'Earliest begin:';
     Label5.Caption := ''; //'Latest quitting:';
-  end;
+  end;    }
   EnableButtons;
 
 end;
