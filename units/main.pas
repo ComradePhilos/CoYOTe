@@ -26,9 +26,9 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
 // * save all people and lists in one file
 // * save Position + Size of Settings Form to ini file
-// * sorting functions for Lists
 // * implement new saving function. maybe in XML or HTML style
-// * functions for latest qutting and earliest begin of work
+// * finish functions for latest qutting and earliest begin of work
+// * sorting functions for Lists
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )
@@ -37,7 +37,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 //  get a little more abstract and will get the methods to calculate dynamically, like dependency injection. This could
 //  help to support other common practice in other countries. Right now you would have to change code in many units.
 
-// # some pictures in the popup menus are not properly shown on Linux Version!! - Lazarus Bug?
+// # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug?
 
 unit main;
 

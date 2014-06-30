@@ -178,6 +178,7 @@ object Form1: TForm1
     Top = 462
     Width = 952
     AutoSize = False
+    Color = clRed
     Panels = <    
       item
         Text = 'Warning! This programme version is not final! Many functions may not work yet!'

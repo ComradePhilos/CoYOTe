@@ -21,10 +21,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="main"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="760"/>
-        <CursorPos X="34" Y="780"/>
+        <TopLine Value="10"/>
+        <CursorPos X="38" Y="31"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,11 +34,10 @@
         <Filename Value="units\workdays.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="workdays"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="610"/>
-        <CursorPos X="167" Y="657"/>
+        <TopLine Value="595"/>
+        <CursorPos X="18" Y="643"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit2>
