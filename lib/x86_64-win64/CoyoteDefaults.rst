@@ -3,8 +3,8 @@
 coyotedefaults.programmename='CoYOT(e)'
 
 
-# hash value = 20021872
-coyotedefaults.versionnr='0.0.5.10'
+# hash value = 20021873
+coyotedefaults.versionnr='0.0.5.11'
 
 
 # hash value = 59912276

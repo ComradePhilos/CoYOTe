@@ -361,23 +361,26 @@ function TWorkWeek.getDayOfEarliestBegin: TWorkDay;
 var
   I: Integer;
 begin
-  if (self.Days.Count > 0) then
-  begin
-    //Result := self.Days.Items[0];  // initialisieren
+
+    if (FDays.Count > 0) then
+    begin
+      Result := FDays[0];
+		end;
+
 		for I := 0 to FDays.Count - 1 do
 		begin
-      if (FDays.Items[I].tag <> '') and (FDays.Items[I].TimeOff < self.IntendedTimePerDay) then
+      if (FDays.Items[I].tag <> '') and (FDays.Items[I].TimeOff < FIntendedTimePerDay) then
       begin
         if (FDays.Items[I].StartHour < Result.StartHour) then
         begin
           if (FDays.Items[I].StartMinute < Result.StartMinute) then
           begin
-            Result := FDays.Items[I];
+            Result := (FDays[I]);
 				  end;
 			  end;
 		  end;
 		end;
-	end;
+
 end;
 
 function TWorkWeek.getDayOfLatestQuitting: TWorkDay;
@@ -397,6 +400,10 @@ begin
 				end;
 			end;
 		end;
+	end
+  else
+  begin
+    Result := nil;
 	end;
 end;
 
@@ -626,29 +633,35 @@ end;
 
 function getDateOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
 var
-  I: Integer;
-  //locHour, locMin: Integer;
+  I,D: Integer;
 begin
-  if (AWeekList.Count > 0) then
-  begin
-    Result := AWeekList.Items[0].getDayOfEarliestBegin;
-    //locHour := AWeekList.Items[0].getDayOfEarliestBegin.StartHour;
-    //locMin := AWeekList.Items[0].getDayOfEarliestBegin.StartMinute;
-    for I := 1 to AWeekList.Count - 1 do
+
+    for I := 0 to AWeekList.Count - 1 do
     begin
-      if (AWeekList.Items[I].getDayOfEarliestBegin.StartHour < Result.StartHour) then
+      for D := 0 to AWeekList.Items[I].Days.Count - 1 do
       begin
-        if (AWeekList.Items[I].getDayOfEarliestBegin.StartMinute < Result.StartMinute) then
+        if (AWeekList.Items[I].Days[D].Tag = '') and (AWeekList.Items[I].Days[D].TimeOff < AweekList.Items[I].IntendedTimePerDay) then
         begin
-          Result := AWeekList.Items[I].getDayOfEarliestBegin;
+           Result := AWeekList.Items[I].Days[D];
+				end;
+      end;
+		end;
+		for I := 0 to AWeekList.Count - 1 do
+    begin
+      if (AWeekList.Items[I].Days.Count > 0) then
+      begin
+      if (AWeekList.Items[I].getDayOfEarliestBegin.Tag = '') and (AWeekList.Items[I].getDayOfEarliestBegin.TimeOff < AWeekList.Items[I].IntendedTimePerDay) then
+      begin
+        if (AWeekList.Items[I].getDayOfEarliestBegin.StartHour < Result.StartHour) then
+        begin
+          if (AWeekList.Items[I].getDayOfEarliestBegin.StartMinute < Result.StartMinute) then
+          begin
+            Result := (AWeekList.Items[I].getDayOfEarliestBegin);
+					end;
 				end;
 			end;
 		end;
-	end
-  else
-  begin
-    Result := nil;
-	end;
+  end;
 end;
 
 end.
