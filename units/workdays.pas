@@ -101,10 +101,6 @@ procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList; SelectionI
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 procedure WeeksToComboBox(AComboBox: TComboBox; AWeekList: TWeekList);
 
-// Inserts a day to a week at specified Index
-procedure InsertDayToWeek(ADay: TWorkDay; AWeek: TWorkWeek; AIndex: Integer);
-
-
 function timeToText(AHour, AMinute: integer): string;
 function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-based String instead of a 0 based
 function getHour(time: string): integer;
@@ -629,14 +625,6 @@ begin
   end;
 end;
 
-procedure InsertDayToWeek(ADay: TWorkDay; AWeek: TWorkWeek; AIndex: Integer);
-begin
-  if (AWeek.Days.Count > 1) then
-  begin
-	  AWeek.Days.Insert(AIndex, ADay);
-	end;
-end;
-
 function getDayOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
 var
   I,D: Integer;
@@ -677,7 +665,6 @@ begin
     begin
       if (Result <> nil) then
       begin
-        //if (AWeekList[I].getDayOfLatestQuitting.EndHour > Result.EndHour) and (AWeekList[I].getDayOfLatestQuitting.EndMinute >= Result.EndMinute) then
         if IsTimeLatest(AWeekList[I].getDayOfLatestQuitting.EndHour, AWeekList[I].getDayOfLatestQuitting.EndMinute, Result.EndHour, Result.EndMinute) then
         begin
           Result := AWeekList[I].getDayOfLatestQuitting;

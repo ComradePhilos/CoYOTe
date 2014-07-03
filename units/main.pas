@@ -27,8 +27,8 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * save all people and lists in one file
 // * save Position + Size of Settings Form to ini file
 // * implement new saving function. maybe in XML or HTML style
-// * finish functions for latest qutting and earliest begin of work
 // * sorting functions for Lists
+// * Position of the windows is not restored
 
 // # database support will be improved/continued when the main functionality is working and the concept is finished
 //    ( e.g. ability to compare multiple people/years/files whatever.. )

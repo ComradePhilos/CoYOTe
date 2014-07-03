@@ -114,7 +114,7 @@ var
   defHoursUntilPause: double = 6;  // Amount of time before the obligatory pause is needed / added
   defPausePerDay: double = 0.75;
   defHoursPerDay: double = 8;      // Standard Value
-  defToolbarColor: integer = $00E0E0E0; // $00FFDBB7;
+  defToolbarColor: integer = $00FFE4CA;//$00E0E0E0; // $00FFDBB7;
 
 implementation
 

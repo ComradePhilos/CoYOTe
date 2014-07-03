@@ -108,6 +108,7 @@ begin
         AWeekList.Add(TWorkWeek.Create);
         AWeekList.Items[I].WeekLabel := Lines[l];
         Inc(l);
+        {
         // Start - Date
         if TryStrToDate(Lines[l], locDate, '.') then
         begin
@@ -119,7 +120,8 @@ begin
         begin
           AWeekList.Items[I].ToDate := locDate;
           Inc(l);
-        end;
+        end;    }
+
         // Time per Day
         if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
         begin

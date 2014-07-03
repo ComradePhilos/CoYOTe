@@ -197,7 +197,7 @@ object Form1: TForm1
     ButtonHeight = 23
     ButtonWidth = 30
     Caption = 'ToolBar1'
-    Color = 14737632
+    Color = 16770250
     EdgeBorders = [ebLeft, ebTop, ebRight, ebBottom]
     EdgeInner = esNone
     EdgeOuter = esNone

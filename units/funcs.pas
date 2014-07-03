@@ -43,8 +43,6 @@ begin
     for I := 0 to AWeekList.Count - 1 do
     begin
       Lines.Add(AWeekList.Items[I].WeekLabel);                         // Label of the week
-      //Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate)); // From-Date
-      //Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));  // To-Date
       Lines.Add(FloatToStr(AWeekList.Items[I].IntendedTimePerDay));    // Intended time of work per day
       Lines.Add(FloatToStr(AWeekList.Items[I].PausePerDay));
       Lines.Add(IntToStr(AWeekList.Items[I].DescriptionText.Count));
@@ -108,19 +106,6 @@ begin
         AWeekList.Add(TWorkWeek.Create);
         AWeekList.Items[I].WeekLabel := Lines[l];
         Inc(l);
-        {
-        // Start - Date
-        if TryStrToDate(Lines[l], locDate, '.') then
-        begin
-          AWeekList.Items[I].FromDate := locDate;
-          Inc(l);
-        end;
-        // End- Date
-        if TryStrToDate(Lines[l], locDate, '.') then
-        begin
-          AWeekList.Items[I].ToDate := locDate;
-          Inc(l);
-        end;    }
 
         // Time per Day
         if TryStrToFloat(Lines[l], locDouble, FormatDouble) then

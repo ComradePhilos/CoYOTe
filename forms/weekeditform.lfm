@@ -56,7 +56,7 @@ object Form3: TForm3
   OnDestroy = FormDestroy
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
-  LCLVersion = '1.2.4.0'
+  LCLVersion = '1.2.2.0'
   object ApplyButton: TBitBtn
     Left = 784
     Height = 30

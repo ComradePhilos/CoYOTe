@@ -230,13 +230,13 @@ begin
     // Move Item to Top
     if (Sender = MenuMoveTop) then
     begin
-      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, 0);
+      FWeek.Days.Insert(0, TWorkDay.Create(FWeek.Days[FSelectionIndex]));
       FWeek.Days.Delete(FSelectionIndex + 1);
     end;
     // Move Item to Bottom
     if (Sender = MenuMoveBottom) then
     begin
-      InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FWeek.Days.Count);
+      FWeek.Days.Insert(FWeek.Days.Count, TWorkDay.Create(FWeek.Days[FSelectionIndex]));
       FWeek.Days.Delete(FSelectionIndex);
     end;
     // Move Item 1 step up
@@ -244,7 +244,7 @@ begin
     begin
       if (FSelectionIndex >= 1) and (FSelectionIndex < FWeek.Days.Count) then
       begin
-        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex - 1);
+        FWeek.Days.Insert(FSelectionIndex - 1, TWorkDay.Create(FWeek.Days[FSelectionIndex]));
         FWeek.Days.Delete(FSelectionIndex + 1);
       end;
     end;
@@ -253,7 +253,7 @@ begin
     begin
       if (FSelectionIndex >= 0) and (FSelectionIndex < FWeek.Days.Count - 1) then
       begin
-        InsertDayToWeek(TWorkDay.Create(FWeek.Days[FSelectionIndex]), FWeek, FSelectionIndex + 2);
+        FWeek.Days.Insert(FSelectionIndex + 2, TWorkDay.Create(FWeek.Days[FSelectionIndex]));
         FWeek.Days.Delete(FSelectionIndex);
       end;
     end;
