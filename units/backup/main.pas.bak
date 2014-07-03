@@ -755,6 +755,7 @@ var
   diff: double;
   vacationdays: double;
   earliestHour, earliestMin: integer;
+  locDay: TWorkDay;
 begin
   sum := 0;
   goal := 0;
@@ -778,9 +779,15 @@ begin
     Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
     Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
     colorText(Label3, sum, goal, 0.5);
-    if not(getDateOfEarliestBegin(FWeekList).Equals(nil)) then
+    if (getDayOfEarliestBegin(FWeekList) <> nil) then
     begin
-      Label4.Caption := 'Earliest begin: ' + DateToStr(getDateOfEarliestBegin(FWeekList).Date);
+      locDay := getDayOfEarliestBegin(FWeekList);
+      Label4.Caption := 'Earliest begin: ' + DateToStr(locDay.Date) + ' (' + TimeToText(locDay.StartHour,locDay.StartMinute ) + ')';
+		end;
+    if (getDayOfLatestQuitting(FWeekList) <> nil) then
+    begin
+      locDay := getDayOfLatestQuitting(FWeekList);
+      Label4.Caption := 'Latest Leave: ' + DateToStr(locDay.Date) + ' (' + TimeToText(locDay.EndHour,locDay.EndMinute ) + ')';
 		end;
 	end;
 

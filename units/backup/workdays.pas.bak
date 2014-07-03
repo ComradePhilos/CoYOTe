@@ -109,7 +109,8 @@ function timeToText(AHour, AMinute: integer): string;
 function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-based String instead of a 0 based
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
-function getDateOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
+function getDayOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
+function getDayOfLatestQuitting(AWeekList: TWeekList): TWorkDay;
 
 function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
@@ -359,17 +360,25 @@ function TWorkWeek.getDayOfEarliestBegin: TWorkDay;
 var
   I: Integer;
 begin
-
+  Result := nil;
   for I := 0 to FDays.Count - 1 do
   begin
-    if (FDays[I].TimeOff < FIntendedTimePerDay) then
+    if (FDays[I].TimeOff < FIntendedTimePerDay) and (FDays[I].Tag = '') then
     begin
       if (Result <> nil) then
       begin
         if (FDays[I].StartHour < Result.StartHour) and (FDays[I].StartMinute <= Result.StartMinute) then
         begin
           Result := FDays[I];
+				end
+        else
+        begin
+          Result := nil;
 				end;
+			end
+      else
+      begin
+        Result := FDays[I];
 			end;
 		end;
 	end;
@@ -379,25 +388,30 @@ function TWorkWeek.getDayOfLatestQuitting: TWorkDay;
 var
   I: Integer;
 begin
-  {
-  if (self.Days.Count > 0) then
+  Result := nil;
+  for I := 0 to FDays.Count - 1 do
   begin
-    Result := self.Days.Items[0];  // initialisieren
-		for I := 1 to self.Days.Count - 1 do
-		begin
-      if (FDays.Items[I].StartHour > Result.EndHour) then
+    if (FDays[I].TimeOff < FIntendedTimePerDay) and (FDays[I].Tag = '') then
+    begin
+      if (Result <> nil) then
       begin
-        if (FDays.Items[I].StartMinute > Result.EndMinute) then
+
+        //if (FDays[I].EndHour > Result.EndHour) and (FDays[I].EndMinute >= Result.EndMinute) then
+        if isTimeLatest(FDays[I].EndHour, FDays[I].EndMinute, Result.EndHour, Result.EndMinute) then
         begin
-          Result := FDays.Items[I];
+          Result := FDays[I];
+				end
+        else
+        begin
+         // Result := nil;
 				end;
+			end
+      else
+      begin
+        Result := FDays[I];
 			end;
 		end;
-	end
-  else
-  begin
-    Result := nil;
-	end;    }
+	end;
 end;
 
 // ############################################### External Functions ################################################
@@ -419,12 +433,15 @@ begin
   Result := False;
   if (AHour > latestHour) then
   begin
-    Result := True;
-  end;
-  if (AHour = latestHour) then
+    Result := True
+	end
+  else if (AHour = latestHour) then
   begin
-    Result := (AHour > latestMinute);
-  end;
+    if (AMinute >= latestMinute) then
+    begin
+      Result := True;
+		end;
+	end;
 end;
 
 function timeToText(AHour, AMinute: integer): string;
@@ -624,13 +641,58 @@ begin
 	end;
 end;
 
-function getDateOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
+function getDayOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
 var
   I,D: Integer;
-  locDay: TWorkDay;
 begin
 
   Result := nil;
+
+  for I := 0 to AWeekList.Count -1 do
+  begin
+    if (AWeekList[I].getDayOfEarliestBegin <> nil) then
+    begin
+      if (Result <> nil) then
+      begin
+        if (AWeekList[I].getDayOfEarliestBegin.StartHour < Result.StartHour) and (AWeekList[I].getDayOfEarliestBegin.StartMinute <= Result.StartMinute) then
+        begin
+          Result := AWeekList[I].getDayOfEarliestBegin;
+				end;
+			end
+      else
+      begin
+        Result := AWeekList[I].getDayOfEarliestBegin;
+			end;
+		end;
+	end;
+
+end;
+
+function getDayOfLatestQuitting(AWeekList: TWeekList): TWorkDay;
+var
+  I,D: Integer;
+begin
+
+  Result := nil;
+
+  for I := 0 to AWeekList.Count -1 do
+  begin
+    if (AWeekList[I].getDayOfLatestQuitting <> nil) then
+    begin
+      if (Result <> nil) then
+      begin
+        //if (AWeekList[I].getDayOfLatestQuitting.EndHour > Result.EndHour) and (AWeekList[I].getDayOfLatestQuitting.EndMinute >= Result.EndMinute) then
+        if IsTimeLatest(AWeekList[I].getDayOfLatestQuitting.EndHour, AWeekList[I].getDayOfLatestQuitting.EndMinute, Result.EndHour, Result.EndMinute) then
+        begin
+          Result := AWeekList[I].getDayOfLatestQuitting;
+				end;
+			end
+      else
+      begin
+        Result := AWeekList[I].getDayOfLatestQuitting;
+			end;
+		end;
+	end;
 
 end;
 
