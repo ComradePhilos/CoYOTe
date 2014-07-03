@@ -21,10 +21,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="main"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="767"/>
-        <CursorPos X="53" Y="774"/>
+        <TopLine Value="759"/>
+        <CursorPos X="15" Y="766"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -36,7 +37,7 @@
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="356"/>
-        <CursorPos X="25" Y="368"/>
+        <CursorPos X="77" Y="369"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -46,7 +47,7 @@
         <UnitName Value="funcs"/>
         <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="67"/>
+        <TopLine Value="205"/>
         <CursorPos X="49" Y="104"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -100,11 +101,10 @@
         <Filename Value="units\CoyoteDefaults.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="CoyoteDefaults"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="4"/>
-        <CursorPos X="24" Y="17"/>
+        <TopLine Value="106"/>
+        <CursorPos X="84" Y="161"/>
         <UsageCount Value="164"/>
         <Loaded Value="True"/>
       </Unit7>

@@ -21,10 +21,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="main"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="0"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="767"/>
-        <CursorPos X="53" Y="774"/>
+        <TopLine Value="759"/>
+        <CursorPos X="7" Y="793"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,11 +34,10 @@
         <Filename Value="units\workdays.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="workdays"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
         <WindowIndex Value="0"/>
         <TopLine Value="356"/>
-        <CursorPos X="30" Y="402"/>
+        <CursorPos X="77" Y="369"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
       </Unit2>
@@ -47,7 +47,7 @@
         <UnitName Value="funcs"/>
         <EditorIndex Value="9"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="67"/>
+        <TopLine Value="205"/>
         <CursorPos X="49" Y="104"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -103,8 +103,8 @@
         <UnitName Value="CoyoteDefaults"/>
         <EditorIndex Value="3"/>
         <WindowIndex Value="0"/>
-        <TopLine Value="4"/>
-        <CursorPos X="86" Y="9"/>
+        <TopLine Value="106"/>
+        <CursorPos X="84" Y="161"/>
         <UsageCount Value="164"/>
         <Loaded Value="True"/>
       </Unit7>

@@ -454,7 +454,7 @@ begin
   FLanguageID := 'en';
   LoadFromLanguageFile('../languages/en.lang');
   translateCaptions;
-  updateWindow;
+  //updateWindow;
 end;
 
 procedure TForm1.MenuGermanClick(Sender: TObject);
@@ -462,7 +462,7 @@ begin
   FLanguageID := 'de';
   LoadFromLanguageFile('../languages/de.lang');
   translateCaptions;
-  updateWindow;
+  //updateWindow;
 end;
 
 procedure TForm1.MenuLoadClick(Sender: TObject);
@@ -676,10 +676,10 @@ begin
   if (self.WindowState <> wsMaximized) then
   begin
     self.Left := StrToInt(INI.ReadString('MainForm', 'xpos', IntToStr(self.Left)));
-		self.Top := StrToInt(INI.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
-		self.Width := StrToInt(INI.ReadString('MainForm', 'width', IntToStr(self.Width)));
-		self.Height := StrToInt(INI.ReadString('MainForm', 'height', IntToStr(self.Height)));
-	end;
+    self.Top := StrToInt(INI.ReadString('MainForm', 'ypos', IntToStr(self.Top)));
+    self.Width := StrToInt(INI.ReadString('MainForm', 'width', IntToStr(self.Width)));
+    self.Height := StrToInt(INI.ReadString('MainForm', 'height', IntToStr(self.Height)));
+  end;
 
 
   EditWeekForm.Left := StrToInt(INI.ReadString('EditWeekForm', 'xpos', IntToStr(self.Left)));
@@ -694,11 +694,11 @@ begin
   DBForm.LabeledEdit5.Text := INI.ReadString('DBInfo', 'dbname', '');
   DBForm.LabeledEdit3.Text := INI.ReadString('DBInfo', 'user', dbDefaultFirebirdUser);
 
-  EditSettingsForm.Left := StrToInt(INI.ReadString('SettingsForm','xpos', IntToStr(EditSettingsForm.Left)));
-  EditSettingsForm.Top := StrToInt(INI.ReadString('SettingsForm','ypos', IntToStr(EditSettingsForm.Top)));
-  EditSettingsForm.Width:= StrToInt(INI.ReadString('SettingsForm','width', IntToStr(EditSettingsForm.Width)));
-  EditSettingsForm.Height:= StrToInt(INI.ReadString('SettingsForm','height', IntToStr(EditSettingsForm.Height)));
-    s := INI.ReadString('SettingsForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
+  EditSettingsForm.Left := StrToInt(INI.ReadString('SettingsForm', 'xpos', IntToStr(EditSettingsForm.Left)));
+  EditSettingsForm.Top := StrToInt(INI.ReadString('SettingsForm', 'ypos', IntToStr(EditSettingsForm.Top)));
+  EditSettingsForm.Width := StrToInt(INI.ReadString('SettingsForm', 'width', IntToStr(EditSettingsForm.Width)));
+  EditSettingsForm.Height := StrToInt(INI.ReadString('SettingsForm', 'height', IntToStr(EditSettingsForm.Height)));
+  s := INI.ReadString('SettingsForm', 'state', GetEnumName(TypeInfo(TWindowState), integer(wsNormal)));
   EditSettingsForm.WindowState := TWindowState(GetEnumValue(TypeInfo(TWindowState), s));
 
   defHoursUntilPause := StrToFloat(INI.ReadString('Defaults', 'HoursUntilPause',
@@ -749,12 +749,10 @@ end;
 procedure TForm1.UpdateWindow;
 var
   I: integer;
-  d: integer;
   sum: double;
   goal: double;
   diff: double;
   vacationdays: double;
-  earliestHour, earliestMin: integer;
   locDay: TWorkDay;
 begin
   sum := 0;
@@ -779,17 +777,20 @@ begin
     Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
     Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
     colorText(Label3, sum, goal, 0.5);
-    if (getDayOfEarliestBegin(FWeekList) <> nil) then
-    begin
-      locDay := getDayOfEarliestBegin(FWeekList);
-      Label4.Caption := 'Earliest begin: ' + DateToStr(locDay.Date) + ' (' + TimeToText(locDay.StartHour,locDay.StartMinute ) + ')';
-		end;
-    if (getDayOfLatestQuitting(FWeekList) <> nil) then
-    begin
-      locDay := getDayOfLatestQuitting(FWeekList);
-      Label4.Caption := 'Latest Leave: ' + DateToStr(locDay.Date) + ' (' + TimeToText(locDay.EndHour,locDay.EndMinute ) + ')';
-		end;
-	end;
+  end;
+
+  if (getDayOfEarliestBegin(FWeekList) <> nil) then
+  begin
+    locDay := getDayOfEarliestBegin(FWeekList);
+    Label4.Caption := 'Earliest begin: ' + TimeToText(locDay.StartHour, locDay.StartMinute) +
+      ' (' + DateToStr(locDay.Date) + ')';
+  end;
+  if (getDayOfLatestQuitting(FWeekList) <> nil) then
+  begin
+    locDay := getDayOfLatestQuitting(FWeekList);
+    Label5.Caption := 'Latest Leave: ' + TimeToText(locDay.EndHour, locDay.EndMinute) +
+      ' (' + DateToStr(locDay.Date) + ')';
+  end;
 
   EnableButtons;
 end;
