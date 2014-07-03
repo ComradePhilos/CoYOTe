@@ -43,8 +43,8 @@ begin
     for I := 0 to AWeekList.Count - 1 do
     begin
       Lines.Add(AWeekList.Items[I].WeekLabel);                         // Label of the week
-      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate)); // From-Date
-      Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));  // To-Date
+      //Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].FromDate)); // From-Date
+      //Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].ToDate));  // To-Date
       Lines.Add(FloatToStr(AWeekList.Items[I].IntendedTimePerDay));    // Intended time of work per day
       Lines.Add(FloatToStr(AWeekList.Items[I].PausePerDay));
       Lines.Add(IntToStr(AWeekList.Items[I].DescriptionText.Count));
@@ -78,7 +78,7 @@ var
   d: integer;        // Day-Counter
   Lines: TStringList;
   Count: integer;    // Number of Days
-  locInt: integer;
+  locInt: integer;   // local values for conversion
   locDate: TDate;
   locDouble: double;
   FormatDouble: TFormatSettings;
@@ -232,11 +232,11 @@ end;
 
 procedure colorText(ALabel: TLabel; Value, toleranceLimit: double);
 begin
-  if Value >= 0 then
+  if (Value >= 0) then
   begin
     ALabel.Font.Color := clGreen;
   end
-  else if Value >= (0 - toleranceLimit) then
+  else if (Value >= (0 - toleranceLimit)) then
   begin
     ALabel.Font.Color := $000080FF;
   end

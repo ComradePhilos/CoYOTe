@@ -243,12 +243,12 @@ begin
   FOpenRecent := TStringList.Create;
 
   // Sub-Forms
-  AboutForm := TForm2.Create(nil);
-  EditWeekForm := TForm3.Create(nil);
-  AddWeekForm := TForm4.Create(nil);
-  DBForm := TForm6.Create(nil);
-  PersonForm := TForm5.Create(nil);
-  EditSettingsForm := TForm7.Create(nil);
+  AboutForm := TForm2.Create(self);
+  EditWeekForm := TForm3.Create(self);
+  AddWeekForm := TForm4.Create(self);
+  DBForm := TForm6.Create(self);
+  PersonForm := TForm5.Create(self);
+  EditSettingsForm := TForm7.Create(self);
 
   AboutForm.Label1.Caption := 'Version: ' + VersionNr + ' ( ' + FOSName + ' )';
   AboutForm.Label2.Caption := 'Build Date: ' + VersionDate;
@@ -778,7 +778,10 @@ begin
     Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
     Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
     colorText(Label3, sum, goal, 0.5);
-    Label4.Caption := 'Earliest begin: ' + DateToStr(getDateOfEarliestBegin(FWeekList).Date);
+    if (getDateOfEarliestBegin(FWeekList) <> nil) then
+    begin
+      Label4.Caption := 'Earliest begin: ' + DateToStr(getDateOfEarliestBegin(FWeekList).Date);
+		end;
 	end;
 
   EnableButtons;
