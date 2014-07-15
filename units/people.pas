@@ -25,7 +25,7 @@ type
       PeopleCount: Integer;
 
     private
-      FFirstName: String;               // First Name (can be multiple names like "Horst Kevin Gerome" :D )
+      FFirstName: String;               // First Name (can be multiple names like "Horst Kevin Jerome" :D )
       FFamilyName: String;              // Family Name
       FIDNumber: String;                // ID Number of the person in a company/team etc...
       FInternalID: Integer;             // programme-internal ID number that is unique and automatically generated

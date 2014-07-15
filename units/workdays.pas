@@ -105,8 +105,10 @@ function timeToText(AHour, AMinute: integer): string;
 function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-based String instead of a 0 based
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
+
 function getDayOfEarliestBegin(AWeekList: TWeekList): TWorkDay;
 function getDayOfLatestQuitting(AWeekList: TWeekList): TWorkDay;
+function getLongestDay(AWeekList: TWeekList): TWorkDay;
 
 function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
@@ -677,6 +679,34 @@ begin
 		end;
 	end;
 
+end;
+
+function getLongestDay(AWeekList: TWeekList): TWorkDay;
+var
+  I, D: Integer;
+begin
+  Result := nil;
+
+  for I := 0 to AWeekList.Count - 1 do
+  begin
+    for D := 0 to AWeekList.Items[I].Days.Count - 1 do
+    begin
+      if (AWeekList.Items[I].Days[D].Tag = '') then
+      begin
+        if (Result <> nil) then
+        begin
+          if (AWeekList.Items[I].Days[D].getAmountOfTime > Result.getAmountOfTime) then
+          begin
+            Result := AWeekList.Items[I].Days[D];
+				  end;
+			  end
+        else
+        begin
+          Result := AWeekList.Items[I].Days[D];
+			  end;
+			end;
+		end;
+	end;
 end;
 
 end.

@@ -63,6 +63,7 @@ type
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
+		Label7: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
@@ -791,6 +792,11 @@ begin
     Label5.Caption := 'Latest Leave: ' + TimeToText(locDay.EndHour, locDay.EndMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
+  if (getLongestDay(FWeekList) <> nil) then
+  begin
+    locDay := getLongestDay(FWeekList);
+    Label7.Caption := 'Longest Day: ' + DateToStr(locDay.Date) + ' ( ' + FloatToStr(locDay.getAmountOfTime) + ' h )';
+	end;
 
   EnableButtons;
 end;
