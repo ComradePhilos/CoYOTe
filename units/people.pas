@@ -4,7 +4,7 @@
   programme. Each person will have its own tables.
 
   NOTE that these TPersons are not USERS! TPerson just holds Data of a person
-  you want to track working time of/for!
+  you want to track working time of/for! So the first/default Person is you.
 
 }
 

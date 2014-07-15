@@ -16,7 +16,7 @@ txtCaptionDelete=Fehler: Die ausgewählten Datumsgrenzen sind in falscher Reihen
 txtQuitProgramme=Programm Beenden
 txtFileSaved=Datei gespeichert...
 txtNewFile=Neue Datei erzeugt
-txtQuitMsg=Sie haben Ihre Änderungen an der Datei noch nicht gespeichert! Wollen Sie wirklich beenden?
+txtQuitMsg=Möchten Sie Ihre Änderungen speichern? Andernfalls gehen sie verloren!
 
 txtSum=Summe
 txtGoal=Soll

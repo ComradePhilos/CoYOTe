@@ -14,8 +14,8 @@ procedure LoadFromLanguageFile(AFilePath: string);
 resourcestring
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.0.5.13';          // Programme-Version
-  VersionDate = '03.07.2014';     // Date of the latest changes
+  VersionNr = '0.0.5.14';          // Programme-Version
+  VersionDate = '15.07.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
   defLanguage = 'English';        // not sure what we will need in future
   defLanguageID = 'en';
@@ -33,7 +33,7 @@ var
   txtRemoveMsg: string = 'Do you really want to delete the selected day? This will delete all data related to it!';
   txtClearMsg: string =
   'This will clear the current week and make it empty but will NOT delete the week! Do you wish to Continue?';
-  txtQuitMsg: string = 'You did not save your changes yet! Do you really want to quit?';
+  txtQuitMsg: string = 'Do you want to save your changes? Otherwise they will get lost!';
 
   txtCaptionDelete: string = 'Really delete?';
   txtQuitProgramme: string = 'Quit Programme';

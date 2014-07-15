@@ -29,13 +29,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * implement new saving function. maybe in XML or HTML style
 // * sorting functions for Lists
 // * Position of the windows is not restored
-
-// # database support will be improved/continued when the main functionality is working and the concept is finished
-//    ( e.g. ability to compare multiple people/years/files whatever.. )
-
-// # we should support some kind of anonymous methods, that calculate the time etc... So the classes in workdays.pas
-//  get a little more abstract and will get the methods to calculate dynamically, like dependency injection. This could
-//  help to support other common practice in other countries. Right now you would have to change code in many units.
+// * change the close window to a "do you want to save your changes"-window
 
 // # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug?
 
@@ -527,7 +521,7 @@ var
   SaveDlg: TSaveDialog;
 begin
   SaveDlg := TSaveDialog.Create(self);
-  SaveDlg.InitialDir := '../data/';         // surprisingly works on Windows too
+  SaveDlg.InitialDir := '../data/';
   SaveDlg.DoFolderChange;
   SaveDlg.FileName := 'test user.sav';
   SaveDlg.Options := [ofOverwritePrompt];
@@ -561,10 +555,16 @@ begin
   begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
+      MenuQuickSaveClick(nil);
       Application.Terminate;
       SaveIniFile;
-    end;
-  end
+    end
+    else
+    begin
+      Application.Terminate;
+      SaveIniFile;
+		end;
+	end
   else
   begin
     Application.Terminate;
@@ -578,11 +578,12 @@ begin
   begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
+      MenuQuickSaveClick(nil);
       CanClose := True;
     end
     else
     begin
-      CanClose := False;
+      CanClose := True;
     end;
   end
   else
@@ -603,9 +604,9 @@ var
   fs: TFormatSettings;
 begin
   fs.DecimalSeparator := '.';
-  // Write INI-File
+
   INI := TINIFile.Create('coyote.ini');
-  //INI.UpdateFile;
+
   if (self.WindowState <> wsMaximized) then
   begin
     INI.WriteString('MainForm', 'xpos', IntToStr(self.Left));
@@ -680,7 +681,6 @@ begin
     self.Width := StrToInt(INI.ReadString('MainForm', 'width', IntToStr(self.Width)));
     self.Height := StrToInt(INI.ReadString('MainForm', 'height', IntToStr(self.Height)));
   end;
-
 
   EditWeekForm.Left := StrToInt(INI.ReadString('EditWeekForm', 'xpos', IntToStr(self.Left)));
   EditWeekForm.Top := StrToInt(INI.ReadString('EditWeekForm', 'ypos', IntToStr(self.Top)));
