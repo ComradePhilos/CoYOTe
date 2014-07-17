@@ -30,7 +30,6 @@ type
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-		procedure FormShow(Sender: TObject);
   private
     { private declarations }
   public

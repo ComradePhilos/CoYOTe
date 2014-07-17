@@ -394,9 +394,13 @@ begin
   begin
     WeekGrid.Canvas.Font.Color := colorMarkedDays;//clWindowFrame;
   end
-  else if (FWeek.Days[aRow-1].TimeOff >= FWeek.IntendedTimePerDay) then
+  else if (aRow -1) >
+  00 then
   begin
-    WeekGrid.Canvas.Font.Color := colorVacationDays;
+    if (FWeek.Days[aRow-1].TimeOff >= FWeek.IntendedTimePerDay) then
+    begin
+      WeekGrid.Canvas.Font.Color := colorVacationDays;
+    end;
   end
   else
   begin

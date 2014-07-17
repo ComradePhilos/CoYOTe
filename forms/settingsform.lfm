@@ -26,10 +26,10 @@ object Form7: TForm7
       ClientHeight = 195
       ClientWidth = 310
       object StringGrid1: TStringGrid
-        Left = 0
-        Height = 196
-        Top = 0
-        Width = 311
+        Left = -1
+        Height = 197
+        Top = -1
+        Width = 312
         Anchors = [akTop, akLeft, akRight, akBottom]
         ColCount = 2
         Columns = <        
@@ -68,8 +68,9 @@ object Form7: TForm7
       object ColorButton1: TColorButton
         Left = 224
         Height = 25
-        Top = 16
+        Top = 14
         Width = 75
+        Anchors = [akTop, akRight]
         BorderWidth = 2
         ButtonColorSize = 16
         ButtonColor = clBlack
@@ -86,8 +87,9 @@ object Form7: TForm7
       object ColorButton2: TColorButton
         Left = 224
         Height = 25
-        Top = 56
+        Top = 53
         Width = 75
+        Anchors = [akTop, akRight]
         BorderWidth = 2
         ButtonColorSize = 16
         ButtonColor = clBlack
