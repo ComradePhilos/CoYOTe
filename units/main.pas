@@ -550,6 +550,9 @@ begin
   EditSettingsForm.StringGrid1.Cells[1, 1] := FloatToStr(defHoursPerDay);
   EditSettingsForm.StringGrid1.Cells[1, 2] := FloatToStr(defPausePerDay);
   EditSettingsForm.StringGrid1.Cells[1, 3] := FloatToStr(defHoursUntilPause);
+
+  EditSettingsForm.ColorButton1.ButtonColor := colorMarkedDays;
+  EditSettingsForm.ColorButton2.ButtonColor := colorVacationDays;
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);

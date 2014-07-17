@@ -550,6 +550,8 @@ begin
   EditSettingsForm.StringGrid1.Cells[1, 1] := FloatToStr(defHoursPerDay);
   EditSettingsForm.StringGrid1.Cells[1, 2] := FloatToStr(defPausePerDay);
   EditSettingsForm.StringGrid1.Cells[1, 3] := FloatToStr(defHoursUntilPause);
+
+  EditSettingsForm.ColorButton1.ButtonColor := colorMarkedDays;
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);
@@ -559,19 +561,22 @@ begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       MenuQuickSaveClick(nil);
-      Application.Terminate;
       SaveIniFile;
+      Application.Terminate;
+      //SaveIniFile;
     end
     else
     begin
-      Application.Terminate;
       SaveIniFile;
+      Application.Terminate;
+      //SaveIniFile;
 		end;
 	end
   else
   begin
-    Application.Terminate;
     SaveIniFile;
+    Application.Terminate;
+    //SaveIniFile;
   end;
 end;
 

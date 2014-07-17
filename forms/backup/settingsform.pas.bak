@@ -30,6 +30,7 @@ type
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+		procedure FormShow(Sender: TObject);
   private
     { private declarations }
   public
@@ -71,8 +72,8 @@ begin
     end;
   end;
 
-  colorMarkedDays := ColorButton1.Color;
-  colorVacationDays := ColorButton2.Color;
+  colorMarkedDays := ColorButton1.ButtonColor;
+  colorVacationDays := ColorButton2.ButtonColor;
 
 end;
 

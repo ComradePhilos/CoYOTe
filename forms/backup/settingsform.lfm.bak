@@ -7,6 +7,7 @@ object Form7: TForm7
   ClientHeight = 269
   ClientWidth = 332
   OnCreate = FormCreate
+  OnShow = FormShow
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
@@ -282,6 +283,7 @@ object Form7: TForm7
     Width = 75
     Anchors = [akRight, akBottom]
     Caption = 'Reset'
+    Enabled = False
     Glyph.Data = {
       C6070000424DC607000000000000360000002800000016000000160000000100
       2000000000009007000064000000640000000000000000000000FFFFFF00FFFF

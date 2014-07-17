@@ -30,7 +30,6 @@ type
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-		procedure FormShow(Sender: TObject);
   private
     { private declarations }
   public
@@ -50,12 +49,6 @@ procedure TForm7.FormCreate(Sender: TObject);
 begin
   self.Constraints.MinWidth := ApplyButton.Width + BackButton.Width + ResetButton.Width + (3 * 10);
   self.Constraints.MinHeight := self.Height;
-end;
-
-procedure TForm7.FormShow(Sender: TObject);
-begin
-  ColorButton1.Color := colorMarkedDays;
-  ColorButton2.Color := colorVacationDays;
 end;
 
 procedure TForm7.BackButtonClick(Sender: TObject);
@@ -78,8 +71,8 @@ begin
     end;
   end;
 
-  colorMarkedDays := ColorButton1.Color;
-  colorVacationDays := ColorButton2.Color;
+  colorMarkedDays := ColorButton1.ButtonColor;
+  colorVacationDays := ColorButton2.ButtonColor;
 
 end;
 
