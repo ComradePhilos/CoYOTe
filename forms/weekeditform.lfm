@@ -1340,6 +1340,13 @@ object Form3: TForm3
         OnClick = MenuOneDayOffClick
       end
     end
+    object MenuItem11: TMenuItem
+      Caption = 'time...'
+      object MenuItem12: TMenuItem
+        Caption = 'set end to fit daily goal'
+        OnClick = MenuItem12Click
+      end
+    end
   end
   object ImageList1: TImageList
     Height = 24

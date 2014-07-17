@@ -35,6 +35,8 @@ type
     MarkNormal: TMenuItem;
     MarkIgnore: TMenuItem;
 		MenuItem10: TMenuItem;
+		MenuItem11: TMenuItem;
+		MenuItem12: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -89,6 +91,7 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
+		procedure MenuItem12Click(Sender: TObject);
     procedure MenuMoveClick(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
@@ -221,6 +224,17 @@ begin
   finally
     calDialog.Free;
   end;
+end;
+
+procedure TForm3.MenuItem12Click(Sender: TObject);
+var
+  locHour, locMin: Integer;
+begin
+  locHour := getHour(WeekGrid.Cells[3,FSelectionIndex+1]);
+  locMin := getMinute(WeekGrid.Cells[3,FSelectionIndex+1]);
+
+  WeekGrid.Cells[4,FSelectionIndex+1] := TimeToText(locHour + 8, locMin);
+
 end;
 
 procedure TForm3.MenuMoveClick(Sender: TObject);
@@ -378,7 +392,14 @@ var
 begin
   if (WeekGrid.Cells[8, aRow] <> '') then
   begin
-    WeekGrid.Canvas.Font.Color := $000080FF;//clWindowFrame;
+    WeekGrid.Canvas.Font.Color := colorMarkedDays;//clWindowFrame;
+  end
+  else if (aRow -1) > 0 then
+  begin
+    if (FWeek.Days[aRow-1].TimeOff >= FWeek.IntendedTimePerDay) then
+    begin
+      WeekGrid.Canvas.Font.Color := colorVacationDays;
+    end;
   end
   else
   begin

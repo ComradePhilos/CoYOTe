@@ -30,8 +30,10 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * sorting functions for Lists
 // * Position of the windows is not restored
 // * change the close window to a "do you want to save your changes"-window
+// * add function in pupop-menu to set leave time as ( begin time + hours per day + pause )  eg. 9:45 -> 19:00
+// * add a class/datatype for clock times and functions for adding/subtracting
 
-// # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug?
+// # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug? See github!
 
 unit main;
 
@@ -580,22 +582,25 @@ begin
     if (MessageDlg(txtQuitProgramme, txtQuitMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       MenuQuickSaveClick(nil);
+      SaveIniFile;
       CanClose := True;
     end
     else
     begin
+      SaveIniFile;
       CanClose := True;
     end;
   end
   else
   begin
+    SaveIniFile;
     CanClose := True;
   end;
 end;
 
 procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
-  SaveIniFile;
+  //SaveIniFile;
 end;
 
 procedure TForm1.SaveIniFile;
@@ -637,6 +642,8 @@ begin
   INI.WriteString('Defaults', 'HoursUntilPause', FloatToStr(defHoursUntilPause, fs));
   INI.WriteString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs));
   INI.WriteString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs));
+  INI.WriteString('Defaults', 'ColorMarkedDays', IntToStr(colorMarkedDays));
+  INI.WriteString('Defaults', 'ColorVacationDays', IntToStr(colorVacationDays));
   INI.WriteString('Defaults', 'Language', FLanguageID);
 
   // Recent Files
@@ -661,6 +668,7 @@ begin
   end;
 
   INI.WriteString('Theme', 'color', IntToStr(Toolbar1.Color));
+  INI.Free;
 end;
 
 procedure TForm1.LoadIniFile;
@@ -706,6 +714,8 @@ begin
     FloatToStr(defHoursUntilPause, fs)), fs);
   defHoursPerDay := StrToFloat(INI.ReadString('Defaults', 'HoursPerDay', FloatToStr(defHoursPerDay, fs)), fs);
   defPausePerDay := StrToFloat(INI.ReadString('Defaults', 'PausePerDay', FloatToStr(defPausePerDay, fs)), fs);
+  colorMarkedDays := StrToInt(INI.ReadString('Defaults', 'ColorMarkedDays', IntToStr(colorMarkedDays)));
+  colorVacationDays := StrToInt(INI.ReadString('Defaults', 'ColorVacationDays', IntToStr(colorVacationDays)));
   FLanguageID := INI.ReadString('Defaults', 'Language', defLanguageID);
 
   for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
@@ -737,6 +747,7 @@ begin
   end;
 
   ApplyColor(StrToInt(INI.ReadString('Theme', 'color', IntToStr(defToolbarColor))));
+  INI.Free;
 
 end;
 
@@ -795,7 +806,7 @@ begin
   if (getLongestDay(FWeekList) <> nil) then
   begin
     locDay := getLongestDay(FWeekList);
-    Label7.Caption := 'Longest Day: ' + DateToStr(locDay.Date) + ' ( ' + FloatToStr(getLongestDay(FWeekList).getAmountOfTime) + ' h )';
+    Label7.Caption := 'Longest Day: ' + DateToStr(locDay.Date) + ' ( ' + FloatToStr(locDay.getAmountOfTime) + ' h )';
 	end;
 
   EnableButtons;

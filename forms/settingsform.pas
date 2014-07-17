@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ComCtrls,
-  ExtCtrls, ValEdit, ButtonPanel, Buttons, Grids,
+  ExtCtrls, ValEdit, ButtonPanel, Buttons, Grids, ColorBox, StdCtrls,
   { own Units }
   CoyoteDefaults;
 
@@ -17,14 +17,20 @@ type
   TForm7 = class(TForm)
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
+		ColorButton1: TColorButton;
+		ColorButton2: TColorButton;
+		Label1: TLabel;
+		Label2: TLabel;
     ResetButton: TBitBtn;
     ImageList1: TImageList;
     PageControl1: TPageControl;
     StringGrid1: TStringGrid;
     TabSheet1: TTabSheet;
+		TabSheet2: TTabSheet;
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+		procedure FormShow(Sender: TObject);
   private
     { private declarations }
   public
@@ -46,6 +52,12 @@ begin
   self.Constraints.MinHeight := self.Height;
 end;
 
+procedure TForm7.FormShow(Sender: TObject);
+begin
+  ColorButton1.Color := colorMarkedDays;
+  ColorButton2.Color := colorVacationDays;
+end;
+
 procedure TForm7.BackButtonClick(Sender: TObject);
 begin
   self.Visible := False;
@@ -65,6 +77,9 @@ begin
         'Invalid Input', 0);
     end;
   end;
+
+  colorMarkedDays := ColorButton1.Color;
+  colorVacationDays := ColorButton2.Color;
 
 end;
 

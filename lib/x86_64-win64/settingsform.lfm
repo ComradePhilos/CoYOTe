@@ -7,6 +7,7 @@ object Form7: TForm7
   ClientHeight = 269
   ClientWidth = 332
   OnCreate = FormCreate
+  OnShow = FormShow
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
@@ -59,6 +60,47 @@ object Form7: TForm7
           3
           'default after x hours pause is required'
         )
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Colors'
+      ClientHeight = 195
+      ClientWidth = 310
+      object ColorButton1: TColorButton
+        Left = 224
+        Height = 25
+        Top = 16
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+        Flat = True
+      end
+      object Label1: TLabel
+        Left = 8
+        Height = 15
+        Top = 16
+        Width = 115
+        Caption = 'color for marked days'
+        ParentColor = False
+      end
+      object ColorButton2: TColorButton
+        Left = 224
+        Height = 25
+        Top = 56
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+        Flat = True
+      end
+      object Label2: TLabel
+        Left = 8
+        Height = 15
+        Top = 56
+        Width = 120
+        Caption = 'color for vacation days'
+        ParentColor = False
       end
     end
   end
