@@ -219,6 +219,7 @@ object Form6: TForm6
     Width = 445
     Panels = <    
       item
+        Text = 'Only connection test implemented yet!!'
         Width = 50
       end>
     SimplePanel = False

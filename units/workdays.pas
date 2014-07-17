@@ -11,6 +11,24 @@ uses Classes, SysUtils, DateUtils, fgl, Grids, StdCtrls,
 
 type
 
+//############################################ CockTime ###########################################################
+  TClockTime = class
+
+    private
+      FHours: Integer;        // hh:mm
+      FMinutes: Integer;
+
+    public
+      constructor Create; overload;
+      constructor Create(AClockTime: TClockTime); overload;
+      constructor Create(AHours, AMinutes: Integer); overload;
+      procedure Clear;                // initializes or clears the instance
+
+      procedure AddTime(AHours, AMinutes: Integer); overload;  // adds some time to the instance
+      procedure AddTime(AClockTime: TClockTime); overload;     // adds the time of another instance to this instance
+      function ToText: String;                                 // returns the time as a text, e.g. 0:00
+	end;
+
 //############################################ DAY ###########################################################
   TWorkDay = class
 
@@ -116,6 +134,43 @@ function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolea
 
 implementation
 
+
+//############################################ ClockTime ###########################################################
+constructor TClockTime.Create;
+begin
+  Clear;
+end;
+
+constructor TClockTime.Create(AClockTime: TClockTime);
+begin
+  Clear;
+end;
+
+constructor TClockTime.Create(AHours, AMinutes: Integer);
+begin
+  Clear;
+end;
+
+procedure TClockTime.Clear;
+begin
+  Fhours := 0;
+  FMinutes := 0;
+end;
+
+function TClockTime.ToText: String;
+begin
+  Result := TimeToText(FHours, FMinutes);
+end;
+
+procedure TClockTime.AddTime(AHours, AMinutes: Integer);
+begin
+
+end;
+
+procedure TClockTime.AddTime(AClockTime: TClockTime);
+begin
+
+end;
 
 //############################################ DAY ###########################################################
 constructor TWorkDay.Create;

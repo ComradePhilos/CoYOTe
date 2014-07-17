@@ -36,7 +36,7 @@ object Form6: TForm6
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
-  object BitBtn2: TBitBtn
+  object BackButton: TBitBtn
     Left = 128
     Height = 30
     Top = 192
@@ -118,7 +118,7 @@ object Form6: TForm6
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = BitBtn2Click
+    OnClick = BackButtonClick
     TabOrder = 5
   end
   object LabeledEdit1: TLabeledEdit
@@ -308,7 +308,7 @@ object Form6: TForm6
     OnClick = ConnectBtn1Click
     TabOrder = 7
   end
-  object BitBtn3: TBitBtn
+  object ResetButton: TBitBtn
     Left = 208
     Height = 30
     Top = 192
@@ -390,7 +390,7 @@ object Form6: TForm6
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = BitBtn3Click
+    OnClick = ResetButtonClick
     Spacing = 0
     TabOrder = 8
   end

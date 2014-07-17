@@ -29,9 +29,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * implement new saving function. maybe in XML or HTML style
 // * sorting functions for Lists
 // * Position of the windows is not restored
-// * change the close window to a "do you want to save your changes"-window
 // * add function in pupop-menu to set leave time as ( begin time + hours per day + pause )  eg. 9:45 -> 19:00
-// * add a class/datatype for clock times and functions for adding/subtracting
 
 // # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug? See github!
 
