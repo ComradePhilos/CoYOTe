@@ -388,6 +388,7 @@ object Form3: TForm3
   object PausePerDayEdit: TLabeledEdit
     Left = 765
     Height = 25
+    Hint = 'This option is now listed under "Settings". Change it their globally.'
     Top = 283
     Width = 128
     Alignment = taRightJustify
@@ -402,6 +403,7 @@ object Form3: TForm3
     EditLabel.Width = 128
     EditLabel.Caption = 'Pause per day in h'
     EditLabel.ParentColor = False
+    Enabled = False
     TabOrder = 8
     Text = '0,75'
   end

@@ -365,7 +365,7 @@ begin
       // If e.g. 6 hours in Germany have passed, an obligatory time for pause has to be added
       //if (self.Days[I].getAmountOfTime < defHoursUntilPause) then
 //begin
-        Result := Result + self.Days[I].getAmountOfTime
+        Result := Result + self.Days[I].getAmountOfTime;
       //end
       //else
       //begin
@@ -570,7 +570,7 @@ begin
       AGrid.cells[3,I] := TimeToText(AWeek.Days[I-1].StartHour, AWeek.Days[I-1].StartMinute);
       AGrid.cells[4,I] := TimeToText(AWeek.Days[I-1].EndHour, AWeek.Days[I-1].EndMinute);
       AGrid.Cells[5,I] := FloatToStr(AWeek.Days[I-1].TimeOff);
-      AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
+      AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime));
       // if it is tagges as holiday or ignored, then ignore
       if (AWeek.Days[I-1].Tag = '') then
       begin
@@ -760,11 +760,7 @@ begin
       begin
         if (Result <> nil) then
         begin
-          //if (AWeekList.Items[I].Days[D].getAmountOfTime >= defHoursUntilPause) then
-          //begin
-            //pause := defPausePerDay
-					//end;
-					if ((AWeekList.Items[I].Days[D].getAmountOfTime{ - pause}) > Result.getAmountOfTime) then
+					if (AWeekList.Items[I].Days[D].getAmountOfTime > Result.getAmountOfTime) then
           begin
             Result := AWeekList.Items[I].Days[D];
 				  end;
