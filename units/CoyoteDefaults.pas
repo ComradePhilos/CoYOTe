@@ -7,7 +7,7 @@ unit CoyoteDefaults;
 
 interface
 
-uses INIFiles;
+uses INIFiles, workdays;
 
 procedure LoadFromLanguageFile(AFilePath: string);
 
@@ -112,7 +112,6 @@ var
   txtLatestLeave: String = 'latest leave';
   txtLongestDay: String = 'longest day';
 
-  txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
   // Standard Values - will be used, if nothing was found in the ini-file
   defHoursUntilPause: double = 6;  // Amount of time before the obligatory pause is needed / added
   defPausePerDay: double = 0.75;
