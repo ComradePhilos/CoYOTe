@@ -25,6 +25,9 @@ txtDays=Tage
 txtPeriod=Woche
 txtVacation=Urlaub
 txtSummary=Zusammenfassung
+txtEarliestBegin=Frühester Beginn
+txtLatestLeave=Spätester Schluss
+txtLongestDay=Längster Arbeitstag
 
 [MenuCaption]
 mcFile=Datei

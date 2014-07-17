@@ -25,6 +25,9 @@ txtDays=Days
 txtPeriod=Period
 txtVacation=Vacation
 txtSummary=Summary
+txtEarliestBegin=earliest begin
+txtLatestLeave=latest leave
+txtLongestDay=longest day
 
 [MenuCaption]
 mcFile=File

@@ -14,7 +14,7 @@ procedure LoadFromLanguageFile(AFilePath: string);
 resourcestring
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.0.5.15';          // Programme-Version
+  VersionNr = '0.0.5.16';          // Programme-Version
   VersionDate = '17.07.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
   defLanguage = 'English';        // not sure what we will need in future
@@ -99,7 +99,6 @@ var
   txtVacation: string = 'Vacation';
   txtSummary: String = 'Summary';
 
-
   // default long day names
   txtMonday: string = 'Monday';
   txtTuesday: string = 'Tuesday';
@@ -108,6 +107,10 @@ var
   txtFriday: string = 'Friday';
   txtSaturday: string = 'Saturday';
   txtSunday: string = 'Sunday';
+
+  txtEarliestBegin: String = 'earliest begin';
+  txtLatestLeave: String = 'latest leave';
+  txtLongestDay: String = 'longest day';
 
   txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
   // Standard Values - will be used, if nothing was found in the ini-file
@@ -154,6 +157,9 @@ begin
   txtPeriod := INI.ReadString('CoyoteDefaults', 'txtPeriod', txtPeriod);
   txtVacation := INI.ReadString('CoyoteDefaults', 'txtVacation', txtVacation);
   txtSummary := INI.ReadString('CoyoteDefaults', 'txtSummary', txtSummary);
+  txtLatestLeave := INI.ReadString('CoyoteDefaults', 'txtLatestLeave', txtLatestLeave);
+  txtEarliestBegin := INI.ReadString('CoyoteDefaults', 'txtEarliestBegin', txtEarliestBegin);
+  txtLongestDay := INI.ReadString('CoyoteDefaults', 'txtLongestDay', txtLongestDay);
 
   mcFile := INI.ReadString('MenuCaption', 'mcFile', mcFile);
   mcEdit := INI.ReadString('MenuCaption', 'mcEdit', mcEdit);

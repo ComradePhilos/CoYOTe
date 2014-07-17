@@ -61,7 +61,7 @@ type
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
-    Label3: TLabel;
+		Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
@@ -778,6 +778,11 @@ begin
   diff := 0;
   vacationdays := 0;
 
+  Label4.Caption := '';
+  Label5.Caption := '';
+  Label6.Caption := '';
+  Label7.Caption := '';
+
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
   begin
@@ -800,19 +805,19 @@ begin
   if (getDayOfEarliestBegin(FWeekList) <> nil) then
   begin
     locDay := getDayOfEarliestBegin(FWeekList);
-    Label4.Caption := 'Earliest begin: ' + TimeToText(locDay.StartHour, locDay.StartMinute) +
+    Label4.Caption := txtEarliestBegin + ': ' + TimeToText(locDay.StartHour, locDay.StartMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
   if (getDayOfLatestQuitting(FWeekList) <> nil) then
   begin
     locDay := getDayOfLatestQuitting(FWeekList);
-    Label5.Caption := 'Latest Leave: ' + TimeToText(locDay.EndHour, locDay.EndMinute) +
+    Label5.Caption := txtLatestLeave + ': ' + TimeToText(locDay.EndHour, locDay.EndMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
   if (getLongestDay(FWeekList) <> nil) then
   begin
     locDay := getLongestDay(FWeekList);
-    Label7.Caption := 'Longest Day: ' + DateToStr(locDay.Date) + ' ( ' + FloatToStr(locDay.getAmountOfTime) + ' h )';
+    Label7.Caption := txtLongestDay + ': ' + DateToStr(locDay.Date) + ' (' + FloatToStr(locDay.getAmountOfTime) + ' h)';
 	end;
 
   EnableButtons;
@@ -1041,6 +1046,7 @@ begin
   EditWeekForm.WeekGrid.Columns.Items[7].Title.Caption := txtDiff;
 
   updateWindow;
+  Groupbox1.Repaint;
   EditWeekForm.UpdateWindow;
 end;
 

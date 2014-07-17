@@ -99,7 +99,6 @@ var
   txtVacation: string = 'Vacation';
   txtSummary: String = 'Summary';
 
-
   // default long day names
   txtMonday: string = 'Monday';
   txtTuesday: string = 'Tuesday';
@@ -109,6 +108,10 @@ var
   txtSaturday: string = 'Saturday';
   txtSunday: string = 'Sunday';
 
+  txtEarliestBegin: String = 'earliest begin';
+  txtLatestLeave: String = 'latest leave';
+  txtLongestDay: String = 'longest day';
+
   txtWeekDays: array[1..7] of string = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun');
   // Standard Values - will be used, if nothing was found in the ini-file
   defHoursUntilPause: double = 6;  // Amount of time before the obligatory pause is needed / added
@@ -116,13 +119,11 @@ var
   defHoursPerDay: double = 8;      // Standard Value
   defToolbarColor: integer = $00FFE4CA; //$00E0E0E0; // $00FFDBB7;
 
-  colorMarkedDays: Integer;
-  colorVacationDays: Integer;
+  colorMarkedDays: Integer = $000080FF;
+  colorVacationDays: Integer = $00FF0080;
 
 implementation
 
-colorMarkedDays: Integer = $000080FF;
-colorVacationDays: Integer = $00FF0080;
 
 procedure LoadFromLanguageFile(AFilePath: string);
 var
@@ -156,6 +157,9 @@ begin
   txtPeriod := INI.ReadString('CoyoteDefaults', 'txtPeriod', txtPeriod);
   txtVacation := INI.ReadString('CoyoteDefaults', 'txtVacation', txtVacation);
   txtSummary := INI.ReadString('CoyoteDefaults', 'txtSummary', txtSummary);
+  txtLatestLeave := INI.ReadString('CoyoteDefaults', 'txtLatestLeave', txtLatestLeave);
+  txtEarliestBegin := INI.ReadString('CoyoteDefaults', 'txtEarliestBegin', txtEarliestBegin);
+  txtLongestDay := INI.ReadString('CoyoteDefaults', 'txtLongestDay', txtLongestDay);
 
   mcFile := INI.ReadString('MenuCaption', 'mcFile', mcFile);
   mcEdit := INI.ReadString('MenuCaption', 'mcEdit', mcEdit);
