@@ -23,10 +23,9 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // Todo:
 // * Work on Personnel Management
 // * database commit and download
-// * functions for getEarliestBegin, getLatestLeave, getLongestDay, AverageWorkingtime etc -> funcs.pas or workdays.pas
 // * save all people and lists in one file
 // * save Position + Size of Settings Form to ini file
-// * implement new saving function. maybe in XML or HTML style
+// * implement new saving function.
 // * sorting functions for Lists
 // * Position of the windows is not restored
 // * add function in pupop-menu to set leave time as ( begin time + hours per day + pause )  eg. 9:45 -> 19:00

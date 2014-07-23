@@ -25,10 +25,14 @@ type
       constructor Create(AClockTime: TClockTime); overload;
       constructor Create(AHours, AMinutes: Integer); overload;
       procedure Clear;                // initializes or clears the instance
+      procedure Assign(AClockTime: TClockTime);
 
       procedure AddTime(AHours, AMinutes: Integer); overload;  // adds some time to the instance
       procedure AddTime(AClockTime: TClockTime); overload;     // adds the time of another instance to this instance
       function ToText: String;                                 // returns the time as a text, e.g. 0:00
+
+      property getHours: Integer read FHours;
+      property getMinutes: Integer read FMinutes;
 	end;
 
 //############################################ DAY ###########################################################
@@ -148,6 +152,7 @@ end;
 constructor TClockTime.Create(AClockTime: TClockTime);
 begin
   Clear;
+  self.Assign(AClockTime);
 end;
 
 constructor TClockTime.Create(AHours, AMinutes: Integer);
@@ -161,20 +166,40 @@ begin
   FMinutes := 0;
 end;
 
+procedure TClockTime.Assign(AClockTime: TClockTime);
+begin
+  FHours := AClockTime.getHours;
+  FMinutes := AClockTime.getMinutes;
+end;
+
 function TClockTime.ToText: String;
 begin
   Result := TimeToText(FHours, FMinutes);
 end;
 
 procedure TClockTime.AddTime(AHours, AMinutes: Integer);
+var
+  I: Integer;
 begin
+  FHours := (FHours + Ahours) mod 24;
+
+  for I := 0 to AMinutes - 1 do
+  begin
+    FMinutes += AMinutes;
+    if (FMinutes > 59) then
+    begin
+      FHours := (FHours + 1) mod 24;
+      FMinutes := 0;
+		end;
+	end;
 
 end;
 
 procedure TClockTime.AddTime(AClockTime: TClockTime);
 begin
-
+  self.AddTime(AClockTime.getHours, AClockTime.getMinutes);
 end;
+
 
 //############################################ DAY ###########################################################
 constructor TWorkDay.Create;
