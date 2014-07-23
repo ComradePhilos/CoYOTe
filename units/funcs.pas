@@ -55,10 +55,10 @@ begin
       begin
         Lines.Add(FormatDateTime('dd.mm.yyyy', AWeekList.Items[I].Days[F].Date));
         Lines.Add(IntToStr(AWeekList.Items[I].Days[F].Weekday));
-        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartHour));
-        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartMinute));
-        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndHour));
-        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndMinute));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartTime.getHours));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].StartTime.getMinutes));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndTime.getHours));
+        Lines.Add(IntToStr(AWeekList.Items[I].Days[F].EndTime.getMinutes));
         Lines.Add(FloatToStr(AWeekList.Items[I].Days[F].TimeOff));
         Lines.Add(AWeekList.Items[I].Days[F].Tag);
       end;
@@ -76,7 +76,7 @@ var
   d: integer;        // Day-Counter
   Lines: TStringList;
   Count: integer;    // Number of Days
-  locInt: integer;   // local values for conversion
+  locInt, locInt2: integer;   // local values for conversion
   locDate: TDate;
   locDouble: double;
   FormatDouble: TFormatSettings;
@@ -153,30 +153,30 @@ begin
             AWeekList.Items[I].Days[d].Weekday := locInt;
             Inc(l);
           end;
-          // Start-Hour
+          // Start-Time
           if TryStrToInt(Lines[l], locInt) then
           begin
-            AWeekList.Items[I].Days[d].StartHour := locInt;
-            Inc(l);
+            //AWeekList.Items[I].Days[d].StartTime.Assign(int);
+            if TryStrToInt(Lines[l], locInt2) then
+            begin
+              AWeekList.Items[I].Days[d].StartTime.Assign(locInt, locInt2);
+              Inc(l);
+              Inc(l);
+            end;
           end;
-          // Start-Minute
-          if TryStrToInt(Lines[l], locInt) then
-          begin
-            AWeekList.Items[I].Days[d].StartMinute := locInt;
-            Inc(l);
-          end;
+
           // End-Hour
           if TryStrToInt(Lines[l], locInt) then
           begin
-            AWeekList.Items[I].Days[d].EndHour := locInt;
-            Inc(l);
+            if TryStrToInt(Lines[l], locInt2) then
+            begin
+              AWeekList.Items[I].Days[d].EndTime.Assign(locInt, locInt2);
+              Inc(l);
+              Inc(l);
+            end;
           end;
           // End-Minute
-          if TryStrToInt(Lines[l], locInt) then
-          begin
-            AWeekList.Items[I].Days[d].EndMinute := locInt;
-            Inc(l);
-          end;
+
           // Time off
           if TryStrToFloat(Lines[l], locDouble, FormatDouble) then
           begin

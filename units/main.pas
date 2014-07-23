@@ -17,6 +17,12 @@
   along with this program.  If not, see http://www.gnu.org/licenses/    *
                                                                         *
 *************************************************************************
+
+This is a programme I made for myself, to help me have an overview on
+working times and vacation days. Primarly I did this, because i wanted
+to get comfortable with Lazarus, so the use of the programme was not the
+significant goal. I just wanted to learn stuff.
+
 sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 }
 
@@ -24,10 +30,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * Work on Personnel Management
 // * database commit and download
 // * save all people and lists in one file
-// * save Position + Size of Settings Form to ini file
 // * implement new saving function.
-// * sorting functions for Lists
-// * Position of the windows is not restored
 // * add function in pupop-menu to set leave time as ( begin time + hours per day + pause )  eg. 9:45 -> 19:00
 
 // # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug? See github!
@@ -39,8 +42,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
-  ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons, ActnList,
-  IBConnection, DateUtils, INIFiles, TypInfo,
+	ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons,
+	ActnList, DBGrids, IBConnection, DateUtils, INIFiles, TypInfo,
   { own Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm, SettingsForm,
   { own Units }

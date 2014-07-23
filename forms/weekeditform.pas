@@ -354,10 +354,13 @@ begin
     // apply values from grid
     for I := 0 to FWeek.Days.Count - 1 do
     begin
+      FWeek.Days[I].StartTime.Assign(GetHour(WeekGrid.Cells[3, I + 1]), GetMinute(WeekGrid.Cells[3, I + 1]));
+      FWeek.Days[I].EndTime.Assign(GetHour(WeekGrid.Cells[4, I + 1]), GetMinute(WeekGrid.Cells[4, I + 1]));
+      {
       FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3, I + 1]);
       FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4, I + 1]);
       FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
-      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
+      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);  }
       FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
     end;
   except

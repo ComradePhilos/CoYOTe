@@ -404,6 +404,8 @@ object Form3: TForm3
     EditLabel.Caption = 'Pause per day in h'
     EditLabel.ParentColor = False
     Enabled = False
+    ParentShowHint = False
+    ShowHint = True
     TabOrder = 8
     Text = '0,75'
   end
