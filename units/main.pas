@@ -121,6 +121,7 @@ type
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
+		procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
@@ -350,6 +351,11 @@ begin
     WeeksToComboBox(EditWeekForm.ComboBox2, FweekList);
     EditWeekForm.ComboBox1.ItemIndex := FSelectionIndex;
   end;
+end;
+
+procedure TForm1.FormActivate(Sender: TObject);
+begin
+  UpdateWindow;
 end;
 
 procedure TForm1.getWeek(Sender: TObject; Index: integer);

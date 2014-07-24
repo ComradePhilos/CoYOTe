@@ -30,6 +30,7 @@ type
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+		procedure ResetButtonClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -41,6 +42,8 @@ var
 
 implementation
 
+uses main;
+
 {$R *.lfm}
 
 { TForm7 }
@@ -49,6 +52,24 @@ procedure TForm7.FormCreate(Sender: TObject);
 begin
   self.Constraints.MinWidth := ApplyButton.Width + BackButton.Width + ResetButton.Width + (3 * 10);
   self.Constraints.MinHeight := self.Height;
+end;
+
+procedure TForm7.ResetButtonClick(Sender: TObject);
+begin
+
+  defHoursUntilPause := 6;
+  defPausePerDay := 0.75;
+  defHoursPerDay := 8;
+  colorMarkedDays := $000080FF;
+  colorVacationDays := $00FF0080;
+
+  StringGrid1.Cells[1,1] := FloatToStr(defHoursPerDay);
+  StringGrid1.Cells[1,2] := FloatToStr(defPauseperDay);
+  StringGrid1.Cells[1,3] := FloatToStr(defHoursUntilPause);
+
+  ColorButton1.ButtonColor := colorMarkedDays;
+  ColorButton2.ButtonColor := colorVacationDays;
+
 end;
 
 procedure TForm7.BackButtonClick(Sender: TObject);
