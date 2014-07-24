@@ -229,11 +229,19 @@ end;
 procedure TForm3.MenuItem12Click(Sender: TObject);
 var
   locHour, locMin: Integer;
+  locTime: TClockTime;
 begin
+  locTime := TClockTime.Create(0, round(defHoursPerDay*60) + round(defPausePerDay*60));
+
   locHour := getHour(WeekGrid.Cells[3,FSelectionIndex+1]);
   locMin := getMinute(WeekGrid.Cells[3,FSelectionIndex+1]);
 
-  WeekGrid.Cells[4,FSelectionIndex+1] := TimeToText(locHour + 8, locMin);
+  locTime.AddTime(locHour, locMin);
+
+  WeekGrid.Cells[4,FSelectionIndex+1] := locTime.ToText;//TimeToText(locHour + 8, locMin);
+  //WeekGrid.Cells[4,FSelectionIndex+1] := TimeToText(locHour + 8, locMin);
+
+  locTime.Free;
 
 end;
 
@@ -480,10 +488,11 @@ begin
     // apply values from grid
     for I := 0 to FWeek.Days.Count - 1 do
     begin
-      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3, I + 1]);
-      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4, I + 1]);
-      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
-      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
+      FWeek.Days[I].StartTime.Assign(GetHour(WeekGrid.Cells[3, I + 1]), GetMinute(WeekGrid.Cells[3, I + 1]) );
+      FWeek.Days[I].EndTime.Assign(GetHour(WeekGrid.Cells[4, I + 1]), GetMinute(WeekGrid.Cells[4, I + 1]) );
+      //FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4, I + 1]);
+      //FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
+      //FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
       FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
       FWeek.Days[I].Tag := WeekGrid.Cells[8, I + 1];
     end;

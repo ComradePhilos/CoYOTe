@@ -42,10 +42,6 @@ type
   TWorkDay = class
 
   private
-    //FStartHour: integer;      // The hour work starts that day
-    //FStartMinute: integer;    // The minute work starts that day
-    //FEndHour: integer;        // The hour work ends that day
-    //FEndMinute: integer;      // The minute work ends that day
     FStartTime: TClockTime;
     FEndTime: TClockTime;
     FTimeOff: Double;         // hours that are taken off - freetime
@@ -62,15 +58,9 @@ type
     destructor Destroy;
 
     procedure Clear;
-    //procedure setTime(hour, min: integer; mode: boolean);
     procedure Assign(ADay: TWorkDay);
     function WeekDayToText: String;
     function getAmountOfTime: Double;
-
-    //property StartHour: Integer read FStartTime.getHours;
-    //property StartMinute: Integer read FStartTime.getMinutes; // write FStartMinute;
-    //property EndHour: Integer read FEndHour write FEndHour;
-    //property EndMinute: Integer read FEndMinute write FEndMinute;
 
     property StartTime: TClockTime read FStartTime write FStartTime;
     property EndTime: TClockTime read FEndTime write FEndTime;
@@ -167,6 +157,7 @@ end;
 constructor TClockTime.Create(AHours, AMinutes: Integer);
 begin
   Clear;
+  AddTime(AHours, AMinutes);
 end;
 
 procedure TClockTime.Clear;
@@ -200,7 +191,7 @@ begin
 
   for I := 0 to AMinutes - 1 do
   begin
-    FMinutes += AMinutes;
+    FMinutes += 1;//AMinutes;
     if (FMinutes > 59) then
     begin
       FHours := (FHours + 1) mod 24;
@@ -236,11 +227,6 @@ end;
 
 procedure TWorkDay.Assign(ADay: TWorkDay);
 begin
-  //FStartHour := ADay.StartHour;
-  //FStartMinute := ADay.StartMinute;
-  //FEndHour := ADay.EndHour;
-  //FEndMinute := ADay.EndMinute;
-
   FStartTime.Assign(ADay.StartTime);
   FEndTime.Assign(ADay.EndTime);
 
@@ -252,10 +238,6 @@ end;
 
 procedure TWorkDay.Clear;
 begin
-  //FStartHour := 0;
-  //FStartMinute := 0;
-  //FEndHour := 0;
-  //FEndMinute := 0;
   FStartTime.Clear;
   FEndTime.Clear;
 
@@ -350,10 +332,6 @@ begin
     FDays.Add(TWorkDay.Create);
     FDays[I].Date := AWeek.Days[I].Date;
     FDays[I].Weekday := AWeek.Days[I].Weekday;
-    //FDays[I].StartHour := AWeek.Days[I].StartHour;
-    //FDays[I].EndHour := AWeek.Days[I].EndHour;
-    //FDays[I].StartMinute := AWeek.Days[I].StartMinute;
-    //FDays[I].EndMinute := AWeek.Days[I].EndMinute;
     FDays[I].StartTime.Assign(AWeek.Days[I].StartTime);
     FDays[I].EndTime.Assign(AWeek.Days[I].EndTime);
     FDays[I].TimeOff := AWeek.Days[I].TimeOff;
@@ -365,6 +343,7 @@ function TWorkWeek.calcAverageTime: double;
 var
   I: integer;
 begin
+  {
   if (FDays.Count > 0) then
   begin
     for I := 0 to FDays.Count - 1 do
@@ -376,7 +355,8 @@ begin
   else
   begin
     Result := 0;
-  end;
+  end;        }
+  Result := 0;
 end;
 
 function TWorkWeek.getSum: Double;
@@ -391,7 +371,6 @@ begin
       Result := Result + self.Days[I].getAmountOfTime;
     end;
   end;
-
 end;
 
 function TWorkWeek.getGoalHours: Double;
@@ -447,15 +426,15 @@ begin
       if (Result <> nil) then
       begin
         if (FDays[I].StartTime.getHours < Result.StartTime.getHours) or
-          ((FDays[I].StartTime.getHours = Result.StartTime.getHours) and
-          (FDays[I].StartTime.getMinutes <= Result.StartTime.getMinutes)) then
-				  begin
-            Result := FDays[I];
-				  end
-          else
-          begin
-            Result := nil;
-				  end;
+        ((FDays[I].StartTime.getHours = Result.StartTime.getHours) and
+        (FDays[I].StartTime.getMinutes <= Result.StartTime.getMinutes)) then
+				begin
+          Result := FDays[I];
+				end
+        else
+        begin
+          Result := nil;
+				end;
 			end
       else
       begin

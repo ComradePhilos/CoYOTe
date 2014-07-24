@@ -229,11 +229,19 @@ end;
 procedure TForm3.MenuItem12Click(Sender: TObject);
 var
   locHour, locMin: Integer;
+  locTime: TClockTime;
 begin
+
   locHour := getHour(WeekGrid.Cells[3,FSelectionIndex+1]);
   locMin := getMinute(WeekGrid.Cells[3,FSelectionIndex+1]);
 
-  WeekGrid.Cells[4,FSelectionIndex+1] := TimeToText(locHour + 8, locMin);
+  locTime := TClockTime.Create(locHour, locMin);
+  locTime.AddTime(0, round(defHoursPerDay*60) + round(defPausePerDay*60));
+
+  WeekGrid.Cells[4,FSelectionIndex+1] := locTime.ToText;//TimeToText(locHour + 8, locMin);
+  //WeekGrid.Cells[4,FSelectionIndex+1] := TimeToText(locHour + 8, locMin);
+
+  locTime.Free;
 
 end;
 
