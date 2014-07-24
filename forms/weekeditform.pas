@@ -71,6 +71,8 @@ type
     ToolButton5: TToolButton;
     ButtonUndo: TToolButton;
     ButtonDelete: TToolButton;
+		ToolButton6: TToolButton;
+		ToolButton7: TToolButton;
     WeekGrid: TStringGrid;
 
     procedure ApplyButtonClick(Sender: TObject);
@@ -90,11 +92,12 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
-		procedure SetOptimalLeaveTime(Sender: TObject);
+		procedure MenuItem13Click(Sender: TObject);
     procedure MenuMoveClick(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
     procedure MergeWeeksClick(Sender: TObject);
+		procedure ToolButton7Click(Sender: TObject);
     procedure WeekGridEditingDone(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
     procedure WeekGridPrepareCanvas(Sender: TObject; aCol, aRow: integer; aState: TGridDrawState);
@@ -112,6 +115,7 @@ type
     FOnMergeWeeksClick: TMergeWeeksEvent;  // Triggered, when weeks are going to be merged
 
     procedure UpdateTitel;
+    procedure SetOptimalLeaveTime(AIndex: Integer);
 
   public
     { public declarations }
@@ -225,20 +229,29 @@ begin
   end;
 end;
 
-procedure TForm3.SetOptimalLeaveTime(Sender: TObject);
+procedure TForm3.MenuItem13Click(Sender: TObject);
+begin
+  SetOptimalLeaveTime(FSelectionIndex);
+end;
+
+procedure TForm3.SetOptimalLeaveTime(AIndex: Integer);
 var
   locHour, locMin: Integer;
   locTime: TClockTime;
 begin
 
-  locHour := getHour(WeekGrid.Cells[3,FSelectionIndex+1]);
-  locMin := getMinute(WeekGrid.Cells[3,FSelectionIndex+1]);
+  locHour := getHour(WeekGrid.Cells[3,AIndex+1]);
+  locMin := getMinute(WeekGrid.Cells[3,AIndex+1]);
 
   locTime := TClockTime.Create(locHour, locMin);
-  locTime.AddTime(0, round(defHoursPerDay*60) + round(defPausePerDay*60));
+  locTime.AddTime(0, round(defHoursPerDay*60));
 
-  WeekGrid.Cells[4,FSelectionIndex+1] := locTime.ToText;//TimeToText(locHour + 8, locMin);
-  //WeekGrid.Cells[4,FSelectionIndex+1] := TimeToText(locHour + 8, locMin);
+  if (defHoursPerDay >= defHoursUntilPause) then  // should almost always be the case
+  begin
+    locTime.AddTime(0, round(defPausePerDay*60));
+	end;
+
+  WeekGrid.Cells[4,AIndex+1] := locTime.ToText;
 
   locTime.Free;
 
@@ -353,6 +366,16 @@ begin
   end;
 end;
 
+procedure TForm3.ToolButton7Click(Sender: TObject);
+var
+  I: Integer;
+begin
+  for I := 0 to WeekGrid.RowCount - 2 do
+  begin
+    SetOptimalLeaveTime(I);
+  end;
+end;
+
 procedure TForm3.WeekGridEditingDone(Sender: TObject);
 var
   I: integer;
@@ -363,11 +386,6 @@ begin
     begin
       FWeek.Days[I].StartTime.Assign(GetHour(WeekGrid.Cells[3, I + 1]), GetMinute(WeekGrid.Cells[3, I + 1]));
       FWeek.Days[I].EndTime.Assign(GetHour(WeekGrid.Cells[4, I + 1]), GetMinute(WeekGrid.Cells[4, I + 1]));
-      {
-      FWeek.Days[I].StartHour := GetHour(WeekGrid.Cells[3, I + 1]);
-      FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4, I + 1]);
-      FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
-      FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);  }
       FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
     end;
   except
@@ -489,9 +507,6 @@ begin
     begin
       FWeek.Days[I].StartTime.Assign(GetHour(WeekGrid.Cells[3, I + 1]), GetMinute(WeekGrid.Cells[3, I + 1]) );
       FWeek.Days[I].EndTime.Assign(GetHour(WeekGrid.Cells[4, I + 1]), GetMinute(WeekGrid.Cells[4, I + 1]) );
-      //FWeek.Days[I].EndHour := GetHour(WeekGrid.Cells[4, I + 1]);
-      //FWeek.Days[I].StartMinute := GetMinute(WeekGrid.Cells[3, I + 1]);
-      //FWeek.Days[I].EndMinute := GetMinute(WeekGrid.Cells[4, I + 1]);
       FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
       FWeek.Days[I].Tag := WeekGrid.Cells[8, I + 1];
     end;
