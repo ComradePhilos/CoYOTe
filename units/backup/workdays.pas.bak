@@ -30,6 +30,7 @@ type
 
       procedure AddTime(AHours, AMinutes: Integer); overload;  // adds some time to the instance
       procedure AddTime(AClockTime: TClockTime); overload;     // adds the time of another instance to this instance
+      procedure SubstractTime(AHours, AMinutes: Integer);
 
       function ToText: String;                                 // returns the time as a text, e.g. 0:00
       //function getTime: Double;                                // Returns the amount of time in hours

@@ -31,7 +31,6 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * database commit and download
 // * save all people and lists in one file
 // * implement new saving function.
-// * add function in pupop-menu to set leave time as ( begin time + hours per day + pause )  eg. 9:45 -> 19:00
 
 // # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug? See github!
 
@@ -502,6 +501,7 @@ procedure TForm1.MenuNewClick(Sender: TObject);
 begin
   Clear;
   Statusbar1.Panels[0].Text := txtNewFile;
+  UpdateWindow;
 end;
 
 procedure TForm1.MenuPeopleClick(Sender: TObject);
@@ -784,10 +784,13 @@ begin
   diff := 0;
   vacationdays := 0;
 
-  Label4.Caption := '';
-  Label5.Caption := '';
-  Label6.Caption := '';
-  Label7.Caption := '';
+  Label1.Caption := txtSum + ':';
+  Label2.Caption := txtGoal +':';
+  Label3.Caption := txtDiff +':';
+  Label4.Caption := txtEarliestBegin + ':';
+  Label5.Caption := txtLatestLeave + ':';
+  Label6.Caption := txtVacation + ':';
+  Label7.Caption := txtLongestDay + ':';
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
@@ -819,8 +822,9 @@ begin
     locDay := getDayOfLatestQuitting(FWeekList);
     Label5.Caption := txtLatestLeave + ': ' + locDay.EndTime.ToText + //TimeToText(locDay.EndHour, locDay.EndMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
-  end;
-  if (getLongestDay(FWeekList) <> nil) then
+	end;
+
+	if (getLongestDay(FWeekList) <> nil) then
   begin
     locDay := getLongestDay(FWeekList);
     Label7.Caption := txtLongestDay + ': ' + DateToStr(locDay.Date) + ' (' + FloatToStr(locDay.getAmountOfTime) + ' h)';

@@ -32,10 +32,10 @@ type
       procedure AddTime(AClockTime: TClockTime); overload;     // adds the time of another instance to this instance
       procedure SubstractTime(AHours, AMinutes: Integer);
 
-      function ToText: String;                                 // returns the time as a text, e.g. 0:00
+      function ToText: String;                                   // returns the time as a text, e.g. 0:00
       //function getTime: Double;                                // Returns the amount of time in hours
 
-      property getHours: Integer read FHours;
+      property getHours: Integer read FHours;               // only readable
       property getMinutes: Integer read FMinutes;
 	end;
 
@@ -50,8 +50,6 @@ type
     FDate: TDate;             // Date of the specific Day
     FAdditionalTime: double;  // Time to add or substract additional time e.g. if you took 1 hour off
     FTag: String;             // add a tag to the specifig day e.g. "offical holiday", "ignore"...
-
-    //function calcDifference: double;    // The function that will actually calculate work time of one day
 
   public
     constructor Create; overload;                    // normal day constructor
@@ -70,7 +68,6 @@ type
     property TimeOff: Double read FTimeOff write FTimeOff;
     property AdditionalTime: double read FAdditionaltime write FAdditionaltime;
     property Tag: String read FTag write FTag;
-    //property TimeWorked: double read calcDifference;
 
   end;
 

@@ -36,26 +36,29 @@ type
       FEMail: String;                   // Email-Adress
 
       FPhoto: TImage;                   // Maybe it is better to store the local path to a picture instead of a
-                                        // whole picture binarily
+                                        // whole picture binarily OR don't use any picture?
       FAge: Integer;                    // Age in years
       FSex: String;                     // Male / Female ... won't exclude other possibilities
       FBirthday: TDate;                 // Date of Birth
       FDaysOfVacationPerYear: Double;   // May be set either globally or for each person uniquely
       FDateOfEmployment: TDate;         // The Date when the person got employed
 
-      // essential programme data
       FListName: TStringList;           // List of the names referring to a WeekList in FTimeData
       FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window/e.g. for each year
     public
 
-      constructor Create;
+      constructor Create; overload;
+      constructor Create(APerson: TPerson); overload;
       destructor Destroy;
+      procedure Assign(APerson: TPerson);
 
       property FirstName: String read FFirstName write FFirstName;
       property FamilyName: String read FFamilyName write FFamilyName;
       property ID: String read FIDNumber write FIDNumber;
       property TimeData: TPersonnelTimeList read FTimeData write FTimeData;
 	end;
+
+  TPersonList = specialize TFPGObjectList<TPerson>;
 
 implementation
 
@@ -64,9 +67,21 @@ begin
   FTimeData := TPersonnelTimeList.Create;
 end;
 
+constructor TPerson.Create(APerson: TPerson);
+begin
+  self.Assign(APerson);     // copies the values of the other instance
+end;
+
 destructor TPerson.Destroy;
 begin
   FTimeData.Free;
+end;
+
+procedure TPerson.Assign(APerson: TPerson);
+begin
+  FFamilyName := APerson.FamilyName;
+  FFirstName := APerson.FirstName;
+  // ...
 end;
 
 end.

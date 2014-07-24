@@ -1,0 +1,3 @@
+* implemented new datatype for clocktimes
+
+* added function to set end time of a day to fit daily goal ( 0 hours overtime )
