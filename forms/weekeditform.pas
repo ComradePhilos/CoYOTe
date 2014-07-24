@@ -35,8 +35,7 @@ type
     MarkNormal: TMenuItem;
     MarkIgnore: TMenuItem;
 		MenuItem10: TMenuItem;
-		MenuItem11: TMenuItem;
-		MenuItem12: TMenuItem;
+		MenuItem13: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -91,7 +90,7 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
-		procedure MenuItem12Click(Sender: TObject);
+		procedure SetOptimalLeaveTime(Sender: TObject);
     procedure MenuMoveClick(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
@@ -226,7 +225,7 @@ begin
   end;
 end;
 
-procedure TForm3.MenuItem12Click(Sender: TObject);
+procedure TForm3.SetOptimalLeaveTime(Sender: TObject);
 var
   locHour, locMin: Integer;
   locTime: TClockTime;

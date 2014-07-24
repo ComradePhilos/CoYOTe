@@ -35,8 +35,7 @@ type
     MarkNormal: TMenuItem;
     MarkIgnore: TMenuItem;
 		MenuItem10: TMenuItem;
-		MenuItem11: TMenuItem;
-		MenuItem12: TMenuItem;
+		MenuItem13: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
@@ -91,7 +90,7 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
-		procedure MenuItem12Click(Sender: TObject);
+		procedure SetOptimalLeaveTime(Sender: TObject);
     procedure MenuMoveClick(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
@@ -226,17 +225,17 @@ begin
   end;
 end;
 
-procedure TForm3.MenuItem12Click(Sender: TObject);
+procedure TForm3.SetOptimalLeaveTime(Sender: TObject);
 var
   locHour, locMin: Integer;
   locTime: TClockTime;
 begin
-  locTime := TClockTime.Create(0, round(defHoursPerDay*60) + round(defPausePerDay*60));
 
   locHour := getHour(WeekGrid.Cells[3,FSelectionIndex+1]);
   locMin := getMinute(WeekGrid.Cells[3,FSelectionIndex+1]);
 
-  locTime.AddTime(locHour, locMin);
+  locTime := TClockTime.Create(locHour, locMin);
+  locTime.AddTime(0, round(defHoursPerDay*60) + round(defPausePerDay*60));
 
   WeekGrid.Cells[4,FSelectionIndex+1] := locTime.ToText;//TimeToText(locHour + 8, locMin);
   //WeekGrid.Cells[4,FSelectionIndex+1] := TimeToText(locHour + 8, locMin);
