@@ -59,6 +59,7 @@ type
   public
     constructor Create; overload;                    // normal day constructor
     constructor Create(ADay: TWorkDay); overload;    // Creates a new day and copies the values from ADay
+    destructor Destroy;
 
     procedure Clear;
     //procedure setTime(hour, min: integer; mode: boolean);
@@ -218,11 +219,19 @@ end;
 constructor TWorkDay.Create;
 begin
   FTag := '';
+  FStartTime := TClockTime.Create;
+  FEndTime := TClockTime.Create;
 end;
 
 constructor TWorkDay.Create(ADay: TWorkDay);
 begin
   self.Assign(ADay);
+end;
+
+destructor TWorkDay.Destroy;
+begin
+  FStartTime.Free;
+  FEndTime.Free;
 end;
 
 procedure TWorkDay.Assign(ADay: TWorkDay);
@@ -437,10 +446,9 @@ begin
     begin
       if (Result <> nil) then
       begin
-        //if (FDays[I].StartHour < Result.StartHour) and (FDays[I].StartMinute <= Result.StartMinute) then
-        if (FDays[I].StartTime.getHours < Result.StartTime.getHours) then
-        begin
-          if (FDays[I].StartTime.getMinutes <= Result.StartTime.getMinutes) then
+        if (FDays[I].StartTime.getHours < Result.StartTime.getHours) or
+          ((FDays[I].StartTime.getHours = Result.StartTime.getHours) and
+          (FDays[I].StartTime.getMinutes <= Result.StartTime.getMinutes)) then
 				  begin
             Result := FDays[I];
 				  end
@@ -448,7 +456,6 @@ begin
           begin
             Result := nil;
 				  end;
-        end;
 			end
       else
       begin
@@ -544,7 +551,6 @@ begin
     AGrid.Cells[1,1+I] := AWeekList.Items[I].WeekLabel;
     AGrid.Cells[2,1+I] := IntToStr(AWeekList.Items[I].WeekLength);
     AGrid.Cells[3,1+I] := FormatFloat('0.00', AWeekList.Items[I].getSum);
-    //AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].IntendedTimePerDay * AWeekList.Items[I].WeekLength);
     AGrid.Cells[4,1+I] := FormatFloat('0.00', AWeekList.Items[I].getGoalHours);
     diff :=  (AWeekList.Items[I].getSum - AWeekList.Items[I].getGoalHours);
     AGrid.Cells[5,1+I] := FormatFloat('0.00', diff);
@@ -585,17 +591,8 @@ begin
       // if it is tagges as holiday or ignored, then ignore
       if (AWeek.Days[I-1].Tag = '') then
       begin
-        // if working time is under 6 hours then there is no break needed
-        //if (AWeek.Days[I-1].getAmountOfTime < defHoursUntilPause) then
-        //begin
           AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime));
           AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime - (AWeek.IntendedTimePerDay-AWeek.Days[I-1].TimeOff)));
-				//end
-        //else
-        //begin
-          //AGrid.Cells[6,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay));
-          //AGrid.Cells[7,I] := FormatFloat('0.00', (AWeek.Days[I-1].getAmountOfTime-AWeek.PausePerDay) - (AWeek.IntendedTimePerDay-AWeek.Days[I-1].TimeOff));
-				//end;
 			end
       else
       begin
@@ -714,8 +711,9 @@ begin
     begin
       if (Result <> nil) then
       begin
-        if (AWeekList[I].getDayOfEarliestBegin.StartTime.getHours < Result.StartTime.getHours) and
-          (AWeekList[I].getDayOfEarliestBegin.StartTime.getMinutes <= Result.StartTime.getMinutes) then
+        if (AWeekList[I].getDayOfEarliestBegin.StartTime.getHours < Result.StartTime.getHours) or
+          ((AWeekList[I].getDayOfEarliestBegin.StartTime.getHours = Result.StartTime.getHours) and
+          (AWeekList[I].getDayOfEarliestBegin.StartTime.getMinutes <= Result.StartTime.getMinutes)) then
         begin
           Result := AWeekList[I].getDayOfEarliestBegin;
 				end;

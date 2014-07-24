@@ -157,7 +157,7 @@ begin
           if TryStrToInt(Lines[l], locInt) then
           begin
             //AWeekList.Items[I].Days[d].StartTime.Assign(int);
-            if TryStrToInt(Lines[l], locInt2) then
+            if TryStrToInt(Lines[l+1], locInt2) then
             begin
               AWeekList.Items[I].Days[d].StartTime.Assign(locInt, locInt2);
               Inc(l);
@@ -168,7 +168,8 @@ begin
           // End-Hour
           if TryStrToInt(Lines[l], locInt) then
           begin
-            if TryStrToInt(Lines[l], locInt2) then
+
+            if TryStrToInt(Lines[l+1], locInt2) then
             begin
               AWeekList.Items[I].Days[d].EndTime.Assign(locInt, locInt2);
               Inc(l);

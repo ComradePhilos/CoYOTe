@@ -30,10 +30,7 @@ sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
 // * Work on Personnel Management
 // * database commit and download
 // * save all people and lists in one file
-// * save Position + Size of Settings Form to ini file
 // * implement new saving function.
-// * sorting functions for Lists
-// * Position of the windows is not restored
 // * add function in pupop-menu to set leave time as ( begin time + hours per day + pause )  eg. 9:45 -> 19:00
 
 // # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug? See github!
@@ -808,7 +805,7 @@ begin
   if (getDayOfEarliestBegin(FWeekList) <> nil) then
   begin
     locDay := getDayOfEarliestBegin(FWeekList);
-    Label4.Caption := txtEarliestBegin + ': ' + TimeToText(locDay.StartHour, locDay.StartMinute) +
+    Label4.Caption := txtEarliestBegin + ': ' + locDay.StartTime.ToText + //TimeToText(locDay.StartHour, locDay.StartMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
   if (getDayOfLatestQuitting(FWeekList) <> nil) then

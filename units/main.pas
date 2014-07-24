@@ -805,13 +805,13 @@ begin
   if (getDayOfEarliestBegin(FWeekList) <> nil) then
   begin
     locDay := getDayOfEarliestBegin(FWeekList);
-    Label4.Caption := txtEarliestBegin + ': ' + TimeToText(locDay.StartHour, locDay.StartMinute) +
+    Label4.Caption := txtEarliestBegin + ': ' + locDay.StartTime.ToText + //TimeToText(locDay.StartHour, locDay.StartMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
   if (getDayOfLatestQuitting(FWeekList) <> nil) then
   begin
     locDay := getDayOfLatestQuitting(FWeekList);
-    Label5.Caption := txtLatestLeave + ': ' + TimeToText(locDay.EndHour, locDay.EndMinute) +
+    Label5.Caption := txtLatestLeave + ': ' + locDay.EndTime.ToText + //TimeToText(locDay.EndHour, locDay.EndMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
   if (getLongestDay(FWeekList) <> nil) then
