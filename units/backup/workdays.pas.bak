@@ -157,6 +157,7 @@ end;
 constructor TClockTime.Create(AHours, AMinutes: Integer);
 begin
   Clear;
+  AddTime(AHours, AMinutes);
 end;
 
 procedure TClockTime.Clear;
@@ -203,6 +204,24 @@ procedure TClockTime.AddTime(AClockTime: TClockTime);
 begin
   self.AddTime(AClockTime.getHours, AClockTime.getMinutes);
 end;
+
+procedure TClockTime.SubstractTime(AHours, AMinutes: Integer);
+var
+  I: Integer;
+begin
+  FHours := (FHours - Ahours) mod 24;
+
+  for I := 0 to AMinutes - 1 do
+  begin
+    FMinutes -= 1;//AMinutes;
+    if (FMinutes < 0) then
+    begin
+      FHours := (FHours - 1) mod 24;
+      FMinutes := 59;
+		end;
+	end;
+end;
+
 
 
 //############################################ DAY ###########################################################

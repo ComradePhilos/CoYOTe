@@ -30,6 +30,7 @@ type
 
       procedure AddTime(AHours, AMinutes: Integer); overload;  // adds some time to the instance
       procedure AddTime(AClockTime: TClockTime); overload;     // adds the time of another instance to this instance
+      procedure SubstractTime(AHours, AMinutes: Integer);
 
       function ToText: String;                                 // returns the time as a text, e.g. 0:00
       //function getTime: Double;                                // Returns the amount of time in hours
@@ -204,6 +205,24 @@ procedure TClockTime.AddTime(AClockTime: TClockTime);
 begin
   self.AddTime(AClockTime.getHours, AClockTime.getMinutes);
 end;
+
+procedure TClockTime.SubstractTime(AHours, AMinutes: Integer);
+var
+  I: Integer;
+begin
+  FHours := (FHours - Ahours) mod 24;
+
+  for I := 0 to AMinutes - 1 do
+  begin
+    FMinutes -= 1;//AMinutes;
+    if (FMinutes < 0) then
+    begin
+      FHours := (FHours - 1) mod 24;
+      FMinutes := 59;
+		end;
+	end;
+end;
+
 
 
 //############################################ DAY ###########################################################

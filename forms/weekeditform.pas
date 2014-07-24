@@ -34,16 +34,16 @@ type
     MarkHoliday: TMenuItem;
     MarkNormal: TMenuItem;
     MarkIgnore: TMenuItem;
-		MenuItem10: TMenuItem;
-		MenuItem13: TMenuItem;
+    MenuItem10: TMenuItem;
+    MenuItem13: TMenuItem;
     MenuItem2: TMenuItem;
     MenuItem3: TMenuItem;
     MenuItem4: TMenuItem;
-		MenuItem5: TMenuItem;
-		MenuItem6: TMenuItem;
-		MenuItem7: TMenuItem;
-		MenuItem8: TMenuItem;
-		MenuItem9: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
+    MenuItem8: TMenuItem;
+    MenuItem9: TMenuItem;
     MenuMoveTop: TMenuItem;
     MenuMoveBottom: TMenuItem;
     MenuMoveUp: TMenuItem;
@@ -71,8 +71,8 @@ type
     ToolButton5: TToolButton;
     ButtonUndo: TToolButton;
     ButtonDelete: TToolButton;
-		ToolButton6: TToolButton;
-		ToolButton7: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
     WeekGrid: TStringGrid;
 
     procedure ApplyButtonClick(Sender: TObject);
@@ -92,12 +92,12 @@ type
     procedure MenuAddClick(Sender: TObject);
     procedure MenuDeleteClick(Sender: TObject);
     procedure MenuEditClick(Sender: TObject);
-		procedure MenuItem13Click(Sender: TObject);
+    procedure MenuItem13Click(Sender: TObject);
     procedure MenuMoveClick(Sender: TObject);
     procedure MenuOneDayOffClick(Sender: TObject);
     procedure AddNumberOfDays(Sender: TObject);
     procedure MergeWeeksClick(Sender: TObject);
-		procedure ToolButton7Click(Sender: TObject);
+    procedure ToolButton7Click(Sender: TObject);
     procedure WeekGridEditingDone(Sender: TObject);
     procedure WeekGridMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
     procedure WeekGridPrepareCanvas(Sender: TObject; aCol, aRow: integer; aState: TGridDrawState);
@@ -115,7 +115,7 @@ type
     FOnMergeWeeksClick: TMergeWeeksEvent;  // Triggered, when weeks are going to be merged
 
     procedure UpdateTitel;
-    procedure SetOptimalLeaveTime(AIndex: Integer);
+    procedure SetOptimalLeaveTime(AIndex: integer);
 
   public
     { public declarations }
@@ -234,26 +234,31 @@ begin
   SetOptimalLeaveTime(FSelectionIndex);
 end;
 
-procedure TForm3.SetOptimalLeaveTime(AIndex: Integer);
+procedure TForm3.SetOptimalLeaveTime(AIndex: integer);
 var
-  locHour, locMin: Integer;
+  locHour, locMin: integer;
   locTime: TClockTime;
 begin
 
-  locHour := getHour(WeekGrid.Cells[3,AIndex+1]);
-  locMin := getMinute(WeekGrid.Cells[3,AIndex+1]);
-
-  locTime := TClockTime.Create(locHour, locMin);
-  locTime.AddTime(0, round(defHoursPerDay*60));
-
-  if (defHoursPerDay >= defHoursUntilPause) then  // should almost always be the case
+  if (WeekGrid.Cells[8, AIndex + 1] = '') then
   begin
-    locTime.AddTime(0, round(defPausePerDay*60));
-	end;
+    // needs some improvement: should consider days with e.g. 4 h off.
+    locHour := getHour(WeekGrid.Cells[3, AIndex + 1]);
+    locMin := getMinute(WeekGrid.Cells[3, AIndex + 1]);
 
-  WeekGrid.Cells[4,AIndex+1] := locTime.ToText;
+    locTime := TClockTime.Create(locHour, locMin);
+    locTime.AddTime(0, round(defHoursPerDay * 60));
+    locTime.SubstractTime(0, round(StrToFloat(WeekGrid.Cells[5, AIndex + 1])*60));
 
-  locTime.Free;
+    if (defHoursPerDay >= defHoursUntilPause) then  // Pause needed, should almost always be the case
+    begin
+      locTime.AddTime(0, round(defPausePerDay * 60));
+    end;
+
+    WeekGrid.Cells[4, AIndex + 1] := locTime.ToText;
+
+    locTime.Free;
+  end;
 
 end;
 
@@ -368,7 +373,7 @@ end;
 
 procedure TForm3.ToolButton7Click(Sender: TObject);
 var
-  I: Integer;
+  I: integer;
 begin
   for I := 0 to WeekGrid.RowCount - 2 do
   begin
@@ -422,9 +427,9 @@ begin
   begin
     WeekGrid.Canvas.Font.Color := colorMarkedDays;//clWindowFrame;
   end
-  else if (aRow -1) >= 0 then
+  else if (aRow - 1) >= 0 then
   begin
-    if (FWeek.Days[aRow-1].TimeOff >= FWeek.IntendedTimePerDay) then
+    if (FWeek.Days[aRow - 1].TimeOff >= FWeek.IntendedTimePerDay) then
     begin
       WeekGrid.Canvas.Font.Color := colorVacationDays;
     end;
@@ -505,8 +510,8 @@ begin
     // apply values from grid
     for I := 0 to FWeek.Days.Count - 1 do
     begin
-      FWeek.Days[I].StartTime.Assign(GetHour(WeekGrid.Cells[3, I + 1]), GetMinute(WeekGrid.Cells[3, I + 1]) );
-      FWeek.Days[I].EndTime.Assign(GetHour(WeekGrid.Cells[4, I + 1]), GetMinute(WeekGrid.Cells[4, I + 1]) );
+      FWeek.Days[I].StartTime.Assign(GetHour(WeekGrid.Cells[3, I + 1]), GetMinute(WeekGrid.Cells[3, I + 1]));
+      FWeek.Days[I].EndTime.Assign(GetHour(WeekGrid.Cells[4, I + 1]), GetMinute(WeekGrid.Cells[4, I + 1]));
       FWeek.Days[I].TimeOff := StrToFloat(WeekGrid.Cells[5, I + 1]);
       FWeek.Days[I].Tag := WeekGrid.Cells[8, I + 1];
     end;
