@@ -107,9 +107,14 @@ type
     MenuItem9: TMenuItem;
     PopupMenu1: TPopupMenu;
     ToolButton1: TToolButton;
+		ToolButton10: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton5: TToolButton;
+		ToolButton6: TToolButton;
+		ToolButton7: TToolButton;
+		ToolButton8: TToolButton;
+		ToolButton9: TToolButton;
     UsersList: TPopupMenu;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
@@ -146,7 +151,7 @@ type
     { private declarations }
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
-    FPersonSelected: integer;     // Index of the person selected - maybe change to string?
+    FPersonIndex: integer;        // Index of the person selected - maybe change to string?
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
@@ -232,6 +237,7 @@ begin
 
   // default values
   FSelectionIndex := -1;      // at start nothing is selected
+  FPersonIndex := -1;
   FCurrentFilePath := '';
   FCanSave := False;
 
@@ -269,6 +275,7 @@ end;
 procedure TForm1.Clear;
 begin
   FSelectionIndex := -1;
+  FPersonIndex := -1;
   FCurrentFilePath := '';
   FCanSave := False;
   FWeekList.Clear;
@@ -570,20 +577,17 @@ begin
       MenuQuickSaveClick(nil);
       SaveIniFile;
       Application.Terminate;
-      //SaveIniFile;
     end
     else
     begin
       SaveIniFile;
       Application.Terminate;
-      //SaveIniFile;
 		end;
 	end
   else
   begin
     SaveIniFile;
     Application.Terminate;
-    //SaveIniFile;
   end;
 end;
 
@@ -784,10 +788,13 @@ begin
   diff := 0;
   vacationdays := 0;
 
-  Label4.Caption := '';
-  Label5.Caption := '';
-  Label6.Caption := '';
-  Label7.Caption := '';
+  Label1.Caption := txtSum + ':';
+  Label2.Caption := txtGoal +':';
+  Label3.Caption := txtDiff +':';
+  Label4.Caption := txtEarliestBegin + ':';
+  Label5.Caption := txtLatestLeave + ':';
+  Label6.Caption := txtVacation + ':';
+  Label7.Caption := txtLongestDay + ':';
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do

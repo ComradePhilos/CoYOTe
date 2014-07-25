@@ -1,11 +1,11 @@
 object Form5: TForm5
   Left = 377
-  Height = 400
+  Height = 408
   Top = 178
-  Width = 466
+  Width = 675
   Caption = 'Edit Person'
-  ClientHeight = 400
-  ClientWidth = 466
+  ClientHeight = 408
+  ClientWidth = 675
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -80,6 +80,7 @@ object Form5: TForm5
     00000000000000000000
   }
   OnCreate = FormCreate
+  Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
   object LabeledEdit1: TLabeledEdit
@@ -139,7 +140,7 @@ object Form5: TForm5
   object LabeledEdit3: TLabeledEdit
     Left = 16
     Height = 25
-    Top = 288
+    Top = 248
     Width = 208
     EditLabel.AnchorSideLeft.Control = LabeledEdit3
     EditLabel.AnchorSideRight.Control = LabeledEdit3
@@ -147,7 +148,7 @@ object Form5: TForm5
     EditLabel.AnchorSideBottom.Control = LabeledEdit3
     EditLabel.Left = 16
     EditLabel.Height = 17
-    EditLabel.Top = 268
+    EditLabel.Top = 228
     EditLabel.Width = 208
     EditLabel.Caption = 'Phone Number'
     EditLabel.ParentColor = False
@@ -165,17 +166,17 @@ object Form5: TForm5
     TabOrder = 4
   end
   object LabeledEdit4: TLabeledEdit
-    Left = 250
+    Left = 248
     Height = 25
-    Top = 288
+    Top = 248
     Width = 208
     EditLabel.AnchorSideLeft.Control = LabeledEdit4
     EditLabel.AnchorSideRight.Control = LabeledEdit4
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit4
-    EditLabel.Left = 250
+    EditLabel.Left = 248
     EditLabel.Height = 17
-    EditLabel.Top = 268
+    EditLabel.Top = 228
     EditLabel.Width = 208
     EditLabel.Caption = 'Phone Number (2)'
     EditLabel.ParentColor = False
@@ -184,7 +185,7 @@ object Form5: TForm5
   object LabeledEdit5: TLabeledEdit
     Left = 16
     Height = 25
-    Top = 343
+    Top = 304
     Width = 208
     EditLabel.AnchorSideLeft.Control = LabeledEdit5
     EditLabel.AnchorSideRight.Control = LabeledEdit5
@@ -192,7 +193,7 @@ object Form5: TForm5
     EditLabel.AnchorSideBottom.Control = LabeledEdit5
     EditLabel.Left = 16
     EditLabel.Height = 17
-    EditLabel.Top = 323
+    EditLabel.Top = 284
     EditLabel.Width = 208
     EditLabel.Caption = 'E-Mail'
     EditLabel.ParentColor = False
@@ -203,7 +204,7 @@ object Form5: TForm5
     Left = 226
     Height = 25
     Hint = 'Compose E-Mail'
-    Top = 343
+    Top = 304
     Width = 31
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -281,9 +282,9 @@ object Form5: TForm5
     TabOrder = 9
   end
   object ApplyButton: TBitBtn
-    Left = 360
+    Left = 566
     Height = 30
-    Top = 344
+    Top = 352
     Width = 98
     Caption = 'Apply'
     Glyph.Data = {
@@ -367,9 +368,9 @@ object Form5: TForm5
     TabOrder = 10
   end
   object BackButton: TBitBtn
-    Left = 264
+    Left = 464
     Height = 30
-    Top = 344
+    Top = 352
     Width = 91
     Caption = 'Back'
     Glyph.Data = {
@@ -454,15 +455,15 @@ object Form5: TForm5
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 377
-    Width = 466
+    Top = 385
+    Width = 675
     Panels = <>
   end
   object ToolBar1: TToolBar
     Left = 0
     Height = 27
     Top = 0
-    Width = 466
+    Width = 675
     AutoSize = True
     Caption = 'ToolBar1'
     Images = ImageList1
@@ -486,7 +487,6 @@ object Form5: TForm5
       Width = 105
       ItemHeight = 17
       TabOrder = 0
-      Text = 'ComboBox1'
     end
     object ToolButton3: TToolButton
       Left = 158
@@ -526,6 +526,50 @@ object Form5: TForm5
       Caption = 'ToolButton8'
       ImageIndex = 4
     end
+  end
+  object StringGrid1: TStringGrid
+    Left = 464
+    Height = 291
+    Top = 56
+    Width = 200
+    ColCount = 3
+    Columns = <    
+      item
+        Title.Caption = 'from'
+        Width = 78
+      end    
+      item
+        Title.Caption = 'to'
+        Width = 76
+      end    
+      item
+        ButtonStyle = cbsButtonColumn
+        PickList.Strings = (
+          'delete'
+        )
+        Title.Caption = ' '
+        Width = 35
+      end>
+    FixedCols = 0
+    TabOrder = 14
+    TitleFont.CharSet = ANSI_CHARSET
+    TitleFont.Height = -13
+    TitleFont.Name = 'Ubuntu'
+    TitleFont.Pitch = fpVariable
+    TitleFont.Quality = fqDraft
+    ColWidths = (
+      78
+      76
+      35
+    )
+  end
+  object Label1: TLabel
+    Left = 464
+    Height = 17
+    Top = 32
+    Width = 28
+    Caption = 'Lists'
+    ParentColor = False
   end
   object ImageList1: TImageList
     Height = 22

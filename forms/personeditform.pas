@@ -5,8 +5,10 @@ unit PersonEditForm;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, ExtCtrls,
-  StdCtrls, Buttons, LCLIntF, ComCtrls, Process;
+  Classes, SysUtils, FileUtil, RTTIGrids, Forms, Controls, Graphics, Dialogs,
+	ExtCtrls, StdCtrls, Buttons, LCLIntF, ComCtrls, Grids, ValEdit, Process,
+  {own units}
+  people;
 
 type
 
@@ -19,6 +21,7 @@ type
     ComboBox1: TComboBox;
     Image1: TImage;
     ImageList1: TImageList;
+		Label1: TLabel;
     LabeledEdit1: TLabeledEdit;
     LabeledEdit2: TLabeledEdit;
     LabeledEdit3: TLabeledEdit;
@@ -29,6 +32,7 @@ type
     Panel1: TPanel;
     StaticText1: TStaticText;
     StatusBar1: TStatusBar;
+		StringGrid1: TStringGrid;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;
@@ -45,6 +49,9 @@ type
     procedure OpenEMailClient(Sender: TObject);
   private
     { private declarations }
+    FPerson: TPerson;
+    procedure EnableElements;                             // Enabl
+
   public
     { public declarations }
   end;
@@ -93,6 +100,13 @@ begin
   StaticText1.Caption := LabeledEdit2.Text + ', ' + LabeledEdit1.Text;
 end;
 
+
+procedure TForm5.EnableElements;
+var
+  I: Integer;
+begin
+
+end;
 
 end.
 

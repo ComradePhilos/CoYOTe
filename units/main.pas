@@ -107,9 +107,14 @@ type
     MenuItem9: TMenuItem;
     PopupMenu1: TPopupMenu;
     ToolButton1: TToolButton;
+		ToolButton10: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton5: TToolButton;
+		ToolButton6: TToolButton;
+		ToolButton7: TToolButton;
+		ToolButton8: TToolButton;
+		ToolButton9: TToolButton;
     UsersList: TPopupMenu;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
@@ -141,12 +146,13 @@ type
     procedure MenuQuitClick(Sender: TObject);
     procedure MoveClick(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
+		procedure ToolButton10Click(Sender: TObject);
 
   private
     { private declarations }
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
-    FPersonSelected: integer;     // Index of the person selected - maybe change to string?
+    FPersonIndex: integer;        // Index of the person selected - maybe change to string?
 
     FOSName: string;              // The Internal Name for the used Operating System
     FLanguage: string;            // Language chosen by User - default is English
@@ -232,6 +238,7 @@ begin
 
   // default values
   FSelectionIndex := -1;      // at start nothing is selected
+  FPersonIndex := -1;
   FCurrentFilePath := '';
   FCanSave := False;
 
@@ -269,6 +276,7 @@ end;
 procedure TForm1.Clear;
 begin
   FSelectionIndex := -1;
+  FPersonIndex := -1;
   FCurrentFilePath := '';
   FCanSave := False;
   FWeekList.Clear;
@@ -293,6 +301,11 @@ begin
   begin
     FSelectionIndex := aRow - 1;
   end;
+end;
+
+procedure TForm1.ToolButton10Click(Sender: TObject);
+begin
+  PersonForm.Show;
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -570,20 +583,17 @@ begin
       MenuQuickSaveClick(nil);
       SaveIniFile;
       Application.Terminate;
-      //SaveIniFile;
     end
     else
     begin
       SaveIniFile;
       Application.Terminate;
-      //SaveIniFile;
 		end;
 	end
   else
   begin
     SaveIniFile;
     Application.Terminate;
-    //SaveIniFile;
   end;
 end;
 

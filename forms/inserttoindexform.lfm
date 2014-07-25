@@ -1,0 +1,33 @@
+object Form8: TForm8
+  Left = 402
+  Height = 26
+  Top = 396
+  Width = 245
+  Caption = 'Insert to Index'
+  ClientHeight = 26
+  ClientWidth = 245
+  LCLVersion = '1.2.2.0'
+  object SpinEdit1: TSpinEdit
+    Left = 2
+    Height = 23
+    Top = 1
+    Width = 96
+    TabOrder = 0
+  end
+  object BitBtn1: TBitBtn
+    Left = 96
+    Height = 28
+    Top = -1
+    Width = 75
+    Caption = 'Apply'
+    TabOrder = 1
+  end
+  object BitBtn2: TBitBtn
+    Left = 170
+    Height = 28
+    Top = -1
+    Width = 75
+    Caption = 'Cancel'
+    TabOrder = 2
+  end
+end

@@ -5,12 +5,8 @@ program CoYOTe;
 uses {$IFDEF UNIX} {$IFDEF UseCThreads}
   cthreads, {$ENDIF} {$ENDIF}
   Interfaces, // this includes the LCL widgetset
-  Forms,
-  runtimetypeinfocontrols,
-  main,
-  workdays,
-  funcs, CoyoteDefaults, people,
-  about, WeekEditForm, WeekAddForm, personeditform, DBConnectForm, settingsform;
+  Forms, runtimetypeinfocontrols, main, workdays, funcs, CoyoteDefaults, people,
+	about, WeekEditForm, WeekAddForm, personeditform, DBConnectForm, settingsform;
 
 {$R *.res}
 
