@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, Forms, Controls, Graphics, Dialogs,
-	ExtCtrls, StdCtrls, Buttons, LCLIntF, ComCtrls, Grids, ValEdit, Process,
+	ExtCtrls, StdCtrls, Buttons, LCLIntF, ComCtrls, Grids, ValEdit, DbCtrls,
+	Process,
   {own units}
   people;
 
@@ -15,13 +16,12 @@ type
   { TForm5 }
 
   TForm5 = class(TForm)
+				ApplyButton1: TBitBtn;
     BitBtn1: TBitBtn;
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
     ComboBox1: TComboBox;
-    Image1: TImage;
     ImageList1: TImageList;
-		Label1: TLabel;
     LabeledEdit1: TLabeledEdit;
     LabeledEdit2: TLabeledEdit;
     LabeledEdit3: TLabeledEdit;
@@ -29,10 +29,11 @@ type
     LabeledEdit5: TLabeledEdit;
     LabeledEdit6: TLabeledEdit;
     LabeledEdit7: TLabeledEdit;
-    Panel1: TPanel;
+		LabeledEdit8: TLabeledEdit;
+		ListBox1: TListBox;
     StaticText1: TStaticText;
+		StaticText2: TStaticText;
     StatusBar1: TStatusBar;
-		StringGrid1: TStringGrid;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
     ToolButton2: TToolButton;

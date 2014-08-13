@@ -146,6 +146,7 @@ type
     procedure MenuQuitClick(Sender: TObject);
     procedure MoveClick(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
+		procedure ToolButton10Click(Sender: TObject);
 
   private
     { private declarations }
@@ -300,6 +301,11 @@ begin
   begin
     FSelectionIndex := aRow - 1;
   end;
+end;
+
+procedure TForm1.ToolButton10Click(Sender: TObject);
+begin
+  PersonForm.Show;
 end;
 
 procedure TForm1.AddWeek(Sender: TObject);
@@ -810,8 +816,12 @@ begin
     WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
     Label1.Caption := txtSum + ': ' + FormatFloat('0.00', sum) + ' h';
     Label2.Caption := txtGoal + ': ' + FormatFloat('0.00', goal) + ' h';
-    Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
-    Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
+    Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h' ;
+    if (diff >= defHoursPerDay) then
+    begin
+      Label3.Caption := Label3.Caption + ' (' + FormatFloat('0.00',(diff/defHoursPerDay)) + ' d)';
+		end;
+		Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
     colorText(Label3, sum, goal, 0.5);
   end;
 

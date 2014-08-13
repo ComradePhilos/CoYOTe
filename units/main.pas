@@ -41,8 +41,8 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
-	ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons,
-	ActnList, DBGrids, IBConnection, DateUtils, INIFiles, TypInfo,
+  ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons,
+  ActnList, DBGrids, IBConnection, DateUtils, INIFiles, TypInfo,
   { own Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm, SettingsForm,
   { own Units }
@@ -60,11 +60,11 @@ type
     GroupBox1: TGroupBox;
     Label1: TLabel;
     Label2: TLabel;
-		Label3: TLabel;
+    Label3: TLabel;
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-		Label7: TLabel;
+    Label7: TLabel;
     MainMenu1: TMainMenu;
     MenuItem1: TMenuItem;
     MenuDBSettings: TMenuItem;
@@ -107,14 +107,14 @@ type
     MenuItem9: TMenuItem;
     PopupMenu1: TPopupMenu;
     ToolButton1: TToolButton;
-		ToolButton10: TToolButton;
+    ToolButton10: TToolButton;
     ToolButton2: TToolButton;
     ToolButton3: TToolButton;
     ToolButton5: TToolButton;
-		ToolButton6: TToolButton;
-		ToolButton7: TToolButton;
-		ToolButton8: TToolButton;
-		ToolButton9: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
     UsersList: TPopupMenu;
     StatusBar1: TStatusBar;
     StringGrid1: TStringGrid;
@@ -125,7 +125,7 @@ type
 
     procedure AddWeek(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
-		procedure FormActivate(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
@@ -146,7 +146,7 @@ type
     procedure MenuQuitClick(Sender: TObject);
     procedure MoveClick(Sender: TObject);
     procedure SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);
-		procedure ToolButton10Click(Sender: TObject);
+    procedure ToolButton10Click(Sender: TObject);
 
   private
     { private declarations }
@@ -588,8 +588,8 @@ begin
     begin
       SaveIniFile;
       Application.Terminate;
-		end;
-	end
+    end;
+  end
   else
   begin
     SaveIniFile;
@@ -795,8 +795,8 @@ begin
   vacationdays := 0;
 
   Label1.Caption := txtSum + ':';
-  Label2.Caption := txtGoal +':';
-  Label3.Caption := txtDiff +':';
+  Label2.Caption := txtGoal + ':';
+  Label3.Caption := txtDiff + ':';
   Label4.Caption := txtEarliestBegin + ':';
   Label5.Caption := txtLatestLeave + ':';
   Label6.Caption := txtVacation + ':';
@@ -817,6 +817,10 @@ begin
     Label1.Caption := txtSum + ': ' + FormatFloat('0.00', sum) + ' h';
     Label2.Caption := txtGoal + ': ' + FormatFloat('0.00', goal) + ' h';
     Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';
+    if (diff >= defHoursPerDay) then
+    begin
+      Label3.Caption := Label3.Caption + ' (' + FormatFloat('0.00', (diff / defHoursPerDay)) + ' d)';
+    end;
     Label6.Caption := txtVacation + ': ' + FormatFloat('0.0', vacationdays) + ' ' + txtDays;
     colorText(Label3, sum, goal, 0.5);
   end;
@@ -824,7 +828,8 @@ begin
   if (getDayOfEarliestBegin(FWeekList) <> nil) then
   begin
     locDay := getDayOfEarliestBegin(FWeekList);
-    Label4.Caption := txtEarliestBegin + ': ' + locDay.StartTime.ToText + //TimeToText(locDay.StartHour, locDay.StartMinute) +
+    Label4.Caption := txtEarliestBegin + ': ' + locDay.StartTime.ToText +
+      //TimeToText(locDay.StartHour, locDay.StartMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
   if (getDayOfLatestQuitting(FWeekList) <> nil) then
@@ -832,13 +837,14 @@ begin
     locDay := getDayOfLatestQuitting(FWeekList);
     Label5.Caption := txtLatestLeave + ': ' + locDay.EndTime.ToText + //TimeToText(locDay.EndHour, locDay.EndMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
-	end;
+  end;
 
-	if (getLongestDay(FWeekList) <> nil) then
+  if (getLongestDay(FWeekList) <> nil) then
   begin
     locDay := getLongestDay(FWeekList);
-    Label7.Caption := txtLongestDay + ': ' + DateToStr(locDay.Date) + ' (' + FloatToStr(locDay.getAmountOfTime) + ' h)';
-	end;
+    Label7.Caption := txtLongestDay + ': ' + DateToStr(locDay.Date) + ' (' +
+      FloatToStr(locDay.getAmountOfTime) + ' h)';
+  end;
 
   EnableButtons;
 end;

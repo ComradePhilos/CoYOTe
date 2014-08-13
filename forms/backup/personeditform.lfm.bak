@@ -1,11 +1,11 @@
 object Form5: TForm5
   Left = 377
-  Height = 408
+  Height = 513
   Top = 178
-  Width = 675
+  Width = 583
   Caption = 'Edit Person'
-  ClientHeight = 408
-  ClientWidth = 675
+  ClientHeight = 513
+  ClientWidth = 583
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -87,7 +87,7 @@ object Form5: TForm5
     Left = 16
     Height = 25
     Top = 82
-    Width = 287
+    Width = 384
     EditLabel.AnchorSideLeft.Control = LabeledEdit1
     EditLabel.AnchorSideRight.Control = LabeledEdit1
     EditLabel.AnchorSideRight.Side = asrBottom
@@ -95,7 +95,7 @@ object Form5: TForm5
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 62
-    EditLabel.Width = 287
+    EditLabel.Width = 384
     EditLabel.Caption = 'First name'
     EditLabel.ParentColor = False
     TabOrder = 0
@@ -104,7 +104,7 @@ object Form5: TForm5
     Left = 16
     Height = 25
     Top = 131
-    Width = 287
+    Width = 384
     EditLabel.AnchorSideLeft.Control = LabeledEdit2
     EditLabel.AnchorSideRight.Control = LabeledEdit2
     EditLabel.AnchorSideRight.Side = asrBottom
@@ -112,47 +112,27 @@ object Form5: TForm5
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 111
-    EditLabel.Width = 287
+    EditLabel.Width = 384
     EditLabel.Caption = 'Family Name'
     EditLabel.ParentColor = False
     TabOrder = 1
   end
-  object Panel1: TPanel
-    Left = 320
-    Height = 128
-    Top = 35
-    Width = 138
-    BevelOuter = bvNone
-    BevelWidth = 2
-    BorderWidth = 1
-    BorderStyle = bsSingle
-    Caption = 'Panel1'
-    ClientHeight = 124
-    ClientWidth = 134
-    TabOrder = 2
-    object Image1: TImage
-      Left = -1
-      Height = 129
-      Top = -4
-      Width = 138
-    end
-  end
   object LabeledEdit3: TLabeledEdit
     Left = 16
     Height = 25
-    Top = 248
-    Width = 208
+    Top = 316
+    Width = 384
     EditLabel.AnchorSideLeft.Control = LabeledEdit3
     EditLabel.AnchorSideRight.Control = LabeledEdit3
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit3
     EditLabel.Left = 16
     EditLabel.Height = 17
-    EditLabel.Top = 228
-    EditLabel.Width = 208
+    EditLabel.Top = 296
+    EditLabel.Width = 384
     EditLabel.Caption = 'Phone Number'
     EditLabel.ParentColor = False
-    TabOrder = 3
+    TabOrder = 2
   end
   object StaticText1: TStaticText
     Left = 16
@@ -163,48 +143,48 @@ object Form5: TForm5
     Caption = 'FamilyName, FirstName'
     Color = clBlack
     ParentColor = False
-    TabOrder = 4
+    TabOrder = 3
   end
   object LabeledEdit4: TLabeledEdit
-    Left = 248
+    Left = 16
     Height = 25
-    Top = 248
-    Width = 208
+    Top = 360
+    Width = 384
     EditLabel.AnchorSideLeft.Control = LabeledEdit4
     EditLabel.AnchorSideRight.Control = LabeledEdit4
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit4
-    EditLabel.Left = 248
+    EditLabel.Left = 16
     EditLabel.Height = 17
-    EditLabel.Top = 228
-    EditLabel.Width = 208
+    EditLabel.Top = 340
+    EditLabel.Width = 384
     EditLabel.Caption = 'Phone Number (2)'
     EditLabel.ParentColor = False
-    TabOrder = 5
+    TabOrder = 4
   end
   object LabeledEdit5: TLabeledEdit
     Left = 16
     Height = 25
-    Top = 304
-    Width = 208
+    Top = 407
+    Width = 352
     EditLabel.AnchorSideLeft.Control = LabeledEdit5
     EditLabel.AnchorSideRight.Control = LabeledEdit5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit5
     EditLabel.Left = 16
     EditLabel.Height = 17
-    EditLabel.Top = 284
-    EditLabel.Width = 208
+    EditLabel.Top = 387
+    EditLabel.Width = 352
     EditLabel.Caption = 'E-Mail'
     EditLabel.ParentColor = False
-    TabOrder = 6
+    TabOrder = 5
     OnChange = LabeledEdit5Change
   end
   object BitBtn1: TBitBtn
-    Left = 226
+    Left = 369
     Height = 25
     Hint = 'Compose E-Mail'
-    Top = 304
+    Top = 407
     Width = 31
     Glyph.Data = {
       36040000424D3604000000000000360000002800000010000000100000000100
@@ -245,30 +225,30 @@ object Form5: TForm5
     OnClick = OpenEMailClient
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 7
+    TabOrder = 6
   end
   object LabeledEdit6: TLabeledEdit
-    Left = 320
+    Left = 72
     Height = 25
-    Top = 187
-    Width = 136
+    Top = 240
+    Width = 328
     EditLabel.AnchorSideLeft.Control = LabeledEdit6
     EditLabel.AnchorSideRight.Control = LabeledEdit6
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit6
-    EditLabel.Left = 320
+    EditLabel.Left = 72
     EditLabel.Height = 17
-    EditLabel.Top = 167
-    EditLabel.Width = 136
+    EditLabel.Top = 220
+    EditLabel.Width = 328
     EditLabel.Caption = 'Place'
     EditLabel.ParentColor = False
-    TabOrder = 8
+    TabOrder = 7
   end
   object LabeledEdit7: TLabeledEdit
     Left = 16
     Height = 25
     Top = 187
-    Width = 287
+    Width = 384
     EditLabel.AnchorSideLeft.Control = LabeledEdit7
     EditLabel.AnchorSideRight.Control = LabeledEdit7
     EditLabel.AnchorSideRight.Side = asrBottom
@@ -276,15 +256,15 @@ object Form5: TForm5
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 167
-    EditLabel.Width = 287
+    EditLabel.Width = 384
     EditLabel.Caption = 'Street and StreetNR'
     EditLabel.ParentColor = False
-    TabOrder = 9
+    TabOrder = 8
   end
   object ApplyButton: TBitBtn
-    Left = 566
+    Left = 474
     Height = 30
-    Top = 352
+    Top = 456
     Width = 98
     Caption = 'Apply'
     Glyph.Data = {
@@ -365,12 +345,12 @@ object Form5: TForm5
     }
     OnClick = ApplyButtonClick
     Spacing = 0
-    TabOrder = 10
+    TabOrder = 9
   end
   object BackButton: TBitBtn
-    Left = 464
+    Left = 372
     Height = 30
-    Top = 352
+    Top = 456
     Width = 91
     Caption = 'Back'
     Glyph.Data = {
@@ -450,24 +430,24 @@ object Form5: TForm5
       0000000000000000000000000000000000000000000000000000
     }
     OnClick = BackButtonClick
-    TabOrder = 11
+    TabOrder = 10
   end
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
-    Top = 385
-    Width = 675
+    Top = 490
+    Width = 583
     Panels = <>
   end
   object ToolBar1: TToolBar
     Left = 0
     Height = 27
     Top = 0
-    Width = 675
+    Width = 583
     AutoSize = True
     Caption = 'ToolBar1'
     Images = ImageList1
-    TabOrder = 13
+    TabOrder = 12
     object ToolButton1: TToolButton
       Left = 1
       Top = 2
@@ -527,55 +507,57 @@ object Form5: TForm5
       ImageIndex = 4
     end
   end
-  object StringGrid1: TStringGrid
-    Left = 464
-    Height = 291
-    Top = 56
-    Width = 200
-    ColCount = 3
-    Columns = <    
-      item
-        Title.Caption = 'from'
-        Width = 78
-      end    
-      item
-        Title.Caption = 'to'
-        Width = 76
-      end    
-      item
-        ButtonStyle = cbsButtonColumn
-        PickList.Strings = (
-          'delete'
-        )
-        Title.Caption = ' '
-        Width = 35
-      end>
-    FixedCols = 0
-    TabOrder = 14
-    TitleFont.CharSet = ANSI_CHARSET
-    TitleFont.Height = -13
-    TitleFont.Name = 'Ubuntu'
-    TitleFont.Pitch = fpVariable
-    TitleFont.Quality = fqDraft
-    ColWidths = (
-      78
-      76
-      35
-    )
+  object LabeledEdit8: TLabeledEdit
+    Left = 16
+    Height = 25
+    Top = 240
+    Width = 48
+    EditLabel.AnchorSideLeft.Control = LabeledEdit8
+    EditLabel.AnchorSideRight.Control = LabeledEdit8
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit8
+    EditLabel.Left = 16
+    EditLabel.Height = 17
+    EditLabel.Top = 220
+    EditLabel.Width = 48
+    EditLabel.Caption = 'Nr'
+    EditLabel.ParentColor = False
+    TabOrder = 13
   end
-  object Label1: TLabel
-    Left = 464
-    Height = 17
-    Top = 32
+  object ListBox1: TListBox
+    Left = 417
+    Height = 230
+    Top = 82
+    Width = 150
+    ItemHeight = 0
+    TabOrder = 14
+  end
+  object ApplyButton1: TBitBtn
+    Left = 417
+    Height = 30
+    Top = 320
+    Width = 150
+    Caption = 'Delete'
+    OnClick = ApplyButtonClick
+    Spacing = 0
+    TabOrder = 15
+  end
+  object StaticText2: TStaticText
+    Left = 416
+    Height = 18
+    Top = 59
     Width = 28
+    AutoSize = True
     Caption = 'Lists'
+    Color = clBlack
     ParentColor = False
+    TabOrder = 16
   end
   object ImageList1: TImageList
     Height = 22
     Width = 22
-    left = 288
-    top = 32
+    left = 16
+    top = 264
     Bitmap = {
       4C69070000001600000016000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000

@@ -134,7 +134,6 @@ function getLongestDay(AWeekList: TWeekList): TWorkDay;
 function isTimeEarliest(AHour, AMinute, earliestHour, earliestMinute: Integer): Boolean;
 function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolean;
 
-
 implementation
 
 uses CoyoteDefaults;

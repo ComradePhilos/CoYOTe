@@ -14,8 +14,8 @@ procedure LoadFromLanguageFile(AFilePath: string);
 resourcestring
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.1.0.3';          // Programme-Version
-  VersionDate = '25.07.2014';     // Date of the latest changes
+  VersionNr = '0.1.0.5';          // Programme-Version
+  VersionDate = '13.08.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
   defLanguage = 'English';        // not sure what we will need in future
   defLanguageID = 'en';
