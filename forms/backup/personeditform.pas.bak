@@ -16,7 +16,7 @@ type
   { TForm5 }
 
   TForm5 = class(TForm)
-				ApplyButton1: TBitBtn;
+	  ApplyButton1: TBitBtn;
     BitBtn1: TBitBtn;
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
@@ -52,7 +52,7 @@ type
   private
     { private declarations }
     FPerson: TPerson;
-    procedure EnableElements;                             // Enabl
+    procedure EnableElements;
 
   public
     { public declarations }

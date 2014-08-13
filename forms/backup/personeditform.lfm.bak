@@ -120,7 +120,7 @@ object Form5: TForm5
   object LabeledEdit3: TLabeledEdit
     Left = 16
     Height = 25
-    Top = 316
+    Top = 312
     Width = 384
     EditLabel.AnchorSideLeft.Control = LabeledEdit3
     EditLabel.AnchorSideRight.Control = LabeledEdit3
@@ -128,7 +128,7 @@ object Form5: TForm5
     EditLabel.AnchorSideBottom.Control = LabeledEdit3
     EditLabel.Left = 16
     EditLabel.Height = 17
-    EditLabel.Top = 296
+    EditLabel.Top = 292
     EditLabel.Width = 384
     EditLabel.Caption = 'Phone Number'
     EditLabel.ParentColor = False
@@ -501,7 +501,7 @@ object Form5: TForm5
       Style = tbsDivider
     end
     object ToolButton8: TToolButton
-      Left = 362
+      Left = 365
       Top = 2
       Caption = 'ToolButton8'
       ImageIndex = 4
@@ -532,7 +532,7 @@ object Form5: TForm5
   end
   object ListBox1: TListBox
     Left = 417
-    Height = 230
+    Height = 313
     Top = 82
     Width = 150
     ItemHeight = 0
@@ -541,7 +541,7 @@ object Form5: TForm5
   object ApplyButton1: TBitBtn
     Left = 417
     Height = 30
-    Top = 320
+    Top = 402
     Width = 150
     Caption = 'Delete'
     OnClick = ApplyButtonClick

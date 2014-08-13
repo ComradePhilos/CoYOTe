@@ -67,7 +67,7 @@ begin
   FTimeData := TPersonnelTimeList.Create;
 end;
 
-procedure TPerson.Create(APerson: TPerson);
+constructor TPerson.Create(APerson: TPerson);
 begin
   self.Assign(APerson);     // copies the values of the other instance
 end;

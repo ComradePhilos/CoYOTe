@@ -124,6 +124,8 @@ type
     ToolButton4: TToolButton;
 
     procedure AddWeek(Sender: TObject);
+		procedure ComboBox1Click(Sender: TObject);
+		procedure ComboBox1Select(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -249,7 +251,7 @@ begin
   FOpenRecent := TStringList.Create;
   FPersonList.Add(TPerson.Create);
   FPersonList.Items[0].FirstName := 'Test';
-  FPersonList.Items[0].FirstName := 'User';
+  FPersonList.Items[0].FamilyName := 'User';
 
   // Sub-Forms
   AboutForm := TForm2.Create(self);
@@ -319,6 +321,24 @@ procedure TForm1.AddWeek(Sender: TObject);
 begin
   AddWeekForm.Visible := True;
   AddWeekForm.Show;
+end;
+
+procedure TForm1.ComboBox1Click(Sender: TObject);
+begin
+
+end;
+
+procedure TForm1.ComboBox1Select(Sender: TObject);
+begin
+  if (ComboBox1.Items.Count > 0) then
+  begin
+    FPersonIndex := ComboBox1.ItemIndex;
+	end
+  else
+  begin
+    FPersonIndex := -1;
+	end;
+  StatusBar1.Panels[0].Text := IntToStr(FPersonIndex);
 end;
 
 procedure TForm1.MergeWeeks(Sender: TObject; AIndex1, AIndex2: integer; DeleteFirst: boolean = False);
@@ -808,6 +828,22 @@ begin
   Label5.Caption := txtLatestLeave + ':';
   Label6.Caption := txtVacation + ':';
   Label7.Caption := txtLongestDay + ':';
+
+  // Person List
+  ComboBox1.Clear;
+  For I := 0 to FPersonList.Count - 1 do
+  begin
+    ComboBox1.Items.Add(FPersonList.Items[I].NameToText);
+	end;
+  // Timedata List
+  ComboBox2.Clear;
+  if (FPersonIndex >= 0) then
+  begin
+    For I := 0 to FPersonList.Items[FPersonIndex].TimeData.Count - 1 do
+    begin
+      //ComboBox2.Items.Add(FPersonList.Items[FPersonIndex].TimeData.Items[I]);
+	  end;
+	end;
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do

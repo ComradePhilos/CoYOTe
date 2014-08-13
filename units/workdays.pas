@@ -123,6 +123,7 @@ procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 procedure WeeksToComboBox(AComboBox: TComboBox; AWeekList: TWeekList);
 
 function timeToText(AHour, AMinute: integer): string;
+function periodToText(AWeekList: TWeekList): String;
 function RealDayOfWeek(ADate: TDate): integer;  // only needed because I used a 1-based String instead of a 0 based
 function getHour(time: string): integer;
 function getMinute(time: string): integer;
@@ -776,6 +777,11 @@ begin
 			end;
 		end;
 	end;
+end;
+
+function periodToText(AWeekList: TWeekList): String;
+begin
+  //Result := Result + FormatDateTime('dd.mm.yyyy', AWeekList.Days[0].Date);
 end;
 
 end.

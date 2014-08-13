@@ -52,6 +52,8 @@ type
       destructor Destroy;
       procedure Assign(APerson: TPerson);
 
+      function NameToText: String;
+
       property FirstName: String read FFirstName write FFirstName;
       property FamilyName: String read FFamilyName write FFamilyName;
       property ID: String read FIDNumber write FIDNumber;
@@ -82,6 +84,11 @@ begin
   FFamilyName := APerson.FamilyName;
   FFirstName := APerson.FirstName;
   // ...
+end;
+
+function TPerson.NameToText: String;
+begin
+  Result := FFamilyName +', ' + FFirstName;
 end;
 
 end.

@@ -52,7 +52,7 @@ type
   private
     { private declarations }
     FPerson: TPerson;
-    procedure EnableElements;                             // Enabl
+    procedure EnableElements;
 
   public
     { public declarations }

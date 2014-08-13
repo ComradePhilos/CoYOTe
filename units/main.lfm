@@ -283,6 +283,7 @@ object Form1: TForm1
       Top = 0
       Width = 111
       ItemHeight = 17
+      OnSelect = ComboBox1Select
       TabOrder = 0
     end
     object ComboBox2: TComboBox
