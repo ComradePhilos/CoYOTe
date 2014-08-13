@@ -16,7 +16,7 @@ type
   { TForm5 }
 
   TForm5 = class(TForm)
-				ApplyButton1: TBitBtn;
+	  ApplyButton1: TBitBtn;
     BitBtn1: TBitBtn;
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
@@ -43,6 +43,7 @@ type
     ToolButton6: TToolButton;
     ToolButton7: TToolButton;
     ToolButton8: TToolButton;
+		ToolButton9: TToolButton;
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

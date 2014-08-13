@@ -46,7 +46,7 @@ uses
   { own Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm, SettingsForm,
   { own Units }
-  workdays, funcs, CoyoteDefaults;
+  workdays, funcs, CoyoteDefaults, people;
 
 type
 
@@ -151,6 +151,7 @@ type
   private
     { private declarations }
     FWeekList: TWeekList;         // List of Weeks shown in the StringGrid
+    FPersonList: TPersonList;
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
     FPersonIndex: integer;        // Index of the person selected - maybe change to string?
 
@@ -244,7 +245,11 @@ begin
 
   // Create Instances
   FWeekList := TWeekList.Create;
+  FPersonList := TPersonList.Create;
   FOpenRecent := TStringList.Create;
+  FPersonList.Add(TPerson.Create);
+  FPersonList.Items[0].FirstName := 'Test';
+  FPersonList.Items[0].FirstName := 'User';
 
   // Sub-Forms
   AboutForm := TForm2.Create(self);
@@ -280,6 +285,7 @@ begin
   FCurrentFilePath := '';
   FCanSave := False;
   FWeekList.Clear;
+  FPersonList.Clear;
   StringGrid1.Clear;
   updateWindow;
 end;
@@ -293,6 +299,7 @@ begin
   EditSettingsForm.Free;
   DBForm.Free;
   FWeekList.Free;
+  FPersonList.Free;
 end;
 
 procedure TForm1.SelectWeek(Sender: TObject; aCol, aRow: integer; var CanSelect: boolean);

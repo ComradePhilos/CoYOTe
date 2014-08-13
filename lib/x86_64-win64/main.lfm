@@ -283,12 +283,7 @@ object Form1: TForm1
       Top = 0
       Width = 111
       ItemHeight = 17
-      ItemIndex = 0
-      Items.Strings = (
-        'Test User 1'
-      )
       TabOrder = 0
-      Text = 'Test User 1'
     end
     object ComboBox2: TComboBox
       Left = 283
@@ -296,12 +291,7 @@ object Form1: TForm1
       Top = 0
       Width = 104
       ItemHeight = 17
-      ItemIndex = 0
-      Items.Strings = (
-        'List1'
-      )
       TabOrder = 1
-      Text = 'List1'
     end
     object ToolButton6: TToolButton
       Left = 387
