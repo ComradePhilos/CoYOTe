@@ -114,7 +114,6 @@ object Form7: TForm7
         Top = 16
         Width = 236
         Caption = 'Automatically open lastest file on startup'
-        OnChange = CheckBox1Change
         TabOrder = 0
       end
     end

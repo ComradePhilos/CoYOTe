@@ -19,15 +19,15 @@
 *************************************************************************
 
 This is a programme I made for myself, to help me have an overview on
-working times and vacation days. Primarly I did this, because i wanted
+working times and vacation days. Primarily I did this, because I wanted
 to get comfortable with Lazarus, so the use of the programme was not the
 significant goal. I just wanted to learn stuff.
 
-sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
+Sorry for any German in the code, I may have mixed it up sometimes ;)
+Also my English is a bastard mix of British and American - Philos
 }
 
 // Todo:
-// * Work on Personnel Management
 // * database commit and download
 // * save all people and lists in one file
 // * implement new saving function.
@@ -203,6 +203,8 @@ type
     procedure LoadIniFile;
     procedure SaveIniFile;
 
+    procedure LoadFile(FileName: String);
+
     // apply a color to the theme
     procedure ApplyColor(AColor: integer);
 
@@ -280,16 +282,7 @@ begin
 
   if (FOpenRecent.Count > 0) and openLatestFile then
   begin
-    if loadFromFile(FOpenRecent[0], FWeekList) then
-    begin
-      StatusBar1.Panels[0].Text := '"' + ExtractFileName(FOpenRecent[0]) + '" loaded!';
-      FCurrentFilePath := FOpenRecent[0];
-    end
-    else
-    begin
-      StatusBar1.Panels[0].Text := '"' + ExtractFileName(FOpenRecent[0]) + '" could not be loaded!';
-      FCurrentFilePath := '';
-    end;
+    loadFile(FOpenRecent[0]);
   end;
 
 end;
@@ -532,22 +525,27 @@ begin
     OpenDlg.DoFolderChange;
     if OpenDlg.Execute then
     begin
-      if loadFromFile(OpenDlg.FileName, FWeekList) then
-      begin
-        StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" loaded!';
-        FCurrentFilePath := OpenDlg.FileName;
-        AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
-      end
-      else
-      begin
-        StatusBar1.Panels[0].Text := '"' + ExtractFileName(OpenDlg.FileName) + '" could not be loaded!';
-        FCurrentFilePath := '';
-      end;
+      loadFile(OpenDlg.FileName);
     end;
   finally
     OpenDlg.Free;
     FCanSave := False;
     updateWindow;
+  end;
+end;
+
+procedure TForm1.LoadFile(FileName: String);
+begin
+  if loadFromFile(FileName, FWeekList) then
+  begin
+    StatusBar1.Panels[0].Text := '"' + ExtractFileName(FileName) + '" loaded!';
+    FCurrentFilePath := FileName;
+    AddToOpenRecent(FCurrentFilePath, FOpenRecent, MenuOpenRecent);
+  end
+  else
+  begin
+    StatusBar1.Panels[0].Text := '"' + ExtractFileName(FileName) + '" could not be loaded!';
+    FCurrentFilePath := '';
   end;
 end;
 

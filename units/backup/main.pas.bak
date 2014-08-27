@@ -19,15 +19,15 @@
 *************************************************************************
 
 This is a programme I made for myself, to help me have an overview on
-working times and vacation days. Primarly I did this, because i wanted
+working times and vacation days. Primarily I did this, because I wanted
 to get comfortable with Lazarus, so the use of the programme was not the
 significant goal. I just wanted to learn stuff.
 
-sorry for any German in the code, I may have mixed it up sometimes ;) - Philos
+Sorry for any German in the code, I may have mixed it up sometimes ;)
+Also my English is a bastard mix of British and American - Philos
 }
 
 // Todo:
-// * Work on Personnel Management
 // * database commit and download
 // * save all people and lists in one file
 // * implement new saving function.
@@ -42,7 +42,7 @@ interface
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, RTTICtrls, Forms, Controls, Dialogs,
   ComCtrls, DBCtrls, EditBtn, Grids, Menus, StdCtrls, ExtCtrls, Buttons,
-  ActnList, DBGrids, IBConnection, DateUtils, INIFiles, TypInfo,
+  ActnList, IBConnection, DateUtils, INIFiles, TypInfo,
   { own Forms }
   WeekEditForm, WeekAddForm, about, DBConnectForm, PersonEditForm, SettingsForm,
   { own Units }
@@ -158,7 +158,7 @@ type
     FPersonIndex: integer;        // Index of the person selected - maybe change to string?
 
     FOSName: string;              // The Internal Name for the used Operating System
-    FLanguage: string;            // Language chosen by User - default is English
+    //FLanguage: string;            // Language chosen by User - default is English
     FLanguageID: string;
 
     AboutForm: TForm2;            // The Window showing information about CoYOT(e)
@@ -202,6 +202,8 @@ type
     // Load the values from ini file
     procedure LoadIniFile;
     procedure SaveIniFile;
+
+    procedure LoadFile;
 
     // apply a color to the theme
     procedure ApplyColor(AColor: integer);

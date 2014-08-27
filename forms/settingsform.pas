@@ -31,7 +31,6 @@ type
 		TabSheet3: TTabSheet;
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
-		procedure CheckBox1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 		procedure ResetButtonClick(Sender: TObject);
   private
@@ -65,6 +64,8 @@ begin
   ColorButton1.ButtonColor := $000080FF;
   ColorButton2.ButtonColor := $00FF0080;
 
+  CheckBox1.Checked := False;
+
 end;
 
 procedure TForm7.BackButtonClick(Sender: TObject);
@@ -72,10 +73,6 @@ begin
   self.Visible := False;
 end;
 
-procedure TForm7.CheckBox1Change(Sender: TObject);
-begin
-  openLatestFile := TCheckBox(Sender).Checked;
-end;
 
 procedure TForm7.ApplyButtonClick(Sender: TObject);
 begin
@@ -83,6 +80,7 @@ begin
     defHoursPerDay := StrToFloat(StringGrid1.Cells[1, 1]);
     defPausePerDay := StrToFloat(StringGrid1.Cells[1, 2]);
     defHoursUntilPause := StrToFloat(StringGrid1.Cells[1, 3]);
+    openLatestFile := CheckBox1.Checked;
     self.Visible := False;
   except
     on e: EConvertError do
