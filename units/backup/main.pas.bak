@@ -124,8 +124,8 @@ type
     ToolButton4: TToolButton;
 
     procedure AddWeek(Sender: TObject);
-		procedure ComboBox1Click(Sender: TObject);
-		procedure ComboBox1Select(Sender: TObject);
+    procedure ComboBox1Click(Sender: TObject);
+    procedure ComboBox1Select(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -278,6 +278,20 @@ begin
   self.Constraints.MinWidth := Groupbox1.Width;
   self.Constraints.MinHeight := round(Groupbox1.Width / 2);
 
+  if (FOpenRecent.Count > 0) and openLatestFile then
+  begin
+    if loadFromFile(FOpenRecent[0], FWeekList) then
+    begin
+      StatusBar1.Panels[0].Text := '"' + ExtractFileName(FOpenRecent[0]) + '" loaded!';
+      FCurrentFilePath := FOpenRecent[0];
+    end
+    else
+    begin
+      StatusBar1.Panels[0].Text := '"' + ExtractFileName(FOpenRecent[0]) + '" could not be loaded!';
+      FCurrentFilePath := '';
+    end;
+  end;
+
 end;
 
 procedure TForm1.Clear;
@@ -333,11 +347,11 @@ begin
   if (ComboBox1.Items.Count > 0) then
   begin
     FPersonIndex := ComboBox1.ItemIndex;
-	end
+  end
   else
   begin
     FPersonIndex := -1;
-	end;
+  end;
   StatusBar1.Panels[0].Text := IntToStr(FPersonIndex);
 end;
 
@@ -599,6 +613,7 @@ begin
 
   EditSettingsForm.ColorButton1.ButtonColor := colorMarkedDays;
   EditSettingsForm.ColorButton2.ButtonColor := colorVacationDays;
+  EditSettingsForm.CheckBox1.Checked := openLatestFile;
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);
@@ -696,6 +711,7 @@ begin
   INI.WriteString('Defaults', 'Language', FLanguageID);
 
   // Recent Files
+  INI.WriteString('RecentFiles', 'open_latest', BoolToStr(openLatestFile));
   INI.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
   for I := 0 to FOpenRecent.Count - 1 do
   begin
@@ -767,6 +783,7 @@ begin
   colorVacationDays := StrToInt(INI.ReadString('Defaults', 'ColorVacationDays', IntToStr(colorVacationDays)));
   FLanguageID := INI.ReadString('Defaults', 'Language', defLanguageID);
 
+  openLatestFile := StrToBool(INI.ReadString('RecentFiles', 'open_Latest', BoolToStr(openLatestFile)));
   for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
     AddToOpenRecent(INI.ReadString('RecentFiles', IntToStr(I), ''), FOpenRecent, MenuOpenRecent);
@@ -831,19 +848,19 @@ begin
 
   // Person List
   ComboBox1.Clear;
-  For I := 0 to FPersonList.Count - 1 do
+  for I := 0 to FPersonList.Count - 1 do
   begin
     ComboBox1.Items.Add(FPersonList.Items[I].NameToText);
-	end;
+  end;
   // Timedata List
   ComboBox2.Clear;
   if (FPersonIndex >= 0) then
   begin
-    For I := 0 to FPersonList.Items[FPersonIndex].TimeData.Count - 1 do
+    for I := 0 to FPersonList.Items[FPersonIndex].TimeData.Count - 1 do
     begin
-      ComboBox2.Items.Add(FPersonList.Items[FPersonIndex].TimeData.Items[I]);
-	  end;
-	end;
+      ComboBox2.Items.Add(IntToStr(I + 1));//FPersonList.Items[FPersonIndex].TimeData.Items[I]);
+    end;
+  end;
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
