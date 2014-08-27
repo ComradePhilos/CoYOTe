@@ -24,7 +24,7 @@ type
       constructor Create; overload;
       constructor Create(AClockTime: TClockTime); overload;
       constructor Create(AHours, AMinutes: Integer); overload;
-      procedure Clear;                // initializes or clears the instance
+      procedure Clear;                                          // initializes or clears the instance
       procedure Assign(AClockTime: TClockTime); overload;
       procedure Assign(AHours, AMinutes: Integer); overload;
 
@@ -32,10 +32,9 @@ type
       procedure AddTime(AClockTime: TClockTime); overload;     // adds the time of another instance to this instance
       procedure SubstractTime(AHours, AMinutes: Integer);
 
-      function ToText: String;                                   // returns the time as a text, e.g. 0:00
-      //function getTime: Double;                                // Returns the amount of time in hours
+      function ToText: String;                                 // returns the time as a text, e.g. 0:00
 
-      property getHours: Integer read FHours;               // only readable
+      property getHours: Integer read FHours;                  // only readable
       property getMinutes: Integer read FMinutes;
 	end;
 
@@ -86,8 +85,6 @@ type
     FPausePerDay: Double;               // Obligatory Pause Time, time you need to stay at work additionally
     FDescriptionText: TStringList;      // Description Text
 
-    function calcAverageTime: double;
-
   public
     constructor Create;
     constructor Create(AFromDate, AToDate: TDate); overload;
@@ -104,7 +101,6 @@ type
     property WeekLength: Integer read FWeekLength write FWeekLength;
     property IntendedTimePerDay: Double read FIntendedTimePerDay write FIntendedTimePerDay;
     property PausePerDay: Double read FPausePerDay write FPausePerDay;
-    property AverageTimePerDay: Double read calcAverageTime;
     property FromDate: TDate read FFromDate write FFromDate;
     property ToDate: TDate read FToDate write FToDate;
     property Days: TWorkDays read FDays write FDays;
@@ -353,26 +349,6 @@ begin
     FDays[I].TimeOff := AWeek.Days[I].TimeOff;
     FDays[I].Tag := AWeek.Days[I].Tag;
   end;
-end;
-
-function TWorkWeek.calcAverageTime: double;
-var
-  I: integer;
-begin
-  {
-  if (FDays.Count > 0) then
-  begin
-    for I := 0 to FDays.Count - 1 do
-    begin
-     // Result := Result + FDays.Items[I].calcDifference;
-    end;
-    Result := Result / FDays.Count
-  end
-  else
-  begin
-    Result := 0;
-  end;        }
-  Result := 0;
 end;
 
 function TWorkWeek.getSum: Double;
@@ -781,7 +757,7 @@ end;
 
 function periodToText(AWeekList: TWeekList): String;
 begin
-  Result := Result + FormatDateTime('dd.mm.yyyy', AWeekList.Days[0].Date);
+  //Result := Result + FormatDateTime('dd.mm.yyyy', AWeekList.Days[0].Date);
 end;
 
 end.
