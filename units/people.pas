@@ -45,6 +45,7 @@ type
 
       FListName: TStringList;           // List of the names referring to a WeekList in FTimeData
       FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window/e.g. for each year
+
     public
 
       constructor Create; overload;

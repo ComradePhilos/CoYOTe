@@ -32,7 +32,7 @@ Also my English is a bastard mix of British and American - Philos
 // * save all people and lists in one file
 // * implement new saving function.
 
-// # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug? See github!
+// # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug?
 
 unit main;
 
@@ -124,8 +124,8 @@ type
     ToolButton4: TToolButton;
 
     procedure AddWeek(Sender: TObject);
-    procedure ComboBox1Click(Sender: TObject);
     procedure ComboBox1Select(Sender: TObject);
+		procedure ComboBox2Select(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
@@ -240,20 +240,12 @@ begin
   {$ENDIF}
 
   self.Caption := ProgrammeName + '  ' + VersionNr;
-
-  // default values
-  FSelectionIndex := -1;      // at start nothing is selected
-  FPersonIndex := -1;
-  FCurrentFilePath := '';
-  FCanSave := False;
-
   // Create Instances
   FWeekList := TWeekList.Create;
   FPersonList := TPersonList.Create;
   FOpenRecent := TStringList.Create;
-  FPersonList.Add(TPerson.Create);
-  FPersonList.Items[0].FirstName := 'Test';
-  FPersonList.Items[0].FamilyName := 'User';
+
+  Clear;
 
   // Sub-Forms
   AboutForm := TForm2.Create(self);
@@ -296,6 +288,13 @@ begin
   FWeekList.Clear;
   FPersonList.Clear;
   StringGrid1.Clear;
+
+  FPersonList.add(TPerson.Create);
+  FPersonList.Items[0].FirstName := 'User1';
+  FPersonList.Items[0].FamilyName := '';
+  FPersonList.Items[0].TimeData.Add(TWeekList.Create);
+  FPersonList.Items[0].TimeData.Add(TWeekList.Create);
+  FPersonList.Items[0].TimeData.Add(TWeekList.Create);
   updateWindow;
 end;
 
@@ -330,11 +329,6 @@ begin
   AddWeekForm.Show;
 end;
 
-procedure TForm1.ComboBox1Click(Sender: TObject);
-begin
-
-end;
-
 procedure TForm1.ComboBox1Select(Sender: TObject);
 begin
   if (ComboBox1.Items.Count > 0) then
@@ -345,7 +339,20 @@ begin
   begin
     FPersonIndex := -1;
   end;
-  StatusBar1.Panels[0].Text := IntToStr(FPersonIndex);
+
+  StatusBar1.Panels[0].Text := ComboBox1.Items[FPersonIndex];
+  updateWindow;
+end;
+
+procedure TForm1.ComboBox2Select(Sender: TObject);
+begin
+  if (FPersonIndex >= 0) and (ComboBox2.ItemIndex >= 0) then
+  begin
+    // I hope this line keeps us from rewriting all the places where FWeekList
+    // is involved
+    FWeekList := FPersonList[FPersonIndex].TimeData[ComboBox2.ItemIndex];
+	end;
+  updateWindow;
 end;
 
 procedure TForm1.MergeWeeks(Sender: TObject; AIndex1, AIndex2: integer; DeleteFirst: boolean = False);
@@ -845,20 +852,14 @@ begin
   Label7.Caption := txtLongestDay + ':';
 
   // Person List
-  ComboBox1.Clear;
-  for I := 0 to FPersonList.Count - 1 do
-  begin
-    ComboBox1.Items.Add(FPersonList.Items[I].NameToText);
-  end;
+  NamesToComboBox(ComboBox1, FPersonList);
+  ComboBox1.ItemIndex := FPersonIndex;
   // Timedata List
-  ComboBox2.Clear;
   if (FPersonIndex >= 0) then
   begin
-    for I := 0 to FPersonList.Items[FPersonIndex].TimeData.Count - 1 do
-    begin
-      ComboBox2.Items.Add(IntToStr(I + 1));//FPersonList.Items[FPersonIndex].TimeData.Items[I]);
-    end;
+    WeekListsToComboBox(ComboBox2, FPersonList[FPersonIndex].TimeData);
   end;
+
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
@@ -868,10 +869,11 @@ begin
     vacationdays += FWeekList.Items[I].getAmountOfVacation;
   end;
 
+  WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
   if (FWeekList.Count > 0) then
   begin
     diff := sum - goal;
-    WeeksToStringGrid(StringGrid1, FWeekList, FSelectionIndex);
+
     Label1.Caption := txtSum + ': ' + FormatFloat('0.00', sum) + ' h';
     Label2.Caption := txtGoal + ': ' + FormatFloat('0.00', goal) + ' h';
     Label3.Caption := txtDiff + ': ' + FormatFloat('0.00', diff) + ' h';

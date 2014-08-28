@@ -2036,10 +2036,10 @@ object Form2: TForm2
     Height = 238
     Top = 33
     Width = 418
-    ActivePage = TabSheet1
+    ActivePage = Contributors
     Anchors = [akTop, akLeft, akRight, akBottom]
     MultiLine = True
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     Options = [nboMultiLine]
     object TabSheet1: TTabSheet

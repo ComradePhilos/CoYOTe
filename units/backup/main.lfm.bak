@@ -282,6 +282,8 @@ object Form1: TForm1
       Height = 25
       Top = 0
       Width = 111
+      AutoComplete = True
+      AutoCompleteText = [cbactEnabled, cbactEndOfLineComplete, cbactSearchAscending]
       ItemHeight = 17
       OnSelect = ComboBox1Select
       TabOrder = 0
@@ -292,6 +294,7 @@ object Form1: TForm1
       Top = 0
       Width = 104
       ItemHeight = 17
+      OnSelect = ComboBox2Select
       TabOrder = 1
     end
     object ToolButton6: TToolButton

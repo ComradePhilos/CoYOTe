@@ -12,7 +12,7 @@ uses
   Classes, SysUtils, Translations, DateUtils, StdCtrls, Graphics, Process, LCLIntF,
   Forms, Menus,
   { own Units }
-  workdays, CoyoteDefaults;
+  workdays, CoyoteDefaults, people;
 
 // Save WeekList to File
 procedure SaveToFile(filename: string; AWeekList: TWeekList);
@@ -26,6 +26,11 @@ procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 
 // swaps two Indices
 procedure swap(var AIndex1, AIndex2: Integer);
+
+procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
+
+procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
+
 
 implementation
 
@@ -241,6 +246,31 @@ begin
   temp := AIndex1;
   AIndex1 := AIndex2;
   AIndex2 := temp;
+end;
+
+procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
+var
+  I: Integer;
+begin
+  AComboBox.Clear;
+  For I := 0 to Persons.Count - 1 do
+  begin
+    AComboBox.Items.Add(Persons[I].FirstName + ' ' + Persons[I].FamilyName);
+	end;
+end;
+
+procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
+var
+  I: Integer;
+  Index: Integer;
+begin
+  Index := AComboBox.ItemIndex;
+  AComboBox.Clear;
+  for I := 0 to ATimeData.Count - 1 do
+  begin
+    AComboBox.Items.Add(IntToStr(I));
+	end;
+  AComboBox.ItemIndex := Index;
 end;
 
 end.
