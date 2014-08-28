@@ -16,6 +16,7 @@ uses
 
 // Save WeekList to File
 procedure SaveToFile(filename: string; AWeekList: TWeekList);
+procedure NEWSaveToFile(filename: string; APersonList: TPersonList);
 
 // Load WeekList from File
 function LoadFromFile(filename: string; AWeekList: TWeekList): boolean;
@@ -30,6 +31,8 @@ procedure swap(var AIndex1, AIndex2: Integer);
 procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
 
 procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
+
+function CreateOffset(AOffset: Integer): String;
 
 
 implementation
@@ -269,6 +272,48 @@ begin
   for I := 0 to ATimeData.Count - 1 do
   begin
     AComboBox.Items.Add(IntToStr(I));
+	end;
+  AComboBox.ItemIndex := Index;
+end;
+
+procedure NEWSaveToFile(filename: string; APersonList: TPersonList);
+var
+  Lines: TStringList;
+  u: Integer;   // users
+  l: Integer;   // lists
+  w: Integer;   // weeks
+  d: Integer;   // days
+  offset: Integer;  // alignment
+begin
+  Lines := TStringList.Create;
+  try
+    offset := 0;
+    Lines.Add('CoYOTe file');
+    for u := 0 to APersonList.Count - 1 do
+    begin
+      Lines.Add('<'+ APersonList.Items[u].FirstName + ',' + APersonList.Items[u].FirstName + '>');
+      offset := 2;
+      Lines.Add(CreateOffset(offset) + APersonList.Items[u].Residence);
+      Lines.Add(CreateOffset(offset) + APersonList.Items[u].Street);
+      Lines.Add(CreateOffset(offset) + APersonList.Items[u].StreetNR);
+      Lines.Add(CreateOffset(offset) + APersonList.Items[u].PhoneNumber1);
+      Lines.Add(CreateOffset(offset) + APersonList.Items[u].PhoneNumber2);
+      Lines.Add(CreateOffset(offset) + APersonList.Items[u].EMail);
+    end;
+    Lines.SaveToFile(filename);
+  finally
+    Lines.Free;
+  end;
+end;
+
+function CreateOffset(AOffset: Integer): String;
+var
+  I: Integer;
+begin
+  Result := '';
+  for I := 0 to AOffset - 1 do
+  begin
+    Result += ' ';
 	end;
 end;
 

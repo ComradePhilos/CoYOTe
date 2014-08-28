@@ -80,7 +80,8 @@ begin
     defHoursPerDay := StrToFloat(StringGrid1.Cells[1, 1]);
     defPausePerDay := StrToFloat(StringGrid1.Cells[1, 2]);
     defHoursUntilPause := StrToFloat(StringGrid1.Cells[1, 3]);
-    openLatestFile := CheckBox1.Checked;
+    option_openLatestFile := CheckBox1.Checked;
+
     self.Visible := False;
   except
     on e: EConvertError do

@@ -128,7 +128,6 @@ type
 		procedure ComboBox2Select(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormDestroy(Sender: TObject);
     procedure MenuAboutClick(Sender: TObject);
@@ -156,6 +155,7 @@ type
     FPersonList: TPersonList;
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
     FPersonIndex: integer;        // Index of the person selected - maybe change to string?
+    FPeriodIndex: Integer;
 
     FOSName: string;              // The Internal Name for the used Operating System
     //FLanguage: string;            // Language chosen by User - default is English
@@ -239,7 +239,7 @@ begin
   FOSName := 'Linux';    // for those poor guys with the huge brain and the monstrous penis ;)
   {$ENDIF}
 
-  self.Caption := ProgrammeName + '  ' + VersionNr;
+  self.Caption := ProgrammeName + '  ' + VersionNr + ' - UNDER CONSTRUCTION';
   // Create Instances
   FWeekList := TWeekList.Create;
   FPersonList := TPersonList.Create;
@@ -272,9 +272,9 @@ begin
   self.Constraints.MinWidth := Groupbox1.Width;
   self.Constraints.MinHeight := round(Groupbox1.Width / 2);
 
-  if (FOpenRecent.Count > 0) and openLatestFile then
+  if (FOpenRecent.Count > 0) and option_openLatestFile then
   begin
-    loadFile(FOpenRecent[0]);
+    loadFile(FOpenRecent[FOPenRecent.Count-1]);
   end;
 
 end;
@@ -282,7 +282,8 @@ end;
 procedure TForm1.Clear;
 begin
   FSelectionIndex := -1;
-  FPersonIndex := -1;
+  FPeriodIndex := 0;
+  FPersonIndex := 0;
   FCurrentFilePath := '';
   FCanSave := False;
   FWeekList.Clear;
@@ -292,8 +293,6 @@ begin
   FPersonList.add(TPerson.Create);
   FPersonList.Items[0].FirstName := 'User1';
   FPersonList.Items[0].FamilyName := '';
-  FPersonList.Items[0].TimeData.Add(TWeekList.Create);
-  FPersonList.Items[0].TimeData.Add(TWeekList.Create);
   FPersonList.Items[0].TimeData.Add(TWeekList.Create);
   updateWindow;
 end;
@@ -348,6 +347,8 @@ procedure TForm1.ComboBox2Select(Sender: TObject);
 begin
   if (FPersonIndex >= 0) and (ComboBox2.ItemIndex >= 0) then
   begin
+    // I hope this line keeps us from rewriting all the places where FWeekList
+    // is involved
     FWeekList := FPersonList[FPersonIndex].TimeData[ComboBox2.ItemIndex];
 	end;
   updateWindow;
@@ -616,7 +617,7 @@ begin
 
   EditSettingsForm.ColorButton1.ButtonColor := colorMarkedDays;
   EditSettingsForm.ColorButton2.ButtonColor := colorVacationDays;
-  EditSettingsForm.CheckBox1.Checked := openLatestFile;
+  EditSettingsForm.CheckBox1.Checked := option_openLatestFile;
 end;
 
 procedure TForm1.MenuQuitClick(Sender: TObject);
@@ -665,11 +666,6 @@ begin
   end;
 end;
 
-procedure TForm1.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-  //SaveIniFile;
-end;
-
 procedure TForm1.SaveIniFile;
 var
   INI: TINIFile;
@@ -714,7 +710,7 @@ begin
   INI.WriteString('Defaults', 'Language', FLanguageID);
 
   // Recent Files
-  INI.WriteString('RecentFiles', 'open_latest', BoolToStr(openLatestFile));
+  INI.WriteString('RecentFiles', 'open_latest', BoolToStr(option_openLatestFile));
   INI.WriteString('RecentFiles', 'count', IntToStr(FOpenRecent.Count));
   for I := 0 to FOpenRecent.Count - 1 do
   begin
@@ -786,7 +782,7 @@ begin
   colorVacationDays := StrToInt(INI.ReadString('Defaults', 'ColorVacationDays', IntToStr(colorVacationDays)));
   FLanguageID := INI.ReadString('Defaults', 'Language', defLanguageID);
 
-  openLatestFile := StrToBool(INI.ReadString('RecentFiles', 'open_Latest', BoolToStr(openLatestFile)));
+  option_openLatestFile := StrToBool(INI.ReadString('RecentFiles', 'open_Latest', BoolToStr(option_openLatestFile)));
   for I := 0 to StrToInt(INI.ReadString('RecentFiles', 'count', '0')) - 1 do
   begin
     AddToOpenRecent(INI.ReadString('RecentFiles', IntToStr(I), ''), FOpenRecent, MenuOpenRecent);

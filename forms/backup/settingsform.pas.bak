@@ -31,7 +31,6 @@ type
 		TabSheet3: TTabSheet;
     procedure ApplyButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
-		procedure CheckBox1Change(Sender: TObject);
     procedure FormCreate(Sender: TObject);
 		procedure ResetButtonClick(Sender: TObject);
   private

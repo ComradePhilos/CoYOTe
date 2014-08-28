@@ -30,10 +30,11 @@ type
       FIDNumber: String;                // ID Number of the person in a company/team etc...
       FInternalID: Integer;             // programme-internal ID number that is unique and automatically generated
       FResidence: String;               // Where does the person live
-      FAdress: String;                  // Adress-Information e.g. street
+      FStreet: String;                  // Adress-Information e.g. street
+      FStreetNR: String;                // Street number
       FPhoneNumber1: String;            // Phone Numbers
       FPhoneNumber2: String;
-      FEMail: String;                   // Email-Adress
+      FEMail: String;                   // Email-Adress / nice word play ^^ Femail
 
       FPhoto: TImage;                   // Maybe it is better to store the local path to a picture instead of a
                                         // whole picture binarily OR don't use any picture?
@@ -51,6 +52,7 @@ type
       constructor Create; overload;
       constructor Create(APerson: TPerson); overload;
       destructor Destroy;
+      procedure Clear;
       procedure Assign(APerson: TPerson);
 
       function NameToText: String;
@@ -58,6 +60,12 @@ type
       property FirstName: String read FFirstName write FFirstName;
       property FamilyName: String read FFamilyName write FFamilyName;
       property ID: String read FIDNumber write FIDNumber;
+      property Residence: String read FResidence write FResidence;
+      property Street: String read FStreet write FStreet;
+      property StreetNR: String read FStreetNR write FStreetNR;
+      property PhoneNumber1: String read FPhoneNumber1 write FPhoneNumber1;
+      property PhoneNumber2: String read FPhoneNumber2 write FPhoneNumber2;
+      property EMail: String read FEMail write FEMail;
       property TimeData: TPersonnelTimeList read FTimeData write FTimeData;
 	end;
 
@@ -68,6 +76,7 @@ implementation
 constructor TPerson.Create;
 begin
   FTimeData := TPersonnelTimeList.Create;
+  Clear;
 end;
 
 constructor TPerson.Create(APerson: TPerson);
@@ -84,7 +93,28 @@ procedure TPerson.Assign(APerson: TPerson);
 begin
   FFamilyName := APerson.FamilyName;
   FFirstName := APerson.FirstName;
+  FResidence := APerson.Residence;
+  FStreet := APerson.Street;
+  FStreetNR := APerson.StreetNR;
+  FPhoneNumber1 := APerson.PhoneNumber1;
+  FPhoneNumber2 := APerson.PhoneNumber2;
+  FEMail := APerson.EMail;
+  FTimeData.Assign(APerson.TimeData);
   // ...
+end;
+
+procedure TPerson.Clear;
+begin
+  FFirstName := '';
+  FFamilyName := '';
+  FResidence := '';
+  FStreet := '';
+  FStreetNR := '';
+  FPhoneNumber1 := '';
+  FPhoneNumber2 := '';
+  FEMail := '';
+
+  FTimeData.Clear;
 end;
 
 function TPerson.NameToText: String;

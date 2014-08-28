@@ -1,0 +1,15 @@
+<User 1>
+	// personal information
+	.
+	.
+	.
+	// personal information
+
+	<List1>
+		<Week1>
+			Day 1 ... Data
+			...
+			Day 2 ... Data
+		</Week1>
+	</List1>
+</User 1>

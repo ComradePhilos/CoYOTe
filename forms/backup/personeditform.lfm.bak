@@ -2,10 +2,10 @@ object Form5: TForm5
   Left = 377
   Height = 513
   Top = 178
-  Width = 583
+  Width = 573
   Caption = 'Edit Person'
   ClientHeight = 513
-  ClientWidth = 583
+  ClientWidth = 573
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -436,14 +436,14 @@ object Form5: TForm5
     Left = 0
     Height = 23
     Top = 490
-    Width = 583
+    Width = 573
     Panels = <>
   end
   object ToolBar1: TToolBar
     Left = 0
     Height = 27
     Top = 0
-    Width = 583
+    Width = 573
     AutoSize = True
     Caption = 'ToolBar1'
     Images = ImageList1

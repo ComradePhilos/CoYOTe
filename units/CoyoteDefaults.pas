@@ -14,7 +14,7 @@ procedure LoadFromLanguageFile(AFilePath: string);
 resourcestring
   // Programme-Information
   ProgrammeName = 'CoYOT(e)';     // Official Name shown to the user
-  VersionNr = '0.1.0.7';          // Programme-Version
+  VersionNr = '0.1.0.8';          // Programme-Version
   VersionDate = '28.08.2014';     // Date of the latest changes
   LazarusVersion = '1.2.2';       // Version of the Lazarus IDE the programme was created with
   defLanguage = 'English';        // not sure what we will need in future
@@ -117,7 +117,7 @@ var
   defPausePerDay: double = 0.75;
   defHoursPerDay: double = 8;      // Standard Value
   defToolbarColor: integer = $00FFE4CA; //$00E0E0E0; // $00FFDBB7;
-  openLatestFile: Boolean = False;
+  option_openLatestFile: Boolean = False;
 
   colorMarkedDays: Integer = $000080FF;
   colorVacationDays: Integer = $00FF0080;
