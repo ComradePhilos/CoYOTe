@@ -6,16 +6,12 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, Forms, Controls, Graphics, Dialogs,
-	ExtCtrls, StdCtrls, Buttons, LCLIntF, ComCtrls, Grids, ValEdit, DbCtrls,
+	ExtCtrls, StdCtrls, Buttons, LCLIntF, ComCtrls, Grids, DbCtrls,
 	Process,
   {own units}
   people, workdays;
 
 type
-
-  TRemoveEvent = procedure(Sender: TObject; Index: integer) of object;
-  TApplyEvent = procedure(Sender: TObject; APerson: TPerson; Index: integer) of object;
-  TNextPersonEvent = procedure(Sender: TObject; Index: integer) of object;
 
 	{ TForm5 }
 
@@ -73,9 +69,6 @@ type
 
   public
     { public declarations }
-    FRemoveEvent: TRemoveEvent;
-    FApplyEvent: TApplyEvent;
-    FNextPersonEvent: TNextPersonEvent;
 
     procedure ShowPersonList(APersonList: TPersonList; AIndex: Integer);
   end;
@@ -154,6 +147,7 @@ begin
   FPersonList.Items[FPersonList.Count-1].FirstName := 'New';
   FPersonList.Items[FPersonList.Count-1].FamilyName := 'User';
   FPersonList.Items[FPersonList.Count-1].TimeData.Add(TWeekList.Create);
+  FPersonIndex := FPersonList.Count-1;
   updateWindow;
 end;
 
@@ -186,18 +180,17 @@ end;
 
 procedure TForm5.ApplyButtonClick(Sender: TObject);
 begin
-  if (FPersonList.Count > 0) then
-  begin
-    FPersonList.Items[FPersonIndex].FirstName := FirstNameEdit.Text;
-    FPersonList.Items[FPersonIndex].FamilyName := FamilyNameEdit.Text;
-    FPersonList.Items[FPersonIndex].Street := StreetEdit.Text;
-    FPersonList.Items[FPersonIndex].StreetNR := StreetNrEdit.Text;
-    FPersonList.Items[FPersonIndex].Residence := ResidenceEdit.Text;
-    FPersonList.Items[FPersonIndex].PhoneNumber1 := PhoneEdit1.Text;
-    FPersonList.Items[FPersonIndex].PhoneNumber2 := PhoneEdit2.Text;
-    FPersonList.Items[FPersonIndex].EMail := EMailEdit.Text;
-    updateWindow;
-	end;
+  FPersonList.Items[FPersonIndex].FirstName := FirstNameEdit.Text;
+  FPersonList.Items[FPersonIndex].FamilyName := FamilyNameEdit.Text;
+  FPersonList.Items[FPersonIndex].Street := StreetEdit.Text;
+  FPersonList.Items[FPersonIndex].StreetNR := StreetNrEdit.Text;
+  FPersonList.Items[FPersonIndex].Residence := ResidenceEdit.Text;
+  FPersonList.Items[FPersonIndex].PhoneNumber1 := PhoneEdit1.Text;
+  FPersonList.Items[FPersonIndex].PhoneNumber2 := PhoneEdit2.Text;
+  FPersonList.Items[FPersonIndex].EMail := EMailEdit.Text;
+  updateWindow;
+
+  self.Visible := False;
 end;
 
 procedure TForm5.RevertButtonClick(Sender: TObject);
@@ -216,7 +209,6 @@ procedure TForm5.UpdateWindow;
 begin
   NamesToCombobox(ComboBox1, FPersonList);
   ComboBox1.ItemIndex := FPersonIndex;
-
   if (FPersonList.Count > 0) then
   begin
     FirstNameEdit.Text := FPersonList.Items[FPersonIndex].FirstName;
@@ -233,6 +225,7 @@ begin
   begin
     Clear;
 	end;
+  EnableFields;
 end;
 
 procedure TForm5.Clear;
@@ -246,6 +239,7 @@ begin
   PhoneEdit2.Text := '';
   EmailEdit.Text := '';
   StaticText1.Caption := '';
+  FPersonIndex := -1;
   ComboBox1.Clear;
 end;
 
@@ -256,6 +250,18 @@ begin
   RevertButton.Enabled := (FPersonList.Count > 0);
   DeleteUserButton.Enabled := (FPersonList.Count > 0);
   ClearButton.Enabled := (FPersonList.Count > 0);
+  ComboBox1.Enabled := (FPersonList.Count > 0);
+  ToolButton1.Enabled := (FPersonList.Count > 0);
+  ToolButton2.Enabled := (FPersonList.Count > 0);
+
+  FirstNameEdit.Enabled := (FPersonIndex >= 0);
+  FamilyNameEdit.Enabled := (FPersonIndex >= 0);
+  StreetEdit.Enabled := (FPersonIndex >= 0);
+  StreetNREdit.Enabled := (FPersonIndex >= 0);
+  ResidenceEdit.Enabled := (FPersonIndex >= 0);
+  PhoneEdit1.Enabled := (FPersonIndex >= 0);
+  PhoneEdit2.Enabled := (FPersonIndex >= 0);
+  EmailEdit.Enabled :=(FPersonIndex >= 0);
 end;
 
 end.

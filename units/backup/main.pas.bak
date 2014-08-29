@@ -31,6 +31,7 @@ Also my English is a bastard mix of British and American - Philos
 // * database commit and download
 // * save all people and lists in one file
 // * implement new saving function.
+// * Code week editing like I did with PersonForm
 
 // # some pictures/icons in the popup menus are not properly shown on Linux Version!! - Lazarus Bug?
 
@@ -574,6 +575,7 @@ end;
 
 procedure TForm1.MenuPeopleClick(Sender: TObject);
 begin
+  PersonForm.ShowPersonList(FPersonList, FPersonIndex);
   PersonForm.Show;
 end;
 
@@ -865,7 +867,12 @@ begin
     begin
       WeekListsToComboBox(ComboBox2, FPersonList[FPersonIndex].TimeData);
     end;
-  end;
+  end
+  else
+  begin
+    ComboBox1.Clear;
+    ComboBox2.Clear;
+	end;
 
 
   // Statistics on the right

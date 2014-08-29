@@ -496,7 +496,7 @@ object Form5: TForm5
     object ToolButton5: TToolButton
       Left = 256
       Top = 2
-      Caption = 'ToolButton5'
+      Caption = 'AddUserButton'
       ImageIndex = 5
       OnClick = ToolButton5Click
     end
