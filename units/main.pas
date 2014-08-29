@@ -294,6 +294,15 @@ begin
   FPersonList.Items[0].FirstName := 'User1';
   FPersonList.Items[0].FamilyName := '';
   FPersonList.Items[0].TimeData.Add(TWeekList.Create);
+
+  FPersonList.add(TPerson.Create);
+  FPersonList.Items[1].FirstName := 'Test';
+  FPersonList.Items[1].FamilyName := 'User';
+  FPersonList.Items[1].PhoneNumber1 := '1234/56789';
+  FPersonList.Items[1].Email := 'Test@User.de';
+
+  FPersonList.Items[1].TimeData.Add(TWeekList.Create);
+
   updateWindow;
 end;
 
@@ -319,6 +328,7 @@ end;
 
 procedure TForm1.ToolButton10Click(Sender: TObject);
 begin
+  PersonForm.ShowPersonList(FPersonList, FPersonIndex);
   PersonForm.Show;
 end;
 

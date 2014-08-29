@@ -2,10 +2,10 @@ object Form5: TForm5
   Left = 377
   Height = 513
   Top = 178
-  Width = 573
+  Width = 580
   Caption = 'Edit Person'
   ClientHeight = 513
-  ClientWidth = 573
+  ClientWidth = 580
   Font.CharSet = ANSI_CHARSET
   Font.Height = -13
   Font.Name = 'Ubuntu'
@@ -83,15 +83,15 @@ object Form5: TForm5
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
   LCLVersion = '1.2.2.0'
-  object LabeledEdit1: TLabeledEdit
+  object FirstNameEdit: TLabeledEdit
     Left = 16
     Height = 25
     Top = 82
     Width = 384
-    EditLabel.AnchorSideLeft.Control = LabeledEdit1
-    EditLabel.AnchorSideRight.Control = LabeledEdit1
+    EditLabel.AnchorSideLeft.Control = FirstNameEdit
+    EditLabel.AnchorSideRight.Control = FirstNameEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit1
+    EditLabel.AnchorSideBottom.Control = FirstNameEdit
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 62
@@ -100,15 +100,15 @@ object Form5: TForm5
     EditLabel.ParentColor = False
     TabOrder = 0
   end
-  object LabeledEdit2: TLabeledEdit
+  object FamilyNameEdit: TLabeledEdit
     Left = 16
     Height = 25
     Top = 131
     Width = 384
-    EditLabel.AnchorSideLeft.Control = LabeledEdit2
-    EditLabel.AnchorSideRight.Control = LabeledEdit2
+    EditLabel.AnchorSideLeft.Control = FamilyNameEdit
+    EditLabel.AnchorSideRight.Control = FamilyNameEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit2
+    EditLabel.AnchorSideBottom.Control = FamilyNameEdit
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 111
@@ -117,15 +117,15 @@ object Form5: TForm5
     EditLabel.ParentColor = False
     TabOrder = 1
   end
-  object LabeledEdit3: TLabeledEdit
+  object PhoneEdit1: TLabeledEdit
     Left = 16
     Height = 25
     Top = 312
     Width = 384
-    EditLabel.AnchorSideLeft.Control = LabeledEdit3
-    EditLabel.AnchorSideRight.Control = LabeledEdit3
+    EditLabel.AnchorSideLeft.Control = PhoneEdit1
+    EditLabel.AnchorSideRight.Control = PhoneEdit1
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit3
+    EditLabel.AnchorSideBottom.Control = PhoneEdit1
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 292
@@ -138,22 +138,29 @@ object Form5: TForm5
     Left = 16
     Height = 18
     Top = 31
-    Width = 142
+    Width = 148
     AutoSize = True
     Caption = 'FamilyName, FirstName'
-    Color = clBlack
+    Color = clDefault
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -13
+    Font.Name = 'Ubuntu'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold, fsItalic]
+    ParentFont = False
     ParentColor = False
     TabOrder = 3
   end
-  object LabeledEdit4: TLabeledEdit
+  object PhoneEdit2: TLabeledEdit
     Left = 16
     Height = 25
     Top = 360
     Width = 384
-    EditLabel.AnchorSideLeft.Control = LabeledEdit4
-    EditLabel.AnchorSideRight.Control = LabeledEdit4
+    EditLabel.AnchorSideLeft.Control = PhoneEdit2
+    EditLabel.AnchorSideRight.Control = PhoneEdit2
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit4
+    EditLabel.AnchorSideBottom.Control = PhoneEdit2
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 340
@@ -162,15 +169,15 @@ object Form5: TForm5
     EditLabel.ParentColor = False
     TabOrder = 4
   end
-  object LabeledEdit5: TLabeledEdit
+  object EMailEdit: TLabeledEdit
     Left = 16
     Height = 25
     Top = 407
     Width = 352
-    EditLabel.AnchorSideLeft.Control = LabeledEdit5
-    EditLabel.AnchorSideRight.Control = LabeledEdit5
+    EditLabel.AnchorSideLeft.Control = EMailEdit
+    EditLabel.AnchorSideRight.Control = EMailEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit5
+    EditLabel.AnchorSideBottom.Control = EMailEdit
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 387
@@ -178,7 +185,7 @@ object Form5: TForm5
     EditLabel.Caption = 'E-Mail'
     EditLabel.ParentColor = False
     TabOrder = 5
-    OnChange = LabeledEdit5Change
+    OnChange = EMailEditChange
   end
   object BitBtn1: TBitBtn
     Left = 369
@@ -228,15 +235,15 @@ object Form5: TForm5
     ShowHint = True
     TabOrder = 6
   end
-  object LabeledEdit6: TLabeledEdit
+  object ResidenceEdit: TLabeledEdit
     Left = 72
     Height = 25
     Top = 240
     Width = 328
-    EditLabel.AnchorSideLeft.Control = LabeledEdit6
-    EditLabel.AnchorSideRight.Control = LabeledEdit6
+    EditLabel.AnchorSideLeft.Control = ResidenceEdit
+    EditLabel.AnchorSideRight.Control = ResidenceEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit6
+    EditLabel.AnchorSideBottom.Control = ResidenceEdit
     EditLabel.Left = 72
     EditLabel.Height = 17
     EditLabel.Top = 220
@@ -245,15 +252,15 @@ object Form5: TForm5
     EditLabel.ParentColor = False
     TabOrder = 7
   end
-  object LabeledEdit7: TLabeledEdit
+  object StreetEdit: TLabeledEdit
     Left = 16
     Height = 25
     Top = 187
     Width = 384
-    EditLabel.AnchorSideLeft.Control = LabeledEdit7
-    EditLabel.AnchorSideRight.Control = LabeledEdit7
+    EditLabel.AnchorSideLeft.Control = StreetEdit
+    EditLabel.AnchorSideRight.Control = StreetEdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit7
+    EditLabel.AnchorSideBottom.Control = StreetEdit
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 167
@@ -349,7 +356,7 @@ object Form5: TForm5
     TabOrder = 9
   end
   object BackButton: TBitBtn
-    Left = 372
+    Left = 277
     Height = 30
     Top = 456
     Width = 91
@@ -437,14 +444,14 @@ object Form5: TForm5
     Left = 0
     Height = 23
     Top = 490
-    Width = 573
+    Width = 580
     Panels = <>
   end
   object ToolBar1: TToolBar
     Left = 0
     Height = 27
     Top = 0
-    Width = 573
+    Width = 580
     AutoSize = True
     Caption = 'ToolBar1'
     Images = ImageList1
@@ -454,12 +461,14 @@ object Form5: TForm5
       Top = 2
       Caption = 'ToolButton1'
       ImageIndex = 0
+      OnClick = ToolButton1Click
     end
     object ToolButton2: TToolButton
       Left = 27
       Top = 2
       Caption = 'ToolButton2'
       ImageIndex = 1
+      OnClick = ToolButton2Click
     end
     object ComboBox1: TComboBox
       Left = 53
@@ -467,6 +476,7 @@ object Form5: TForm5
       Top = 2
       Width = 198
       ItemHeight = 17
+      OnSelect = ComboBox1Select
       TabOrder = 0
     end
     object ToolButton3: TToolButton
@@ -481,12 +491,14 @@ object Form5: TForm5
       Top = 2
       Caption = 'ToolButton4'
       ImageIndex = 6
+      OnClick = ToolButton4Click
     end
     object ToolButton5: TToolButton
       Left = 256
       Top = 2
       Caption = 'ToolButton5'
       ImageIndex = 5
+      OnClick = ToolButton5Click
     end
     object ToolButton6: TToolButton
       Left = 308
@@ -502,27 +514,21 @@ object Form5: TForm5
       Style = tbsDivider
     end
     object ToolButton8: TToolButton
-      Left = 365
+      Left = 339
       Top = 2
       Caption = 'ToolButton8'
       ImageIndex = 4
     end
-    object ToolButton9: TToolButton
-      Left = 339
-      Top = 2
-      Caption = 'ToolButton9'
-      ImageIndex = 7
-    end
   end
-  object LabeledEdit8: TLabeledEdit
+  object StreetNREdit: TLabeledEdit
     Left = 16
     Height = 25
     Top = 240
     Width = 48
-    EditLabel.AnchorSideLeft.Control = LabeledEdit8
-    EditLabel.AnchorSideRight.Control = LabeledEdit8
+    EditLabel.AnchorSideLeft.Control = StreetNREdit
+    EditLabel.AnchorSideRight.Control = StreetNREdit
     EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit8
+    EditLabel.AnchorSideBottom.Control = StreetNREdit
     EditLabel.Left = 16
     EditLabel.Height = 17
     EditLabel.Top = 220
@@ -540,10 +546,10 @@ object Form5: TForm5
     TabOrder = 14
   end
   object ApplyButton1: TBitBtn
-    Left = 417
+    Left = 489
     Height = 30
     Top = 402
-    Width = 150
+    Width = 78
     Caption = 'Delete'
     OnClick = ApplyButtonClick
     Spacing = 0
@@ -559,6 +565,129 @@ object Form5: TForm5
     Color = clBlack
     ParentColor = False
     TabOrder = 16
+  end
+  object BackButton1: TBitBtn
+    Left = 376
+    Height = 30
+    Top = 456
+    Width = 91
+    Caption = 'Revert'
+    Glyph.Data = {
+      C6070000424DC607000000000000360000002800000016000000160000000100
+      2000000000009007000064000000640000000000000000000000FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+      000000000000FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00000000010000000300000006000000090000000B0000000C0000000C0000
+      000C0000000B00000009000000060000000300000001FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000000200000006000000090000
+      000C0000000F0000001200000014000000160000001600000016000000150016
+      1B1600738D310000000D0000000A0000000500000001FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF000000000100000005000000090000000D00000010000000140000
+      00180000001B0000001F000000210000001F0000001C009FC2D300A2C5F900A1
+      C4EA0084A2400000000A0000000600000001FFFFFF00FFFFFF00FFFFFF000000
+      000100000004000000080000000C0000000F0000001300000016000000190000
+      001B0000001C0000001C003A472700A0C4FD07D2ECFF05C4E0FF00A2C6F60099
+      BB6E0000000500000001FFFFFF00FFFFFF00FFFFFF00FFFFFF00000000000000
+      000400000007000000090000000C0000000E0000001000000012000000120000
+      001200000011019DBF9F03AFCFF60BD6EEFF09CFE9FF01A6C9F4009FC35CFFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF000000
+      000200000004000000050000000600000007000000070092B33D0043530C0036
+      420901A2C6BE08B5D5F70FD8F0FF0CCDE7FF01A2C6F100A0C414FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000A0C44B00A0C4F700A0C408FFFFFF0000A0C40A01A3
+      C6DC16C8E3FF17D9F0FF08B8D6F901A2C584FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000A1
+      C55D08A6C8F602A1C4FE00A0C408FFFFFF00FFFFFF0001A3C7A21AC6E1FF25DC
+      F2FF18CAE5FF02A4C7C5FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0001A1C5720FA9CAF661E0F1FF06A3
+      C6FC00A0C408FFFFFF0000A0C40901A3C6D029C9E3FF2BDDF3FF2CD7EEFF01A3
+      C6EBFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF0001A2C6891AAFCEF67AE6F4FF7FEBF8FF06A3C6FC00A0C42D00A0
+      C45302A3C6CD19B8D6F64DE2F5FF2FDEF4FF34D3EAFF02A4C7CFFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000A0C40202A3C69F29B6
+      D3F692ECF8FF4EE4F6FF86EDF9FF16AACAFD19ADCDF32EBCD8F243CEE5FD63E7
+      F7FF36E0F5FF43E2F6FF2DC5E0FC02A3C697FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000A0C40602A3C6B438BED8F6A3F0F9FF50E5F6FF2ADF
+      F4FF5FE7F7FF90EDF8FF7EECF8FF66E8F7FF52E5F6FF32E0F4FF36E1F5FF60E3
+      F4FF08A5C7F700A0C427FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000A0
+      C40C02A3C7C647C6DDF7A4F1FAFF4CE4F6FF2EE0F5FF2EE0F5FF2EE0F5FF2EE0
+      F5FF2EE0F5FF2EE0F5FF2EE0F5FF42E3F6FF77EAF8FF2ABBD7F602A3C696FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000A0C43302A2C5F480DF
+      EFFE92EFFAFF38E2F6FF32E1F6FF32E1F6FF32E1F6FF34E1F6FF42E3F7FF53E6
+      F7FF7DECF9FF88EAF7FF2CB9D5F502A3C6AB00A0C405FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000A0C42705A4C6E870D8EAFC9CF1
+      FBFF43E4F8FF36E2F7FF70EAF9FFACF2FBFF9EECF7FF86E3F1FF4BC8E0F706A4
+      C7F402A2C68100A0C401FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF0000A0C41603A4C7D45ACCE2F9A7F2FBFF52E6
+      F9FFAAF3FCFF19ABCAFD04A5C8E005A5C8BD01A1C57900A0C40FFFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF0000A0C40904A4C7BA44C1DAF7ABF2FBFFB4F4FDFF0BA5
+      C7FC00A0C408FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF0000A0C40203A4C7992FB6D3F6ACF1FAFF0BA5C7FC00A0C408FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF0002A2C6741DAECDF705A2C5FE00A0C408FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF0001A1C45200A0C4F800A0C408FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF0000A0
+      C43900A0C405FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFF
+      FF00FFFFFF00FFFFFF00
+    }
+    OnClick = BackButton1Click
+    TabOrder = 17
+  end
+  object BitBtn2: TBitBtn
+    Left = 456
+    Height = 32
+    Hint = 'Compose E-Mail'
+    Top = 400
+    Width = 32
+    Enabled = False
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000012527
+      270E5457582C53565733515455334F5252334D5050334B4E4E33494C4C33474A
+      4A33454848334346463341444433414344323335352000000006000000025D60
+      6135BDBFC0CDCECFD0E4CACCCCE3C8CACAE3C7C8C8E3C5C6C7E3C4C5C6E3C3C4
+      C4E3C2C3C4E3C1C2C3E3C1C2C2E3BDBEBEE68789898D00000010BBC0C200979C
+      9D28D9DBDBE4E9EAE9FFEBEBEBFFE8E8E8FFE5E5E5FFE5E4E4FFE4E4E4FFE4E4
+      E4FFE4E4E4FFE4E4E4FFDFDFDFFFDDDEDDFFABADAE9200000001A3A7A900A3A8
+      A925DCDDDEE3E9E9E9FFE1E3E1FFE4E6E4FFEAEAEAFFE7E6E7FFE5E5E5FFE5E4
+      E5FFE2E2E2FFD5D7D5FFD9DBD9FFDFDFDFFFAEAFB08EFFFFFF00A3A7A900A3A8
+      A925DEDFDFE3EDEDEDFFEAEAEAFFD7DAD7FFD0D4D0FFDFE1DFFFDCDEDCFFD8D9
+      D8FFCACDCAFFD7D9D7FFE4E4E4FFE0E0E0FFADAFAF8EFFFFFF00A3A8A900A3A8
+      A925DFE0E1E3F0EFEFFFEBEBEBFFCDD0CDFFC5C7C5FFC8CAC8FFC8CAC8FFC7C9
+      C7FFC7C8C7FFDBDBDBFFE7E7E7FFE2E2E2FFADAFB08DFFFFFF00A3A8AA00A3A8
+      AA25E1E2E2E3F1F1F1FFDDDFDDFFDDDFDDFFE7E7E7FFE6E6E6FFE6E6E6FFE5E5
+      E5FFE3E3E3FFDAD9D9FFE4E3E3FFE5E4E4FFAEB0B08DFFFFFF00A4A8AA00A3A8
+      AA25E2E3E4E3E6E7E6FFE2E3E2FFF3F3F3FFF3F3F3FFF2F2F2FFF0F0F0FFEEEE
+      EEFFEAEDEDFFDBEAEAFFD0E2E3FFDBE4E5FFAEB0B18CFFFFFF00A3A8AA00A5AA
+      AB25DDDEDEE3DADBDAFFD4D4D4FFD6D6D6FFDEDEDEFFE8E8E8FFF0F0F0FFEAF4
+      F4FFBDF3F6FF91F3F7FF7FEBF0FF91E1E5FF86BDC092000000019FA4A5009AA0
+      A118D2D4D5CCE1E1E1FFDCDCDCFFD8D8D8FFD3D3D3FFD0CFCFFFCDD0D0FFA9DD
+      E0FF6BEEF5FF53F4FDFF50F0F8FF4EE8F0FF3DD9E0A100F1FC1A898F9100FFFF
+      FF00B6B9BB52DBDCDDEBE4E4E4FFDFDFDFFFDCDCDCFFDAD9D9FFCBD7D7FF82DF
+      E3FF4BEDF5FF7EF6FCFF9DF8FCFF59F2FAF71CF1FCA90BF4FF3E000000008086
+      890025313502BABEBF6ADFE0E0F1E6E6E6FFE2E2E2FFDFDEDEFFCEDDDEFF80E5
+      EAFF4EF0F8FF96F8FDFFBAFAFDFC64F7FEEE1DF5FFAF0CF3FF46000000000000
+      0000898E9000626B6D05BCBFC073E0E1E1F2E9E9E9FFE5E5E5FFDCE2E2FF9DE6
+      E9FF58EEF5FF56F2FAF960F6FEED37F6FFD715F4FF8B0AF3FF2B000000000000
+      000000000000878C8E00696F7106B8BBBC6BDBDCDDE7E4E4E5FCE1E2E2FBC6E0
+      E2FA71DCE1D421ECF6A91BF4FFA915F4FF880DF3FF4105F3FF09000000000000
+      0000000000000000000073797B005F666804A4A8A941B2B5B669B1B3B469A8AE
+      AE6358BABF3306F4FF340BF3FF3F09F3FF2805F3FF090DF3FF00
+    }
+    OnClick = OpenEMailClient
+    ParentShowHint = False
+    ShowHint = True
+    Spacing = 0
+    TabOrder = 18
   end
   object ImageList1: TImageList
     Height = 22

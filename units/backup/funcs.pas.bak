@@ -28,7 +28,7 @@ procedure colorText(ALabel: TLabel; Value, toleranceLimit: double); overload;
 // swaps two Indices
 procedure swap(var AIndex1, AIndex2: Integer);
 
-procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
+
 
 procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
 
@@ -251,17 +251,6 @@ begin
   AIndex2 := temp;
 end;
 
-procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
-var
-  I: Integer;
-begin
-  AComboBox.Clear;
-  For I := 0 to Persons.Count - 1 do
-  begin
-    AComboBox.Items.Add(Persons[I].FirstName + ' ' + Persons[I].FamilyName);
-	end;
-end;
-
 procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
 var
   I: Integer;
@@ -287,7 +276,6 @@ var
 begin
   Lines := TStringList.Create;
   try
-    offset := 0;
     Lines.Add('CoYOTe file');
     for u := 0 to APersonList.Count - 1 do
     begin
@@ -299,6 +287,8 @@ begin
       Lines.Add(CreateOffset(offset) + APersonList.Items[u].PhoneNumber1);
       Lines.Add(CreateOffset(offset) + APersonList.Items[u].PhoneNumber2);
       Lines.Add(CreateOffset(offset) + APersonList.Items[u].EMail);
+
+      Lines.Add('</'+ APersonList.Items[u].FirstName + ',' + APersonList.Items[u].FirstName + '>');
     end;
     Lines.SaveToFile(filename);
   finally

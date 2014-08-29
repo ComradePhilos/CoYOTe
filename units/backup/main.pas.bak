@@ -239,7 +239,7 @@ begin
   FOSName := 'Linux';    // for those poor guys with the huge brain and the monstrous penis ;)
   {$ENDIF}
 
-  self.Caption := ProgrammeName + '  ' + VersionNr + ' - UNDER CONSTRUCTION';
+  self.Caption := ProgrammeName + '  ' + VersionNr + ' - WORK IN PROGRESS';
   // Create Instances
   FWeekList := TWeekList.Create;
   FPersonList := TPersonList.Create;
@@ -319,6 +319,7 @@ end;
 
 procedure TForm1.ToolButton10Click(Sender: TObject);
 begin
+  PersonForm.ShowPersonList(FPersonList, FPersonIndex);
   PersonForm.Show;
 end;
 

@@ -12,7 +12,7 @@ unit people;
 
 interface
 
-uses Classes, fgl, ExtCtrls, workdays;
+uses Classes, fgl, ExtCtrls, StdCtrls, SysUtils, workdays;
 
 type
 
@@ -36,13 +36,8 @@ type
       FPhoneNumber2: String;
       FEMail: String;                   // Email-Adress / nice word play ^^ Femail
 
-      FPhoto: TImage;                   // Maybe it is better to store the local path to a picture instead of a
-                                        // whole picture binarily OR don't use any picture?
-      FAge: Integer;                    // Age in years
-      FSex: String;                     // Male / Female ... won't exclude other possibilities
-      FBirthday: TDate;                 // Date of Birth
+      FPhoto: TImage;                                                      // whole picture binarily OR don't use any pictur
       FDaysOfVacationPerYear: Double;   // May be set either globally or for each person uniquely
-      FDateOfEmployment: TDate;         // The Date when the person got employed
 
       FListName: TStringList;           // List of the names referring to a WeekList in FTimeData
       FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window/e.g. for each year
@@ -70,6 +65,9 @@ type
 	end;
 
   TPersonList = specialize TFPGObjectList<TPerson>;
+
+  procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
+  procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
 
 implementation
 
@@ -121,5 +119,31 @@ function TPerson.NameToText: String;
 begin
   Result := FFamilyName +', ' + FFirstName;
 end;
+
+procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
+var
+  I: Integer;
+begin
+  AComboBox.Clear;
+  For I := 0 to Persons.Count - 1 do
+  begin
+    AComboBox.Items.Add(Persons[I].FirstName + ' ' + Persons[I].FamilyName);
+	end;
+end;
+
+procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
+var
+  I: Integer;
+  Index: Integer;
+begin
+  Index := AComboBox.ItemIndex;
+  AComboBox.Clear;
+  for I := 0 to ATimeData.Count - 1 do
+  begin
+    AComboBox.Items.Add(IntToStr(I));
+	end;
+  AComboBox.ItemIndex := Index;
+end;
+
 
 end.

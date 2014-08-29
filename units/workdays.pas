@@ -133,7 +133,7 @@ function isTimeLatest(AHour, AMinute, latestHour, latestMinute: Integer): Boolea
 
 implementation
 
-uses CoyoteDefaults;
+uses CoyoteDefaults, people;
 
 
 //############################################ ClockTime ###########################################################
@@ -759,5 +759,6 @@ function periodToText(AWeekList: TWeekList): String;
 begin
   //Result := Result + FormatDateTime('dd.mm.yyyy', AWeekList.Days[0].Date);
 end;
+
 
 end.

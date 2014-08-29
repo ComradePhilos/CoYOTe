@@ -117,7 +117,7 @@ var
   defPausePerDay: double = 0.75;
   defHoursPerDay: double = 8;      // Standard Value
   defToolbarColor: integer = $00FFE4CA; //$00E0E0E0; // $00FFDBB7;
-  openLatestFile: Boolean = False;
+  option_openLatestFile: Boolean = False;
 
   colorMarkedDays: Integer = $000080FF;
   colorVacationDays: Integer = $00FF0080;
