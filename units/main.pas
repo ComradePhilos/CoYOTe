@@ -125,7 +125,7 @@ type
 
     procedure AddWeek(Sender: TObject);
     procedure ComboBox1Select(Sender: TObject);
-		procedure ComboBox2Select(Sender: TObject);
+    procedure ComboBox2Select(Sender: TObject);
     procedure EditButtonClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
@@ -155,7 +155,7 @@ type
     FPersonList: TPersonList;
     FSelectionIndex: integer;     // Index of the Week that was selected in the grid
     FPersonIndex: integer;        // Index of the person selected - maybe change to string?
-    FPeriodIndex: Integer;
+    FPeriodIndex: integer;
 
     FOSName: string;              // The Internal Name for the used Operating System
     //FLanguage: string;            // Language chosen by User - default is English
@@ -203,7 +203,7 @@ type
     procedure LoadIniFile;
     procedure SaveIniFile;
 
-    procedure LoadFile(FileName: String);
+    procedure LoadFile(FileName: string);
 
     // apply a color to the theme
     procedure ApplyColor(AColor: integer);
@@ -274,7 +274,7 @@ begin
 
   if (FOpenRecent.Count > 0) and option_openLatestFile then
   begin
-    loadFile(FOpenRecent[FOPenRecent.Count-1]);
+    loadFile(FOpenRecent[FOPenRecent.Count - 1]);
   end;
 
 end;
@@ -360,7 +360,7 @@ begin
     // I hope this line keeps us from rewriting all the places where FWeekList
     // is involved
     FWeekList := FPersonList[FPersonIndex].TimeData[ComboBox2.ItemIndex];
-	end;
+  end;
   updateWindow;
 end;
 
@@ -550,7 +550,7 @@ begin
   end;
 end;
 
-procedure TForm1.LoadFile(FileName: String);
+procedure TForm1.LoadFile(FileName: string);
 begin
   if loadFromFile(FileName, FWeekList) then
   begin
@@ -856,13 +856,21 @@ begin
   Label7.Caption := txtLongestDay + ':';
 
   // Person List
-  NamesToComboBox(ComboBox1, FPersonList);
-  ComboBox1.ItemIndex := FPersonIndex;
-  // Timedata List
-  if (FPersonIndex >= 0) then
+  if (FPersonList.Count > 0) then
   begin
-    WeekListsToComboBox(ComboBox2, FPersonList[FPersonIndex].TimeData);
-  end;
+    NamesToComboBox(ComboBox1, FPersonList);
+    ComboBox1.ItemIndex := FPersonIndex;
+    // Timedata List
+    if (FPersonIndex >= 0) then
+    begin
+      WeekListsToComboBox(ComboBox2, FPersonList[FPersonIndex].TimeData);
+    end;
+  end
+  else
+  begin
+    ComboBox1.Clear;
+    ComboBox2.Clear;
+	end;
 
 
   // Statistics on the right
@@ -893,13 +901,12 @@ begin
   begin
     locDay := getDayOfEarliestBegin(FWeekList);
     Label4.Caption := txtEarliestBegin + ': ' + locDay.StartTime.ToText +
-      //TimeToText(locDay.StartHour, locDay.StartMinute) +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
   if (getDayOfLatestQuitting(FWeekList) <> nil) then
   begin
     locDay := getDayOfLatestQuitting(FWeekList);
-    Label5.Caption := txtLatestLeave + ': ' + locDay.EndTime.ToText + //TimeToText(locDay.EndHour, locDay.EndMinute) +
+    Label5.Caption := txtLatestLeave + ': ' + locDay.EndTime.ToText +
       ' (' + DateToStr(locDay.Date) + ')';
   end;
 

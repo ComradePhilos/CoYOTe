@@ -49,6 +49,8 @@ var
   emMergeSameWeek: string = 'Cannot merge a week with itself! Please select a different week via the combobox!';
   emInvalidNumber: string = 'Not a valid number input! Try switching "." and "," as the comma separator!';
 
+  txtRemoveUserMsg: string = 'Do you really want to delete the selected user? This will delete all related data permanently!';
+
   dbDefaultFirebirdUser: string = 'SYSDBA';
   dbDefaultFirebirdPort: string = ''; // 3050
 
