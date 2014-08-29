@@ -82,10 +82,10 @@ object Form5: TForm5
   OnCreate = FormCreate
   Position = poMainFormCenter
   ShowInTaskBar = stAlways
-  LCLVersion = '1.2.2.0'
+  LCLVersion = '1.2.4.0'
   object FirstNameEdit: TLabeledEdit
     Left = 16
-    Height = 25
+    Height = 26
     Top = 82
     Width = 384
     EditLabel.AnchorSideLeft.Control = FirstNameEdit
@@ -93,8 +93,8 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = FirstNameEdit
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 62
+    EditLabel.Height = 16
+    EditLabel.Top = 63
     EditLabel.Width = 384
     EditLabel.Caption = 'First name'
     EditLabel.ParentColor = False
@@ -102,7 +102,7 @@ object Form5: TForm5
   end
   object FamilyNameEdit: TLabeledEdit
     Left = 16
-    Height = 25
+    Height = 26
     Top = 131
     Width = 384
     EditLabel.AnchorSideLeft.Control = FamilyNameEdit
@@ -110,8 +110,8 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = FamilyNameEdit
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 111
+    EditLabel.Height = 16
+    EditLabel.Top = 112
     EditLabel.Width = 384
     EditLabel.Caption = 'Family Name'
     EditLabel.ParentColor = False
@@ -119,7 +119,7 @@ object Form5: TForm5
   end
   object PhoneEdit1: TLabeledEdit
     Left = 16
-    Height = 25
+    Height = 26
     Top = 312
     Width = 384
     EditLabel.AnchorSideLeft.Control = PhoneEdit1
@@ -127,34 +127,16 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = PhoneEdit1
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 292
+    EditLabel.Height = 16
+    EditLabel.Top = 293
     EditLabel.Width = 384
     EditLabel.Caption = 'Phone Number'
     EditLabel.ParentColor = False
     TabOrder = 2
   end
-  object StaticText1: TStaticText
-    Left = 16
-    Height = 18
-    Top = 31
-    Width = 148
-    AutoSize = True
-    Caption = 'FamilyName, FirstName'
-    Color = clDefault
-    Font.CharSet = ANSI_CHARSET
-    Font.Height = -13
-    Font.Name = 'Ubuntu'
-    Font.Pitch = fpVariable
-    Font.Quality = fqDraft
-    Font.Style = [fsBold, fsItalic]
-    ParentFont = False
-    ParentColor = False
-    TabOrder = 3
-  end
   object PhoneEdit2: TLabeledEdit
     Left = 16
-    Height = 25
+    Height = 26
     Top = 360
     Width = 384
     EditLabel.AnchorSideLeft.Control = PhoneEdit2
@@ -162,16 +144,16 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = PhoneEdit2
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 340
+    EditLabel.Height = 16
+    EditLabel.Top = 341
     EditLabel.Width = 384
     EditLabel.Caption = 'Phone Number (2)'
     EditLabel.ParentColor = False
-    TabOrder = 4
+    TabOrder = 3
   end
   object EMailEdit: TLabeledEdit
     Left = 16
-    Height = 25
+    Height = 26
     Top = 407
     Width = 352
     EditLabel.AnchorSideLeft.Control = EMailEdit
@@ -179,12 +161,12 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = EMailEdit
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 387
+    EditLabel.Height = 16
+    EditLabel.Top = 388
     EditLabel.Width = 352
     EditLabel.Caption = 'E-Mail'
     EditLabel.ParentColor = False
-    TabOrder = 5
+    TabOrder = 4
     OnChange = EMailEditChange
   end
   object BitBtn1: TBitBtn
@@ -233,11 +215,11 @@ object Form5: TForm5
     OnClick = OpenEMailClient
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 6
+    TabOrder = 5
   end
   object ResidenceEdit: TLabeledEdit
     Left = 72
-    Height = 25
+    Height = 26
     Top = 240
     Width = 328
     EditLabel.AnchorSideLeft.Control = ResidenceEdit
@@ -245,16 +227,16 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = ResidenceEdit
     EditLabel.Left = 72
-    EditLabel.Height = 17
-    EditLabel.Top = 220
+    EditLabel.Height = 16
+    EditLabel.Top = 221
     EditLabel.Width = 328
     EditLabel.Caption = 'Place'
     EditLabel.ParentColor = False
-    TabOrder = 7
+    TabOrder = 6
   end
   object StreetEdit: TLabeledEdit
     Left = 16
-    Height = 25
+    Height = 26
     Top = 187
     Width = 384
     EditLabel.AnchorSideLeft.Control = StreetEdit
@@ -262,12 +244,12 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = StreetEdit
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 167
+    EditLabel.Height = 16
+    EditLabel.Top = 168
     EditLabel.Width = 384
     EditLabel.Caption = 'Street name'
     EditLabel.ParentColor = False
-    TabOrder = 8
+    TabOrder = 7
   end
   object ApplyButton: TBitBtn
     Left = 474
@@ -353,7 +335,7 @@ object Form5: TForm5
     }
     OnClick = ApplyButtonClick
     Spacing = 0
-    TabOrder = 9
+    TabOrder = 8
   end
   object BackButton: TBitBtn
     Left = 277
@@ -438,24 +420,24 @@ object Form5: TForm5
       0000000000000000000000000000000000000000000000000000
     }
     OnClick = BackButtonClick
-    TabOrder = 10
+    TabOrder = 9
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 490
+    Height = 21
+    Top = 492
     Width = 580
     Panels = <>
   end
   object ToolBar1: TToolBar
     Left = 0
-    Height = 27
+    Height = 30
     Top = 0
     Width = 580
     AutoSize = True
     Caption = 'ToolBar1'
     Images = ImageList1
-    TabOrder = 12
+    TabOrder = 11
     object ToolButton1: TToolButton
       Left = 1
       Top = 2
@@ -472,10 +454,10 @@ object Form5: TForm5
     end
     object ComboBox1: TComboBox
       Left = 53
-      Height = 25
+      Height = 28
       Top = 2
       Width = 198
-      ItemHeight = 17
+      ItemHeight = 0
       OnSelect = ComboBox1Select
       TabOrder = 0
     end
@@ -518,11 +500,12 @@ object Form5: TForm5
       Top = 2
       Caption = 'ApplyButton2'
       ImageIndex = 4
+      OnClick = ApplyButton2Click
     end
   end
   object StreetNREdit: TLabeledEdit
     Left = 16
-    Height = 25
+    Height = 26
     Top = 240
     Width = 48
     EditLabel.AnchorSideLeft.Control = StreetNREdit
@@ -530,20 +513,23 @@ object Form5: TForm5
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = StreetNREdit
     EditLabel.Left = 16
-    EditLabel.Height = 17
-    EditLabel.Top = 220
+    EditLabel.Height = 16
+    EditLabel.Top = 221
     EditLabel.Width = 48
     EditLabel.Caption = 'Nr'
     EditLabel.ParentColor = False
-    TabOrder = 13
+    TabOrder = 12
   end
   object ListBox1: TListBox
-    Left = 417
+    Left = 416
     Height = 313
-    Top = 119
+    Top = 120
     Width = 150
     ItemHeight = 0
-    TabOrder = 14
+    OnSelectionChange = ListBox1SelectionChange
+    ScrollWidth = 148
+    TabOrder = 13
+    TopIndex = -1
   end
   object RevertButton: TBitBtn
     Left = 376
@@ -617,15 +603,13 @@ object Form5: TForm5
       FF00FFFFFF00FFFFFF00
     }
     OnClick = RevertButtonClick
-    TabOrder = 15
+    TabOrder = 14
   end
-  object BitBtn3: TBitBtn
-    Left = 417
+  object AddListButton: TBitBtn
+    Left = 416
     Height = 30
-    Hint = 'Compose E-Mail'
-    Top = 88
+    Top = 92
     Width = 30
-    Enabled = False
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -702,19 +686,17 @@ object Form5: TForm5
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = OpenEMailClient
+    OnClick = AddListButtonClick
     ParentShowHint = False
     ShowHint = True
     Spacing = 0
-    TabOrder = 16
+    TabOrder = 15
   end
-  object BitBtn4: TBitBtn
+  object RemoveListButton: TBitBtn
     Left = 448
     Height = 30
-    Hint = 'Compose E-Mail'
-    Top = 88
+    Top = 92
     Width = 30
-    Enabled = False
     Glyph.Data = {
       36090000424D3609000000000000360000002800000018000000180000000100
       2000000000000009000064000000640000000000000000000000000000000000
@@ -791,100 +773,34 @@ object Form5: TForm5
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000
     }
-    OnClick = OpenEMailClient
+    OnClick = RemoveListButtonClick
     ParentShowHint = False
     ShowHint = True
     Spacing = 0
-    TabOrder = 17
+    TabOrder = 16
   end
-  object BitBtn5: TBitBtn
-    Left = 480
-    Height = 30
-    Hint = 'Compose E-Mail'
-    Top = 88
-    Width = 30
-    Enabled = False
-    Glyph.Data = {
-      36090000424D3609000000000000360000002800000018000000180000000100
-      2000000000000009000064000000640000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000010000000300000008000000100000001300000013000000100000
-      000E0000000D0000000E0000000D0000000B0000000A0000000C000000100000
-      0013000000120000000B00000006000000010000000000000000000000000000
-      0002000000050000000F000000210000002E24221E722F2E28BA33312BDA3533
-      2DEF36342EFF36342EFF36342EFF36342EFF35332DF334322DE632302AC61715
-      13760000002F0000002500000017000000090000000200000000000000000000
-      00090000000E0000002500000042282722B032302BE8585853FF7F7F7CFF8689
-      88FF848786FF868987FF7F8180FF7E807FFF6E706CFF696A67FF4F4E48FF3331
-      2BEC2D2B26C51C1B17770000002F000000180000000600000000000000000000
-      000F000000170000003A292823B844433EFF848786FF969998FF949795FFB3B6
-      B4FF999D9BFF929694FF4B4F4DFF787C7AFF656967FF7A7C7BFF838685FF6061
-      5EFF36342EFF2D2B26CF0000004B000000280000000F00000000000000000000
-      000E0000001B0000004136342EFFA2A4A3FF545856FF9A9E9CFF7B7F7DFFBBBD
-      BCFFA8ACAAFF929694FF4B4F4DFF787C7AFF838685FF3C3E3DFF717573FF6669
-      68FF575754FF36342EFF00000058000000300000001200000000000000000000
-      0008000000170000003836342EFF949795FF545856FF9A9E9CFF7E8280FFBBBD
-      BCFFA8ACAAFF929694FF4B4F4DFF787C7AFF8E9190FF3C3E3DFF717573FF5557
-      56FF6E706DFF36342EFF000000500000002B0000001000000000000000000000
-      00050000000F0000002536342EFF999C9AFF545856FF929694FF7E8280FFBBBD
-      BCFFA8ACAAFF929694FF4B4F4DFF787C7AFF8E9190FF3C3E3DFF808381FF4A4C
-      4BFF707170FF36342EFF000000360000001E0000000A00000000000000000000
-      0002000000030000001036342EFF999C9AFF545856FF9B9F9DFF7E8280FFBCBE
-      BDFFA8ACAAFF8C908EFF4B4F4DFF737775FF8E9190FF3C3E3DFF717573FF4A4C
-      4BFF767877FF36342EFF000000210000000C0000000300000000000000000000
-      0000000000000000000636342EFF999C9AFF545856FFA2A6A4FF7E8280FFB6B8
-      B7FF9DA19FFF7E8280FF3C3E3DFF6E7270FF8C8E8DFF3B3D3CFF717573FF4A4C
-      4BFF737574FF36342EFF00000007000000020000000100000000000000000000
-      0000000000000000000036342EFF999C9AFF575B59FF888C8AFF7B7F7DFFA5A9
-      A7FF747876FF747876FF3C3E3DFF666A68FF888B8AFF363837FF5E605FFF4042
-      41FF828584FF36342EFF00000001000000000000000000000000000000000000
-      0000000000000000000036342EFF949795FF545856FF7C807EFF656866FF8083
-      82FF646766FF595C5BFF3A3C3BFF575B59FF828584FF393B3AFF606261FF3F41
-      40FF818382FF36342EFF00000000000000000000000000000000000000000000
-      0000000000000000000036342EFF8F9291FF484B4AFF3D3F3EFF51514DFF5756
-      51FF575651FF575651FF575651FF51514DFF4D4D4AFF494A47FF424443FF3335
-      34FF51524FFF36342EFF00000000000000000000000000000000000000000000
-      0000000000000000000036342EFF51514DFFA3A3A1FFD6D6D5FFBEC0BFFFBABC
-      BBFFAFB1AFFFC8CAC8FF9FA09FFF8B8C8BFF989A99FF8D908EFF7E807FFF5151
-      4DFF444543FF393835FF00000000000000000000000000000000000000000000
-      00000000000036342E5B656460FFDDDEDDFFD9DBDAFFB4B7B6FFC6C8C7FFC7C9
-      C8FFC4C6C5FFB7BAB9FFB1B5B3FFB1B5B3FFA7AAA8FF909492FF848785FF888A
-      89FF6A6C6BFF373631FF3B3D3A97000000000000000000000000000000000000
-      00000000000036342ECAA6A4A2FFD7D8D8FFF8F8F8FFF9F9F9FFF4F4F4FFECED
-      EDFFE9E9E9FFEBECEBFFE8E9E8FFDDDFDFFFE0E1E1FFCCCECDFFA5A7A4FF9A9C
-      9AFF828482FF8B8E8DFF36342EEE000000000000000000000000000000000000
-      00000000000036342EFFEBECEBFFF4F4F4FFD5D7D6FFD3D5D4FFDEE0DFFFC9CB
-      CAFFCDCFCEFFABAFADFFA1A5A3FF939795FFA9ADABFFB9BCBAFFC9CBCAFFCBCC
-      CCFFADB0AEFF9A9E9CFF36342EFF000000000000000000000000000000000000
-      00000000000036342EFFE2E3E2FFC0C2C1FFCCCECDFFD7D9D8FFC6C8C7FFA7AB
-      A9FF8B8F8DFF424443FF5C605EFF6C706EFF767A78FFB2B4B3FFA6AAA8FFA7AB
-      A9FFCECFCFFFACAFAEFF36342EFF000000000000000000000000000000000000
-      00000000000036342EFFBFC2C1FFD6D7D7FFC4C6C5FFCACCCBFFA7ABA9FF8D91
-      8FFF434544FF252726FF1B1D1CFF4B4F4DFF9EA2A0FF8C908EFFB8BAB9FFA2A6
-      A4FFAFB2B1FF9DA09EFF36342EFF000000000000000000000000000000000000
-      00000000000036342E5436342EFFB1B2B1FFC8C9C8FFD5D8D7FFC8CAC8FFE3E3
-      E3FF757977FF3E403FFF696D6BFFBFC1C0FFA7ABA9FF636765FFA5A9A7FF999D
-      9BFF838785FF36342EFF36342E45000000000000000000000000000000000000
-      0000000000000000000036342E4536342EA036342EFF36342EFF36342EFFE3E5
-      E3FFE0E2E1FFF0F0F0FFE8E8E8FFBABCBBFF4F5351FF4B4D4CFF36342EFF3634
-      2EFF36342E9736342E3300000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000036342E0536342E903634
-      2EFF747876FFC2C4C3FF8E9290FF484A49FF36342EFF36342EBE36342E2C0000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000003634
-      2E5236342EFF36342EFF36342EFF36342EFF36342E5800000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000000000000000
-      0000000000000000000000000000000000000000000000000000
-    }
-    OnClick = OpenEMailClient
-    ParentShowHint = False
-    ShowHint = True
-    Spacing = 0
-    TabOrder = 18
+  object Label1: TLabel
+    Left = 16
+    Height = 17
+    Top = 36
+    Width = 174
+    Caption = 'First Name Family Name'
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -15
+    Font.Name = 'Ubuntu'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object SpinEdit1: TSpinEdit
+    Left = 479
+    Height = 26
+    Top = 94
+    Width = 87
+    MaxValue = 0
+    TabOrder = 17
   end
   object ImageList1: TImageList
     Height = 22

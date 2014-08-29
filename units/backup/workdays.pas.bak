@@ -69,9 +69,9 @@ type
     property Tag: String read FTag write FTag;
 
   end;
-
+  //jcf:format=off
   TWorkDays = specialize TFPGObjectList<TWorkDay>;
-
+  //jcf:format=on
 //############################################ Period ###########################################################
   TWorkWeek = class
   private
@@ -108,16 +108,15 @@ type
     property DescriptionText: TStringList read FDescriptionText write FDescriptionText;
 
   end;
-
+//jcf:format=off
 TWeekList = specialize TFPGObjectList<TWorkWeek>;
-
+//jcf:format=on
 // ############################################### additional Functions ################################################
 
 procedure ClearStringGrid(AGrid: TStringGrid);
 procedure WeeksToStringGrid(AGrid: TStringGrid; AWeeklist: TWeekList; SelectionIndex: Integer);
 procedure WeekDaysToStringGrid(AGrid: TStringGrid; AWeek: TWorkWeek);
 procedure WeeksToComboBox(AComboBox: TComboBox; AWeekList: TWeekList);
-procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
 
 function timeToText(AHour, AMinute: integer): string;
 function periodToText(AWeekList: TWeekList): String;
@@ -216,8 +215,6 @@ begin
 		end;
 	end;
 end;
-
-
 
 //############################################ DAY ###########################################################
 constructor TWorkDay.Create;
@@ -762,4 +759,4 @@ begin
 end;
 
 
-end.
+end.

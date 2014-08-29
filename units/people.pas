@@ -17,13 +17,10 @@ uses Classes, fgl, ExtCtrls, StdCtrls, SysUtils, workdays;
 type
 
   // The list of weeklists
-  TPersonnelTimeList = specialize TFPGObjectList<TWeekList>;
+  TTimeData = specialize TFPGObjectList<TWeekList>;
 
   // The class that implements the people
   TPerson = class
-
-      PeopleCount: Integer;
-
     private
       FFirstName: String;               // First Name (can be multiple names like "Horst Kevin Jerome" :D )
       FFamilyName: String;              // Family Name
@@ -40,7 +37,7 @@ type
       FDaysOfVacationPerYear: Double;   // May be set either globally or for each person uniquely
 
       FListName: TStringList;           // List of the names referring to a WeekList in FTimeData
-      FTimeData: TPersonnelTimeList;    // A List of TWeekLists - This is what you see in main window/e.g. for each year
+      FTimeData: TTimeData;    // A List of TWeekLists - This is what you see in main window/e.g. for each year
 
     public
 
@@ -61,19 +58,20 @@ type
       property PhoneNumber1: String read FPhoneNumber1 write FPhoneNumber1;
       property PhoneNumber2: String read FPhoneNumber2 write FPhoneNumber2;
       property EMail: String read FEMail write FEMail;
-      property TimeData: TPersonnelTimeList read FTimeData write FTimeData;
-	end;
+      property TimeData: TTimeData read FTimeData write FTimeData;
+  end;
 
   TPersonList = specialize TFPGObjectList<TPerson>;
 
   procedure NamesToComboBox(AComboBox: TCombobox; Persons: TPersonList);
-  procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
+  procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TTimeData);
+  function GetEarliestDayOfTimeData(ATimeData: TTimeData): TWorkDay;
 
 implementation
 
 constructor TPerson.Create;
 begin
-  FTimeData := TPersonnelTimeList.Create;
+  FTimeData := TTimeData.Create;
   Clear;
 end;
 
@@ -98,7 +96,6 @@ begin
   FPhoneNumber2 := APerson.PhoneNumber2;
   FEMail := APerson.EMail;
   FTimeData.Assign(APerson.TimeData);
-  // ...
 end;
 
 procedure TPerson.Clear;
@@ -128,10 +125,10 @@ begin
   For I := 0 to Persons.Count - 1 do
   begin
     AComboBox.Items.Add(Persons[I].FirstName + ' ' + Persons[I].FamilyName);
-	end;
+  end;
 end;
 
-procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TPersonnelTimeList);
+procedure WeekListsToComboBox(AComboBox: TCombobox; ATimeData: TTimeData);
 var
   I: Integer;
   Index: Integer;
@@ -140,10 +137,23 @@ begin
   AComboBox.Clear;
   for I := 0 to ATimeData.Count - 1 do
   begin
-    AComboBox.Items.Add(IntToStr(I));
-	end;
+    AComboBox.Items.Add(IntToStr(I+1));
+  end;
   AComboBox.ItemIndex := Index;
 end;
 
+function GetEarliestDayOfTimeData(ATimeData: TTimeData): TWorkDay;
+var
+  w, d: Integer;
+begin
+  Result := nil;
+  for w := 0 to ATimeData.Count - 1 do
+  begin
+    for d := 0 to ATimeData.Items[w].Count - 1 do
+    begin
+
+		end;
+	end;
+end;
 
 end.

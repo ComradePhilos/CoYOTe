@@ -6,23 +6,23 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, RTTIGrids, Forms, Controls, Graphics, Dialogs,
-	ExtCtrls, StdCtrls, Buttons, LCLIntF, ComCtrls, Grids, ValEdit, DbCtrls,
-	Process,
+  ExtCtrls, StdCtrls, Buttons, LCLIntF, ComCtrls, Grids, DBCtrls, Spin,
+  Process,
   {own units}
   people, workdays;
 
 type
 
-	{ TForm5 }
+  { TForm5 }
 
   TForm5 = class(TForm)
-		RevertButton: TBitBtn;
+    Label1: TLabel;
+    RevertButton: TBitBtn;
     BitBtn1: TBitBtn;
     ApplyButton: TBitBtn;
     BackButton: TBitBtn;
-		BitBtn3: TBitBtn;
-		BitBtn4: TBitBtn;
-		BitBtn5: TBitBtn;
+    AddListButton: TBitBtn;
+    RemoveListButton: TBitBtn;
     ComboBox1: TComboBox;
     ImageList1: TImageList;
     FirstNameEdit: TLabeledEdit;
@@ -31,10 +31,10 @@ type
     PhoneEdit2: TLabeledEdit;
     EMailEdit: TLabeledEdit;
     ResidenceEdit: TLabeledEdit;
+		SpinEdit1: TSpinEdit;
     StreetEdit: TLabeledEdit;
-		StreetNREdit: TLabeledEdit;
-		ListBox1: TListBox;
-    StaticText1: TStaticText;
+    StreetNREdit: TLabeledEdit;
+    ListBox1: TListBox;
     StatusBar1: TStatusBar;
     ToolBar1: TToolBar;
     ToolButton1: TToolButton;
@@ -44,24 +44,28 @@ type
     ToolButton5: TToolButton;
     ClearButton: TToolButton;
     ToolButton7: TToolButton;
-		ApplyButton2: TToolButton;
+    ApplyButton2: TToolButton;
+    procedure ApplyButton2Click(Sender: TObject);
     procedure ApplyButtonClick(Sender: TObject);
-		procedure RevertButtonClick(Sender: TObject);
+		procedure AddListButtonClick(Sender: TObject);
+		procedure ListBox1SelectionChange(Sender: TObject; User: boolean);
+		procedure RemoveListButtonClick(Sender: TObject);
+    procedure RevertButtonClick(Sender: TObject);
     procedure BackButtonClick(Sender: TObject);
-		procedure ComboBox1Select(Sender: TObject);
+    procedure ComboBox1Select(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure EMailEditChange(Sender: TObject);
     procedure OpenEMailClient(Sender: TObject);
-		procedure ToolButton1Click(Sender: TObject);
-		procedure ToolButton2Click(Sender: TObject);
-		procedure DeleteUserButtonClick(Sender: TObject);
-		procedure ToolButton5Click(Sender: TObject);
-		procedure ToolButton8Click(Sender: TObject);
+    procedure ToolButton1Click(Sender: TObject);
+    procedure ToolButton2Click(Sender: TObject);
+    procedure DeleteUserButtonClick(Sender: TObject);
+    procedure ToolButton5Click(Sender: TObject);
+    procedure ToolButton8Click(Sender: TObject);
 
   private
     { private declarations }
     FPersonList: TPersonList;
-    FPersonIndex: Integer;
+    FPersonIndex: integer;
 
     procedure UpdateWindow;
     procedure Clear;
@@ -70,7 +74,7 @@ type
   public
     { public declarations }
 
-    procedure ShowPersonList(APersonList: TPersonList; AIndex: Integer);
+    procedure ShowPersonList(APersonList: TPersonList; AIndex: integer);
   end;
 
 var
@@ -105,49 +109,50 @@ begin
     if (FPersonIndex < 0) then
     begin
       FPersonIndex := ComboBox1.Items.Count - 1;
-	  end;
+    end;
     updateWindow;
-	end;
+  end;
 end;
 
 procedure TForm5.ToolButton2Click(Sender: TObject);
 begin
-if (FPersonList.Count > 0) then
+  if (FPersonList.Count > 0) then
   begin
     Inc(FPersonIndex);
     if (FPersonIndex >= ComboBox1.Items.Count) then
     begin
       FPersonIndex := 0;
-	  end;
+    end;
     updateWindow;
-	end;
+  end;
 end;
 
 procedure TForm5.DeleteUserButtonClick(Sender: TObject);
 begin
   if (FPersonList.Count > 0) then
   begin
-    if (MessageDlg('Delete selected user?', txtRemoveUserMsg, mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
+    if (MessageDlg('Delete selected user?', txtRemoveUserMsg,
+      mtConfirmation, [mbYes, mbNo], 0) = mrYes) then
     begin
       FPersonList.Delete(FPersonIndex);
       FPersonIndex := 0;
-		end;
-	end
+    end;
+  end
   else
   begin
     FPersonIndex := -1;
     Combobox1.ItemIndex := -1;
-	end;
-	updateWindow;
+  end;
+  updateWindow;
 end;
 
 procedure TForm5.ToolButton5Click(Sender: TObject);
 begin
   FPersonList.Add(TPerson.Create);
-  FPersonList.Items[FPersonList.Count-1].FirstName := 'New';
-  FPersonList.Items[FPersonList.Count-1].FamilyName := 'User';
-  FPersonList.Items[FPersonList.Count-1].TimeData.Add(TWeekList.Create);
-  FPersonIndex := FPersonList.Count-1;
+  FPersonList.Items[FPersonList.Count - 1].FirstName := 'New';
+  FPersonList.Items[FPersonList.Count - 1].FamilyName := 'User';
+  FPersonList.Items[FPersonList.Count - 1].TimeData.Add(TWeekList.Create);
+  FPersonIndex := FPersonList.Count - 1;
   updateWindow;
 end;
 
@@ -190,7 +195,32 @@ begin
   FPersonList.Items[FPersonIndex].EMail := EMailEdit.Text;
   updateWindow;
 
-  self.Visible := False;
+  if (Sender = ApplyButton) then
+  begin
+    self.Visible := False;
+  end;
+end;
+
+procedure TForm5.AddListButtonClick(Sender: TObject);
+begin
+  FPersonList[FPersonIndex].TimeData.Add(TWeekList.Create);
+  updateWindow;
+end;
+
+procedure TForm5.ListBox1SelectionChange(Sender: TObject; User: boolean);
+begin
+  SpinEdit1.Value := TListBox(Sender).ItemIndex+1;
+end;
+
+procedure TForm5.RemoveListButtonClick(Sender: TObject);
+begin
+  FPersonList[FPersonIndex].TimeData.Delete(SpinEdit1.Value-1);
+  updateWindow;
+end;
+
+procedure TForm5.ApplyButton2Click(Sender: TObject);
+begin
+  ApplyButtonClick(Sender);
 end;
 
 procedure TForm5.RevertButtonClick(Sender: TObject);
@@ -198,19 +228,27 @@ begin
   UpdateWindow;
 end;
 
-procedure TForm5.ShowPersonList(APersonList: TPersonList; AIndex: Integer);
+procedure TForm5.ShowPersonList(APersonList: TPersonList; AIndex: integer);
 begin
-  FPersonList := APersonList;
-  FPersonIndex := AIndex;
-  UpdateWindow;
+FPersonList := APersonList;
+  //if (FPersonList.Count > 0) then
+  //begin
+    FPersonIndex := AIndex;
+	//end;
+	UpdateWindow;
 end;
 
 procedure TForm5.UpdateWindow;
+var
+  I: Integer;
 begin
   NamesToCombobox(ComboBox1, FPersonList);
   ComboBox1.ItemIndex := FPersonIndex;
+
   if (FPersonList.Count > 0) then
   begin
+    SpinEdit1.MaxValue := FPersonList[FPersonIndex].TimeData.Count;
+    SpinEdit1.MinValue := 1;
     FirstNameEdit.Text := FPersonList.Items[FPersonIndex].FirstName;
     FamilyNameEdit.Text := FPersonList.Items[FPersonIndex].FamilyName;
     StreetEdit.Text := FPersonList.Items[FPersonIndex].Street;
@@ -219,12 +257,18 @@ begin
     PhoneEdit1.Text := FPersonList.Items[FPersonIndex].PhoneNumber1;
     PhoneEdit2.Text := FPersonList.Items[FPersonIndex].PhoneNumber2;
     EmailEdit.Text := FPersonList.Items[FPersonIndex].EMail;
-    StaticText1.Caption := FirstNameEdit.Text + ' ' + FamilyNameEdit.Text;
+    Label1.Caption := FirstNameEdit.Text + ' ' + FamilyNameEdit.Text;
+
+    ListBox1.Clear;
+    for I := 0 to FPersonList.Items[FPersonIndex].TimeData.Count - 1 do
+    begin
+      ListBox1.Items.Add(IntToStr(I+1));
+		end;
 	end
   else
   begin
     Clear;
-	end;
+  end;
   EnableFields;
 end;
 
@@ -238,7 +282,7 @@ begin
   PhoneEdit1.Text := '';
   PhoneEdit2.Text := '';
   EmailEdit.Text := '';
-  StaticText1.Caption := '';
+  Label1.Caption := '';
   FPersonIndex := -1;
   ComboBox1.Clear;
 end;
@@ -254,6 +298,9 @@ begin
   ToolButton1.Enabled := (FPersonList.Count > 0);
   ToolButton2.Enabled := (FPersonList.Count > 0);
 
+  AddListButton.Enabled := (FPersonList.Count > 0);
+  RemoveListButton.Enabled := (FPersonList.Count > 0) and (FPersonIndex >= 0) and (FPersonList[FPersonIndex].TimeData.Count > 0);
+  SpinEdit1.Enabled := RemoveListButton.Enabled;
   FirstNameEdit.Enabled := (FPersonIndex >= 0);
   FamilyNameEdit.Enabled := (FPersonIndex >= 0);
   StreetEdit.Enabled := (FPersonIndex >= 0);
@@ -261,8 +308,7 @@ begin
   ResidenceEdit.Enabled := (FPersonIndex >= 0);
   PhoneEdit1.Enabled := (FPersonIndex >= 0);
   PhoneEdit2.Enabled := (FPersonIndex >= 0);
-  EmailEdit.Enabled :=(FPersonIndex >= 0);
+  EmailEdit.Enabled := (FPersonIndex >= 0);
 end;
 
 end.
-

@@ -291,6 +291,7 @@ begin
   FPersonList.Clear;
   StringGrid1.Clear;
 
+  {
   FPersonList.add(TPerson.Create);
   FPersonList.Items[0].FirstName := 'User1';
   FPersonList.Items[0].FamilyName := '';
@@ -302,7 +303,7 @@ begin
   FPersonList.Items[1].PhoneNumber1 := '1234/56789';
   FPersonList.Items[1].Email := 'Test@User.de';
 
-  FPersonList.Items[1].TimeData.Add(TWeekList.Create);
+  FPersonList.Items[1].TimeData.Add(TWeekList.Create);   }
 
   updateWindow;
 end;
@@ -341,7 +342,7 @@ end;
 
 procedure TForm1.ComboBox1Select(Sender: TObject);
 begin
-  if (ComboBox1.Items.Count > 0) then
+  if (FPersonList.Count > 0) then
   begin
     FPersonIndex := ComboBox1.ItemIndex;
   end
@@ -361,8 +362,12 @@ begin
     // I hope this line keeps us from rewriting all the places where FWeekList
     // is involved
     FWeekList := FPersonList[FPersonIndex].TimeData[ComboBox2.ItemIndex];
-  end;
-  updateWindow;
+  end
+  else
+  begin
+    FWeekList := nil;
+	end;
+	updateWindow;
 end;
 
 procedure TForm1.MergeWeeks(Sender: TObject; AIndex1, AIndex2: integer; DeleteFirst: boolean = False);
@@ -609,6 +614,7 @@ begin
     if SaveDlg.Execute then
     begin
       SaveToFile(SaveDlg.FileName, FWeekList);
+      NEWSaveToFile(SaveDlg.FileName+'2', FPersonList);
       AddToOpenRecent(SaveDlg.FileName, FOpenRecent, MenuOpenRecent);
       StatusBar1.Panels[0].Text := txtFileSaved;
       FCurrentFilePath := SaveDlg.FileName;
@@ -873,7 +879,6 @@ begin
     ComboBox1.Clear;
     ComboBox2.Clear;
 	end;
-
 
   // Statistics on the right
   for I := 0 to FWeekList.Count - 1 do
@@ -1149,4 +1154,4 @@ begin
   EditWeekForm.UpdateWindow;
 end;
 
-end.
+end.

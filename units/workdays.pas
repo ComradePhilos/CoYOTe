@@ -69,9 +69,7 @@ type
     property Tag: String read FTag write FTag;
 
   end;
-
   TWorkDays = specialize TFPGObjectList<TWorkDay>;
-
 //############################################ Period ###########################################################
   TWorkWeek = class
   private
@@ -108,7 +106,6 @@ type
     property DescriptionText: TStringList read FDescriptionText write FDescriptionText;
 
   end;
-
 TWeekList = specialize TFPGObjectList<TWorkWeek>;
 
 // ############################################### additional Functions ################################################
@@ -761,4 +758,4 @@ begin
 end;
 
 
-end.
+end.

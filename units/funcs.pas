@@ -271,6 +271,7 @@ begin
       Lines.Add(CreateOffset(offset) + APersonList.Items[u].EMail);
 
       Lines.Add('</'+ APersonList.Items[u].FirstName + ',' + APersonList.Items[u].FirstName + '>');
+      Lines.Add('');
     end;
     Lines.SaveToFile(filename);
   finally
@@ -289,4 +290,4 @@ begin
 	end;
 end;
 
-end.
+end.

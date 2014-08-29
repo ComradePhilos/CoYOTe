@@ -1,11 +1,11 @@
 object Form2: TForm2
   Left = 557
-  Height = 402
+  Height = 294
   Top = 186
-  Width = 756
+  Width = 619
   Caption = 'About'
-  ClientHeight = 402
-  ClientWidth = 756
+  ClientHeight = 294
+  ClientWidth = 619
   Constraints.MinHeight = 100
   Constraints.MinWidth = 200
   Font.CharSet = ANSI_CHARSET
@@ -23,7 +23,7 @@ object Form2: TForm2
     Left = 193
     Height = 21
     Top = 6
-    Width = 311
+    Width = 314
     AutoSize = True
     Caption = 'CoYOt(e) - Control Your OverTimes (easily)  '
     Font.CharSet = ANSI_CHARSET
@@ -37,18 +37,18 @@ object Form2: TForm2
   end
   object Label1: TLabel
     Left = 8
-    Height = 16
-    Top = 283
-    Width = 50
+    Height = 17
+    Top = 205
+    Width = 51
     Anchors = [akLeft]
     Caption = 'Version :'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 8
-    Height = 16
-    Top = 341
-    Width = 65
+    Height = 17
+    Top = 247
+    Width = 68
     Anchors = [akLeft]
     Caption = 'Build-Date:'
     ParentColor = False
@@ -62,8 +62,8 @@ object Form2: TForm2
     BevelOuter = bvNone
     BorderWidth = 1
     BorderStyle = bsSingle
-    ClientHeight = 175
-    ClientWidth = 174
+    ClientHeight = 173
+    ClientWidth = 172
     TabOrder = 1
     object Image1: TImage
       Cursor = crHandPoint
@@ -2033,28 +2033,41 @@ object Form2: TForm2
   object PageControl1: TPageControl
     AnchorSideTop.Side = asrBottom
     Left = 193
-    Height = 359
+    Height = 238
     Top = 33
-    Width = 555
+    Width = 418
     ActivePage = TabSheet2
     Anchors = [akTop, akLeft, akRight, akBottom]
+    MultiLine = True
     TabIndex = 3
     TabOrder = 2
+    Options = [nboMultiLine]
     object TabSheet1: TTabSheet
       Caption = '  About  '
-      ClientHeight = 329
-      ClientWidth = 551
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo2: TMemo
         Left = 0
-        Height = 323
+        Height = 202
         Top = 4
-        Width = 546
+        Width = 405
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
-        Font.Height = -12
-        Font.Name = 'Ubuntu Mono'
-        Font.Pitch = fpVariable
-        Font.Quality = fqDraft
+        Font.Height = -13
+        Font.Name = 'Ubuntu'
+        Font.Pitch = fpFixed
+        Font.Quality = fqCleartype
+        Lines.Strings = (
+          ''
+          'This programme is a lightweight, open-source and '
+          'userfriendly tool to keep an eye on overtimes at work. '
+          'It calculates - based on attendance times the user '
+          'entered - how many hours of working time the user '
+          'accumulated and visualises the balance so that he '
+          'always is up to date. If used consequently one can save '
+          'precious free time and organize working time in a way '
+          'that employees and bosses might profit from. '
+        )
         ParentFont = False
         ReadOnly = True
         ScrollBars = ssAutoBoth
@@ -2063,17 +2076,17 @@ object Form2: TForm2
     end
     object Contributors: TTabSheet
       Caption = 'Contributors'
-      ClientHeight = 329
-      ClientWidth = 551
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo4: TMemo
         Left = 2
-        Height = 323
+        Height = 202
         Top = 3
-        Width = 546
+        Width = 405
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -13
-        Font.Name = 'Ubuntu Mono'
+        Font.Name = 'Ubuntu'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
         Lines.Strings = (
@@ -2083,7 +2096,8 @@ object Form2: TForm2
           'Philip Märksch - Programming, Github, Project-Initiator'
           '(comradephilos@googlemail.com)'
           ''
-          'Lukas Franke - Programming, Github'
+          'Lukas Franke - Programming, Github, MacOS-Support'
+          '(kontakt@lukas-franke.com)'
           ''
           'Clemens Schoke - Icon/Logo'
         )
@@ -2096,13 +2110,13 @@ object Form2: TForm2
     object TabSheet3: TTabSheet
       AnchorSideRight.Side = asrBottom
       Caption = '  Licence  '
-      ClientHeight = 329
-      ClientWidth = 551
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo3: TMemo
-        Left = 3
-        Height = 309
-        Top = 17
-        Width = 545
+        Left = 2
+        Height = 203
+        Top = 3
+        Width = 405
         Anchors = [akTop, akLeft, akRight, akBottom]
         Font.CharSet = ANSI_CHARSET
         Font.Height = -13
@@ -2116,80 +2130,22 @@ object Form2: TForm2
         TabOrder = 0
         WordWrap = False
       end
-      object Image2: TImage
-        Cursor = crHandPoint
-        Left = 0
-        Height = 16
-        Hint = 'Visit GPL-Website!'
-        Top = 0
-        Width = 16
-        AutoSize = True
-        OnClick = OpenGPLClick
-        ParentShowHint = False
-        Picture.Data = {
-          1754506F727461626C654E6574776F726B477261706869635505000089504E47
-          0D0A1A0A0000000D49484452000000100000001008060000001FF3FF61000000
-          06624B4744000000000000F943BB7F0000000970485973000000480000004800
-          46C96B3E00000009767041670000001000000010005CC6ADC300000368494441
-          5438CB55934B4C5C650085BFFFBFF386A90342790C538AB5058BAD0BAC1B0DDA
-          856904638CAFD88569BA33D1B5C1A248AA45346A4DE3A209263E522345A2B595
-          268D36D544A5C84469750085C2403BD31918E6C2BCEECC5CEEFD5D684C3DEB93
-          EFDB9C239452DC9A96EEC13A29E5AB528A872CDBDA25115208994430B9B9697D
-          B038D6F3DDAD7D712BA0A57BF0A0A6C9938F74EEF1EDDD1574346E0DE0723948
-          E939A2F1345F5E0817F44C61D4B2EC1717C77AB2FF03DCF1E85B471A6A6F3B72
-          F8C9072A5C6E3737F522C5B2229BF805CF6699E67B1EA62EE0E2ECC5A9D2A589
-          3FAFDBB6DDBE38D65376FC6B6EF7B89DBDCF1F7CD0972984994B5600DB3157A7
-          C94627486D6E12D85983649EEEFD5D6E3D6704A7224B6F002F490021E5F01307
-          3ABC96F51B3EC710AD0D5F918F4D22D35739FECE7B282508D65EA1BEFA5B2CF3
-          6D1EDBBFDBEB76395F68E91E6C972DDD83D552D2D6D6522F0AB98FC819F5FCF4
-          E3BDF88C05DE3C760CAFD78752164A29A2C9FBB1ED79CA6684BD6D210D38E000
-          3A425B03C5BC71B3723E711F2BD10A9A3C498EF6BF8E699A783C1EC0A4A16A9C
-          80A7442C59472A6B50531D744B293B25B0BBAAAAD27563D5C1C6924E73459EA3
-          AFF593CFE7D9D8D800C0B620B9568B695A0891633EB68D4A9F07057B24702D95
-          CE95FD668C868A5AFA5EE943D775745DA75C2E2384C0B205977E7D9A52C9E45A
-          FC6E8480D5F51C28E62510F6E423DED6A08FBEDE5E1C9A03BFDF4F6363239665
-          FD33106593CE6A148B26B1B56D38A4209ED04DA5ECEFE53E7FD81750314DD7D3
-          0C8F8CF0FE891398A689DBEDA6BEBE1E004D6A64F292F1992E52EB3BF1BA244B
-          37564CE0A21C191E5D982DB4761DFF3A6ECCA4B7B0964EE1F7FB19BF3C412C16
-          43088194928251667AB983608D8FA9C862A950289C8B9E7F795202FC7E6E607C
-          236B8CFE75F567EBD0738700F87C6498FE81011289042E9713BFCF496B28C072
-          2C69459713F995F0A703409514420840D3A2A74FD6387575E78E1DFC1189E0A8
-          6EA5EAAEC7F9E4D42942A1103EA7E27278BA383B3337BB7AE58BC3466AAE0408
-          87524A092132C1865AEFF6E666AB542A39863E1CB22FCC57176D2DE3DAA215EC
-          3A67C2399311D78BE9E86872F2E3D340065801D6FF3BD333CF3EA53535369D31
-          4A46673C1E7FF7EC996F3EAB0CED6B72FA6E0F6C2CFC30679B8601E4811C5054
-          4AD9007F0304CD9B98C5416A1600000025744558746372656174652D64617465
-          00323030392D31312D31355432333A30333A35312D30373A303071AA8C410000
-          002574455874646174653A63726561746500323031302D30322D32305432333A
-          32363A31392D30373A3030C19B36F50000002574455874646174653A6D6F6469
-          667900323031302D30312D31315430393A30373A35322D30373A303004B0E881
-          00000034744558744C6963656E736500687474703A2F2F637265617469766563
-          6F6D6D6F6E732E6F72672F6C6963656E7365732F47504C2F322E302F6C6A06A8
-          00000025744558746D6F646966792D6461746500323030392D31312D31355432
-          333A30333A35312D30373A30302E1BFA750000001974455874536F6674776172
-          65007777772E696E6B73636170652E6F72679BEE3C1A0000001774455874536F
-          7572636500474E4F4D452049636F6E205468656D65C1F9266900000020744558
-          74536F757263655F55524C00687474703A2F2F6172742E676E6F6D652E6F7267
-          2F32E491790000000049454E44AE426082
-        }
-        ShowHint = True
-      end
     end
     object TabSheet2: TTabSheet
       Caption = 'Changelog'
-      ClientHeight = 329
-      ClientWidth = 551
+      ClientHeight = 208
+      ClientWidth = 410
       object Memo1: TMemo
-        Left = 125
-        Height = 321
+        Left = 93
+        Height = 201
         Top = 4
-        Width = 422
+        Width = 314
         Anchors = [akTop, akLeft, akRight, akBottom]
         Color = clWhite
         Font.CharSet = ANSI_CHARSET
         Font.Color = clBlack
         Font.Height = -13
-        Font.Name = 'Ubuntu Mono'
+        Font.Name = 'Ubuntu'
         Font.Pitch = fpVariable
         Font.Quality = fqDraft
         ParentFont = False
@@ -2199,9 +2155,9 @@ object Form2: TForm2
       end
       object ListBox1: TListBox
         Left = 0
-        Height = 297
+        Height = 181
         Top = 24
-        Width = 120
+        Width = 86
         Anchors = [akTop, akLeft, akBottom]
         BorderStyle = bsNone
         Font.CharSet = ANSI_CHARSET
@@ -2212,19 +2168,25 @@ object Form2: TForm2
         ItemHeight = 0
         OnClick = RadioGroup1Click
         ParentFont = False
-        ScrollWidth = 120
+        ScrollWidth = 12
         Sorted = True
         TabOrder = 1
-        TopIndex = -1
       end
       object Label3: TLabel
         Left = 4
-        Height = 16
+        Height = 17
         Top = 2
-        Width = 50
+        Width = 51
         Caption = 'Versions'
         ParentColor = False
       end
     end
   end
-end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 271
+    Width = 619
+    Panels = <>
+  end
+end
